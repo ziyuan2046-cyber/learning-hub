@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#efeee8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#111614" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f3f2ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
   <meta name="description" content="学习空间：语文汉字笔顺、一年级英语与数学学习应用统一入口。">
   <title>学习空间 · 语文 / 英语 / 数学</title>
   <link rel="manifest" href="./manifest.webmanifest">
@@ -14,156 +14,81 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="学习空间">
-  <link rel="stylesheet" href="./styles.css?v=20261022a">
+  <link rel="stylesheet" href="./styles.css?v=20261022c">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
   <div class="page-glow" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a class="brand" href="./" aria-label="学习空间首页">
-      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-      <span class="brand-copy"><strong>学习空间</strong><small>STUDY DECK</small></span>
-    </a>
-    <div class="top-actions">
-      <div class="clock" aria-label="当前时间"><span id="clock">--:--</span><small id="weekday">今天</small></div>
-      <button class="icon-button" id="installButton" type="button" aria-label="安装到主屏幕" title="安装到主屏幕">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 15v3.2A2.8 2.8 0 0 0 7.8 21h8.4a2.8 2.8 0 0 0 2.8-2.8V15"/></svg>
-      </button>
-      <button class="icon-button" id="themeButton" type="button" aria-label="切换深色模式" title="切换深色模式">
-        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6m11 11 1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6m11-11 1.6-1.6"/></svg>
-        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="hero reveal loaded-static" aria-labelledby="heroTitle">
-      <div class="hero-kicker"><span class="pulse"></span><span>PERSONAL LEARNING DESK</span><span class="kicker-index">01 / 03</span></div>
-      <div class="hero-layout">
-        <div class="hero-copy">
-          <h1 id="heroTitle">今天，<br><em>学一点。</em></h1>
-          <p>把笔顺、朗读和每一次小小的进步，收进同一个安静的空间。</p>
-        </div>
-        <div class="hero-aside" aria-label="学习概览">
-          <div class="aside-orbit" aria-hidden="true"><span>学</span></div>
-          <div class="summary">
-            <div><strong>02</strong><span>可用应用</span></div>
-            <div><strong>03</strong><span>学习科目</span></div>
-            <div><strong>∞</strong><span>每天进步</span></div>
-          </div>
-        </div>
+  <div class="app-shell">
+    <header class="app-header">
+      <a class="brand" href="./" aria-label="学习空间首页">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>学习空间</strong><small>STUDY SPACE</small></span>
+      </a>
+      <div class="top-actions">
+        <div class="clock" aria-label="当前时间"><span id="clock">--:--</span><small id="weekday">今天</small></div>
+        <button class="icon-button" id="installButton" type="button" aria-label="安装到主屏幕" title="安装到主屏幕">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 15v3.2A2.8 2.8 0 0 0 7.8 21h8.4a2.8 2.8 0 0 0 2.8-2.8V15"/></svg>
+        </button>
+        <button class="icon-button" id="themeButton" type="button" aria-label="切换深色模式" title="切换深色模式">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6m11 11 1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6m11-11 1.6-1.6"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
+        </button>
       </div>
-      <div class="hero-foot">
-        <span id="todayLabel">正在读取日期</span>
-        <span class="hero-rule" aria-hidden="true"></span>
-        <span>轻触卡片，直接进入</span>
-      </div>
-    </section>
+    </header>
 
-    <section class="library reveal loaded-static" aria-labelledby="libraryTitle">
-      <div class="section-heading">
-        <div>
-          <span class="section-index">YOUR APPS · 02</span>
-          <h2 id="libraryTitle">我的学习应用</h2>
-        </div>
-        <p>三个科目，一个入口。<br>没有内容的科目暂不开放。</p>
-      </div>
+    <main class="home" id="main">
+      <section class="intro" aria-labelledby="pageTitle">
+        <p class="date-label" id="todayLabel">今天</p>
+        <h1 id="pageTitle">学什么？</h1>
+        <p class="intro-note"><span class="live-dot" aria-hidden="true"></span>2 个应用已就绪</p>
+      </section>
 
-      <div class="app-grid">
-        <a class="app-card card-chinese" href="./chinese/" data-subject="chinese">
-          <div class="card-sheen" aria-hidden="true"></div>
-          <div class="card-head">
-            <span class="subject-label">CHINESE · 语文</span>
-            <span class="status status-live"><i></i>可用</span>
-          </div>
-          <div class="app-visual visual-chinese" aria-hidden="true">
-            <div class="grid-square"><span>永</span><i></i><b></b></div>
-            <span class="visual-stroke s1"></span>
-            <span class="visual-stroke s2"></span>
-          </div>
-          <div class="card-copy">
-            <div>
-              <h3>汉字笔顺</h3>
-              <p>2026 统编版 · 1–6 年级</p>
-            </div>
-            <div class="card-facts"><span>2,426 字</span><span>12 册</span><span>田字格</span></div>
-          </div>
-          <div class="card-action">
-            <span>进入语文</span>
-            <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
-          </div>
+      <nav class="subjects" aria-label="学习科目">
+        <a class="subject subject-chinese" href="./chinese/" aria-label="进入语文汉字笔顺">
+          <span class="subject-icon" aria-hidden="true">字</span>
+          <span class="subject-copy">
+            <strong>语文</strong>
+            <small>汉字笔顺 · 1–6 年级</small>
+          </span>
+          <span class="subject-tail">
+            <span class="meta">2,426 字</span>
+            <span class="arrow" aria-hidden="true"></span>
+          </span>
         </a>
 
-        <a class="app-card card-english" href="https://ziyuan2046-cyber.github.io/english-grade1/" data-subject="english">
-          <div class="card-sheen" aria-hidden="true"></div>
-          <div class="card-head">
-            <span class="subject-label">ENGLISH · 英语</span>
-            <span class="status status-live"><i></i>可用</span>
-          </div>
-          <div class="app-visual visual-english" aria-hidden="true">
-            <div class="speech-tile"><span>Aa</span><i></i></div>
-            <span class="sound-wave w1"></span><span class="sound-wave w2"></span><span class="sound-wave w3"></span>
-          </div>
-          <div class="card-copy">
-            <div>
-              <h3>一年级英语</h3>
-              <p>外研社 · 新交际英语上册</p>
-            </div>
-            <div class="card-facts"><span>6 单元</span><span>单词</span><span>跟读</span></div>
-          </div>
-          <div class="card-action">
-            <span>进入英语</span>
-            <span class="action-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
-          </div>
+        <a class="subject subject-english" href="https://ziyuan2046-cyber.github.io/english-grade1/" aria-label="进入一年级英语">
+          <span class="subject-icon" aria-hidden="true">Aa</span>
+          <span class="subject-copy">
+            <strong>英语</strong>
+            <small>一年级上册 · 单词与跟读</small>
+          </span>
+          <span class="subject-tail">
+            <span class="meta">6 单元</span>
+            <span class="arrow" aria-hidden="true"></span>
+          </span>
         </a>
 
-        <div class="app-card card-math" aria-disabled="true" role="group" aria-label="数学乐园，内容筹备中，暂不可用">
-          <div class="card-head">
-            <span class="subject-label">MATH · 数学</span>
-            <span class="status status-soon"><i></i>敬请期待</span>
-          </div>
-          <div class="math-layout">
-            <div class="app-visual visual-math" aria-hidden="true">
-              <div class="calc-tile"><span></span><span></span><span></span><span></span><b>×</b></div>
-            </div>
-            <div class="math-copy">
-              <div>
-                <h3>数学乐园</h3>
-                <p>内容正在整理中，开放后会出现在这里。</p>
-              </div>
-              <button class="disabled-action" type="button" disabled>尚未开放</button>
-            </div>
-          </div>
+        <div class="subject subject-math" aria-disabled="true" aria-label="数学，内容筹备中，暂不可用">
+          <span class="subject-icon" aria-hidden="true">±</span>
+          <span class="subject-copy">
+            <strong>数学</strong>
+            <small>内容筹备中</small>
+          </span>
+          <span class="subject-tail">
+            <span class="meta meta-disabled">暂未开放</span>
+            <span class="lock" aria-hidden="true"></span>
+          </span>
         </div>
-      </div>
-    </section>
-
-    <section class="utility-grid reveal loaded-static" aria-label="使用提示">
-      <div class="note-card">
-        <span class="note-mark" aria-hidden="true">“</span>
-        <p>一笔一画，<br>都是向前的痕迹。</p>
-        <span class="note-caption">A LITTLE BETTER, EVERY DAY.</span>
-      </div>
-      <div class="install-card" id="installCard">
-        <div class="install-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 18.5h4"/></svg>
-        </div>
-        <div>
-          <span class="install-eyebrow">HOME SCREEN READY</span>
-          <h3>把它放到主屏幕</h3>
-          <p>像普通 App 一样打开，减少浏览器栏，专注学习。</p>
-        </div>
-        <button class="install-action" id="installHelp" type="button">查看方法 <span aria-hidden="true">↗</span></button>
-      </div>
-    </section>
+      </nav>
     </main>
 
-  <footer class="footer">
-    <div><strong>学习空间</strong><span>语文 · 英语 · 数学</span></div>
-    <p>内容来自本机学习资料 · 仅作个人学习使用</p>
-    <button class="qr-link" id="qrButton" type="button">扫码打开 <span aria-hidden="true">▦</span></button>
-  </footer>
+    <footer class="app-footer">
+      <span>语文 · 英语 · 数学</span>
+      <button class="text-button" id="qrButton" type="button">二维码 <span aria-hidden="true">▦</span></button>
+    </footer>
+  </div>
 
   <dialog class="sheet" id="helpDialog" aria-labelledby="helpTitle">
     <button class="sheet-close" id="helpClose" type="button" aria-label="关闭">×</button>
@@ -183,7 +108,7 @@
     <button class="copy-button" id="copyButton" type="button">复制永久地址</button>
   </dialog>
 
-  <noscript><div class="noscript">网页内容仍可正常使用；安装提示、深色模式切换与二维码弹窗需要启用 JavaScript。</div></noscript>
-  <script src="./app.js?v=20261022a" defer></script>
+  <noscript><div class="noscript">网页内容仍可正常使用；安装提示、深色模式与二维码弹窗需要启用 JavaScript。</div></noscript>
+  <script src="./app.js?v=20261022c" defer></script>
 </body>
 </html>
