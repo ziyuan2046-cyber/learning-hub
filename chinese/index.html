@@ -2006,13 +2006,14 @@ if (typeof module !== 'undefined' && module.exports) module.exports = StrokeAnim
     if (!card) return;
 
     var rect = card.getBoundingClientRect();
-    // 卡片头部已经露出来了就不用动
-    if (rect.top >= 0 && rect.top < window.innerHeight * 0.5) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight || rect.height || 1;
+
+    // 卡片头部已经出现在屏幕里就不用动
+    if (rect.top < vh && rect.bottom > 60) return;
 
     var before = window.pageYOffset || document.documentElement.scrollTop || 0;
-    var target = Math.max(0, before + rect.top - 8);
+    var target = Math.max(0, before + rect.top - 16);
 
-    // 先尝试平滑滚动；部分 WebView / 无头浏览器不支持，稍后校验并兜底
     try {
       window.scrollTo({ top: target, behavior: 'smooth' });
     } catch (e) {
