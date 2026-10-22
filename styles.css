@@ -194,6 +194,97 @@ a.subject:hover .arrow { transform: translateX(3px); }
 .noscript { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 20; max-width: calc(100% - 28px); padding: 9px 13px; border-radius: 9px; background: var(--ink); color: var(--paper); font-size: 9.5px; }
 .toast-message { position: fixed; z-index: 40; left: 50%; bottom: calc(20px + var(--safe-bottom)); transform: translate(-50%, 8px); opacity: 0; padding: 9px 14px; border-radius: 999px; background: var(--ink); color: var(--paper); box-shadow: 0 9px 25px rgba(0,0,0,.2); font-size: 10px; white-space: nowrap; pointer-events: none; transition: opacity .22s var(--ease), transform .22s var(--ease); }
 .toast-message.show { opacity: 1; transform: translate(-50%,0); }
+/* Chinese group with two direct app choices */
+.subject-group {
+  position: relative; width: 100%; padding: 11px; border-radius: var(--radius);
+  border: 1px solid var(--line); background: linear-gradient(115deg, var(--green-soft) 0, var(--surface) 52%);
+  box-shadow: var(--shadow);
+}
+:root[data-theme="dark"] .subject-group { background: linear-gradient(115deg, rgba(67,99,82,.65), var(--surface) 52%); }
+.group-heading { min-height: 43px; padding: 1px 5px 8px 4px; display: flex; align-items: center; gap: 10px; }
+.group-mark {
+  flex: 0 0 auto; width: 35px; height: 35px; border-radius: 11px; display: grid; place-items: center;
+  color: var(--green); background: rgba(255,255,255,.48); border: 1px solid rgba(24,34,29,.07);
+  font-family: var(--font-display); font-size: 20px;
+}
+:root[data-theme="dark"] .group-mark { background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.1); }
+.group-title { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.group-title strong { font-family: var(--font-display); font-size: 19px; line-height: 1.12; font-weight: 600; }
+.group-title small { color: var(--ink-soft); font-size: 9px; }
+.group-count { margin-left: auto; color: var(--ink-faint); font-size: 8.5px; white-space: nowrap; }
+.group-apps { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.subject-mini {
+  min-width: 0; min-height: 58px; padding: 9px 10px; display: flex; align-items: center; gap: 9px;
+  border: 1px solid rgba(24,34,29,.075); border-radius: 16px; background: rgba(255,255,255,.54);
+  transition: transform .23s var(--ease), background .23s var(--ease), box-shadow .23s var(--ease);
+}
+:root[data-theme="dark"] .subject-mini { background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.09); }
+.subject-mini:hover { transform: translateY(-2px); background: rgba(255,255,255,.78); box-shadow: 0 8px 18px rgba(35,45,39,.07); }
+:root[data-theme="dark"] .subject-mini:hover { background: rgba(255,255,255,.09); }
+.subject-mini:active { transform: scale(.985); }
+.mini-icon {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 20px; color: var(--green); background: var(--green-soft);
+}
+.mini-guoxue .mini-icon { color: #8c4536; background: #f0dfd3; }
+:root[data-theme="dark"] .mini-icon { background: rgba(255,255,255,.08); color: var(--green); }
+:root[data-theme="dark"] .mini-guoxue .mini-icon { color: #e3b6a7; }
+.mini-copy { min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left; }
+.mini-copy strong { font-family: var(--font-display); font-size: 17px; line-height: 1.1; font-weight: 600; }
+.mini-copy small { color: var(--ink-soft); font-size: 8.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini-arrow { margin-left: auto; flex: 0 0 auto; width: 6px; height: 6px; border-top: 1.5px solid var(--ink-faint); border-right: 1.5px solid var(--ink-faint); transform: rotate(45deg); }
+.subject-row { display: flex; flex-direction: column; gap: 10px; }
+@media (max-width: 620px) {
+  .subject-group { padding: 9px; border-radius: 22px; }
+  .group-heading { min-height: 39px; padding: 1px 3px 6px 3px; gap: 8px; }
+  .group-mark { width: 31px; height: 31px; border-radius: 9px; font-size: 18px; }
+  .group-title strong { font-size: 17px; }
+  .group-title small { font-size: 8px; }
+  .group-count { font-size: 7.5px; }
+  .group-apps { gap: 6px; }
+  .subject-mini { min-height: 52px; padding: 7px 8px; gap: 7px; border-radius: 14px; }
+  .mini-icon { width: 29px; height: 29px; border-radius: 9px; font-size: 17px; }
+  .mini-copy strong { font-size: 15px; }
+  .mini-copy small { font-size: 7.5px; max-width: 93px; }
+}
+@media (min-width: 621px) {
+  .subject-group { padding: 13px; border-radius: 27px; }
+  .group-heading { min-height: 49px; padding: 2px 7px 9px 5px; gap: 12px; }
+  .group-mark { width: 40px; height: 40px; border-radius: 13px; font-size: 23px; }
+  .group-title strong { font-size: 22px; }
+  .group-title small { font-size: 10px; }
+  .group-count { font-size: 9px; }
+  .group-apps { gap: 9px; }
+  .subject-mini { min-height: 67px; padding: 11px 13px; gap: 11px; border-radius: 18px; }
+  .mini-icon { width: 39px; height: 39px; border-radius: 12px; font-size: 23px; }
+  .mini-copy strong { font-size: 20px; }
+  .mini-copy small { font-size: 9.5px; }
+  .subject-row { gap: 9px; }
+}
+@media (min-width: 621px) and (max-height: 600px) and (orientation: landscape) {
+  .subject-group { padding: 8px; border-radius: 20px; }
+  .group-heading { min-height: 35px; padding: 0 4px 5px 3px; gap: 8px; }
+  .group-mark { width: 30px; height: 30px; border-radius: 9px; font-size: 17px; }
+  .group-title strong { font-size: 17px; }
+  .group-title small { font-size: 8px; }
+  .group-apps { gap: 6px; }
+  .subject-mini { min-height: 49px; padding: 6px 8px; gap: 7px; border-radius: 13px; }
+  .mini-icon { width: 29px; height: 29px; border-radius: 9px; font-size: 17px; }
+  .mini-copy strong { font-size: 15px; }
+  .mini-copy small { font-size: 7.5px; }
+  .subject-row { gap: 6px; }
+}
+@media (max-height: 650px) and (max-width: 620px) {
+  .subject-group { padding: 7px; border-radius: 18px; }
+  .group-heading { min-height: 31px; padding: 0 3px 4px 3px; }
+  .group-mark { width: 26px; height: 26px; border-radius: 8px; font-size: 15px; }
+  .group-title strong { font-size: 15px; }
+  .group-title small { display: none; }
+  .subject-mini { min-height: 45px; padding: 5px 7px; border-radius: 12px; }
+  .mini-icon { width: 26px; height: 26px; border-radius: 8px; font-size: 15px; }
+  .mini-copy strong { font-size: 14px; }
+  .mini-copy small { display: none; }
+}
 @media (max-width: 620px) {
   .app-shell { width: calc(100% - 30px); padding-top: calc(14px + var(--safe-top)); padding-bottom: calc(10px + var(--safe-bottom)); }
   .app-header { min-height: 38px; }

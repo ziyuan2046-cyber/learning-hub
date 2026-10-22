@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f3f2ed" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="学习空间：语文汉字笔顺、一年级英语与数学学习应用统一入口。">
+  <meta name="description" content="学习空间：语文汉字笔顺、国学启蒙、一年级英语与数学学习应用统一入口。">
   <title>学习空间 · 语文 / 英语 / 数学</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
@@ -14,7 +14,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="学习空间">
-  <link rel="stylesheet" href="./styles.css?v=20261022c">
+  <link rel="stylesheet" href="./styles.css?v=20261022e">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -42,44 +42,57 @@
       <section class="intro" aria-labelledby="pageTitle">
         <p class="date-label" id="todayLabel">今天</p>
         <h1 id="pageTitle">学什么？</h1>
-        <p class="intro-note"><span class="live-dot" aria-hidden="true"></span>2 个应用已就绪</p>
+        <p class="intro-note"><span class="live-dot" aria-hidden="true"></span>3 个应用已就绪</p>
       </section>
 
       <nav class="subjects" aria-label="学习科目">
-        <a class="subject subject-chinese" href="./chinese/" aria-label="进入语文汉字笔顺">
-          <span class="subject-icon" aria-hidden="true">字</span>
-          <span class="subject-copy">
-            <strong>语文</strong>
-            <small>汉字笔顺 · 1–6 年级</small>
-          </span>
-          <span class="subject-tail">
-            <span class="meta">2,426 字</span>
-            <span class="arrow" aria-hidden="true"></span>
-          </span>
-        </a>
+        <section class="subject-group" aria-labelledby="chineseGroupTitle">
+          <div class="group-heading">
+            <span class="group-mark" aria-hidden="true">文</span>
+            <span class="group-title">
+              <strong id="chineseGroupTitle">语文</strong>
+              <small>汉字与国学启蒙</small>
+            </span>
+            <span class="group-count">2 个应用</span>
+          </div>
+          <div class="group-apps">
+            <a class="subject-mini mini-hanzi" href="./chinese/index.html" aria-label="进入语文汉字笔顺">
+              <span class="mini-icon" aria-hidden="true">字</span>
+              <span class="mini-copy"><strong>汉字</strong><small>笔顺 · 1–6 年级</small></span>
+              <span class="mini-arrow" aria-hidden="true"></span>
+            </a>
+            <a class="subject-mini mini-guoxue" href="./chinese/guoxue/index.html" aria-label="进入国学启蒙分级阅读">
+              <span class="mini-icon" aria-hidden="true">典</span>
+              <span class="mini-copy"><strong>国学</strong><small>诗词 · 66 篇</small></span>
+              <span class="mini-arrow" aria-hidden="true"></span>
+            </a>
+          </div>
+        </section>
 
-        <a class="subject subject-english" href="https://ziyuan2046-cyber.github.io/english-grade1/" aria-label="进入一年级英语">
-          <span class="subject-icon" aria-hidden="true">Aa</span>
-          <span class="subject-copy">
-            <strong>英语</strong>
-            <small>一年级上册 · 单词与跟读</small>
-          </span>
-          <span class="subject-tail">
-            <span class="meta">6 单元</span>
-            <span class="arrow" aria-hidden="true"></span>
-          </span>
-        </a>
+        <div class="subject-row">
+          <a class="subject subject-english" href="https://ziyuan2046-cyber.github.io/english-grade1/" aria-label="进入一年级英语">
+            <span class="subject-icon" aria-hidden="true">Aa</span>
+            <span class="subject-copy">
+              <strong>英语</strong>
+              <small>一年级上册 · 单词与跟读</small>
+            </span>
+            <span class="subject-tail">
+              <span class="meta">6 单元</span>
+              <span class="arrow" aria-hidden="true"></span>
+            </span>
+          </a>
 
-        <div class="subject subject-math" aria-disabled="true" aria-label="数学，内容筹备中，暂不可用">
-          <span class="subject-icon" aria-hidden="true">±</span>
-          <span class="subject-copy">
-            <strong>数学</strong>
-            <small>内容筹备中</small>
-          </span>
-          <span class="subject-tail">
-            <span class="meta meta-disabled">暂未开放</span>
-            <span class="lock" aria-hidden="true"></span>
-          </span>
+          <div class="subject subject-math" aria-disabled="true" aria-label="数学，内容筹备中，暂不可用">
+            <span class="subject-icon" aria-hidden="true">±</span>
+            <span class="subject-copy">
+              <strong>数学</strong>
+              <small>内容筹备中</small>
+            </span>
+            <span class="subject-tail">
+              <span class="meta meta-disabled">暂未开放</span>
+              <span class="lock" aria-hidden="true"></span>
+            </span>
+          </div>
         </div>
       </nav>
     </main>
@@ -109,6 +122,6 @@
   </dialog>
 
   <noscript><div class="noscript">网页内容仍可正常使用；安装提示、深色模式与二维码弹窗需要启用 JavaScript。</div></noscript>
-  <script src="./app.js?v=20261022c" defer></script>
+  <script src="./app.js?v=20261022e" defer></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 'use strict';
-var CACHE = 'learning-hub-shell-v3';
-var SHELL = ['./','./index.html','./styles.css?v=20261022c','./app.js?v=20261022c','./manifest.webmanifest','./assets/icons/favicon.svg'];
+var CACHE = 'learning-hub-shell-v4';
+var SHELL = ['./','./index.html','./styles.css?v=20261022e','./app.js?v=20261022e','./manifest.webmanifest','./assets/icons/favicon.svg'];
 self.addEventListener('install', function (event) {
   event.waitUntil(caches.open(CACHE).then(function (cache) { return cache.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));
 });
