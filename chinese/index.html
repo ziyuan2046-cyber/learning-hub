@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>小学必会写字 · 2026 统编版语文田字格笔顺</title>
+<style>
+  :root {
+    --bg: #f7f3ea;
+    --card: #fff;
+    --ink: #2b2b2b;
+    --sub: #8a7f6d;
+    --line: #e6dcc8;
+    --red: #c0392b;
+    --blue: #2f6fd0;
+    --amber: #e2703a;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 15px;
+  }
+  body { overscroll-behavior-y: contain; }
+  button { font-family: inherit; }
+
+  /* ============ 布局：移动优先 ============ */
+  .wrap {
+    max-width: 520px;      /* 手机端宽度，超出居中 */
+    margin: 0 auto;
+    padding: 10px 12px calc(24px + env(safe-area-inset-bottom));
+  }
+
+  /* ============ 顶部标题（紧凑） ============ */
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 2px 2px 8px;
+  }
+  header h1 { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: .5px; }
+  header .ver {
+    font-size: 11px;
+    color: #b08968;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+
+  /* ============ 册选择（高度压缩） ============ */
+  .picker {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 8px;
+    box-shadow: 0 1px 8px rgba(120, 100, 70, .06);
+    margin-bottom: 8px;
+  }
+  .grade-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+  }
+  .grade-tab {
+    padding: 6px 2px;
+    border-radius: 9px;
+    background: #faf6ee;
+    border: 1px solid var(--line);
+    color: var(--sub);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.3;
+  }
+  .grade-tab .n {
+    display: block;
+    font-size: 9px;
+    font-weight: 400;
+    opacity: .7;
+  }
+  .grade-tab.on { background: var(--red); border-color: var(--red); color: #fff; }
+
+  .term-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed #ece3d2;
+  }
+  .term-tab {
+    padding: 6px 4px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: #6b5f4d;
+    font-size: 12.5px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.35;
+  }
+  .term-tab .n { font-size: 10px; opacity: .75; margin-left: 3px; }
+  .term-tab.on { background: var(--amber); border-color: var(--amber); color: #fff; font-weight: 600; }
+
+  .rev-note {
+    margin-top: 6px;
+    padding: 6px 8px;
+    background: #fff8ec;
+    border-left: 2px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    font-size: 11px;
+    color: #8a6d3b;
+    line-height: 1.5;
+  }
+
+  /* ============ 搜索 ============ */
+  .search-box { margin-bottom: 8px; }
+  .search-box input {
+    width: 100%;
+    height: 38px;
+    padding: 0 14px;
+    border: 1px solid var(--line);
+    border-radius: 19px;
+    background: #fff;
+    font-size: 14px;
+    outline: none;
+  }
+  .search-box input:focus { border-color: var(--red); }
+  .search-res {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  .search-res .r {
+    padding: 4px 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .search-res .r b { color: var(--red); font-weight: 600; margin-left: 2px; }
+  .search-res .r .rs { color: #b0a48f; font-size: 10px; margin-left: 3px; }
+  .search-res .none { color: var(--sub); font-size: 12px; padding: 8px 0; }
+
+  /* ============ 字表 ============ */
+  .panel {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: 0 1px 8px rgba(120, 100, 70, .06);
+    margin-bottom: 8px;
+  }
+  .panel-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .panel-head h2 { margin: 0; font-size: 14px; }
+  .panel-head span { color: var(--sub); font-size: 11px; }
+  .panel-sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #b0a48f;
+    margin-bottom: 8px;
+  }
+  .btn.xs {
+    height: 26px;
+    font-size: 12px;
+    padding: 0 12px;
+    border-radius: 8px;
+    flex: 0 0 auto;
+  }
+
+  .char-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: 5px;
+    max-height: 208px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cell {
+    border: 1px solid #efe6d4;
+    background: #fdfbf6;
+    border-radius: 9px;
+    padding: 4px 0 3px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .cell.on {
+    background: #fff5ec;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 2px rgba(226, 112, 58, .2);
+  }
+  .cell .py {
+    font-size: 10px; color: #b08968; height: 13px;
+    overflow: hidden; white-space: nowrap;
+  }
+  .cell .ch { font-size: 26px; line-height: 31px; }
+  .cell .mt { font-size: 9px; color: #c3b8a4; }
+
+  /* ============ 写字卡片 ============ */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: 0 1px 8px rgba(120, 100, 70, .06);
+  }
+
+  /* 字头 */
+  .head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .head .glyph {
+    font-size: 46px; line-height: 1; font-weight: 500;
+    color: var(--ink); min-width: 58px; text-align: center;
+  }
+  .head .info { flex: 1; min-width: 0; }
+  .head .py { font-size: 20px; color: #b08968; font-weight: 600; }
+  .head .sub { font-size: 11px; color: var(--sub); margin-top: 2px; }
+  .head .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  .tag {
+    padding: 2px 8px; border-radius: 999px;
+    font-size: 11px; background: #f5efe3; color: #6b5f4d;
+  }
+  .tag b { color: var(--red); font-weight: 600; }
+  .tag.rad { background: #eef3fb; }
+  .tag.rad b { color: var(--blue); }
+
+  /* 自动播放开关 */
+  .switch {
+    position: relative; flex: 0 0 auto;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    cursor: pointer; -webkit-user-select: none; user-select: none;
+  }
+  .switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .switch .track {
+    width: 42px; height: 22px; border-radius: 999px;
+    background: #d8cebc; position: relative; transition: background .18s;
+  }
+  .switch .track::after {
+    content: ''; position: absolute; top: 2px; left: 2px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25);
+    transition: transform .18s;
+  }
+  .switch input:checked + .track { background: var(--amber); }
+  .switch input:checked + .track::after { transform: translateX(20px); }
+  .switch .txt { font-size: 10px; color: var(--sub); }
+  .switch input:checked ~ .txt { color: var(--amber); font-weight: 600; }
+
+  /* 田字格 */
+  .grid-wrap { position: relative; display: flex; justify-content: center; }
+  .grid-box {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    /* 用 padding-bottom:100% 保持正方形。
+       不用 aspect-ratio —— 部分真机 WebView 支持不好，会导致高度为 0、
+       canvas 量不到尺寸，进而描红层错位、笔顺画不出来。 */
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(120, 100, 70, .12);
+    background: #fffdf9;
+  }
+  .grid-box canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    touch-action: none;
+  }
+  .trace-layer { position: absolute; inset: 0; }
+  .hidden { display: none !important; }
+  /* hidden 属性必须能压过 .modal{display:flex} 等类选择器 */
+  [hidden] { display: none !important; }
+
+  /* 放大按钮 */
+  .zoom-btn {
+    position: absolute;
+    right: 6px; top: 6px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(43, 43, 43, .55);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 3;
+    line-height: 1;
+  }
+
+  /* 进度 */
+  .progress {
+    display: flex; align-items: center; gap: 8px;
+    margin: 10px 0 8px; font-size: 12px; color: var(--sub);
+  }
+  .bar { flex: 1; height: 5px; background: #ece3d2; border-radius: 999px; overflow: hidden; }
+  .bar > i {
+    display: block; height: 100%;
+    background: linear-gradient(90deg, #f0a04b, var(--amber));
+    border-radius: 999px; transition: width .18s;
+  }
+
+  /* 上/下一个字 */
+  .nav-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  /* 笔顺控制 */
+  .ctrl-row {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .btn {
+    height: 40px; border-radius: 10px; border: 1px solid var(--line);
+    background: #fff; color: #6b5f4d; font-size: 14px; cursor: pointer;
+  }
+  .btn:active { background: #f3ecdf; }
+  .btn.primary { background: var(--red); color: #fff; font-weight: 600; border-color: var(--red); }
+  .btn.accent { background: var(--blue); color: #fff; font-weight: 600; border-color: var(--blue); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+  /* ============ 笔顺分解（田字格正下方，自动换行，无滚动） ============ */
+  .seq {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #ece3d2;
+  }
+  .seq-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .seq-head h3 { margin: 0; font-size: 13px; color: #6b5f4d; }
+  .seq-head .hint { font-size: 10.5px; color: #b0a48f; }
+  /* flex-wrap 自动换行，全部可见，不出现横向滚动条 */
+  .seq-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .seq-item {
+    flex: 0 0 auto;
+    width: 62px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .seq-item canvas {
+    width: 62px; height: 62px;
+    border: 1px solid #efe6d4;
+    border-radius: 8px;
+    background: #fffdf9;
+    display: block;
+  }
+  .seq-item.on canvas { border-color: var(--amber); box-shadow: 0 0 0 2px rgba(226,112,58,.2); }
+  .seq-item .no {
+    font-size: 10px; color: #b0a48f; margin-top: 2px;
+  }
+  .seq-item.on .no { color: var(--amber); font-weight: 600; }
+
+  .tip {
+    text-align: center; font-size: 11.5px; color: var(--sub);
+    line-height: 1.6; margin-top: 8px;
+  }
+
+  /* ============ 弹窗 ============ */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 25, 18, .82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 16px;
+  }
+
+  /* 全览弹窗：内容多时整体可滚动，标题栏吸顶，关闭按钮始终可点 */
+  .modal.scrollable { align-items: stretch; padding: 0; }
+  .modal.scrollable .modal-box {
+    max-width: none;
+    width: 100%;
+    max-height: 100vh;
+    max-height: 100dvh;
+    height: 100%;
+    border-radius: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 14px calc(20px + env(safe-area-inset-bottom));
+  }
+  .modal.scrollable .modal-head {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--card);
+    padding: 4px 0 8px;
+    margin-bottom: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .04);
+  }
+  .modal.scrollable .grid-all { flex: 1 0 auto; }
+
+  /* 不支持 dvh 的旧浏览器用 vh 兜底（上面的 max-height:100vh 已被覆盖时忽略） */
+  @supports not (height: 100dvh) {
+    .modal.scrollable .modal-box { max-height: 100vh; }
+  }
+  .modal-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 14px;
+    width: 100%;
+    max-width: 420px;
+    /* 不设 max-height / overflow，内容多时整体缩放而非内部滚动 */
+  }
+  .modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .modal-head .t { font-size: 15px; font-weight: 600; }
+  .modal-close {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: none; background: #f2ece1; color: #6b5f4d;
+    font-size: 20px; cursor: pointer; line-height: 1;
+    flex: 0 0 auto;                 /* 不被 flex 压缩，保证可点 */
+    display: flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .modal-close:active { background: #e6dcc8; }
+  .modal .grid-box {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .modal .ctrl-row { margin-top: 10px; }
+
+  /* 全览弹窗：宽屏，完整显示不滚动 */
+  .modal-box.wide { max-width: 720px; }
+  .grid-modal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .grid-modal-name {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .btn.sm {
+    height: 32px;
+    font-size: 13px;
+    padding: 0 12px;
+    flex: 0 0 auto;
+  }
+  .grid-all {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+    gap: 5px;
+  }
+  .grid-all .cell { cursor: pointer; }
+
+  .loading, .empty { text-align: center; color: var(--sub); font-size: 13px; padding: 40px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>小学必会写字</h1>
+    <span class="ver">2026 统编版 · 2426 字</span>
+  </header>
+
+  <!-- 册选择 -->
+  <div class="picker">
+    <div class="grade-row" id="gradeTabs"></div>
+    <div class="term-row" id="termTabs"></div>
+    <div class="rev-note" id="revNote" hidden></div>
+  </div>
+
+  <!-- 搜索 -->
+  <div class="search-box">
+    <input id="search" type="search"
+           placeholder="搜汉字 / 拼音 / 部首，如「火」「huo」「三点水」"
+           autocomplete="off">
+    <div class="search-res" id="searchRes"></div>
+  </div>
+
+  <!-- 字表 -->
+  <div class="panel">
+    <div class="panel-head">
+      <h2 id="bookTitle">加载中…</h2>
+      <span id="bookCount"></span>
+    </div>
+    <div class="panel-sub">
+      <span>按教材课文顺序排列</span>
+      <button class="btn xs" id="expandBtn">全部展开</button>
+    </div>
+    <div class="char-grid" id="charGrid"></div>
+  </div>
+
+  <!-- 写字卡片 -->
+  <div class="card">
+    <div class="head">
+      <div class="glyph" id="bigChar">—</div>
+      <div class="info">
+        <div class="py" id="py">—</div>
+        <div class="sub" id="info">选择上方汉字开始练习</div>
+        <div class="tags">
+          <span class="tag rad">部首 <b id="tagRad">—</b></span>
+          <span class="tag">结构 <b id="tagStruct">—</b></span>
+          <span class="tag">笔画 <b id="tagStroke">—</b></span>
+        </div>
+      </div>
+      <label class="switch" title="自动播放笔顺">
+        <input type="checkbox" id="autoPlay">
+        <span class="track"></span>
+        <span class="txt">自动</span>
+      </label>
+    </div>
+
+    <!-- 田字格 -->
+    <div class="grid-wrap">
+      <div class="grid-box">
+        <canvas id="demoCanvas"></canvas>
+        <canvas id="traceCanvas" class="trace-layer hidden"></canvas>
+        <button class="zoom-btn" id="zoomBtn" title="放大">⤢</button>
+      </div>
+    </div>
+
+    <!-- 全笔顺分解：紧贴田字格下方，自动换行全部可见 -->
+    <div class="seq">
+      <div class="seq-head">
+        <h3>全笔顺分解</h3>
+        <span class="hint">点每一笔可单独查看</span>
+      </div>
+      <div class="seq-grid" id="seqScroll"></div>
+    </div>
+
+    <!-- 进度 -->
+    <div class="progress">
+      <span id="stepText">第 0 / 0 笔</span>
+      <span class="bar"><i id="barIn" style="width:0%"></i></span>
+    </div>
+
+    <!-- 上一个 / 下一个字 -->
+    <div class="nav-row">
+      <button class="btn" id="prevCharBtn">‹ 上一个字</button>
+      <button class="btn" id="nextCharBtn">下一个字 ›</button>
+    </div>
+
+    <!-- 笔顺控制 -->
+    <div class="ctrl-row">
+      <button class="btn" id="prevBtn">上一笔</button>
+      <button class="btn primary" id="playBtn">播放笔顺</button>
+      <button class="btn" id="nextBtn">下一笔</button>
+    </div>
+    <div class="btn-row2">
+      <button class="btn" id="replayBtn">重播</button>
+      <button class="btn accent" id="traceBtn">去描红</button>
+    </div>
+
+    <div class="tip" id="tip">跟着橙色笔尖看每一笔的写法，可逐笔翻看。</div>
+  </div>
+</div>
+
+<!-- 放大弹窗 -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="t" id="modalTitle">田字格</span>
+      <button class="modal-close" id="modalClose">×</button>
+    </div>
+
+    <!-- 字头 -->
+    <div class="head">
+      <div class="glyph" id="mBigChar">—</div>
+      <div class="info">
+        <div class="py" id="mPy">—</div>
+        <div class="sub" id="mInfo"></div>
+        <div class="tags">
+          <span class="tag rad">部首 <b id="mRad">—</b></span>
+          <span class="tag">结构 <b id="mStruct">—</b></span>
+          <span class="tag">笔画 <b id="mStroke">—</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-box">
+      <canvas id="modalCanvas"></canvas>
+    </div>
+
+    <!-- 笔顺分解：与主页面一致，自动换行无滚动 -->
+    <div class="seq">
+      <div class="seq-head">
+        <h3>全笔顺分解</h3>
+        <span class="hint">点每一笔可单独查看</span>
+      </div>
+      <div class="seq-grid" id="mSeqGrid"></div>
+    </div>
+
+    <div class="progress">
+      <span id="modalStep">第 0 / 0 笔</span>
+      <span class="bar"><i id="modalBar" style="width:0%"></i></span>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn" id="mPrevCharBtn">‹ 上一个字</button>
+      <button class="btn" id="mNextCharBtn">下一个字 ›</button>
+    </div>
+
+    <div class="ctrl-row">
+      <button class="btn" id="mPrevBtn">上一笔</button>
+      <button class="btn primary" id="mPlayBtn">播放</button>
+      <button class="btn" id="mNextBtn">下一笔</button>
+    </div>
+    <div class="btn-row2">
+      <button class="btn" id="mReplayBtn">重播</button>
+      <button class="btn accent" id="mTraceBtn">描红</button>
+    </div>
+    <div class="tip" id="mTip">跟着橙色笔尖看每一笔的写法。</div>
+  </div>
+</div>
+
+<!-- 年级 / 册 全览弹窗：完整显示该册所有字，无滚动条 -->
+<div class="modal" id="gridModal" hidden>
+  <div class="modal-box wide">
+    <div class="modal-head">
+      <span class="t" id="gridModalTitle">全部汉字</span>
+      <button class="modal-close" id="gridModalClose">×</button>
+    </div>
+    <div class="grid-modal-bar">
+      <button class="btn sm" id="gridPrevTerm">‹ 上一册</button>
+      <span class="grid-modal-name" id="gridModalName"></span>
+      <button class="btn sm" id="gridNextTerm">下一册 ›</button>
+    </div>
+    <div class="grid-all" id="gridAll"></div>
+    <div class="tip">共 <b id="gridAllCount">0</b> 字，点击任意字查看笔顺</div>
+  </div>
+</div>
+
+<script src="assets/js/hanzi-codec.js?v=20261021-1"></script>
+<script src="assets/js/tianzige.js?v=20261021-1"></script>
+<script src="assets/js/animator.js?v=20261021-1"></script>
+<script src="assets/js/app.js?v=20261021-1"></script>
+</body>
+</html>
