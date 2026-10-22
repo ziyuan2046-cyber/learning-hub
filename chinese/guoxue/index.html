@@ -4,15 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#F4EFE2">
-  <meta name="description" content="按小学年级分级的中文国学学习应用：古诗词、成语、寓言、三字经、论语、弟子规、千字文。">
-  <title>国学启蒙 · 小学分级阅读</title>
+  <meta name="description" content="2026统编版小学语文分级学习：古诗词、成语、寓言、三字经、论语、弟子规、千字文，按年级与上下册整理。">
+  <title>国学启蒙 · 2026统编版小学语文</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
-  <style>
-:root {
+  <style>:root {
   --paper: #F4EFE2; --paper-deep: #EBE3D1; --paper-light: #FCF9F1;
   --ink: #292B28; --ink-soft: #565A51; --muted: #8B887A;
   --line: #DDD3BF; --line-strong: #C9BDA5;
@@ -573,15 +572,165 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
 .grade-card.selected .g-title-alone { color: #EBC7B2; }
 @media (max-width:720px){.grade-card .g-title-alone{font-size:10px;margin-top:2px}.grade-card{display:flex;flex-direction:column}.grade-card .g-sub{margin-top:auto}}
 @media (max-width:720px){.bottom-nav{background:rgba(252,249,241,.97);backdrop-filter:blur(22px)}.text-panel{scroll-margin-top:70px}.nav-fab{box-shadow:0 4px 15px rgba(166,75,60,.28)}}
-  </style>
+/* Clean 2026 redesign */
+.clean-home { padding-bottom: 28px; }
+.topbar { padding: 18px 2px 14px; }
+.brand-sub { font-size: 9px; letter-spacing: .08em; margin-top: 1px; }
+.home-intro { position: relative; overflow: hidden; min-height: 264px; padding: 35px 38px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(110deg, #F8F2E5 0%, #EFE7D7 51%, #DFE7DF 100%); display: flex; align-items: center; }
+.home-intro::after { content: ""; width: 280px; height: 280px; position: absolute; right: -55px; top: -65px; border: 1px solid rgba(61,97,89,.18); border-radius: 50%; box-shadow: 0 0 0 36px rgba(61,97,89,.035), 0 0 0 72px rgba(61,97,89,.03); }
+.intro-copy { position: relative; z-index: 2; max-width: 620px; }
+.home-intro h1 { margin-top: 12px; font-size: clamp(32px, 4vw, 50px); line-height: 1.28; letter-spacing: .015em; }
+.home-intro h1 em { color: var(--cinnabar); font-style: normal; }
+.home-intro p { max-width: 550px; margin-top: 13px; color: var(--ink-soft); font-family: var(--serif); font-size: 14px; line-height: 1.85; }
+.intro-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 19px; }
+.intro-stats span { padding: 6px 10px; border: 1px solid rgba(201,189,165,.8); border-radius: 6px; background: rgba(255,253,248,.44); color: var(--muted); font-size: 10px; }
+.intro-stats b { color: var(--ink); font-family: var(--serif); font-size: 16px; margin-right: 2px; }
+.intro-mark { position: absolute; right: 54px; top: 33px; color: rgba(61,97,89,.14); font-family: var(--serif); font-size: 112px; line-height: 1.05; letter-spacing: -.12em; z-index: 1; }
+.home-section { margin-top: 32px; }
+.category-hub { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 9px; }
+.hub-card { min-height: 85px; display: flex; align-items: center; gap: 10px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,253,248,.8); text-align: left; transition: all .2s var(--ease); }
+.hub-card:hover { border-color: var(--cat-color); background: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.hub-card.active { border-color: var(--cat-color); background: var(--cat-soft); box-shadow: inset 3px 0 0 var(--cat-color); }
+.hub-icon { flex: 0 0 33px; width: 33px; height: 33px; display: grid; place-items: center; border-radius: 9px; color: var(--cat-color); background: var(--cat-soft); }
+.hub-main { flex: 1; min-width: 0; }
+.hub-main b { display: block; font-family: var(--serif); font-size: 15px; }
+.hub-main small { display: block; margin-top: 2px; color: var(--muted); font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hub-count { color: var(--cat-color); font-family: var(--serif); font-size: 17px; }
+.library-section { margin-top: 28px; padding: 24px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,253,248,.7); }
+.library-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; }
+.library-heading h2 { margin-top: 3px; font-size: 27px; }
+.library-heading .result-count { color: var(--muted); font-size: 11px; }
+.library-heading .result-count b { color: var(--cinnabar); font-family: var(--serif); font-size: 21px; }
+.library-search { margin-top: 17px; }
+.library-search .search-input { height: 43px; background: var(--white); }
+.filter-stack { margin-top: 13px; display: flex; flex-direction: column; gap: 6px; }
+.filter-line { display: flex; align-items: center; gap: 10px; padding: 2px 0; }
+.filter-line .filter-label { flex: 0 0 34px; color: var(--muted); font-size: 10px; }
+.quick-chips { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.quick-chip { min-height: 29px; padding: 0 9px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--ink-soft); font-size: 10px; transition: all .18s; }
+.quick-chip:hover { background: var(--paper-deep); }
+.quick-chip.active { border-color: #D9C7B5; background: #F1E7DA; color: var(--cinnabar); font-weight: 600; }
+.segment-row { display: flex; gap: 2px; padding: 2px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
+.segment { min-width: 46px; min-height: 25px; padding: 0 9px; border: 0; border-radius: 5px; color: var(--muted); background: transparent; font-size: 10px; }
+.segment.active { color: var(--ink); background: var(--white); box-shadow: var(--shadow-sm); font-weight: 600; }
+.library-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; padding: 10px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+.reset-link { border: 0; background: none; padding: 3px 0; color: var(--cinnabar); font-size: 10px; }
+.library-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; }
+.library-card { position: relative; min-height: 126px; display: flex; gap: 12px; padding: 11px; border: 1px solid var(--line); border-radius: 11px; background: var(--white); text-align: left; transition: all .2s var(--ease); }
+.library-card:hover { border-color: var(--line-strong); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.library-cover { position: relative; flex: 0 0 85px; height: 104px; overflow: hidden; border-radius: 7px; }
+.library-cover .illus { height: 100%; border-radius: 0; }
+.library-cover svg { width: 100%; height: 100%; object-fit: cover; }
+.list-grade { position: absolute; left: 5px; bottom: 5px; padding: 1px 5px; color: #FFF8EE; background: rgba(41,43,40,.62); border-radius: 3px; font-size: 8px; }
+.library-info { flex: 1; min-width: 0; }
+.library-kicker { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 8px; }
+.source-badge { padding: 1px 5px; border-radius: 3px; font-size: 8px; white-space: nowrap; }
+.source-badge.textbook { color: #8E3D31; background: #F1E1DA; }
+.source-badge.garden { color: #3D665E; background: #E2EBE5; }
+.source-badge.classic { color: #765D39; background: #F1E7D4; }
+.library-info h3 { margin-top: 4px; font-family: var(--serif); font-size: 17px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.library-author { margin-top: 1px; color: var(--muted); font-size: 9px; }
+.library-excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 6px; color: var(--ink-soft); font-family: var(--kai); font-size: 11px; line-height: 1.55; white-space: pre-line; }
+.library-meta { display: flex; gap: 7px; margin-top: 7px; color: var(--cinnabar); font-size: 8px; }
+.list-fav { position: absolute; right: 7px; top: 7px; width: 27px; height: 27px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); background: rgba(255,253,248,.82); }
+.list-fav:hover, .list-fav.active { color: var(--cinnabar); background: var(--cinnabar-soft); border-color: #E3C8BF; }
+.source-note { margin-top: 22px; padding: 18px 21px; border-left: 2px solid #B79B6E; background: rgba(238,232,218,.55); border-radius: 0 9px 9px 0; }
+.source-note b { font-family: var(--serif); font-size: 13px; }
+.source-note p { margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.8; }
+.source-note a { display: inline-flex; align-items: center; gap: 4px; margin-top: 7px; color: var(--cinnabar); font-size: 10px; }
+.source-line { margin-top: 5px; color: var(--cinnabar); font-size: 10px; }
+.badge.textbook { color: #8E3D31; background: #F1E1DA; }
+.badge.garden { color: #3D665E; background: #E2EBE5; }
+.badge.classic { color: #765D39; background: #F1E7D4; }
+.source-card { background: #F2EBDD; }
+.source-note-line { margin-top: 8px !important; color: var(--ink-soft) !important; font-family: var(--serif); font-size: 13px !important; }
+.source-scale { margin-top: 7px !important; color: var(--muted) !important; font-size: 9px !important; line-height: 1.7 !important; }
+.source-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 9px; color: var(--cinnabar); font-size: 10px; }
+.bottom-nav { bottom: max(12px, env(safe-area-inset-bottom)); width: auto; min-width: 280px; }
+@media (max-width: 980px) {
+  .category-hub { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .library-list { grid-template-columns: 1fr; }
+  .home-intro { min-height: 245px; }
+}
+@media (max-width: 720px) {
+  body { font-size: 14px; }
+  .app-shell, .page-enter { width: 100%; padding-left: 12px; padding-right: 12px; }
+  .topbar { padding: 12px 0 10px; }
+  .brand-seal { width: 30px; height: 30px; font-size: 15px; }
+  .brand-name { font-size: 16px; }
+  .brand-sub { font-size: 8px; }
+  .search-btn { width: 36px; min-height: 36px; padding: 0; justify-content: center; border: 0; background: transparent; }
+  .search-btn .search-label { display: none; }
+  .icon-btn { width: 36px; height: 36px; }
+  .home-intro { min-height: 270px; padding: 22px 20px; border-radius: 17px; align-items: flex-start; }
+  .home-intro::after { width: 190px; height: 190px; right: -70px; top: -56px; }
+  .home-intro h1 { font-size: 30px; line-height: 1.32; }
+  .home-intro p { font-size: 12px; line-height: 1.8; }
+  .intro-stats { margin-top: 14px; gap: 5px; }
+  .intro-stats span { padding: 4px 7px; font-size: 9px; }
+  .intro-stats b { font-size: 13px; }
+  .intro-mark { right: 15px; top: 30px; font-size: 72px; opacity: .65; }
+  .home-section { margin-top: 23px; }
+  .section-head { margin-bottom: 10px; }
+  .section-title { font-size: 21px; }
+  .section-note { display: none; }
+  .category-hub { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
+  .hub-card { min-height: 63px; padding: 9px 10px; gap: 8px; border-radius: 9px; }
+  .hub-icon { flex-basis: 27px; width: 27px; height: 27px; border-radius: 7px; }
+  .hub-main b { font-size: 14px; }
+  .hub-main small { font-size: 8px; }
+  .hub-count { font-size: 14px; }
+  .library-section { margin-top: 20px; padding: 15px 12px 13px; border-radius: 16px; }
+  .library-heading h2 { font-size: 23px; }
+  .library-search { margin-top: 12px; }
+  .library-search .search-input { height: 40px; font-size: 12px; }
+  .filter-stack { margin-top: 10px; }
+  .filter-line { align-items: flex-start; gap: 5px; padding: 3px 0; }
+  .filter-line .filter-label { flex-basis: 28px; padding-top: 6px; font-size: 9px; }
+  .quick-chips { gap: 2px; }
+  .quick-chip { min-height: 27px; padding: 0 7px; font-size: 9px; }
+  .segment-row { margin-top: 3px; }
+  .segment { min-width: 38px; min-height: 23px; padding: 0 7px; font-size: 9px; }
+  .library-toolbar { margin-top: 11px; padding: 8px 0; }
+  .library-list { gap: 7px; }
+  .library-card { min-height: 112px; padding: 8px; gap: 9px; }
+  .library-cover { flex-basis: 72px; height: 95px; }
+  .library-info h3 { font-size: 15px; }
+  .library-author { font-size: 8px; }
+  .library-excerpt { font-size: 10px; line-height: 1.5; -webkit-line-clamp: 2; margin-top: 4px; }
+  .library-meta { font-size: 8px; margin-top: 5px; }
+  .library-kicker { font-size: 7px; }
+  .source-badge { font-size: 7px; }
+  .list-fav { width: 24px; height: 24px; right: 5px; top: 5px; }
+  .source-note { margin-top: 16px; padding: 13px 14px; }
+  .source-note p { font-size: 9px; }
+  .bottom-nav { min-width: 0; width: calc(100% - 26px); max-width: 380px; bottom: max(7px, env(safe-area-inset-bottom)); }
+  .nav-item { font-size: 10px; padding: 0 13px; }
+  .nav-fab { width: 41px; height: 41px; }
+  .detail-page .topbar { padding-bottom: 6px; }
+  .detail-back { padding: 6px 0 9px; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .detail-art { height: 195px; }
+  .detail-heading { padding: 15px; }
+  .detail-title { font-size: 28px; }
+  .detail-lead { font-size: 12px; }
+  .source-line { font-size: 9px; }
+  .text-panel { margin-top: 9px; padding: 15px 14px 18px; }
+  .line-text { font-size: 21px; }
+  .meaning-panel, .appreciation, .keywords { margin-top: 9px; padding: 15px; }
+  .aside-card { padding: 14px; }
+}
+@media (max-width: 380px) {
+  .home-intro h1 { font-size: 27px; }
+  .brand-sub { display: none; }
+  .hub-main small { display: none; }
+  .hub-card { min-height: 56px; }
+  .library-cover { flex-basis: 64px; height: 90px; }
+}</style>
 </head>
 <body>
-  <div id="app">
-    <div class="loading-screen"><span class="loading-mark">学</span><span>正在打开书房…</span></div>
-  </div>
-<string>
-    <script>
-(() => {
+  <div id="app"><div class="loading-screen"><span class="loading-mark">学</span><span>正在打开书房…</span></div></div>
+  <script>(() => {
   // assets/grade1.js
   var grade1 = [
     {
@@ -1730,41 +1879,638 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     }
   ];
 
+  // assets/supplemental.js
+  var poem = (id, grade, volume, title, author, dynasty, excerpt, pinyin, summary, meaning, appreciation, keywords, tags, image) => ({
+    id,
+    grade,
+    volume,
+    category: "poetry",
+    title,
+    author,
+    dynasty,
+    excerpt,
+    pinyin,
+    summary,
+    meaning,
+    appreciation,
+    keywords,
+    tags,
+    image,
+    videoQuery: `${title} ${author} \u513F\u7AE5 \u6717\u8BFB \u8BB2\u89E3`,
+    scopeType: "textbook",
+    scopeLabel: "\u7EDF\u7F16\u6559\u6750",
+    sourceNote: `\u7EDF\u7F16\u7248\u8BED\u6587${grade}\u5E74\u7EA7${volume}\u518C`
+  });
+  var supplemental = [
+    poem(
+      "poetry-g6-qingpingyue",
+      6,
+      "\u4E0B",
+      "\u6E05\u5E73\u4E50\xB7\u6751\u5C45",
+      "\u8F9B\u5F03\u75BE",
+      "\u5B8B",
+      "\u8305\u6A90\u4F4E\u5C0F\uFF0C\u6EAA\u4E0A\u9752\u9752\u8349\u3002\n\u9189\u91CC\u5434\u97F3\u76F8\u5A9A\u597D\uFF0C\u767D\u53D1\u8C01\u5BB6\u7FC1\u5AAA\uFF1F\n\u5927\u513F\u9504\u8C46\u6EAA\u4E1C\uFF0C\u4E2D\u513F\u6B63\u7EC7\u9E21\u7B3C\u3002\n\u6700\u559C\u5C0F\u513F\u4EA1\u8D56\uFF0C\u6EAA\u5934\u5367\u5265\u83B2\u84EC\u3002",
+      "m\xE1o y\xE1n d\u012B xi\u01CEo\uFF0Cx\u012B sh\xE0ng q\u012Bng q\u012Bng c\u01CEo\u3002\nzu\xEC l\u01D0 w\xFA y\u012Bn xi\u0101ng m\xE8i h\u01CEo\uFF0Cb\xE1i f\xE0 shu\xED ji\u0101 w\u0113ng \u01CEo\uFF1F\nd\xE0 \xE9r ch\xFA d\xF2u x\u012B d\u014Dng\uFF0Czh\u014Dng \xE9r zh\xE8ng zh\u012B j\u012B l\xF3ng\u3002\nzu\xEC x\u01D0 xi\u01CEo \xE9r w\xFA l\xE0i\uFF0Cx\u012B t\xF3u w\xF2 b\u0101o li\xE1n peng\u3002",
+      "\u8F9B\u5F03\u75BE\u7528\u767D\u63CF\u624B\u6CD5\u5199\u6C5F\u5357\u519C\u5BB6\u751F\u6D3B\uFF1A\u4F4E\u77EE\u8305\u5C4B\u3001\u9752\u9752\u6EAA\u8349\u3001\u767D\u53D1\u592B\u59BB\u3001\u52B3\u52A8\u7684\u513F\u5B50\u548C\u6EAA\u8FB9\u5265\u83B2\u84EC\u7684\u5C0F\u513F\uFF0C\u5B89\u5B81\u53C8\u6D3B\u6CFC\u3002",
+      "\u8305\u8349\u5C4B\u53C8\u4F4E\u53C8\u5C0F\uFF0C\u6EAA\u8FB9\u957F\u6EE1\u9752\u9752\u7684\u8349\u3002\u542B\u9189\u610F\u7684\u5434\u5730\u65B9\u8A00\u542C\u8D77\u6765\u6E29\u67D4\u4EB2\u5207\uFF0C\u90A3\u6EE1\u5934\u767D\u53D1\u7684\u662F\u8C01\u5BB6\u7684\u8001\u592B\u59BB\uFF1F\u5927\u513F\u5B50\u5728\u6EAA\u4E1C\u8C46\u7530\u9504\u8349\uFF0C\u4E8C\u513F\u5B50\u6B63\u5728\u7F16\u9E21\u7B3C\u3002\u6700\u559C\u6B22\u987D\u76AE\u7684\u5C0F\u513F\u5B50\uFF0C\u8DB4\u5728\u6EAA\u5934\u5265\u83B2\u84EC\u3002",
+      "\u8BCD\u4E2D\u4EBA\u7269\u5404\u6709\u52A8\u4F5C\uFF0C\u50CF\u4E00\u5E45\u751F\u6D3B\u957F\u5377\u3002\u6700\u540E\u201C\u5367\u5265\u83B2\u84EC\u201D\u7684\u7EC6\u8282\u6700\u4F20\u795E\uFF0C\u8BA9\u6574\u9996\u8BCD\u5145\u6EE1\u7B11\u58F0\u548C\u70DF\u706B\u6C14\u3002",
+      ["\u6751\u5C45", "\u519C\u5BB6", "\u6EAA\u6C34", "\u83B2\u84EC"],
+      ["\u8F9B\u5F03\u75BE", "\u5B8B\u8BCD", "\u7530\u56ED"],
+      "poetry-village"
+    ),
+    poem(
+      "poetry-g1-hua",
+      1,
+      "\u4E0A",
+      "\u753B",
+      "\u4F5A\u540D",
+      "\u5B8B",
+      "\u8FDC\u770B\u5C71\u6709\u8272\uFF0C\u8FD1\u542C\u6C34\u65E0\u58F0\u3002\n\u6625\u53BB\u82B1\u8FD8\u5728\uFF0C\u4EBA\u6765\u9E1F\u4E0D\u60CA\u3002",
+      "yu\u01CEn k\xE0n sh\u0101n y\u01D2u s\xE8\uFF0Cj\xECn t\u012Bng shu\u01D0 w\xFA sh\u0113ng\u3002\nch\u016Bn q\xF9 hu\u0101 h\xE1i z\xE0i\uFF0Cr\xE9n l\xE1i ni\u01CEo b\xF9 j\u012Bng\u3002",
+      "\u4E00\u9996\u5199\u753B\u7684\u8C1C\u8BED\u8BD7\u3002\u8FDC\u770B\u6709\u5C71\u8272\uFF0C\u8FD1\u542C\u5374\u65E0\u58F0\uFF1B\u6625\u53BB\u82B1\u4E0D\u8C22\uFF0C\u4EBA\u6765\u9E1F\u4E0D\u98DE\u3002\u56DB\u53E5\u90FD\u85CF\u7740\u201C\u8FD9\u662F\u753B\u201D\u7684\u7EBF\u7D22\u3002",
+      "\u8FDC\u8FDC\u770B\u53BB\uFF0C\u5C71\u6709\u9C9C\u660E\u7684\u989C\u8272\uFF1B\u8D70\u8FD1\u7EC6\u542C\uFF0C\u6D41\u6C34\u5374\u6CA1\u6709\u58F0\u97F3\u3002\u6625\u5929\u8FC7\u53BB\u4E86\uFF0C\u82B1\u513F\u4ECD\u7136\u76DB\u5F00\uFF1B\u4EBA\u8D70\u8FD1\u4E86\uFF0C\u9E1F\u513F\u4E5F\u4E0D\u60CA\u98DE\u3002",
+      "\u5168\u8BD7\u6CA1\u6709\u51FA\u73B0\u201C\u753B\u201D\u5B57\uFF0C\u5374\u7528\u770B\u3001\u542C\u3001\u6625\u53BB\u3001\u4EBA\u6765\u56DB\u4E2A\u89D2\u5EA6\u5199\u51FA\u753B\u4E2D\u666F\u7269\u3002\u53EF\u4EE5\u8BA9\u5B69\u5B50\u8FB9\u8BFB\u8FB9\u731C\uFF0C\u611F\u53D7\u8BD7\u4E2D\u7684\u89C2\u5BDF\u987A\u5E8F\u3002",
+      ["\u5C71\u6C34", "\u82B1\u9E1F", "\u89C2\u5BDF", "\u8C1C\u8BED"],
+      ["\u5199\u666F", "\u8C1C\u8BED\u8BD7", "\u4E00\u5E74\u7EA7"],
+      "poetry-mountain-river"
+    ),
+    poem(
+      "poetry-g1-chunxiao",
+      1,
+      "\u4E0B",
+      "\u6625\u6653",
+      "\u5B5F\u6D69\u7136",
+      "\u5510",
+      "\u6625\u7720\u4E0D\u89C9\u6653\uFF0C\u5904\u5904\u95FB\u557C\u9E1F\u3002\n\u591C\u6765\u98CE\u96E8\u58F0\uFF0C\u82B1\u843D\u77E5\u591A\u5C11\u3002",
+      "ch\u016Bn mi\xE1n b\xF9 ju\xE9 xi\u01CEo\uFF0Cch\xF9 ch\xF9 w\xE9n t\xED ni\u01CEo\u3002\ny\xE8 l\xE1i f\u0113ng y\u01D4 sh\u0113ng\uFF0Chu\u0101 lu\xF2 zh\u012B du\u014D sh\u01CEo\u3002",
+      "\u6625\u591C\u7761\u5F97\u9999\u751C\uFF0C\u4E0D\u77E5\u4E0D\u89C9\u5929\u5DF2\u4EAE\uFF0C\u9192\u6765\u542C\u89C1\u5904\u5904\u9E1F\u9E23\u3002\u8BD7\u4EBA\u60F3\u8D77\u591C\u91CC\u7684\u98CE\u96E8\uFF0C\u5173\u5FC3\u6709\u591A\u5C11\u82B1\u88AB\u6253\u843D\u3002",
+      "\u6625\u5929\u7684\u591C\u91CC\u7761\u5F97\u9999\u751C\uFF0C\u4E0D\u77E5\u4E0D\u89C9\u5929\u5DF2\u7ECF\u4EAE\u4E86\uFF0C\u5230\u5904\u90FD\u80FD\u542C\u89C1\u9E1F\u513F\u7684\u53EB\u58F0\u3002\u56DE\u60F3\u8D77\u591C\u91CC\u4F20\u6765\u7684\u98CE\u96E8\u58F0\uFF0C\u4E0D\u77E5\u9053\u6709\u591A\u5C11\u82B1\u88AB\u6253\u843D\u4E86\u3002",
+      "\u524D\u4E24\u53E5\u5199\u9192\u6765\u7684\u542C\u89C9\uFF0C\u540E\u4E24\u53E5\u7531\u9E1F\u9E23\u60F3\u5230\u98CE\u96E8\u843D\u82B1\u3002\u8BED\u8A00\u6D45\u767D\uFF0C\u5374\u628A\u6625\u5929\u7684\u751F\u673A\u548C\u60DC\u82B1\u4E4B\u60C5\u5199\u5F97\u5F88\u6709\u4F59\u5473\u3002",
+      ["\u6625\u5929", "\u9E1F\u9E23", "\u98CE\u96E8", "\u843D\u82B1"],
+      ["\u5B5F\u6D69\u7136", "\u6625\u5929", "\u60DC\u6625"],
+      "poetry-spring-rain"
+    ),
+    poem(
+      "poetry-g1-jingyesi",
+      1,
+      "\u4E0B",
+      "\u9759\u591C\u601D",
+      "\u674E\u767D",
+      "\u5510",
+      "\u5E8A\u524D\u660E\u6708\u5149\uFF0C\u7591\u662F\u5730\u4E0A\u971C\u3002\n\u4E3E\u5934\u671B\u660E\u6708\uFF0C\u4F4E\u5934\u601D\u6545\u4E61\u3002",
+      "chu\xE1ng qi\xE1n m\xEDng yu\xE8 gu\u0101ng\uFF0Cy\xED sh\xEC d\xEC sh\xE0ng shu\u0101ng\u3002\nj\u01D4 t\xF3u w\xE0ng m\xEDng yu\xE8\uFF0Cd\u012B t\xF3u s\u012B g\xF9 xi\u0101ng\u3002",
+      "\u6708\u5149\u6D12\u5728\u5E8A\u524D\uFF0C\u50CF\u5730\u4E0A\u7684\u767D\u971C\u3002\u8BD7\u4EBA\u62AC\u5934\u671B\u6708\uFF0C\u53C8\u4F4E\u5934\u601D\u5FF5\u6545\u4E61\u3002\u52A8\u4F5C\u7B80\u5355\uFF0C\u601D\u4E61\u4E4B\u60C5\u5374\u5F88\u6DF1\u3002",
+      "\u660E\u4EAE\u7684\u6708\u5149\u6D12\u5728\u5E8A\u524D\uFF0C\u597D\u50CF\u5730\u4E0A\u94FA\u4E86\u4E00\u5C42\u767D\u971C\u3002\u62AC\u8D77\u5934\u671B\u7740\u5929\u4E0A\u7684\u660E\u6708\uFF0C\u4F4E\u4E0B\u5934\u4FBF\u601D\u5FF5\u8D77\u6545\u4E61\u3002",
+      "\u201C\u4E3E\u5934\u201D\u4E0E\u201C\u4F4E\u5934\u201D\u4E24\u4E2A\u52A8\u4F5C\u5F62\u6210\u547C\u5E94\uFF0C\u6708\u5149\u628A\u8FDC\u65B9\u548C\u6545\u4E61\u8FDE\u5728\u4E00\u8D77\u3002\u5168\u8BD7\u660E\u767D\u5982\u8BDD\uFF0C\u662F\u4F4E\u5E74\u7EA7\u4F53\u4F1A\u601D\u4E61\u8BD7\u7684\u5165\u53E3\u3002",
+      ["\u6708\u5149", "\u767D\u971C", "\u6545\u4E61", "\u601D\u5FF5"],
+      ["\u674E\u767D", "\u601D\u4E61", "\u6708\u4EAE"],
+      "poetry-moon"
+    ),
+    poem(
+      "poetry-g1-chishang",
+      1,
+      "\u4E0B",
+      "\u6C60\u4E0A",
+      "\u767D\u5C45\u6613",
+      "\u5510",
+      "\u5C0F\u5A03\u6491\u5C0F\u8247\uFF0C\u5077\u91C7\u767D\u83B2\u56DE\u3002\n\u4E0D\u89E3\u85CF\u8E2A\u8FF9\uFF0C\u6D6E\u840D\u4E00\u9053\u5F00\u3002",
+      "xi\u01CEo w\xE1 ch\u0113ng xi\u01CEo t\u01D0ng\uFF0Ct\u014Du c\u01CEi b\xE1i li\xE1n hu\xED\u3002\nb\xF9 ji\u011B c\xE1ng z\u014Dng j\xEC\uFF0Cf\xFA p\xEDng y\u012B d\xE0o k\u0101i\u3002",
+      "\u5C0F\u5B69\u6491\u7740\u5C0F\u8239\u5077\u5077\u91C7\u83B2\u56DE\u6765\uFF0C\u81EA\u4EE5\u4E3A\u6CA1\u4EBA\u77E5\u9053\uFF0C\u5374\u628A\u6C34\u9762\u6D6E\u840D\u5206\u5F00\uFF0C\u7559\u4E0B\u4E86\u4E00\u6761\u6E05\u695A\u7684\u8E2A\u8FF9\u3002",
+      "\u4E00\u4E2A\u5C0F\u5B69\u6491\u7740\u5C0F\u8239\uFF0C\u5077\u5077\u91C7\u4E86\u767D\u83B2\u56DE\u6765\u3002\u4ED6\u4E0D\u61C2\u5F97\u9690\u85CF\u81EA\u5DF1\u7684\u884C\u8E2A\uFF0C\u6C34\u9762\u7684\u6D6E\u840D\u88AB\u8239\u5206\u5F00\uFF0C\u7559\u4E0B\u4E86\u4E00\u9053\u957F\u957F\u7684\u75D5\u8FF9\u3002",
+      "\u201C\u5077\u201D\u4E0D\u662F\u5077\u7A83\uFF0C\u800C\u662F\u5B69\u5B50\u987D\u76AE\u53EF\u7231\u7684\u52A8\u4F5C\u3002\u6700\u540E\u4E00\u53E5\u7528\u6D6E\u840D\u5206\u5F00\u7684\u7EC6\u8282\u63ED\u7A7F\u5B69\u5B50\uFF0C\u753B\u9762\u6709\u8DA3\uFF0C\u5145\u6EE1\u7AE5\u771F\u3002",
+      ["\u5C0F\u5A03", "\u5C0F\u8239", "\u767D\u83B2", "\u6D6E\u840D"],
+      ["\u767D\u5C45\u6613", "\u7AE5\u8DA3", "\u590F\u5929"],
+      "poetry-lotus"
+    ),
+    poem(
+      "poetry-g2-meihua",
+      2,
+      "\u4E0A",
+      "\u6885\u82B1",
+      "\u738B\u5B89\u77F3",
+      "\u5B8B",
+      "\u5899\u89D2\u6570\u679D\u6885\uFF0C\u51CC\u5BD2\u72EC\u81EA\u5F00\u3002\n\u9065\u77E5\u4E0D\u662F\u96EA\uFF0C\u4E3A\u6709\u6697\u9999\u6765\u3002",
+      "qi\xE1ng ji\u01CEo sh\xF9 zh\u012B m\xE9i\uFF0Cl\xEDng h\xE1n d\xFA z\xEC k\u0101i\u3002\ny\xE1o zh\u012B b\xF9 sh\xEC xu\u011B\uFF0Cw\xE8i y\u01D2u \xE0n xi\u0101ng l\xE1i\u3002",
+      "\u5899\u89D2\u51E0\u679D\u6885\u82B1\u5728\u4E25\u5BD2\u4E2D\u72EC\u81EA\u5F00\u653E\u3002\u8FDC\u770B\u4EE5\u4E3A\u662F\u96EA\uFF0C\u95FB\u5230\u6DE1\u6DE1\u6E05\u9999\uFF0C\u624D\u77E5\u9053\u90A3\u662F\u6885\u82B1\u3002",
+      "\u5899\u89D2\u6709\u51E0\u679D\u6885\u82B1\uFF0C\u5192\u7740\u4E25\u5BD2\u72EC\u81EA\u76DB\u5F00\u3002\u8FDC\u8FDC\u5C31\u77E5\u9053\u90A3\u4E0D\u662F\u767D\u96EA\uFF0C\u56E0\u4E3A\u6709\u6DE1\u6DE1\u7684\u6E05\u9999\u98D8\u6765\u3002",
+      "\u8BD7\u4ECE\u89C6\u89C9\u5199\u5230\u55C5\u89C9\uFF0C\u201C\u4E0D\u662F\u96EA\u201D\u5148\u5236\u9020\u7591\u95EE\uFF0C\u201C\u6697\u9999\u6765\u201D\u518D\u7ED9\u51FA\u7B54\u6848\u3002\u6885\u82B1\u7684\u575A\u5F3A\u4E0E\u9AD8\u6D01\u4E5F\u85CF\u5728\u5176\u4E2D\u3002",
+      ["\u6885\u82B1", "\u4E25\u5BD2", "\u767D\u96EA", "\u6E05\u9999"],
+      ["\u738B\u5B89\u77F3", "\u548F\u7269", "\u51AC\u5929"],
+      "poetry-snow"
+    ),
+    poem(
+      "poetry-g2-dengguanque",
+      2,
+      "\u4E0A",
+      "\u767B\u9E73\u96C0\u697C",
+      "\u738B\u4E4B\u6DA3",
+      "\u5510",
+      "\u767D\u65E5\u4F9D\u5C71\u5C3D\uFF0C\u9EC4\u6CB3\u5165\u6D77\u6D41\u3002\n\u6B32\u7A77\u5343\u91CC\u76EE\uFF0C\u66F4\u4E0A\u4E00\u5C42\u697C\u3002",
+      "b\xE1i r\xEC y\u012B sh\u0101n j\xECn\uFF0Chu\xE1ng h\xE9 r\xF9 h\u01CEi li\xFA\u3002\ny\xF9 qi\xF3ng qi\u0101n l\u01D0 m\xF9\uFF0Cg\xE8ng sh\xE0ng y\u012B c\xE9ng l\xF3u\u3002",
+      "\u5915\u9633\u4F9D\u7740\u7FA4\u5C71\u843D\u4E0B\uFF0C\u9EC4\u6CB3\u5411\u5927\u6D77\u5954\u6D41\u3002\u60F3\u770B\u5230\u66F4\u8FDC\u7684\u98CE\u666F\uFF0C\u5C31\u8981\u518D\u767B\u4E0A\u4E00\u5C42\u697C\u3002",
+      "\u5915\u9633\u6328\u7740\u7FA4\u5C71\u6162\u6162\u843D\u4E0B\uFF0C\u9EC4\u6CB3\u5954\u817E\u7740\u6D41\u5411\u5927\u6D77\u3002\u60F3\u8981\u770B\u5230\u5343\u91CC\u4E4B\u5916\u7684\u666F\u8272\uFF0C\u5C31\u8981\u518D\u767B\u4E0A\u4E00\u5C42\u9AD8\u697C\u3002",
+      "\u524D\u4E24\u53E5\u5199\u58EE\u9614\u666F\u8272\uFF0C\u540E\u4E24\u53E5\u7531\u767B\u697C\u60F3\u5230\u8FDB\u53D6\u3002\u5B83\u65E2\u662F\u5199\u666F\u8BD7\uFF0C\u4E5F\u662F\u9F13\u52B1\u4EBA\u4E0D\u65AD\u52AA\u529B\u7684\u540D\u53E5\u3002",
+      ["\u5915\u9633", "\u9EC4\u6CB3", "\u767B\u697C", "\u8FDB\u53D6"],
+      ["\u738B\u4E4B\u6DA3", "\u54F2\u7406", "\u767B\u9AD8"],
+      "poetry-mountain-river"
+    ),
+    poem(
+      "poetry-g2-wanglushan",
+      2,
+      "\u4E0A",
+      "\u671B\u5E90\u5C71\u7011\u5E03",
+      "\u674E\u767D",
+      "\u5510",
+      "\u65E5\u7167\u9999\u7089\u751F\u7D2B\u70DF\uFF0C\u9065\u770B\u7011\u5E03\u6302\u524D\u5DDD\u3002\n\u98DE\u6D41\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u7591\u662F\u94F6\u6CB3\u843D\u4E5D\u5929\u3002",
+      "r\xEC zh\xE0o l\xFA sh\u0101n sh\u0113ng z\u01D0 y\u0101n\uFF0Cy\xE1o k\xE0n p\xF9 b\xF9 gu\xE0 qi\xE1n chu\u0101n\u3002\nf\u0113i li\xFA zh\xED xi\xE0 s\u0101n qi\u0101n ch\u01D0\uFF0Cy\xED sh\xEC y\xEDn h\xE9 lu\xF2 ji\u01D4 ti\u0101n\u3002",
+      "\u9633\u5149\u7167\u9999\u7089\u5CF0\u5347\u8D77\u7D2B\u8272\u70DF\u96FE\uFF0C\u8FDC\u770B\u7011\u5E03\u50CF\u6302\u5728\u5C71\u524D\u3002\u6C34\u6D41\u98DE\u6CFB\u800C\u4E0B\uFF0C\u8BA9\u4EBA\u6000\u7591\u94F6\u6CB3\u4ECE\u5929\u4E0A\u843D\u4E86\u4E0B\u6765\u3002",
+      "\u9633\u5149\u7167\u7740\u9999\u7089\u5CF0\uFF0C\u5347\u8D77\u7D2B\u8272\u7684\u4E91\u70DF\uFF0C\u8FDC\u8FDC\u671B\u53BB\uFF0C\u7011\u5E03\u50CF\u4E00\u6761\u767D\u7EC3\u6302\u5728\u5C71\u524D\u3002\u6C34\u6D41\u98DE\u6CFB\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u8BA9\u4EBA\u6000\u7591\u662F\u94F6\u6CB3\u4ECE\u4E5D\u5929\u4E0A\u843D\u4E86\u4E0B\u6765\u3002",
+      "\u201C\u6302\u201D\u628A\u6D41\u52A8\u7684\u7011\u5E03\u5199\u6210\u9759\u6B62\u7684\u753B\uFF0C\u201C\u98DE\u6D41\u76F4\u4E0B\u201D\u53C8\u6062\u590D\u4E86\u5B83\u7684\u6C14\u52BF\u3002\u5938\u5F20\u548C\u60F3\u8C61\u628A\u5E90\u5C71\u7011\u5E03\u5199\u5F97\u96C4\u5947\u58EE\u4E3D\u3002",
+      ["\u5E90\u5C71", "\u7011\u5E03", "\u94F6\u6CB3", "\u60F3\u8C61"],
+      ["\u674E\u767D", "\u5938\u5F20", "\u5C71\u6C34"],
+      "poetry-lushan"
+    ),
+    poem(
+      "poetry-g2-jiangxue",
+      2,
+      "\u4E0A",
+      "\u6C5F\u96EA",
+      "\u67F3\u5B97\u5143",
+      "\u5510",
+      "\u5343\u5C71\u9E1F\u98DE\u7EDD\uFF0C\u4E07\u5F84\u4EBA\u8E2A\u706D\u3002\n\u5B64\u821F\u84D1\u7B20\u7FC1\uFF0C\u72EC\u9493\u5BD2\u6C5F\u96EA\u3002",
+      "qi\u0101n sh\u0101n ni\u01CEo f\u0113i ju\xE9\uFF0Cw\xE0n j\xECng r\xE9n z\u014Dng mi\xE8\u3002\ng\u016B zh\u014Du su\u014D l\xEC w\u0113ng\uFF0Cd\xFA di\xE0o h\xE1n ji\u0101ng xu\u011B\u3002",
+      "\u7FA4\u5C71\u4E2D\u6CA1\u6709\u9E1F\u98DE\uFF0C\u6240\u6709\u9053\u8DEF\u4E0D\u89C1\u4EBA\u5F71\u3002\u53EA\u6709\u4E00\u4F4D\u62AB\u84D1\u8863\u6234\u6597\u7B20\u7684\u8001\u7FC1\uFF0C\u72EC\u81EA\u5728\u5BD2\u6C5F\u96EA\u4E2D\u5782\u9493\u3002",
+      "\u5343\u5C71\u4E07\u5CAD\u770B\u4E0D\u5230\u98DE\u9E1F\uFF0C\u6240\u6709\u5C0F\u8DEF\u4E0A\u90FD\u6CA1\u6709\u4EBA\u7684\u8E2A\u8FF9\u3002\u6C5F\u9762\u4E0A\u53EA\u6709\u4E00\u6761\u5C0F\u8239\uFF0C\u4E00\u4F4D\u62AB\u7740\u84D1\u8863\u3001\u6234\u7740\u6597\u7B20\u7684\u8001\u4EBA\uFF0C\u72EC\u81EA\u5728\u5BD2\u51B7\u7684\u96EA\u6C5F\u4E2D\u9493\u9C7C\u3002",
+      "\u201C\u5343\u5C71\u201D\u201C\u4E07\u5F84\u201D\u7684\u5E7F\u9614\u4E0E\u201C\u5B64\u821F\u201D\u201C\u72EC\u9493\u201D\u7684\u6E3A\u5C0F\u5F62\u6210\u5BF9\u6BD4\u3002\u5BD2\u6C5F\u72EC\u9493\u7684\u753B\u9762\uFF0C\u8868\u73B0\u51FA\u5B64\u72EC\u800C\u575A\u5B9A\u7684\u7CBE\u795E\u3002",
+      ["\u96EA\u5C71", "\u6C5F\u9762", "\u6E14\u7FC1", "\u5B64\u72EC"],
+      ["\u67F3\u5B97\u5143", "\u51AC\u5929", "\u5199\u666F"],
+      "poetry-snow"
+    ),
+    poem(
+      "poetry-g2-cunju",
+      2,
+      "\u4E0B",
+      "\u6751\u5C45",
+      "\u9AD8\u9F0E",
+      "\u6E05",
+      "\u8349\u957F\u83BA\u98DE\u4E8C\u6708\u5929\uFF0C\u62C2\u5824\u6768\u67F3\u9189\u6625\u70DF\u3002\n\u513F\u7AE5\u6563\u5B66\u5F52\u6765\u65E9\uFF0C\u5FD9\u8D81\u4E1C\u98CE\u653E\u7EB8\u9E22\u3002",
+      "c\u01CEo zh\u01CEng y\u012Bng f\u0113i \xE8r yu\xE8 ti\u0101n\uFF0Cf\xFA d\u012B y\xE1ng li\u01D4 zu\xEC ch\u016Bn y\u0101n\u3002\n\xE9r t\xF3ng s\xE0n xu\xE9 gu\u012B l\xE1i z\u01CEo\uFF0Cm\xE1ng ch\xE8n d\u014Dng f\u0113ng f\xE0ng zh\u01D0 yu\u0101n\u3002",
+      "\u4E8C\u6708\u8349\u6728\u751F\u957F\u3001\u9EC4\u83BA\u98DE\u821E\uFF0C\u6768\u67F3\u8F7B\u62C2\u5824\u5CB8\u3002\u5B69\u5B50\u4EEC\u653E\u5B66\u56DE\u6765\u5F97\u65E9\uFF0C\u8D76\u5FD9\u8FCE\u7740\u4E1C\u98CE\u653E\u98CE\u7B5D\u3002",
+      "\u519C\u5386\u4E8C\u6708\uFF0C\u8349\u6728\u751F\u957F\uFF0C\u9EC4\u83BA\u98DE\u821E\uFF0C\u6768\u67F3\u8F7B\u8F7B\u62C2\u7740\u5824\u5CB8\uFF0C\u597D\u50CF\u9676\u9189\u5728\u6625\u5929\u7684\u70DF\u96FE\u91CC\u3002\u5B69\u5B50\u4EEC\u653E\u5B66\u56DE\u6765\u5F97\u65E9\uFF0C\u6025\u5FD9\u8D81\u7740\u4E1C\u98CE\u653E\u8D77\u4E86\u98CE\u7B5D\u3002",
+      "\u524D\u4E24\u53E5\u5199\u6625\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u513F\u7AE5\u653E\u98CE\u7B5D\uFF0C\u52A8\u9759\u7ED3\u5408\u3002\u4E00\u4E2A\u201C\u5FD9\u201D\u5B57\u628A\u5B69\u5B50\u7684\u5174\u594B\u5199\u5F97\u6D3B\u7075\u6D3B\u73B0\u3002",
+      ["\u4E8C\u6708", "\u6768\u67F3", "\u513F\u7AE5", "\u98CE\u7B5D"],
+      ["\u9AD8\u9F0E", "\u6625\u5929", "\u7AE5\u8DA3"],
+      "poetry-village"
+    ),
+    poem(
+      "poetry-g2-xiaochu",
+      2,
+      "\u4E0B",
+      "\u6653\u51FA\u51C0\u6148\u5BFA\u9001\u6797\u5B50\u65B9",
+      "\u6768\u4E07\u91CC",
+      "\u5B8B",
+      "\u6BD5\u7ADF\u897F\u6E56\u516D\u6708\u4E2D\uFF0C\u98CE\u5149\u4E0D\u4E0E\u56DB\u65F6\u540C\u3002\n\u63A5\u5929\u83B2\u53F6\u65E0\u7A77\u78A7\uFF0C\u6620\u65E5\u8377\u82B1\u522B\u6837\u7EA2\u3002",
+      "b\xEC j\xECng x\u012B h\xFA li\xF9 yu\xE8 zh\u014Dng\uFF0Cf\u0113ng gu\u0101ng b\xF9 y\u01D4 s\xEC sh\xED t\xF3ng\u3002\nji\u0113 ti\u0101n li\xE1n y\xE8 w\xFA qi\xF3ng b\xEC\uFF0Cy\xECng r\xEC h\xE9 hu\u0101 bi\xE9 y\xE0ng h\xF3ng\u3002",
+      "\u516D\u6708\u7684\u897F\u6E56\u98CE\u5149\u4E0E\u5176\u4ED6\u5B63\u8282\u4E0D\u540C\uFF1A\u8377\u53F6\u4E00\u76F4\u94FA\u5230\u5929\u8FB9\uFF0C\u8377\u82B1\u5728\u9633\u5149\u6620\u7167\u4E0B\u683C\u5916\u7EA2\u8273\u3002",
+      "\u5230\u5E95\u662F\u516D\u6708\u7684\u897F\u6E56\uFF0C\u98CE\u5149\u548C\u5176\u4ED6\u5B63\u8282\u4E0D\u4E00\u6837\u3002\u78A7\u7EFF\u7684\u83B2\u53F6\u4E00\u76F4\u94FA\u5230\u5929\u8FB9\uFF0C\u671B\u4E0D\u5230\u5934\uFF1B\u8377\u82B1\u5728\u9633\u5149\u7684\u6620\u7167\u4E0B\uFF0C\u663E\u5F97\u683C\u5916\u9C9C\u7EA2\u3002",
+      "\u201C\u65E0\u7A77\u78A7\u201D\u548C\u201C\u522B\u6837\u7EA2\u201D\u7528\u5927\u9762\u79EF\u7684\u8272\u5F69\u8868\u73B0\u76DB\u590F\u8377\u5858\u3002\u8BD7\u4EBA\u9001\u522B\u670B\u53CB\uFF0C\u5374\u628A\u6700\u660E\u4E3D\u7684\u897F\u6E56\u7559\u7ED9\u8BFB\u8005\u3002",
+      ["\u897F\u6E56", "\u516D\u6708", "\u83B2\u53F6", "\u8377\u82B1"],
+      ["\u6768\u4E07\u91CC", "\u590F\u5929", "\u9001\u522B"],
+      "poetry-westlake"
+    ),
+    poem(
+      "poetry-g2-minnongyi",
+      2,
+      "\u4E0B",
+      "\u60AF\u519C\uFF08\u5176\u4E00\uFF09",
+      "\u674E\u7EC5",
+      "\u5510",
+      "\u6625\u79CD\u4E00\u7C92\u7C9F\uFF0C\u79CB\u6536\u4E07\u9897\u5B50\u3002\n\u56DB\u6D77\u65E0\u95F2\u7530\uFF0C\u519C\u592B\u72B9\u997F\u6B7B\u3002",
+      "ch\u016Bn zh\xF2ng y\u012B l\xEC s\xF9\uFF0Cqi\u016B sh\u014Du w\xE0n k\u0113 z\u01D0\u3002\ns\xEC h\u01CEi w\xFA xi\xE1n ti\xE1n\uFF0Cn\xF3ng f\u016B y\xF3u \xE8 s\u01D0\u3002",
+      "\u6625\u5929\u79CD\u4E0B\u4E00\u7C92\u79CD\u5B50\uFF0C\u79CB\u5929\u6536\u83B7\u5F88\u591A\u7CAE\u98DF\uFF0C\u5929\u4E0B\u6CA1\u6709\u8352\u5E9F\u7684\u7530\u5730\uFF0C\u519C\u6C11\u5374\u4ECD\u7136\u4F1A\u997F\u6B7B\u3002",
+      "\u6625\u5929\u79CD\u4E0B\u4E00\u7C92\u7C9F\u7C73\uFF0C\u79CB\u5929\u80FD\u6536\u83B7\u5343\u4E07\u9897\u7CAE\u98DF\u3002\u5929\u4E0B\u6CA1\u6709\u7A7A\u95F2\u8352\u5E9F\u7684\u7530\u5730\uFF0C\u53EF\u662F\u8F9B\u52E4\u8015\u79CD\u7684\u519C\u6C11\u4ECD\u7136\u4F1A\u997F\u6B7B\u3002",
+      "\u524D\u4E24\u53E5\u5199\u4E30\u6536\uFF0C\u7B2C\u4E09\u53E5\u5199\u7530\u5730\u5C3D\u7528\uFF0C\u6700\u540E\u4E00\u53E5\u7A81\u7136\u8F6C\u5411\u519C\u6C11\u7684\u547D\u8FD0\u3002\u5F3A\u70C8\u53CD\u5DEE\u8BA9\u4EBA\u601D\u8003\u52B3\u52A8\u4E0E\u6536\u83B7\u7684\u5173\u7CFB\u3002",
+      ["\u6625\u79CD", "\u79CB\u6536", "\u519C\u6C11", "\u7CAE\u98DF"],
+      ["\u674E\u7EC5", "\u60AF\u519C", "\u52B3\u52A8"],
+      "poetry-farmer"
+    ),
+    poem(
+      "poetry-g3-wangdongting",
+      3,
+      "\u4E0A",
+      "\u671B\u6D1E\u5EAD",
+      "\u5218\u79B9\u9521",
+      "\u5510",
+      "\u6E56\u5149\u79CB\u6708\u4E24\u76F8\u548C\uFF0C\u6F6D\u9762\u65E0\u98CE\u955C\u672A\u78E8\u3002\n\u9065\u671B\u6D1E\u5EAD\u5C71\u6C34\u7FE0\uFF0C\u767D\u94F6\u76D8\u91CC\u4E00\u9752\u87BA\u3002",
+      "h\xFA gu\u0101ng qi\u016B yu\xE8 li\u01CEng xi\u0101ng h\xE9\uFF0Ct\xE1n mi\xE0n w\xFA f\u0113ng j\xECng w\xE8i m\xF3\u3002\ny\xE1o w\xE0ng d\xF2ng t\xEDng sh\u0101n shu\u01D0 cu\xEC\uFF0Cb\xE1i y\xEDn p\xE1n l\u01D0 y\u012B q\u012Bng lu\xF3\u3002",
+      "\u79CB\u591C\u6D1E\u5EAD\u6E56\u7684\u6708\u5149\u4E0E\u6C34\u8272\u878D\u5728\u4E00\u8D77\uFF0C\u6E56\u9762\u5E73\u9759\u5F97\u50CF\u672A\u78E8\u7684\u94DC\u955C\u3002\u8FDC\u671B\u9752\u5C71\u7EFF\u6C34\uFF0C\u50CF\u767D\u94F6\u76D8\u4E2D\u653E\u7740\u4E00\u53EA\u9752\u87BA\u3002",
+      "\u6D1E\u5EAD\u6E56\u7684\u6E56\u5149\u4E0E\u79CB\u6708\u4E92\u76F8\u6620\u886C\uFF0C\u6E56\u9762\u6CA1\u6709\u98CE\uFF0C\u5E73\u9759\u5F97\u50CF\u4E00\u9762\u6CA1\u6709\u6253\u78E8\u7684\u94DC\u955C\u3002\u8FDC\u8FDC\u671B\u53BB\uFF0C\u6D1E\u5EAD\u6E56\u5C71\u6C34\u9752\u7FE0\uFF0C\u5C31\u50CF\u767D\u94F6\u76D8\u91CC\u653E\u7740\u4E00\u53EA\u9752\u87BA\u3002",
+      "\u8BD7\u4EBA\u4ECE\u8FD1\u5904\u6E56\u9762\u5199\u5230\u8FDC\u5904\u541B\u5C71\uFF0C\u7528\u201C\u955C\u201D\u201C\u94F6\u76D8\u201D\u201C\u9752\u87BA\u201D\u4E09\u4E2A\u6BD4\u55BB\uFF0C\u628A\u6D1E\u5EAD\u6E56\u5199\u5F97\u6E05\u4EAE\u53C8\u79C0\u7F8E\u3002",
+      ["\u6D1E\u5EAD\u6E56", "\u79CB\u6708", "\u6E56\u9762", "\u541B\u5C71"],
+      ["\u5218\u79B9\u9521", "\u79CB\u5929", "\u6BD4\u55BB"],
+      "poetry-lake"
+    ),
+    poem(
+      "poetry-g3-zaifadbaidi",
+      3,
+      "\u4E0A",
+      "\u65E9\u53D1\u767D\u5E1D\u57CE",
+      "\u674E\u767D",
+      "\u5510",
+      "\u671D\u8F9E\u767D\u5E1D\u5F69\u4E91\u95F4\uFF0C\u5343\u91CC\u6C5F\u9675\u4E00\u65E5\u8FD8\u3002\n\u4E24\u5CB8\u733F\u58F0\u557C\u4E0D\u4F4F\uFF0C\u8F7B\u821F\u5DF2\u8FC7\u4E07\u91CD\u5C71\u3002",
+      "zh\u0101o c\xED b\xE1i d\xEC c\u01CEi y\xFAn ji\u0101n\uFF0Cqi\u0101n l\u01D0 ji\u0101ng l\xEDng y\u012B r\xEC hu\xE1n\u3002\nli\u01CEng \xE0n yu\xE1n sh\u0113ng t\xED b\xF9 zh\xF9\uFF0Cq\u012Bng zh\u014Du y\u01D0 gu\xF2 w\xE0n ch\xF3ng sh\u0101n\u3002",
+      "\u6E05\u6668\u4ECE\u5F69\u4E91\u95F4\u7684\u767D\u5E1D\u57CE\u51FA\u53D1\uFF0C\u4E00\u5929\u5C31\u80FD\u56DE\u5230\u5343\u91CC\u4E4B\u5916\u7684\u6C5F\u9675\u3002\u4E24\u5CB8\u733F\u58F0\u8FD8\u5728\u56DE\u8361\uFF0C\u8F7B\u5FEB\u7684\u5C0F\u8239\u5DF2\u7A7F\u8FC7\u4E07\u91CD\u5C71\u3002",
+      "\u6E05\u6668\u544A\u522B\u9AD8\u5165\u5F69\u4E91\u7684\u767D\u5E1D\u57CE\uFF0C\u5343\u91CC\u4E4B\u5916\u7684\u6C5F\u9675\u4E00\u5929\u5C31\u53EF\u4EE5\u5230\u8FBE\u3002\u4E24\u5CB8\u733F\u7334\u7684\u53EB\u58F0\u8FD8\u5728\u8033\u8FB9\u56DE\u8361\uFF0C\u8F7B\u5FEB\u7684\u5C0F\u8239\u5DF2\u7ECF\u7A7F\u8FC7\u91CD\u91CD\u53E0\u53E0\u7684\u9AD8\u5C71\u3002",
+      "\u201C\u5343\u91CC\u201D\u4E0E\u201C\u4E00\u65E5\u201D\u3001\u201C\u733F\u58F0\u201D\u4E0E\u201C\u8F7B\u821F\u201D\u5F62\u6210\u901F\u5EA6\u4E0A\u7684\u5BF9\u6BD4\u3002\u8BD7\u53E5\u8282\u594F\u8F7B\u5FEB\uFF0C\u8868\u73B0\u51FA\u8BD7\u4EBA\u987A\u6D41\u884C\u821F\u7684\u559C\u60A6\u3002",
+      ["\u767D\u5E1D\u57CE", "\u6C5F\u9675", "\u733F\u58F0", "\u8F7B\u821F"],
+      ["\u674E\u767D", "\u5C71\u6C34", "\u884C\u821F"],
+      "poetry-mountain-river"
+    ),
+    poem(
+      "poetry-g3-qingming",
+      3,
+      "\u4E0B",
+      "\u6E05\u660E",
+      "\u675C\u7267",
+      "\u5510",
+      "\u6E05\u660E\u65F6\u8282\u96E8\u7EB7\u7EB7\uFF0C\u8DEF\u4E0A\u884C\u4EBA\u6B32\u65AD\u9B42\u3002\n\u501F\u95EE\u9152\u5BB6\u4F55\u5904\u6709\uFF0C\u7267\u7AE5\u9065\u6307\u674F\u82B1\u6751\u3002",
+      "q\u012Bng m\xEDng sh\xED ji\xE9 y\u01D4 f\u0113n f\u0113n\uFF0Cl\xF9 sh\xE0ng x\xEDng r\xE9n y\xF9 du\xE0n h\xFAn\u3002\nji\xE8 w\xE8n ji\u01D4 ji\u0101 h\xE9 ch\xF9 y\u01D2u\uFF0Cm\xF9 t\xF3ng y\xE1o zh\u01D0 x\xECng hu\u0101 c\u016Bn\u3002",
+      "\u6E05\u660E\u65F6\u8282\u7EC6\u96E8\u7EB7\u7EB7\uFF0C\u8DEF\u4E0A\u884C\u4EBA\u5FC3\u60C5\u4F4E\u843D\u3002\u8BD7\u4EBA\u8BE2\u95EE\u9152\u5BB6\u5728\u54EA\u91CC\uFF0C\u7267\u7AE5\u6307\u5411\u8FDC\u5904\u7684\u674F\u82B1\u6751\u3002",
+      "\u6E05\u660E\u8282\u7684\u65F6\u5019\uFF0C\u7EC6\u96E8\u7EB7\u7EB7\u98D8\u843D\uFF0C\u8DEF\u4E0A\u7684\u884C\u4EBA\u5FC3\u60C5\u6101\u95F7\uFF0C\u597D\u50CF\u4E22\u4E86\u9B42\u4E00\u6837\u3002\u5411\u4EBA\u6253\u542C\u54EA\u91CC\u6709\u9152\u5BB6\uFF0C\u7267\u7AE5\u6307\u4E86\u6307\u8FDC\u5904\u5F00\u6EE1\u674F\u82B1\u7684\u6751\u5B50\u3002",
+      "\u524D\u4E24\u53E5\u5199\u96E8\u548C\u884C\u4EBA\u7684\u6101\u7EEA\uFF0C\u540E\u4E24\u53E5\u4E00\u95EE\u4E00\u6307\uFF0C\u753B\u9762\u987F\u65F6\u6709\u4E86\u65B9\u5411\u3002\u674F\u82B1\u6751\u7684\u660E\u4E3D\u4E5F\u51B2\u6DE1\u4E86\u6E05\u660E\u7684\u4F24\u611F\u3002",
+      ["\u6E05\u660E", "\u7EC6\u96E8", "\u884C\u4EBA", "\u674F\u82B1\u6751"],
+      ["\u675C\u7267", "\u8282\u65E5", "\u95EE\u7B54"],
+      "poetry-spring-rain"
+    ),
+    poem(
+      "poetry-g3-jiuyuejiu",
+      3,
+      "\u4E0B",
+      "\u4E5D\u6708\u4E5D\u65E5\u5FC6\u5C71\u4E1C\u5144\u5F1F",
+      "\u738B\u7EF4",
+      "\u5510",
+      "\u72EC\u5728\u5F02\u4E61\u4E3A\u5F02\u5BA2\uFF0C\u6BCF\u9022\u4F73\u8282\u500D\u601D\u4EB2\u3002\n\u9065\u77E5\u5144\u5F1F\u767B\u9AD8\u5904\uFF0C\u904D\u63D2\u8331\u8438\u5C11\u4E00\u4EBA\u3002",
+      "d\xFA z\xE0i y\xEC xi\u0101ng w\xE9i y\xEC k\xE8\uFF0Cm\u011Bi f\xE9ng ji\u0101 ji\xE9 b\xE8i s\u012B q\u012Bn\u3002\ny\xE1o zh\u012B xi\u014Dng d\xEC d\u0113ng g\u0101o ch\xF9\uFF0Cbi\xE0n ch\u0101 zh\u016B y\xFA sh\u01CEo y\u012B r\xE9n\u3002",
+      "\u91CD\u9633\u8282\u72EC\u81EA\u5728\u4ED6\u4E61\u4F5C\u5BA2\uFF0C\u683C\u5916\u601D\u5FF5\u4EB2\u4EBA\u3002\u60F3\u8C61\u5144\u5F1F\u4EEC\u767B\u9AD8\u63D2\u8331\u8438\u65F6\uFF0C\u4F1A\u53D1\u73B0\u5C11\u4E86\u81EA\u5DF1\u4E00\u4E2A\u4EBA\u3002",
+      "\u72EC\u81EA\u5728\u4ED6\u4E61\u505A\u5F02\u4E61\u7684\u5BA2\u4EBA\uFF0C\u6BCF\u9022\u4F73\u8282\u5C31\u66F4\u52A0\u601D\u5FF5\u4EB2\u4EBA\u3002\u8FDC\u8FDC\u60F3\u5230\u5144\u5F1F\u4EEC\u767B\u9AD8\u7684\u65F6\u5019\uFF0C\u4EBA\u4EBA\u63D2\u4E0A\u8331\u8438\uFF0C\u5374\u5C11\u4E86\u6211\u4E00\u4E2A\u4EBA\u3002",
+      "\u8BD7\u4EBA\u6CA1\u6709\u53EA\u5199\u81EA\u5DF1\u7684\u601D\u5FF5\uFF0C\u800C\u662F\u60F3\u8C61\u5144\u5F1F\u4EEC\u7684\u573A\u666F\u3002\u201C\u5C11\u4E00\u4EBA\u201D\u4ECE\u5BF9\u65B9\u5199\u56DE\u81EA\u5DF1\uFF0C\u60C5\u610F\u66F4\u6DF1\u3002",
+      ["\u91CD\u9633", "\u5F02\u4E61", "\u5144\u5F1F", "\u8331\u8438"],
+      ["\u738B\u7EF4", "\u601D\u4E61", "\u8282\u65E5"],
+      "poetry-farewell"
+    ),
+    poem(
+      "poetry-g3-huichong",
+      3,
+      "\u4E0B",
+      "\u60E0\u5D07\u6625\u6C5F\u665A\u666F",
+      "\u82CF\u8F7C",
+      "\u5B8B",
+      "\u7AF9\u5916\u6843\u82B1\u4E09\u4E24\u679D\uFF0C\u6625\u6C5F\u6C34\u6696\u9E2D\u5148\u77E5\u3002\n\u848C\u84BF\u6EE1\u5730\u82A6\u82BD\u77ED\uFF0C\u6B63\u662F\u6CB3\u8C5A\u6B32\u4E0A\u65F6\u3002",
+      "zh\xFA w\xE0i t\xE1o hu\u0101 s\u0101n li\u01CEng zh\u012B\uFF0Cch\u016Bn ji\u0101ng shu\u01D0 nu\u01CEn y\u0101 xi\u0101n zh\u012B\u3002\nl\xF3u h\u0101o m\u01CEn d\xEC l\xFA y\xE1 du\u01CEn\uFF0Czh\xE8ng sh\xEC h\xE9 t\xFAn y\xF9 sh\xE0ng sh\xED\u3002",
+      "\u7AF9\u6797\u5916\u6843\u82B1\u521D\u5F00\uFF0C\u6C5F\u6C34\u53D8\u6696\u9E2D\u5B50\u6700\u5148\u77E5\u9053\u3002\u6EE1\u5730\u848C\u84BF\u3001\u77ED\u77ED\u82A6\u82BD\uFF0C\u6B63\u662F\u6CB3\u8C5A\u5C06\u8981\u4E0A\u6EAF\u7684\u65F6\u8282\u3002",
+      "\u7AF9\u6797\u5916\u5F00\u7740\u4E24\u4E09\u679D\u6843\u82B1\uFF0C\u6625\u5929\u7684\u6C5F\u6C34\u53D8\u6696\u4E86\uFF0C\u9E2D\u5B50\u6700\u5148\u611F\u89C9\u5230\u3002\u5CB8\u4E0A\u957F\u6EE1\u848C\u84BF\uFF0C\u82A6\u82BD\u8FD8\u5F88\u77ED\uFF0C\u8FD9\u6B63\u662F\u6CB3\u8C5A\u5C06\u8981\u9006\u6D41\u800C\u4E0A\u7684\u65F6\u5019\u3002",
+      "\u201C\u6C34\u6696\u9E2D\u5148\u77E5\u201D\u628A\u770B\u4E0D\u89C1\u7684\u6E29\u5EA6\u5199\u6210\u9E2D\u5B50\u7684\u611F\u53D7\uFF0C\u89C2\u5BDF\u7EC6\u81F4\u3002\u540E\u4E24\u53E5\u4ECE\u690D\u7269\u5199\u5230\u6CB3\u8C5A\uFF0C\u5145\u6EE1\u6625\u5929\u7684\u751F\u6D3B\u6C14\u606F\u3002",
+      ["\u6843\u82B1", "\u6625\u6C5F", "\u9E2D\u5B50", "\u6CB3\u8C5A"],
+      ["\u82CF\u8F7C", "\u6625\u5929", "\u9898\u753B\u8BD7"],
+      "poetry-spring-rain"
+    ),
+    poem(
+      "poetry-g4-suxinshi",
+      4,
+      "\u4E0B",
+      "\u5BBF\u65B0\u5E02\u5F90\u516C\u5E97",
+      "\u6768\u4E07\u91CC",
+      "\u5B8B",
+      "\u7BF1\u843D\u758F\u758F\u4E00\u5F84\u6DF1\uFF0C\u6811\u5934\u65B0\u7EFF\u672A\u6210\u9634\u3002\n\u513F\u7AE5\u6025\u8D70\u8FFD\u9EC4\u8776\uFF0C\u98DE\u5165\u83DC\u82B1\u65E0\u5904\u5BFB\u3002",
+      "l\xED lu\xF2 sh\u016B sh\u016B y\u012B j\xECng sh\u0113n\uFF0Csh\xF9 t\xF3u x\u012Bn l\u01DC w\xE8i ch\xE9ng y\u012Bn\u3002\n\xE9r t\xF3ng j\xED z\u01D2u zhu\u012B hu\xE1ng di\xE9\uFF0Cf\u0113i r\xF9 c\xE0i hu\u0101 w\xFA ch\xF9 x\xFAn\u3002",
+      "\u7A00\u758F\u7684\u7BF1\u7B06\u65C1\u6709\u4E00\u6761\u5C0F\u8DEF\uFF0C\u6811\u68A2\u521A\u957F\u51FA\u65B0\u53F6\u3002\u5B69\u5B50\u8FFD\u7740\u9EC4\u8774\u8776\u8DD1\uFF0C\u8774\u8776\u98DE\u8FDB\u83DC\u82B1\u4E1B\u5C31\u627E\u4E0D\u5230\u4E86\u3002",
+      "\u7A00\u7A00\u758F\u758F\u7684\u7BF1\u7B06\u65C1\uFF0C\u4E00\u6761\u5C0F\u8DEF\u4F38\u5411\u8FDC\u65B9\uFF0C\u6811\u68A2\u521A\u957F\u51FA\u5AE9\u7EFF\u7684\u65B0\u53F6\uFF0C\u8FD8\u6CA1\u6709\u5F62\u6210\u6D53\u5BC6\u7684\u6811\u836B\u3002\u5B69\u5B50\u6025\u5FD9\u5954\u8DD1\u7740\u8FFD\u9EC4\u8774\u8776\uFF0C\u8774\u8776\u98DE\u8FDB\u91D1\u9EC4\u7684\u83DC\u82B1\u4E1B\u91CC\uFF0C\u518D\u4E5F\u627E\u4E0D\u5230\u4E86\u3002",
+      "\u201C\u6025\u8D70\u201D\u201C\u8FFD\u201D\u5199\u51FA\u5B69\u5B50\u7684\u52A8\u4F5C\uFF0C\u9EC4\u8776\u4E0E\u83DC\u82B1\u540C\u8272\u53C8\u9020\u6210\u6709\u8DA3\u7684\u201C\u65E0\u5904\u5BFB\u201D\u3002\u753B\u9762\u8F7B\u5FEB\uFF0C\u5BCC\u6709\u751F\u6D3B\u8DA3\u5473\u3002",
+      ["\u7BF1\u7B06", "\u513F\u7AE5", "\u9EC4\u8776", "\u83DC\u82B1"],
+      ["\u6768\u4E07\u91CC", "\u6625\u5929", "\u7AE5\u8DA3"],
+      "poetry-village"
+    ),
+    poem(
+      "poetry-g4-sishitianyuan25",
+      4,
+      "\u4E0B",
+      "\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E8C\u5341\u4E94\uFF09",
+      "\u8303\u6210\u5927",
+      "\u5B8B",
+      "\u6885\u5B50\u91D1\u9EC4\u674F\u5B50\u80A5\uFF0C\u9EA6\u82B1\u96EA\u767D\u83DC\u82B1\u7A00\u3002\n\u65E5\u957F\u7BF1\u843D\u65E0\u4EBA\u8FC7\uFF0C\u60DF\u6709\u873B\u8713\u86F1\u8776\u98DE\u3002",
+      "m\xE9i z\u01D0 j\u012Bn hu\xE1ng x\xECng z\u01D0 f\xE9i\uFF0Cm\xE0i hu\u0101 xu\u011B b\xE1i c\xE0i hu\u0101 x\u012B\u3002\nr\xEC ch\xE1ng l\xED lu\xF2 w\xFA r\xE9n gu\xF2\uFF0Cw\xE9i y\u01D2u q\u012Bng t\xEDng ji\xE1 di\xE9 f\u0113i\u3002",
+      "\u6885\u5B50\u91D1\u9EC4\u3001\u674F\u5B50\u80A5\u7855\uFF0C\u9EA6\u82B1\u96EA\u767D\u3001\u83DC\u82B1\u7A00\u758F\u3002\u767D\u5929\u53D8\u957F\uFF0C\u7BF1\u7B06\u8FB9\u6CA1\u4EBA\u7ECF\u8FC7\uFF0C\u53EA\u6709\u873B\u8713\u548C\u8774\u8776\u98DE\u821E\u3002",
+      "\u6885\u5B50\u53D8\u5F97\u91D1\u9EC4\uFF0C\u674F\u5B50\u957F\u5F97\u9971\u6EE1\uFF1B\u9EA6\u82B1\u96EA\u767D\uFF0C\u83DC\u82B1\u5374\u6E10\u6E10\u7A00\u5C11\u3002\u767D\u5929\u8D8A\u6765\u8D8A\u957F\uFF0C\u7BF1\u7B06\u65C1\u6CA1\u6709\u4EBA\u7ECF\u8FC7\uFF0C\u53EA\u6709\u873B\u8713\u548C\u8774\u8776\u5728\u98DE\u6765\u98DE\u53BB\u3002",
+      "\u524D\u4E24\u53E5\u7528\u989C\u8272\u548C\u679C\u5B9E\u5199\u521D\u590F\uFF0C\u540E\u4E24\u53E5\u5199\u5B89\u9759\u4E2D\u7684\u6606\u866B\u6D3B\u52A8\u3002\u770B\u4F3C\u65E0\u4EBA\uFF0C\u5B9E\u9645\u5145\u6EE1\u751F\u547D\u7684\u52A8\u9759\u3002",
+      ["\u6885\u5B50", "\u674F\u5B50", "\u9EA6\u82B1", "\u873B\u8713"],
+      ["\u8303\u6210\u5927", "\u521D\u590F", "\u7530\u56ED"],
+      "poetry-farmer"
+    ),
+    poem(
+      "poetry-g4-furonglou",
+      4,
+      "\u4E0B",
+      "\u8299\u84C9\u697C\u9001\u8F9B\u6E10",
+      "\u738B\u660C\u9F84",
+      "\u5510",
+      "\u5BD2\u96E8\u8FDE\u6C5F\u591C\u5165\u5434\uFF0C\u5E73\u660E\u9001\u5BA2\u695A\u5C71\u5B64\u3002\n\u6D1B\u9633\u4EB2\u53CB\u5982\u76F8\u95EE\uFF0C\u4E00\u7247\u51B0\u5FC3\u5728\u7389\u58F6\u3002",
+      "h\xE1n y\u01D4 li\xE1n ji\u0101ng y\xE8 r\xF9 w\xFA\uFF0Cp\xEDng m\xEDng s\xF2ng k\xE8 ch\u01D4 sh\u0101n g\u016B\u3002\nlu\xF2 y\xE1ng q\u012Bn y\u01D2u r\xFA xi\u0101ng w\xE8n\uFF0Cy\u012B pi\xE0n b\u012Bng x\u012Bn z\xE0i y\xF9 h\xFA\u3002",
+      "\u5BD2\u96E8\u8FDE\u591C\u6D12\u6EE1\u6C5F\u9762\uFF0C\u6E05\u6668\u9001\u522B\u670B\u53CB\uFF0C\u8FDC\u5C71\u663E\u5F97\u5B64\u72EC\u3002\u8BD7\u4EBA\u6258\u670B\u53CB\u8F6C\u544A\u6D1B\u9633\u4EB2\u53CB\uFF1A\u81EA\u5DF1\u4F9D\u7136\u51B0\u6E05\u7389\u6D01\u3002",
+      "\u5BD2\u51B7\u7684\u96E8\u8FDE\u7740\u6C5F\u9762\uFF0C\u591C\u91CC\u6765\u5230\u5434\u5730\uFF1B\u5929\u4EAE\u65F6\u9001\u522B\u670B\u53CB\uFF0C\u695A\u5C71\u663E\u5F97\u683C\u5916\u5B64\u5355\u3002\u6D1B\u9633\u7684\u4EB2\u53CB\u5982\u679C\u95EE\u8D77\u6211\uFF0C\u8BF7\u544A\u8BC9\u4ED6\u4EEC\uFF0C\u6211\u7684\u4E00\u7247\u7EAF\u6D01\u4E4B\u5FC3\u4ECD\u50CF\u7389\u58F6\u4E2D\u7684\u51B0\u4E00\u6837\u3002",
+      "\u201C\u5B64\u201D\u65E2\u662F\u5C71\uFF0C\u4E5F\u662F\u9001\u522B\u4EBA\u7684\u5FC3\u60C5\u3002\u6700\u540E\u4E00\u53E5\u7528\u201C\u51B0\u5FC3\u7389\u58F6\u201D\u8868\u660E\u6E05\u767D\u575A\u5B88\uFF0C\u9001\u522B\u8BD7\u56E0\u6B64\u6709\u4E86\u54C1\u683C\u529B\u91CF\u3002",
+      ["\u5BD2\u96E8", "\u9001\u522B", "\u6D1B\u9633", "\u7389\u58F6"],
+      ["\u738B\u660C\u9F84", "\u9001\u522B", "\u54C1\u683C"],
+      "poetry-farewell"
+    ),
+    poem(
+      "poetry-g5-shanju",
+      5,
+      "\u4E0A",
+      "\u5C71\u5C45\u79CB\u669D",
+      "\u738B\u7EF4",
+      "\u5510",
+      "\u7A7A\u5C71\u65B0\u96E8\u540E\uFF0C\u5929\u6C14\u665A\u6765\u79CB\u3002\n\u660E\u6708\u677E\u95F4\u7167\uFF0C\u6E05\u6CC9\u77F3\u4E0A\u6D41\u3002\n\u7AF9\u55A7\u5F52\u6D63\u5973\uFF0C\u83B2\u52A8\u4E0B\u6E14\u821F\u3002\n\u968F\u610F\u6625\u82B3\u6B47\uFF0C\u738B\u5B59\u81EA\u53EF\u7559\u3002",
+      "k\u014Dng sh\u0101n x\u012Bn y\u01D4 h\xF2u\uFF0Cti\u0101n q\xEC w\u01CEn l\xE1i qi\u016B\u3002\nm\xEDng yu\xE8 s\u014Dng ji\u0101n zh\xE0o\uFF0Cq\u012Bng qu\xE1n sh\xED sh\xE0ng li\xFA\u3002\nzh\xFA xu\u0101n gu\u012B hu\xE0n n\u01DA\uFF0Cli\xE1n d\xF2ng xi\xE0 y\xFA zh\u014Du\u3002\nsu\xED y\xEC ch\u016Bn f\u0101ng xi\u0113\uFF0Cw\xE1ng s\u016Bn z\xEC k\u011B li\xFA\u3002",
+      "\u96E8\u540E\u7A7A\u5C71\u79CB\u610F\u6E05\u723D\uFF0C\u660E\u6708\u7167\u677E\u6797\u3001\u6E05\u6CC9\u6D41\u77F3\u4E0A\u3002\u7AF9\u6797\u55A7\u54CD\u662F\u6D17\u8863\u5973\u5F52\u6765\uFF0C\u83B2\u53F6\u6447\u52A8\u662F\u6E14\u821F\u987A\u6D41\u800C\u4E0B\u3002\u8BD7\u4EBA\u613F\u610F\u7559\u5728\u8FD9\u6E05\u5E7D\u7684\u5C71\u4E2D\u3002",
+      "\u7A7A\u65F7\u7684\u5C71\u4E2D\u521A\u4E0B\u8FC7\u4E00\u573A\u65B0\u96E8\uFF0C\u508D\u665A\u7684\u5929\u6C14\u5E26\u6765\u4E86\u79CB\u610F\u3002\u660E\u6708\u4ECE\u677E\u6797\u95F4\u7167\u4E0B\u6765\uFF0C\u6E05\u6CC9\u5728\u5C71\u77F3\u4E0A\u6D41\u6DCC\u3002\u7AF9\u6797\u91CC\u4F20\u6765\u55A7\u95F9\u58F0\uFF0C\u662F\u6D17\u8863\u7684\u5973\u5B50\u5F52\u6765\uFF1B\u83B2\u53F6\u6447\u52A8\uFF0C\u662F\u6E14\u821F\u987A\u6D41\u800C\u4E0B\u3002\u4EFB\u51ED\u6625\u5929\u7684\u82B1\u8349\u51CB\u8C22\uFF0C\u6211\u4E5F\u53EF\u4EE5\u7559\u5728\u8FD9\u5C71\u4E2D\u3002",
+      "\u8BD7\u4E2D\u6709\u6708\u5149\u3001\u6E05\u6CC9\u3001\u7AF9\u6797\u3001\u83B2\u53F6\uFF0C\u4E5F\u6709\u4EBA\u7684\u58F0\u97F3\u548C\u52A8\u4F5C\u3002\u9759\u666F\u4E0E\u52A8\u6001\u76F8\u886C\uFF0C\u6784\u6210\u4E00\u5E45\u6E05\u5E7D\u7684\u79CB\u5C71\u665A\u666F\u3002",
+      ["\u7A7A\u5C71", "\u65B0\u96E8", "\u660E\u6708", "\u6E05\u6CC9"],
+      ["\u738B\u7EF4", "\u79CB\u5929", "\u5C71\u6C34"],
+      "poetry-autumn"
+    ),
+    poem(
+      "poetry-g5-fengqiao",
+      5,
+      "\u4E0A",
+      "\u67AB\u6865\u591C\u6CCA",
+      "\u5F20\u7EE7",
+      "\u5510",
+      "\u6708\u843D\u4E4C\u557C\u971C\u6EE1\u5929\uFF0C\u6C5F\u67AB\u6E14\u706B\u5BF9\u6101\u7720\u3002\n\u59D1\u82CF\u57CE\u5916\u5BD2\u5C71\u5BFA\uFF0C\u591C\u534A\u949F\u58F0\u5230\u5BA2\u8239\u3002",
+      "yu\xE8 lu\xF2 w\u016B t\xED shu\u0101ng m\u01CEn ti\u0101n\uFF0Cji\u0101ng f\u0113ng y\xFA hu\u01D2 du\xEC ch\xF3u mi\xE1n\u3002\ng\u016B s\u016B ch\xE9ng w\xE0i h\xE1n sh\u0101n s\xEC\uFF0Cy\xE8 b\xE0n zh\u014Dng sh\u0113ng d\xE0o k\xE8 chu\xE1n\u3002",
+      "\u6708\u843D\u3001\u4E4C\u557C\u3001\u971C\u5929\u3001\u6C5F\u67AB\u3001\u6E14\u706B\uFF0C\u6784\u6210\u65C5\u591C\u6101\u7720\u7684\u753B\u9762\u3002\u534A\u591C\u5BD2\u5C71\u5BFA\u7684\u949F\u58F0\u4F20\u5230\u5BA2\u8239\uFF0C\u66F4\u6DFB\u7F81\u65C5\u4E4B\u6101\u3002",
+      "\u6708\u4EAE\u843D\u4E0B\uFF0C\u4E4C\u9E26\u557C\u53EB\uFF0C\u5BD2\u971C\u6EE1\u5929\uFF1B\u6C5F\u8FB9\u7684\u67AB\u6811\u4E0E\u6E14\u706B\u76F8\u5BF9\uFF0C\u966A\u4F34\u7740\u6EE1\u6000\u6101\u7EEA\u3001\u96BE\u4EE5\u5165\u7761\u7684\u65C5\u4EBA\u3002\u59D1\u82CF\u57CE\u5916\u7684\u5BD2\u5C71\u5BFA\uFF0C\u534A\u591C\u7684\u949F\u58F0\u4F20\u5230\u4E86\u5BA2\u8239\u4E0A\u3002",
+      "\u8BD7\u4EBA\u628A\u770B\u5230\u7684\u3001\u542C\u5230\u7684\u548C\u5FC3\u4E2D\u7684\u6101\u7EEA\u4EA4\u7EC7\u5728\u4E00\u8D77\u3002\u6700\u540E\u7684\u949F\u58F0\u4EE5\u52A8\u886C\u9759\uFF0C\u8BA9\u591C\u665A\u66F4\u52A0\u7A7A\u65F7\u6DF1\u8FDC\u3002",
+      ["\u6708\u843D", "\u4E4C\u557C", "\u6E14\u706B", "\u949F\u58F0"],
+      ["\u5F20\u7EE7", "\u7F81\u65C5", "\u79CB\u5929"],
+      "poetry-river-moon"
+    ),
+    poem(
+      "poetry-g5-zhizinongbing",
+      5,
+      "\u4E0B",
+      "\u7A1A\u5B50\u5F04\u51B0",
+      "\u6768\u4E07\u91CC",
+      "\u5B8B",
+      "\u7A1A\u5B50\u91D1\u76C6\u8131\u6653\u51B0\uFF0C\u5F69\u4E1D\u7A7F\u53D6\u5F53\u94F6\u94B2\u3002\n\u6572\u6210\u7389\u78EC\u7A7F\u6797\u54CD\uFF0C\u5FFD\u4F5C\u73BB\u7483\u788E\u5730\u58F0\u3002",
+      "zh\xEC z\u01D0 j\u012Bn p\xE9n tu\u014D xi\u01CEo b\u012Bng\uFF0Cc\u01CEi s\u012B chu\u0101n q\u01D4 d\u0101ng y\xEDn zh\u0113ng\u3002\nqi\u0101o ch\xE9ng y\xF9 q\xECng chu\u0101n l\xEDn xi\u01CEng\uFF0Ch\u016B zu\xF2 b\u014D l\xED su\xEC d\xEC sh\u0113ng\u3002",
+      "\u5B69\u5B50\u4ECE\u94DC\u76C6\u91CC\u525C\u51FA\u6E05\u6668\u7684\u51B0\uFF0C\u7528\u5F69\u7EBF\u7A7F\u8D77\u6765\u5F53\u94F6\u94B2\u6572\u3002\u6E05\u8106\u58F0\u97F3\u7A7F\u8FC7\u6811\u6797\uFF0C\u5FFD\u7136\u51B0\u5757\u843D\u5730\u6454\u788E\u4E86\u3002",
+      "\u5C0F\u5B69\u5B50\u4ECE\u91D1\u5C5E\u76C6\u91CC\u628A\u65E9\u6668\u7ED3\u7684\u51B0\u525C\u51FA\u6765\uFF0C\u7528\u5F69\u8272\u4E1D\u7EBF\u7A7F\u8D77\u6765\u5F53\u4F5C\u94F6\u94B2\u6572\u6253\u3002\u6572\u51FA\u7684\u58F0\u97F3\u50CF\u7389\u78EC\u4E00\u6837\u7A7F\u8FC7\u6811\u6797\uFF0C\u5FFD\u7136\u51B0\u6389\u5728\u5730\u4E0A\uFF0C\u53D1\u51FA\u50CF\u73BB\u7483\u7834\u788E\u4E00\u6837\u7684\u58F0\u97F3\u3002",
+      "\u4ECE\u201C\u8131\u51B0\u201D\u5230\u201C\u7A7F\u7EBF\u201D\u201C\u6572\u54CD\u201D\u518D\u5230\u201C\u788E\u88C2\u201D\uFF0C\u628A\u5B69\u5B50\u7684\u6E38\u620F\u8FC7\u7A0B\u5199\u5F97\u751F\u52A8\u5B8C\u6574\uFF0C\u58F0\u97F3\u53D8\u5316\u5C24\u5176\u4F20\u795E\u3002",
+      ["\u5B69\u5B50", "\u51B0\u5757", "\u5F69\u7EBF", "\u58F0\u97F3"],
+      ["\u6768\u4E07\u91CC", "\u51AC\u5929", "\u7AE5\u8DA3"],
+      "poetry-pond"
+    ),
+    poem(
+      "poetry-g5-cunwan",
+      5,
+      "\u4E0B",
+      "\u6751\u665A",
+      "\u96F7\u9707",
+      "\u5B8B",
+      "\u8349\u6EE1\u6C60\u5858\u6C34\u6EE1\u9642\uFF0C\u5C71\u8854\u843D\u65E5\u6D78\u5BD2\u6F2A\u3002\n\u7267\u7AE5\u5F52\u53BB\u6A2A\u725B\u80CC\uFF0C\u77ED\u7B1B\u65E0\u8154\u4FE1\u53E3\u5439\u3002",
+      "c\u01CEo m\u01CEn ch\xED t\xE1ng shu\u01D0 m\u01CEn b\u0113i\uFF0Csh\u0101n xi\xE1n lu\xF2 r\xEC j\xECn h\xE1n y\u012B\u3002\nm\xF9 t\xF3ng gu\u012B q\xF9 h\xE9ng ni\xFA b\xE8i\uFF0Cdu\u01CEn d\xED w\xFA qi\u0101ng x\xECn k\u01D2u chu\u012B\u3002",
+      "\u6C60\u5858\u957F\u6EE1\u9752\u8349\uFF0C\u6C34\u9762\u6F2B\u4E0A\u6C60\u5CB8\uFF0C\u8FDC\u5C71\u8854\u7740\u843D\u65E5\u5012\u6620\u6C34\u4E2D\u3002\u7267\u7AE5\u6A2A\u5750\u725B\u80CC\u56DE\u5BB6\uFF0C\u968F\u624B\u5439\u7740\u6CA1\u6709\u56FA\u5B9A\u66F2\u8C03\u7684\u5C0F\u7B1B\u3002",
+      "\u6C60\u5858\u8FB9\u957F\u6EE1\u9752\u8349\uFF0C\u6C60\u6C34\u6F2B\u4E0A\u4E86\u5CB8\uFF1B\u8FDC\u5C71\u597D\u50CF\u8854\u7740\u843D\u65E5\uFF0C\u5012\u6620\u5728\u6E05\u51C9\u7684\u6C34\u6CE2\u4E2D\u3002\u7267\u7AE5\u6A2A\u5750\u5728\u725B\u80CC\u4E0A\u56DE\u5BB6\uFF0C\u77ED\u7B1B\u6CA1\u6709\u56FA\u5B9A\u66F2\u8C03\uFF0C\u53EA\u662F\u968F\u53E3\u5439\u7740\u3002",
+      "\u524D\u4E24\u53E5\u5199\u4E61\u6751\u665A\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u7267\u7AE5\u3002\u4E00\u4E2A\u201C\u4FE1\u53E3\u5439\u201D\u628A\u65E0\u62D8\u65E0\u675F\u7684\u7AE5\u8DA3\u548C\u60A0\u95F2\u7684\u4E61\u6751\u751F\u6D3B\u8868\u73B0\u51FA\u6765\u3002",
+      ["\u6C60\u5858", "\u843D\u65E5", "\u7267\u7AE5", "\u77ED\u7B1B"],
+      ["\u96F7\u9707", "\u4E61\u6751", "\u7AE5\u8DA3"],
+      "poetry-village"
+    ),
+    poem(
+      "poetry-g5-congjunxing",
+      5,
+      "\u4E0B",
+      "\u4ECE\u519B\u884C",
+      "\u738B\u660C\u9F84",
+      "\u5510",
+      "\u9752\u6D77\u957F\u4E91\u6697\u96EA\u5C71\uFF0C\u5B64\u57CE\u9065\u671B\u7389\u95E8\u5173\u3002\n\u9EC4\u6C99\u767E\u6218\u7A7F\u91D1\u7532\uFF0C\u4E0D\u7834\u697C\u5170\u7EC8\u4E0D\u8FD8\u3002",
+      "q\u012Bng h\u01CEi ch\xE1ng y\xFAn \xE0n xu\u011B sh\u0101n\uFF0Cg\u016B ch\xE9ng y\xE1o w\xE0ng y\xF9 m\xE9n gu\u0101n\u3002\nhu\xE1ng sh\u0101 b\u01CEi zh\xE0n chu\u0101n j\u012Bn ji\u01CE\uFF0Cb\xF9 p\xF2 l\xF3u l\xE1n zh\u014Dng b\xF9 hu\xE1n\u3002",
+      "\u9752\u6D77\u6E56\u4E0A\u957F\u4E91\u906E\u6697\u96EA\u5C71\uFF0C\u5B64\u57CE\u9065\u671B\u7389\u95E8\u5173\u3002\u5C06\u58EB\u5728\u9EC4\u6C99\u4E2D\u8EAB\u7ECF\u767E\u6218\u3001\u94E0\u7532\u78E8\u7A7F\uFF0C\u4E0D\u6253\u8D25\u654C\u4EBA\u7EDD\u4E0D\u56DE\u8FD8\u3002",
+      "\u9752\u6D77\u6E56\u4E0A\u4E4C\u4E91\u5BC6\u5E03\uFF0C\u906E\u6697\u4E86\u96EA\u5C71\uFF1B\u4E00\u5EA7\u5B64\u57CE\u9065\u9065\u671B\u7740\u7389\u95E8\u5173\u3002\u5728\u9EC4\u6C99\u4E2D\u8EAB\u7ECF\u767E\u6218\uFF0C\u8FDE\u94E0\u7532\u90FD\u78E8\u7A7F\u4E86\uFF1B\u4E0D\u653B\u7834\u697C\u5170\uFF0C\u7EDD\u4E0D\u8FD4\u56DE\u5BB6\u4E61\u3002",
+      "\u524D\u4E24\u53E5\u5199\u8FBD\u9614\u82CD\u51C9\u7684\u8FB9\u585E\uFF0C\u540E\u4E24\u53E5\u5199\u5C06\u58EB\u7684\u51B3\u5FC3\u3002\u73AF\u5883\u8D8A\u8270\u82E6\uFF0C\u8D8A\u663E\u51FA\u5B88\u8FB9\u536B\u56FD\u7684\u610F\u5FD7\u3002",
+      ["\u9752\u6D77", "\u96EA\u5C71", "\u7389\u95E8\u5173", "\u5C06\u58EB"],
+      ["\u738B\u660C\u9F84", "\u8FB9\u585E", "\u5BB6\u56FD"],
+      "poetry-border"
+    ),
+    poem(
+      "poetry-g6-sujiande",
+      6,
+      "\u4E0A",
+      "\u5BBF\u5EFA\u5FB7\u6C5F",
+      "\u5B5F\u6D69\u7136",
+      "\u5510",
+      "\u79FB\u821F\u6CCA\u70DF\u6E1A\uFF0C\u65E5\u66AE\u5BA2\u6101\u65B0\u3002\n\u91CE\u65F7\u5929\u4F4E\u6811\uFF0C\u6C5F\u6E05\u6708\u8FD1\u4EBA\u3002",
+      "y\xED zh\u014Du b\xF3 y\u0101n zh\u01D4\uFF0Cr\xEC m\xF9 k\xE8 ch\xF3u x\u012Bn\u3002\ny\u011B ku\xE0ng ti\u0101n d\u012B sh\xF9\uFF0Cji\u0101ng q\u012Bng yu\xE8 j\xECn r\xE9n\u3002",
+      "\u5C0F\u8239\u505C\u6CCA\u5728\u70DF\u96FE\u7B3C\u7F69\u7684\u5C0F\u6D32\u65C1\uFF0C\u65E5\u66AE\u65F6\u65C5\u4EBA\u7684\u6101\u7EEA\u53C8\u6DFB\u4E00\u5C42\u3002\u539F\u91CE\u7A7A\u65F7\uFF0C\u5929\u8FB9\u597D\u50CF\u4F4E\u8FC7\u6811\u68A2\uFF1B\u6C5F\u6C34\u6E05\u6F88\uFF0C\u6708\u5F71\u4EFF\u4F5B\u9760\u8FD1\u4E86\u4EBA\u3002",
+      "\u628A\u8239\u79FB\u8FD1\u70DF\u96FE\u7B3C\u7F69\u7684\u5C0F\u6D32\u505C\u6CCA\uFF0C\u592A\u9633\u843D\u5C71\u65F6\uFF0C\u65C5\u4EBA\u7684\u6101\u7EEA\u53C8\u6DFB\u4E86\u4E00\u5C42\u3002\u539F\u91CE\u7A7A\u65F7\u8FBD\u9614\uFF0C\u8FDC\u5904\u7684\u5929\u4F3C\u4E4E\u6BD4\u6811\u8FD8\u4F4E\uFF1B\u6C5F\u6C34\u6E05\u6F88\uFF0C\u6C34\u4E2D\u7684\u6708\u5F71\u597D\u50CF\u79BB\u4EBA\u5F88\u8FD1\u3002",
+      "\u201C\u5929\u4F4E\u6811\u201D\u201C\u6708\u8FD1\u4EBA\u201D\u5199\u51FA\u4EBA\u5728\u7A7A\u65F7\u5929\u5730\u95F4\u7684\u5B64\u72EC\uFF0C\u4E5F\u5199\u51FA\u6708\u5F71\u76F8\u4F34\u7684\u5B89\u6170\u3002\u666F\u4E2D\u542B\u60C5\uFF0C\u542B\u84C4\u8010\u8BFB\u3002",
+      ["\u5EFA\u5FB7\u6C5F", "\u65E5\u66AE", "\u539F\u91CE", "\u6708\u5F71"],
+      ["\u5B5F\u6D69\u7136", "\u7F81\u65C5", "\u601D\u4E61"],
+      "poetry-river-moon"
+    ),
+    poem(
+      "poetry-g6-wanghulou",
+      6,
+      "\u4E0A",
+      "\u516D\u6708\u4E8C\u5341\u4E03\u65E5\u671B\u6E56\u697C\u9189\u4E66",
+      "\u82CF\u8F7C",
+      "\u5B8B",
+      "\u9ED1\u4E91\u7FFB\u58A8\u672A\u906E\u5C71\uFF0C\u767D\u96E8\u8DF3\u73E0\u4E71\u5165\u8239\u3002\n\u5377\u5730\u98CE\u6765\u5FFD\u5439\u6563\uFF0C\u671B\u6E56\u697C\u4E0B\u6C34\u5982\u5929\u3002",
+      "h\u0113i y\xFAn f\u0101n m\xF2 w\xE8i zh\u0113 sh\u0101n\uFF0Cb\xE1i y\u01D4 ti\xE0o zh\u016B lu\xE0n r\xF9 chu\xE1n\u3002\nju\u01CEn d\xEC f\u0113ng l\xE1i h\u016B chu\u012B s\xE0n\uFF0Cw\xE0ng h\xFA l\xF3u xi\xE0 shu\u01D0 r\xFA ti\u0101n\u3002",
+      "\u4E4C\u4E91\u7FFB\u6EDA\u50CF\u6253\u7FFB\u7684\u58A8\u6C41\uFF0C\u8FD8\u672A\u906E\u4F4F\u5C71\uFF1B\u767D\u96E8\u50CF\u8DF3\u52A8\u7684\u73CD\u73E0\u843D\u8FDB\u8239\u91CC\u3002\u5FFD\u7136\u72C2\u98CE\u5377\u5730\u5439\u6563\u4E91\u96E8\uFF0C\u671B\u6E56\u697C\u4E0B\u6C34\u9762\u50CF\u5929\u7A7A\u4E00\u6837\u660E\u51C0\u3002",
+      "\u9ED1\u4E91\u7FFB\u6EDA\uFF0C\u50CF\u6253\u7FFB\u7684\u58A8\u6C41\uFF0C\u8FD8\u6CA1\u6709\u906E\u4F4F\u5C71\uFF1B\u767D\u4EAE\u7684\u96E8\u70B9\u50CF\u8DF3\u52A8\u7684\u73CD\u73E0\uFF0C\u4E71\u7EB7\u7EB7\u5730\u843D\u8FDB\u8239\u91CC\u3002\u5FFD\u7136\u4E00\u9635\u5377\u5730\u5927\u98CE\u628A\u4E91\u96E8\u5439\u6563\uFF0C\u671B\u6E56\u697C\u4E0B\u6C34\u9762\u5E73\u9759\u660E\u51C0\uFF0C\u597D\u50CF\u548C\u5929\u7A7A\u8FDE\u6210\u4E00\u7247\u3002",
+      "\u56DB\u53E5\u5199\u4E91\u3001\u96E8\u3001\u98CE\u3001\u6C34\uFF0C\u53D8\u5316\u6781\u5FEB\u3002\u201C\u7FFB\u58A8\u201D\u201C\u8DF3\u73E0\u201D\u4E24\u4E2A\u6BD4\u55BB\u6709\u58F0\u6709\u8272\uFF0C\u5448\u73B0\u590F\u5929\u66B4\u96E8\u6765\u53BB\u5306\u5306\u7684\u7279\u70B9\u3002",
+      ["\u4E4C\u4E91", "\u767D\u96E8", "\u72C2\u98CE", "\u6E56\u6C34"],
+      ["\u82CF\u8F7C", "\u590F\u5929", "\u66B4\u96E8"],
+      "poetry-westlake"
+    ),
+    poem(
+      "poetry-g6-xijiangyue",
+      6,
+      "\u4E0A",
+      "\u897F\u6C5F\u6708\xB7\u591C\u884C\u9EC4\u6C99\u9053\u4E2D",
+      "\u8F9B\u5F03\u75BE",
+      "\u5B8B",
+      "\u660E\u6708\u522B\u679D\u60CA\u9E4A\uFF0C\u6E05\u98CE\u534A\u591C\u9E23\u8749\u3002\n\u7A3B\u82B1\u9999\u91CC\u8BF4\u4E30\u5E74\uFF0C\u542C\u53D6\u86D9\u58F0\u4E00\u7247\u3002\n\u4E03\u516B\u4E2A\u661F\u5929\u5916\uFF0C\u4E24\u4E09\u70B9\u96E8\u5C71\u524D\u3002\n\u65E7\u65F6\u8305\u5E97\u793E\u6797\u8FB9\uFF0C\u8DEF\u8F6C\u6EAA\u6865\u5FFD\u89C1\u3002",
+      "m\xEDng yu\xE8 bi\xE9 zh\u012B j\u012Bng qu\xE8\uFF0Cq\u012Bng f\u0113ng b\xE0n y\xE8 m\xEDng ch\xE1n\u3002\nd\xE0o hu\u0101 xi\u0101ng l\u01D0 shu\u014D f\u0113ng ni\xE1n\uFF0Ct\u012Bng q\u01D4 w\u0101 sh\u0113ng y\u012B pi\xE0n\u3002\nq\u012B b\u0101 g\xE8 x\u012Bng ti\u0101n w\xE0i\uFF0Cli\u01CEng s\u0101n di\u01CEn y\u01D4 sh\u0101n qi\xE1n\u3002\nji\xF9 sh\xED m\xE1o di\xE0n sh\xE8 l\xEDn bi\u0101n\uFF0Cl\xF9 zhu\u01CEn x\u012B qi\xE1o h\u016B xi\xE0n\u3002",
+      "\u660E\u6708\u5347\u8D77\u60CA\u52A8\u559C\u9E4A\uFF0C\u6E05\u98CE\u9001\u6765\u8749\u9E23\u3002\u7A3B\u82B1\u9999\u4E2D\u4EBA\u4EEC\u8C08\u8BBA\u4E30\u6536\uFF0C\u9752\u86D9\u53EB\u58F0\u8FDE\u6210\u4E00\u7247\u3002\u5929\u8FB9\u758F\u661F\u70B9\u70B9\uFF0C\u5C71\u524D\u843D\u4E0B\u5C0F\u96E8\uFF0C\u8F6C\u8FC7\u6EAA\u6865\u5FFD\u7136\u770B\u89C1\u719F\u6089\u7684\u8305\u5E97\u3002",
+      "\u660E\u4EAE\u7684\u6708\u5149\u79FB\u52A8\uFF0C\u60CA\u52A8\u4E86\u6811\u679D\u4E0A\u7684\u559C\u9E4A\uFF1B\u6E05\u98CE\u5439\u6765\uFF0C\u534A\u591C\u7684\u8749\u9E23\u9635\u9635\u3002\u7A3B\u82B1\u9999\u91CC\uFF0C\u4EBA\u4EEC\u8C08\u8BBA\u7740\u4E30\u6536\u7684\u5E74\u666F\uFF0C\u8033\u8FB9\u4F20\u6765\u4E00\u7247\u9752\u86D9\u7684\u53EB\u58F0\u3002\u5929\u8FB9\u53EA\u6709\u4E03\u516B\u9897\u661F\u661F\uFF0C\u5C71\u524D\u843D\u4E0B\u4E24\u4E09\u70B9\u96E8\u3002\u4ECE\u524D\u793E\u6797\u8FB9\u7684\u90A3\u5BB6\u8305\u5E97\uFF0C\u8F6C\u8FC7\u6EAA\u6865\u5FFD\u7136\u51FA\u73B0\u5728\u773C\u524D\u3002",
+      "\u8BCD\u4E2D\u5145\u6EE1\u58F0\u97F3\u3001\u6C14\u5473\u548C\u5149\u5F71\u3002\u86D9\u58F0\u3001\u7A3B\u9999\u3001\u661F\u96E8\u548C\u5FFD\u89C1\u7684\u8305\u5E97\uFF0C\u6784\u6210\u590F\u591C\u4E61\u6751\u884C\u8D70\u7684\u9C9C\u6D3B\u4F53\u9A8C\u3002",
+      ["\u660E\u6708", "\u7A3B\u82B1", "\u86D9\u58F0", "\u8305\u5E97"],
+      ["\u8F9B\u5F03\u75BE", "\u590F\u591C", "\u4E61\u6751"],
+      "poetry-village"
+    ),
+    poem(
+      "poetry-g6-shihuiyin",
+      6,
+      "\u4E0B",
+      "\u77F3\u7070\u541F",
+      "\u4E8E\u8C26",
+      "\u660E",
+      "\u5343\u9524\u4E07\u51FF\u51FA\u6DF1\u5C71\uFF0C\u70C8\u706B\u711A\u70E7\u82E5\u7B49\u95F2\u3002\n\u7C89\u9AA8\u788E\u8EAB\u6D51\u4E0D\u6015\uFF0C\u8981\u7559\u6E05\u767D\u5728\u4EBA\u95F4\u3002",
+      "qi\u0101n chu\xED w\xE0n z\xE1o ch\u016B sh\u0113n sh\u0101n\uFF0Cli\xE8 hu\u01D2 f\xE9n sh\u0101o ru\xF2 d\u011Bng xi\xE1n\u3002\nf\u011Bn g\u01D4 su\xEC sh\u0113n h\xFAn b\xF9 p\xE0\uFF0Cy\xE0o li\xFA q\u012Bng b\xE1i z\xE0i r\xE9n ji\u0101n\u3002",
+      "\u77F3\u7070\u7ECF\u8FC7\u5343\u9524\u4E07\u51FF\u4ECE\u6DF1\u5C71\u5F00\u91C7\uFF0C\u53C8\u7ECF\u70C8\u706B\u711A\u70E7\u3002\u5373\u4F7F\u7C89\u8EAB\u788E\u9AA8\u4E5F\u4E0D\u6015\uFF0C\u53EA\u613F\u628A\u6E05\u767D\u7559\u5728\u4EBA\u95F4\u3002",
+      "\u77F3\u7070\u77F3\u7ECF\u8FC7\u5343\u4E07\u6B21\u9524\u6253\u3001\u5F00\u51FF\uFF0C\u4ECE\u6DF1\u5C71\u91CC\u5F00\u91C7\u51FA\u6765\uFF0C\u53C8\u628A\u70C8\u706B\u711A\u70E7\u770B\u4F5C\u5E73\u5E38\u7684\u4E8B\u3002\u5373\u4F7F\u8EAB\u4F53\u7C89\u788E\u4E5F\u5168\u7136\u4E0D\u6015\uFF0C\u53EA\u5E0C\u671B\u628A\u6E05\u767D\u7559\u5728\u4EBA\u4E16\u95F4\u3002",
+      "\u8BD7\u4EBA\u501F\u77F3\u7070\u5199\u81EA\u5DF1\uFF0C\u5F00\u91C7\u3001\u711A\u70E7\u3001\u7C89\u788E\u90FD\u662F\u78E8\u70BC\uFF0C\u201C\u6E05\u767D\u201D\u65E2\u662F\u77F3\u7070\u989C\u8272\uFF0C\u4E5F\u662F\u4EBA\u7684\u54C1\u683C\u3002",
+      ["\u77F3\u7070", "\u70C8\u706B", "\u6E05\u767D", "\u54C1\u683C"],
+      ["\u4E8E\u8C26", "\u548F\u7269", "\u660E\u8BD7"],
+      "poetry-snow"
+    ),
+    poem(
+      "poetry-g6-zhushi",
+      6,
+      "\u4E0B",
+      "\u7AF9\u77F3",
+      "\u90D1\u71EE",
+      "\u6E05",
+      "\u54AC\u5B9A\u9752\u5C71\u4E0D\u653E\u677E\uFF0C\u7ACB\u6839\u539F\u5728\u7834\u5CA9\u4E2D\u3002\n\u5343\u78E8\u4E07\u51FB\u8FD8\u575A\u52B2\uFF0C\u4EFB\u5C14\u4E1C\u897F\u5357\u5317\u98CE\u3002",
+      "y\u01CEo d\xECng q\u012Bng sh\u0101n b\xF9 f\xE0ng s\u014Dng\uFF0Cl\xEC g\u0113n yu\xE1n z\xE0i p\xF2 y\xE1n zh\u014Dng\u3002\nqi\u0101n m\xF3 w\xE0n j\u012B h\xE1i ji\u0101n j\xECng\uFF0Cr\xE8n \u011Br d\u014Dng x\u012B n\xE1n b\u011Bi f\u0113ng\u3002",
+      "\u7AF9\u5B50\u7D27\u7D27\u54AC\u4F4F\u9752\u5C71\u4E0D\u653E\u677E\uFF0C\u6839\u6DF1\u6DF1\u624E\u5728\u5CA9\u77F3\u7F1D\u4E2D\u3002\u7ECF\u5386\u65E0\u6570\u78E8\u6298\u4ECD\u7136\u575A\u97E7\uFF0C\u4EFB\u51ED\u56DB\u9762\u6765\u98CE\u4E5F\u4E0D\u52A8\u6447\u3002",
+      "\u7AF9\u5B50\u7D27\u7D27\u54AC\u4F4F\u9752\u5C71\uFF0C\u4E00\u70B9\u4E5F\u4E0D\u653E\u677E\uFF0C\u5B83\u7684\u6839\u539F\u672C\u5C31\u624E\u5728\u7834\u88C2\u7684\u5CA9\u77F3\u4E2D\u3002\u7ECF\u5386\u5343\u4E07\u6B21\u78E8\u96BE\u548C\u6253\u51FB\uFF0C\u4ECD\u7136\u575A\u5F3A\u633A\u62D4\uFF0C\u4EFB\u51ED\u4E1C\u897F\u5357\u5317\u7684\u98CE\u600E\u6837\u5439\u3002",
+      "\u201C\u54AC\u5B9A\u201D\u201C\u7ACB\u6839\u201D\u628A\u7AF9\u5B50\u5199\u6210\u6709\u610F\u5FD7\u7684\u4EBA\u3002\u7AF9\u5B50\u7684\u575A\u97E7\u8C61\u5F81\u7740\u5728\u56F0\u96BE\u4E2D\u4E0D\u6539\u521D\u5FC3\u7684\u54C1\u683C\u3002",
+      ["\u7AF9\u5B50", "\u9752\u5C71", "\u5CA9\u77F3", "\u575A\u97E7"],
+      ["\u90D1\u71EE", "\u548F\u7269", "\u54C1\u683C"],
+      "idiom-bamboo"
+    ),
+    poem(
+      "poetry-g6-mashi",
+      6,
+      "\u4E0B",
+      "\u9A6C\u8BD7",
+      "\u674E\u8D3A",
+      "\u5510",
+      "\u5927\u6F20\u6C99\u5982\u96EA\uFF0C\u71D5\u5C71\u6708\u4F3C\u94A9\u3002\n\u4F55\u5F53\u91D1\u7EDC\u8111\uFF0C\u5FEB\u8D70\u8E0F\u6E05\u79CB\u3002",
+      "d\xE0 m\xF2 sh\u0101 r\xFA xu\u011B\uFF0Cy\u0101n sh\u0101n yu\xE8 s\xEC g\u014Du\u3002\nh\xE9 d\u0101ng j\u012Bn lu\xF2 n\u01CEo\uFF0Cku\xE0i z\u01D2u t\xE0 q\u012Bng qi\u016B\u3002",
+      "\u5927\u6F20\u6C99\u767D\u5982\u96EA\uFF0C\u71D5\u5C71\u65B0\u6708\u50CF\u5F2F\u94A9\u3002\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u6234\u4E0A\u91D1\u7EDC\u5934\uFF0C\u5728\u6E05\u79CB\u7684\u539F\u91CE\u4E0A\u98DE\u5FEB\u5954\u9A70\u3002",
+      "\u5E7F\u9614\u7684\u5927\u6F20\u4E0A\uFF0C\u6C99\u5B50\u5728\u6708\u5149\u4E0B\u50CF\u96EA\u4E00\u6837\u767D\uFF1B\u71D5\u5C71\u4E0A\u7684\u65B0\u6708\u50CF\u5F2F\u94A9\u3002\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u7ED9\u9A6C\u6234\u4E0A\u91D1\u8272\u7684\u7B3C\u5934\uFF0C\u8BA9\u5B83\u5728\u6E05\u79CB\u7684\u539F\u91CE\u4E0A\u5C3D\u60C5\u5954\u9A70\uFF1F",
+      "\u524D\u4E24\u53E5\u5199\u8FB9\u585E\u6708\u591C\u7684\u6E05\u51B7\uFF0C\u540E\u4E24\u53E5\u501F\u9A6C\u8868\u8FBE\u5E0C\u671B\u88AB\u91CD\u7528\u3001\u65BD\u5C55\u624D\u80FD\u7684\u613F\u671B\u3002\u7269\u4E0E\u6211\u5408\u5728\u4E00\u8D77\u3002",
+      ["\u5927\u6F20", "\u71D5\u5C71", "\u9A8F\u9A6C", "\u5FD7\u5411"],
+      ["\u674E\u8D3A", "\u548F\u7269", "\u8FB9\u585E"],
+      "poetry-desert"
+    )
+  ];
+
+  // assets/curriculum.js
+  var gradeOptions = [1, 2, 3, 4, 5, 6].map((grade) => ({ grade, label: grade + "\u5E74\u7EA7" }));
+  var gradeThemes = [
+    { grade: 1, title: "\u8499\u4EE5\u517B\u6B63", subtitle: "\u8BC6\u5B57 \xB7 \u8BF5\u8BFB \xB7 \u7AE5\u8DA3" },
+    { grade: 2, title: "\u7AE5\u58F0\u8BF5\u96C5", subtitle: "\u97F5\u5F8B \xB7 \u60F3\u8C61 \xB7 \u79EF\u7D2F" },
+    { grade: 3, title: "\u6587\u4EE5\u8F7D\u9053", subtitle: "\u7BC7\u7AE0 \xB7 \u610F\u8C61 \xB7 \u8868\u8FBE" },
+    { grade: 4, title: "\u601D\u8FA8\u660E\u7406", subtitle: "\u53E4\u6587 \xB7 \u54F2\u7406 \xB7 \u8FC1\u79FB" },
+    { grade: 5, title: "\u535A\u89C2\u7EA6\u53D6", subtitle: "\u5BB6\u56FD \xB7 \u7FA4\u4E66 \xB7 \u601D\u8FA8" },
+    { grade: 6, title: "\u878D\u4F1A\u8D2F\u901A", subtitle: "\u7EFC\u5408 \xB7 \u8D4F\u6790 \xB7 \u521B\u4F5C" }
+  ];
+  var volumeLabel = (volume) => volume === "\u4E0A" ? "\u4E0A\u518C" : volume === "\u4E0B" ? "\u4E0B\u518C" : "\u8BFE\u5916";
+  var scopeLabels = {
+    textbook: { name: "\u7EDF\u7F16\u8BFE\u6587", color: "#A64B3C", soft: "#F1E1DA" },
+    garden: { name: "\u8BED\u6587\u56ED\u5730", color: "#547C73", soft: "#E2EBE5" },
+    classic: { name: "\u8BFE\u5916\u56FD\u5B66", color: "#8B744D", soft: "#F1E7D4" }
+  };
+  var volumeOptions = [{ id: "all", label: "\u5168\u518C" }, { id: "\u4E0A", label: "\u4E0A\u518C" }, { id: "\u4E0B", label: "\u4E0B\u518C" }, { id: "classic", label: "\u8BFE\u5916" }];
+
   // assets/data.js
   var categories = [
-    { id: "poetry", name: "\u53E4\u8BD7\u8BCD", short: "\u8BD7", color: "#A94B3C", soft: "#F4E5E0", icon: "poem", description: "\u610F\u8C61\u4E0E\u58F0\u97F5" },
-    { id: "idiom", name: "\u6210\u8BED", short: "\u6210", color: "#3B6C66", soft: "#DDEAE6", icon: "idiom", description: "\u5178\u6545\u4E0E\u8868\u8FBE" },
+    { id: "poetry", name: "\u53E4\u8BD7\u8BCD", short: "\u8BD7", color: "#A94B3C", soft: "#F4E5E0", icon: "poem", description: "\u8BF5\u8BFB\u4E0E\u8D4F\u6790" },
+    { id: "idiom", name: "\u6210\u8BED", short: "\u6210", color: "#3B6C66", soft: "#DDEAE6", icon: "idiom", description: "\u5178\u6545\u4E0E\u8FD0\u7528" },
     { id: "fable", name: "\u5BD3\u8A00", short: "\u5BD3", color: "#9A6A2F", soft: "#F2E8D5", icon: "fable", description: "\u6545\u4E8B\u4E0E\u9053\u7406" },
     { id: "sanzi", name: "\u4E09\u5B57\u7ECF", short: "\u7ECF", color: "#4A657D", soft: "#E2EAF0", icon: "three", description: "\u8499\u5B66\u4E0E\u5E38\u8BC6" },
-    { id: "lunyu", name: "\u8BBA\u8BED", short: "\u8BBA", color: "#77513D", soft: "#EEE2DA", icon: "lunyu", description: "\u4EC1\u793C\u4E0E\u5B66\u4E60" },
+    { id: "lunyu", name: "\u8BBA\u8BED", short: "\u8BBA", color: "#77513D", soft: "#EEE2DA", icon: "lunyu", description: "\u5B66\u4E60\u4E0E\u4FEE\u8EAB" },
     { id: "dizigui", name: "\u5F1F\u5B50\u89C4", short: "\u89C4", color: "#6E6244", soft: "#EEE9DC", icon: "rules", description: "\u8A00\u884C\u4E0E\u54C1\u683C" },
     { id: "qianziwen", name: "\u5343\u5B57\u6587", short: "\u5343", color: "#627056", soft: "#E6EBDD", icon: "thousand", description: "\u8BC6\u5B57\u4E0E\u5929\u5730" }
   ];
-  var grades = [1, 2, 3, 4, 5, 6].map((grade) => ({
-    grade,
-    label: `${grade}\u5E74\u7EA7`,
-    title: ["\u8499\u4EE5\u517B\u6B63", "\u7AE5\u58F0\u8BF5\u96C5", "\u6587\u4EE5\u8F7D\u9053", "\u601D\u8FA8\u660E\u7406", "\u535A\u89C2\u7EA6\u53D6", "\u878D\u4F1A\u8D2F\u901A"][grade - 1],
-    subtitle: ["\u542F\u8499 \xB7 \u8BC6\u5B57 \xB7 \u8BF5\u8BFB", "\u6545\u4E8B \xB7 \u97F5\u5F8B \xB7 \u79EF\u7D2F", "\u7BC7\u7AE0 \xB7 \u610F\u8C61 \xB7 \u8868\u8FBE", "\u53E4\u6587 \xB7 \u54F2\u7406 \xB7 \u8FC1\u79FB", "\u7ECF\u5178 \xB7 \u7FA4\u4E66 \xB7 \u601D\u8FA8", "\u7EFC\u5408 \xB7 \u8D4F\u6790 \xB7 \u521B\u4F5C"][grade - 1]
-  }));
-  var prepared = [...grade1, ...grade2, ...grade3, ...grade4, ...grade5, ...grade6].map((item, index) => {
+  var legacy = [...grade1, ...grade2, ...grade3, ...grade4, ...grade5, ...grade6];
+  var ids = new Set(legacy.map((i) => i.id));
+  var additions = supplemental.filter((i) => !ids.has(i.id)).map((i) => ({ ...i, sourceLabel: `\u8BFE\u6587\u300A${i.title}\u300B`, sourceNote: `\u7EDF\u7F16\u7248\u8BED\u6587${i.grade}\u5E74\u7EA7${volumeLabel(i.volume)}`, edition: "2026\u7EDF\u7F16\u7248" }));
+  var grades = gradeThemes;
+  var STRICT = {
+    "poetry-g1-jiangnan": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "idiom-g1-shouzhudaitu": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "idiom-g1-wangyangbudao": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "idiom-g3-huajiaoyidian": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u753B\u9F99\u70B9\u775B\u300B"],
+    "idiom-g3-yanjianbushi": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "idiom-g4-ruyudeyu": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "idiom-g4-pobujidai": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "fable-g1-huliheputao": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "fable-g2-yugongyishan": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "fable-g3-shouzhu": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "fable-g4-yanerdaoling": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "fable-g5-beigongshicha": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "fable-g6-yegonghao": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "poetry-g1-yonge": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g1-minnong": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g1-gulangyuexing": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g2-chunyexiyu": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g2-yongliu": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u548F\u67F3\u300B"],
+    "poetry-g2-xiaochi": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u5C0F\u6C60\u300B"],
+    "poetry-g2-jueju": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g3-wangtianmenshan": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u671B\u5929\u95E8\u5C71\u300B"],
+    "poetry-g3-yinhusahang": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u996E\u6E56\u4E0A\u521D\u6674\u540E\u96E8\u300B"],
+    "poetry-g3-yuanri": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u5143\u65E5\u300B"],
+    "poetry-g3-shanxing": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g4-tixilinbi": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g4-chusai": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u51FA\u585E\u300B"],
+    "poetry-g4-liangzhouci": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g4-shiershi": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g5-bohetan": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "poetry-g5-chunwang": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
+    "poetry-g5-jihai": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g6-qingpingyue": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u6E05\u5E73\u4E50\xB7\u6751\u5C45\u300B"],
+    "poetry-g6-tianjingsha": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
+    "poetry-g6-qinyuanchun": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u6C81\u56ED\u6625\xB7\u96EA\u300B"],
+    "poetry-g6-songyuaner": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"]
+  };
+  var cleaned = legacy.filter((i) => !(i.grade === 5 && i.id === "poetry-g5-sishihuajian"));
+  cleaned = cleaned.map((item, index) => {
+    const strict = STRICT[item.id];
+    const volume = strict ? strict[0] : "classic";
+    const scopeType = strict ? strict[1] : "classic";
+    const sourceLabel = strict ? strict[2] : item.category === "poetry" ? "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55" : "\u8BFE\u5916\u56FD\u5B66\u8BF5\u8BFB";
+    return {
+      ...item,
+      volume,
+      scopeType,
+      sourceLabel,
+      sourceNote: scopeType === "classic" ? "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55\uFF0C\u4E0D\u6807\u4F5C\u67D0\u4E00\u8BFE" : `\u7EDF\u7F16\u7248\u8BED\u6587${item.grade}\u5E74\u7EA7${volumeLabel(volume)}`,
+      edition: scopeType === "classic" ? "\u8BFE\u5916\u62D3\u5C55" : "2026\u7EDF\u7F16\u7248",
+      order: index
+    };
+  });
+  var allRaw = [...cleaned, ...additions];
+  var items = allRaw.map((item, index) => {
     const category = categories.find((c) => c.id === item.category);
     return {
       ...item,
-      id: item.id || `${item.category}-${item.grade}-${index + 1}`,
-      categoryName: category?.name || item.category
+      order: item.order ?? index,
+      id: item.id || `${item.category}-g${item.grade}-${index}`,
+      categoryName: category?.name || item.category,
+      scopeName: scopeLabels[item.scopeType]?.name || "\u8BFE\u5916\u56FD\u5B66",
+      volumeLabel: volumeLabel(item.volume),
+      gradeLabel: `${item.grade}\u5E74\u7EA7${volumeLabel(item.volume)}`
     };
-  });
-  var items = prepared;
+  }).sort((a, b) => a.grade - b.grade || (a.volume === "\u4E0A" ? 0 : a.volume === "\u4E0B" ? 1 : 2) - (b.volume === "\u4E0A" ? 0 : b.volume === "\u4E0B" ? 1 : 2) || a.order - b.order);
   var categoryById = Object.fromEntries(categories.map((c) => [c.id, c]));
-  var itemById = Object.fromEntries(items.map((item) => [item.id, item]));
-  function searchItems(list, { grade = "all", category = "all", keyword = "", favoriteIds = [], onlyFavorites = false } = {}) {
+  var itemById = Object.fromEntries(items.map((i) => [i.id, i]));
+  function searchItems(list, { grade = "all", category = "all", volume = "all", scope = "all", keyword = "", favoriteIds = [], onlyFavorites = false } = {}) {
     const query = keyword.trim().toLowerCase();
     return list.filter((item) => {
       if (onlyFavorites && !favoriteIds.includes(item.id)) return false;
       if (grade !== "all" && item.grade !== Number(grade)) return false;
       if (category !== "all" && item.category !== category) return false;
+      if (volume === "classic" && item.volume !== "classic") return false;
+      if (volume !== "all" && volume !== "classic" && item.volume !== volume) return false;
+      if (scope !== "all" && item.scopeType !== scope) return false;
       if (!query) return true;
-      const haystack = [item.title, item.author, item.dynasty, item.summary, item.excerpt, item.meaning, ...item.tags || [], ...item.keywords || []].filter(Boolean).join(" ").toLowerCase();
+      const haystack = [item.title, item.author, item.dynasty, item.summary, item.excerpt, item.meaning, item.sourceLabel, ...item.tags || [], ...item.keywords || []].filter(Boolean).join(" ").toLowerCase();
       return haystack.includes(query);
     });
   }
@@ -2093,11 +2839,11 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
 
   // assets/app.js
   var app = document.querySelector("#app");
-  var KEYS = { favorites: "guoxue-favorites-v1", read: "guoxue-read-v1", grade: "guoxue-grade-v1" };
+  var KEYS = { favorites: "guoxue-favorites-v2", read: "guoxue-read-v2", prefs: "guoxue-prefs-v2" };
   var load = (key, fallback) => {
     try {
-      const v = JSON.parse(localStorage.getItem(key));
-      return v ?? fallback;
+      const value = JSON.parse(localStorage.getItem(key));
+      return value ?? fallback;
     } catch {
       return fallback;
     }
@@ -2108,10 +2854,13 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     } catch {
     }
   };
+  var savedPrefs = load(KEYS.prefs, {});
   var state = {
     view: "home",
-    grade: load(KEYS.grade, "all"),
     category: "all",
+    grade: "all",
+    volume: "all",
+    scope: "all",
     keyword: "",
     favorites: new Set(load(KEYS.favorites, [])),
     read: new Set(load(KEYS.read, [])),
@@ -2119,33 +2868,35 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     quiz: false,
     quizIndex: 0,
     quizChoice: null,
-    toastTimer: null
+    toastTimer: null,
+    ...savedPrefs
   };
   var categoryMap = Object.fromEntries(categories.map((c) => [c.id, c]));
   var esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  var categoryStyle = (c) => `--cat-color:${c.color};--cat-soft:${c.soft}`;
+  var categoryStyle = (c) => "--cat-color:" + c.color + ";--cat-soft:" + c.soft;
+  var scopeOf = (item) => scopeLabels[item.scopeType] || scopeLabels.classic;
+  function savePrefs() {
+    save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope });
+  }
   function toast(message, iconName = "check") {
     const el = document.querySelector("#toast");
     if (!el) return;
     clearTimeout(state.toastTimer);
-    el.innerHTML = `${icon(iconName, 15)}<span>${esc(message)}</span>`;
+    el.innerHTML = icon(iconName, 15) + "<span>" + esc(message) + "</span>";
     el.classList.add("show");
     state.toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
-  }
-  function persistFavorites() {
-    save(KEYS.favorites, [...state.favorites]);
   }
   function toggleFavorite(id, event) {
     event?.stopPropagation();
     event?.preventDefault();
     if (state.favorites.has(id)) {
       state.favorites.delete(id);
-      toast("\u5DF2\u4ECE\u6536\u85CF\u4E2D\u79FB\u9664", "heart");
+      toast("\u5DF2\u53D6\u6D88\u6536\u85CF", "heart");
     } else {
       state.favorites.add(id);
       toast("\u5DF2\u52A0\u5165\u6536\u85CF", "heart");
     }
-    persistFavorites();
+    save(KEYS.favorites, [...state.favorites]);
     render();
   }
   function markRead(id) {
@@ -2154,132 +2905,67 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
       save(KEYS.read, [...state.read]);
     }
   }
+  function updateFilter(patch) {
+    Object.assign(state, patch);
+    savePrefs();
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function clearFilters() {
+    Object.assign(state, { category: "all", grade: "all", volume: "all", scope: "all", keyword: "" });
+    savePrefs();
+    render();
+  }
   function topbar() {
-    return `<header class="topbar">
-    <a class="brand" href="#/" aria-label="\u56DE\u5230\u9996\u9875">
-      <span class="brand-seal">\u5B66</span>
-      <span><span class="brand-name">\u56FD\u5B66\u542F\u8499</span><span class="brand-sub">CHINESE CLASSICS</span></span>
-    </a>
-    <div class="top-actions">
-      <button class="search-btn" data-go="search" aria-label="\u641C\u7D22\u5B66\u4E60\u5185\u5BB9">${icon("search", 17)}<span class="search-label">\u641C\u7D22\u7BC7\u76EE\u4E0E\u77E5\u8BC6\u70B9</span><kbd>/</kbd></button>
-      <button class="icon-btn ${state.favorites.size ? "active" : ""}" data-go="favorites" aria-label="\u6211\u7684\u6536\u85CF">${icon("heart", 19)}</button>
-    </div>
-  </header>`;
+    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span><span class="brand-name">\u56FD\u5B66\u542F\u8499</span><span class="brand-sub">2026 \u7EDF\u7F16\u7248 \xB7 \u5C0F\u5B66\u8BED\u6587</span></span></a><div class="top-actions"><button class="search-btn" data-go="search" aria-label="\u641C\u7D22">' + icon("search", 17) + '<span class="search-label">\u641C\u7D22\u7BC7\u76EE</span></button><button class="icon-btn ' + (state.favorites.size ? "active" : "") + '" data-go="favorites" aria-label="\u6536\u85CF">' + icon("heart", 19) + "</button></div></header>";
   }
   function nav() {
-    const is = (v) => state.view === v ? "active" : "";
-    return `<nav class="bottom-nav" aria-label="\u4E3B\u5BFC\u822A">
-    <button class="nav-item ${is("home")}" data-go="home">${icon("home", 19)}<span>\u9996\u9875</span></button>
-    <button class="nav-item ${is("search")}" data-go="search">${icon("search", 19)}<span>\u67E5\u8BE2</span></button>
-    <button class="nav-fab" data-go="random" aria-label="\u968F\u673A\u8BFB\u4E00\u7BC7">${icon("sparkle", 21)}</button>
-    <button class="nav-item ${is("favorites")}" data-go="favorites">${icon("heart", 19)}<span>\u6536\u85CF</span></button>
-    <button class="nav-item ${is("detail")}" data-go="random" aria-label="\u4ECA\u65E5\u4E00\u8BFB">${icon("book", 19)}<span>\u9605\u8BFB</span></button>
-  </nav>`;
+    const active = (v) => state.view === v ? "active" : "";
+    return '<nav class="bottom-nav" aria-label="\u4E3B\u5BFC\u822A"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 19) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 19) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A\u8BFB\u4E00\u7BC7">' + icon("sparkle", 20) + '</button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 19) + "<span>\u6536\u85CF</span></button></nav>";
   }
-  function card(item) {
+  function categoryHub() {
+    return '<div class="category-hub">' + categories.map((c) => {
+      const count = items.filter((i) => i.category === c.id).length;
+      const selected = state.category === c.id;
+      return '<button class="hub-card ' + (selected ? "active" : "") + '" style="' + categoryStyle(c) + '" data-category="' + c.id + '"><span class="hub-icon">' + icon(c.icon, 20) + '</span><span class="hub-main"><b>' + c.name + "</b><small>" + c.description + '</small></span><span class="hub-count">' + count + "</span></button>";
+    }).join("") + "</div>";
+  }
+  function gradeChips() {
+    return '<div class="quick-chips">' + [{ id: "all", label: "\u5168\u5E74\u7EA7" }, ...grades.map((g) => ({ id: String(g.grade), label: g.grade + "\u5E74\u7EA7" }))].map((g) => '<button class="quick-chip ' + (state.grade === g.id ? "active" : "") + '" data-grade="' + g.id + '">' + g.label + "</button>").join("") + "</div>";
+  }
+  function volumeChips() {
+    return '<div class="segment-row">' + volumeOptions.map((v) => '<button class="segment ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + "</div>";
+  }
+  function scopeChips() {
+    return '<div class="quick-chips scope-chips">' + [{ id: "all", label: "\u5168\u90E8\u6765\u6E90" }, { id: "textbook", label: "\u7EDF\u7F16\u8BFE\u6587" }, { id: "garden", label: "\u8BED\u6587\u56ED\u5730" }, { id: "classic", label: "\u8BFE\u5916\u56FD\u5B66" }].map((s) => '<button class="quick-chip ' + (state.scope === s.id ? "active" : "") + '" data-scope="' + s.id + '">' + s.label + "</button>").join("") + "</div>";
+  }
+  function libraryCard(item) {
     const c = categoryMap[item.category];
     const favorite = state.favorites.has(item.id);
-    return `<article class="content-card" style="${categoryStyle(c)}" data-open="${esc(item.id)}" tabindex="0" role="button" aria-label="\u9605\u8BFB${esc(item.title)}">
-    <div class="content-thumb">${illustration(item.image, { small: true })}
-      <span class="thumb-label">${esc(item.categoryName)}</span>
-      <span class="thumb-grade">${item.grade}\u5E74</span>
-      <button class="favorite-btn ${favorite ? "active" : ""}" data-fav="${esc(item.id)}" aria-label="${favorite ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF"}${esc(item.title)}">${icon("heart", 15)}</button>
-    </div>
-    <div class="content-body">
-      <h3 class="content-title">${esc(item.title)}</h3>
-      <div class="content-author">${esc(item.dynasty)} \xB7 ${esc(item.author)}</div>
-      <p class="content-excerpt">${esc(item.excerpt)}</p>
-      <div class="content-bottom"><div class="content-tags">${(item.tags || []).slice(0, 1).map((tag) => `<span class="content-tag">${esc(tag)}</span>`).join("")}</div><span class="content-arrow">${icon("arrow", 15)}</span></div>
-    </div>
-  </article>`;
-  }
-  function filteredItems() {
-    return searchItems(items, { grade: state.grade, category: state.category, keyword: state.keyword, favoriteIds: [...state.favorites] });
-  }
-  function gradeStrip() {
-    return `<div class="grade-strip" aria-label="\u6309\u5E74\u7EA7\u7B5B\u9009">
-    <button class="grade-card ${state.grade === "all" ? "selected" : ""}" data-grade="all" data-num="\u5168"><span class="g-label">\u5168\u5E74\u7EA7</span><span class="g-title">\u7ECF\u5178\u5171\u8BFB</span><span class="g-sub">\u4E03\u7C7B\u5185\u5BB9 \xB7 \u81EA\u7531\u63A2\u7D22</span><span class="g-arrow">${icon("arrow", 15)}</span></button>
-    ${grades.map((g) => `<button class="grade-card ${state.grade === String(g.grade) ? "selected" : ""}" data-grade="${g.grade}" data-num="${g.grade}"><span class="g-label">${g.label}</span><span class="g-title-alone">${esc(g.title)}</span><span class="g-sub">${esc(g.subtitle)}</span><span class="g-arrow">${icon("arrow", 15)}</span></button>`).join("")}
-  </div>`;
-  }
-  function categoryGrid() {
-    const current = filteredItems();
-    return `<div class="category-grid">${categories.map((c) => {
-      const count = current.filter((i) => i.category === c.id).length;
-      return `<button class="category-card" style="${categoryStyle(c)}" data-category="${c.id}"><span class="cat-icon">${icon(c.icon, 18)}</span><span class="cat-name">${c.name}</span><span class="cat-desc">${c.description}</span><span class="cat-footer"><span>${state.grade === "all" ? "\u5168\u5E74\u7EA7" : state.grade + "\u5E74\u7EA7"}</span><b>${count}</b></span></button>`;
-    }).join("")}</div>`;
-  }
-  function featured(item) {
-    if (!item) return "";
-    const c = categoryMap[item.category];
-    return `<article class="featured-card" data-open="${esc(item.id)}"><div class="featured-art">${illustration(item.image)}</div><div class="featured-content"><span class="featured-chip">\u4ECA\u65E5\u4E00\u8BFB \xB7 ${esc(c.name)}</span><h3 class="featured-title">${esc(item.title)}</h3><div class="featured-meta">${esc(item.dynasty)} \xB7 ${esc(item.author)} \xB7 ${item.grade}\u5E74\u7EA7</div><p class="featured-excerpt">${esc(item.excerpt)}</p><button class="featured-cta" data-open="${esc(item.id)}">\u5F00\u59CB\u8BF5\u8BFB ${icon("arrow", 15)}</button></div></article>`;
-  }
-  function quotePanel() {
-    const quote = items.find((i) => i.id === "lunyu-g1-xueer") || items[0];
-    return `<button class="quote-panel" data-open="${esc(quote.id)}"><span class="quote-source">\u8BBA\u8BED \xB7 \u5B66\u800C\u7BC7</span><blockquote>\u5B66\u800C\u65F6\u4E60\u4E4B\uFF0C<br>\u4E0D\u4EA6\u8BF4\u4E4E\uFF1F</blockquote><span class="quote-explain">\u5B66\u4E60\u5E76\u6309\u65F6\u6E29\u4E60\u3001\u5B9E\u8DF5\uFF0C\u5185\u5FC3\u81EA\u7136\u4F1A\u751F\u51FA\u559C\u60A6\u3002</span><span class="quote-arrow">${icon("arrow", 17)}</span></button>`;
-  }
-  function progressPanel() {
-    const readCount = items.filter((i) => state.read.has(i.id)).length;
-    const pct = Math.round(readCount / items.length * 100);
-    return `<button class="daily-progress" data-go="favorites"><span class="progress-ring" style="--percent:${pct}%"><span>${pct}%</span></span><span><h4>\u6211\u7684\u8BF5\u8BFB\u8DB3\u8FF9</h4><p>\u5DF2\u8BFB ${readCount} / ${items.length} \u7BC7 \xB7 \u6536\u85CF ${state.favorites.size} \u7BC7</p></span></button>`;
+    return '<article class="library-card" style="' + categoryStyle(c) + '" data-open="' + esc(item.id) + '" tabindex="0" role="button" aria-label="\u9605\u8BFB' + esc(item.title) + '"><div class="library-cover">' + illustration(item.image, { small: true }) + '<span class="list-grade">' + item.grade + '\u5E74</span></div><div class="library-info"><div class="library-kicker"><span class="source-badge ' + item.scopeType + '">' + esc(scopeOf(item).name) + "</span><span>" + esc(item.categoryName) + "</span></div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-meta"><span>' + item.gradeLabel + "</span><span>" + esc(item.tags && item.tags[0] || "") + '</span></div></div><button class="list-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="' + (favorite ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF") + '">' + icon("heart", 16) + "</button></article>";
   }
   function homeView() {
     const current = filteredItems();
-    const feature = items.find((i) => i.id === "poetry-g1-yonge") || items[0];
-    return `<main class="page-enter">
-    ${topbar()}
-    <section class="hero">
-      <div class="hero-art">${illustration("poetry-mountain-river")}</div>
-      <div class="hero-copy">
-        <span class="eyebrow">\u5C0F\u5B66\u56FD\u5B66 \xB7 \u5206\u7EA7\u9605\u8BFB</span>
-        <h1>\u8BA9\u7ECF\u5178\uFF0C<br>\u6210\u4E3A\u5B69\u5B50\u7684<span class="accent">\u65E5\u5E38</span>\u3002</h1>
-        <p class="hero-desc">\u4ECE\u4E00\u9996\u8BD7\u3001\u4E00\u4E2A\u6210\u8BED\u5230\u4E00\u6BB5\u5723\u8D24\u4E4B\u8A00\u3002\u6309\u5E74\u7EA7\u5FAA\u5E8F\u800C\u8BFB\uFF0C\u5728\u58F0\u97F3\u3001\u56FE\u753B\u4E0E\u6545\u4E8B\u91CC\uFF0C\u8BFB\u61C2\u4E2D\u56FD\u4EBA\u7684\u7CBE\u795E\u5E95\u8272\u3002</p>
-        <div class="hero-meta"><span><b>${items.length}</b>\u7BC7\u7CBE\u9009</span><span><b>6</b>\u4E2A\u5E74\u7EA7</span><span><b>7</b>\u7C7B\u56FD\u5B66</span><span><b>${categories.length * 2}</b>\u4E2A\u89C6\u9891\u5165\u53E3</span></div>
-        <button class="hero-start" data-scroll="grade-section">\u4ECE\u8FD9\u91CC\u5F00\u59CB ${icon("arrow", 17)}</button>
-      </div>
-      <span class="hero-stamp">\u7AE5\u8499<br>\u517B\u6B63</span>
-    </section>
-    <section class="section" id="grade-section">
-      <div class="section-head"><div class="section-title-wrap"><span class="section-index">01</span><h2 class="section-title">\u6309\u5E74\u7EA7\u9009\u8BFB</h2></div><span class="section-note">\u4ECE\u542F\u8499\u8BC6\u5B57\u5230\u7EFC\u5408\u8D4F\u6790\uFF0C\u5FAA\u5E8F\u6E10\u8FDB</span></div>
-      ${gradeStrip()}
-    </section>
-    <section class="section">
-      <div class="section-head"><div class="section-title-wrap"><span class="section-index">02</span><h2 class="section-title">\u4E03\u7C7B\u7ECF\u5178</h2></div><span class="section-note">\u53E4\u8BD7\u3001\u6210\u8BED\u3001\u5BD3\u8A00\u4E0E\u56FD\u5B66\u8499\u5B66</span></div>
-      ${categoryGrid()}
-    </section>
-    <section class="section">
-      <div class="section-head"><div class="section-title-wrap"><span class="section-index">03</span><h2 class="section-title">\u4ECA\u65E5\u4E66\u623F</h2></div><button class="text-link" data-go="random">\u6362\u4E00\u7BC7 ${icon("arrow", 14)}</button></div>
-      <div class="daily-layout">${featured(feature)}<div class="daily-side">${quotePanel()}${progressPanel()}</div></div>
-    </section>
-    <section class="section">
-      <div class="browse-panel">
-        <div class="browse-toolbar">
-          <div class="browse-topline"><div class="browse-heading"><h2>${state.grade === "all" ? "\u7ECF\u5178\u6587\u5E93" : state.grade + "\u5E74\u7EA7\u9009\u8BFB"}</h2><span class="result-count"><b>${current.length}</b> \u7BC7\u5185\u5BB9</span></div>
-            <div class="search-area"><div class="search-input-wrap">${icon("search", 17)}<input class="search-input" id="inline-search" value="${esc(state.keyword)}" placeholder="\u641C\u7BC7\u76EE\u3001\u4F5C\u8005\u3001\u5173\u952E\u8BCD" aria-label="\u641C\u7D22\u5F53\u524D\u6587\u5E93"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A\u641C\u7D22">${icon("close", 14)}</button></div></div>
-          </div>
-          <div class="filter-bar">${[{ id: "all", name: "\u5168\u90E8" }, ...categories].map((c) => `<button class="filter-chip ${state.category === c.id ? "active" : ""}" data-category="${c.id}">${c.name}<span>${c.id === "all" ? current.length : current.filter((i) => i.category === c.id).length}</span></button>`).join("")}</div>
-        </div>
-        <div class="browse-divider"></div>
-        <div class="browse-count-row"><span class="selected-query">${state.grade === "all" ? "\u5168\u90E8\u5E74\u7EA7" : state.grade + "\u5E74\u7EA7"} \xB7 ${state.category === "all" ? "\u5168\u90E8\u7BC7\u76EE" : categoryMap[state.category].name}${state.keyword ? ` \xB7 \u201C${esc(state.keyword)}\u201D` : ""}</span><span class="view-actions"><button class="small-icon-btn active" aria-label="\u5361\u7247\u89C6\u56FE">${icon("book", 16)}</button><button class="small-icon-btn" data-reset-filters aria-label="\u91CD\u7F6E\u7B5B\u9009">${icon("filter", 16)}</button></span></div>
-        <div class="content-grid" id="content-grid">${current.length ? current.map(card).join("") : `<div class="empty-state"><span class="empty-icon">${icon("search", 22)}</span><h3>\u6CA1\u6709\u627E\u5230\u76F8\u5173\u7BC7\u76EE</h3><p>\u8BD5\u8BD5\u6362\u4E00\u4E2A\u5173\u952E\u8BCD\uFF0C\u6216\u8005\u653E\u5BBD\u5E74\u7EA7\u4E0E\u5206\u7C7B\u6761\u4EF6\u3002</p><button class="btn btn-secondary" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>`}</div>
-      </div>
-    </section>
-    <footer class="footer-note"><span>\u56FD\u5B66\u542F\u8499 \xB7 \u5206\u7EA7\u9605\u8BFB\u4E0E\u68C0\u7D22</span><span>READ \xB7 LISTEN \xB7 UNDERSTAND</span></footer>
-  </main>${nav()}`;
+    const cat = state.category === "all" ? "\u5168\u90E8\u5185\u5BB9" : categoryMap[state.category].name;
+    const scope = state.scope === "all" ? "" : scopeLabels[state.scope] && scopeLabels[state.scope].name;
+    return '<main class="page-enter clean-home">' + topbar() + '<section class="home-intro"><div class="intro-copy"><span class="eyebrow">2026 \u7EDF\u7F16\u7248 \xB7 \u5C0F\u5B66\u8BED\u6587</span><h1>\u5148\u9009\u5185\u5BB9\uFF0C<br><em>\u518D\u9009\u5E74\u7EA7\u4E0E\u518C\u6B21\u3002</em></h1><p>\u53E4\u8BD7\u8BCD\u3001\u6210\u8BED\u3001\u5BD3\u8A00\u4E0E\u56FD\u5B66\u7ECF\u5178\uFF0C\u6309\u771F\u5B9E\u5E74\u7EA7\u548C\u4E0A/\u4E0B\u518C\u6574\u7406\u3002\u8BFE\u5185\u7BC7\u76EE\u3001\u8BED\u6587\u56ED\u5730\u4E0E\u8BFE\u5916\u56FD\u5B66\u5206\u5F00\u6807\u6CE8\u3002</p><div class="intro-stats"><span><b>' + items.length + '</b>\u7BC7\u5B66\u4E60\u8D44\u6599</span><span><b>12</b>\u518C\u6B21</span><span><b>7</b>\u7C7B\u5185\u5BB9</span></div></div><div class="intro-mark">\u8BED<br>\u6587</div></section><section class="home-section"><div class="section-head"><div class="section-title-wrap"><span class="section-index">01</span><h2 class="section-title">\u6309\u5185\u5BB9\u5206\u7C7B</h2></div><span class="section-note">\u5148\u9009\u5B66\u79D1\u5185\u5BB9</span></div>' + categoryHub() + '</section><section class="library-section" id="library"><div class="library-heading"><div><span class="eyebrow">\u5206\u7EA7\u68C0\u7D22</span><h2>' + cat + '</h2></div><span class="result-count"><b>' + current.length + '</b> \u7BC7</span></div><div class="library-search"><div class="search-input-wrap">' + icon("search", 17) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u641C\u8BD7\u53E5\u3001\u7BC7\u540D\u3001\u4F5C\u8005" aria-label="\u641C\u7D22\u5F53\u524D\u5206\u7C7B"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A\u641C\u7D22">' + icon("close", 14) + '</button></div></div><div class="filter-stack"><div class="filter-line"><span class="filter-label">\u5E74\u7EA7</span>' + gradeChips() + '</div><div class="filter-line"><span class="filter-label">\u518C\u6B21</span>' + volumeChips() + '</div><div class="filter-line"><span class="filter-label">\u6765\u6E90</span>' + scopeChips() + '</div></div><div class="library-toolbar"><span>' + (state.grade === "all" ? "\u5168\u5E74\u7EA7" : state.grade + "\u5E74\u7EA7") + " \xB7 " + (volumeOptions.find((v) => v.id === state.volume) || volumeOptions[0]).label + (scope ? " \xB7 " + scope : "") + '</span><button class="reset-link" data-reset-filters>\u91CD\u7F6E</button></div><div class="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><span class="empty-icon">' + icon("search", 22) + '</span><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><p>\u6362\u4E00\u4E2A\u5E74\u7EA7\u3001\u518C\u6B21\u6216\u5173\u952E\u8BCD\u8BD5\u8BD5\u3002</p><button class="btn btn-secondary" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + '</div></section><div class="source-note"><b>\u5173\u4E8E\u7248\u672C</b><p>\u53C2\u8003\u8D44\u6599\u6309 2026 \u7EDF\u7F16\u7248\uFF08\u4EBA\u6559\u7248\uFF09\u5C0F\u5B66\u8BED\u6587\u518C\u6B21\u6574\u7406\uFF1B\u201C\u8BED\u6587\u56ED\u5730\u201D\u548C\u201C\u8BFE\u5916\u56FD\u5B66\u201D\u4E0D\u8BA1\u4F5C\u6B63\u5F0F\u8BFE\u6587\u3002\u6559\u6750\u7BC7\u76EE\u53EF\u80FD\u56E0\u5730\u533A\u4F7F\u7528\u7248\u672C\u6216\u5370\u6B21\u5FAE\u8C03\uFF0C\u8BF7\u4EE5\u5B66\u6821\u5B9E\u9645\u8BFE\u672C\u4E3A\u51C6\u3002</p><a href="https://jc.pep.com.cn/?filed=%E5%B0%8F%E5%AD%A6&subject=%E8%AF%AD%E6%96%87" target="_blank" rel="noopener noreferrer">\u67E5\u770B\u4EBA\u6559\u793E\u6559\u6750\u4E2D\u5FC3 ' + icon("external", 13) + '</a></div><footer class="footer-note"><span>\u56FD\u5B66\u542F\u8499 \xB7 2026 \u7EDF\u7F16\u7248\u5B66\u4E60\u8D44\u6599</span><span>READ \xB7 LISTEN \xB7 UNDERSTAND</span></footer>' + nav() + "</main>";
+  }
+  function filteredItems() {
+    return searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword, favoriteIds: [...state.favorites] });
   }
   function splitLines(text) {
     return String(text || "").split(/\n+/).filter(Boolean);
   }
   function splitPairs(item) {
-    const lines = splitLines(item.excerpt);
-    const pys = splitLines(item.pinyin);
-    return lines.map((line, i) => ({ text: line, pinyin: pys[i] || "" }));
+    const textLines = splitLines(item.excerpt);
+    const pyLines = splitLines(item.pinyin);
+    return textLines.map((text, index) => ({ text, pinyin: pyLines[index] || "" }));
   }
   function relatedFor(item) {
     return items.filter((i) => i.id !== item.id).sort((a, b) => {
-      const score = (x) => (x.category === item.category ? 2 : 0) + (x.grade === item.grade ? 1 : 0);
+      const score = (x) => (x.category === item.category ? 3 : 0) + (x.grade === item.grade ? 2 : 0) + (x.volume === item.volume ? 1 : 0);
       return score(b) - score(a);
-    }).slice(0, 4);
+    }).slice(0, 3);
   }
   function detailView() {
     const item = items.find((i) => i.id === state.itemId);
@@ -2287,32 +2973,9 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     const c = categoryMap[item.category];
     const favorite = state.favorites.has(item.id);
     const pairs = splitPairs(item);
-    const isRead = state.read.has(item.id);
     const videoLinks = makeVideoLinks(item);
     const finder = mediaFinders[item.category];
-    return `<main class="page-enter">
-    ${topbar()}
-    <div class="detail-back"><button class="back-btn" data-go="home">${icon("back", 17)} \u8FD4\u56DE\u6587\u5E93</button><div class="detail-actions"><button class="icon-btn ${favorite ? "active" : ""}" data-fav="${esc(item.id)}" aria-label="${favorite ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF"}">${icon("heart", 19)}</button><button class="icon-btn" data-go="search" aria-label="\u641C\u7D22">${icon("search", 18)}</button></div></div>
-    <div class="detail-grid">
-      <article class="detail-main">
-        <section class="detail-hero" style="${categoryStyle(c)}">
-          <div class="detail-art">${illustration(item.image)}<span class="detail-art-caption">${esc(item.categoryName)} \xB7 ${item.grade}\u5E74\u7EA7 \xB7 \u5206\u7EA7\u8BFB\u672C</span></div>
-          <div class="detail-heading"><div class="detail-meta"><span class="badge">${esc(item.categoryName)}</span><span class="badge outline">${item.grade}\u5E74\u7EA7</span>${(item.tags || []).slice(0, 2).map((t) => `<span class="badge outline">${esc(t)}</span>`).join("")}</div><h1 class="detail-title">${esc(item.title)}</h1><div class="detail-author">${esc(item.dynasty)} \xB7 ${esc(item.author)}</div><p class="detail-lead">${esc(item.summary)}</p>
-          <div class="read-actions"><button class="btn btn-listen" data-speak="${esc(item.id)}" id="speak-btn">${icon("volume", 16)} \u6717\u8BFB\u5168\u6587</button><button class="btn btn-secondary" data-quiz="${esc(item.id)}">${icon("quiz", 16)} \u968F\u5802\u4E00\u95EE</button><button class="btn btn-secondary" data-copy="${esc(item.id)}">${icon("book", 16)} \u590D\u5236\u539F\u6587</button></div></div>
-        </section>
-        <section class="text-panel"><div class="panel-heading"><h2>\u539F\u6587\u4E0E\u62FC\u97F3</h2><span class="panel-hint">\u70B9\u51FB\u6717\u8BFB\uFF0C\u8DDF\u8BFB\u65F6\u6CE8\u610F\u505C\u987F</span></div><div class="original-lines">${pairs.map((pair) => `<div class="original-line"><div class="line-pinyin">${esc(pair.pinyin)}</div><div class="line-text">${esc(pair.text)}</div></div>`).join("")}</div><div class="annotation"><h3>\u5185\u5BB9\u63D0\u8981</h3><p>${esc(item.summary)}</p></div></section>
-        <section class="meaning-panel"><h3>${icon("book", 16)} \u767D\u8BDD\u8BD1\u6587</h3><p>${esc(item.meaning)}</p></section>
-        <section class="appreciation"><h3>\u8D4F\u6790\u4E0E\u542F\u53D1</h3><p>${esc(item.appreciation)}</p></section>
-        <section class="keywords"><h3>\u5173\u952E\u8BCD</h3><div class="keyword-row">${(item.keywords || []).map((k) => `<button class="keyword" data-go="search" data-search="${esc(k)}">${esc(k)}</button>`).join("")}</div><div class="quote-action">${icon("light", 15)} \u8BFB\u5B8C\u60F3\u4E00\u60F3\uFF1A\u8FD9\u7BC7\u5185\u5BB9\u6700\u9002\u5408\u7528\u5728\u54EA\u4E2A\u751F\u6D3B\u573A\u666F\uFF1F</div></section>
-      </article>
-      <aside class="detail-aside">
-        <section class="aside-card media-card"><h3>\u89C6\u9891\u8BFE\u5802</h3><p>${esc(finder?.label || "\u76F8\u5173\u89C6\u9891\u8BB2\u89E3")}\u3002\u70B9\u51FB\u540E\u5728\u65B0\u6807\u7B7E\u9875\u6253\u5F00\u5E73\u53F0\u641C\u7D22\u7ED3\u679C\uFF0C\u53EF\u81EA\u884C\u9009\u62E9\u7248\u672C\u3002</p><div class="media-list">${videoLinks.map((link) => `<a class="media-link" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer"><span class="media-mark">${link.name === "B\u7AD9" ? "B" : "\u6296"}</span><span class="media-text"><span class="media-name">${esc(link.label)}</span><span class="media-desc">${esc(finder?.note || "\u62D3\u5C55\u5B66\u4E60")}</span></span>${icon("external", 15)}</a>`).join("")}</div><p class="disclaimer">\u89C6\u9891\u94FE\u63A5\u4E3A\u52A8\u6001\u68C0\u7D22\uFF0C\u5185\u5BB9\u7248\u6743\u5F52\u539F\u4F5C\u8005\u6240\u6709\uFF1B\u6253\u5F00\u7ED3\u679C\u540E\u5728\u5E73\u53F0\u5185\u6311\u9009\u9002\u5408\u5B69\u5B50\u5E74\u9F84\u7684\u7248\u672C\u3002</p></section>
-        <section class="aside-card"><h3>\u540C\u5E74\u7EA7\u63A8\u8350</h3><div class="related-list">${relatedFor(item).map((r) => `<button class="related-item" data-open="${esc(r.id)}"><span class="related-thumb">${illustration(r.image, { small: true })}</span><span class="related-text"><span class="related-title">${esc(r.title)}</span><span class="related-meta">${esc(r.categoryName)} \xB7 ${r.grade}\u5E74\u7EA7</span></span></button>`).join("")}</div></section>
-        <div class="aside-tip"><strong>\u8BFB\u6CD5\u5EFA\u8BAE</strong>${item.grade <= 2 ? "\u5148\u542C\u4E00\u904D\uFF0C\u518D\u8DDF\u8BFB\u3002\u9047\u5230\u751F\u5B57\u770B\u62FC\u97F3\uFF0C\u4E0D\u5FC5\u4E00\u6B21\u80CC\u4F1A\u3002" : item.grade <= 4 ? "\u5148\u8BFB\u539F\u6587\uFF0C\u518D\u770B\u8BD1\u6587\u3002\u8BD5\u7740\u7528\u81EA\u5DF1\u7684\u8BDD\u590D\u8FF0\u6545\u4E8B\u6216\u8BD7\u4E2D\u753B\u9762\u3002" : "\u5173\u6CE8\u4F5C\u8005\u5199\u4E86\u4EC0\u4E48\u3001\u4E3A\u4EC0\u4E48\u8FD9\u6837\u5199\uFF0C\u6700\u540E\u8054\u7CFB\u751F\u6D3B\u5199\u4E00\u53E5\u611F\u53D7\u3002"}</div>
-      </aside>
-    </div>
-    <footer class="footer-note"><span>${esc(item.categoryName)} \xB7 ${esc(item.title)}</span><span>${isRead ? "\u5DF2\u8BFB" : "\u672A\u8BFB\u5B8C"} \xB7 \u56FD\u5B66\u542F\u8499</span></footer>
-  </main>${nav()}`;
+    return '<main class="page-enter detail-page">' + topbar() + '<div class="detail-back"><button class="back-btn" data-go="home">' + icon("back", 17) + ' \u8FD4\u56DE\u5206\u7C7B</button><div class="detail-actions"><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '">' + icon("heart", 19) + '</button><button class="icon-btn" data-go="search">' + icon("search", 18) + '</button></div></div><div class="detail-grid"><article class="detail-main"><section class="detail-hero" style="' + categoryStyle(c) + '"><div class="detail-art">' + illustration(item.image) + '<span class="detail-art-caption">' + esc(item.categoryName) + " \xB7 " + item.gradeLabel + '</span></div><div class="detail-heading"><div class="detail-meta"><span class="badge">' + esc(item.categoryName) + '</span><span class="badge outline">' + item.gradeLabel + '</span><span class="badge ' + item.scopeType + '">' + esc(item.scopeName) + '</span></div><h1 class="detail-title">' + esc(item.title) + '</h1><div class="detail-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><p class="source-line">' + esc(item.sourceLabel) + " \xB7 " + esc(item.edition) + '</p><p class="detail-lead">' + esc(item.summary) + '</p><div class="read-actions"><button class="btn btn-listen" data-speak="' + esc(item.id) + '" id="speak-btn">' + icon("volume", 16) + ' \u6717\u8BFB</button><button class="btn btn-secondary" data-quiz="' + esc(item.id) + '">' + icon("quiz", 16) + ' \u968F\u5802\u4E00\u95EE</button><button class="btn btn-secondary" data-copy="' + esc(item.id) + '">' + icon("book", 16) + ' \u590D\u5236</button></div></div></section><section class="text-panel"><div class="panel-heading"><h2>\u539F\u6587\u4E0E\u62FC\u97F3</h2><span class="panel-hint">\u8DDF\u8BFB\u65F6\u6CE8\u610F\u505C\u987F</span></div><div class="original-lines">' + pairs.map((pair) => '<div class="original-line"><div class="line-pinyin">' + esc(pair.pinyin) + '</div><div class="line-text">' + esc(pair.text) + "</div></div>").join("") + '</div></section><section class="meaning-panel"><h3>' + icon("book", 16) + " \u767D\u8BDD\u8BD1\u6587</h3><p>" + esc(item.meaning) + '</p></section><section class="appreciation"><h3>\u8D4F\u6790\u4E0E\u542F\u53D1</h3><p>' + esc(item.appreciation) + '</p></section><section class="keywords"><h3>\u5173\u952E\u8BCD</h3><div class="keyword-row">' + (item.keywords || []).map((k) => '<button class="keyword" data-search="' + esc(k) + '">' + esc(k) + "</button>").join("") + '</div></section></article><aside class="detail-aside"><section class="aside-card source-card"><h3>\u6559\u6750\u6765\u6E90</h3><p class="source-note-line">' + esc(item.sourceNote) + '</p><p class="source-scale">\u9002\u7528\u4E8E 2026 \u7EDF\u7F16\u7248\uFF08\u4EBA\u6559\u7248\uFF09\u5C0F\u5B66\u8BED\u6587\u5B66\u4E60\u3002\u4E0D\u540C\u5730\u533A\u7684\u6559\u6750\u5370\u6B21\u53EF\u80FD\u5FAE\u8C03\uFF0C\u8BF7\u4EE5\u5B66\u6821\u5B9E\u9645\u8BFE\u672C\u4E3A\u51C6\u3002</p><a href="https://jc.pep.com.cn/?filed=%E5%B0%8F%E5%AD%A6&subject=%E8%AF%AD%E6%96%87" target="_blank" rel="noopener noreferrer" class="source-link">\u6838\u5BF9\u4EBA\u6559\u793E\u6559\u6750 ' + icon("external", 14) + '</a></section><section class="aside-card media-card"><h3>\u89C6\u9891\u8BFE\u5802</h3><p>' + esc(finder && finder.label || "\u76F8\u5173\u8BB2\u89E3") + '</p><div class="media-list">' + videoLinks.map((link) => '<a class="media-link" href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer"><span class="media-mark">' + (link.name === "B\u7AD9" ? "B" : "\u6296") + '</span><span class="media-text"><span class="media-name">' + esc(link.label) + '</span><span class="media-desc">' + esc(finder && finder.note || "\u62D3\u5C55\u5B66\u4E60") + "</span></span>" + icon("external", 15) + "</a>").join("") + '</div></section><section class="aside-card"><h3>\u540C\u5E74\u7EA7\u63A8\u8350</h3><div class="related-list">' + relatedFor(item).map((r) => '<button class="related-item" data-open="' + esc(r.id) + '"><span class="related-thumb">' + illustration(r.image, { small: true }) + '</span><span class="related-text"><span class="related-title">' + esc(r.title) + '</span><span class="related-meta">' + r.gradeLabel + " \xB7 " + esc(r.categoryName) + "</span></span></button>").join("") + '</div></section><div class="aside-tip"><strong>\u8BFB\u6CD5\u5EFA\u8BAE</strong>' + (item.grade <= 2 ? "\u5148\u542C\u4E00\u904D\uFF0C\u518D\u8DDF\u8BFB\u3002\u9047\u5230\u751F\u5B57\u770B\u62FC\u97F3\uFF0C\u4E0D\u5FC5\u4E00\u6B21\u80CC\u4F1A\u3002" : item.grade <= 4 ? "\u5148\u8BFB\u539F\u6587\uFF0C\u518D\u770B\u8BD1\u6587\uFF0C\u8BD5\u7740\u590D\u8FF0\u8BD7\u4E2D\u753B\u9762\u6216\u6545\u4E8B\u3002" : "\u5173\u6CE8\u4F5C\u8005\u5199\u4E86\u4EC0\u4E48\u3001\u4E3A\u4EC0\u4E48\u8FD9\u6837\u5199\uFF0C\u518D\u8054\u7CFB\u751F\u6D3B\u8BF4\u611F\u53D7\u3002") + '</div></aside></div><footer class="footer-note"><span>' + esc(item.categoryName) + " \xB7 " + esc(item.title) + "</span><span>2026 \u7EDF\u7F16\u7248\u5B66\u4E60\u8D44\u6599</span></footer>" + nav() + "</main>";
   }
   function escapeRegex(value) {
     return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -2322,13 +2985,14 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     if (!query) return safe;
     return safe.replace(new RegExp("(" + escapeRegex(esc(query)) + ")", "gi"), "<mark>$1</mark>");
   }
+  function favoritesView() {
+    const allFav = items.filter((i) => state.favorites.has(i.id));
+    const readCount = items.filter((i) => state.read.has(i.id)).length;
+    return '<main class="page-enter">' + topbar() + '<div class="favorites-page"><div class="page-header"><div><span class="eyebrow">\u93B4\u6220\u6B91\u6D94\uFE3D\u57E7 \u8DEF \u701B\uFE3F\u7BC4\u74D2\u5BA0\u6297</span><h1>\u93C0\u60F0\u68CC\u6D93\u5EA4\u51BB\u6769?/h1><p>\u93C0\u60F0\u68CC\u9428\u52ED\u7612\u9429\uE1BB\u7D30\u6DC7\u6FC6\u74E8\u9366\u3126\u6E70\u93C8\u6052\u20AC?/p></div></div><div class="favorite-stats"><div class="favorite-stat"><b>' + allFav.length + '</b><span>\u7EE1\u56E8\u6579\u9498?/span></div><div class="favorite-stat"><b>' + readCount + "</b><span>\u7EE1\u56E7\u51E1\u7487?/span></div></div>" + (allFav.length ? '<div class="favorite-list">' + allFav.map((item) => '<article class="favorite-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="favorite-thumb">' + illustration(item.image, { small: true }) + '</span><span class="favorite-info"><h3>' + esc(item.title) + '</h3><span class="favorite-meta">' + item.gradeLabel + " \u8DEF " + esc(item.categoryName) + "</span><p>" + esc(item.summary) + "</p></span></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u6769\u6A3B\u75C5\u93C8\u590B\u6579\u9498?/h2><p>\u7487\u8BF2\u57CC\u9360\u6EC4\uE0BD\u9428\u52ED\u7612\u9429\uE1C6\u7D1D\u9410\u901B\u7AF4\u6D93\u5B2C\u57CD\u8E47\u51BF\u7D1D\u704F\u8FAB\u5158\u9366\u3128\u7E56\u95B2\u5C7E\u58D8\u9352\u822C\u20AC?/p><button class="btn btn-primary" data-go="home">\u9358\u5A5A\u20AC\u590B\u5AE8\u9350\u546D\uE190</button></div>') + '<footer class="footer-note"><span>\u93C0\u60F0\u68CC\u6D93\u5EA1\u51E1\u7487\u660F\uE187\u8930\u66DE\u5F67\u6DC7\u6FC6\u74E8\u9366\u3126\u6E70\u93C8\u70D8\u797B\u7459\u581D\u6AD2</span><span>MY LIBRARY</span></footer></div></main>' + nav();
+  }
   function searchView() {
-    const result = searchItems(items, { grade: state.grade, category: state.category, keyword: state.keyword, favoriteIds: [...state.favorites] });
-    const suggestions = ["\u6708\u4EAE", "\u6625\u5929", "\u5B66\u4E60", "\u5B5D\u4EB2", "\u575A\u6301", "\u674E\u767D", "\u8BBA\u8BED", "\u6210\u8BED"];
-    return '<main class="page-enter">' + topbar() + '<div class="search-page"><span class="eyebrow">\u68C0\u7D22 \xB7 \u53D1\u73B0 \xB7 \u8FDE\u63A5</span><h1>\u67E5\u4E00\u7BC7\uFF0C\u8BFB\u61C2\u5B83\u3002</h1><p class="search-lead">\u6309\u5E74\u7EA7\u3001\u5206\u7C7B\u6216\u5173\u952E\u8BCD\u67E5\u627E\u5185\u5BB9\uFF0C\u4E5F\u53EF\u4EE5\u76F4\u63A5\u641C\u7D22\u4F5C\u8005\u3001\u610F\u8C61\u548C\u751F\u6D3B\u4E3B\u9898\u3002</p><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8BD5\u8BD5\uFF1A\u6625\u5929\u3001\u674E\u767D\u3001\u5B66\u4E60\u3001\u6708\u4EAE\u2026\u2026" autocomplete="off" aria-label="\u641C\u7D22\u56FD\u5B66\u5185\u5BB9"><button class="search-submit" type="submit">\u68C0\u7D22</button></form><div class="search-suggestions"><span>\u8BD5\u8BD5</span>' + suggestions.map((s) => '<button class="suggestion-chip" data-search="' + esc(s) + '">' + esc(s) + "</button>").join("") + '</div><section class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options">' + [{ id: "all", name: "\u5168\u5E74\u7EA7" }, ...grades.map((g) => ({ id: String(g.grade), name: g.label }))].map((g) => '<button class="filter-option ' + (state.grade === g.id ? "active" : "") + '" data-grade="' + g.id + '">' + g.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options">' + [{ id: "all", name: "\u5168\u90E8" }, ...categories].map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div></section><div class="search-results-heading"><h2>' + (state.keyword ? "\u641C\u7D22\u7ED3\u679C" : "\u5168\u90E8\u5185\u5BB9") + "</h2><span>" + result.length + " \u7BC7 \xB7 " + (state.grade === "all" ? "\u5168\u5E74\u7EA7" : state.grade + "\u5E74\u7EA7") + '</span></div><div class="search-results-list">' + (result.length ? result.map((item) => {
-      const c = categoryMap[item.category];
-      return '<article class="search-result-card" style="' + categoryStyle(c) + '" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="search-result-thumb">' + illustration(item.image, { small: true }) + '</span><span class="search-result-text"><div class="search-result-title">' + highlight(item.title, state.keyword) + '</div><div class="search-result-meta">' + item.grade + "\u5E74\u7EA7 \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.dynasty) + " \xB7 " + highlight(item.author, state.keyword) + '</div><p class="search-result-summary">' + highlight(item.summary, state.keyword) + "</p></span></article>";
-    }).join("") : '<div class="empty-state"><span class="empty-icon">' + icon("search", 23) + '</span><h3>\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</h3><p>\u6362\u4E00\u4E2A\u66F4\u77ED\u7684\u5173\u952E\u8BCD\uFF0C\u6216\u6E05\u9664\u5E74\u7EA7\u548C\u5206\u7C7B\u7B5B\u9009\u540E\u518D\u8BD5\u3002</p><button class="btn btn-secondary" data-reset-filters>\u91CD\u7F6E\u7B5B\u9009</button></div>') + '</div><footer class="footer-note"><span>\u652F\u6301\u6807\u9898\u3001\u4F5C\u8005\u3001\u671D\u4EE3\u3001\u4E3B\u9898\u4E0E\u5173\u952E\u8BCD\u68C0\u7D22</span><span>SEARCH</span></footer></div></main>' + nav();
+    const result = searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword, favoriteIds: [...state.favorites] });
+    return '<main class="page-enter">' + topbar() + '<div class="search-page"><span class="eyebrow">\u68C0\u7D22 \xB7 \u6309\u5185\u5BB9\u4E0E\u518C\u6B21</span><h1>\u641C\u4E00\u7BC7\uFF0C\u8BFB\u61C2\u5B83\u3002</h1><p class="search-lead">\u652F\u6301\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u8BD7\u53E5\u548C\u4E3B\u9898\u3002\u53EF\u4EE5\u7EE7\u7EED\u7528\u5E74\u7EA7\u4E0E\u4E0A\u518C/\u4E0B\u518C\u7F29\u5C0F\u8303\u56F4\u3002</p><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8BD5\u8BD5\uFF1A\u674E\u767D\u3001\u6625\u5929\u3001\u6708\u4EAE\u3001\u5B66\u4E60" autocomplete="off" aria-label="\u641C\u7D22\u56FD\u5B66\u5185\u5BB9"><button class="search-submit" type="submit">\u68C0\u7D22</button></form><div class="search-suggestions"><span>\u8BD5\u8BD5</span>' + ["\u6708\u4EAE", "\u6625\u5929", "\u674E\u767D", "\u5B66\u4E60", "\u601D\u4E61", "\u6210\u8BED"].map((s) => '<button class="suggestion-chip" data-search="' + esc(s) + '">' + esc(s) + "</button>").join("") + '</div><section class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u5185\u5BB9</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u5E74\u7EA7</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u518C\u6B21</span><div class="filter-options">' + volumeOptions.map((v) => '<button class="filter-option ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + '</div></div></section><div class="search-results-heading"><h2>' + (state.keyword ? "\u641C\u7D22\u7ED3\u679C" : "\u5168\u90E8\u8D44\u6599") + "</h2><span>" + result.length + ' \u7BC7</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="search-result-thumb">' + illustration(item.image, { small: true }) + '</span><span class="search-result-text"><div class="search-result-title">' + highlight(item.title, state.keyword) + '</div><div class="search-result-meta">' + item.gradeLabel + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.scopeName) + '</div><p class="search-result-summary">' + highlight(item.summary, state.keyword) + "</p></span></article>").join("") : '<div class="empty-state"><span class="empty-icon">' + icon("search", 23) + '</span><h3>\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</h3><p>\u6362\u4E00\u4E2A\u66F4\u77ED\u7684\u5173\u952E\u8BCD\uFF0C\u6216\u6E05\u9664\u7B5B\u9009\u540E\u518D\u8BD5\u3002</p><button class="btn btn-secondary" data-reset-filters>\u91CD\u7F6E\u7B5B\u9009</button></div>') + '</div><footer class="footer-note"><span>\u652F\u6301\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u8BD7\u53E5\u4E0E\u4E3B\u9898\u68C0\u7D22</span><span>SEARCH</span></footer></div></main>' + nav();
   }
   function openItem(id) {
     state.itemId = id;
@@ -2345,25 +3009,13 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     const pool = filteredItems().length ? filteredItems() : items;
     openItem(pool[Math.floor(Math.random() * pool.length)].id);
   }
-  function resetFilters() {
-    state.grade = "all";
-    state.category = "all";
-    state.keyword = "";
-    save(KEYS.grade, "all");
-    render();
-  }
-  function favoritesView() {
-    const allFav = items.filter((i) => state.favorites.has(i.id));
-    const readCount = items.filter((i) => state.read.has(i.id)).length;
-    return '<main class="page-enter">' + topbar() + '<div class="favorites-page"><div class="page-header"><div><span class="eyebrow">\u6211\u7684\u4E66\u623F \xB7 \u5B66\u4E60\u8DB3\u8FF9</span><h1>\u6536\u85CF\u4E0E\u8DB3\u8FF9</h1><p>\u628A\u60F3\u518D\u8BFB\u4E00\u904D\u7684\u7BC7\u76EE\u7559\u5728\u8FD9\u91CC\u3002</p></div></div><div class="favorite-stats"><div class="favorite-stat"><b>' + allFav.length + '</b><span>\u7BC7\u6536\u85CF</span></div><div class="favorite-stat"><b>' + readCount + "</b><span>\u7BC7\u5DF2\u8BFB</span></div></div>" + (allFav.length ? '<div class="favorite-list">' + allFav.map((item) => '<article class="favorite-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="favorite-thumb">' + illustration(item.image, { small: true }) + '</span><span class="favorite-info"><h3>' + esc(item.title) + '</h3><span class="favorite-meta">' + item.grade + "\u5E74\u7EA7 \xB7 " + esc(item.categoryName) + "</span><p>" + esc(item.summary) + "</p></span></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u4E66\u623F\u91CC\u8FD8\u6CA1\u6709\u6536\u85CF</h2><p>\u8BFB\u5230\u559C\u6B22\u7684\u7BC7\u76EE\uFF0C\u70B9\u4E00\u4E0B\u7231\u5FC3\uFF0C\u5C31\u80FD\u5728\u8FD9\u91CC\u627E\u5230\u3002</p><button class="btn btn-primary" data-go="home">\u53BB\u6587\u5E93\u770B\u770B</button></div>') + '<footer class="footer-note"><span>\u6536\u85CF\u4E0E\u5DF2\u8BFB\u8BB0\u5F55\u4FDD\u5B58\u5728\u672C\u673A\u6D4F\u89C8\u5668</span><span>MY LIBRARY</span></footer></div></main>' + nav();
-  }
   function speakText(text) {
     if (!("speechSynthesis" in window)) {
-      toast("\u5F53\u524D\u6D4F\u89C8\u5668\u4E0D\u652F\u6301\u8BED\u97F3\u6717\u8BFB", "volume");
+      toast("\u4E0D\u652F\u6301\u8BED\u97F3\u6717\u8BFB", "volume");
       return;
     }
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text.replace(/\n/g, "\uFF0C"));
+    const u = new SpeechSynthesisUtterance(text.replace(/\n/g, String.fromCharCode(65292)));
     u.lang = "zh-CN";
     u.rate = 0.72;
     const btn = document.querySelector("#speak-btn");
@@ -2384,24 +3036,23 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
       document.execCommand("copy");
       done();
     } catch {
-      toast("\u590D\u5236\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u9009\u62E9", "book");
+      toast("\u590D\u5236\u5931\u8D25", "book");
     }
     ta.remove();
   }
   function copyOriginal(id) {
     const item = items.find((i) => i.id === id);
     if (!item) return;
-    const text = item.title + "\n" + item.excerpt + "\n\n" + item.meaning;
+    const text = item.title + "\n" + item.sourceLabel + "\n" + item.excerpt + "\n\n" + item.meaning;
     const done = () => toast("\u539F\u6587\u4E0E\u8BD1\u6587\u5DF2\u590D\u5236", "book");
     if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
     else fallbackCopy(text, done);
   }
   function quizData(item) {
-    const c = categoryMap[item.category];
     return [
-      { q: "\u8FD9\u7BC7\u5185\u5BB9\u5C5E\u4E8E\u54EA\u4E00\u7C7B\u56FD\u5B66\u7ECF\u5178\uFF1F", options: categories.map((x) => x.name), answer: c.name, explain: "\u8FD9\u662F" + c.name + "\u4E2D\u7684\u5185\u5BB9\u3002" },
-      { q: "\u8FD9\u7BC7\u5185\u5BB9\u9002\u5408\u54EA\u4E2A\u5E74\u7EA7\u9605\u8BFB\uFF1F", options: grades.map((g) => g.label), answer: item.grade + "\u5E74\u7EA7", explain: "\u672C\u5E94\u7528\u4E2D\u5C06\u5B83\u5B89\u6392\u5728" + item.grade + "\u5E74\u7EA7\u3002" },
-      { q: "\u8FD9\u7BC7\u5185\u5BB9\u7684\u4F5C\u8005\u6216\u51FA\u5904\u662F\uFF1F", options: [item.author, "\u9676\u6E0A\u660E", "\u53F8\u9A6C\u8FC1", "\u66F9\u96EA\u82B9"], answer: item.author, explain: "\u672C\u6587\u51FA\u81EA" + item.dynasty + "\u7684" + item.author + "\u3002" }
+      { q: "\u8FD9\u7BC7\u5185\u5BB9\u5C5E\u4E8E\u54EA\u4E00\u7C7B\uFF1F", options: categories.map((c) => c.name), answer: categoryMap[item.category].name, explain: "\u8FD9\u662F" + item.categoryName + "\u4E2D\u7684\u5185\u5BB9\u3002" },
+      { q: "\u5B83\u6807\u6CE8\u5728\u54EA\u4E2A\u5E74\u7EA7\u4E0E\u518C\u6B21\uFF1F", options: grades.map((g) => g.label + "\u4E0A\u518C").concat(grades.map((g) => g.label + "\u4E0B\u518C")), answer: item.gradeLabel, explain: "\u672C\u8D44\u6599\u6309" + item.gradeLabel + "\u6574\u7406\u3002" },
+      { q: "\u5B83\u7684\u6559\u6750\u6765\u6E90\u662F\u4EC0\u4E48\uFF1F", options: ["\u7EDF\u7F16\u8BFE\u6587", "\u8BED\u6587\u56ED\u5730", "\u8BFE\u5916\u56FD\u5B66"], answer: item.scopeName, explain: item.sourceNote + "\u3002" }
     ];
   }
   function openQuiz() {
@@ -2430,7 +3081,7 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
       render();
     } else {
       state.quiz = false;
-      toast("\u5B8C\u6210\u968F\u5802\u95EE\u7B54\uFF0C\u7EE7\u7EED\u4FDD\u6301", "star");
+      toast("\u5B8C\u6210\u968F\u5802\u95EE\u7B54", "star");
       render();
     }
   }
@@ -2443,9 +3094,10 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
       let cls = "";
       if (state.quizChoice !== null && opt === q.answer) cls = "correct";
       if (state.quizChoice === i && opt !== q.answer) cls = "incorrect";
-      return '<button class="quiz-option ' + cls + '" data-quiz-choice="' + i + '"><span class="option-mark">' + ("ABCD"[i] || "") + "</span>" + esc(opt) + "</button>";
+      return '<button class="quiz-option ' + cls + '" data-quiz-choice="' + i + '"><span class="option-mark">' + String.fromCharCode(65 + i) + "</span>" + esc(opt) + "</button>";
     }).join("");
-    return '<div class="reader-modal-backdrop" data-close-quiz><div class="reader-modal" role="dialog" aria-modal="true" aria-labelledby="quiz-title" data-stop-close><div class="modal-head"><h2 id="quiz-title">\u968F\u5802\u4E00\u95EE</h2><button class="icon-btn" data-close-quiz aria-label="\u5173\u95ED">' + icon("close", 19) + '</button></div><div class="modal-content"><div class="quiz-prompt">' + esc(q.q) + '</div><div class="quiz-options">' + options + "</div>" + (state.quizChoice !== null ? '<div class="quiz-feedback">' + (q.options[state.quizChoice] === q.answer ? "\u56DE\u7B54\u6B63\u786E\u3002" : "\u518D\u60F3\u4E00\u60F3\u3002") + " " + esc(q.explain) + "</div>" : "") + '<div class="quiz-footer"><span class="quiz-progress">\u7B2C ' + (state.quizIndex + 1) + " / " + qs.length + ' \u9898</span><button class="btn btn-primary" data-next-quiz>' + (state.quizIndex === qs.length - 1 ? "\u5B8C\u6210\u7EC3\u4E60" : "\u4E0B\u4E00\u9898") + "</button></div></div></div></div>";
+    const status = state.quizChoice === null ? "" : '<div class="quiz-feedback">' + (q.options[state.quizChoice] === q.answer ? "\u56DE\u7B54\u6B63\u786E\u3002" : "\u518D\u60F3\u4E00\u60F3\u3002") + " " + esc(q.explain) + "</div>";
+    return '<div class="reader-modal-backdrop"><div class="reader-modal" role="dialog" aria-modal="true"><div class="modal-head"><h2>\u968F\u5802\u4E00\u95EE</h2><button class="icon-btn" data-close-quiz aria-label="\u5173\u95ED">' + icon("close", 19) + '</button></div><div class="modal-content"><div class="quiz-prompt">' + esc(q.q) + '</div><div class="quiz-options">' + options + "</div>" + status + '<div class="quiz-footer"><span class="quiz-progress">\u7B2C ' + (state.quizIndex + 1) + " / " + qs.length + ' \u9898</span><button class="btn btn-primary" data-next-quiz>' + (state.quizIndex === qs.length - 1 ? "\u5B8C\u6210\u7EC3\u4E60" : "\u4E0B\u4E00\u9898") + "</button></div></div></div></div>";
   }
   function render() {
     document.body.classList.toggle("no-scroll", state.quiz);
@@ -2470,8 +3122,7 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     render();
   }
   document.addEventListener("click", (event) => {
-    if (event.target.closest("[data-stop-close]") && !event.target.closest("[data-close-quiz]")) return;
-    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-search],[data-speak],[data-copy],[data-quiz],[data-close-quiz],[data-quiz-choice],[data-next-quiz],[data-scroll]");
+    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-search],[data-speak],[data-copy],[data-quiz],[data-close-quiz],[data-quiz-choice],[data-next-quiz]");
     if (!el) return;
     if (el.dataset.fav) {
       toggleFavorite(el.dataset.fav, event);
@@ -2482,24 +3133,27 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
       return;
     }
     if (el.dataset.grade !== void 0) {
-      state.grade = el.dataset.grade;
-      state.category = "all";
-      save(KEYS.grade, state.grade);
-      render();
+      updateFilter({ grade: el.dataset.grade });
       return;
     }
     if (el.dataset.category !== void 0) {
-      state.category = el.dataset.category;
-      render();
+      updateFilter({ category: el.dataset.category });
+      return;
+    }
+    if (el.dataset.volume !== void 0) {
+      updateFilter({ volume: el.dataset.volume });
+      return;
+    }
+    if (el.dataset.scope !== void 0) {
+      updateFilter({ scope: el.dataset.scope });
       return;
     }
     if (el.dataset.clearSearch !== void 0) {
-      state.keyword = "";
-      render();
+      updateFilter({ keyword: "" });
       return;
     }
     if (el.dataset.resetFilters !== void 0) {
-      resetFilters();
+      clearFilters();
       return;
     }
     if (el.dataset.search !== void 0) {
@@ -2533,21 +3187,14 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
       nextQuiz();
       return;
     }
-    if (el.dataset.scroll) {
-      document.getElementById(el.dataset.scroll)?.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
     if (el.dataset.go) {
-      const v = el.dataset.go;
-      if (v === "random") {
+      const view = el.dataset.go;
+      if (view === "random") {
         randomItem();
         return;
       }
-      state.keyword = "";
-      state.grade = "all";
-      state.category = "all";
-      state.view = v;
-      location.hash = v === "home" ? "" : v;
+      state.view = view;
+      location.hash = view === "home" ? "" : view;
       render();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -2556,8 +3203,10 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     if (event.target.id === "inline-search") {
       state.keyword = event.target.value;
       const current = filteredItems();
-      const grid = document.querySelector("#content-grid");
-      if (grid) grid.innerHTML = current.length ? current.map(card).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u76F8\u5173\u7BC7\u76EE</h3><p>\u8BD5\u8BD5\u5176\u4ED6\u5173\u952E\u8BCD\u3002</p></div>';
+      const list = document.querySelector(".library-list");
+      if (list) list.innerHTML = current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><p>\u8BD5\u8BD5\u5176\u4ED6\u5173\u952E\u8BCD\u3002</p></div>';
+      const count = document.querySelector(".result-count b");
+      if (count) count.textContent = current.length;
     }
   });
   document.addEventListener("keydown", (event) => {
@@ -2584,8 +3233,6 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
   window.addEventListener("hashchange", route);
   route();
 })();
-
-    </script>
-</string>
+</script>
 </body>
 </html>
