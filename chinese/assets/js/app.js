@@ -1619,17 +1619,9 @@
 
   var refState = { tab: 'stroke', strokes: null, radicals: null };
 
-  /** 用真实笔画轮廓渲染字形（SVG），比字体符号可靠 */
-  /** 笔画示意：教材印刷体填充轮廓（data = {d:路径, t:[tx,ty,scale]}） */
-  function glyphHtml(glyph, data) {
-    if (!data) return '<div class="glyph-cell">' + glyph + '</div>';
-    if (data.d) {
-      var t = data.t || [0, 0, 1];
-      return '<div class="glyph-cell">' +
-        '<svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true">' +
-        '<g transform="translate(' + t[0] + ',' + t[1] + ') scale(' + t[2] + ')">' +
-        '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="evenodd"/></g></svg></div>';
-    }
+  /** 笔画示意：直接用字体里的标准笔画字形（HanziStroke） */
+  function glyphHtml(glyph) {
+    if (!glyph) return '<div class="glyph-cell"></div>';
     return '<div class="glyph-cell">' + glyph + '</div>';
   }
 
@@ -1643,8 +1635,8 @@
       ex += '<span data-ch="' + examples[i] + '">' + examples[i] + '</span>';
     }
     return '<div class="ref-row">' +
-      glyphHtml(glyph, svg) +
-      '<div>' + name + '</div>' +
+      glyphHtml(glyph) +
+      '<div class="name-cell">' + name + '</div>' +
       '<div class="ex">' + ex + '</div>' +
       '</div>';
   }
