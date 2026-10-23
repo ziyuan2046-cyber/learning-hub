@@ -1626,9 +1626,9 @@
     if (data.d) {
       var t = data.t || [0, 0, 1];
       return '<div class="glyph-cell">' +
-        '<svg viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">' +
+        '<svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true">' +
         '<g transform="translate(' + t[0] + ',' + t[1] + ') scale(' + t[2] + ')">' +
-        '<path d="' + data.d + '" fill="#222" fill-rule="evenodd"/></g></svg></div>';
+        '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="evenodd"/></g></svg></div>';
     }
     return '<div class="glyph-cell">' + glyph + '</div>';
   }
