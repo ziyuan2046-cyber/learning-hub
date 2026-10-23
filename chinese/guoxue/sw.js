@@ -1,4 +1,4 @@
-const CACHE = 'guoxue-20261023-v4-packs';
+const CACHE = 'guoxue-20261023-v5-packs';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   './assets/icon-192.png', './assets/icon-512.png'
