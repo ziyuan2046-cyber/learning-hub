@@ -1,127 +1,243 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f3f2ed" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="学习空间：语文汉字笔顺、国学启蒙、一年级英语与数学学习应用统一入口。">
-  <title>学习空间 · 语文 / 英语 / 数学</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="./icon-192.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="学习空间">
-  <link rel="stylesheet" href="./styles.css?v=20261022e">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071018">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="学习空间：汉字、国学、英语与数学学习入口。">
+<title>学习空间</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<style>
+:root{
+  --bg:#071018;--panel:#0d1b24;--panel-2:#10242d;--line:rgba(121,208,222,.16);--line-strong:rgba(121,226,237,.34);
+  --text:#effcff;--muted:#83a6b0;--cyan:#61e6da;--cyan-deep:#083b3b;--blue:#87bfff;--blue-deep:#0a2942;
+  --slate:#7c99a5;--slate-deep:#16272f;--danger:#e6b98d;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;--ease:cubic-bezier(.2,.8,.2,1)
+}
+*{box-sizing:border-box}
+html{height:100%;-webkit-text-size-adjust:100%}
+body{
+  margin:0;min-width:280px;min-height:100vh;min-height:100dvh;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(620px 460px at 92% -8%,rgba(72,213,205,.13),transparent 68%),
+    radial-gradient(520px 380px at 4% 102%,rgba(66,125,197,.11),transparent 68%),
+    linear-gradient(135deg,#071018 0%,#08141b 55%,#0a171f 100%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.32;
+  background-image:linear-gradient(rgba(126,217,228,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(126,217,228,.055) 1px,transparent 1px);
+  background-size:44px 44px;mask-image:linear-gradient(to bottom,#000 0%,transparent 88%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,transparent 88%)
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+a,button{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.skip{position:fixed;left:14px;top:-80px;z-index:30;padding:10px 14px;border-radius:8px;background:var(--cyan);color:#041012;font-size:14px}
+.skip:focus{top:14px}
+.shell{width:min(1120px,calc(100% - 34px));min-height:100vh;min-height:100dvh;margin:0 auto;display:flex;flex-direction:column;padding-top:calc(16px + var(--safe-top));padding-bottom:calc(16px + var(--safe-bottom))}
+.top{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:52px}
+.brand{display:inline-flex;align-items:center;gap:12px;border-radius:10px}
+.logo{position:relative;width:42px;height:42px;flex:0 0 auto;border:1px solid rgba(97,230,218,.38);border-radius:12px;background:linear-gradient(145deg,rgba(14,48,54,.95),rgba(8,24,31,.95));box-shadow:inset 0 0 18px rgba(97,230,218,.07)}
+.logo i{position:absolute;display:block;bottom:10px;width:4px;border-radius:4px;background:var(--cyan);box-shadow:0 0 12px rgba(97,230,218,.5)}
+.logo i:nth-child(1){height:9px;left:11px;opacity:.55}.logo i:nth-child(2){height:20px;left:19px}.logo i:nth-child(3){height:13px;left:27px;opacity:.8}
+.brand-name{font-size:20px;font-weight:750;letter-spacing:.08em}
+.qr-trigger{min-height:46px;padding:0 15px 0 11px;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(97,230,218,.28);border-radius:10px;background:rgba(12,30,38,.78);color:#cceff1;font-size:14px;font-weight:650;cursor:pointer;transition:border-color .2s,background .2s,transform .2s var(--ease)}
+.qr-trigger:hover{border-color:rgba(97,230,218,.58);background:rgba(16,43,51,.95)}
+.qr-trigger:active{transform:scale(.97)}
+.qr-trigger svg{width:22px;height:22px;fill:none;stroke:var(--cyan);stroke-width:1.7}
+.main{flex:1 1 auto;min-height:0;display:flex;align-items:center;padding:28px 0}
+.layout{width:100%;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.heading{min-width:0}
+.heading h1{margin:0;font-size:clamp(38px,9.2vw,58px);line-height:1.08;font-weight:800;letter-spacing:-.055em;white-space:nowrap}
+.heading h1 span{color:var(--cyan)}
+.rail{display:none}
+.subjects{min-width:0;display:flex;flex-direction:column;gap:14px}
+.group-head{display:flex;align-items:center;gap:10px;padding:0 3px;min-height:30px}
+.group-head::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(97,230,218,.08),0 0 16px rgba(97,230,218,.4)}
+.group-head h2{margin:0;font-size:19px;line-height:1;font-weight:700;letter-spacing:.08em;color:#cceff1}
+.group-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{position:relative;display:flex;align-items:center;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(16,40,49,.95),rgba(8,20,27,.96));box-shadow:0 18px 44px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.025);transition:transform .22s var(--ease),border-color .22s,background .22s,box-shadow .22s}
+.tile::after{content:"";position:absolute;right:-52px;top:-65px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(97,230,218,.13),transparent 68%);pointer-events:none}
+.tile:hover{transform:translateY(-2px);border-color:var(--line-strong);box-shadow:0 22px 48px rgba(0,0,0,.34),0 0 0 1px rgba(97,230,218,.05)}
+.tile:active{transform:scale(.985)}
+.tile-icon{flex:0 0 auto;display:grid;place-items:center;border:1px solid rgba(97,230,218,.19);border-radius:12px;background:rgba(7,31,36,.9);color:var(--cyan);font-size:27px;font-weight:650;line-height:1;box-shadow:inset 0 0 20px rgba(97,230,218,.055)}
+.tile-title{display:block;font-weight:750;line-height:1.15;letter-spacing:-.02em}
+.tile-sub{display:block;margin-top:5px;color:var(--muted);font-size:13px;line-height:1.35;font-weight:500;letter-spacing:.02em}
+.mini{min-height:142px;padding:16px;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:18px}
+.mini .tile-icon{width:45px;height:45px;font-size:24px}
+.mini .tile-title{font-size:28px}
+.mini .tile-sub{font-size:13px}
+.mini .chevron{position:absolute;right:14px;bottom:17px}
+.tile-guoxue{--line:rgba(104,184,201,.2)}
+.wide{min-height:106px;padding:15px 18px;gap:16px}
+.wide .tile-icon{width:56px;height:56px;font-size:28px;border-radius:15px}
+.wide .tile-title{font-size:29px}
+.wide .tile-sub{font-size:14px}
+.chevron{width:25px;height:25px;margin-left:auto;flex:0 0 auto;border:1px solid rgba(97,230,218,.24);border-radius:50%;position:relative;background:rgba(97,230,218,.035)}
+.chevron::before{content:"";position:absolute;width:7px;height:7px;left:8px;top:8px;border-top:1.8px solid var(--cyan);border-right:1.8px solid var(--cyan);transform:rotate(45deg)}
+.english{border-color:rgba(128,179,236,.2)}
+.english::after{background:radial-gradient(circle,rgba(96,155,224,.14),transparent 68%)}
+.english .tile-icon{border-color:rgba(128,179,236,.2);background:rgba(9,30,47,.88);color:var(--blue)}
+.english .chevron{border-color:rgba(128,179,236,.28)}
+.english .chevron::before{border-color:var(--blue)}
+.math{color:#91a4ac;border-color:rgba(126,150,160,.12);background:linear-gradient(145deg,rgba(16,29,36,.88),rgba(10,19,24,.9));cursor:not-allowed;box-shadow:none}
+.math::after{display:none}
+.math .tile-icon{color:var(--slate);border-color:rgba(126,150,160,.12);background:rgba(19,33,40,.8);box-shadow:none}
+.math .tile-sub{color:#6f858e}
+.math .chevron{width:23px;height:23px;border-color:rgba(126,150,160,.15)}
+.math .chevron::before{width:6px;height:6px;left:8px;top:7px;border-color:#6f858e;border-radius:0}
+.status{position:absolute;right:17px;top:16px;color:#72858d;font-size:11px;letter-spacing:.08em}
+.dialog{width:min(430px,calc(100% - 30px));padding:24px;border:1px solid rgba(97,230,218,.25);border-radius:20px;background:linear-gradient(155deg,#10232c,#09151c);color:var(--text);box-shadow:0 32px 100px rgba(0,0,0,.6)}
+.dialog::backdrop{background:rgba(1,7,10,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.dialog-close{position:absolute;right:13px;top:13px;width:36px;height:36px;border:1px solid rgba(121,208,222,.18);border-radius:50%;background:transparent;color:#b5dce1;font-size:23px;line-height:1;cursor:pointer}
+.dialog h2{margin:0 0 18px;font-size:25px;letter-spacing:-.02em;padding-right:28px}
+.qr-wrap{display:grid;place-items:center;min-height:220px;border:1px solid rgba(97,230,218,.15);border-radius:14px;background:#fff;padding:10px}
+.qr-image{display:block;width:min(100%,260px);height:auto;border-radius:4px}
+.qr-loading{display:none;color:#16323a;font-size:14px}
+.qr-url{margin:13px 0;text-align:center;color:var(--muted);font-size:12px;line-height:1.6;word-break:break-all}
+.copy{width:100%;min-height:48px;border:1px solid rgba(97,230,218,.35);border-radius:11px;background:rgba(97,230,218,.1);color:var(--cyan);font-size:15px;font-weight:650;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(22px + var(--safe-bottom));z-index:40;transform:translate(-50%,10px);opacity:0;padding:10px 16px;border:1px solid rgba(97,230,218,.25);border-radius:999px;background:#10242d;color:var(--cyan);font-size:13px;transition:opacity .2s,transform .2s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.noscript{position:fixed;left:50%;bottom:15px;transform:translateX(-50%);padding:10px 14px;border-radius:8px;background:#132b34;color:#cceff1;font-size:12px}
+@media(max-width:620px){
+  .shell{width:calc(100% - 26px);padding-top:calc(12px + var(--safe-top));padding-bottom:calc(12px + var(--safe-bottom))}
+  .top{min-height:46px}
+  .logo{width:38px;height:38px;border-radius:11px}.logo i{bottom:9px}.logo i:nth-child(1){height:8px;left:10px}.logo i:nth-child(2){height:18px;left:17px}.logo i:nth-child(3){height:12px;left:24px}
+  .brand{gap:9px}.brand-name{font-size:17px;letter-spacing:.05em}
+  .qr-trigger{min-height:42px;padding:0 12px 0 9px;font-size:12px;gap:6px}.qr-trigger svg{width:20px;height:20px}
+  .main{padding:17px 0;align-items:center}.layout{gap:20px}
+  .heading h1{font-size:clamp(31px,9.2vw,42px)}
+  .subjects{gap:10px}.group-head{min-height:25px}.group-head h2{font-size:17px}
+  .group-grid{gap:9px}.mini{min-height:132px;padding:14px;border-radius:16px}.mini .tile-icon{width:42px;height:42px;font-size:22px}.mini .tile-title{font-size:26px}.mini .tile-sub{font-size:12px}
+  .wide{min-height:94px;padding:13px 15px;gap:13px;border-radius:16px}.wide .tile-icon{width:50px;height:50px;font-size:25px;border-radius:14px}.wide .tile-title{font-size:27px}.wide .tile-sub{font-size:12.5px}
+  .status{font-size:10px;right:14px;top:13px}
+  .dialog{padding:20px;border-radius:18px}.dialog h2{font-size:23px}
+}
+@media(max-width:350px){
+  .shell{width:calc(100% - 22px)}.brand-name{font-size:16px}.qr-trigger span{display:none}.qr-trigger{padding:0 11px}
+  .mini{min-height:122px;padding:12px}.mini .tile-icon{width:38px;height:38px;font-size:20px}.mini .tile-title{font-size:23px}.mini .tile-sub{font-size:11px}
+  .wide{min-height:86px;padding:11px 12px}.wide .tile-icon{width:46px;height:46px;font-size:23px}.wide .tile-title{font-size:24px}.wide .tile-sub{font-size:11px}
+}
+@media(max-height:650px) and (max-width:620px){
+  .main{padding:8px 0}.layout{gap:13px}.heading h1{font-size:30px}.subjects{gap:7px}.group-head{min-height:20px}.group-head h2{font-size:15px}
+  .mini{min-height:105px;padding:10px}.mini .tile-icon{width:34px;height:34px;font-size:18px}.mini .tile-title{font-size:21px}.mini .tile-sub{font-size:10px;margin-top:2px}
+  .wide{min-height:72px;padding:9px 11px;gap:10px}.wide .tile-icon{width:41px;height:41px;font-size:21px;border-radius:11px}.wide .tile-title{font-size:22px}.wide .tile-sub{font-size:10px;margin-top:2px}
+  .chevron{width:21px;height:21px}.chevron::before{width:6px;height:6px;left:6px;top:6px}.status{display:none}
+}
+@media(min-width:621px){
+  .main{padding:24px 0}.layout{grid-template-columns:minmax(190px,.62fr) minmax(430px,1.38fr);align-items:center;gap:clamp(40px,7vw,95px)}
+  .heading h1{font-size:clamp(50px,6vw,76px);max-width:7.5em}
+  .subjects{gap:15px}.group-head{min-height:32px}.group-head h2{font-size:21px}
+  .group-grid{gap:14px}.mini{min-height:176px;padding:22px;border-radius:22px}.mini .tile-icon{width:56px;height:56px;font-size:29px;border-radius:14px}.mini .tile-title{font-size:34px}.mini .tile-sub{font-size:15px}
+  .wide{min-height:124px;padding:19px 22px;gap:20px;border-radius:22px}.wide .tile-icon{width:68px;height:68px;font-size:33px;border-radius:18px}.wide .tile-title{font-size:36px}.wide .tile-sub{font-size:15px}
+  .chevron{width:30px;height:30px}.chevron::before{width:8px;height:8px;left:10px;top:10px}
+  .status{right:22px;top:20px;font-size:12px}
+}
+@media(min-width:621px) and (max-height:620px){
+  .main{padding:7px 0}.heading h1{font-size:clamp(38px,4.7vw,56px)}.subjects{gap:9px}.group-head{min-height:23px}.group-head h2{font-size:17px}
+  .mini{min-height:118px;padding:14px;border-radius:17px}.mini .tile-icon{width:42px;height:42px;font-size:22px}.mini .tile-title{font-size:26px}.mini .tile-sub{font-size:12px}
+  .wide{min-height:84px;padding:11px 16px;border-radius:17px}.wide .tile-icon{width:49px;height:49px;font-size:25px;border-radius:13px}.wide .tile-title{font-size:27px}.wide .tile-sub{font-size:12px}
+  .chevron{width:24px;height:24px}.chevron::before{width:7px;height:7px;left:8px;top:8px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(orientation:landscape) and (max-height:560px) and (max-width:900px){
+  .shell{padding-top:calc(8px + var(--safe-top));padding-bottom:calc(8px + var(--safe-bottom))}
+  .top{min-height:36px}.logo{width:32px;height:32px;border-radius:9px;padding:0}.logo i{bottom:7px}.logo i:nth-child(1){height:7px;left:8px}.logo i:nth-child(2){height:16px;left:14px}.logo i:nth-child(3){height:10px;left:20px}
+  .brand{gap:7px}.brand-name{font-size:14px}.qr-trigger{min-height:34px;font-size:11px;padding:0 10px 0 7px}.qr-trigger svg{width:18px;height:18px}
+  .main{padding:7px 0}.layout{grid-template-columns:minmax(115px,.28fr) minmax(0,1fr);gap:22px;align-items:center}
+  .heading h1{font-size:32px;line-height:1.08;max-width:4em}.subjects{gap:5px}.group-head{min-height:17px}.group-head h2{font-size:14px}.group-head::before{width:5px;height:5px}
+  .group-grid{gap:6px}.mini{min-height:66px;padding:7px 9px;border-radius:12px}.mini .tile-icon{width:28px;height:28px;font-size:16px;border-radius:8px}.mini .tile-title{font-size:22px}.mini .tile-sub{font-size:10px;margin-top:2px}.mini .chevron{width:18px;height:18px;right:8px;bottom:9px}.mini .chevron::before{width:5px;height:5px;left:5px;top:5px}
+  .wide{min-height:55px;padding:6px 9px;gap:8px;border-radius:12px}.wide .tile-icon{width:33px;height:33px;font-size:17px;border-radius:9px}.wide .tile-title{font-size:22px}.wide .tile-sub{font-size:10px;margin-top:2px}.wide .chevron{width:18px;height:18px}.wide .chevron::before{width:5px;height:5px;left:5px;top:5px}.status{display:none}
+}
+
+@media(min-width:621px) and (orientation:portrait){.layout{grid-template-columns:1fr;gap:24px}.heading h1{font-size:clamp(46px,7vw,62px);white-space:nowrap}}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
-  <div class="page-glow" aria-hidden="true"></div>
+<a class="skip" href="#main">跳到主要内容</a>
+<div class="shell">
+  <header class="top">
+    <a class="brand" href="./" aria-label="学习空间首页">
+      <span class="logo" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-name">学习空间</span>
+    </a>
+    <button class="qr-trigger" id="qrButton" type="button" aria-haspopup="dialog" aria-controls="qrDialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="6" height="6" rx="1"/><rect x="14.5" y="3.5" width="6" height="6" rx="1"/><rect x="3.5" y="14.5" width="6" height="6" rx="1"/><path d="M14.5 14.5h2.5v2.5h-2.5zM19 14.5h1.5M14.5 20h1.5M19 19h1.5v1.5"/></svg>
+      <span>二维码</span>
+    </button>
+  </header>
 
-  <div class="app-shell">
-    <header class="app-header">
-      <a class="brand" href="./" aria-label="学习空间首页">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="brand-copy"><strong>学习空间</strong><small>STUDY SPACE</small></span>
-      </a>
-      <div class="top-actions">
-        <div class="clock" aria-label="当前时间"><span id="clock">--:--</span><small id="weekday">今天</small></div>
-        <button class="icon-button" id="installButton" type="button" aria-label="安装到主屏幕" title="安装到主屏幕">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 15v3.2A2.8 2.8 0 0 0 7.8 21h8.4a2.8 2.8 0 0 0 2.8-2.8V15"/></svg>
-        </button>
-        <button class="icon-button" id="themeButton" type="button" aria-label="切换深色模式" title="切换深色模式">
-          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6m11 11 1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6m11-11 1.6-1.6"/></svg>
-          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/></svg>
-        </button>
-      </div>
-    </header>
+  <main class="main" id="main">
+    <div class="layout">
+      <div class="heading"><h1>选择<span>学习</span>内容</h1></div>
 
-    <main class="home" id="main">
-      <section class="intro" aria-labelledby="pageTitle">
-        <p class="date-label" id="todayLabel">今天</p>
-        <h1 id="pageTitle">学什么？</h1>
-        <p class="intro-note"><span class="live-dot" aria-hidden="true"></span>3 个应用已就绪</p>
-      </section>
-
-      <nav class="subjects" aria-label="学习科目">
-        <section class="subject-group" aria-labelledby="chineseGroupTitle">
-          <div class="group-heading">
-            <span class="group-mark" aria-hidden="true">文</span>
-            <span class="group-title">
-              <strong id="chineseGroupTitle">语文</strong>
-              <small>汉字与国学启蒙</small>
-            </span>
-            <span class="group-count">2 个应用</span>
-          </div>
-          <div class="group-apps">
-            <a class="subject-mini mini-hanzi" href="./chinese/index.html" aria-label="进入语文汉字笔顺">
-              <span class="mini-icon" aria-hidden="true">字</span>
-              <span class="mini-copy"><strong>汉字</strong><small>笔顺 · 1–6 年级</small></span>
-              <span class="mini-arrow" aria-hidden="true"></span>
-            </a>
-            <a class="subject-mini mini-guoxue" href="./chinese/guoxue/index.html" aria-label="进入国学启蒙分级阅读">
-              <span class="mini-icon" aria-hidden="true">典</span>
-              <span class="mini-copy"><strong>国学</strong><small>诗词 · 66 篇</small></span>
-              <span class="mini-arrow" aria-hidden="true"></span>
-            </a>
-          </div>
-        </section>
-
-        <div class="subject-row">
-          <a class="subject subject-english" href="https://ziyuan2046-cyber.github.io/english-grade1/" aria-label="进入一年级英语">
-            <span class="subject-icon" aria-hidden="true">Aa</span>
-            <span class="subject-copy">
-              <strong>英语</strong>
-              <small>一年级上册 · 单词与跟读</small>
-            </span>
-            <span class="subject-tail">
-              <span class="meta">6 单元</span>
-              <span class="arrow" aria-hidden="true"></span>
-            </span>
+      <section class="subjects" aria-label="学习内容">
+        <div class="group-head"><h2>语文</h2></div>
+        <div class="group-grid">
+          <a class="tile mini" href="./chinese/index.html" aria-label="进入汉字笔顺">
+            <span class="tile-icon" aria-hidden="true">字</span>
+            <span><span class="tile-title">汉字</span><span class="tile-sub">笔顺练习</span></span>
+            <span class="chevron" aria-hidden="true"></span>
           </a>
-
-          <div class="subject subject-math" aria-disabled="true" aria-label="数学，内容筹备中，暂不可用">
-            <span class="subject-icon" aria-hidden="true">±</span>
-            <span class="subject-copy">
-              <strong>数学</strong>
-              <small>内容筹备中</small>
-            </span>
-            <span class="subject-tail">
-              <span class="meta meta-disabled">暂未开放</span>
-              <span class="lock" aria-hidden="true"></span>
-            </span>
-          </div>
+          <a class="tile mini tile-guoxue" href="./chinese/guoxue/index.html" aria-label="进入国学启蒙">
+            <span class="tile-icon" aria-hidden="true">典</span>
+            <span><span class="tile-title">国学</span><span class="tile-sub">古诗文启蒙</span></span>
+            <span class="chevron" aria-hidden="true"></span>
+          </a>
         </div>
-      </nav>
-    </main>
 
-    <footer class="app-footer">
-      <span>语文 · 英语 · 数学</span>
-      <button class="text-button" id="qrButton" type="button">二维码 <span aria-hidden="true">▦</span></button>
-    </footer>
-  </div>
+        <a class="tile wide english" href="https://ziyuan2046-cyber.github.io/english-grade1/" aria-label="进入一年级英语">
+          <span class="tile-icon" aria-hidden="true">Aa</span>
+          <span><span class="tile-title">英语</span><span class="tile-sub">一年级 · 单词跟读</span></span>
+          <span class="chevron" aria-hidden="true"></span>
+        </a>
 
-  <dialog class="sheet" id="helpDialog" aria-labelledby="helpTitle">
-    <button class="sheet-close" id="helpClose" type="button" aria-label="关闭">×</button>
-    <span class="sheet-kicker">INSTALL GUIDE</span>
-    <h2 id="helpTitle">安装到主屏幕</h2>
-    <div class="guide-row"><b>iPhone / iPad</b><span>用 Safari 打开，点底部分享按钮，再选“添加到主屏幕”。</span></div>
-    <div class="guide-row"><b>Android</b><span>用 Chrome 打开，点右上角菜单，再选“安装应用”或“添加到主屏幕”。</span></div>
-    <div class="guide-row"><b>电脑</b><span>用 Chrome 或 Edge 打开，点击地址栏右侧的安装按钮。</span></div>
-  </dialog>
+        <div class="tile wide math" aria-disabled="true" aria-label="数学，暂未开放">
+          <span class="tile-icon" aria-hidden="true">±</span>
+          <span><span class="tile-title">数学</span><span class="tile-sub">筹备中</span></span>
+          <span class="status">暂未开放</span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
 
-  <dialog class="sheet qr-sheet" id="qrDialog" aria-labelledby="qrTitle">
-    <button class="sheet-close" id="qrClose" type="button" aria-label="关闭">×</button>
-    <span class="sheet-kicker">PERMANENT ADDRESS</span>
-    <h2 id="qrTitle">扫码进入学习空间</h2>
-    <img class="qr-image" src="./qr.png" width="320" height="320" alt="学习空间永久地址二维码">
-    <p class="qr-address" id="qrAddress">https://ziyuan2046-cyber.github.io/learning-hub/</p>
-    <button class="copy-button" id="copyButton" type="button">复制永久地址</button>
-  </dialog>
-
-  <noscript><div class="noscript">网页内容仍可正常使用；安装提示、深色模式与二维码弹窗需要启用 JavaScript。</div></noscript>
-  <script src="./app.js?v=20261022e" defer></script>
+<dialog class="dialog" id="qrDialog" aria-labelledby="qrTitle">
+  <button class="dialog-close" id="qrClose" type="button" aria-label="关闭">×</button>
+  <h2 id="qrTitle">扫码打开</h2>
+  <div class="qr-wrap"><span class="qr-loading" id="qrLoading">正在加载…</span><img class="qr-image" id="qrImage" alt="学习空间永久地址二维码" width="512" height="512" decoding="async" data-src="./qr.png" hidden></div>
+  <p class="qr-url" id="qrAddress">https://ziyuan2046-cyber.github.io/learning-hub/</p>
+  <button class="copy" id="copyButton" type="button">复制永久地址</button>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<noscript><div class="noscript">二维码和复制地址功能需要启用 JavaScript。</div></noscript>
+<script>
+(function(){
+  'use strict';
+  var dialog=document.getElementById('qrDialog'),openBtn=document.getElementById('qrButton'),closeBtn=document.getElementById('qrClose');
+  var img=document.getElementById('qrImage'),loading=document.getElementById('qrLoading'),copy=document.getElementById('copyButton'),toast=document.getElementById('toast');
+  var address='https://ziyuan2046-cyber.github.io/learning-hub/';
+  if(/github\.io$/.test(location.hostname)){address=location.origin+'/learning-hub/';document.getElementById('qrAddress').textContent=address}
+  function openDialog(){if(!dialog)return;img.hidden=true;loading.style.display='block';if(!img.src&&img.dataset.src){img.src=img.dataset.src}if(typeof dialog.showModal==='function'){dialog.showModal()}else{dialog.setAttribute('open','')}closeBtn.focus()}
+  function closeDialog(){if(!dialog)return;if(typeof dialog.close==='function'){dialog.close()}else{dialog.removeAttribute('open')}openBtn.focus()}
+  img.addEventListener('load',function(){loading.style.display='none';img.hidden=false});
+  img.addEventListener('error',function(){loading.textContent='二维码加载失败，请复制地址访问'});
+  openBtn.addEventListener('click',openDialog);closeBtn.addEventListener('click',closeDialog);
+  dialog.addEventListener('click',function(e){if(e.target===dialog)closeDialog()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&dialog&&dialog.open)closeDialog()});
+  function showToast(text){toast.textContent=text;toast.classList.add('show');clearTimeout(showToast.t);showToast.t=setTimeout(function(){toast.classList.remove('show')},1700)}
+  copy.addEventListener('click',function(){
+    var done=function(){copy.textContent='已复制';showToast('地址已复制');setTimeout(function(){copy.textContent='复制永久地址'},1600)};
+    var fallback=function(){var t=document.createElement('textarea');t.value=address;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){showToast('请长按地址复制')}t.remove()};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(address).then(done).catch(fallback)}else{fallback()}
+  });
+  if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){})})}
+})();
+</script>
 </body>
 </html>

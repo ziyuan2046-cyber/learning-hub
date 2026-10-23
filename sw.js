@@ -1,24 +1,13 @@
 'use strict';
-var CACHE = 'learning-hub-shell-v4';
-var SHELL = ['./','./index.html','./styles.css?v=20261022e','./app.js?v=20261022e','./manifest.webmanifest','./assets/icons/favicon.svg'];
-self.addEventListener('install', function (event) {
-  event.waitUntil(caches.open(CACHE).then(function (cache) { return cache.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));
-});
-self.addEventListener('activate', function (event) {
-  event.waitUntil(caches.keys().then(function (keys) {
-    return Promise.all(keys.filter(function (key) { return key !== CACHE; }).map(function (key) { return caches.delete(key); }));
-  }).then(function () { return self.clients.claim(); }));
-});
-self.addEventListener('fetch', function (event) {
-  var request = event.request;
-  if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) { return; }
-  var path = new URL(request.url).pathname;
-  if (/\/(chinese|english)\//.test(path)) { return; }
-  event.respondWith(fetch(request).then(function (response) {
-    if (response && response.status === 200) {
-      var copy = response.clone();
-      caches.open(CACHE).then(function (cache) { cache.put(request, copy); });
-    }
-    return response;
-  }).catch(function () { return caches.match(request).then(function (cached) { return cached || caches.match('./index.html'); }); }));
+var CACHE='learning-hub-tech-v1';
+var SHELL=['./','./index.html','./manifest.webmanifest'];
+self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(SHELL)}).then(function(){return self.skipWaiting()}))});
+self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.filter(function(k){return k!==CACHE}).map(function(k){return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
+self.addEventListener('fetch',function(e){
+  var req=e.request;if(req.method!=='GET'||new URL(req.url).origin!==location.origin)return;
+  var path=new URL(req.url).pathname;
+  if(path==='/'||path.endsWith('/index.html')||path.endsWith('/manifest.webmanifest')){
+    e.respondWith(fetch(req).then(function(r){if(r&&r.ok){var copy=r.clone();caches.open(CACHE).then(function(c){c.put(req,copy)})}return r}).catch(function(){return caches.match(req)}));return
+  }
+  e.respondWith(caches.match(req).then(function(hit){return hit||fetch(req)}));
 });
