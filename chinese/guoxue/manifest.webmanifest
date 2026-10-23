@@ -1,7 +1,7 @@
-﻿{
-  "name": "国学启蒙 · 小学分级阅读",
-  "short_name": "国学启蒙",
-  "description": "按小学年级分级学习古诗词、成语、寓言、三字经、论语、弟子规、千字文。",
+{
+  "name": "课本国学 · 人教版小学语文",
+  "short_name": "课本国学",
+  "description": "按学科内容、年级和上下册查询小学语文课本国学，包含原文、拼音、译文、赏析与朗读。",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#F4EFE2",

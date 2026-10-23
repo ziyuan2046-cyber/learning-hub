@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#F4EFE2">
-  <meta name="description" content="2026统编版小学语文分级学习：古诗词、成语、寓言、三字经、论语、弟子规、千字文，按年级与上下册整理。">
-  <title>国学启蒙 · 2026统编版小学语文</title>
+  <meta name="description" content="人教版小学语文课本国学阅读：古诗词、文言文、寓言、神话传说与三字经，按年级和上下册整理。">
+  <title>课本国学 · 人教版小学语文</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="manifest" href="manifest.webmanifest">
@@ -21,13 +21,13 @@
   --shadow-sm: 0 2px 9px rgba(49, 45, 35, .05);
   --shadow-md: 0 10px 30px rgba(49, 45, 35, .08);
   --ease: cubic-bezier(.22, .78, .26, 1);
-  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
-  --kai: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", serif;
+  --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --serif: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --kai: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { margin: 0; min-width: 320px; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; overscroll-behavior-y: contain; }
+body { margin: 0; min-width: 320px; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.7; overscroll-behavior-y: contain; }
 body::before { content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none; background: radial-gradient(900px 490px at 100% -8%, rgba(185,151,96,.13), transparent 67%), radial-gradient(680px 450px at -5% 100%, rgba(61,97,89,.08), transparent 65%), repeating-linear-gradient(96deg, rgba(93,76,44,.025) 0, rgba(93,76,44,.025) 1px, transparent 1px, transparent 5px); }
 body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .34; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E"); }
 button, input, select { font: inherit; }
@@ -572,161 +572,147 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
 .grade-card.selected .g-title-alone { color: #EBC7B2; }
 @media (max-width:720px){.grade-card .g-title-alone{font-size:10px;margin-top:2px}.grade-card{display:flex;flex-direction:column}.grade-card .g-sub{margin-top:auto}}
 @media (max-width:720px){.bottom-nav{background:rgba(252,249,241,.97);backdrop-filter:blur(22px)}.text-panel{scroll-margin-top:70px}.nav-fab{box-shadow:0 4px 15px rgba(166,75,60,.28)}}
-/* Clean 2026 redesign */
-.clean-home { padding-bottom: 28px; }
-.topbar { padding: 18px 2px 14px; }
-.brand-sub { font-size: 9px; letter-spacing: .08em; margin-top: 1px; }
-.home-intro { position: relative; overflow: hidden; min-height: 264px; padding: 35px 38px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(110deg, #F8F2E5 0%, #EFE7D7 51%, #DFE7DF 100%); display: flex; align-items: center; }
-.home-intro::after { content: ""; width: 280px; height: 280px; position: absolute; right: -55px; top: -65px; border: 1px solid rgba(61,97,89,.18); border-radius: 50%; box-shadow: 0 0 0 36px rgba(61,97,89,.035), 0 0 0 72px rgba(61,97,89,.03); }
-.intro-copy { position: relative; z-index: 2; max-width: 620px; }
-.home-intro h1 { margin-top: 12px; font-size: clamp(32px, 4vw, 50px); line-height: 1.28; letter-spacing: .015em; }
-.home-intro h1 em { color: var(--cinnabar); font-style: normal; }
-.home-intro p { max-width: 550px; margin-top: 13px; color: var(--ink-soft); font-family: var(--serif); font-size: 14px; line-height: 1.85; }
-.intro-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 19px; }
-.intro-stats span { padding: 6px 10px; border: 1px solid rgba(201,189,165,.8); border-radius: 6px; background: rgba(255,253,248,.44); color: var(--muted); font-size: 10px; }
-.intro-stats b { color: var(--ink); font-family: var(--serif); font-size: 16px; margin-right: 2px; }
-.intro-mark { position: absolute; right: 54px; top: 33px; color: rgba(61,97,89,.14); font-family: var(--serif); font-size: 112px; line-height: 1.05; letter-spacing: -.12em; z-index: 1; }
-.home-section { margin-top: 32px; }
-.category-hub { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 9px; }
-.hub-card { min-height: 85px; display: flex; align-items: center; gap: 10px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,253,248,.8); text-align: left; transition: all .2s var(--ease); }
-.hub-card:hover { border-color: var(--cat-color); background: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+/* Mobile-first reading interface */
+body { background: #F4EFE2; }
+.mobile-page { width: 100%; max-width: 520px; margin: 0 auto; padding: 0 12px calc(82px + env(safe-area-inset-bottom)); }
+.topbar { padding: 14px 2px 12px; gap: 8px; }
+.brand { gap: 9px; }
+.brand-seal { width: 34px; height: 34px; border-radius: 9px 9px 9px 2px; font-size: 17px; }
+.brand-text { display: flex; flex-direction: column; align-items: flex-start; }
+.brand-name { font-size: 19px; letter-spacing: .08em; line-height: 1.25; }
+.brand-sub { font-size: 11px; letter-spacing: .03em; line-height: 1.4; color: var(--muted); }
+.top-actions { gap: 4px; }
+.icon-btn { width: 42px; height: 42px; }
+.mobile-intro { padding: 12px 4px 17px; border-bottom: 1px solid var(--line); }
+.mobile-intro .eyebrow { display: none; }
+.eyebrow { font-size: 12px; letter-spacing: .06em; }
+.eyebrow::before { width: 16px; }
+.mobile-intro h1 { margin-top: 6px; font-size: 31px; font-weight: 700; line-height: 1.35; letter-spacing: .01em; }
+.mobile-section { margin-top: 20px; }
+.mobile-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.mobile-section-head h2 { font-size: 21px; font-weight: 700; }
+.mobile-section-head > span { color: var(--muted); font-size: 13px; }
+.category-hub { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.hub-card { min-height: 58px; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,253,248,.78); text-align: left; transition: background .2s, border-color .2s; }
 .hub-card.active { border-color: var(--cat-color); background: var(--cat-soft); box-shadow: inset 3px 0 0 var(--cat-color); }
-.hub-icon { flex: 0 0 33px; width: 33px; height: 33px; display: grid; place-items: center; border-radius: 9px; color: var(--cat-color); background: var(--cat-soft); }
 .hub-main { flex: 1; min-width: 0; }
-.hub-main b { display: block; font-family: var(--serif); font-size: 15px; }
-.hub-main small { display: block; margin-top: 2px; color: var(--muted); font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.hub-count { color: var(--cat-color); font-family: var(--serif); font-size: 17px; }
-.library-section { margin-top: 28px; padding: 24px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,253,248,.7); }
-.library-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; }
-.library-heading h2 { margin-top: 3px; font-size: 27px; }
-.library-heading .result-count { color: var(--muted); font-size: 11px; }
-.library-heading .result-count b { color: var(--cinnabar); font-family: var(--serif); font-size: 21px; }
-.library-search { margin-top: 17px; }
-.library-search .search-input { height: 43px; background: var(--white); }
-.filter-stack { margin-top: 13px; display: flex; flex-direction: column; gap: 6px; }
-.filter-line { display: flex; align-items: center; gap: 10px; padding: 2px 0; }
-.filter-line .filter-label { flex: 0 0 34px; color: var(--muted); font-size: 10px; }
-.quick-chips { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-.quick-chip { min-height: 29px; padding: 0 9px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--ink-soft); font-size: 10px; transition: all .18s; }
-.quick-chip:hover { background: var(--paper-deep); }
-.quick-chip.active { border-color: #D9C7B5; background: #F1E7DA; color: var(--cinnabar); font-weight: 600; }
-.segment-row { display: flex; gap: 2px; padding: 2px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
-.segment { min-width: 46px; min-height: 25px; padding: 0 9px; border: 0; border-radius: 5px; color: var(--muted); background: transparent; font-size: 10px; }
-.segment.active { color: var(--ink); background: var(--white); box-shadow: var(--shadow-sm); font-weight: 600; }
-.library-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; padding: 10px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
-.reset-link { border: 0; background: none; padding: 3px 0; color: var(--cinnabar); font-size: 10px; }
-.library-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; }
-.library-card { position: relative; min-height: 126px; display: flex; gap: 12px; padding: 11px; border: 1px solid var(--line); border-radius: 11px; background: var(--white); text-align: left; transition: all .2s var(--ease); }
-.library-card:hover { border-color: var(--line-strong); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-.library-cover { position: relative; flex: 0 0 85px; height: 104px; overflow: hidden; border-radius: 7px; }
-.library-cover .illus { height: 100%; border-radius: 0; }
-.library-cover svg { width: 100%; height: 100%; object-fit: cover; }
-.list-grade { position: absolute; left: 5px; bottom: 5px; padding: 1px 5px; color: #FFF8EE; background: rgba(41,43,40,.62); border-radius: 3px; font-size: 8px; }
-.library-info { flex: 1; min-width: 0; }
-.library-kicker { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 8px; }
-.source-badge { padding: 1px 5px; border-radius: 3px; font-size: 8px; white-space: nowrap; }
-.source-badge.textbook { color: #8E3D31; background: #F1E1DA; }
-.source-badge.garden { color: #3D665E; background: #E2EBE5; }
-.source-badge.classic { color: #765D39; background: #F1E7D4; }
-.library-info h3 { margin-top: 4px; font-family: var(--serif); font-size: 17px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.library-author { margin-top: 1px; color: var(--muted); font-size: 9px; }
-.library-excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 6px; color: var(--ink-soft); font-family: var(--kai); font-size: 11px; line-height: 1.55; white-space: pre-line; }
-.library-meta { display: flex; gap: 7px; margin-top: 7px; color: var(--cinnabar); font-size: 8px; }
-.list-fav { position: absolute; right: 7px; top: 7px; width: 27px; height: 27px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); background: rgba(255,253,248,.82); }
-.list-fav:hover, .list-fav.active { color: var(--cinnabar); background: var(--cinnabar-soft); border-color: #E3C8BF; }
-.source-note { margin-top: 22px; padding: 18px 21px; border-left: 2px solid #B79B6E; background: rgba(238,232,218,.55); border-radius: 0 9px 9px 0; }
-.source-note b { font-family: var(--serif); font-size: 13px; }
-.source-note p { margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.8; }
-.source-note a { display: inline-flex; align-items: center; gap: 4px; margin-top: 7px; color: var(--cinnabar); font-size: 10px; }
-.source-line { margin-top: 5px; color: var(--cinnabar); font-size: 10px; }
-.badge.textbook { color: #8E3D31; background: #F1E1DA; }
-.badge.garden { color: #3D665E; background: #E2EBE5; }
-.badge.classic { color: #765D39; background: #F1E7D4; }
-.source-card { background: #F2EBDD; }
-.source-note-line { margin-top: 8px !important; color: var(--ink-soft) !important; font-family: var(--serif); font-size: 13px !important; }
-.source-scale { margin-top: 7px !important; color: var(--muted) !important; font-size: 9px !important; line-height: 1.7 !important; }
-.source-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 9px; color: var(--cinnabar); font-size: 10px; }
-.bottom-nav { bottom: max(12px, env(safe-area-inset-bottom)); width: auto; min-width: 280px; }
-@media (max-width: 980px) {
-  .category-hub { grid-template-columns: repeat(3, minmax(0,1fr)); }
-  .library-list { grid-template-columns: 1fr; }
-  .home-intro { min-height: 245px; }
-}
-@media (max-width: 720px) {
-  body { font-size: 14px; }
-  .app-shell, .page-enter { width: 100%; padding-left: 12px; padding-right: 12px; }
-  .topbar { padding: 12px 0 10px; }
-  .brand-seal { width: 30px; height: 30px; font-size: 15px; }
-  .brand-name { font-size: 16px; }
-  .brand-sub { font-size: 8px; }
-  .search-btn { width: 36px; min-height: 36px; padding: 0; justify-content: center; border: 0; background: transparent; }
-  .search-btn .search-label { display: none; }
-  .icon-btn { width: 36px; height: 36px; }
-  .home-intro { min-height: 270px; padding: 22px 20px; border-radius: 17px; align-items: flex-start; }
-  .home-intro::after { width: 190px; height: 190px; right: -70px; top: -56px; }
-  .home-intro h1 { font-size: 30px; line-height: 1.32; }
-  .home-intro p { font-size: 12px; line-height: 1.8; }
-  .intro-stats { margin-top: 14px; gap: 5px; }
-  .intro-stats span { padding: 4px 7px; font-size: 9px; }
-  .intro-stats b { font-size: 13px; }
-  .intro-mark { right: 15px; top: 30px; font-size: 72px; opacity: .65; }
-  .home-section { margin-top: 23px; }
-  .section-head { margin-bottom: 10px; }
-  .section-title { font-size: 21px; }
-  .section-note { display: none; }
-  .category-hub { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
-  .hub-card { min-height: 63px; padding: 9px 10px; gap: 8px; border-radius: 9px; }
-  .hub-icon { flex-basis: 27px; width: 27px; height: 27px; border-radius: 7px; }
-  .hub-main b { font-size: 14px; }
-  .hub-main small { font-size: 8px; }
-  .hub-count { font-size: 14px; }
-  .library-section { margin-top: 20px; padding: 15px 12px 13px; border-radius: 16px; }
-  .library-heading h2 { font-size: 23px; }
-  .library-search { margin-top: 12px; }
-  .library-search .search-input { height: 40px; font-size: 12px; }
-  .filter-stack { margin-top: 10px; }
-  .filter-line { align-items: flex-start; gap: 5px; padding: 3px 0; }
-  .filter-line .filter-label { flex-basis: 28px; padding-top: 6px; font-size: 9px; }
-  .quick-chips { gap: 2px; }
-  .quick-chip { min-height: 27px; padding: 0 7px; font-size: 9px; }
-  .segment-row { margin-top: 3px; }
-  .segment { min-width: 38px; min-height: 23px; padding: 0 7px; font-size: 9px; }
-  .library-toolbar { margin-top: 11px; padding: 8px 0; }
-  .library-list { gap: 7px; }
-  .library-card { min-height: 112px; padding: 8px; gap: 9px; }
-  .library-cover { flex-basis: 72px; height: 95px; }
-  .library-info h3 { font-size: 15px; }
-  .library-author { font-size: 8px; }
-  .library-excerpt { font-size: 10px; line-height: 1.5; -webkit-line-clamp: 2; margin-top: 4px; }
-  .library-meta { font-size: 8px; margin-top: 5px; }
-  .library-kicker { font-size: 7px; }
-  .source-badge { font-size: 7px; }
-  .list-fav { width: 24px; height: 24px; right: 5px; top: 5px; }
-  .source-note { margin-top: 16px; padding: 13px 14px; }
-  .source-note p { font-size: 9px; }
-  .bottom-nav { min-width: 0; width: calc(100% - 26px); max-width: 380px; bottom: max(7px, env(safe-area-inset-bottom)); }
-  .nav-item { font-size: 10px; padding: 0 13px; }
-  .nav-fab { width: 41px; height: 41px; }
-  .detail-page .topbar { padding-bottom: 6px; }
-  .detail-back { padding: 6px 0 9px; }
-  .detail-grid { grid-template-columns: 1fr; }
-  .detail-art { height: 195px; }
-  .detail-heading { padding: 15px; }
-  .detail-title { font-size: 28px; }
-  .detail-lead { font-size: 12px; }
-  .source-line { font-size: 9px; }
-  .text-panel { margin-top: 9px; padding: 15px 14px 18px; }
-  .line-text { font-size: 21px; }
-  .meaning-panel, .appreciation, .keywords { margin-top: 9px; padding: 15px; }
-  .aside-card { padding: 14px; }
-}
+.hub-main b { display: block; font-family: var(--sans); font-size: 16px; line-height: 1.45; }
+.hub-main small { display: block; margin-top: 1px; color: var(--muted); font-size: 11px; line-height: 1.45; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hub-count { color: var(--cat-color); font-size: 16px; font-weight: 700; }
+.mobile-filters { display: flex; flex-direction: column; gap: 7px; margin-bottom: 11px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,253,248,.56); }
+.mobile-filter-row { display: flex; align-items: flex-start; gap: 7px; }
+.mobile-filter-row > span { flex: 0 0 31px; padding-top: 6px; color: var(--muted); font-size: 12px; }
+.quick-chips { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.quick-chip { min-height: 30px; padding: 0 9px; border: 0; border-radius: 5px; background: transparent; color: var(--ink-soft); font-size: 13px; line-height: 1.3; }
+.quick-chip.active { color: var(--cinnabar); background: var(--cinnabar-soft); font-weight: 700; }
+.segment-row { display: flex; gap: 3px; padding: 2px; border: 1px solid var(--line); border-radius: 6px; background: #EEE7D8; }
+.segment { min-width: 51px; min-height: 26px; padding: 0 9px; border: 0; border-radius: 4px; color: var(--muted); background: transparent; font-size: 13px; }
+.segment.active { color: var(--ink); background: #FFFDF7; font-weight: 700; box-shadow: var(--shadow-sm); }
+.mobile-search { margin-bottom: 12px; }
+.search-input-wrap { position: relative; display: flex; align-items: center; }
+.search-input-wrap .icon { position: absolute; left: 13px; color: var(--muted); pointer-events: none; }
+.search-input { width: 100%; height: 43px; padding: 0 40px 0 39px; border: 1px solid var(--line); border-radius: 8px; background: #FFFDF8; color: var(--ink); font-size: 15px; outline: none; }
+.clear-search { position: absolute; right: 6px; width: 31px; height: 31px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); }
+.mobile-list { display: flex; flex-direction: column; gap: 8px; }
+.library-card { position: relative; min-height: 0; display: block; padding: 13px 42px 13px 13px; border: 1px solid var(--line); border-radius: 10px; background: #FFFDF8; text-align: left; }
+.library-card:hover { border-color: var(--line-strong); }
+.library-info { min-width: 0; }
+.library-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--cinnabar); font-size: 11px; line-height: 1.5; }
+.library-info h3 { margin-top: 3px; font-family: var(--sans); font-size: 19px; font-weight: 700; line-height: 1.45; white-space: normal; }
+.library-author { margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.library-excerpt { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin-top: 5px; color: var(--ink-soft); font-family: var(--sans); font-size: 14px; line-height: 1.65; white-space: pre-line; }
+.library-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 7px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.list-fav { position: absolute; right: 7px; top: 8px; width: 32px; height: 32px; display: grid; place-items: center; border: 0; border-radius: 50%; color: #A8A293; background: transparent; }
+.list-fav.active { color: var(--cinnabar); background: var(--cinnabar-soft); }
+.empty-state { min-height: 180px; padding: 30px 15px; }
+.empty-state h3 { font-size: 18px; }
+.btn { min-height: 42px; padding: 0 17px; font-size: 14px; }
+.bottom-nav { position: fixed; left: 50%; bottom: max(8px, env(safe-area-inset-bottom)); z-index: 20; transform: translateX(-50%); width: min(calc(100% - 24px), 496px); min-width: 0; height: 60px; display: flex; align-items: center; justify-content: space-around; padding: 0 6px; border: 1px solid rgba(201,189,165,.7); border-radius: 17px; background: rgba(252,249,241,.96); box-shadow: 0 5px 22px rgba(49,45,35,.10); backdrop-filter: blur(16px); }
+.nav-item { min-width: 56px; height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 0; background: transparent; color: var(--muted); font-size: 12px; }
+.nav-item.active { color: var(--cinnabar); font-weight: 700; }
+.nav-fab { width: 42px; height: 42px; border-radius: 50%; border: 0; color: #FFF9ED; background: var(--cinnabar); }
+
+/* Reader */
+.detail-page .topbar { padding-bottom: 7px; }
+.reader-back { display: flex; justify-content: space-between; align-items: center; padding: 5px 0 9px; }
+.back-btn { min-height: 39px; display: inline-flex; align-items: center; gap: 4px; padding: 0 8px 0 0; border: 0; background: transparent; color: var(--ink-soft); font-size: 15px; }
+.reader-article { overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: #FFFDF8; }
+.reader-header { padding: 21px 18px 17px; border-bottom: 1px solid var(--line); }
+.reader-category { color: var(--cinnabar); font-size: 13px; }
+.reader-header h1 { margin-top: 5px; font-family: var(--sans); font-size: 32px; font-weight: 700; line-height: 1.35; }
+.reader-meta, .reader-source { margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.reader-meta { color: var(--cinnabar); }
+.reader-source { color: var(--ink-soft); }
+.reader-audio { display: flex; align-items: center; padding: 12px 18px; border-bottom: 1px solid var(--line); background: #FAF5E9; }
+.audio-button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 17px; border: 0; border-radius: 999px; color: #FFFDF8; background: var(--ink); font-size: 15px; }
+.reader-text { padding: 20px 18px 16px; }
+.reader-label { margin-bottom: 5px; color: var(--muted); font-size: 13px; }
+.reader-line { padding: 12px 0 11px; border-bottom: 1px dashed var(--line); }
+.reader-line:last-child { border-bottom: 0; }
+.reader-pinyin { color: var(--cinnabar); font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }
+.reader-text-content { margin-top: 5px; font-family: var(--sans); font-size: 29px; line-height: 1.8; letter-spacing: .045em; overflow-wrap: anywhere; }
+.reader-meaning, .reader-note { margin: 10px 16px; padding: 17px 16px; border-radius: 9px; }
+.reader-meaning { background: #F8F2E4; }
+.reader-note { background: var(--pine-soft); }
+.reader-meaning h2, .reader-note h2 { margin-bottom: 7px; font-family: var(--sans); font-size: 19px; font-weight: 700; }
+.reader-meaning p, .reader-note p { font-family: var(--sans); font-size: 18px; line-height: 1.9; }
+.reader-note { margin-bottom: 14px; }
+.reader-illustration { margin: 4px 16px 17px; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: #F7F1E4; }
+.reader-illustration .illus { display: block; width: 100%; height: 150px; }
+.reader-illustration svg { width: 100%; height: 100%; display: block; }
+.reader-illustration figcaption { padding: 7px 11px 8px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+/* Search and favorites */
+.search-page, .favorites-page { padding-top: 17px; }
+.search-page h1, .page-header h1 { font-family: var(--sans); font-size: 30px; line-height: 1.4; }
+.big-search { position: relative; display: flex; align-items: center; gap: 5px; height: 48px; margin-top: 14px; padding-left: 13px; border: 1px solid var(--line); border-radius: 8px; background: #FFFDF8; }
+.big-search .icon { color: var(--muted); }
+.big-search input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; font-size: 15px; }
+.search-submit { height: 38px; padding: 0 14px; border: 0; border-radius: 6px; color: #FFFDF8; background: var(--cinnabar); font-size: 14px; }
+.search-filter-panel { margin-top: 14px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,253,248,.6); }
+.search-filter-group { display: flex; align-items: flex-start; gap: 6px; padding: 7px 0; }
+.search-filter-group + .search-filter-group { border-top: 1px solid #ECE3D2; }
+.filter-label { flex: 0 0 31px; padding-top: 6px; color: var(--muted); font-size: 12px; }
+.filter-options { display: flex; flex-wrap: wrap; gap: 3px; }
+.filter-option { min-height: 29px; padding: 0 8px; border: 0; border-radius: 4px; background: transparent; color: var(--ink-soft); font-size: 12px; }
+.filter-option.active { color: var(--cinnabar); background: var(--cinnabar-soft); font-weight: 700; }
+.search-results-heading { display: flex; align-items: baseline; justify-content: space-between; margin: 18px 2px 8px; }
+.search-results-heading h2 { font-family: var(--sans); font-size: 20px; font-weight: 700; }
+.search-results-heading span { color: var(--muted); font-size: 12px; }
+.search-results-list { display: flex; flex-direction: column; gap: 7px; }
+.search-result-card { display: block; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: #FFFDF8; }
+.search-result-title { font-size: 18px; font-weight: 700; line-height: 1.5; }
+.search-result-meta { margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.search-result-summary { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin-top: 5px; color: var(--ink-soft); font-size: 14px; line-height: 1.7; white-space: pre-line; }
+mark { background: #F0D8C4; color: inherit; }
+.favorite-list { display: flex; flex-direction: column; gap: 7px; margin-top: 14px; }
+.favorite-card { display: flex; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: #FFFDF8; }
+.favorite-info h3 { font-family: var(--sans); font-size: 18px; }
+.favorite-meta { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+.favorite-empty { padding: 65px 16px; text-align: center; }
+.favorite-empty h2 { font-family: var(--sans); font-size: 20px; }
+.favorite-empty p { margin: 8px 0 16px; color: var(--muted); font-size: 14px; }
+.footer-note, .source-note { display: none; }
+
 @media (max-width: 380px) {
-  .home-intro h1 { font-size: 27px; }
+  .mobile-page { padding-left: 9px; padding-right: 9px; }
   .brand-sub { display: none; }
-  .hub-main small { display: none; }
-  .hub-card { min-height: 56px; }
-  .library-cover { flex-basis: 64px; height: 90px; }
-}</style>
+  .category-hub { gap: 6px; }
+  .hub-card { padding: 9px 10px; }
+  .hub-main b { font-size: 15px; }
+  .quick-chip { padding: 0 7px; font-size: 12px; }
+  .segment { min-width: 46px; padding: 0 7px; font-size: 12px; }
+  .reader-header { padding: 18px 15px 15px; }
+  .reader-header h1 { font-size: 28px; }
+  .reader-text { padding: 18px 15px 14px; }
+  .reader-text-content { font-size: 26px; }
+  .reader-pinyin { font-size: 14px; }
+  .reader-meaning, .reader-note { margin: 9px 12px; padding: 15px 14px; }
+  .reader-meaning p, .reader-note p { font-size: 17px; }
+}
+
+</style>
 </head>
 <body>
   <div id="app"><div class="loading-screen"><span class="loading-mark">学</span><span>正在打开书房…</span></div></div>
@@ -2400,6 +2386,1127 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     )
   ];
 
+  // assets/textbook-extras.js
+  var textbookExtras = [
+    {
+      id: "poetry-g1-xiaochi",
+      grade: 1,
+      category: "poetry",
+      title: "\u5C0F\u6C60",
+      author: "\u6768\u4E07\u91CC",
+      dynasty: "\u5B8B",
+      excerpt: "\u6CC9\u773C\u65E0\u58F0\u60DC\u7EC6\u6D41\uFF0C\u6811\u9634\u7167\u6C34\u7231\u6674\u67D4\u3002\n\u5C0F\u8377\u624D\u9732\u5C16\u5C16\u89D2\uFF0C\u65E9\u6709\u873B\u8713\u7ACB\u4E0A\u5934\u3002",
+      pinyin: "qu\xE1n y\u01CEn w\xFA sh\u0113ng x\u012B x\xEC li\xFA\uFF0Csh\xF9 y\u012Bn zh\xE0o shu\u01D0 \xE0i q\xEDng r\xF3u\u3002\nxi\u01CEo h\xE9 c\xE1i l\xF9 ji\u0101n ji\u0101n ji\u01CEo\uFF0Cz\u01CEo y\u01D2u q\u012Bng t\xEDng l\xEC sh\xE0ng t\xF3u\u3002",
+      summary: "\u6CC9\u773C\u3001\u6811\u836B\u3001\u5C0F\u8377\u3001\u873B\u8713\uFF0C\u5199\u521D\u590F\u5C0F\u6C60\u7684\u6E05\u65B0\u666F\u8C61\u3002",
+      meaning: "\u6CC9\u773C\u6084\u6084\u6D41\u51FA\u7EC6\u6D41\uFF0C\u6811\u836B\u6620\u5728\u6C34\u9762\uFF1B\u5C0F\u8377\u521A\u9732\u51FA\u5C16\u89D2\uFF0C\u873B\u8713\u5DF2\u505C\u5728\u4E0A\u5934\u3002",
+      appreciation: "\u201C\u624D\u9732\u201D\u4E0E\u201C\u65E9\u6709\u201D\u524D\u540E\u76F8\u5E94\uFF0C\u5199\u51FA\u521D\u590F\u7684\u751F\u673A\u3002",
+      keywords: ["\u5C0F\u6C60", "\u8377\u82B1", "\u873B\u8713", "\u521D\u590F"],
+      tags: ["\u6768\u4E07\u91CC", "\u5199\u666F"],
+      image: "poetry-pond"
+    },
+    {
+      id: "poetry-g3-yeshujiansuo",
+      grade: 3,
+      category: "poetry",
+      title: "\u591C\u4E66\u6240\u89C1",
+      author: "\u53F6\u7ECD\u7FC1",
+      dynasty: "\u5B8B",
+      excerpt: "\u8427\u8427\u68A7\u53F6\u9001\u5BD2\u58F0\uFF0C\u6C5F\u4E0A\u79CB\u98CE\u52A8\u5BA2\u60C5\u3002\n\u77E5\u6709\u513F\u7AE5\u6311\u4FC3\u7EC7\uFF0C\u591C\u6DF1\u7BF1\u843D\u4E00\u706F\u660E\u3002",
+      pinyin: "xi\u0101o xi\u0101o w\xFA y\xE8 s\xF2ng h\xE1n sh\u0113ng\uFF0Cji\u0101ng sh\xE0ng qi\u016B f\u0113ng d\xF2ng k\xE8 q\xEDng\u3002\nzh\u012B y\u01D2u \xE9r t\xF3ng ti\u01CEo c\xF9 zh\u012B\uFF0Cy\xE8 sh\u0113n l\xED lu\xF2 y\u012B d\u0113ng m\xEDng\u3002",
+      summary: "\u79CB\u591C\u68A7\u53F6\u3001\u6C5F\u98CE\u3001\u706F\u706B\u548C\u513F\u7AE5\u6349\u87CB\u87C0\u7684\u58F0\u97F3\uFF0C\u52FE\u8D77\u65C5\u4EBA\u601D\u4E61\u4E4B\u60C5\u3002",
+      meaning: "\u79CB\u98CE\u5439\u52A8\u68A7\u6850\u53F6\uFF0C\u9001\u6765\u5BD2\u610F\uFF1B\u6C5F\u4E0A\u79CB\u98CE\u89E6\u52A8\u65C5\u4EBA\u7684\u4E61\u60C5\u3002\u77E5\u9053\u6709\u513F\u7AE5\u5728\u6349\u87CB\u87C0\uFF0C\u591C\u6DF1\u4E86\u7BF1\u7B06\u8FB9\u8FD8\u6709\u4E00\u76CF\u706F\u4EAE\u7740\u3002",
+      appreciation: "\u524D\u4E24\u53E5\u5199\u79CB\u58F0\u4E0E\u5BA2\u6101\uFF0C\u540E\u4E24\u53E5\u7528\u513F\u7AE5\u591C\u6349\u87CB\u87C0\u7684\u753B\u9762\u53CD\u886C\u601D\u4E61\u3002",
+      keywords: ["\u79CB\u98CE", "\u68A7\u53F6", "\u513F\u7AE5", "\u601D\u4E61"],
+      tags: ["\u53F6\u7ECD\u7FC1", "\u79CB\u5929"],
+      image: "poetry-autumn"
+    },
+    {
+      id: "poetry-g3-luzhai",
+      grade: 3,
+      category: "poetry",
+      title: "\u9E7F\u67F4",
+      author: "\u738B\u7EF4",
+      dynasty: "\u5510",
+      excerpt: "\u7A7A\u5C71\u4E0D\u89C1\u4EBA\uFF0C\u4F46\u95FB\u4EBA\u8BED\u54CD\u3002\n\u8FD4\u666F\u5165\u6DF1\u6797\uFF0C\u590D\u7167\u9752\u82D4\u4E0A\u3002",
+      pinyin: "k\u014Dng sh\u0101n b\xF9 ji\xE0n r\xE9n\uFF0Cd\xE0n w\xE9n r\xE9n y\u01D4 xi\u01CEng\u3002\nf\u01CEn j\u01D0ng r\xF9 sh\u0113n l\xEDn\uFF0Cf\xF9 zh\xE0o q\u012Bng t\xE1i sh\xE0ng\u3002",
+      summary: "\u7A7A\u5C71\u95FB\u4EBA\u8BED\uFF0C\u5915\u9633\u8FD4\u7167\u6DF1\u6797\u9752\u82D4\uFF0C\u5199\u51FA\u5E7D\u9759\u7A7A\u7075\u7684\u5883\u754C\u3002",
+      meaning: "\u7A7A\u65F7\u7684\u5C71\u4E2D\u770B\u4E0D\u89C1\u4EBA\uFF0C\u53EA\u542C\u89C1\u8BF4\u8BDD\u58F0\u3002\u5915\u9633\u8FD4\u7167\u8FDB\u5165\u6DF1\u6797\uFF0C\u53C8\u7167\u5728\u9752\u82D4\u4E0A\u3002",
+      appreciation: "\u4EE5\u58F0\u97F3\u5199\u9759\uFF0C\u4EE5\u5915\u7167\u5199\u5E7D\uFF0C\u753B\u9762\u6E05\u5BC2\u7A7A\u7075\u3002",
+      keywords: ["\u7A7A\u5C71", "\u4EBA\u8BED", "\u6DF1\u6797", "\u9752\u82D4"],
+      tags: ["\u738B\u7EF4", "\u5C71\u6C34"],
+      image: "poetry-lushan"
+    },
+    {
+      id: "poetry-g3-jueju",
+      grade: 3,
+      category: "poetry",
+      title: "\u7EDD\u53E5",
+      author: "\u675C\u752B",
+      dynasty: "\u5510",
+      excerpt: "\u8FDF\u65E5\u6C5F\u5C71\u4E3D\uFF0C\u6625\u98CE\u82B1\u8349\u9999\u3002\n\u6CE5\u878D\u98DE\u71D5\u5B50\uFF0C\u6C99\u6696\u7761\u9E33\u9E2F\u3002",
+      pinyin: "ch\xED r\xEC ji\u0101ng sh\u0101n l\xEC\uFF0Cch\u016Bn f\u0113ng hu\u0101 c\u01CEo xi\u0101ng\u3002\nn\xED r\xF3ng f\u0113i y\xE0n zi\uFF0Csh\u0101 nu\u01CEn shu\xEC yu\u0101n y\u0101ng\u3002",
+      summary: "\u6625\u65E5\u6C5F\u5C71\u660E\u4E3D\uFF0C\u82B1\u8349\u98D8\u9999\uFF0C\u71D5\u5B50\u5728\u6E7F\u6CE5\u4E0A\u98DE\uFF0C\u9E33\u9E2F\u5728\u6696\u6C99\u4E0A\u7761\u3002",
+      meaning: "\u6625\u65E5\u9633\u5149\u7167\u8000\uFF0C\u6C5F\u5C71\u660E\u4E3D\uFF1B\u6625\u98CE\u9001\u6765\u82B1\u8349\u7684\u9999\u6C14\u3002\u6CE5\u571F\u6E7F\u6DA6\uFF0C\u71D5\u5B50\u98DE\u6765\u98DE\u53BB\uFF1B\u6C99\u5730\u6E29\u6696\uFF0C\u9E33\u9E2F\u5B89\u7761\u3002",
+      appreciation: "\u524D\u4E24\u53E5\u5199\u5927\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u98DE\u71D5\u4E0E\u9E33\u9E2F\uFF0C\u52A8\u9759\u76F8\u886C\u3002",
+      keywords: ["\u6625\u5929", "\u71D5\u5B50", "\u9E33\u9E2F", "\u82B1\u8349"],
+      tags: ["\u675C\u752B", "\u6625\u5929"],
+      image: "poetry-spring-rain"
+    },
+    {
+      id: "poetry-g3-sanqu",
+      grade: 3,
+      category: "poetry",
+      title: "\u4E09\u8862\u9053\u4E2D",
+      author: "\u66FE\u51E0",
+      dynasty: "\u5B8B",
+      excerpt: "\u6885\u5B50\u9EC4\u65F6\u65E5\u65E5\u6674\uFF0C\u5C0F\u6EAA\u6CDB\u5C3D\u5374\u5C71\u884C\u3002\n\u7EFF\u9634\u4E0D\u51CF\u6765\u65F6\u8DEF\uFF0C\u6DFB\u5F97\u9EC4\u9E42\u56DB\u4E94\u58F0\u3002",
+      pinyin: "m\xE9i z\u01D0 hu\xE1ng sh\xED r\xEC r\xEC q\xEDng\uFF0Cxi\u01CEo x\u012B f\xE0n j\xECn qu\xE8 sh\u0101n x\xEDng\u3002\nl\u01DC y\u012Bn b\xF9 ji\u01CEn l\xE1i sh\xED l\xF9\uFF0Cti\u0101n d\xE9 hu\xE1ng l\xED s\xEC w\u01D4 sh\u0113ng\u3002",
+      summary: "\u6885\u5B50\u9EC4\u65F6\u5929\u6C14\u6674\u597D\uFF0C\u8BD7\u4EBA\u6E38\u5C71\uFF0C\u7EFF\u836B\u4F9D\u65E7\uFF0C\u9EC4\u9E42\u9E23\u58F0\u66F4\u6DFB\u6E38\u5174\u3002",
+      meaning: "\u6885\u5B50\u9EC4\u65F6\u5929\u5929\u6674\u6717\uFF0C\u4E58\u8239\u5230\u5C0F\u6EAA\u5C3D\u5934\u518D\u8D70\u5C71\u8DEF\u3002\u7EFF\u836B\u4E0D\u6BD4\u6765\u65F6\u5C11\uFF0C\u8FD8\u6DFB\u4E86\u56DB\u4E94\u58F0\u9EC4\u9E42\u9E23\u53EB\u3002",
+      appreciation: "\u8BD7\u4E2D\u5199\u6674\u65E5\u3001\u7EFF\u836B\u3001\u9EC4\u9E42\uFF0C\u8F7B\u5FEB\u660E\u4E3D\uFF0C\u5BCC\u6709\u6E38\u5C71\u4E50\u8DA3\u3002",
+      keywords: ["\u6885\u5B50", "\u6674\u5929", "\u9EC4\u9E42", "\u5C71\u884C"],
+      tags: ["\u66FE\u51E0", "\u590F\u5929"],
+      image: "poetry-mountain-river"
+    },
+    {
+      id: "poetry-g4-muyin",
+      grade: 4,
+      category: "poetry",
+      title: "\u66AE\u6C5F\u541F",
+      author: "\u767D\u5C45\u6613",
+      dynasty: "\u5510",
+      excerpt: "\u4E00\u9053\u6B8B\u9633\u94FA\u6C34\u4E2D\uFF0C\u534A\u6C5F\u745F\u745F\u534A\u6C5F\u7EA2\u3002\n\u53EF\u601C\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\u9732\u4F3C\u771F\u73E0\u6708\u4F3C\u5F13\u3002",
+      pinyin: "y\u012B d\xE0o c\xE1n y\xE1ng p\u016B shu\u01D0 zh\u014Dng\uFF0Cb\xE0n ji\u0101ng s\xE8 s\xE8 b\xE0n ji\u0101ng h\xF3ng\u3002\nk\u011B li\xE1n ji\u01D4 yu\xE8 ch\u016B s\u0101n y\xE8\uFF0Cl\xF9 s\xEC zh\u0113n zh\u016B yu\xE8 s\xEC g\u014Dng\u3002",
+      summary: "\u5915\u9633\u94FA\u6C34\uFF0C\u6C5F\u9762\u534A\u78A7\u534A\u7EA2\uFF1B\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\u9732\u73E0\u50CF\u73CD\u73E0\u3001\u65B0\u6708\u50CF\u5F2F\u5F13\u3002",
+      meaning: "\u4E00\u9053\u6B8B\u9633\u94FA\u5728\u6C34\u4E2D\uFF0C\u534A\u8FB9\u6C5F\u9762\u78A7\u7EFF\uFF0C\u534A\u8FB9\u6C5F\u9762\u901A\u7EA2\u3002\u53EF\u7231\u7684\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\u9732\u73E0\u50CF\u73CD\u73E0\uFF0C\u6708\u4EAE\u50CF\u5F2F\u5F13\u3002",
+      appreciation: "\u4E00\u9053\u6B8B\u9633\u4E0E\u591C\u9732\u65B0\u6708\u5F62\u6210\u4ECE\u508D\u665A\u5230\u5165\u591C\u7684\u8FDE\u7EED\u753B\u9762\u3002",
+      keywords: ["\u5915\u9633", "\u6C5F\u6C34", "\u9732\u73E0", "\u65B0\u6708"],
+      tags: ["\u767D\u5C45\u6613", "\u5199\u666F"],
+      image: "poetry-river-moon"
+    },
+    {
+      id: "poetry-g4-xuemei",
+      grade: 4,
+      category: "poetry",
+      title: "\u96EA\u6885",
+      author: "\u5362\u94BA",
+      dynasty: "\u5B8B",
+      excerpt: "\u6885\u96EA\u4E89\u6625\u672A\u80AF\u964D\uFF0C\u9A9A\u4EBA\u9601\u7B14\u8D39\u8BC4\u7AE0\u3002\n\u6885\u987B\u900A\u96EA\u4E09\u5206\u767D\uFF0C\u96EA\u5374\u8F93\u6885\u4E00\u6BB5\u9999\u3002",
+      pinyin: "m\xE9i xu\u011B zh\u0113ng ch\u016Bn w\xE8i k\u011Bn xi\xE1ng\uFF0Cs\u0101o r\xE9n g\u0113 b\u01D0 f\xE8i p\xEDng zh\u0101ng\u3002\nm\xE9i x\u016B x\xF9n xu\u011B s\u0101n f\u0113n b\xE1i\uFF0Cxu\u011B qu\xE8 sh\u016B m\xE9i y\u012B du\xE0n xi\u0101ng\u3002",
+      summary: "\u6885\u4E0E\u96EA\u4E89\u6625\uFF0C\u5404\u6709\u957F\u77ED\uFF1A\u96EA\u6BD4\u6885\u767D\uFF0C\u6885\u6BD4\u96EA\u9999\u3002",
+      meaning: "\u6885\u82B1\u548C\u96EA\u82B1\u4E89\u6625\uFF0C\u8C01\u4E5F\u4E0D\u80AF\u8BA4\u8F93\uFF0C\u8BD7\u4EBA\u653E\u4E0B\u7B14\u96BE\u4EE5\u8BC4\u65AD\u3002\u6885\u82B1\u6BD4\u96EA\u5C11\u4E09\u5206\u6D01\u767D\uFF0C\u96EA\u5374\u4E0D\u5982\u6885\u82B1\u6709\u4E00\u6BB5\u6E05\u9999\u3002",
+      appreciation: "\u6885\u96EA\u5BF9\u7167\uFF0C\u8BF4\u660E\u5404\u6709\u957F\u5904\uFF0C\u4E5F\u5404\u6709\u4E0D\u8DB3\u3002",
+      keywords: ["\u6885\u82B1", "\u96EA", "\u9999\u6C14", "\u957F\u5904"],
+      tags: ["\u5362\u94BA", "\u548F\u7269"],
+      image: "poetry-snow"
+    },
+    {
+      id: "poetry-g4-saixiaqu",
+      grade: 4,
+      category: "poetry",
+      title: "\u585E\u4E0B\u66F2",
+      author: "\u5362\u7EB6",
+      dynasty: "\u5510",
+      excerpt: "\u6708\u9ED1\u96C1\u98DE\u9AD8\uFF0C\u5355\u4E8E\u591C\u9041\u9003\u3002\n\u6B32\u5C06\u8F7B\u9A91\u9010\uFF0C\u5927\u96EA\u6EE1\u5F13\u5200\u3002",
+      pinyin: "yu\xE8 h\u0113i y\xE0n f\u0113i g\u0101o\uFF0Cch\xE1n y\xFA y\xE8 d\xF9n t\xE1o\u3002\ny\xF9 ji\u0101ng q\u012Bng q\xED zh\xFA\uFF0Cd\xE0 xu\u011B m\u01CEn g\u014Dng d\u0101o\u3002",
+      summary: "\u6708\u9ED1\u96C1\u98DE\uFF0C\u654C\u519B\u591C\u9003\uFF1B\u5C06\u58EB\u51C6\u5907\u8F7B\u9A91\u8FFD\u51FB\uFF0C\u5927\u96EA\u843D\u6EE1\u5F13\u5200\u3002",
+      meaning: "\u591C\u8272\u6F06\u9ED1\uFF0C\u5927\u96C1\u9AD8\u98DE\uFF0C\u5355\u4E8E\u8D81\u591C\u9003\u8DD1\u3002\u5C06\u519B\u51C6\u5907\u7387\u8F7B\u9A91\u8FFD\u51FB\uFF0C\u5927\u96EA\u843D\u6EE1\u5F13\u5200\u3002",
+      appreciation: "\u73AF\u5883\u8D8A\u5BD2\u51B7\uFF0C\u8D8A\u663E\u51FA\u5C06\u58EB\u7684\u52C7\u6B66\u4E0E\u8FB9\u585E\u7684\u7D27\u5F20\u3002",
+      keywords: ["\u8FB9\u585E", "\u5927\u96EA", "\u5C06\u58EB", "\u8FFD\u51FB"],
+      tags: ["\u5362\u7EB6", "\u8FB9\u585E"],
+      image: "poetry-border"
+    },
+    {
+      id: "poetry-g4-momei",
+      grade: 4,
+      category: "poetry",
+      title: "\u58A8\u6885",
+      author: "\u738B\u5195",
+      dynasty: "\u5143",
+      excerpt: "\u6211\u5BB6\u6D17\u781A\u6C60\u5934\u6811\uFF0C\u6735\u6735\u82B1\u5F00\u6DE1\u58A8\u75D5\u3002\n\u4E0D\u8981\u4EBA\u5938\u597D\u989C\u8272\uFF0C\u53EA\u7559\u6E05\u6C14\u6EE1\u4E7E\u5764\u3002",
+      pinyin: "w\u01D2 ji\u0101 x\u01D0 y\xE0n ch\xED t\xF3u sh\xF9\uFF0Cdu\u01D2 du\u01D2 hu\u0101 k\u0101i d\xE0n m\xF2 h\xE9n\u3002\nb\xF9 y\xE0o r\xE9n ku\u0101 h\u01CEo y\xE1n s\xE8\uFF0Czh\u01D0 li\xFA q\u012Bng q\xEC m\u01CEn qi\xE1n k\u016Bn\u3002",
+      summary: "\u58A8\u6885\u4E0D\u6C42\u8273\u4E3D\u989C\u8272\uFF0C\u53EA\u613F\u628A\u6E05\u9999\u7559\u5728\u5929\u5730\u95F4\u3002",
+      meaning: "\u6211\u5BB6\u6D17\u781A\u6C60\u8FB9\u7684\u6885\u6811\uFF0C\u6735\u6735\u82B1\u5F00\u5E26\u7740\u6DE1\u6DE1\u58A8\u75D5\u3002\u4E0D\u6C42\u522B\u4EBA\u5938\u989C\u8272\u597D\uFF0C\u53EA\u613F\u628A\u6E05\u9999\u7559\u5728\u5929\u5730\u95F4\u3002",
+      appreciation: "\u501F\u6885\u5199\u4EBA\uFF0C\u8868\u8FBE\u4E0D\u6155\u865A\u8363\u3001\u575A\u5B88\u6E05\u767D\u54C1\u683C\u7684\u5FD7\u5411\u3002",
+      keywords: ["\u58A8\u6885", "\u6E05\u9999", "\u54C1\u683C", "\u6E05\u767D"],
+      tags: ["\u738B\u5195", "\u548F\u7269"],
+      image: "poetry-plum"
+    },
+    {
+      id: "poetry-g5-shiershi",
+      grade: 5,
+      category: "poetry",
+      title: "\u793A\u513F",
+      author: "\u9646\u6E38",
+      dynasty: "\u5B8B",
+      excerpt: "\u6B7B\u53BB\u5143\u77E5\u4E07\u4E8B\u7A7A\uFF0C\u4F46\u60B2\u4E0D\u89C1\u4E5D\u5DDE\u540C\u3002\n\u738B\u5E08\u5317\u5B9A\u4E2D\u539F\u65E5\uFF0C\u5BB6\u796D\u65E0\u5FD8\u544A\u4E43\u7FC1\u3002",
+      pinyin: "s\u01D0 q\xF9 yu\xE1n zh\u012B w\xE0n sh\xEC k\u014Dng\uFF0Cd\xE0n b\u0113i b\xF9 ji\xE0n ji\u01D4 zh\u014Du t\xF3ng\u3002\nw\xE1ng sh\u012B b\u011Bi d\xECng zh\u014Dng yu\xE1n r\xEC\uFF0Cji\u0101 j\xEC w\xFA w\xE0ng g\xE0o n\u01CEi w\u0113ng\u3002",
+      summary: "\u9646\u6E38\u4E34\u7EC8\u4ECD\u7275\u6302\u56FD\u5BB6\u7EDF\u4E00\uFF0C\u53EE\u5631\u513F\u5B50\u6536\u590D\u4E2D\u539F\u540E\u796D\u544A\u81EA\u5DF1\u3002",
+      meaning: "\u6211\u672C\u77E5\u6B7B\u540E\u4E07\u4E8B\u7686\u7A7A\uFF0C\u53EA\u60B2\u4F24\u6CA1\u80FD\u770B\u5230\u56FD\u5BB6\u7EDF\u4E00\u3002\u671D\u5EF7\u519B\u961F\u6536\u590D\u4E2D\u539F\u65F6\uFF0C\u5BB6\u796D\u4E0D\u8981\u5FD8\u8BB0\u544A\u8BC9\u6211\u3002",
+      appreciation: "\u201C\u4E07\u4E8B\u7A7A\u201D\u4E0E\u201C\u4F46\u60B2\u201D\u5F62\u6210\u8F6C\u6298\uFF0C\u7A81\u51FA\u6DF1\u6C89\u7684\u5BB6\u56FD\u60C5\u6000\u3002",
+      keywords: ["\u9646\u6E38", "\u5BB6\u56FD", "\u7EDF\u4E00", "\u4E34\u7EC8"],
+      tags: ["\u9646\u6E38", "\u7231\u56FD"],
+      image: "poetry-homeland"
+    },
+    {
+      id: "poetry-g5-tilinandi",
+      grade: 5,
+      category: "poetry",
+      title: "\u9898\u4E34\u5B89\u90B8",
+      author: "\u6797\u5347",
+      dynasty: "\u5B8B",
+      excerpt: "\u5C71\u5916\u9752\u5C71\u697C\u5916\u697C\uFF0C\u897F\u6E56\u6B4C\u821E\u51E0\u65F6\u4F11\uFF1F\n\u6696\u98CE\u718F\u5F97\u6E38\u4EBA\u9189\uFF0C\u76F4\u628A\u676D\u5DDE\u4F5C\u6C74\u5DDE\u3002",
+      pinyin: "sh\u0101n w\xE0i q\u012Bng sh\u0101n l\xF3u w\xE0i l\xF3u\uFF0Cx\u012B h\xFA g\u0113 w\u01D4 j\u01D0 sh\xED xi\u016B\uFF1F\nnu\u01CEn f\u0113ng x\u016Bn d\xE9 y\xF3u r\xE9n zu\xEC\uFF0Czh\xED b\u01CE h\xE1ng zh\u014Du zu\xF2 bi\xE0n zh\u014Du\u3002",
+      summary: "\u897F\u6E56\u6B4C\u821E\u4E0D\u6B62\uFF0C\u6E38\u4EBA\u6C89\u8FF7\u4EAB\u4E50\uFF0C\u628A\u676D\u5DDE\u5F53\u6210\u4E86\u6545\u90FD\u6C74\u5DDE\u3002",
+      meaning: "\u9752\u5C71\u4E4B\u5916\u8FD8\u6709\u9752\u5C71\uFF0C\u697C\u9601\u4E4B\u5916\u8FD8\u6709\u697C\u9601\uFF0C\u897F\u6E56\u6B4C\u821E\u4EC0\u4E48\u65F6\u5019\u505C\u6B62\uFF1F\u6696\u98CE\u628A\u6E38\u4EBA\u5439\u9189\uFF0C\u7ADF\u628A\u676D\u5DDE\u5F53\u4F5C\u6C74\u5DDE\u3002",
+      appreciation: "\u8868\u9762\u5199\u6B4C\u821E\u7E41\u534E\uFF0C\u5B9E\u5219\u8BBD\u523A\u504F\u5B89\u4EAB\u4E50\u3001\u5FD8\u8BB0\u56FD\u803B\u3002",
+      keywords: ["\u897F\u6E56", "\u6B4C\u821E", "\u4E34\u5B89", "\u5FE7\u56FD"],
+      tags: ["\u6797\u5347", "\u7231\u56FD"],
+      image: "poetry-westlake"
+    },
+    {
+      id: "poetry-g5-changxiangsi",
+      grade: 5,
+      category: "poetry",
+      title: "\u957F\u76F8\u601D",
+      author: "\u7EB3\u5170\u6027\u5FB7",
+      dynasty: "\u6E05",
+      excerpt: "\u5C71\u4E00\u7A0B\uFF0C\u6C34\u4E00\u7A0B\uFF0C\u8EAB\u5411\u6986\u5173\u90A3\u7554\u884C\uFF0C\u591C\u6DF1\u5343\u5E10\u706F\u3002\n\u98CE\u4E00\u66F4\uFF0C\u96EA\u4E00\u66F4\uFF0C\u8052\u788E\u4E61\u5FC3\u68A6\u4E0D\u6210\uFF0C\u6545\u56ED\u65E0\u6B64\u58F0\u3002",
+      pinyin: "sh\u0101n y\u012B ch\xE9ng\uFF0Cshu\u01D0 y\u012B ch\xE9ng\uFF0Csh\u0113n xi\xE0ng y\xFA gu\u0101n n\xE0 p\xE0n x\xEDng\uFF0Cy\xE8 sh\u0113n qi\u0101n zh\xE0ng d\u0113ng\u3002\nf\u0113ng y\u012B g\u0113ng\uFF0Cxu\u011B y\u012B g\u0113ng\uFF0Cgu\u0101 su\xEC xi\u0101ng x\u012Bn m\xE8ng b\xF9 ch\xE9ng\uFF0Cg\xF9 yu\xE1n w\xFA c\u01D0 sh\u0113ng\u3002",
+      summary: "\u884C\u519B\u9014\u4E2D\u5C71\u957F\u6C34\u8FDC\uFF0C\u591C\u91CC\u8425\u5E10\u706F\u5343\u76CF\uFF1B\u98CE\u96EA\u4EA4\u52A0\uFF0C\u601D\u4E61\u96BE\u7720\u3002",
+      meaning: "\u5C71\u4E00\u7A0B\uFF0C\u6C34\u4E00\u7A0B\uFF0C\u5411\u7740\u6986\u5173\u90A3\u8FB9\u884C\u8FDB\uFF0C\u591C\u6DF1\u65F6\u5343\u5E10\u706F\u706B\u3002\u98CE\u4E00\u66F4\uFF0C\u96EA\u4E00\u66F4\uFF0C\u98CE\u96EA\u58F0\u6405\u788E\u601D\u4E61\u68A6\uFF0C\u6545\u4E61\u6CA1\u6709\u8FD9\u6837\u7684\u58F0\u97F3\u3002",
+      appreciation: "\u53CD\u590D\u7684\u201C\u4E00\u7A0B\u201D\u201C\u4E00\u66F4\u201D\u5199\u51FA\u884C\u7A0B\u6F2B\u957F\u548C\u98CE\u96EA\u4E0D\u65AD\uFF0C\u4E61\u6101\u5C42\u5C42\u52A0\u6DF1\u3002",
+      keywords: ["\u884C\u519B", "\u98CE\u96EA", "\u4E61\u6101", "\u8425\u5E10"],
+      tags: ["\u7EB3\u5170\u6027\u5FB7", "\u601D\u4E61"],
+      image: "poetry-snow"
+    },
+    {
+      id: "poetry-g5-sishitianyuan31",
+      grade: 5,
+      category: "poetry",
+      title: "\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E09\u5341\u4E00\uFF09",
+      author: "\u8303\u6210\u5927",
+      dynasty: "\u5B8B",
+      excerpt: "\u663C\u51FA\u8018\u7530\u591C\u7EE9\u9EBB\uFF0C\u6751\u5E84\u513F\u5973\u5404\u5F53\u5BB6\u3002\n\u7AE5\u5B59\u672A\u89E3\u4F9B\u8015\u7EC7\uFF0C\u4E5F\u508D\u6851\u9634\u5B66\u79CD\u74DC\u3002",
+      pinyin: "zh\xF2u ch\u016B y\xFAn ti\xE1n y\xE8 j\xEC m\xE1\uFF0Cc\u016Bn zhu\u0101ng \xE9r n\u01DA g\xE8 d\u0101ng ji\u0101\u3002\nt\xF3ng s\u016Bn w\xE8i ji\u011B g\u014Dng g\u0113ng zh\u012B\uFF0Cy\u011B b\xE0ng s\u0101ng y\u012Bn xu\xE9 zh\xF2ng gu\u0101\u3002",
+      summary: "\u4E61\u6751\u7537\u5973\u767D\u5929\u8015\u7530\u3001\u591C\u91CC\u7EE9\u9EBB\uFF0C\u5B69\u5B50\u4E5F\u5728\u6851\u6811\u4E0B\u5B66\u79CD\u74DC\u3002",
+      meaning: "\u767D\u5929\u51FA\u53BB\u9504\u8349\uFF0C\u591C\u91CC\u6413\u9EBB\u7EBF\uFF0C\u6751\u91CC\u7537\u5973\u5404\u62C5\u5BB6\u52A1\u3002\u5C0F\u5B69\u4E0D\u4F1A\u8015\u7EC7\uFF0C\u4E5F\u5728\u6851\u6811\u836B\u4E0B\u5B66\u79CD\u74DC\u3002",
+      appreciation: "\u5199\u51FA\u519C\u5BB6\u52B3\u52A8\u7684\u5FD9\u788C\u548C\u513F\u7AE5\u6A21\u4EFF\u52B3\u52A8\u7684\u53EF\u7231\u3002",
+      keywords: ["\u7530\u56ED", "\u52B3\u52A8", "\u513F\u7AE5", "\u79CD\u74DC"],
+      tags: ["\u8303\u6210\u5927", "\u7530\u56ED"],
+      image: "poetry-farmer"
+    },
+    {
+      id: "poetry-g5-qiuye",
+      grade: 5,
+      category: "poetry",
+      title: "\u79CB\u591C\u5C06\u6653\u51FA\u7BF1\u95E8\u8FCE\u51C9\u6709\u611F",
+      author: "\u9646\u6E38",
+      dynasty: "\u5B8B",
+      excerpt: "\u4E09\u4E07\u91CC\u6CB3\u4E1C\u5165\u6D77\uFF0C\u4E94\u5343\u4EDE\u5CB3\u4E0A\u6469\u5929\u3002\n\u9057\u6C11\u6CEA\u5C3D\u80E1\u5C18\u91CC\uFF0C\u5357\u671B\u738B\u5E08\u53C8\u4E00\u5E74\u3002",
+      pinyin: "s\u0101n w\xE0n l\u01D0 h\xE9 d\u014Dng r\xF9 h\u01CEi\uFF0Cw\u01D4 qi\u0101n r\xE8n yu\xE8 sh\xE0ng m\xF3 ti\u0101n\u3002\ny\xED m\xEDn l\xE8i j\xECn h\xFA ch\xE9n l\u01D0\uFF0Cn\xE1n w\xE0ng w\xE1ng sh\u012B y\xF2u y\u012B ni\xE1n\u3002",
+      summary: "\u9EC4\u6CB3\u4E1C\u6D41\u5165\u6D77\uFF0C\u534E\u5C71\u9AD8\u8038\u6469\u5929\uFF1B\u6CA6\u9677\u533A\u767E\u59D3\u76FC\u671B\u671D\u5EF7\u519B\u961F\u53C8\u4E00\u5E74\u3002",
+      meaning: "\u4E09\u4E07\u91CC\u9EC4\u6CB3\u5411\u4E1C\u6D41\u5165\u5927\u6D77\uFF0C\u4E94\u5343\u4EDE\u534E\u5C71\u9AD8\u8038\u5165\u4E91\u3002\u6CA6\u9677\u533A\u767E\u59D3\u5728\u6218\u4E71\u4E2D\u6D41\u5C3D\u773C\u6CEA\uFF0C\u5411\u5357\u76FC\u671B\u671D\u5EF7\u519B\u961F\u53C8\u8FC7\u4E86\u4E00\u5E74\u3002",
+      appreciation: "\u524D\u4E24\u53E5\u5199\u58EE\u4E3D\u5C71\u6CB3\uFF0C\u540E\u4E24\u53E5\u5199\u767E\u59D3\u82E6\u96BE\u4E0E\u671F\u76FC\uFF0C\u60C5\u611F\u6C89\u75DB\u3002",
+      keywords: ["\u9EC4\u6CB3", "\u534E\u5C71", "\u9057\u6C11", "\u5BB6\u56FD"],
+      tags: ["\u9646\u6E38", "\u7231\u56FD"],
+      image: "poetry-homeland"
+    },
+    {
+      id: "poetry-g5-wenguanjun",
+      grade: 5,
+      category: "poetry",
+      title: "\u95FB\u5B98\u519B\u6536\u6CB3\u5357\u6CB3\u5317",
+      author: "\u675C\u752B",
+      dynasty: "\u5510",
+      excerpt: "\u5251\u5916\u5FFD\u4F20\u6536\u84DF\u5317\uFF0C\u521D\u95FB\u6D95\u6CEA\u6EE1\u8863\u88F3\u3002\n\u5374\u770B\u59BB\u5B50\u6101\u4F55\u5728\uFF0C\u6F2B\u5377\u8BD7\u4E66\u559C\u6B32\u72C2\u3002",
+      pinyin: "ji\xE0n w\xE0i h\u016B chu\xE1n sh\u014Du j\xEC b\u011Bi\uFF0Cch\u016B w\xE9n t\xEC l\xE8i m\u01CEn y\u012B ch\xE1ng\u3002\nqu\xE8 k\xE0n q\u012B z\u01D0 ch\xF3u h\xE9 z\xE0i\uFF0Cm\xE0n ju\u01CEn sh\u012B sh\u016B x\u01D0 y\xF9 ku\xE1ng\u3002",
+      summary: "\u542C\u5230\u5B98\u519B\u6536\u590D\u5931\u5730\uFF0C\u675C\u752B\u60CA\u559C\u843D\u6CEA\uFF0C\u59BB\u513F\u6101\u5BB9\u6D88\u5931\uFF0C\u5377\u8D77\u8BD7\u4E66\u51C6\u5907\u56DE\u4E61\u3002",
+      meaning: "\u5251\u5916\u5FFD\u7136\u4F20\u6765\u6536\u590D\u84DF\u5317\u7684\u6D88\u606F\uFF0C\u521A\u542C\u5230\u5C31\u6CEA\u6EE1\u8863\u88F3\u3002\u56DE\u5934\u770B\u59BB\u513F\uFF0C\u6101\u5BB9\u5DF2\u4E0D\u89C1\uFF1B\u968F\u624B\u5377\u8D77\u8BD7\u4E66\uFF0C\u9AD8\u5174\u5F97\u5FEB\u8981\u53D1\u72C2\u3002",
+      appreciation: "\u8BD7\u4EBA\u628A\u7A81\u5982\u5176\u6765\u7684\u559C\u60A6\u5199\u5F97\u771F\u5207\uFF0C\u5BB6\u56FD\u4E4B\u559C\u4E0E\u5F52\u4E61\u4E4B\u60C5\u4EA4\u7EC7\u3002",
+      keywords: ["\u5B98\u519B", "\u6536\u590D", "\u559C\u60A6", "\u56DE\u4E61"],
+      tags: ["\u675C\u752B", "\u7231\u56FD"],
+      image: "poetry-homeland"
+    },
+    {
+      id: "poetry-g6-langtaosha",
+      grade: 6,
+      category: "poetry",
+      title: "\u6D6A\u6DD8\u6C99\uFF08\u5176\u4E00\uFF09",
+      author: "\u5218\u79B9\u9521",
+      dynasty: "\u5510",
+      excerpt: "\u4E5D\u66F2\u9EC4\u6CB3\u4E07\u91CC\u6C99\uFF0C\u6D6A\u6DD8\u98CE\u7C38\u81EA\u5929\u6DAF\u3002\n\u5982\u4ECA\u76F4\u4E0A\u94F6\u6CB3\u53BB\uFF0C\u540C\u5230\u7275\u725B\u7EC7\u5973\u5BB6\u3002",
+      pinyin: "ji\u01D4 q\u016B hu\xE1ng h\xE9 w\xE0n l\u01D0 sh\u0101\uFF0Cl\xE0ng t\xE1o f\u0113ng b\u01D2 z\xEC ti\u0101n y\xE1\u3002\nr\xFA j\u012Bn zh\xED sh\xE0ng y\xEDn h\xE9 q\xF9\uFF0Ct\xF3ng d\xE0o qi\u0101n ni\xFA zh\u012B n\u01DA ji\u0101\u3002",
+      summary: "\u9EC4\u6CB3\u5F2F\u5F2F\u66F2\u66F2\u3001\u631F\u6C99\u4E07\u91CC\uFF0C\u8BD7\u4EBA\u60F3\u8C61\u6CBF\u6CB3\u76F4\u4E0A\u94F6\u6CB3\uFF0C\u5230\u725B\u90CE\u7EC7\u5973\u5BB6\u3002",
+      meaning: "\u4E5D\u66F2\u9EC4\u6CB3\u631F\u7740\u4E07\u91CC\u6CE5\u6C99\uFF0C\u98CE\u6D6A\u4ECE\u5929\u6DAF\u6EDA\u6EDA\u800C\u6765\u3002\u5982\u4ECA\u6211\u8981\u76F4\u4E0A\u94F6\u6CB3\uFF0C\u4E00\u540C\u5230\u725B\u90CE\u7EC7\u5973\u5BB6\u53BB\u3002",
+      appreciation: "\u8BD7\u4E2D\u6709\u9EC4\u6CB3\u7684\u96C4\u6D51\uFF0C\u4E5F\u6709\u98DE\u4E0A\u94F6\u6CB3\u7684\u6D6A\u6F2B\u60F3\u8C61\u3002",
+      keywords: ["\u9EC4\u6CB3", "\u94F6\u6CB3", "\u725B\u90CE\u7EC7\u5973", "\u60F3\u8C61"],
+      tags: ["\u5218\u79B9\u9521", "\u9EC4\u6CB3"],
+      image: "poetry-river-moon"
+    },
+    {
+      id: "poetry-g6-hanshi",
+      grade: 6,
+      category: "poetry",
+      title: "\u5BD2\u98DF",
+      author: "\u97E9\u7FC3",
+      dynasty: "\u5510",
+      excerpt: "\u6625\u57CE\u65E0\u5904\u4E0D\u98DE\u82B1\uFF0C\u5BD2\u98DF\u4E1C\u98CE\u5FA1\u67F3\u659C\u3002\n\u65E5\u66AE\u6C49\u5BAB\u4F20\u8721\u70DB\uFF0C\u8F7B\u70DF\u6563\u5165\u4E94\u4FAF\u5BB6\u3002",
+      pinyin: "ch\u016Bn ch\xE9ng w\xFA ch\xF9 b\xF9 f\u0113i hu\u0101\uFF0Ch\xE1n sh\xED d\u014Dng f\u0113ng y\xF9 li\u01D4 xi\xE9\u3002\nr\xEC m\xF9 h\xE0n g\u014Dng chu\xE1n l\xE0 zh\xFA\uFF0Cq\u012Bng y\u0101n s\xE0n r\xF9 w\u01D4 h\xF3u ji\u0101\u3002",
+      summary: "\u5BD2\u98DF\u8282\u6625\u57CE\u98DE\u82B1\u3001\u5FA1\u67F3\u659C\u98CE\uFF0C\u508D\u665A\u5BAB\u5EF7\u4F20\u70DB\uFF0C\u8F7B\u70DF\u6563\u5165\u6743\u8D35\u4E4B\u5BB6\u3002",
+      meaning: "\u6625\u5929\u7684\u957F\u5B89\u57CE\u5904\u5904\u98DE\u82B1\uFF0C\u5BD2\u98DF\u8282\u4E1C\u98CE\u5439\u659C\u5FA1\u67F3\u3002\u508D\u665A\u5BAB\u4E2D\u4F20\u9001\u8721\u70DB\uFF0C\u8F7B\u70DF\u6563\u5165\u4E94\u4FAF\u4E4B\u5BB6\u3002",
+      appreciation: "\u8BD7\u5199\u5BD2\u98DF\u98CE\u4FD7\uFF0C\u4E5F\u542B\u84C4\u5199\u51FA\u6743\u8D35\u5F97\u5230\u7684\u7279\u6B8A\u5F85\u9047\u3002",
+      keywords: ["\u5BD2\u98DF", "\u98DE\u82B1", "\u5FA1\u67F3", "\u8721\u70DB"],
+      tags: ["\u97E9\u7FC3", "\u8282\u65E5"],
+      image: "poetry-petals"
+    },
+    {
+      id: "poetry-g6-tiaotiao",
+      grade: 6,
+      category: "poetry",
+      title: "\u8FE2\u8FE2\u7275\u725B\u661F",
+      author: "\u300A\u53E4\u8BD7\u5341\u4E5D\u9996\u300B",
+      dynasty: "\u6C49",
+      excerpt: "\u8FE2\u8FE2\u7275\u725B\u661F\uFF0C\u768E\u768E\u6CB3\u6C49\u5973\u3002\n\u7EA4\u7EA4\u64E2\u7D20\u624B\uFF0C\u672D\u672D\u5F04\u673A\u677C\u3002\n\u7EC8\u65E5\u4E0D\u6210\u7AE0\uFF0C\u6CE3\u6D95\u96F6\u5982\u96E8\u3002",
+      pinyin: "ti\xE1o ti\xE1o qi\u0101n ni\xFA x\u012Bng\uFF0Cji\u01CEo ji\u01CEo h\xE9 h\xE0n n\u01DA\u3002\nxi\u0101n xi\u0101n zhu\xF3 s\xF9 sh\u01D2u\uFF0Czh\xE1 zh\xE1 n\xF2ng j\u012B zh\xF9\u3002\nzh\u014Dng r\xEC b\xF9 ch\xE9ng zh\u0101ng\uFF0Cq\xEC t\xEC l\xEDng r\xFA y\u01D4\u3002",
+      summary: "\u7EC7\u5973\u9694\u7740\u94F6\u6CB3\u601D\u5FF5\u725B\u90CE\uFF0C\u7EC8\u65E5\u7EC7\u4E0D\u6210\u5E03\uFF0C\u6CEA\u843D\u5982\u96E8\u3002",
+      meaning: "\u9065\u8FDC\u7684\u7275\u725B\u661F\u548C\u660E\u4EAE\u7684\u7EC7\u5973\u661F\u9694\u6CB3\u76F8\u671B\u3002\u7EC7\u5973\u4E3E\u8D77\u7EA4\u7EC6\u6D01\u767D\u7684\u624B\uFF0C\u7EC7\u673A\u672D\u672D\u4F5C\u54CD\u3002\u4E00\u6574\u5929\u7EC7\u4E0D\u6210\u4E00\u5339\u5E03\uFF0C\u773C\u6CEA\u50CF\u96E8\u4E00\u6837\u843D\u4E0B\u3002",
+      appreciation: "\u501F\u7EC7\u5973\u6545\u4E8B\u5199\u76F8\u601D\uFF0C\u52A8\u4F5C\u548C\u795E\u60C5\u7EC6\u81F4\u52A8\u4EBA\u3002",
+      keywords: ["\u7275\u725B", "\u7EC7\u5973", "\u94F6\u6CB3", "\u76F8\u601D"],
+      tags: ["\u53E4\u8BD7\u5341\u4E5D\u9996", "\u795E\u8BDD"],
+      image: "poetry-river-moon"
+    },
+    {
+      id: "poetry-g6-shiwuye",
+      grade: 6,
+      category: "poetry",
+      title: "\u5341\u4E94\u591C\u671B\u6708",
+      author: "\u738B\u5EFA",
+      dynasty: "\u5510",
+      excerpt: "\u4E2D\u5EAD\u5730\u767D\u6811\u6816\u9E26\uFF0C\u51B7\u9732\u65E0\u58F0\u6E7F\u6842\u82B1\u3002\n\u4ECA\u591C\u6708\u660E\u4EBA\u5C3D\u671B\uFF0C\u4E0D\u77E5\u79CB\u601D\u843D\u8C01\u5BB6\u3002",
+      pinyin: "zh\u014Dng t\xEDng d\xEC b\xE1i sh\xF9 q\u012B y\u0101\uFF0Cl\u011Bng l\xF9 w\xFA sh\u0113ng sh\u012B gu\xEC hu\u0101\u3002\nj\u012Bn y\xE8 yu\xE8 m\xEDng r\xE9n j\xECn w\xE0ng\uFF0Cb\xF9 zh\u012B qi\u016B s\u012B lu\xF2 shu\xED ji\u0101\u3002",
+      summary: "\u4E2D\u79CB\u6708\u5149\u7167\u767D\u5EAD\u9662\uFF0C\u9732\u6C34\u6253\u6E7F\u6842\u82B1\uFF0C\u8BD7\u4EBA\u95EE\u4ECA\u591C\u79CB\u601D\u843D\u5728\u54EA\u5BB6\u3002",
+      meaning: "\u5EAD\u9662\u4E2D\u6708\u5149\u6D12\u5730\uFF0C\u6D01\u767D\u5982\u971C\uFF0C\u6811\u4E0A\u6816\u7740\u4E4C\u9E26\uFF1B\u51B7\u9732\u65E0\u58F0\u6253\u6E7F\u6842\u82B1\u3002\u4ECA\u591C\u660E\u6708\u5F53\u7A7A\uFF0C\u4EBA\u4EBA\u90FD\u5728\u671B\u6708\uFF0C\u4E0D\u77E5\u79CB\u601D\u843D\u5728\u8C01\u5BB6\u3002",
+      appreciation: "\u4EE5\u6708\u591C\u6E05\u666F\u5199\u4E2D\u79CB\u601D\u5FF5\uFF0C\u7ED3\u5C3E\u4E00\u95EE\u4F59\u5473\u60A0\u957F\u3002",
+      keywords: ["\u4E2D\u79CB", "\u660E\u6708", "\u6842\u82B1", "\u79CB\u601D"],
+      tags: ["\u738B\u5EFA", "\u601D\u4E61"],
+      image: "poetry-moon"
+    }
+  ];
+
+  // assets/textbook-classics.js
+  var classicalTexts = [
+    {
+      id: "classical-g3-simaguang",
+      grade: 3,
+      category: "classical",
+      title: "\u53F8\u9A6C\u5149",
+      author: "\u300A\u5B8B\u53F2\u300B",
+      dynasty: "\u5B8B",
+      excerpt: "\u7FA4\u513F\u620F\u4E8E\u5EAD\uFF0C\u4E00\u513F\u767B\u74EE\uFF0C\u8DB3\u8DCC\u6CA1\u6C34\u4E2D\u3002\u4F17\u7686\u5F03\u53BB\uFF0C\u5149\u6301\u77F3\u51FB\u74EE\u7834\u4E4B\uFF0C\u6C34\u8FF8\uFF0C\u513F\u5F97\u6D3B\u3002",
+      pinyin: "q\xFAn \xE9r x\xEC y\xFA t\xEDng\uFF0Cy\u012B \xE9r d\u0113ng w\xE8ng\uFF0Cz\xFA di\u0113 m\xF2 shu\u01D0 zh\u014Dng\u3002zh\xF2ng ji\u0113 q\xEC q\xF9\uFF0Cgu\u0101ng ch\xED sh\xED j\u012B w\xE8ng p\xF2 zh\u012B\uFF0Cshu\u01D0 b\xE8ng\uFF0C\xE9r d\xE9 hu\xF3\u3002",
+      summary: "\u53F8\u9A6C\u5149\u5C0F\u65F6\u5019\u548C\u4F19\u4F34\u5728\u5EAD\u9662\u73A9\u800D\uFF0C\u4E00\u4E2A\u5B69\u5B50\u6389\u8FDB\u5927\u6C34\u7F38\uFF0C\u522B\u7684\u5B69\u5B50\u90FD\u8DD1\u4E86\uFF0C\u4ED6\u642C\u77F3\u5934\u7838\u7834\u6C34\u7F38\u6551\u51FA\u4F19\u4F34\u3002",
+      meaning: "\u4E00\u7FA4\u5B69\u5B50\u5728\u5EAD\u9662\u91CC\u73A9\u800D\uFF0C\u4E00\u4E2A\u5B69\u5B50\u722C\u4E0A\u6C34\u7F38\uFF0C\u811A\u4E0B\u4E00\u6ED1\u6389\u8FDB\u6C34\u91CC\u3002\u5176\u4ED6\u5B69\u5B50\u90FD\u8DD1\u4E86\uFF0C\u53F8\u9A6C\u5149\u62FF\u77F3\u5934\u7838\u7834\u6C34\u7F38\uFF0C\u6C34\u6D8C\u51FA\u6765\uFF0C\u5B69\u5B50\u5F97\u6551\u4E86\u3002",
+      appreciation: "\u6545\u4E8B\u7528\u5371\u6025\u573A\u9762\u8868\u73B0\u53F8\u9A6C\u5149\u7684\u6C89\u7740\u3001\u673A\u667A\u548C\u52C7\u6562\u3002",
+      keywords: ["\u53F8\u9A6C\u5149", "\u6C34\u7F38", "\u6551\u4EBA", "\u673A\u667A"],
+      tags: ["\u6587\u8A00\u6587", "\u667A\u6167"],
+      image: "classic-lunyu"
+    },
+    {
+      id: "myth-g4-jingwei",
+      grade: 4,
+      category: "myth",
+      title: "\u7CBE\u536B\u586B\u6D77",
+      author: "\u300A\u5C71\u6D77\u7ECF\u300B",
+      dynasty: "\u5148\u79E6",
+      excerpt: "\u708E\u5E1D\u4E4B\u5C11\u5973\uFF0C\u540D\u66F0\u5973\u5A03\u3002\u5973\u5A03\u6E38\u4E8E\u4E1C\u6D77\uFF0C\u6EBA\u800C\u4E0D\u8FD4\uFF0C\u6545\u4E3A\u7CBE\u536B\uFF0C\u5E38\u8854\u897F\u5C71\u4E4B\u6728\u77F3\uFF0C\u4EE5\u5819\u4E8E\u4E1C\u6D77\u3002",
+      pinyin: "y\xE1n d\xEC zh\u012B sh\xE0o n\u01DA\uFF0Cm\xEDng yu\u0113 n\u01DA w\xE1\u3002n\u01DA w\xE1 y\xF3u y\xFA d\u014Dng h\u01CEi\uFF0Cn\xEC \xE9r b\xF9 f\u01CEn\uFF0Cg\xF9 w\xE9i j\u012Bng w\xE8i\uFF0Cch\xE1ng xi\xE1n x\u012B sh\u0101n zh\u012B m\xF9 sh\xED\uFF0Cy\u01D0 y\u012Bn y\xFA d\u014Dng h\u01CEi\u3002",
+      summary: "\u708E\u5E1D\u7684\u5C0F\u5973\u513F\u5973\u5A03\u5728\u4E1C\u6D77\u6EBA\u6C34\uFF0C\u5316\u4E3A\u7CBE\u536B\u9E1F\uFF0C\u5E38\u8854\u897F\u5C71\u6728\u77F3\u586B\u4E1C\u6D77\u3002",
+      meaning: "\u708E\u5E1D\u7684\u5C0F\u5973\u513F\u540D\u53EB\u5973\u5A03\u3002\u5973\u5A03\u5230\u4E1C\u6D77\u6E38\u73A9\uFF0C\u6EBA\u6C34\u6CA1\u6709\u56DE\u6765\uFF0C\u56E0\u6B64\u5316\u4E3A\u7CBE\u536B\u9E1F\uFF0C\u5E38\u5E38\u8854\u897F\u5C71\u7684\u6811\u679D\u548C\u77F3\u5934\uFF0C\u7528\u6765\u586B\u585E\u4E1C\u6D77\u3002",
+      appreciation: "\u7CBE\u536B\u660E\u77E5\u8270\u96BE\u4ECD\u4E0D\u65AD\u586B\u6D77\uFF0C\u8868\u73B0\u51FA\u4E0D\u754F\u8270\u96BE\u3001\u575A\u6301\u5230\u5E95\u7684\u7CBE\u795E\u3002",
+      keywords: ["\u7CBE\u536B", "\u5973\u5A03", "\u4E1C\u6D77", "\u575A\u6301"],
+      tags: ["\u795E\u8BDD", "\u5C71\u6D77\u7ECF"],
+      image: "classic-cosmos"
+    },
+    {
+      id: "classical-g4-wangrong",
+      grade: 4,
+      category: "classical",
+      title: "\u738B\u620E\u4E0D\u53D6\u9053\u65C1\u674E",
+      author: "\u300A\u4E16\u8BF4\u65B0\u8BED\u300B",
+      dynasty: "\u5357\u671D\u5B8B",
+      excerpt: "\u738B\u620E\u4E03\u5C81\uFF0C\u5C1D\u4E0E\u8BF8\u5C0F\u513F\u6E38\u3002\u770B\u9053\u8FB9\u674E\u6811\u591A\u5B50\u6298\u679D\uFF0C\u8BF8\u513F\u7ADE\u8D70\u53D6\u4E4B\uFF0C\u552F\u620E\u4E0D\u52A8\u3002\u4EBA\u95EE\u4E4B\uFF0C\u7B54\u66F0\uFF1A\u201C\u6811\u5728\u9053\u8FB9\u800C\u591A\u5B50\uFF0C\u6B64\u5FC5\u82E6\u674E\u3002\u201D\u53D6\u4E4B\uFF0C\u4FE1\u7136\u3002",
+      pinyin: "w\xE1ng r\xF3ng q\u012B su\xEC\uFF0Cch\xE1ng y\u01D4 zh\u016B xi\u01CEo \xE9r y\xF3u\u3002k\xE0n d\xE0o bi\u0101n l\u01D0 sh\xF9 du\u014D z\u01D0 zh\xE9 zh\u012B\uFF0Czh\u016B \xE9r j\xECng z\u01D2u q\u01D4 zh\u012B\uFF0Cw\xE9i r\xF3ng b\xF9 d\xF2ng\u3002r\xE9n w\xE8n zh\u012B\uFF0Cd\xE1 yu\u0113\uFF1A\u201Csh\xF9 z\xE0i d\xE0o bi\u0101n \xE9r du\u014D z\u01D0\uFF0Cc\u01D0 b\xEC k\u01D4 l\u01D0\u3002\u201Dq\u01D4 zh\u012B\uFF0Cx\xECn r\xE1n\u3002",
+      summary: "\u738B\u620E\u4E03\u5C81\u65F6\u4E0D\u968F\u5927\u5BB6\u6458\u8DEF\u8FB9\u674E\u5B50\uFF0C\u56E0\u4E3A\u5224\u65AD\u8DEF\u8FB9\u591A\u679C\u5374\u6CA1\u4EBA\u6458\uFF0C\u5FC5\u5B9A\u662F\u82E6\u674E\u3002",
+      meaning: "\u738B\u620E\u4E03\u5C81\u65F6\u548C\u5B69\u5B50\u4EEC\u6E38\u73A9\uFF0C\u770B\u89C1\u8DEF\u8FB9\u674E\u6811\u679C\u5B9E\u5F88\u591A\u538B\u5F2F\u6811\u679D\uFF0C\u5B69\u5B50\u4EEC\u4E89\u7740\u53BB\u6458\uFF0C\u53EA\u6709\u738B\u620E\u4E0D\u52A8\u3002\u6709\u4EBA\u95EE\u539F\u56E0\uFF0C\u4ED6\u8BF4\uFF1A\u201C\u6811\u5728\u8DEF\u8FB9\u5374\u8FD8\u6709\u5F88\u591A\u679C\u5B50\uFF0C\u8FD9\u4E00\u5B9A\u662F\u82E6\u674E\u3002\u201D\u6458\u6765\u4E00\u5C1D\uFF0C\u679C\u7136\u5982\u6B64\u3002",
+      appreciation: "\u6545\u4E8B\u8BF4\u660E\u738B\u620E\u5584\u4E8E\u89C2\u5BDF\u548C\u63A8\u7406\uFF0C\u4E0D\u76F2\u76EE\u8DDF\u4ECE\u522B\u4EBA\u3002",
+      keywords: ["\u738B\u620E", "\u674E\u5B50", "\u89C2\u5BDF", "\u63A8\u7406"],
+      tags: ["\u6587\u8A00\u6587", "\u667A\u6167"],
+      image: "classic-scroll"
+    },
+    {
+      id: "classical-g4-nangying",
+      grade: 4,
+      category: "classical",
+      title: "\u56CA\u8424\u591C\u8BFB",
+      author: "\u300A\u664B\u4E66\u300B",
+      dynasty: "\u5510",
+      excerpt: "\u80E4\u606D\u52E4\u4E0D\u5026\uFF0C\u535A\u5B66\u591A\u901A\u3002\u5BB6\u8D2B\u4E0D\u5E38\u5F97\u6CB9\uFF0C\u590F\u6708\u5219\u7EC3\u56CA\u76DB\u6570\u5341\u8424\u706B\u4EE5\u7167\u4E66\uFF0C\u4EE5\u591C\u7EE7\u65E5\u7109\u3002",
+      pinyin: "y\xECn g\u014Dng q\xEDn b\xF9 ju\xE0n\uFF0Cb\xF3 xu\xE9 du\u014D t\u014Dng\u3002ji\u0101 p\xEDn b\xF9 ch\xE1ng d\xE9 y\xF3u\uFF0Cxi\xE0 yu\xE8 z\xE9 li\xE0n n\xE1ng ch\xE9ng sh\xF9 sh\xED y\xEDng hu\u01D2 y\u01D0 zh\xE0o sh\u016B\uFF0Cy\u01D0 y\xE8 j\xEC r\xEC y\u0101n\u3002",
+      summary: "\u8F66\u80E4\u52E4\u5B66\uFF0C\u5BB6\u5883\u8D2B\u56F0\u4E70\u4E0D\u8D77\u706F\u6CB9\uFF0C\u590F\u5929\u7528\u767D\u7EE2\u888B\u88C5\u8424\u706B\u866B\u7167\u660E\u8BFB\u4E66\u3002",
+      meaning: "\u8F66\u80E4\u8C28\u614E\u52E4\u52C9\uFF0C\u4E0D\u77E5\u75B2\u5026\uFF0C\u5B66\u8BC6\u5E7F\u535A\u3002\u5BB6\u91CC\u8D2B\u7A77\uFF0C\u4E0D\u5E38\u6709\u706F\u6CB9\uFF0C\u590F\u5929\u5C31\u7528\u767D\u7EE2\u888B\u88C5\u51E0\u5341\u53EA\u8424\u706B\u866B\u7167\u660E\u8BFB\u4E66\uFF0C\u591C\u4EE5\u7EE7\u65E5\u3002",
+      appreciation: "\u6545\u4E8B\u5199\u6C42\u5B66\u4E4B\u5FD7\u4E0D\u56E0\u6761\u4EF6\u8270\u82E6\u800C\u51CF\u9000\u3002",
+      keywords: ["\u8F66\u80E4", "\u8424\u706B\u866B", "\u8BFB\u4E66", "\u52E4\u5B66"],
+      tags: ["\u6587\u8A00\u6587", "\u52E4\u5B66"],
+      image: "classic-books"
+    },
+    {
+      id: "classical-g4-tiechu",
+      grade: 4,
+      category: "classical",
+      title: "\u94C1\u6775\u6210\u9488",
+      author: "\u300A\u65B9\u8206\u80DC\u89C8\u300B",
+      dynasty: "\u5B8B",
+      excerpt: "\u78E8\u9488\u6EAA\uFF0C\u5728\u8C61\u8033\u5C71\u4E0B\u3002\u4E16\u4F20\u674E\u592A\u767D\u8BFB\u4E66\u5C71\u4E2D\uFF0C\u672A\u6210\uFF0C\u5F03\u53BB\u3002\u8FC7\u662F\u6EAA\uFF0C\u9022\u8001\u5AAA\u65B9\u78E8\u94C1\u6775\u3002\u95EE\u4E4B\uFF0C\u66F0\uFF1A\u201C\u6B32\u4F5C\u9488\u3002\u201D\u592A\u767D\u611F\u5176\u610F\uFF0C\u8FD8\u5352\u4E1A\u3002",
+      pinyin: "m\xF3 zh\u0113n x\u012B\uFF0Cz\xE0i xi\xE0ng \u011Br sh\u0101n xi\xE0\u3002sh\xEC chu\xE1n l\u01D0 t\xE0i b\xE1i d\xFA sh\u016B sh\u0101n zh\u014Dng\uFF0Cw\xE8i ch\xE9ng\uFF0Cq\xEC q\xF9\u3002gu\xF2 sh\xEC x\u012B\uFF0Cf\xE9ng l\u01CEo \u01CEo f\u0101ng m\xF3 ti\u011B ch\u01D4\u3002w\xE8n zh\u012B\uFF0Cyu\u0113\uFF1A\u201Cy\xF9 zu\xF2 zh\u0113n\u3002\u201Dt\xE0i b\xE1i g\u01CEn q\xED y\xEC\uFF0Chu\xE1n z\xFA y\xE8\u3002",
+      summary: "\u674E\u767D\u5C11\u5E74\u65F6\u60F3\u653E\u5F03\u8BFB\u4E66\uFF0C\u89C1\u8001\u5987\u4EBA\u78E8\u94C1\u6775\u505A\u9488\uFF0C\u53D7\u5230\u89E6\u52A8\uFF0C\u56DE\u53BB\u5B8C\u6210\u5B66\u4E1A\u3002",
+      meaning: "\u78E8\u9488\u6EAA\u5728\u8C61\u8033\u5C71\u4E0B\u3002\u4F20\u8BF4\u674E\u767D\u5728\u5C71\u4E2D\u8BFB\u4E66\uFF0C\u6CA1\u6709\u5B8C\u6210\u5C31\u79BB\u5F00\u4E86\u3002\u7ECF\u8FC7\u8FD9\u6761\u6EAA\uFF0C\u9047\u5230\u4E00\u4F4D\u8001\u5987\u4EBA\u6B63\u5728\u78E8\u94C1\u6775\u3002\u95EE\u5979\u505A\u4EC0\u4E48\uFF0C\u5979\u8BF4\uFF1A\u201C\u60F3\u505A\u9488\u3002\u201D\u674E\u767D\u88AB\u5979\u7684\u610F\u5FD7\u611F\u52A8\uFF0C\u56DE\u53BB\u5B8C\u6210\u4E86\u5B66\u4E1A\u3002",
+      appreciation: "\u6545\u4E8B\u8BF4\u660E\u53EA\u8981\u575A\u6301\u4E0D\u61C8\uFF0C\u518D\u96BE\u7684\u4E8B\u4E5F\u80FD\u505A\u6210\u3002",
+      keywords: ["\u674E\u767D", "\u94C1\u6775", "\u8001\u5987\u4EBA", "\u575A\u6301"],
+      tags: ["\u6587\u8A00\u6587", "\u52E4\u5B66"],
+      image: "classic-jade"
+    },
+    {
+      id: "classical-g5-zixiangmaodun",
+      grade: 5,
+      category: "classical",
+      title: "\u81EA\u76F8\u77DB\u76FE",
+      author: "\u300A\u97E9\u975E\u5B50\u300B",
+      dynasty: "\u5148\u79E6",
+      excerpt: "\u695A\u4EBA\u6709\u9B3B\u76FE\u4E0E\u77DB\u8005\uFF0C\u8A89\u4E4B\u66F0\uFF1A\u201C\u543E\u76FE\u4E4B\u575A\uFF0C\u7269\u83AB\u80FD\u9677\u4E5F\u3002\u201D\u53C8\u8A89\u5176\u77DB\u66F0\uFF1A\u201C\u543E\u77DB\u4E4B\u5229\uFF0C\u4E8E\u7269\u65E0\u4E0D\u9677\u4E5F\u3002\u201D\u6216\u66F0\uFF1A\u201C\u4EE5\u5B50\u4E4B\u77DB\u9677\u5B50\u4E4B\u76FE\uFF0C\u4F55\u5982\uFF1F\u201D\u5176\u4EBA\u5F17\u80FD\u5E94\u4E5F\u3002",
+      pinyin: "ch\u01D4 r\xE9n y\u01D2u y\xF9 d\xF9n y\u01D4 m\xE1o zh\u011B\uFF0Cy\xF9 zh\u012B yu\u0113\uFF1A\u201Cw\xFA d\xF9n zh\u012B ji\u0101n\uFF0Cw\xF9 m\xF2 n\xE9ng xi\xE0n y\u011B\u3002\u201Dy\xF2u y\xF9 q\xED m\xE1o yu\u0113\uFF1A\u201Cw\xFA m\xE1o zh\u012B l\xEC\uFF0Cy\xFA w\xF9 w\xFA b\xF9 xi\xE0n y\u011B\u3002\u201Dhu\xF2 yu\u0113\uFF1A\u201Cy\u01D0 z\u01D0 zh\u012B m\xE1o xi\xE0n z\u01D0 zh\u012B d\xF9n\uFF0Ch\xE9 r\xFA\uFF1F\u201Dq\xED r\xE9n f\xFA n\xE9ng y\xECng y\u011B\u3002",
+      summary: "\u695A\u56FD\u4EBA\u540C\u65F6\u5938\u76FE\u6700\u575A\u56FA\u3001\u77DB\u6700\u950B\u5229\uFF0C\u522B\u4EBA\u95EE\u7528\u4ED6\u7684\u77DB\u523A\u4ED6\u7684\u76FE\u4F1A\u600E\u6837\uFF0C\u4ED6\u65E0\u6CD5\u56DE\u7B54\u3002",
+      meaning: "\u695A\u56FD\u6709\u4E00\u4E2A\u5356\u76FE\u548C\u77DB\u7684\u4EBA\uFF0C\u5938\u4ED6\u7684\u76FE\u8BF4\uFF1A\u201C\u6211\u7684\u76FE\u6700\u575A\u56FA\uFF0C\u6CA1\u6709\u4EC0\u4E48\u80FD\u523A\u7A7F\u5B83\u3002\u201D\u53C8\u5938\u4ED6\u7684\u77DB\u8BF4\uFF1A\u201C\u6211\u7684\u77DB\u6700\u950B\u5229\uFF0C\u6CA1\u6709\u4EC0\u4E48\u523A\u4E0D\u7A7F\u3002\u201D\u6709\u4EBA\u95EE\uFF1A\u201C\u7528\u4F60\u7684\u77DB\u523A\u4F60\u7684\u76FE\uFF0C\u4F1A\u600E\u6837\uFF1F\u201D\u90A3\u4EBA\u4E0D\u80FD\u56DE\u7B54\u3002",
+      appreciation: "\u6545\u4E8B\u8BF4\u660E\u8BF4\u8BDD\u505A\u4E8B\u8981\u524D\u540E\u4E00\u81F4\uFF0C\u4E0D\u80FD\u4E92\u76F8\u62B5\u89E6\u3002",
+      keywords: ["\u77DB", "\u76FE", "\u695A\u56FD", "\u903B\u8F91"],
+      tags: ["\u5BD3\u8A00", "\u601D\u8FA8"],
+      image: "classic-scroll"
+    },
+    {
+      id: "classical-g5-yangshi",
+      grade: 5,
+      category: "classical",
+      title: "\u6768\u6C0F\u4E4B\u5B50",
+      author: "\u300A\u4E16\u8BF4\u65B0\u8BED\u300B",
+      dynasty: "\u5357\u671D\u5B8B",
+      excerpt: "\u6881\u56FD\u6768\u6C0F\u5B50\u4E5D\u5C81\uFF0C\u751A\u806A\u60E0\u3002\u5B54\u541B\u5E73\u8BE3\u5176\u7236\uFF0C\u7236\u4E0D\u5728\uFF0C\u4E43\u547C\u513F\u51FA\u3002\u4E3A\u8BBE\u679C\uFF0C\u679C\u6709\u6768\u6885\u3002\u5B54\u6307\u4EE5\u793A\u513F\u66F0\uFF1A\u201C\u6B64\u662F\u541B\u5BB6\u679C\u3002\u201D\u513F\u5E94\u58F0\u7B54\u66F0\uFF1A\u201C\u672A\u95FB\u5B54\u96C0\u662F\u592B\u5B50\u5BB6\u79BD\u3002\u201D",
+      pinyin: "li\xE1ng gu\xF3 y\xE1ng sh\xEC z\u01D0 ji\u01D4 su\xEC\uFF0Csh\xE8n c\u014Dng hu\xEC\u3002k\u01D2ng j\u016Bn p\xEDng y\xEC q\xED f\xF9\uFF0Cf\xF9 b\xF9 z\xE0i\uFF0Cn\u01CEi h\u016B \xE9r ch\u016B\u3002w\xE8i sh\xE8 gu\u01D2\uFF0Cgu\u01D2 y\u01D2u y\xE1ng m\xE9i\u3002k\u01D2ng zh\u01D0 y\u01D0 sh\xEC \xE9r yu\u0113\uFF1A\u201Cc\u01D0 sh\xEC j\u016Bn ji\u0101 gu\u01D2\u3002\u201D\xE9r y\xECng sh\u0113ng d\xE1 yu\u0113\uFF1A\u201Cw\xE8i w\xE9n k\u01D2ng qu\xE8 sh\xEC f\u016B z\u01D0 ji\u0101 q\xEDn\u3002\u201D",
+      summary: "\u4E5D\u5C81\u7684\u6768\u6C0F\u5B50\u7528\u201C\u672A\u95FB\u5B54\u96C0\u662F\u592B\u5B50\u5BB6\u79BD\u201D\u56DE\u5E94\u5B54\u541B\u5E73\u7684\u73A9\u7B11\uFF0C\u8868\u73B0\u673A\u667A\u548C\u793C\u8C8C\u3002",
+      meaning: "\u6881\u56FD\u6768\u5BB6\u7684\u513F\u5B50\u4E5D\u5C81\uFF0C\u975E\u5E38\u806A\u660E\u3002\u5B54\u541B\u5E73\u6765\u62DC\u8BBF\u4ED6\u7684\u7236\u4EB2\uFF0C\u7236\u4EB2\u4E0D\u5728\uFF0C\u5C31\u53EB\u5B69\u5B50\u51FA\u6765\u3002\u5B69\u5B50\u4E3A\u4ED6\u6446\u4E0A\u6C34\u679C\uFF0C\u6C34\u679C\u4E2D\u6709\u6768\u6885\u3002\u5B54\u541B\u5E73\u6307\u7740\u6768\u6885\u7ED9\u5B69\u5B50\u770B\uFF0C\u8BF4\uFF1A\u201C\u8FD9\u662F\u4F60\u5BB6\u7684\u679C\u5B50\u3002\u201D\u5B69\u5B50\u9A6C\u4E0A\u56DE\u7B54\uFF1A\u201C\u6CA1\u6709\u542C\u8BF4\u5B54\u96C0\u662F\u60A8\u5BB6\u7684\u9E1F\u3002\u201D",
+      appreciation: "\u5B69\u5B50\u987A\u7740\u5BF9\u65B9\u7684\u8BF4\u6CD5\u5DE7\u5999\u56DE\u5E94\uFF0C\u65E2\u4E0D\u5931\u793C\uFF0C\u53C8\u663E\u51FA\u673A\u667A\u3002",
+      keywords: ["\u6768\u6C0F\u5B50", "\u5B54\u541B\u5E73", "\u6768\u6885", "\u673A\u667A"],
+      tags: ["\u6587\u8A00\u6587", "\u667A\u6167"],
+      image: "classic-lunyu"
+    },
+    {
+      id: "classical-g6-boya",
+      grade: 6,
+      category: "classical",
+      title: "\u4F2F\u7259\u9F13\u7434",
+      author: "\u300A\u5415\u6C0F\u6625\u79CB\u300B",
+      dynasty: "\u5148\u79E6",
+      excerpt: "\u4F2F\u7259\u9F13\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4E4B\u3002\u65B9\u9F13\u7434\u800C\u5FD7\u5728\u592A\u5C71\uFF0C\u953A\u5B50\u671F\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u5DCD\u5DCD\u4E4E\u82E5\u592A\u5C71\u3002\u201D\u5C11\u9009\u4E4B\u95F4\u800C\u5FD7\u5728\u6D41\u6C34\uFF0C\u953A\u5B50\u671F\u53C8\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u6C64\u6C64\u4E4E\u82E5\u6D41\u6C34\u3002\u201D",
+      pinyin: "b\xF3 y\xE1 g\u01D4 q\xEDn\uFF0Czh\u014Dng z\u01D0 q\u012B t\u012Bng zh\u012B\u3002f\u0101ng g\u01D4 q\xEDn \xE9r zh\xEC z\xE0i t\xE0i sh\u0101n\uFF0Czh\u014Dng z\u01D0 q\u012B yu\u0113\uFF1A\u201Csh\xE0n z\u0101i h\u016B g\u01D4 q\xEDn\uFF0Cw\u0113i w\u0113i h\u016B ru\xF2 t\xE0i sh\u0101n\u3002\u201Dsh\u01CEo xu\u01CEn zh\u012B ji\u0101n \xE9r zh\xEC z\xE0i li\xFA shu\u01D0\uFF0Czh\u014Dng z\u01D0 q\u012B y\xF2u yu\u0113\uFF1A\u201Csh\xE0n z\u0101i h\u016B g\u01D4 q\xEDn\uFF0Csh\u0101ng sh\u0101ng h\u016B ru\xF2 li\xFA shu\u01D0\u3002\u201D",
+      summary: "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u80FD\u4ECE\u7434\u58F0\u4E2D\u542C\u51FA\u9AD8\u5C71\u548C\u6D41\u6C34\uFF0C\u4E8C\u4EBA\u5FC3\u610F\u76F8\u901A\u3002",
+      meaning: "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4ED6\u5F39\u3002\u4F2F\u7259\u5F39\u7434\u65F6\u5FC3\u91CC\u60F3\u7740\u9AD8\u5C71\uFF0C\u953A\u5B50\u671F\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u5DCD\u5CE8\u7684\u6CF0\u5C71\u3002\u201D\u8FC7\u4E86\u4E00\u4F1A\u513F\uFF0C\u4F2F\u7259\u5FC3\u91CC\u60F3\u7740\u6D41\u6C34\uFF0C\u953A\u5B50\u671F\u53C8\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u6D69\u6D69\u8361\u8361\u7684\u6D41\u6C34\u3002\u201D",
+      appreciation: "\u6545\u4E8B\u5199\u77E5\u97F3\u96BE\u9047\uFF0C\u4E5F\u8BF4\u660E\u771F\u6B63\u7406\u89E3\u4E00\u4E2A\u4EBA\uFF0C\u9700\u8981\u7528\u5FC3\u503E\u542C\u3002",
+      keywords: ["\u4F2F\u7259", "\u953A\u5B50\u671F", "\u7434\u58F0", "\u77E5\u97F3"],
+      tags: ["\u6587\u8A00\u6587", "\u53CB\u60C5"],
+      image: "classic-lunyu"
+    },
+    {
+      id: "classical-g6-xueyi",
+      grade: 6,
+      category: "classical",
+      title: "\u5B66\u5F08",
+      author: "\u300A\u5B5F\u5B50\u300B",
+      dynasty: "\u5148\u79E6",
+      excerpt: "\u5F08\u79CB\uFF0C\u901A\u56FD\u4E4B\u5584\u5F08\u8005\u4E5F\u3002\u4F7F\u5F08\u79CB\u8BF2\u4E8C\u4EBA\u5F08\uFF0C\u5176\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u60DF\u5F08\u79CB\u4E4B\u4E3A\u542C\uFF1B\u4E00\u4EBA\u867D\u542C\u4E4B\uFF0C\u4E00\u5FC3\u4EE5\u4E3A\u6709\u9E3F\u9E44\u5C06\u81F3\uFF0C\u601D\u63F4\u5F13\u7F34\u800C\u5C04\u4E4B\u3002",
+      pinyin: "y\xEC qi\u016B\uFF0Ct\u014Dng gu\xF3 zh\u012B sh\xE0n y\xEC zh\u011B y\u011B\u3002sh\u01D0 y\xEC qi\u016B hu\xEC \xE8r r\xE9n y\xEC\uFF0Cq\xED y\u012B r\xE9n zhu\u0101n x\u012Bn zh\xEC zh\xEC\uFF0Cw\xE9i y\xEC qi\u016B zh\u012B w\xE8i t\u012Bng\uFF1By\u012B r\xE9n su\u012B t\u012Bng zh\u012B\uFF0Cy\u012B x\u012Bn y\u01D0 w\xE9i y\u01D2u h\xF3ng h\xFA ji\u0101ng zh\xEC\uFF0Cs\u012B yu\xE1n g\u014Dng zhu\xF3 \xE9r sh\xE8 zh\u012B\u3002",
+      summary: "\u5F08\u79CB\u6559\u4E24\u4EBA\u4E0B\u68CB\uFF0C\u4E00\u4EBA\u4E13\u5FC3\uFF0C\u4E00\u4EBA\u60F3\u7740\u5C04\u5929\u9E45\uFF0C\u8BF4\u660E\u5B66\u4E60\u8981\u4E13\u5FC3\u81F4\u5FD7\u3002",
+      meaning: "\u5F08\u79CB\u662F\u5168\u56FD\u6700\u64C5\u957F\u4E0B\u68CB\u7684\u4EBA\u3002\u8BA9\u4ED6\u6559\u4E24\u4E2A\u4EBA\u4E0B\u68CB\uFF0C\u5176\u4E2D\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u53EA\u542C\u5F08\u79CB\u7684\u8BDD\uFF1B\u53E6\u4E00\u4EBA\u867D\u7136\u4E5F\u5728\u542C\uFF0C\u5374\u4E00\u5FC3\u60F3\u7740\u6709\u5929\u9E45\u8981\u6765\uFF0C\u60F3\u62FF\u5F13\u7BAD\u53BB\u5C04\u5B83\u3002",
+      appreciation: "\u540C\u6837\u7684\u8001\u5E08\u3001\u540C\u6837\u7684\u5B66\u4E60\u6761\u4EF6\uFF0C\u4E13\u6CE8\u4E0E\u5426\u4F1A\u5E26\u6765\u4E0D\u540C\u7ED3\u679C\u3002",
+      keywords: ["\u5F08\u79CB", "\u4E0B\u68CB", "\u4E13\u5FC3", "\u5B66\u4E60"],
+      tags: ["\u6587\u8A00\u6587", "\u52E4\u5B66"],
+      image: "classic-books"
+    }
+  ];
+
+  // assets/lesson-extra.js
+  var lessonExtra = [
+    {
+      "id": "poetry-g2-chilege",
+      "grade": 2,
+      "category": "poetry",
+      "title": "\u6555\u52D2\u6B4C",
+      "author": "\u5317\u671D\u6C11\u6B4C",
+      "dynasty": "\u5357\u5317\u671D",
+      "excerpt": "\u6555\u52D2\u5DDD\uFF0C\u9634\u5C71\u4E0B\u3002\u5929\u4F3C\u7A79\u5E90\uFF0C\u7B3C\u76D6\u56DB\u91CE\u3002\u5929\u82CD\u82CD\uFF0C\u91CE\u832B\u832B\uFF0C\u98CE\u5439\u8349\u4F4E\u89C1\u725B\u7F8A\u3002",
+      "pinyin": "ch\xEC l\xE8 chu\u0101n\uFF0Cy\u012Bn sh\u0101n xi\xE0\u3002ti\u0101n s\xEC qi\xF3ng l\xFA\uFF0Cl\xF3ng g\xE0i s\xEC y\u011B\u3002ti\u0101n c\u0101ng c\u0101ng\uFF0Cy\u011B m\xE1ng m\xE1ng\uFF0Cf\u0113ng chu\u012B c\u01CEo d\u012B xi\xE0n ni\xFA y\xE1ng\u3002",
+      "summary": "\u6555\u52D2\u5DDD\u5728\u9634\u5C71\u4E0B\uFF0C\u5929\u50CF\u5927\u5E10\u7BF7\u7B3C\u7F69\u56DB\u91CE\uFF1B\u98CE\u5439\u8349\u4F4E\uFF0C\u9732\u51FA\u6210\u7FA4\u725B\u7F8A\u3002",
+      "meaning": "\u6555\u52D2\u5DDD\u4F4D\u4E8E\u9634\u5C71\u811A\u4E0B\u3002\u5929\u7A7A\u50CF\u5DE8\u5927\u7684\u5E10\u7BF7\uFF0C\u7B3C\u7F69\u7740\u56DB\u9762\u516B\u65B9\u3002\u5929\u82CD\u82CD\uFF0C\u91CE\u832B\u832B\uFF0C\u98CE\u5439\u8349\u4F4E\uFF0C\u9732\u51FA\u6210\u7FA4\u7684\u725B\u7F8A\u3002",
+      "appreciation": "\u8BD7\u53E5\u5F00\u9614\u660E\u6717\uFF0C\u5C55\u73B0\u5317\u65B9\u8349\u539F\u7684\u8FBD\u9614\u548C\u7267\u6C11\u751F\u6D3B\u3002",
+      "keywords": [
+        "\u8349\u539F",
+        "\u725B\u7F8A",
+        "\u9634\u5C71"
+      ],
+      "tags": [
+        "\u5317\u671D\u6C11\u6B4C",
+        "\u8349\u539F"
+      ],
+      "image": "poetry-mountain-river"
+    },
+    {
+      "id": "fable-g2-wangyangbudao",
+      "grade": 2,
+      "category": "fable",
+      "title": "\u4EA1\u7F8A\u8865\u7262",
+      "author": "\u300A\u6218\u56FD\u7B56\u300B",
+      "dynasty": "\u5148\u79E6",
+      "excerpt": "\u89C1\u5154\u800C\u987E\u72AC\uFF0C\u672A\u4E3A\u665A\u4E5F\uFF1B\u4EA1\u7F8A\u800C\u8865\u7262\uFF0C\u672A\u4E3A\u8FDF\u4E5F\u3002",
+      "pinyin": "ji\xE0n t\xF9 \xE9r g\xF9 qu\u01CEn\uFF0Cw\xE8i w\xE9i w\u01CEn y\u011B\uFF1Bw\xE1ng y\xE1ng \xE9r b\u01D4 l\xE1o\uFF0Cw\xE8i w\xE9i ch\xED y\u011B\u3002",
+      "summary": "\u7F8A\u4E22\u4E86\u518D\u4FEE\u7F8A\u5708\uFF0C\u8FD8\u4E0D\u7B97\u665A\uFF1B\u53D1\u73B0\u95EE\u9898\u53CA\u65F6\u8865\u6551\uFF0C\u4ECD\u80FD\u907F\u514D\u66F4\u5927\u635F\u5931\u3002",
+      "meaning": "\u770B\u89C1\u5154\u5B50\u518D\u56DE\u5934\u5524\u730E\u72D7\uFF0C\u8FD8\u4E0D\u7B97\u665A\uFF1B\u7F8A\u4E22\u5931\u540E\u518D\u4FEE\u8865\u7F8A\u5708\uFF0C\u4E5F\u8FD8\u4E0D\u7B97\u8FDF\u3002",
+      "appreciation": "\u6545\u4E8B\u5F3A\u8C03\u53CA\u65F6\u6539\u9519\uFF0C\u627F\u8BA4\u95EE\u9898\u5E76\u9A6C\u4E0A\u884C\u52A8\u3002",
+      "keywords": [
+        "\u7F8A\u5708",
+        "\u8865\u6551",
+        "\u6539\u9519"
+      ],
+      "tags": [
+        "\u5BD3\u8A00",
+        "\u5904\u4E8B"
+      ],
+      "image": "idiom-sheep"
+    },
+    {
+      "id": "fable-g2-yamiaozhuzhang",
+      "grade": 2,
+      "category": "fable",
+      "title": "\u63E0\u82D7\u52A9\u957F",
+      "author": "\u300A\u5B5F\u5B50\u300B",
+      "dynasty": "\u5148\u79E6",
+      "excerpt": "\u5B8B\u4EBA\u6709\u95F5\u5176\u82D7\u4E4B\u4E0D\u957F\u800C\u63E0\u4E4B\u8005\uFF0C\u8292\u8292\u7136\u5F52\uFF0C\u8C13\u5176\u4EBA\u66F0\uFF1A\u201C\u4ECA\u65E5\u75C5\u77E3\uFF01\u4E88\u52A9\u82D7\u957F\u77E3\uFF01\u201D\u5176\u5B50\u8D8B\u800C\u5F80\u89C6\u4E4B\uFF0C\u82D7\u5219\u69C1\u77E3\u3002",
+      "pinyin": "s\xF2ng r\xE9n y\u01D2u m\u01D0n q\xED mi\xE1o zh\u012B b\xF9 zh\u01CEng \xE9r y\xE0 zh\u012B zh\u011B\uFF0Cm\xE1ng m\xE1ng r\xE1n gu\u012B\uFF0Cw\xE8i q\xED r\xE9n yu\u0113\uFF1A\u201Cj\u012Bn r\xEC b\xECng y\u01D0\uFF01y\u01D4 zh\xF9 mi\xE1o zh\u01CEng y\u01D0\uFF01\u201Dq\xED z\u01D0 q\u016B \xE9r w\u01CEng sh\xEC zh\u012B\uFF0Cmi\xE1o z\xE9 g\u01CEo y\u01D0\u3002",
+      "summary": "\u5B8B\u56FD\u4EBA\u5ACC\u79BE\u82D7\u957F\u5F97\u6162\uFF0C\u628A\u82D7\u62D4\u9AD8\uFF0C\u7ED3\u679C\u79BE\u82D7\u67AF\u840E\uFF0C\u8BF4\u660E\u505A\u4E8B\u4E0D\u80FD\u8FDD\u80CC\u89C4\u5F8B\u3002",
+      "meaning": "\u5B8B\u56FD\u6709\u4E2A\u4EBA\u62C5\u5FC3\u79BE\u82D7\u4E0D\u957F\u800C\u628A\u82D7\u62D4\u9AD8\uFF0C\u75B2\u60EB\u5730\u56DE\u5BB6\u8BF4\uFF1A\u201C\u4ECA\u5929\u7D2F\u574F\u4E86\uFF01\u6211\u5E2E\u52A9\u79BE\u82D7\u957F\u9AD8\u4E86\uFF01\u201D\u4ED6\u513F\u5B50\u8DD1\u53BB\u770B\uFF0C\u79BE\u82D7\u5DF2\u7ECF\u67AF\u840E\u4E86\u3002",
+      "appreciation": "\u6545\u4E8B\u8BF4\u660E\u6025\u4E8E\u6C42\u6210\u3001\u8FDD\u80CC\u89C4\u5F8B\uFF0C\u53CD\u800C\u4F1A\u628A\u4E8B\u60C5\u5F04\u574F\u3002",
+      "keywords": [
+        "\u79BE\u82D7",
+        "\u62D4\u9AD8",
+        "\u89C4\u5F8B"
+      ],
+      "tags": [
+        "\u5BD3\u8A00",
+        "\u6210\u957F"
+      ],
+      "image": "poetry-farmer"
+    },
+    {
+      "id": "fable-g3-shouzhudaitu",
+      "grade": 3,
+      "category": "fable",
+      "title": "\u5B88\u682A\u5F85\u5154",
+      "author": "\u300A\u97E9\u975E\u5B50\u300B",
+      "dynasty": "\u5148\u79E6",
+      "excerpt": "\u5B8B\u4EBA\u6709\u8015\u8005\uFF0C\u7530\u4E2D\u6709\u682A\u3002\u5154\u8D70\u89E6\u682A\uFF0C\u6298\u9888\u800C\u6B7B\u3002\u56E0\u91CA\u5176\u8012\u800C\u5B88\u682A\uFF0C\u5180\u590D\u5F97\u5154\u3002\u5154\u4E0D\u53EF\u590D\u5F97\uFF0C\u800C\u8EAB\u4E3A\u5B8B\u56FD\u7B11\u3002",
+      "pinyin": "s\xF2ng r\xE9n y\u01D2u g\u0113ng zh\u011B\uFF0Cti\xE1n zh\u014Dng y\u01D2u zh\u016B\u3002t\xF9 z\u01D2u ch\xF9 zh\u016B\uFF0Czh\xE9 j\u01D0ng \xE9r s\u01D0\u3002y\u012Bn sh\xEC q\xED l\u011Bi \xE9r sh\u01D2u zh\u016B\uFF0Cj\xEC f\xF9 d\xE9 t\xF9\u3002t\xF9 b\xF9 k\u011B f\xF9 d\xE9\uFF0C\xE9r sh\u0113n w\xE9i s\xF2ng gu\xF3 xi\xE0o\u3002",
+      "summary": "\u519C\u592B\u5076\u7136\u6361\u5230\u649E\u6811\u6869\u7684\u5154\u5B50\uFF0C\u5C31\u653E\u4E0B\u519C\u5177\u5B88\u7740\u6811\u6869\uFF0C\u7ED3\u679C\u518D\u4E5F\u6CA1\u5F97\u5230\u5154\u5B50\u3002",
+      "meaning": "\u5B8B\u56FD\u6709\u4E2A\u519C\u592B\uFF0C\u7530\u91CC\u6709\u4E00\u622A\u6811\u6869\u3002\u4E00\u53EA\u5154\u5B50\u5954\u8DD1\u65F6\u649E\u4E0A\u6811\u6869\uFF0C\u6298\u65AD\u8116\u5B50\u6B7B\u4E86\u3002\u519C\u592B\u4FBF\u653E\u4E0B\u519C\u5177\u5B88\u7740\u6811\u6869\uFF0C\u5E0C\u671B\u518D\u6361\u5230\u5154\u5B50\u3002\u5154\u5B50\u6CA1\u6709\u518D\u5F97\u5230\uFF0C\u4ED6\u81EA\u5DF1\u5374\u6210\u4E86\u5B8B\u56FD\u4EBA\u7684\u7B11\u67C4\u3002",
+      "appreciation": "\u628A\u5076\u7136\u5F53\u5FC5\u7136\u3001\u4E0D\u80AF\u4ED8\u51FA\u52AA\u529B\uFF0C\u6700\u7EC8\u53EA\u4F1A\u4E00\u65E0\u6240\u83B7\u3002",
+      "keywords": [
+        "\u6811\u6869",
+        "\u5154\u5B50",
+        "\u5076\u7136",
+        "\u4FA5\u5E78"
+      ],
+      "tags": [
+        "\u5BD3\u8A00",
+        "\u52E4\u52C9"
+      ],
+      "image": "idiom-rabbit"
+    },
+    {
+      "id": "myth-g4-pangu",
+      "grade": 4,
+      "category": "myth",
+      "title": "\u76D8\u53E4\u5F00\u5929\u5730",
+      "author": "\u4E2D\u56FD\u53E4\u4EE3\u795E\u8BDD",
+      "dynasty": "\u4E0A\u53E4",
+      "excerpt": "\u5929\u5730\u6DF7\u6C8C\u5982\u9E21\u5B50\uFF0C\u76D8\u53E4\u751F\u5176\u4E2D\u3002\u4E07\u516B\u5343\u5C81\uFF0C\u5929\u5730\u5F00\u8F9F\uFF0C\u9633\u6E05\u4E3A\u5929\uFF0C\u9634\u6D4A\u4E3A\u5730\u3002",
+      "pinyin": "ti\u0101n d\xEC h\xF9n d\xF9n r\xFA j\u012B z\u01D0\uFF0Cp\xE1n g\u01D4 sh\u0113ng q\xED zh\u014Dng\u3002w\xE0n b\u0101 qi\u0101n su\xEC\uFF0Cti\u0101n d\xEC k\u0101i p\xEC\uFF0Cy\xE1ng q\u012Bng w\xE9i ti\u0101n\uFF0Cy\u012Bn zhu\xF3 w\xE9i d\xEC\u3002",
+      "summary": "\u4F20\u8BF4\u5929\u5730\u6700\u521D\u50CF\u4E00\u4E2A\u9E21\u86CB\uFF0C\u76D8\u53E4\u5B55\u80B2\u5176\u4E2D\uFF0C\u6700\u7EC8\u5F00\u8F9F\u5929\u5730\uFF0C\u6E05\u8F7B\u8005\u4E0A\u5347\u4E3A\u5929\uFF0C\u91CD\u6D4A\u8005\u4E0B\u6C89\u4E3A\u5730\u3002",
+      "meaning": "\u5929\u5730\u6700\u521D\u6DF7\u6C8C\u4E00\u7247\uFF0C\u50CF\u9E21\u86CB\u4E00\u6837\uFF0C\u76D8\u53E4\u5B55\u80B2\u5176\u4E2D\u3002\u7ECF\u8FC7\u4E00\u4E07\u516B\u5343\u5E74\uFF0C\u5929\u5730\u5F00\u8F9F\uFF0C\u6E05\u8F7B\u7684\u90E8\u5206\u4E0A\u5347\u6210\u4E3A\u5929\uFF0C\u91CD\u6D4A\u7684\u90E8\u5206\u4E0B\u6C89\u6210\u4E3A\u5730\u3002",
+      "appreciation": "\u795E\u8BDD\u4EE5\u5B8F\u5927\u7684\u60F3\u8C61\u89E3\u91CA\u5929\u5730\u5F62\u6210\uFF0C\u5851\u9020\u4E86\u5F00\u5929\u8F9F\u5730\u7684\u82F1\u96C4\u5F62\u8C61\u3002",
+      "keywords": [
+        "\u76D8\u53E4",
+        "\u5929\u5730",
+        "\u5F00\u5929\u8F9F\u5730"
+      ],
+      "tags": [
+        "\u795E\u8BDD",
+        "\u521B\u4E16"
+      ],
+      "image": "classic-cosmos"
+    },
+    {
+      "id": "myth-g4-nvwa",
+      "grade": 4,
+      "category": "myth",
+      "title": "\u5973\u5A32\u8865\u5929",
+      "author": "\u300A\u6DEE\u5357\u5B50\u300B",
+      "dynasty": "\u6C49",
+      "excerpt": "\u5F80\u53E4\u4E4B\u65F6\uFF0C\u56DB\u6781\u5E9F\uFF0C\u4E5D\u5DDE\u88C2\uFF0C\u5929\u4E0D\u517C\u8986\uFF0C\u5730\u4E0D\u5468\u8F7D\u2026\u2026\u5973\u5A32\u70BC\u4E94\u8272\u77F3\u4EE5\u8865\u82CD\u5929\u3002",
+      "pinyin": "w\u01CEng g\u01D4 zh\u012B sh\xED\uFF0Cs\xEC j\xED f\xE8i\uFF0Cji\u01D4 zh\u014Du li\xE8\uFF0Cti\u0101n b\xF9 ji\u0101n f\xF9\uFF0Cd\xEC b\xF9 zh\u014Du z\xE0i\u2026\u2026n\u01DA w\u0101 li\xE0n w\u01D4 s\xE8 sh\xED y\u01D0 b\u01D4 c\u0101ng ti\u0101n\u3002",
+      "summary": "\u8FDC\u53E4\u5929\u584C\u5730\u88C2\uFF0C\u5973\u5A32\u70BC\u4E94\u8272\u77F3\u8865\u5929\uFF0C\u62EF\u6551\u767E\u59D3\uFF0C\u8868\u73B0\u65E0\u754F\u548C\u5949\u732E\u3002",
+      "meaning": "\u8FDC\u53E4\u65F6\u5019\uFF0C\u5929\u67F1\u6298\u65AD\uFF0C\u5927\u5730\u88C2\u5F00\uFF0C\u5929\u4E0D\u80FD\u5B8C\u5168\u8986\u76D6\u5927\u5730\uFF0C\u5730\u4E0D\u80FD\u5B8C\u5168\u627F\u8F7D\u4E07\u7269\u2026\u2026\u5973\u5A32\u70BC\u4E94\u8272\u77F3\u4FEE\u8865\u82CD\u5929\u3002",
+      "appreciation": "\u5973\u5A32\u8865\u5929\u5C55\u73B0\u9762\u5BF9\u707E\u96BE\u633A\u8EAB\u800C\u51FA\u7684\u52C7\u6C14\u548C\u5949\u732E\u7CBE\u795E\u3002",
+      "keywords": [
+        "\u5973\u5A32",
+        "\u4E94\u8272\u77F3",
+        "\u8865\u5929"
+      ],
+      "tags": [
+        "\u795E\u8BDD",
+        "\u5949\u732E"
+      ],
+      "image": "classic-cosmos"
+    },
+    {
+      "id": "poetry-g4-qingpingyue",
+      "grade": 4,
+      "category": "poetry",
+      "title": "\u6E05\u5E73\u4E50\xB7\u6751\u5C45",
+      "author": "\u8F9B\u5F03\u75BE",
+      "dynasty": "\u5B8B",
+      "excerpt": "\u8305\u6A90\u4F4E\u5C0F\uFF0C\u6EAA\u4E0A\u9752\u9752\u8349\u3002\u9189\u91CC\u5434\u97F3\u76F8\u5A9A\u597D\uFF0C\u767D\u53D1\u8C01\u5BB6\u7FC1\u5AAA\uFF1F\u5927\u513F\u9504\u8C46\u6EAA\u4E1C\uFF0C\u4E2D\u513F\u6B63\u7EC7\u9E21\u7B3C\u3002\u6700\u559C\u5C0F\u513F\u4EA1\u8D56\uFF0C\u6EAA\u5934\u5367\u5265\u83B2\u84EC\u3002",
+      "pinyin": "m\xE1o y\xE1n d\u012B xi\u01CEo\uFF0Cx\u012B sh\xE0ng q\u012Bng q\u012Bng c\u01CEo\u3002zu\xEC l\u01D0 w\xFA y\u012Bn xi\u0101ng m\xE8i h\u01CEo\uFF0Cb\xE1i f\xE0 shu\xED ji\u0101 w\u0113ng \u01CEo\uFF1Fd\xE0 \xE9r ch\xFA d\xF2u x\u012B d\u014Dng\uFF0Czh\u014Dng \xE9r zh\xE8ng zh\u012B j\u012B l\xF3ng\u3002zu\xEC x\u01D0 xi\u01CEo \xE9r w\xFA l\xE0i\uFF0Cx\u012B t\xF3u w\xF2 b\u0101o li\xE1n peng\u3002",
+      "summary": "\u4F4E\u77EE\u8305\u5C4B\u3001\u9752\u9752\u6EAA\u8349\u3001\u767D\u53D1\u592B\u59BB\u548C\u4E09\u4E2A\u5B69\u5B50\uFF0C\u6784\u6210\u5B89\u5B81\u6D3B\u6CFC\u7684\u4E61\u6751\u751F\u6D3B\u753B\u9762\u3002",
+      "meaning": "\u8305\u8349\u5C4B\u4F4E\u77EE\uFF0C\u6EAA\u8FB9\u957F\u6EE1\u9752\u8349\u3002\u542B\u9189\u610F\u7684\u5434\u5730\u65B9\u8A00\u6E29\u67D4\u4EB2\u5207\uFF0C\u90A3\u767D\u53D1\u7684\u662F\u8C01\u5BB6\u7684\u8001\u592B\u59BB\uFF1F\u5927\u513F\u5B50\u5728\u6EAA\u4E1C\u9504\u8C46\uFF0C\u4E8C\u513F\u5B50\u5728\u7F16\u9E21\u7B3C\u3002\u6700\u559C\u987D\u76AE\u7684\u5C0F\u513F\u5B50\uFF0C\u8DB4\u5728\u6EAA\u5934\u5265\u83B2\u84EC\u3002",
+      "appreciation": "\u8BCD\u4E2D\u4EBA\u7269\u5404\u6709\u52A8\u4F5C\uFF0C\u6700\u540E\u201C\u5367\u5265\u83B2\u84EC\u201D\u7684\u7EC6\u8282\u6700\u4F20\u795E\u3002",
+      "keywords": [
+        "\u6751\u5C45",
+        "\u519C\u5BB6",
+        "\u6EAA\u6C34",
+        "\u83B2\u84EC"
+      ],
+      "tags": [
+        "\u8F9B\u5F03\u75BE",
+        "\u7530\u56ED"
+      ],
+      "image": "poetry-village"
+    },
+    {
+      "id": "classical-g5-gurentandushu",
+      "grade": 5,
+      "category": "classical",
+      "title": "\u53E4\u4EBA\u8C08\u8BFB\u4E66",
+      "author": "\u300A\u8BBA\u8BED\u300B\u7B49",
+      "dynasty": "\u5148\u79E6",
+      "excerpt": "\u654F\u800C\u597D\u5B66\uFF0C\u4E0D\u803B\u4E0B\u95EE\u3002\u77E5\u4E4B\u4E3A\u77E5\u4E4B\uFF0C\u4E0D\u77E5\u4E3A\u4E0D\u77E5\uFF0C\u662F\u77E5\u4E5F\u3002\u9ED8\u800C\u8BC6\u4E4B\uFF0C\u5B66\u800C\u4E0D\u538C\uFF0C\u8BF2\u4EBA\u4E0D\u5026\u3002",
+      "pinyin": "m\u01D0n \xE9r h\xE0o xu\xE9\uFF0Cb\xF9 ch\u01D0 xi\xE0 w\xE8n\u3002zh\u012B zh\u012B w\xE9i zh\u012B zh\u012B\uFF0Cb\xF9 zh\u012B w\xE9i b\xF9 zh\u012B\uFF0Csh\xEC zh\xEC y\u011B\u3002m\xF2 \xE9r zh\xEC zh\u012B\uFF0Cxu\xE9 \xE9r b\xF9 y\xE0n\uFF0Chu\xEC r\xE9n b\xF9 ju\xE0n\u3002",
+      "summary": "\u6458\u5F55\u53E4\u4EBA\u8C08\u8BFB\u4E66\u7684\u540D\u53E5\uFF0C\u5F3A\u8C03\u52E4\u5B66\u3001\u597D\u95EE\u3001\u8BDA\u5B9E\u6C42\u77E5\u548C\u5B66\u800C\u4E0D\u538C\u3002",
+      "meaning": "\u806A\u660E\u53C8\u7231\u597D\u5B66\u4E60\uFF0C\u4E0D\u4EE5\u5411\u5730\u4F4D\u4F4E\u7684\u4EBA\u8BF7\u6559\u4E3A\u803B\u3002\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u667A\u6167\u3002\u9ED8\u9ED8\u8BB0\u4F4F\u6240\u5B66\uFF0C\u5B66\u4E60\u4E0D\u6EE1\u8DB3\uFF0C\u6559\u5BFC\u522B\u4EBA\u4E0D\u75B2\u5026\u3002",
+      "appreciation": "\u51E0\u53E5\u8BDD\u5206\u522B\u8C08\u597D\u95EE\u3001\u8BDA\u5B9E\u548C\u575A\u6301\uFF0C\u90FD\u662F\u4ECA\u5929\u4ECD\u7136\u9002\u7528\u7684\u5B66\u4E60\u6001\u5EA6\u3002",
+      "keywords": [
+        "\u8BFB\u4E66",
+        "\u597D\u95EE",
+        "\u8BDA\u5B9E",
+        "\u575A\u6301"
+      ],
+      "tags": [
+        "\u6587\u8A00\u6587",
+        "\u5B66\u4E60"
+      ],
+      "image": "classic-books"
+    },
+    {
+      "id": "poetry-g6-jiangnanchun",
+      "grade": 6,
+      "category": "poetry",
+      "title": "\u6C5F\u5357\u6625",
+      "author": "\u675C\u7267",
+      "dynasty": "\u5510",
+      "excerpt": "\u5343\u91CC\u83BA\u557C\u7EFF\u6620\u7EA2\uFF0C\u6C34\u6751\u5C71\u90ED\u9152\u65D7\u98CE\u3002\u5357\u671D\u56DB\u767E\u516B\u5341\u5BFA\uFF0C\u591A\u5C11\u697C\u53F0\u70DF\u96E8\u4E2D\u3002",
+      "pinyin": "qi\u0101n l\u01D0 y\u012Bng t\xED l\u01DC y\xECng h\xF3ng\uFF0Cshu\u01D0 c\u016Bn sh\u0101n gu\u014D ji\u01D4 q\xED f\u0113ng\u3002n\xE1n ch\xE1o s\xEC b\u01CEi b\u0101 sh\xED s\xEC\uFF0Cdu\u014D sh\u01CEo l\xF3u t\xE1i y\u0101n y\u01D4 zh\u014Dng\u3002",
+      "summary": "\u6C5F\u5357\u6625\u5929\u83BA\u557C\u82B1\u5F00\uFF0C\u6C34\u6751\u5C71\u90ED\u9152\u65D7\u98D8\u626C\uFF0C\u5357\u671D\u53E4\u5BFA\u697C\u53F0\u9690\u5728\u70DF\u96E8\u4E2D\u3002",
+      "meaning": "\u5343\u91CC\u6C5F\u5357\uFF0C\u9EC4\u83BA\u557C\u53EB\uFF0C\u7EFF\u6811\u6620\u7740\u7EA2\u82B1\uFF1B\u6C34\u8FB9\u6751\u5E84\u3001\u5C71\u8FB9\u57CE\u90ED\uFF0C\u9152\u65D7\u8FCE\u98CE\u98D8\u52A8\u3002\u5357\u671D\u7559\u4E0B\u7684\u4F17\u591A\u5BFA\u5E99\uFF0C\u591A\u5C11\u697C\u53F0\u7B3C\u7F69\u5728\u70DF\u96E8\u4E2D\u3002",
+      "appreciation": "\u524D\u4E24\u53E5\u5199\u660E\u6717\u6625\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u70DF\u96E8\u53E4\u5BFA\uFF0C\u7A7A\u95F4\u4E0E\u65F6\u95F4\u4EA4\u9519\u3002",
+      "keywords": [
+        "\u6C5F\u5357",
+        "\u6625\u5929",
+        "\u53E4\u5BFA",
+        "\u70DF\u96E8"
+      ],
+      "tags": [
+        "\u675C\u7267",
+        "\u6625\u5929"
+      ],
+      "image": "poetry-lake"
+    },
+    {
+      "id": "poetry-g6-shuhuyin",
+      "grade": 6,
+      "category": "poetry",
+      "title": "\u4E66\u6E56\u9634\u5148\u751F\u58C1",
+      "author": "\u738B\u5B89\u77F3",
+      "dynasty": "\u5B8B",
+      "excerpt": "\u8305\u6A90\u957F\u626B\u51C0\u65E0\u82D4\uFF0C\u82B1\u6728\u6210\u7566\u624B\u81EA\u683D\u3002\u4E00\u6C34\u62A4\u7530\u5C06\u7EFF\u7ED5\uFF0C\u4E24\u5C71\u6392\u95FC\u9001\u9752\u6765\u3002",
+      "pinyin": "m\xE1o y\xE1n ch\xE1ng s\u01CEo j\xECng w\xFA t\xE1i\uFF0Chu\u0101 m\xF9 ch\xE9ng q\xED sh\u01D2u z\xEC z\u0101i\u3002y\u012B shu\u01D0 h\xF9 ti\xE1n ji\u0101ng l\u01DC r\xE0o\uFF0Cli\u01CEng sh\u0101n p\xE1i t\xE0 s\xF2ng q\u012Bng l\xE1i\u3002",
+      "summary": "\u8305\u5C4B\u5E72\u51C0\uFF0C\u82B1\u6728\u6210\u7566\uFF0C\u6EAA\u6C34\u62A4\u7530\uFF0C\u9752\u5C71\u63A8\u95E8\u9001\u7EFF\uFF0C\u5199\u51FA\u6E05\u5E7D\u7684\u7530\u56ED\u73AF\u5883\u3002",
+      "meaning": "\u8305\u5C4B\u6A90\u4E0B\u5E38\u6253\u626B\uFF0C\u5E72\u51C0\u5F97\u6CA1\u6709\u9752\u82D4\uFF1B\u82B1\u6728\u6210\u7566\uFF0C\u90FD\u662F\u4E3B\u4EBA\u4EB2\u624B\u683D\u79CD\u3002\u4E00\u6761\u6EAA\u6C34\u62A4\u7740\u7530\u5730\uFF0C\u628A\u7EFF\u8272\u73AF\u7ED5\u8D77\u6765\uFF1B\u4E24\u5EA7\u9752\u5C71\u63A8\u95E8\u9001\u6765\u9752\u7FE0\u3002",
+      "appreciation": "\u201C\u62A4\u7530\u201D\u201C\u6392\u95FC\u201D\u628A\u6C34\u548C\u5C71\u5199\u5F97\u50CF\u4E3B\u4EBA\u4E00\u6837\u4EB2\u5207\u3002",
+      "keywords": [
+        "\u8305\u5C4B",
+        "\u82B1\u6728",
+        "\u6EAA\u6C34",
+        "\u9752\u5C71"
+      ],
+      "tags": [
+        "\u738B\u5B89\u77F3",
+        "\u7530\u56ED"
+      ],
+      "image": "poetry-village"
+    }
+  ];
+
+  // assets/corrections.js
+  var corrections = [
+    {
+      "id": "sanzi-g1-renzhichu",
+      "category": "mengxue"
+    },
+    {
+      "id": "myth-g2-yishejiuri",
+      "title": "\u7FBF\u5C04\u4E5D\u65E5",
+      "author": "\u4E2D\u56FD\u53E4\u4EE3\u795E\u8BDD",
+      "dynasty": "\u4E0A\u53E4",
+      "excerpt": "\u5F88\u4E45\u5F88\u4E45\u4EE5\u524D\uFF0C\u5929\u4E0A\u540C\u65F6\u51FA\u73B0\u4E86\u5341\u4E2A\u592A\u9633\u3002\u5341\u4E2A\u592A\u9633\u50CF\u5341\u4E2A\u5927\u706B\u7403\uFF0C\u7099\u70E4\u7740\u5927\u5730\u3002\u6C5F\u6CB3\u91CC\u7684\u6C34\u88AB\u84B8\u5E72\u4E86\uFF0C\u79BE\u82D7\u88AB\u6652\u67AF\u4E86\uFF0C\u571F\u5730\u88AB\u70E4\u7126\u4E86\uFF0C\u8FDE\u5730\u4E0A\u7684\u6C99\u77F3\u597D\u50CF\u90FD\u8981\u7194\u5316\u4E86\u3002\u4EBA\u4EEC\u70ED\u5F97\u5598\u4E0D\u8FC7\u6C14\u6765\uFF0C\u751F\u6D3B\u975E\u5E38\u8270\u96BE\u3002\n\u795E\u7BAD\u624B\u7FBF\u51B3\u5FC3\u5E2E\u52A9\u4EBA\u4EEC\u8131\u79BB\u82E6\u6D77\u3002\u4ED6\u7FFB\u8FC7\u4E5D\u5341\u4E5D\u5EA7\u9AD8\u5C71\uFF0C\u8E5A\u8FC7\u4E5D\u5341\u4E5D\u6761\u5927\u6CB3\uFF0C\u6765\u5230\u4E1C\u6D77\u8FB9\u3002\u4ED6\u767B\u4E0A\u4E00\u5EA7\u5927\u5C71\uFF0C\u642D\u4E0A\u795E\u7BAD\uFF0C\u62C9\u5F00\u795E\u5F13\uFF0C\u5BF9\u51C6\u5929\u4E0A\u7684\u4E00\u4E2A\u592A\u9633\uFF0C\u55D6\u5730\u5C31\u662F\u4E00\u7BAD\u3002\u90A3\u4E2A\u592A\u9633\u4E00\u4E0B\u5B50\u7206\u88C2\u5F00\uFF0C\u4E00\u56E2\u56E2\u706B\u7403\u5230\u5904\u4E71\u7A9C\uFF0C\u63A5\u7740\uFF0C\u5657\u5657\u5730\u6389\u5728\u5730\u4E0A\u3002\n\u7FBF\u4E00\u53E3\u6C14\u5C04\u4E0B\u4E86\u4E5D\u4E2A\u592A\u9633\uFF0C\u7559\u4E0B\u6700\u540E\u4E00\u4E2A\u3002\u8FD9\u4E2A\u592A\u9633\u5BB3\u6015\u6781\u4E86\uFF0C\u8EB2\u8FDB\u4E86\u5927\u6D77\u91CC\u3002\u5929\u4E0A\u6CA1\u6709\u4E86\u592A\u9633\uFF0C\u6574\u4E2A\u4E16\u754C\u4E00\u7247\u9ED1\u6697\u3002\u4EBA\u4EEC\u8BF7\u6C42\u592A\u9633\u51FA\u6765\uFF0C\u592A\u9633\u624D\u4ECE\u4E1C\u6D77\u8FB9\u6162\u6162\u5347\u8D77\u3002\n\u4ECE\u6B64\uFF0C\u592A\u9633\u6BCF\u5929\u4ECE\u4E1C\u65B9\u5347\u8D77\uFF0C\u5230\u897F\u65B9\u843D\u4E0B\u3002\u571F\u5730\u6E10\u6E10\u6ECB\u6DA6\u8D77\u6765\uFF0C\u82B1\u8349\u6811\u6728\u6E10\u6E10\u7E41\u8302\u8D77\u6765\uFF0C\u6C5F\u6CB3\u5954\u817E\u6B22\u5531\uFF0C\u5927\u5730\u4E0A\u91CD\u65B0\u73B0\u51FA\u4E86\u52C3\u52C3\u751F\u673A\u3002",
+      "pinyin": "henjiuhenjiuyiqian\uFF0Ctianshangtongshichuxianleshigetaiyang\u3002shigetaiyangxiangshigedahuoqiu\uFF0Czhikaozhedadi\u3002jianghelideshuibeizhengganle\uFF0Chemiaobeishaikule\uFF0Ctudibeikaojiaole\uFF0Cliandishangdeshashihaoxiangdouyaoronghuale\u3002renmenredechuanbuguoqilai\uFF0Cshenghuofeichangjiannan\u3002\nshenjianshouyijuexinbangzhurenmentuolikuhai\u3002tafanguojiushijiuzuogaoshan\uFF0Ctangguojiushijiutiaodahe\uFF0Claidaodonghaibian\u3002tadengshangyizuodashan\uFF0Cdashangshenjian\uFF0Clakaishengong\uFF0Cduizhuntianshangdeyigetaiyang\uFF0Csoudijiushiyijian\u3002nagetaiyangyixiazibaoliekai\uFF0Cyituantuanhuoqiudaochuluancuan\uFF0Cjiezhe\uFF0Cpupudidiaozaidishang\u3002\nyiyikouqishexialejiugetaiyang\uFF0Cliuxiazuihouyige\u3002zhegetaiyanghaipajile\uFF0Cduojinledahaili\u3002tianshangmeiyouletaiyang\uFF0Czhenggeshijieyipianheian\u3002renmenqingqiutaiyangchulai\uFF0Ctaiyangcaicongdonghaibianmanmanshengqi\u3002\ncongci\uFF0Ctaiyangmeitiancongdongfangshengqi\uFF0Cdaoxifangluoxia\u3002tudijianjianzirunqilai\uFF0Chuacaoshumujianjianfanmaoqilai\uFF0Cjianghebentenghuanchang\uFF0Cdadishangzhongxinxianchuleboboshengji\u3002",
+      "summary": "\u8FDC\u53E4\u65F6\u5341\u4E2A\u592A\u9633\u7099\u70E4\u5927\u5730\uFF0C\u795E\u7BAD\u624B\u7FBF\u5C04\u4E0B\u4E5D\u4E2A\u592A\u9633\uFF0C\u5E2E\u52A9\u4EBA\u4EEC\u6062\u590D\u5B89\u5B81\uFF0C\u8868\u73B0\u4E86\u6218\u80DC\u81EA\u7136\u707E\u5BB3\u7684\u613F\u671B\u3002",
+      "meaning": "\u5929\u4E0A\u51FA\u73B0\u5341\u4E2A\u592A\u9633\uFF0C\u5E84\u7A3C\u548C\u6CB3\u6C34\u90FD\u88AB\u70E4\u5E72\uFF0C\u767E\u59D3\u751F\u6D3B\u8270\u96BE\u3002\u7FBF\u7FFB\u5C71\u8D8A\u6CB3\uFF0C\u5C04\u4E0B\u4E5D\u4E2A\u592A\u9633\uFF0C\u53EA\u7559\u4E0B\u4E00\u4E2A\u3002\u4ECE\u6B64\u592A\u9633\u6BCF\u5929\u4E1C\u5347\u897F\u843D\uFF0C\u5927\u5730\u91CD\u65B0\u6062\u590D\u751F\u673A\u3002",
+      "appreciation": "\u6545\u4E8B\u7528\u5938\u5F20\u7684\u60F3\u8C61\u5199\u51FA\u5341\u65E5\u7099\u70E4\u7684\u707E\u96BE\uFF0C\u4E5F\u628A\u7FBF\u7684\u52C7\u6562\u3001\u575A\u6BC5\u548C\u4E3A\u767E\u59D3\u9664\u5BB3\u7684\u5F62\u8C61\u5199\u5F97\u9C9C\u660E\u3002",
+      "keywords": [
+        "\u7FBF",
+        "\u592A\u9633",
+        "\u5C04\u65E5",
+        "\u795E\u8BDD"
+      ],
+      "tags": [
+        "\u795E\u8BDD",
+        "\u82F1\u96C4",
+        "\u60F3\u8C61"
+      ],
+      "image": "classic-cosmos"
+    },
+    {
+      "id": "fable-g2-wangyangbudao",
+      "excerpt": "\u4ECE\u524D\uFF0C\u6709\u4E2A\u4EBA\u517B\u4E86\u51E0\u53EA\u7F8A\u3002\u4E00\u5929\u65E9\u4E0A\uFF0C\u4ED6\u53BB\u653E\u7F8A\uFF0C\u53D1\u73B0\u7F8A\u5C11\u4E86\u4E00\u53EA\u3002\u539F\u6765\u7F8A\u5708\u7834\u4E86\u4E2A\u7A9F\u7ABF\uFF0C\u591C\u91CC\u72FC\u4ECE\u7A9F\u7ABF\u94BB\u8FDB\u53BB\uFF0C\u628A\u7F8A\u53FC\u8D70\u4E86\u3002\n\u8857\u574A\u529D\u4ED6\u8BF4\uFF1A\u201C\u8D76\u7D27\u628A\u7F8A\u5708\u4FEE\u4E00\u4FEE\uFF0C\u5835\u4E0A\u90A3\u4E2A\u7A9F\u7ABF\u5427\uFF01\u201D\n\u4ED6\u8BF4\uFF1A\u201C\u7F8A\u5DF2\u7ECF\u4E22\u4E86\uFF0C\u8FD8\u4FEE\u7F8A\u5708\u5E72\u4EC0\u4E48\uFF1F\u201D\n\u7B2C\u4E8C\u5929\u65E9\u4E0A\uFF0C\u4ED6\u53BB\u653E\u7F8A\uFF0C\u53D1\u73B0\u7F8A\u53C8\u5C11\u4E86\u4E00\u53EA\u3002\u539F\u6765\u72FC\u53C8\u4ECE\u7A9F\u7ABF\u94BB\u8FDB\u53BB\uFF0C\u628A\u7F8A\u53FC\u8D70\u4E86\u3002\n\u4ED6\u5F88\u540E\u6094\uFF0C\u4E0D\u8BE5\u4E0D\u63A5\u53D7\u8857\u574A\u7684\u529D\u544A\uFF0C\u5FC3\u60F3\uFF0C\u73B0\u5728\u4FEE\u8FD8\u4E0D\u665A\u3002\u4ED6\u8D76\u7D27\u5835\u4E0A\u90A3\u4E2A\u7A9F\u7ABF\uFF0C\u628A\u7F8A\u5708\u4FEE\u5F97\u7ED3\u7ED3\u5B9E\u5B9E\u7684\u3002\u4ECE\u6B64\uFF0C\u4ED6\u7684\u7F8A\u518D\u4E5F\u6CA1\u4E22\u8FC7\u3002",
+      "pinyin": "congqian\uFF0Cyougerenyanglejizhiyang\u3002yitianzaoshang\uFF0Ctaqufangyang\uFF0Cfaxianyangshaoleyizhi\u3002yuanlaiyangquanpolegekulong\uFF0Cyelilangcongkulongzuanjinqu\uFF0Cbayangdiaozoule\u3002\njiefangquantashuo\uFF1A\u201Cganjinbayangquanxiuyixiu\uFF0Cdushangnagekulongba\uFF01\u201D\ntashuo\uFF1A\u201Cyangyijingdiule\uFF0Chaixiuyangquanganshenme\uFF1F\u201D\ndiertianzaoshang\uFF0Ctaqufangyang\uFF0Cfaxianyangyoushaoleyizhi\u3002yuanlailangyoucongkulongzuanjinqu\uFF0Cbayangdiaozoule\u3002\ntahenhouhui\uFF0Cbugaibujieshoujiefangdequangao\uFF0Cxinxiang\uFF0Cxianzaixiuhaibuwan\u3002taganjindushangnagekulong\uFF0Cbayangquanxiudejiejieshishide\u3002congci\uFF0Ctadeyangzaiyemeidiuguo\u3002",
+      "summary": "\u517B\u7F8A\u4EBA\u7B2C\u4E00\u6B21\u4E22\u7F8A\u540E\u6CA1\u6709\u542C\u529D\uFF0C\u7B2C\u4E8C\u6B21\u4E22\u7F8A\u624D\u4FEE\u8865\u7F8A\u5708\u3002\u6545\u4E8B\u544A\u8BC9\u6211\u4EEC\uFF0C\u53D1\u73B0\u95EE\u9898\u540E\u53CA\u65F6\u8865\u6551\u8FD8\u4E0D\u7B97\u665A\u3002",
+      "meaning": "\u517B\u7F8A\u4EBA\u7684\u7F8A\u5708\u7834\u4E86\uFF0C\u72FC\u53FC\u8D70\u4E86\u4E00\u53EA\u7F8A\u3002\u8857\u574A\u529D\u4ED6\u4FEE\u7F8A\u5708\uFF0C\u4ED6\u5374\u4E0D\u542C\u3002\u7B2C\u4E8C\u5929\u53C8\u4E22\u4E86\u4E00\u53EA\u7F8A\uFF0C\u4ED6\u624D\u540E\u6094\u5E76\u9A6C\u4E0A\u628A\u7F8A\u5708\u4FEE\u597D\u3002\u4ECE\u6B64\u7F8A\u518D\u4E5F\u6CA1\u6709\u4E22\u8FC7\u3002",
+      "appreciation": "\u6545\u4E8B\u7528\u524D\u540E\u4E24\u6B21\u4E22\u7F8A\u7684\u7ED3\u679C\u8BF4\u660E\u4E00\u4E2A\u9053\u7406\uFF1A\u72AF\u4E86\u9519\u5E76\u4E0D\u53EF\u6015\uFF0C\u5173\u952E\u662F\u63A5\u53D7\u529D\u544A\u3001\u7ACB\u5373\u6539\u6B63\u3002",
+      "keywords": [
+        "\u7F8A\u5708",
+        "\u8865\u6551",
+        "\u53CA\u65F6",
+        "\u6539\u9519"
+      ],
+      "tags": [
+        "\u5BD3\u8A00",
+        "\u6539\u9519",
+        "\u5904\u4E8B"
+      ],
+      "image": "idiom-sheep"
+    },
+    {
+      "id": "fable-g2-yamiaozhuzhang",
+      "excerpt": "\u53E4\u65F6\u5019\u6709\u4E2A\u4EBA\uFF0C\u4ED6\u5DF4\u671B\u81EA\u5DF1\u7530\u91CC\u7684\u79BE\u82D7\u957F\u5F97\u5FEB\u4E9B\uFF0C\u5929\u5929\u5230\u7530\u8FB9\u53BB\u770B\u3002\u53EF\u662F\uFF0C\u4E00\u5929\uFF0C\u4E24\u5929\uFF0C\u4E09\u5929\uFF0C\u79BE\u82D7\u597D\u50CF\u4E00\u70B9\u513F\u4E5F\u6CA1\u6709\u957F\u9AD8\u3002\u4ED6\u5728\u7530\u8FB9\u7126\u6025\u5730\u8F6C\u6765\u8F6C\u53BB\uFF0C\u81EA\u8A00\u81EA\u8BED\u5730\u8BF4\uFF1A\u201C\u6211\u5F97\u60F3\u4E2A\u529E\u6CD5\u5E2E\u5B83\u4EEC\u957F\u3002\u201D\n\u4E00\u5929\uFF0C\u4ED6\u7EC8\u4E8E\u60F3\u51FA\u4E86\u529E\u6CD5\uFF0C\u5C31\u6025\u5FD9\u8DD1\u5230\u7530\u91CC\uFF0C\u628A\u79BE\u82D7\u4E00\u68F5\u4E00\u68F5\u5F80\u9AD8\u91CC\u62D4\u3002\u4ECE\u4E2D\u5348\u4E00\u76F4\u5FD9\u5230\u592A\u9633\u843D\u5C71\uFF0C\u5F04\u5F97\u7B4B\u75B2\u529B\u5C3D\u3002\n\u4ED6\u56DE\u5230\u5BB6\u91CC\uFF0C\u4E00\u8FB9\u5598\u6C14\u4E00\u8FB9\u8BF4\uFF1A\u201C\u4ECA\u5929\u53EF\u628A\u6211\u7D2F\u574F\u4E86\uFF01\u529B\u6C14\u603B\u7B97\u6CA1\u767D\u8D39\uFF0C\u79BE\u82D7\u90FD\u957F\u9AD8\u4E86\u4E00\u5927\u622A\u3002\u201D\n\u4ED6\u7684\u513F\u5B50\u4E0D\u660E\u767D\u662F\u600E\u4E48\u56DE\u4E8B\uFF0C\u7B2C\u4E8C\u5929\u8DD1\u5230\u7530\u91CC\u4E00\u770B\uFF0C\u79BE\u82D7\u90FD\u67AF\u6B7B\u4E86\u3002",
+      "pinyin": "gushihouyougeren\uFF0Ctabawangzijitianlidehemiaozhangdekuaixie\uFF0Ctiantiandaotianbianqukan\u3002keshi\uFF0Cyitian\uFF0Cliangtian\uFF0Csantian\uFF0Chemiaohaoxiangyidianeryemeiyouzhanggao\u3002tazaitianbianjiaojidizhuanlaizhuanqu\uFF0Cziyanziyudishuo\uFF1A\u201Cwodexianggebanfabangtamenzhang\u3002\u201D\nyitian\uFF0Ctazhongyuxiangchulebanfa\uFF0Cjiujimangpaodaotianli\uFF0Cbahemiaoyikeyikewanggaoliba\u3002congzhongwuyizhimangdaotaiyangluoshan\uFF0Cnongdejinpilijin\u3002\ntahuidaojiali\uFF0Cyibianchuanqiyibianshuo\uFF1A\u201Cjintiankebawoleihuaile\uFF01liqizongsuanmeibaifei\uFF0Chemiaodouzhanggaoleyidajie\u3002\u201D\ntadeerzibumingbaishizenmehuishi\uFF0Cdiertianpaodaotianliyikan\uFF0Chemiaodoukusile\u3002",
+      "summary": "\u79CD\u7530\u4EBA\u5ACC\u79BE\u82D7\u957F\u5F97\u6162\uFF0C\u628A\u79BE\u82D7\u4E00\u68F5\u68F5\u62D4\u9AD8\uFF0C\u7ED3\u679C\u79BE\u82D7\u90FD\u67AF\u6B7B\u4E86\u3002\u6545\u4E8B\u8BF4\u660E\u505A\u4E8B\u4E0D\u80FD\u8FDD\u53CD\u4E8B\u7269\u751F\u957F\u7684\u89C4\u5F8B\u3002",
+      "meaning": "\u4E00\u4E2A\u4EBA\u76FC\u671B\u79BE\u82D7\u5FEB\u957F\uFF0C\u5C31\u8DD1\u5230\u7530\u91CC\u628A\u79BE\u82D7\u5F80\u4E0A\u62D4\u3002\u4ED6\u7D2F\u5F97\u7B4B\u75B2\u529B\u5C3D\uFF0C\u56DE\u5BB6\u8FD8\u5F97\u610F\u5730\u8BF4\u79BE\u82D7\u957F\u9AD8\u4E86\u3002\u7B2C\u4E8C\u5929\uFF0C\u4ED6\u7684\u513F\u5B50\u5230\u7530\u91CC\u4E00\u770B\uFF0C\u79BE\u82D7\u5168\u90FD\u67AF\u6B7B\u4E86\u3002",
+      "appreciation": "\u201C\u5DF4\u671B\u201D\u201C\u7126\u6025\u201D\u201C\u4E00\u68F5\u4E00\u68F5\u5F80\u9AD8\u91CC\u62D4\u201D\u628A\u4EBA\u7269\u6025\u529F\u8FD1\u5229\u7684\u5FC3\u7406\u5199\u5F97\u5177\u4F53\u3002\u6545\u4E8B\u63D0\u9192\u6211\u4EEC\uFF0C\u5E2E\u52A9\u6210\u957F\u4E5F\u8981\u9075\u5FAA\u89C4\u5F8B\u3002",
+      "keywords": [
+        "\u79BE\u82D7",
+        "\u62D4\u9AD8",
+        "\u89C4\u5F8B",
+        "\u6210\u957F"
+      ],
+      "tags": [
+        "\u5BD3\u8A00",
+        "\u89C4\u5F8B",
+        "\u505A\u4E8B"
+      ],
+      "image": "poetry-farmer"
+    },
+    {
+      "id": "myth-g4-pangu",
+      "excerpt": "\u5F88\u4E45\u5F88\u4E45\u4EE5\u524D\uFF0C\u5929\u548C\u5730\u8FD8\u6CA1\u6709\u5206\u5F00\uFF0C\u5B87\u5B99\u6DF7\u6C8C\u4E00\u7247\uFF0C\u50CF\u4E2A\u5927\u9E21\u86CB\u3002\u6709\u4E2A\u53EB\u76D8\u53E4\u7684\u5DE8\u4EBA\uFF0C\u5728\u6DF7\u6C8C\u4E4B\u4E2D\u7761\u4E86\u4E00\u4E07\u516B\u5343\u5E74\u3002\n\u6709\u4E00\u5929\uFF0C\u76D8\u53E4\u9192\u6765\u4E86\uFF0C\u7741\u773C\u4E00\u770B\uFF0C\u5468\u56F4\u9ED1\u4E4E\u4E4E\u4E00\u7247\uFF0C\u4EC0\u4E48\u4E5F\u770B\u4E0D\u89C1\u3002\u4ED6\u4E00\u4F7F\u52B2\u7FFB\u8EAB\u5750\u4E86\u8D77\u6765\uFF0C\u53EA\u542C\u5494\u5693\u4E00\u58F0\uFF0C\u201C\u5927\u9E21\u86CB\u201D\u88C2\u5F00\u4E86\u4E00\u6761\u7F1D\uFF0C\u4E00\u4E1D\u5FAE\u5149\u900F\u4E86\u8FDB\u6765\u3002\u5DE8\u4EBA\u89C1\u8EAB\u8FB9\u6709\u4E00\u628A\u65A7\u5934\uFF0C\u5C31\u62FF\u8D77\u65A7\u5934\uFF0C\u5BF9\u7740\u773C\u524D\u7684\u9ED1\u6697\u5288\u8FC7\u53BB\u3002\u53EA\u542C\u89C1\u4E00\u58F0\u5DE8\u54CD\uFF0C\u201C\u5927\u9E21\u86CB\u201D\u788E\u4E86\u3002\u8F7B\u800C\u6E05\u7684\u4E1C\u897F\uFF0C\u7F13\u7F13\u4E0A\u5347\uFF0C\u53D8\u6210\u4E86\u5929\uFF1B\u91CD\u800C\u6D4A\u7684\u4E1C\u897F\uFF0C\u6162\u6162\u4E0B\u964D\uFF0C\u53D8\u6210\u4E86\u5730\u3002\n\u5929\u548C\u5730\u5206\u5F00\u540E\uFF0C\u76D8\u53E4\u6015\u5B83\u4EEC\u8FD8\u4F1A\u5408\u5728\u4E00\u8D77\uFF0C\u5C31\u5934\u9876\u5929\uFF0C\u811A\u8E0F\u5730\uFF0C\u7AD9\u5728\u5929\u5730\u5F53\u4E2D\uFF0C\u968F\u7740\u5B83\u4EEC\u7684\u53D8\u5316\u800C\u53D8\u5316\u3002\u5929\u6BCF\u5929\u5347\u9AD8\u4E00\u4E08\uFF0C\u5730\u6BCF\u5929\u52A0\u539A\u4E00\u4E08\uFF0C\u76D8\u53E4\u7684\u8EAB\u4F53\u4E5F\u8DDF\u7740\u957F\u9AD8\u3002\n\u8FD9\u6837\u8FC7\u4E86\u4E00\u4E07\u516B\u5343\u5E74\uFF0C\u5929\u5347\u5F97\u9AD8\u6781\u4E86\uFF0C\u5730\u53D8\u5F97\u539A\u6781\u4E86\u3002\u76D8\u53E4\u8FD9\u4E2A\u5DCD\u5CE8\u7684\u5DE8\u4EBA\u5C31\u50CF\u4E00\u6839\u67F1\u5B50\uFF0C\u6491\u5728\u5929\u548C\u5730\u4E4B\u95F4\uFF0C\u4E0D\u8BA9\u5B83\u4EEC\u91CD\u65B0\u5408\u62E2\u3002\n\u53C8\u4E0D\u77E5\u8FC7\u4E86\u591A\u5C11\u5E74\uFF0C\u5929\u548C\u5730\u7EC8\u4E8E\u6210\u5F62\u4E86\uFF0C\u76D8\u53E4\u4E5F\u7CBE\u75B2\u529B\u7AED\uFF0C\u7D2F\u5F97\u5012\u4E0B\u4E86\u3002\n\u76D8\u53E4\u5012\u4E0B\u4EE5\u540E\uFF0C\u4ED6\u7684\u8EAB\u4F53\u53D1\u751F\u4E86\u5DE8\u5927\u7684\u53D8\u5316\u3002\u4ED6\u547C\u51FA\u7684\u6C14\u606F\u53D8\u6210\u4E86\u56DB\u5B63\u7684\u98CE\u548C\u98D8\u52A8\u7684\u4E91\uFF1B\u4ED6\u53D1\u51FA\u7684\u58F0\u97F3\u5316\u4F5C\u4E86\u9686\u9686\u7684\u96F7\u58F0\uFF1B\u4ED6\u7684\u5DE6\u773C\u53D8\u6210\u4E86\u592A\u9633\uFF0C\u7167\u8000\u5927\u5730\uFF1B\u4ED6\u7684\u53F3\u773C\u53D8\u6210\u4E86\u6708\u4EAE\uFF0C\u7ED9\u591C\u665A\u5E26\u6765\u5149\u660E\uFF1B\u4ED6\u7684\u56DB\u80A2\u548C\u8EAF\u5E72\u53D8\u6210\u4E86\u5927\u5730\u7684\u56DB\u6781\u548C\u4E94\u65B9\u7684\u540D\u5C71\uFF1B\u4ED6\u7684\u8840\u6DB2\u53D8\u6210\u4E86\u5954\u6D41\u4E0D\u606F\u7684\u6C5F\u6CB3\uFF1B\u4ED6\u7684\u6C57\u6BDB\u53D8\u6210\u4E86\u8302\u76DB\u7684\u82B1\u8349\u6811\u6728\uFF1B\u4ED6\u7684\u6C57\u6C34\u53D8\u6210\u4E86\u6ECB\u6DA6\u4E07\u7269\u7684\u96E8\u9732\u2026\u2026\n\u4F1F\u5927\u7684\u5DE8\u4EBA\u76D8\u53E4\uFF0C\u7528\u4ED6\u7684\u6574\u4E2A\u8EAB\u4F53\u521B\u9020\u4E86\u7F8E\u4E3D\u7684\u4E16\u754C\u3002",
+      "pinyin": "henjiuhenjiuyiqian\uFF0Ctianhedihaimeiyoufenkai\uFF0Cyuzhouhundunyipian\uFF0Cxianggedajidan\u3002yougejiaopangudejuren\uFF0Czaihundunzhizhongshuileyiwanbaqiannian\u3002\nyouyitian\uFF0Cpanguxinglaile\uFF0Czhengyanyikan\uFF0Czhouweiheihuhuyipian\uFF0Cshenmeyekanbujian\u3002tayishijinfanshenzuoleqilai\uFF0Czhitingkacayisheng\uFF0C\u201Cdajidan\u201Dliekaileyitiaofeng\uFF0Cyisiweiguangtoulejinlai\u3002jurenjianshenbianyouyibafutou\uFF0Cjiunaqifutou\uFF0Cduizheyanqiandeheianpiguoqu\u3002zhitingjianyishengjuxiang\uFF0C\u201Cdajidan\u201Dsuile\u3002qingerqingdedongxi\uFF0Chuanhuanshangsheng\uFF0Cbianchengletian\uFF1Bzhongerzhuodedongxi\uFF0Cmanmanxiajiang\uFF0Cbianchengledi\u3002\ntianhedifenkaihou\uFF0Cpangupatamenhaihuihezaiyiqi\uFF0Cjiutoudingtian\uFF0Cjiaotadi\uFF0Czhanzaitiandidangzhong\uFF0Csuizhetamendebianhuaerbianhua\u3002tianmeitianshenggaoyizhang\uFF0Cdimeitianjiahouyizhang\uFF0Cpangudeshentiyegenzhezhanggao\u3002\nzheyangguoleyiwanbaqiannian\uFF0Ctianshengdegaojile\uFF0Cdibiandehoujile\u3002panguzhegeweiedejurenjiuxiangyigenzhuzi\uFF0Cchengzaitianhedizhijian\uFF0Cburangtamenzhongxinhelong\u3002\nyoubuzhiguoleduoshaonian\uFF0Ctianhedizhongyuchengxingle\uFF0Cpanguyejingpilijie\uFF0Cleidedaoxiale\u3002\npangudaoxiayihou\uFF0Ctadeshentifashenglejudadebianhua\u3002tahuchudeqixibianchenglesijidefenghepiaodongdeyun\uFF1Btafachudeshengyinhuazuolelonglongdeleisheng\uFF1Btadezuoyanbianchengletaiyang\uFF0Czhaoyaodadi\uFF1Btadeyouyanbianchengleyueliang\uFF0Cgeiyewandailaiguangming\uFF1Btadesizhihequganbianchengledadidesijihewufangdemingshan\uFF1Btadexueyebianchenglebenliubuxidejianghe\uFF1Btadehanmaobianchenglemaoshengdehuacaoshumu\uFF1Btadehanshuibianchenglezirunwanwudeyulu\u2026\u2026\nweidadejurenpangu\uFF0Cyongtadezhenggeshentichuangzaolemeilideshijie\u3002",
+      "summary": "\u76D8\u53E4\u5728\u6DF7\u6C8C\u4E2D\u9192\u6765\uFF0C\u5288\u5F00\u5929\u5730\uFF0C\u53C8\u7528\u6574\u4E2A\u8EAB\u4F53\u5316\u6210\u81EA\u7136\u4E07\u7269\uFF0C\u5C55\u73B0\u4E86\u53E4\u4EE3\u4EBA\u6C11\u5BF9\u5B87\u5B99\u8D77\u6E90\u7684\u4E30\u5BCC\u60F3\u8C61\u3002",
+      "meaning": "\u5929\u5730\u6700\u521D\u6DF7\u5728\u4E00\u8D77\uFF0C\u50CF\u4E00\u4E2A\u5927\u9E21\u86CB\u3002\u76D8\u53E4\u9192\u6765\u540E\u5288\u5F00\u6DF7\u6C8C\uFF0C\u8F7B\u6E05\u7684\u4E1C\u897F\u4E0A\u5347\u4E3A\u5929\uFF0C\u91CD\u6D4A\u7684\u4E1C\u897F\u4E0B\u964D\u4E3A\u5730\u3002\u4ED6\u6491\u5728\u5929\u5730\u4E4B\u95F4\uFF0C\u76F4\u5230\u5929\u5730\u6210\u5F62\u3002\u76D8\u53E4\u5012\u4E0B\u540E\uFF0C\u8EAB\u4F53\u5316\u6210\u4E86\u98CE\u4E91\u3001\u96F7\u58F0\u3001\u65E5\u6708\u3001\u5C71\u5DDD\u3001\u6C5F\u6CB3\u548C\u82B1\u8349\u6811\u6728\uFF0C\u521B\u9020\u4E86\u7F8E\u4E3D\u7684\u4E16\u754C\u3002",
+      "appreciation": "\u8BFE\u6587\u628A\u5929\u5730\u5F62\u6210\u548C\u81EA\u7136\u4E07\u7269\u90FD\u5F52\u5230\u76D8\u53E4\u7684\u8EAB\u4F53\u53D8\u5316\u4E2D\uFF0C\u60F3\u8C61\u96C4\u4F1F\u800C\u5BCC\u6709\u753B\u9762\u611F\uFF0C\u5851\u9020\u4E86\u52C7\u4E8E\u732E\u8EAB\u7684\u5DE8\u4EBA\u5F62\u8C61\u3002",
+      "keywords": [
+        "\u76D8\u53E4",
+        "\u5929\u5730",
+        "\u521B\u4E16",
+        "\u732E\u8EAB"
+      ],
+      "tags": [
+        "\u795E\u8BDD",
+        "\u521B\u4E16",
+        "\u60F3\u8C61"
+      ],
+      "image": "classic-cosmos"
+    },
+    {
+      "id": "myth-g4-nvwa",
+      "excerpt": "\u81EA\u4ECE\u5973\u5A32\u521B\u9020\u4E86\u4EBA\u7C7B\uFF0C\u5927\u5730\u4E0A\u5230\u5904\u662F\u6B22\u6B4C\u7B11\u8BED\uFF0C\u4EBA\u4EEC\u4E00\u76F4\u8FC7\u7740\u5FEB\u4E50\u5E78\u798F\u7684\u751F\u6D3B\u3002\u4E0D\u77E5\u8FC7\u4E86\u591A\u5C11\u5E74\uFF0C\u4E00\u5929\u591C\u91CC\uFF0C\u5973\u5A32\u7A81\u7136\u88AB\u4E00\u9635\u8F70\u9686\u9686\u7684\u5DE8\u5927\u54CD\u58F0\u9707\u9192\u4E86\u3002\u5979\u6025\u5FD9\u8D77\u5E8A\uFF0C\u8DD1\u5230\u5916\u9762\u4E00\u770B\uFF0C\u5929\u54EA\uFF0C\u592A\u53EF\u6015\u4E86\uFF01\u8FDC\u8FDC\u7684\u5929\u7A7A\u584C\u4E0B\u4E00\u5927\u5757\uFF0C\u9732\u51FA\u4E00\u4E2A\u9ED1\u9ED1\u7684\u5927\u7A9F\u7ABF\u3002\u5730\u88AB\u9707\u88C2\u4E86\uFF0C\u51FA\u73B0\u4E86\u4E00\u9053\u9053\u6DF1\u6C9F\u3002\u5C71\u5188\u4E0A\u71C3\u70E7\u7740\u718A\u718A\u5927\u706B\uFF0C\u7530\u91CE\u91CC\u5230\u5904\u662F\u6D2A\u6C34\u3002\u8BB8\u591A\u4EBA\u88AB\u706B\u56F4\u56F0\u5728\u5C71\u9876\u4E0A\uFF0C\u8FD8\u6709\u8BB8\u591A\u4EBA\u5728\u6C34\u91CC\u6323\u624E\u3002\n\u5973\u5A32\u96BE\u8FC7\u6781\u4E86\u3002\u5979\u7ACB\u523B\u53BB\u627E\u96E8\u795E\uFF0C\u6C42\u4ED6\u4E0B\u4E00\u573A\u96E8\uFF0C\u628A\u5929\u706B\u7184\u706D\u3002\u53C8\u9020\u4E86\u8239\uFF0C\u597D\u6551\u51FA\u6323\u624E\u5728\u6D2A\u6C34\u4E2D\u7684\u4EBA\u4EEC\u3002\n\u4E0D\u4E45\uFF0C\u5929\u706B\u7184\u706D\u4E86\uFF0C\u6D2A\u6C34\u4E2D\u7684\u4EBA\u4EEC\u88AB\u6551\u4E0A\u6765\u4E86\u3002\u53EF\u662F\uFF0C\u5929\u4E0A\u7684\u5927\u7A9F\u7ABF\u8FD8\u5728\u55B7\u706B\u3002\u5973\u5A32\u51B3\u5B9A\u5192\u7740\u751F\u547D\u5371\u9669\uFF0C\u628A\u5929\u8865\u4E0A\u3002\n\u5979\u8DD1\u5230\u5C71\u4E0A\uFF0C\u5BFB\u627E\u8865\u5929\u7528\u7684\u4E94\u5F69\u77F3\u3002\u5979\u539F\u4EE5\u4E3A\u8FD9\u79CD\u77F3\u5934\u5F88\u591A\uFF0C\u7528\u4E0D\u7740\u8D39\u591A\u5927\u529B\u6C14\u3002\u5230\u5C71\u4E0A\u4E00\u770B\uFF0C\u5168\u662F\u4E00\u4E9B\u96F6\u96F6\u661F\u661F\u7684\u788E\u5757\u3002\u5979\u5FD9\u4E86\u51E0\u5929\u51E0\u591C\uFF0C\u627E\u5230\u4E86\u7EA2\u3001\u9EC4\u3001\u84DD\u3001\u767D\u3001\u9752\u4E94\u79CD\u989C\u8272\u7684\u77F3\u5934\u3002\n\u4E94\u5F69\u77F3\u627E\u9F50\u4E86\uFF0C\u5973\u5A32\u5728\u5730\u4E0A\u6316\u4E2A\u5706\u5751\uFF0C\u628A\u4E94\u5F69\u77F3\u653E\u5728\u91CC\u9762\uFF0C\u7528\u795E\u706B\u8FDB\u884C\u51B6\u70BC\u3002\u70BC\u4E86\u4E94\u5929\u4E94\u591C\uFF0C\u4E94\u5F69\u77F3\u5316\u6210\u4E86\u5F88\u7A20\u7684\u6DB2\u4F53\u3002\u5973\u5A32\u628A\u5B83\u88C5\u5728\u4E00\u4E2A\u5927\u76C6\u91CC\uFF0C\u7AEF\u5230\u5929\u8FB9\uFF0C\u5BF9\u51C6\u90A3\u4E2A\u5927\u7A9F\u7ABF\uFF0C\u5F80\u4E0A\u4E00\u6CFC\uFF0C\u53EA\u89C1\u91D1\u5149\u56DB\u5C04\uFF0C\u5927\u7A9F\u7ABF\u7ACB\u523B\u88AB\u8865\u597D\u4E86\u3002\n\u73B0\u5728\uFF0C\u4EBA\u4EEC\u5E38\u5E38\u770B\u89C1\u5929\u8FB9\u4E94\u5F69\u7684\u4E91\u971E\uFF0C\u4F20\u8BF4\u90A3\u5C31\u662F\u5973\u5A32\u8865\u5929\u7684\u5730\u65B9\u3002",
+      "pinyin": "zicongnvwachuangzaolerenlei\uFF0Cdadishangdaochushihuangexiaoyu\uFF0Crenmenyizhiguozhekuailexingfudeshenghuo\u3002buzhiguoleduoshaonian\uFF0Cyitianyeli\uFF0Cnvwaturanbeiyizhenhonglonglongdejudaxiangshengzhenxingle\u3002tajimangqichuang\uFF0Cpaodaowaimianyikan\uFF0Ctianna\uFF0Ctaikepale\uFF01yuanyuandetiankongtaxiayidakuai\uFF0Cluchuyigeheiheidedakulong\u3002dibeizhenliele\uFF0Cchuxianleyidaodaoshengou\u3002shangangshangranshaozhexiongxiongdahuo\uFF0Ctianyelidaochushihongshui\u3002xuduorenbeihuoweikunzaishandingshang\uFF0Chaiyouxuduorenzaishuilizhengzha\u3002\nnvwananguojile\u3002talikequzhaoyushen\uFF0Cqiutaxiayichangyu\uFF0Cbatianhuoximie\u3002youzaolechuan\uFF0Chaojiuchuzhengzhazaihongshuizhongderenmen\u3002\nbujiu\uFF0Ctianhuoximiele\uFF0Chongshuizhongderenmenbeijiushanglaile\u3002keshi\uFF0Ctianshangdedakulonghaizaipenhuo\u3002nvwajuedingmaozheshengmingweixian\uFF0Cbatianbushang\u3002\ntapaodaoshanshang\uFF0Cxunzhaobutianyongdewucaishi\u3002tayuanyiweizhezhongshitouhenduo\uFF0Cyongbuzhefeiduodaliqi\u3002daoshanshangyikan\uFF0Cquanshiyixielinglingxingxingdesuikuai\u3002tamanglejitianjiye\uFF0Czhaodaolehong\u3001huang\u3001lan\u3001bai\u3001qingwuzhongyansedeshitou\u3002\nwucaishizhaoqile\uFF0Cnvwazaidishangwageyuankeng\uFF0Cbawucaishifangzailimian\uFF0Cyongshenhuojinxingyelian\u3002lianlewutianwuye\uFF0Cwucaishihuachenglehenchoudeyeti\u3002nvwabatazhuangzaiyigedapenli\uFF0Cduandaotianbian\uFF0Cduizhunnagedakulong\uFF0Cwangshangyipo\uFF0Czhijianjinguangsishe\uFF0Cdakulonglikebeibuhaole\u3002\nxianzai\uFF0Crenmenchangchangkanjiantianbianwucaideyunxia\uFF0Cchuanshuonajiushinvwabutiandedifang\u3002",
+      "summary": "\u5929\u584C\u5730\u88C2\u540E\uFF0C\u5973\u5A32\u5BFB\u627E\u4E94\u5F69\u77F3\u8865\u597D\u5929\u7A7A\uFF0C\u53C8\u6551\u51FA\u53D7\u707E\u7684\u4EBA\u4EEC\uFF0C\u8868\u73B0\u4E86\u5979\u52C7\u6562\u3001\u5584\u826F\u548C\u7518\u4E8E\u5949\u732E\u7684\u7CBE\u795E\u3002",
+      "meaning": "\u5929\u5730\u53D1\u751F\u707E\u53D8\uFF0C\u5929\u7A7A\u7834\u4E86\u4E00\u4E2A\u5927\u7A9F\u7ABF\uFF0C\u6D2A\u6C34\u548C\u5927\u706B\u5A01\u80C1\u7740\u4EBA\u4EEC\u3002\u5973\u5A32\u5148\u6C42\u96E8\u706D\u706B\u3001\u9020\u8239\u6551\u4EBA\uFF0C\u53C8\u5386\u7ECF\u8F9B\u82E6\u627E\u6765\u4E94\u5F69\u77F3\uFF0C\u70BC\u6210\u77F3\u6D46\u8865\u597D\u5929\u7A7A\uFF0C\u8BA9\u4EBA\u4EEC\u91CD\u65B0\u8FC7\u4E0A\u5B89\u5B9A\u7684\u751F\u6D3B\u3002",
+      "appreciation": "\u8BFE\u6587\u5148\u5199\u707E\u96BE\u7684\u53EF\u6015\uFF0C\u518D\u5199\u5973\u5A32\u5BFB\u627E\u548C\u51B6\u70BC\u4E94\u5F69\u77F3\u7684\u8270\u96BE\uFF0C\u5C42\u5C42\u8868\u73B0\u5979\u7684\u52C7\u6562\u4E0E\u5949\u732E\u3002\u7ED3\u5C3E\u7684\u4E91\u971E\u8BA9\u795E\u8BDD\u6709\u4E86\u7F8E\u4E3D\u7684\u4F59\u97F5\u3002",
+      "keywords": [
+        "\u5973\u5A32",
+        "\u4E94\u5F69\u77F3",
+        "\u8865\u5929",
+        "\u5949\u732E"
+      ],
+      "tags": [
+        "\u795E\u8BDD",
+        "\u5949\u732E",
+        "\u60F3\u8C61"
+      ],
+      "image": "classic-cosmos"
+    },
+    {
+      "id": "poetry-g4-xiarijueju",
+      "title": "\u590F\u65E5\u7EDD\u53E5",
+      "author": "\u674E\u6E05\u7167",
+      "dynasty": "\u5B8B",
+      "excerpt": "\u751F\u5F53\u4F5C\u4EBA\u6770\uFF0C\u6B7B\u4EA6\u4E3A\u9B3C\u96C4\u3002\n\u81F3\u4ECA\u601D\u9879\u7FBD\uFF0C\u4E0D\u80AF\u8FC7\u6C5F\u4E1C\u3002",
+      "pinyin": "sh\u0113ng d\u0101ng zu\xF2 r\xE9n ji\xE9\uFF0Cs\u01D0 y\xEC w\xE9i gu\u01D0 xi\xF3ng\u3002\nzh\xEC j\u012Bn s\u012B xi\xE0ng y\u01D4\uFF0Cb\xF9 k\u011Bn gu\xF2 ji\u0101ng d\u014Dng\u3002",
+      "summary": "\u8BD7\u4EBA\u501F\u9879\u7FBD\u5B81\u6B7B\u4E0D\u80AF\u6E21\u6C5F\u7684\u6545\u4E8B\uFF0C\u8D5E\u9882\u521A\u6BC5\u4E0D\u5C48\u7684\u82F1\u96C4\u6C14\u6982\uFF0C\u4E5F\u8868\u8FBE\u5BF9\u5BB6\u56FD\u547D\u8FD0\u7684\u611F\u6168\u3002",
+      "meaning": "\u6D3B\u7740\u5C31\u5E94\u5F53\u505A\u4EBA\u4E2D\u7684\u8C6A\u6770\uFF0C\u6B7B\u4E86\u4E5F\u8981\u6210\u4E3A\u9B3C\u4E2D\u7684\u82F1\u96C4\u3002\u76F4\u5230\u4ECA\u5929\uFF0C\u4EBA\u4EEC\u8FD8\u601D\u5FF5\u9879\u7FBD\uFF0C\u56E0\u4E3A\u4ED6\u5175\u8D25\u540E\u4E0D\u80AF\u9003\u8FC7\u6C5F\u4E1C\u82DF\u4E14\u5077\u751F\u3002",
+      "appreciation": "\u5168\u8BD7\u77ED\u4FC3\u6709\u529B\u3002\u201C\u751F\u201D\u4E0E\u201C\u6B7B\u201D\u3001\u201C\u4EBA\u6770\u201D\u4E0E\u201C\u9B3C\u96C4\u201D\u5F62\u6210\u5BF9\u4E3E\uFF0C\u501F\u53E4\u4EBA\u7684\u9009\u62E9\u8868\u73B0\u9C9C\u660E\u7684\u4EBA\u751F\u6001\u5EA6\u3002",
+      "keywords": [
+        "\u9879\u7FBD",
+        "\u82F1\u96C4",
+        "\u6C14\u8282",
+        "\u5BB6\u56FD"
+      ],
+      "tags": [
+        "\u674E\u6E05\u7167",
+        "\u548F\u53F2",
+        "\u7231\u56FD"
+      ],
+      "image": "poetry-homeland"
+    },
+    {
+      "id": "poetry-g5-jihai",
+      "title": "\u5DF1\u4EA5\u6742\u8BD7",
+      "excerpt": "\u4E5D\u5DDE\u751F\u6C14\u6043\u98CE\u96F7\uFF0C\u4E07\u9A6C\u9F50\u5591\u7A76\u53EF\u54C0\u3002\n\u6211\u529D\u5929\u516C\u91CD\u6296\u64DE\uFF0C\u4E0D\u62D8\u4E00\u683C\u964D\u4EBA\u6750\u3002",
+      "pinyin": "ji\u01D4 zh\u014Du sh\u0113ng q\xEC sh\xEC f\u0113ng l\xE9i\uFF0Cw\xE0n m\u01CE q\xED y\u012Bn ji\u016B k\u011B \u0101i\u3002\nw\u01D2 qu\xE0n ti\u0101n g\u014Dng ch\xF3ng d\u01D2u s\u01D2u\uFF0Cb\xF9 j\u016B y\u012B g\xE9 ji\xE0ng r\xE9n c\xE1i\u3002",
+      "summary": "\u8BD7\u4EBA\u5E0C\u671B\u793E\u4F1A\u51FA\u73B0\u98CE\u96F7\u822C\u7684\u53D8\u9769\uFF0C\u6253\u7834\u6C89\u95F7\u5C40\u9762\uFF0C\u8BA9\u5404\u79CD\u4EBA\u624D\u8131\u9896\u800C\u51FA\uFF0C\u8868\u8FBE\u4E86\u5BF9\u56FD\u5BB6\u632F\u5174\u7684\u6E34\u671B\u3002",
+      "meaning": "\u53EA\u6709\u4F9D\u9760\u98CE\u96F7\u822C\u7684\u5DE8\u5927\u529B\u91CF\uFF0C\u624D\u80FD\u4F7F\u4E2D\u56FD\u5927\u5730\u7115\u53D1\u751F\u673A\uFF1B\u4EBA\u4EEC\u90FD\u4E0D\u6562\u8BF4\u8BDD\u3001\u6BEB\u65E0\u751F\u6C14\u7684\u5C40\u9762\u7EC8\u7A76\u4EE4\u4EBA\u60B2\u54C0\u3002\u6211\u529D\u8001\u5929\u7237\u91CD\u65B0\u632F\u4F5C\u7CBE\u795E\uFF0C\u4E0D\u8981\u62D8\u5B88\u4E00\u79CD\u89C4\u683C\uFF0C\u8BA9\u5404\u79CD\u4EBA\u624D\u964D\u751F\u3002",
+      "appreciation": "\u201C\u98CE\u96F7\u201D\u8C61\u5F81\u793E\u4F1A\u53D8\u9769\uFF0C\u201C\u4E07\u9A6C\u9F50\u5591\u201D\u5199\u51FA\u6C89\u95F7\u73B0\u5B9E\u3002\u6700\u540E\u4E00\u53E5\u76F4\u6292\u80F8\u81C6\uFF0C\u8868\u8FBE\u4E0D\u62D8\u4E00\u683C\u9009\u62D4\u4EBA\u624D\u7684\u613F\u671B\u3002",
+      "keywords": [
+        "\u98CE\u96F7",
+        "\u4EBA\u624D",
+        "\u53D8\u9769",
+        "\u632F\u5174"
+      ],
+      "tags": [
+        "\u9F9A\u81EA\u73CD",
+        "\u7231\u56FD",
+        "\u54F2\u7406"
+      ],
+      "image": "poetry-homeland"
+    },
+    {
+      "id": "poetry-g5-wenguanjun",
+      "excerpt": "\u5251\u5916\u5FFD\u4F20\u6536\u84DF\u5317\uFF0C\u521D\u95FB\u6D95\u6CEA\u6EE1\u8863\u88F3\u3002\n\u5374\u770B\u59BB\u5B50\u6101\u4F55\u5728\uFF0C\u6F2B\u5377\u8BD7\u4E66\u559C\u6B32\u72C2\u3002\n\u767D\u65E5\u653E\u6B4C\u987B\u7EB5\u9152\uFF0C\u9752\u6625\u4F5C\u4F34\u597D\u8FD8\u4E61\u3002\n\u5373\u4ECE\u5DF4\u5CE1\u7A7F\u5DEB\u5CE1\uFF0C\u4FBF\u4E0B\u8944\u9633\u5411\u6D1B\u9633\u3002",
+      "pinyin": "ji\xE0n w\xE0i h\u016B chu\xE1n sh\u014Du j\xEC b\u011Bi\uFF0Cch\u016B w\xE9n t\xEC l\xE8i m\u01CEn y\u012B shang\u3002\nqu\xE8 k\xE0n q\u012B z\u01D0 ch\xF3u h\xE9 z\xE0i\uFF0Cm\xE0n ju\u01CEn sh\u012B sh\u016B x\u01D0 y\xF9 ku\xE1ng\u3002\nb\xE1i r\xEC f\xE0ng g\u0113 x\u016B z\xF2ng ji\u01D4\uFF0Cq\u012Bng ch\u016Bn zu\xF2 b\xE0n h\u01CEo hu\xE1n xi\u0101ng\u3002\nj\xED c\xF3ng b\u0101 xi\xE1 chu\u0101n w\u016B xi\xE1\uFF0Cbi\xE0n xi\xE0 xi\u0101ng y\xE1ng xi\xE0ng lu\xF2 y\xE1ng\u3002",
+      "summary": "\u542C\u5230\u5B98\u519B\u6536\u590D\u5931\u5730\u7684\u6D88\u606F\uFF0C\u675C\u752B\u60CA\u559C\u843D\u6CEA\uFF0C\u60F3\u5230\u7EC8\u4E8E\u53EF\u4EE5\u8FD4\u56DE\u6545\u4E61\uFF0C\u559C\u60A6\u4E4B\u60C5\u5954\u6D8C\u800C\u51FA\u3002",
+      "meaning": "\u5251\u95E8\u5173\u5916\u5FFD\u7136\u4F20\u6765\u5B98\u519B\u6536\u590D\u84DF\u5317\u7684\u6D88\u606F\uFF0C\u521A\u542C\u5230\u65F6\u6211\u6FC0\u52A8\u5F97\u6CEA\u6C34\u6CBE\u6EE1\u8863\u88F3\u3002\u56DE\u5934\u770B\u59BB\u5B50\u513F\u5973\uFF0C\u54EA\u91CC\u8FD8\u6709\u5FE7\u6101\uFF1F\u6211\u968F\u624B\u5377\u8D77\u8BD7\u4E66\uFF0C\u9AD8\u5174\u5F97\u5FEB\u8981\u53D1\u72C2\u3002\u767D\u5929\u653E\u58F0\u9AD8\u6B4C\uFF0C\u8FD8\u8981\u7EB5\u60C5\u996E\u9152\uFF1B\u6709\u660E\u5A9A\u6625\u5149\u4F5C\u4F34\uFF0C\u6B63\u597D\u8FD4\u56DE\u6545\u4E61\u3002\u6211\u8981\u7ACB\u5373\u4ECE\u5DF4\u5CE1\u7A7F\u8FC7\u5DEB\u5CE1\uFF0C\u518D\u987A\u6D41\u800C\u4E0B\u5230\u8944\u9633\uFF0C\u8F6C\u5411\u6D1B\u9633\u3002",
+      "appreciation": "\u5168\u8BD7\u56F4\u7ED5\u201C\u559C\u201D\u5C55\u5F00\uFF0C\u4ECE\u843D\u6CEA\u3001\u5377\u4E66\u3001\u653E\u6B4C\u5230\u89C4\u5212\u5F52\u7A0B\uFF0C\u52A8\u4F5C\u4E00\u4E2A\u63A5\u4E00\u4E2A\uFF0C\u628A\u538B\u6291\u5DF2\u4E45\u540E\u7A81\u7136\u91CA\u653E\u7684\u559C\u60A6\u5199\u5F97\u771F\u5207\u3002",
+      "keywords": [
+        "\u5B98\u519B",
+        "\u6536\u590D",
+        "\u8FD8\u4E61",
+        "\u559C\u60A6"
+      ],
+      "tags": [
+        "\u675C\u752B",
+        "\u7231\u56FD",
+        "\u601D\u4E61"
+      ],
+      "image": "poetry-homeland"
+    },
+    {
+      "id": "poetry-g6-tiaotiao",
+      "excerpt": "\u8FE2\u8FE2\u7275\u725B\u661F\uFF0C\u768E\u768E\u6CB3\u6C49\u5973\u3002\n\u7EA4\u7EA4\u64E2\u7D20\u624B\uFF0C\u672D\u672D\u5F04\u673A\u677C\u3002\n\u7EC8\u65E5\u4E0D\u6210\u7AE0\uFF0C\u6CE3\u6D95\u96F6\u5982\u96E8\u3002\n\u6CB3\u6C49\u6E05\u4E14\u6D45\uFF0C\u76F8\u53BB\u590D\u51E0\u8BB8\uFF1F\n\u76C8\u76C8\u4E00\u6C34\u95F4\uFF0C\u8109\u8109\u4E0D\u5F97\u8BED\u3002",
+      "pinyin": "ti\xE1o ti\xE1o qi\u0101n ni\xFA x\u012Bng\uFF0Cji\u01CEo ji\u01CEo h\xE9 h\xE0n n\u01DA\u3002\nxi\u0101n xi\u0101n zhu\xF3 s\xF9 sh\u01D2u\uFF0Czh\xE1 zh\xE1 n\xF2ng j\u012B zh\xF9\u3002\nzh\u014Dng r\xEC b\xF9 ch\xE9ng zh\u0101ng\uFF0Cq\xEC t\xEC l\xEDng r\xFA y\u01D4\u3002\nh\xE9 h\xE0n q\u012Bng qi\u011B qi\u01CEn\uFF0Cxi\u0101ng q\xF9 f\xF9 j\u01D0 x\u01D4\uFF1F\ny\xEDng y\xEDng y\u012B shu\u01D0 ji\u0101n\uFF0Cm\xF2 m\xF2 b\xF9 d\xE9 y\u01D4\u3002",
+      "summary": "\u7EC7\u5973\u9694\u7740\u94F6\u6CB3\u601D\u5FF5\u725B\u90CE\uFF0C\u7EC8\u65E5\u7EC7\u4E0D\u6210\u5E03\uFF0C\u6CEA\u5982\u96E8\u4E0B\u3002\u8BD7\u7528\u6D45\u663E\u7684\u94F6\u6CB3\u5199\u51FA\u6DF1\u957F\u7684\u76F8\u601D\u3002",
+      "meaning": "\u9065\u8FDC\u7684\u7275\u725B\u661F\u548C\u660E\u4EAE\u7684\u7EC7\u5973\u661F\u9694\u6CB3\u76F8\u671B\u3002\u7EC7\u5973\u4F38\u51FA\u767D\u7699\u7684\u624B\uFF0C\u7EC7\u673A\u672D\u672D\u4F5C\u54CD\uFF0C\u53EF\u4E00\u6574\u5929\u4E5F\u7EC7\u4E0D\u6210\u4E00\u5339\u5E03\uFF0C\u773C\u6CEA\u50CF\u96E8\u4E00\u6837\u843D\u4E0B\u3002\u94F6\u6CB3\u53C8\u6E05\u53C8\u6D45\uFF0C\u76F8\u9694\u53C8\u80FD\u6709\u591A\u8FDC\uFF1F\u4E24\u4EBA\u53EA\u9694\u7740\u4E00\u6761\u6E05\u6D45\u7684\u6C34\uFF0C\u5374\u53EA\u80FD\u542B\u60C5\u76F8\u671B\uFF0C\u4E0D\u80FD\u8BF4\u8BDD\u3002",
+      "appreciation": "\u8BD7\u4ECE\u661F\u7A7A\u5199\u5230\u7EC7\u5973\u7684\u52A8\u4F5C\u548C\u773C\u6CEA\uFF0C\u201C\u76C8\u76C8\u4E00\u6C34\u95F4\uFF0C\u8109\u8109\u4E0D\u5F97\u8BED\u201D\u628A\u8FD1\u5728\u54AB\u5C3A\u5374\u4E0D\u80FD\u76F8\u89C1\u7684\u65E0\u5948\u5199\u5F97\u542B\u84C4\u52A8\u4EBA\u3002",
+      "keywords": [
+        "\u7275\u725B\u661F",
+        "\u7EC7\u5973",
+        "\u94F6\u6CB3",
+        "\u76F8\u601D"
+      ],
+      "tags": [
+        "\u53E4\u8BD7\u5341\u4E5D\u9996",
+        "\u76F8\u601D",
+        "\u795E\u8BDD"
+      ],
+      "image": "poetry-river-moon"
+    },
+    {
+      "id": "classical-g5-gurentandushu",
+      "excerpt": "\u654F\u800C\u597D\u5B66\uFF0C\u4E0D\u803B\u4E0B\u95EE\u3002\u77E5\u4E4B\u4E3A\u77E5\u4E4B\uFF0C\u4E0D\u77E5\u4E3A\u4E0D\u77E5\uFF0C\u662F\u77E5\u4E5F\u3002\u9ED8\u800C\u8BC6\u4E4B\uFF0C\u5B66\u800C\u4E0D\u538C\uFF0C\u8BF2\u4EBA\u4E0D\u5026\u3002\n\u4F59\u5C1D\u8C13\u8BFB\u4E66\u6709\u4E09\u5230\uFF0C\u8C13\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\u3002\u5FC3\u4E0D\u5728\u6B64\uFF0C\u5219\u773C\u4E0D\u770B\u4ED4\u7EC6\uFF0C\u5FC3\u773C\u65E2\u4E0D\u4E13\u4E00\uFF0C\u5374\u53EA\u6F2B\u6D6A\u8BF5\u8BFB\uFF0C\u51B3\u4E0D\u80FD\u8BB0\uFF0C\u8BB0\u4EA6\u4E0D\u80FD\u4E45\u4E5F\u3002\u4E09\u5230\u4E4B\u4E2D\uFF0C\u5FC3\u5230\u6700\u6025\u3002\u5FC3\u65E2\u5230\u77E3\uFF0C\u773C\u53E3\u5C82\u4E0D\u5230\u4E4E\uFF1F",
+      "pinyin": "minerhaoxue\uFF0Cbuchixiawen\u3002zhizhiweizhizhi\uFF0Cbuzhiweibuzhi\uFF0Cshizhiye\u3002moershizhi\uFF0Cxueerbuyan\uFF0Chuirenbujuan\u3002\nyuchangweidushuyousandao\uFF0Cweixindao\u3001yandao\u3001koudao\u3002xinbuzaici\uFF0Czeyanbukanzaixi\uFF0Cxinyanjibuzhuanyi\uFF0Cquezhimanlangsongdu\uFF0Cjuebunengji\uFF0Cjiyibunengjiuye\u3002sandaozhizhong\uFF0Cxindaozuiji\u3002xinjidaoyi\uFF0Cyankouqibudaohu\uFF1F",
+      "summary": "\u8BFE\u6587\u9009\u53D6\u53E4\u4EBA\u7684\u8BFB\u4E66\u540D\u8A00\uFF0C\u5F3A\u8C03\u865A\u5FC3\u597D\u95EE\u3001\u8BDA\u5B9E\u6C42\u77E5\u548C\u8BFB\u4E66\u8981\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\u3002",
+      "meaning": "\u806A\u654F\u53C8\u7231\u597D\u5B66\u4E60\uFF0C\u4E0D\u628A\u5411\u5730\u4F4D\u6BD4\u81EA\u5DF1\u4F4E\u7684\u4EBA\u8BF7\u6559\u5F53\u4F5C\u7F9E\u803B\u3002\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u771F\u6B63\u7684\u667A\u6167\u3002\u9ED8\u9ED8\u8BB0\u4F4F\u6240\u5B66\uFF0C\u5B66\u4E60\u4E0D\u6EE1\u8DB3\uFF0C\u6559\u5BFC\u522B\u4EBA\u4E0D\u75B2\u5026\u3002\u6211\u66FE\u7ECF\u8BF4\u8FC7\u8BFB\u4E66\u8981\u505A\u5230\u4E09\u5230\uFF1A\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\u3002\u5FC3\u601D\u4E0D\u5728\u4E66\u4E0A\uFF0C\u773C\u775B\u5C31\u770B\u4E0D\u4ED4\u7EC6\uFF1B\u5FC3\u548C\u773C\u4E0D\u4E13\u4E00\uFF0C\u53EA\u662F\u968F\u610F\u8BF5\u8BFB\uFF0C\u4E00\u5B9A\u8BB0\u4E0D\u4F4F\uFF0C\u8BB0\u4F4F\u4E86\u4E5F\u4E0D\u80FD\u957F\u4E45\u3002\u4E09\u5230\u4E4B\u4E2D\uFF0C\u5FC3\u5230\u6700\u91CD\u8981\u3002",
+      "appreciation": "\u9009\u6587\u4ECE\u5B66\u4E60\u6001\u5EA6\u8C08\u5230\u8BFB\u4E66\u65B9\u6CD5\uFF0C\u53E5\u5B50\u77ED\u800C\u660E\u786E\u3002\u201C\u5FC3\u5230\u6700\u6025\u201D\u6307\u51FA\u4E13\u6CE8\u662F\u9605\u8BFB\u7684\u5173\u952E\u3002",
+      "keywords": [
+        "\u8BFB\u4E66",
+        "\u597D\u95EE",
+        "\u4E09\u5230",
+        "\u4E13\u6CE8"
+      ],
+      "tags": [
+        "\u6587\u8A00\u6587",
+        "\u8BFB\u4E66",
+        "\u65B9\u6CD5"
+      ],
+      "image": "classic-books"
+    },
+    {
+      "id": "classical-g5-zixiangmaodun",
+      "excerpt": "\u695A\u4EBA\u6709\u9B3B\u76FE\u4E0E\u77DB\u8005\uFF0C\u8A89\u4E4B\u66F0\uFF1A\u201C\u543E\u76FE\u4E4B\u575A\uFF0C\u7269\u83AB\u80FD\u9677\u4E5F\u3002\u201D\u53C8\u8A89\u5176\u77DB\u66F0\uFF1A\u201C\u543E\u77DB\u4E4B\u5229\uFF0C\u4E8E\u7269\u65E0\u4E0D\u9677\u4E5F\u3002\u201D\u6216\u66F0\uFF1A\u201C\u4EE5\u5B50\u4E4B\u77DB\u9677\u5B50\u4E4B\u76FE\uFF0C\u4F55\u5982\uFF1F\u201D\u5176\u4EBA\u5F17\u80FD\u5E94\u4E5F\u3002\u592B\u4E0D\u53EF\u9677\u4E4B\u76FE\u4E0E\u65E0\u4E0D\u9677\u4E4B\u77DB\uFF0C\u4E0D\u53EF\u540C\u4E16\u800C\u7ACB\u3002",
+      "pinyin": "churenyouyudunyumaozhe\uFF0Cyuzhiyue\uFF1A\u201Cwudunzhijian\uFF0Cwumonengxianye\u3002\u201Dyouyuqimaoyue\uFF1A\u201Cwumaozhili\uFF0Cyuwuwubuxianye\u3002\u201Dhuoyue\uFF1A\u201Cyizizhimaoxianzizhidun\uFF0Cheru\uFF1F\u201Dqirenfunengyingye\u3002fubukexianzhidunyuwubuxianzhimao\uFF0Cbuketongshierli\u3002",
+      "summary": "\u5356\u77DB\u548C\u76FE\u7684\u4EBA\u540C\u65F6\u5938\u8000\u81EA\u5DF1\u7684\u77DB\u65E0\u575A\u4E0D\u6467\u3001\u76FE\u65E0\u7269\u80FD\u7834\uFF0C\u88AB\u95EE\u201C\u7528\u4F60\u7684\u77DB\u523A\u4F60\u7684\u76FE\u201D\u65F6\u65E0\u6CD5\u56DE\u7B54\u3002",
+      "meaning": "\u695A\u56FD\u6709\u4E2A\u5356\u76FE\u548C\u77DB\u7684\u4EBA\uFF0C\u5938\u8D5E\u81EA\u5DF1\u7684\u76FE\u8BF4\uFF1A\u201C\u6211\u7684\u76FE\u5F88\u575A\u56FA\uFF0C\u6CA1\u6709\u4EC0\u4E48\u80FD\u523A\u7A7F\u5B83\u3002\u201D\u53C8\u5938\u8D5E\u81EA\u5DF1\u7684\u77DB\u8BF4\uFF1A\u201C\u6211\u7684\u77DB\u5F88\u950B\u5229\uFF0C\u6CA1\u6709\u4EC0\u4E48\u523A\u4E0D\u7A7F\u3002\u201D\u6709\u4EBA\u95EE\uFF1A\u201C\u7528\u4F60\u7684\u77DB\u523A\u4F60\u7684\u76FE\uFF0C\u4F1A\u600E\u4E48\u6837\uFF1F\u201D\u90A3\u4E2A\u4EBA\u65E0\u6CD5\u56DE\u7B54\u3002\u4E0D\u80FD\u88AB\u523A\u7A7F\u7684\u76FE\u548C\u4EC0\u4E48\u90FD\u80FD\u523A\u7A7F\u7684\u77DB\uFF0C\u4E0D\u53EF\u80FD\u540C\u65F6\u5B58\u5728\u3002",
+      "appreciation": "\u6545\u4E8B\u7528\u7B80\u6D01\u7684\u5BF9\u8BDD\u63ED\u793A\u903B\u8F91\u77DB\u76FE\uFF0C\u63D0\u9192\u6211\u4EEC\u8BF4\u8BDD\u505A\u4E8B\u8981\u524D\u540E\u4E00\u81F4\uFF0C\u4E0D\u80FD\u628A\u4E92\u76F8\u6392\u65A5\u7684\u8BF4\u6CD5\u540C\u65F6\u5F53\u4F5C\u771F\u7406\u3002",
+      "keywords": [
+        "\u77DB",
+        "\u76FE",
+        "\u903B\u8F91",
+        "\u4E00\u81F4"
+      ],
+      "tags": [
+        "\u6587\u8A00\u6587",
+        "\u601D\u8FA8",
+        "\u5BD3\u8A00"
+      ],
+      "image": "classic-scroll"
+    },
+    {
+      "id": "classical-g6-boya",
+      "excerpt": "\u4F2F\u7259\u9F13\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4E4B\u3002\u65B9\u9F13\u7434\u800C\u5FD7\u5728\u592A\u5C71\uFF0C\u953A\u5B50\u671F\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u5DCD\u5DCD\u4E4E\u82E5\u592A\u5C71\u3002\u201D\u5C11\u9009\u4E4B\u95F4\u800C\u5FD7\u5728\u6D41\u6C34\uFF0C\u953A\u5B50\u671F\u53C8\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u6C64\u6C64\u4E4E\u82E5\u6D41\u6C34\u3002\u201D\u953A\u5B50\u671F\u6B7B\uFF0C\u4F2F\u7259\u7834\u7434\u7EDD\u5F26\uFF0C\u7EC8\u8EAB\u4E0D\u590D\u9F13\u7434\uFF0C\u4EE5\u4E3A\u4E16\u65E0\u8DB3\u590D\u4E3A\u9F13\u7434\u8005\u3002",
+      "pinyin": "boyaguqin\uFF0Czhongziqitingzhi\u3002fangguqinerzhizaitaishan\uFF0Czhongziqiyue\uFF1A\u201Cshanzaihuguqin\uFF0Cweiweihuruotaishan\u3002\u201Dshaoxuanzhijianerzhizailiushui\uFF0Czhongziqiyouyue\uFF1A\u201Cshanzaihuguqin\uFF0Ctangtanghuruoliushui\u3002\u201Dzhongziqisi\uFF0Cboyapoqinjuexian\uFF0Czhongshenbufuguqin\uFF0Cyiweishiwuzufuweiguqinzhe\u3002",
+      "summary": "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u80FD\u542C\u61C2\u7434\u58F0\u4E2D\u7684\u9AD8\u5C71\u6D41\u6C34\uFF1B\u5B50\u671F\u6B7B\u540E\uFF0C\u4F2F\u7259\u7834\u7434\u7EDD\u5F26\uFF0C\u8868\u73B0\u77E5\u97F3\u96BE\u89C5\u7684\u6DF1\u60C5\u3002",
+      "meaning": "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4ED6\u5F39\u594F\u3002\u4F2F\u7259\u5FC3\u91CC\u60F3\u7740\u9AD8\u5C71\uFF0C\u5B50\u671F\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u5DCD\u5CE8\u7684\u9AD8\u5C71\u3002\u201D\u8FC7\u4E86\u4E00\u4F1A\u513F\uFF0C\u4F2F\u7259\u5FC3\u91CC\u60F3\u7740\u6D41\u6C34\uFF0C\u5B50\u671F\u53C8\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u6D69\u8361\u7684\u6D41\u6C34\u3002\u201D\u953A\u5B50\u671F\u6B7B\u540E\uFF0C\u4F2F\u7259\u6454\u7834\u7434\u3001\u5272\u65AD\u5F26\uFF0C\u7EC8\u8EAB\u4E0D\u518D\u5F39\u7434\uFF0C\u8BA4\u4E3A\u4E16\u4E0A\u518D\u6CA1\u6709\u503C\u5F97\u4E3A\u4ED6\u5F39\u7434\u7684\u4EBA\u3002",
+      "appreciation": "\u8BFE\u6587\u5148\u5199\u201C\u77E5\u97F3\u201D\u7684\u9ED8\u5951\uFF0C\u518D\u5199\u201C\u7EDD\u5F26\u201D\u7684\u51B3\u7EDD\uFF0C\u524D\u540E\u5F62\u6210\u5F3A\u70C8\u5BF9\u7167\uFF0C\u8868\u73B0\u771F\u631A\u6DF1\u539A\u7684\u53CB\u60C5\u3002",
+      "keywords": [
+        "\u4F2F\u7259",
+        "\u953A\u5B50\u671F",
+        "\u77E5\u97F3",
+        "\u53CB\u60C5"
+      ],
+      "tags": [
+        "\u6587\u8A00\u6587",
+        "\u53CB\u60C5",
+        "\u827A\u672F"
+      ],
+      "image": "classic-lunyu"
+    },
+    {
+      "id": "classical-g6-shudaizonghua",
+      "title": "\u4E66\u6234\u5D69\u753B\u725B",
+      "excerpt": "\u8700\u4E2D\u6709\u675C\u5904\u58EB\uFF0C\u597D\u4E66\u753B\uFF0C\u6240\u5B9D\u4EE5\u767E\u6570\u3002\u6709\u6234\u5D69\u300A\u725B\u300B\u4E00\u8F74\uFF0C\u5C24\u6240\u7231\uFF0C\u9526\u56CA\u7389\u8F74\uFF0C\u5E38\u4EE5\u81EA\u968F\u3002\n\u4E00\u65E5\u66DD\u4E66\u753B\uFF0C\u6709\u4E00\u7267\u7AE5\u89C1\u4E4B\uFF0C\u62CA\u638C\u5927\u7B11\uFF0C\u66F0\uFF1A\u201C\u6B64\u753B\u6597\u725B\u4E5F\u3002\u725B\u6597\uFF0C\u529B\u5728\u89D2\uFF0C\u5C3E\u6410\u5165\u4E24\u80A1\u95F4\u3002\u4ECA\u4E43\u6389\u5C3E\u800C\u6597\uFF0C\u8C2C\u77E3\u3002\u201D\u5904\u58EB\u7B11\u800C\u7136\u4E4B\u3002\u53E4\u8BED\u6709\u4E91\uFF1A\u201C\u8015\u5F53\u95EE\u5974\uFF0C\u7EC7\u5F53\u95EE\u5A62\u3002\u201D\u4E0D\u53EF\u6539\u4E5F\u3002",
+      "pinyin": "shuzhongyouduchushi\uFF0Chaoshuhua\uFF0Csuobaoyibaishu\u3002youdaisong\u300Aniu\u300Byizhou\uFF0Cyousuoai\uFF0Cjinnangyuzhou\uFF0Cchangyizisui\u3002\nyiripushuhua\uFF0Cyouyimutongjianzhi\uFF0Cfuzhangdaxiao\uFF0Cyue\uFF1A\u201Ccihuadouniuye\u3002niudou\uFF0Clizaijiao\uFF0Cweichurulianggujian\u3002jinnaidiaoweierdou\uFF0Cmiuyi\u3002\u201Dchushixiaoerranzhi\u3002guyuyouyun\uFF1A\u201Cgengdangwennu\uFF0Czhidangwenbi\u3002\u201Dbukegaiye\u3002",
+      "summary": "\u675C\u5904\u58EB\u73CD\u85CF\u6234\u5D69\u7684\u6597\u725B\u56FE\uFF0C\u7267\u7AE5\u5374\u6307\u51FA\u753B\u4E2D\u6597\u725B\u7684\u5C3E\u5DF4\u753B\u9519\u4E86\u3002\u6545\u4E8B\u8BF4\u660E\u8981\u8BA4\u771F\u89C2\u5BDF\u751F\u6D3B\uFF0C\u4E5F\u5E94\u5411\u6709\u5B9E\u8DF5\u7ECF\u9A8C\u7684\u4EBA\u8BF7\u6559\u3002",
+      "meaning": "\u56DB\u5DDD\u6709\u4E2A\u675C\u5904\u58EB\uFF0C\u559C\u7231\u4E66\u753B\uFF0C\u73CD\u85CF\u7684\u4F5C\u54C1\u6709\u4E0A\u767E\u4EF6\u3002\u4ED6\u7279\u522B\u559C\u7231\u6234\u5D69\u7684\u4E00\u5E45\u300A\u725B\u300B\uFF0C\u7528\u9526\u56CA\u88C5\u3001\u7389\u8F74\u5377\uFF0C\u5E38\u5E38\u5E26\u5728\u8EAB\u8FB9\u3002\u4E00\u5929\u6652\u4E66\u753B\u65F6\uFF0C\u4E00\u4E2A\u7267\u7AE5\u770B\u89C1\u540E\u62CD\u624B\u5927\u7B11\uFF0C\u8BF4\uFF1A\u201C\u8FD9\u753B\u7684\u662F\u6597\u725B\u3002\u725B\u76F8\u6597\u65F6\u529B\u91CF\u7528\u5728\u89D2\u4E0A\uFF0C\u5C3E\u5DF4\u5939\u5728\u4E24\u6761\u5927\u817F\u4E4B\u95F4\uFF1B\u73B0\u5728\u5374\u753B\u6210\u6447\u7740\u5C3E\u5DF4\u4E89\u6597\uFF0C\u9519\u4E86\u3002\u201D\u675C\u5904\u58EB\u7B11\u7740\u8BA4\u4E3A\u4ED6\u8BF4\u5F97\u5BF9\u3002\u53E4\u8BED\u8BF4\uFF1A\u201C\u8015\u79CD\u5E94\u5F53\u95EE\u519C\u592B\uFF0C\u7EC7\u5E03\u5E94\u5F53\u95EE\u7EC7\u5973\u3002\u201D\u8FD9\u4E2A\u9053\u7406\u4E0D\u80FD\u66F4\u6539\u3002",
+      "appreciation": "\u7267\u7AE5\u4E00\u53E5\u8BDD\u70B9\u51FA\u753B\u4F5C\u7684\u7EC6\u8282\u9519\u8BEF\uFF0C\u8BF4\u660E\u771F\u6B63\u7684\u77E5\u8BC6\u4E0D\u53EA\u6765\u81EA\u4E66\u672C\u548C\u540D\u5BB6\uFF0C\u4E5F\u6765\u81EA\u5BF9\u751F\u6D3B\u7684\u7EC6\u81F4\u89C2\u5BDF\u3002",
+      "keywords": [
+        "\u6234\u5D69",
+        "\u7267\u7AE5",
+        "\u89C2\u5BDF",
+        "\u5B9E\u8DF5"
+      ],
+      "tags": [
+        "\u6587\u8A00\u6587",
+        "\u827A\u672F",
+        "\u89C2\u5BDF"
+      ],
+      "image": "classic-scroll"
+    },
+    {
+      "id": "classical-g6-xueyi",
+      "excerpt": "\u5F08\u79CB\uFF0C\u901A\u56FD\u4E4B\u5584\u5F08\u8005\u4E5F\u3002\u4F7F\u5F08\u79CB\u8BF2\u4E8C\u4EBA\u5F08\uFF0C\u5176\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u60DF\u5F08\u79CB\u4E4B\u4E3A\u542C\uFF1B\u4E00\u4EBA\u867D\u542C\u4E4B\uFF0C\u4E00\u5FC3\u4EE5\u4E3A\u6709\u9E3F\u9E44\u5C06\u81F3\uFF0C\u601D\u63F4\u5F13\u7F34\u800C\u5C04\u4E4B\u3002\u867D\u4E0E\u4E4B\u4FF1\u5B66\uFF0C\u5F17\u82E5\u4E4B\u77E3\u3002\u4E3A\u662F\u5176\u667A\u5F17\u82E5\u4E0E\uFF1F\u66F0\uFF1A\u975E\u7136\u4E5F\u3002",
+      "pinyin": "yiqiu\uFF0Ctongguozhishanyizheye\u3002shiyiqiuhuierrenyi\uFF0Cqiyirenzhuanxinzhizhi\uFF0Cweiyiqiuzhiweiting\uFF1Byirensuitingzhi\uFF0Cyixinyiweiyouhonggujiangzhi\uFF0Csiyuangongjiaoershezhi\u3002suiyuzhijuxue\uFF0Cfuruozhiyi\u3002weishiqizhifuruoyu\uFF1Fyue\uFF1Afeiranye\u3002",
+      "summary": "\u4E24\u4E2A\u5B66\u751F\u8DDF\u5F08\u79CB\u5B66\u4E0B\u68CB\uFF0C\u4E00\u4E2A\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u4E00\u4E2A\u60F3\u7740\u5C04\u5929\u9E45\uFF0C\u5B66\u4E60\u7ED3\u679C\u4E0D\u540C\uFF0C\u8BF4\u660E\u5B66\u4E60\u5FC5\u987B\u4E13\u5FC3\u3002",
+      "meaning": "\u5F08\u79CB\u662F\u5168\u56FD\u6700\u64C5\u957F\u4E0B\u68CB\u7684\u4EBA\u3002\u8BA9\u4ED6\u6559\u4E24\u4E2A\u4EBA\u4E0B\u68CB\uFF0C\u5176\u4E2D\u4E00\u4E2A\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u53EA\u542C\u5F08\u79CB\u7684\u6559\u5BFC\uFF1B\u53E6\u4E00\u4E2A\u4EBA\u867D\u7136\u4E5F\u5728\u542C\uFF0C\u5374\u4E00\u5FC3\u60F3\u7740\u6709\u5929\u9E45\u5C06\u8981\u98DE\u6765\uFF0C\u60F3\u62C9\u5F13\u642D\u7BAD\u53BB\u5C04\u5B83\u3002\u8FD9\u4E2A\u4EBA\u867D\u7136\u548C\u524D\u4E00\u4E2A\u4EBA\u4E00\u8D77\u5B66\u4E60\uFF0C\u6210\u7EE9\u5374\u4E0D\u5982\u524D\u4E00\u4E2A\u4EBA\u3002\u662F\u56E0\u4E3A\u4ED6\u7684\u667A\u529B\u4E0D\u5982\u524D\u4E00\u4E2A\u4EBA\u5417\uFF1F\u56DE\u7B54\u8BF4\uFF1A\u4E0D\u662F\u8FD9\u6837\u7684\u3002",
+      "appreciation": "\u8BFE\u6587\u7528\u540C\u4E00\u4E2A\u8001\u5E08\u3001\u540C\u6837\u7684\u5B66\u4E60\u6761\u4EF6\u4F5C\u5BF9\u6BD4\uFF0C\u7A81\u51FA\u4E13\u5FC3\u4E0E\u5426\u624D\u662F\u7ED3\u679C\u4E0D\u540C\u7684\u5173\u952E\u3002",
+      "keywords": [
+        "\u5F08\u79CB",
+        "\u4E0B\u68CB",
+        "\u4E13\u5FC3",
+        "\u5B66\u4E60"
+      ],
+      "tags": [
+        "\u6587\u8A00\u6587",
+        "\u5B66\u4E60",
+        "\u601D\u8FA8"
+      ],
+      "image": "classic-books"
+    },
+    {
+      "id": "classical-g6-lianger",
+      "title": "\u4E24\u5C0F\u513F\u8FA9\u65E5",
+      "excerpt": "\u5B54\u5B50\u4E1C\u6E38\uFF0C\u89C1\u4E24\u5C0F\u513F\u8FA9\u6597\uFF0C\u95EE\u5176\u6545\u3002\n\u4E00\u513F\u66F0\uFF1A\u201C\u6211\u4EE5\u65E5\u59CB\u51FA\u65F6\u53BB\u4EBA\u8FD1\uFF0C\u800C\u65E5\u4E2D\u65F6\u8FDC\u4E5F\u3002\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u6211\u4EE5\u65E5\u521D\u51FA\u8FDC\uFF0C\u800C\u65E5\u4E2D\u65F6\u8FD1\u4E5F\u3002\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u65E5\u521D\u51FA\u5927\u5982\u8F66\u76D6\uFF0C\u53CA\u65E5\u4E2D\u5219\u5982\u76D8\u76C2\uFF0C\u6B64\u4E0D\u4E3A\u8FDC\u8005\u5C0F\u800C\u8FD1\u8005\u5927\u4E4E\uFF1F\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u65E5\u521D\u51FA\u6CA7\u6CA7\u51C9\u51C9\uFF0C\u53CA\u5176\u65E5\u4E2D\u5982\u63A2\u6C64\uFF0C\u6B64\u4E0D\u4E3A\u8FD1\u8005\u70ED\u800C\u8FDC\u8005\u51C9\u4E4E\uFF1F\u201D\n\u5B54\u5B50\u4E0D\u80FD\u51B3\u4E5F\u3002\n\u4E24\u5C0F\u513F\u7B11\u66F0\uFF1A\u201C\u5B70\u4E3A\u6C5D\u591A\u77E5\u4E4E\uFF1F\u201D",
+      "pinyin": "kongzidongyou\uFF0Cjianliangxiaoerbiandou\uFF0Cwenqigu\u3002\nyieryue\uFF1A\u201Cwoyirishichushiqurenjin\uFF0Cerrizhongshiyuanye\u3002\u201D\nyieryue\uFF1A\u201Cwoyirichuchuyuan\uFF0Cerrizhongshijinye\u3002\u201D\nyieryue\uFF1A\u201Crichuchudaruchegai\uFF0Cjirizhongzerupanyu\uFF0Ccibuweiyuanzhexiaoerjinzhedahu\uFF1F\u201D\nyieryue\uFF1A\u201Crichuchucangcangliangliang\uFF0Cjiqirizhongrutantang\uFF0Ccibuweijinzhereeryuanzhelianghu\uFF1F\u201D\nkongzibunengjueye\u3002\nliangxiaoerxiaoyue\uFF1A\u201Cshuweiruduozhihu\uFF1F\u201D",
+      "summary": "\u4E24\u4E2A\u5C0F\u5B69\u4ECE\u592A\u9633\u7684\u5927\u5C0F\u548C\u51B7\u70ED\u4E24\u4E2A\u89D2\u5EA6\u4E89\u8BBA\u592A\u9633\u8FDC\u8FD1\uFF0C\u5B54\u5B50\u4E0D\u80FD\u5224\u65AD\u3002\u6545\u4E8B\u8BF4\u660E\u8981\u5584\u4E8E\u89C2\u5BDF\u3001\u72EC\u7ACB\u601D\u8003\uFF0C\u4E5F\u8BF4\u660E\u77E5\u8BC6\u6CA1\u6709\u6B62\u5883\u3002",
+      "meaning": "\u5B54\u5B50\u5230\u4E1C\u65B9\u6E38\u5386\u65F6\uFF0C\u770B\u89C1\u4E24\u4E2A\u5C0F\u5B69\u5728\u4E89\u8BBA\uFF0C\u4FBF\u95EE\u539F\u56E0\u3002\u4E00\u4E2A\u5C0F\u5B69\u8BA4\u4E3A\u592A\u9633\u521A\u5347\u8D77\u65F6\u79BB\u4EBA\u8FD1\uFF0C\u4E2D\u5348\u79BB\u4EBA\u8FDC\uFF1B\u53E6\u4E00\u4E2A\u8BA4\u4E3A\u521A\u5347\u8D77\u65F6\u8FDC\uFF0C\u4E2D\u5348\u8FD1\u3002\u4E00\u4E2A\u8BF4\u592A\u9633\u521A\u5347\u8D77\u65F6\u5927\u5F97\u50CF\u8F66\u76D6\uFF0C\u4E2D\u5348\u5C0F\u5F97\u50CF\u76D8\u76C2\uFF0C\u8FD9\u4E0D\u662F\u8FDC\u5C0F\u8FD1\u5927\u5417\uFF1F\u53E6\u4E00\u4E2A\u8BF4\u592A\u9633\u521A\u5347\u8D77\u65F6\u6E05\u51C9\uFF0C\u4E2D\u5348\u70ED\u5F97\u50CF\u628A\u624B\u4F38\u8FDB\u70ED\u6C34\u91CC\uFF0C\u8FD9\u4E0D\u662F\u8FD1\u70ED\u8FDC\u51C9\u5417\uFF1F\u5B54\u5B50\u65E0\u6CD5\u5224\u65AD\u3002\u4E24\u4E2A\u5C0F\u5B69\u7B11\u7740\u8BF4\uFF1A\u201C\u8C01\u8BF4\u4F60\u77E5\u8BC6\u6E0A\u535A\u5462\uFF1F\u201D",
+      "appreciation": "\u4E24\u4E2A\u5C0F\u5B69\u90FD\u4ECE\u89C2\u5BDF\u51FA\u53D1\uFF0C\u5374\u5F97\u51FA\u76F8\u53CD\u7ED3\u8BBA\u3002\u6545\u4E8B\u65E2\u8D5E\u8D4F\u6562\u4E8E\u8D28\u7591\u3001\u72EC\u7ACB\u601D\u8003\uFF0C\u4E5F\u544A\u8BC9\u6211\u4EEC\u8BA4\u8BC6\u81EA\u7136\u9700\u8981\u66F4\u79D1\u5B66\u7684\u65B9\u6CD5\u3002",
+      "keywords": [
+        "\u5B54\u5B50",
+        "\u592A\u9633",
+        "\u4E89\u8BBA",
+        "\u89C2\u5BDF"
+      ],
+      "tags": [
+        "\u6587\u8A00\u6587",
+        "\u601D\u8FA8",
+        "\u79D1\u5B66"
+      ],
+      "image": "classic-lunyu"
+    }
+  ];
+
+  // assets/textbook-order.js
+  var TEXTBOOKS = [
+    { grade: 1, volume: "\u4E0A", entries: [
+      ["poetry-g1-jiangnan", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u65872 \u6C5F\u5357"]
+    ] },
+    { grade: 1, volume: "\u4E0B", entries: [
+      ["poetry-g1-jingyesi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65877 \u9759\u591C\u601D"],
+      ["sanzi-g1-renzhichu", "\u7B2C\u4E94\u5355\u5143 \u8BC6\u5B578 \u4EBA\u4E4B\u521D"],
+      ["poetry-g1-chishang", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E8C\u9996\xB7\u6C60\u4E0A"],
+      ["poetry-g1-xiaochi", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E8C\u9996\xB7\u5C0F\u6C60"]
+    ] },
+    { grade: 2, volume: "\u4E0A", entries: [
+      ["poetry-g2-dengguanque", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65878 \u53E4\u8BD7\u4E8C\u9996\xB7\u767B\u9E73\u96C0\u697C"],
+      ["poetry-g2-wanglushan", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65878 \u53E4\u8BD7\u4E8C\u9996\xB7\u671B\u5E90\u5C71\u7011\u5E03"],
+      ["poetry-g2-jiangxue", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E8C\u9996\xB7\u6C5F\u96EA"],
+      ["poetry-g2-chilege", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E8C\u9996\xB7\u6555\u52D2\u6B4C"]
+    ] },
+    { grade: 2, volume: "\u4E0B", entries: [
+      ["poetry-g2-cunju", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E8C\u9996\xB7\u6751\u5C45"],
+      ["poetry-g2-yongliu", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E8C\u9996\xB7\u548F\u67F3"],
+      ["fable-g2-wangyangbudao", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u5BD3\u8A00\u4E8C\u5219\xB7\u4EA1\u7F8A\u8865\u7262"],
+      ["fable-g2-yamiaozhuzhang", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u5BD3\u8A00\u4E8C\u5219\xB7\u63E0\u82D7\u52A9\u957F"],
+      ["poetry-g2-xiaochu", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658715 \u53E4\u8BD7\u4E8C\u9996\xB7\u6653\u51FA\u51C0\u6148\u5BFA\u9001\u6797\u5B50\u65B9"],
+      ["poetry-g2-jueju", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658715 \u53E4\u8BD7\u4E8C\u9996\xB7\u7EDD\u53E5"],
+      ["myth-g2-yishejiuri", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658724 \u7FBF\u5C04\u4E5D\u65E5"]
+    ] },
+    { grade: 3, volume: "\u4E0A", entries: [
+      ["poetry-g3-wangdongting", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65874 \u53E4\u8BD7\u4E09\u9996\xB7\u671B\u6D1E\u5EAD"],
+      ["poetry-g3-shanxing", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65874 \u53E4\u8BD7\u4E09\u9996\xB7\u5C71\u884C"],
+      ["poetry-g3-yeshujiansuo", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65874 \u53E4\u8BD7\u4E09\u9996\xB7\u591C\u4E66\u6240\u89C1"],
+      ["poetry-g3-luzhai", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658720 \u53E4\u8BD7\u4E09\u9996\xB7\u9E7F\u67F4"],
+      ["poetry-g3-wangtianmenshan", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658720 \u53E4\u8BD7\u4E09\u9996\xB7\u671B\u5929\u95E8\u5C71"],
+      ["poetry-g3-yinhusahang", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658720 \u53E4\u8BD7\u4E09\u9996\xB7\u996E\u6E56\u4E0A\u521D\u6674\u540E\u96E8"],
+      ["classical-g3-simaguang", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658723 \u53F8\u9A6C\u5149"]
+    ] },
+    { grade: 3, volume: "\u4E0B", entries: [
+      ["poetry-g3-jueju", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u7EDD\u53E5"],
+      ["poetry-g3-huichong", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u60E0\u5D07\u6625\u6C5F\u665A\u666F"],
+      ["poetry-g3-sanqu", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u4E09\u8862\u9053\u4E2D"],
+      ["fable-g3-shouzhudaitu", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65875 \u5B88\u682A\u5F85\u5154"],
+      ["poetry-g3-yuanri", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u5143\u65E5"],
+      ["poetry-g3-qingming", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u6E05\u660E"],
+      ["poetry-g3-jiuyuejiu", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u4E5D\u6708\u4E5D\u65E5\u5FC6\u5C71\u4E1C\u5144\u5F1F"]
+    ] },
+    { grade: 4, volume: "\u4E0A", entries: [
+      ["poetry-g4-muyin", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u66AE\u6C5F\u541F"],
+      ["poetry-g4-tixilinbi", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u9898\u897F\u6797\u58C1"],
+      ["poetry-g4-xuemei", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u96EA\u6885"],
+      ["myth-g4-pangu", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u76D8\u53E4\u5F00\u5929\u5730"],
+      ["myth-g4-jingwei", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658713 \u7CBE\u536B\u586B\u6D77"],
+      ["myth-g4-nvwa", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658715 \u5973\u5A32\u8865\u5929"],
+      ["poetry-g4-chusai", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u4E09\u9996\xB7\u51FA\u585E"],
+      ["poetry-g4-liangzhouci", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u4E09\u9996\xB7\u51C9\u5DDE\u8BCD"],
+      ["poetry-g4-xiarijueju", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u4E09\u9996\xB7\u590F\u65E5\u7EDD\u53E5"],
+      ["classical-g4-wangrong", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658725 \u738B\u620E\u4E0D\u53D6\u9053\u65C1\u674E"]
+    ] },
+    { grade: 4, volume: "\u4E0B", entries: [
+      ["poetry-g4-sishitianyuan25", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E8C\u5341\u4E94\uFF09"],
+      ["poetry-g4-suxinshi", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u5BBF\u65B0\u5E02\u5F90\u516C\u5E97"],
+      ["poetry-g4-qingpingyue", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u6E05\u5E73\u4E50\xB7\u6751\u5C45"],
+      ["classical-g4-nangying", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u56CA\u8424\u591C\u8BFB"],
+      ["classical-g4-tiechu", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u94C1\u6775\u6210\u9488"],
+      ["poetry-g4-furonglou", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u53E4\u8BD7\u4E09\u9996\xB7\u8299\u84C9\u697C\u9001\u8F9B\u6E10"],
+      ["poetry-g4-saixiaqu", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u53E4\u8BD7\u4E09\u9996\xB7\u585E\u4E0B\u66F2"],
+      ["poetry-g4-momei", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u53E4\u8BD7\u4E09\u9996\xB7\u58A8\u6885"]
+    ] },
+    { grade: 5, volume: "\u4E0A", entries: [
+      ["poetry-g5-shiershi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u53E4\u8BD7\u4E09\u9996\xB7\u793A\u513F"],
+      ["poetry-g5-tilinandi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u53E4\u8BD7\u4E09\u9996\xB7\u9898\u4E34\u5B89\u90B8"],
+      ["poetry-g5-jihai", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u53E4\u8BD7\u4E09\u9996\xB7\u5DF1\u4EA5\u6742\u8BD7"],
+      ["poetry-g5-shanju", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u5C71\u5C45\u79CB\u669D"],
+      ["poetry-g5-fengqiao", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u67AB\u6865\u591C\u6CCA"],
+      ["poetry-g5-changxiangsi", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u957F\u76F8\u601D"],
+      ["classical-g5-gurentandushu", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658725 \u53E4\u4EBA\u8C08\u8BFB\u4E66"]
+    ] },
+    { grade: 5, volume: "\u4E0B", entries: [
+      ["poetry-g5-sishitianyuan31", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E09\u5341\u4E00\uFF09"],
+      ["poetry-g5-zhizinongbing", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u7A1A\u5B50\u5F04\u51B0"],
+      ["poetry-g5-cunwan", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u6751\u665A"],
+      ["poetry-g5-congjunxing", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u4ECE\u519B\u884C"],
+      ["poetry-g5-qiuye", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u79CB\u591C\u5C06\u6653\u51FA\u7BF1\u95E8\u8FCE\u51C9\u6709\u611F"],
+      ["poetry-g5-wenguanjun", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u95FB\u5B98\u519B\u6536\u6CB3\u5357\u6CB3\u5317"],
+      ["classical-g5-zixiangmaodun", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658715 \u81EA\u76F8\u77DB\u76FE"],
+      ["classical-g5-yangshi", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658721 \u6768\u6C0F\u4E4B\u5B50"]
+    ] },
+    { grade: 6, volume: "\u4E0A", entries: [
+      ["poetry-g6-sujiande", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u5BBF\u5EFA\u5FB7\u6C5F"],
+      ["poetry-g6-wanghulou", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u516D\u6708\u4E8C\u5341\u4E03\u65E5\u671B\u6E56\u697C\u9189\u4E66"],
+      ["poetry-g6-xijiangyue", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u897F\u6C5F\u6708\xB7\u591C\u884C\u9EC4\u6C99\u9053\u4E2D"],
+      ["poetry-g6-langtaosha", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E09\u9996\xB7\u6D6A\u6DD8\u6C99\uFF08\u5176\u4E00\uFF09"],
+      ["poetry-g6-jiangnanchun", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E09\u9996\xB7\u6C5F\u5357\u6625"],
+      ["poetry-g6-shuhuyin", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E09\u9996\xB7\u4E66\u6E56\u9634\u5148\u751F\u58C1"],
+      ["classical-g6-boya", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u4F2F\u7259\u9F13\u7434"],
+      ["classical-g6-shudaizonghua", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u4E66\u6234\u5D69\u753B\u725B"]
+    ] },
+    { grade: 6, volume: "\u4E0B", entries: [
+      ["poetry-g6-hanshi", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u4E09\u9996\xB7\u5BD2\u98DF"],
+      ["poetry-g6-tiaotiao", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u4E09\u9996\xB7\u8FE2\u8FE2\u7275\u725B\u661F"],
+      ["poetry-g6-shiwuye", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u4E09\u9996\xB7\u5341\u4E94\u591C\u671B\u6708"],
+      ["poetry-g6-mashi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E09\u9996\xB7\u9A6C\u8BD7"],
+      ["poetry-g6-shihuiyin", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E09\u9996\xB7\u77F3\u7070\u541F"],
+      ["poetry-g6-zhushi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E09\u9996\xB7\u7AF9\u77F3"],
+      ["classical-g6-xueyi", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658714 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u5B66\u5F08"],
+      ["classical-g6-lianger", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658714 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u4E24\u5C0F\u513F\u8FA9\u65E5"]
+    ] }
+  ];
+  var TEXTBOOK_ENTRIES = Object.fromEntries(TEXTBOOKS.flatMap((book, bookIndex) => book.entries.map(([id, unit], index) => [id, { grade: book.grade, volume: book.volume, unit, order: bookIndex * 100 + index }])));
+  var TEXTBOOK_IDS = new Set(Object.keys(TEXTBOOK_ENTRIES));
+
   // assets/curriculum.js
   var gradeOptions = [1, 2, 3, 4, 5, 6].map((grade) => ({ grade, label: grade + "\u5E74\u7EA7" }));
   var gradeThemes = [
@@ -2411,107 +3518,55 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     { grade: 6, title: "\u878D\u4F1A\u8D2F\u901A", subtitle: "\u7EFC\u5408 \xB7 \u8D4F\u6790 \xB7 \u521B\u4F5C" }
   ];
   var volumeLabel = (volume) => volume === "\u4E0A" ? "\u4E0A\u518C" : volume === "\u4E0B" ? "\u4E0B\u518C" : "\u8BFE\u5916";
-  var scopeLabels = {
-    textbook: { name: "\u7EDF\u7F16\u8BFE\u6587", color: "#A64B3C", soft: "#F1E1DA" },
-    garden: { name: "\u8BED\u6587\u56ED\u5730", color: "#547C73", soft: "#E2EBE5" },
-    classic: { name: "\u8BFE\u5916\u56FD\u5B66", color: "#8B744D", soft: "#F1E7D4" }
-  };
-  var volumeOptions = [{ id: "all", label: "\u5168\u518C" }, { id: "\u4E0A", label: "\u4E0A\u518C" }, { id: "\u4E0B", label: "\u4E0B\u518C" }, { id: "classic", label: "\u8BFE\u5916" }];
+  var volumeOptions = [{ id: "all", label: "\u5168\u518C" }, { id: "\u4E0A", label: "\u4E0A\u518C" }, { id: "\u4E0B", label: "\u4E0B\u518C" }];
 
   // assets/data.js
   var categories = [
-    { id: "poetry", name: "\u53E4\u8BD7\u8BCD", short: "\u8BD7", color: "#A94B3C", soft: "#F4E5E0", icon: "poem", description: "\u8BF5\u8BFB\u4E0E\u8D4F\u6790" },
-    { id: "idiom", name: "\u6210\u8BED", short: "\u6210", color: "#3B6C66", soft: "#DDEAE6", icon: "idiom", description: "\u5178\u6545\u4E0E\u8FD0\u7528" },
-    { id: "fable", name: "\u5BD3\u8A00", short: "\u5BD3", color: "#9A6A2F", soft: "#F2E8D5", icon: "fable", description: "\u6545\u4E8B\u4E0E\u9053\u7406" },
-    { id: "sanzi", name: "\u4E09\u5B57\u7ECF", short: "\u7ECF", color: "#4A657D", soft: "#E2EAF0", icon: "three", description: "\u8499\u5B66\u4E0E\u5E38\u8BC6" },
-    { id: "lunyu", name: "\u8BBA\u8BED", short: "\u8BBA", color: "#77513D", soft: "#EEE2DA", icon: "lunyu", description: "\u5B66\u4E60\u4E0E\u4FEE\u8EAB" },
-    { id: "dizigui", name: "\u5F1F\u5B50\u89C4", short: "\u89C4", color: "#6E6244", soft: "#EEE9DC", icon: "rules", description: "\u8A00\u884C\u4E0E\u54C1\u683C" },
-    { id: "qianziwen", name: "\u5343\u5B57\u6587", short: "\u5343", color: "#627056", soft: "#E6EBDD", icon: "thousand", description: "\u8BC6\u5B57\u4E0E\u5929\u5730" }
+    { id: "poetry", name: "\u53E4\u8BD7\u8BCD", short: "\u8BD7", color: "#A94B3C", soft: "#F4E5E0", icon: "poem", description: "\u8BD7\u3001\u8BCD\u3001\u66F2" },
+    { id: "classical", name: "\u6587\u8A00\u6587", short: "\u6587", color: "#4A657D", soft: "#E2EAF0", icon: "three", description: "\u8BFE\u5185\u53E4\u6587" },
+    { id: "fable", name: "\u5BD3\u8A00", short: "\u5BD3", color: "#9A6A2F", soft: "#F2E8D5", icon: "fable", description: "\u5BD3\u8A00\u6545\u4E8B" },
+    { id: "myth", name: "\u795E\u8BDD\u4F20\u8BF4", short: "\u795E", color: "#6E6244", soft: "#EEE9DC", icon: "rules", description: "\u4F20\u7EDF\u6545\u4E8B" },
+    { id: "mengxue", name: "\u4E09\u5B57\u7ECF", short: "\u7ECF", color: "#627056", soft: "#E6EBDD", icon: "three", description: "\u8499\u5B66\u7ECF\u5178" }
   ];
-  var legacy = [...grade1, ...grade2, ...grade3, ...grade4, ...grade5, ...grade6];
-  var ids = new Set(legacy.map((i) => i.id));
-  var additions = supplemental.filter((i) => !ids.has(i.id)).map((i) => ({ ...i, sourceLabel: `\u8BFE\u6587\u300A${i.title}\u300B`, sourceNote: `\u7EDF\u7F16\u7248\u8BED\u6587${i.grade}\u5E74\u7EA7${volumeLabel(i.volume)}`, edition: "2026\u7EDF\u7F16\u7248" }));
+  var catalogRaw = [...grade1, ...grade2, ...grade3, ...grade4, ...grade5, ...grade6, ...supplemental, ...textbookExtras, ...classicalTexts, ...lessonExtra, ...corrections];
+  var catalogById = catalogRaw.reduce((map, item) => {
+    map.set(item.id, { ...map.get(item.id) || {}, ...item });
+    return map;
+  }, /* @__PURE__ */ new Map());
+  var items = Object.entries(TEXTBOOK_ENTRIES).map(([id, entry]) => {
+    const source = catalogById.get(id);
+    if (!source) return null;
+    const category = categories.find((c) => c.id === source.category) || categories[0];
+    const visual = source.visual || source.image || "classic-books";
+    return {
+      ...source,
+      ...entry,
+      category: category.id,
+      categoryName: category.name,
+      image: visual,
+      scopeType: "textbook",
+      scopeName: "\u7EDF\u7F16\u8BFE\u6587",
+      sourceLabel: entry.unit,
+      sourceNote: "\u7EDF\u7F16\u7248\u8BED\u6587" + entry.grade + "\u5E74\u7EA7" + volumeLabel(entry.volume) + " " + entry.unit,
+      edition: "2026\u7EDF\u7F16\u7248",
+      gradeLabel: entry.grade + "\u5E74\u7EA7" + volumeLabel(entry.volume),
+      volumeLabel: volumeLabel(entry.volume)
+    };
+  }).filter(Boolean).sort((a, b) => a.grade - b.grade || (a.volume === "\u4E0A" ? 0 : 1) - (b.volume === "\u4E0A" ? 0 : 1) || a.order - b.order);
   var grades = gradeThemes;
-  var STRICT = {
-    "poetry-g1-jiangnan": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "idiom-g1-shouzhudaitu": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "idiom-g1-wangyangbudao": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "idiom-g3-huajiaoyidian": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u753B\u9F99\u70B9\u775B\u300B"],
-    "idiom-g3-yanjianbushi": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "idiom-g4-ruyudeyu": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "idiom-g4-pobujidai": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "fable-g1-huliheputao": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "fable-g2-yugongyishan": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "fable-g3-shouzhu": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "fable-g4-yanerdaoling": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "fable-g5-beigongshicha": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "fable-g6-yegonghao": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "poetry-g1-yonge": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g1-minnong": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g1-gulangyuexing": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g2-chunyexiyu": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g2-yongliu": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u548F\u67F3\u300B"],
-    "poetry-g2-xiaochi": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u5C0F\u6C60\u300B"],
-    "poetry-g2-jueju": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g3-wangtianmenshan": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u671B\u5929\u95E8\u5C71\u300B"],
-    "poetry-g3-yinhusahang": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u996E\u6E56\u4E0A\u521D\u6674\u540E\u96E8\u300B"],
-    "poetry-g3-yuanri": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u5143\u65E5\u300B"],
-    "poetry-g3-shanxing": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g4-tixilinbi": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g4-chusai": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u51FA\u585E\u300B"],
-    "poetry-g4-liangzhouci": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g4-shiershi": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g5-bohetan": ["\u4E0A", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "poetry-g5-chunwang": ["\u4E0B", "classic", "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55"],
-    "poetry-g5-jihai": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g6-qingpingyue": ["\u4E0B", "textbook", "\u8BFE\u6587\u300A\u6E05\u5E73\u4E50\xB7\u6751\u5C45\u300B"],
-    "poetry-g6-tianjingsha": ["\u4E0A", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"],
-    "poetry-g6-qinyuanchun": ["\u4E0A", "textbook", "\u8BFE\u6587\u300A\u6C81\u56ED\u6625\xB7\u96EA\u300B"],
-    "poetry-g6-songyuaner": ["\u4E0B", "garden", "\u8BED\u6587\u56ED\u5730\xB7\u65E5\u79EF\u6708\u7D2F"]
-  };
-  var cleaned = legacy.filter((i) => !(i.grade === 5 && i.id === "poetry-g5-sishihuajian"));
-  cleaned = cleaned.map((item, index) => {
-    const strict = STRICT[item.id];
-    const volume = strict ? strict[0] : "classic";
-    const scopeType = strict ? strict[1] : "classic";
-    const sourceLabel = strict ? strict[2] : item.category === "poetry" ? "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55" : "\u8BFE\u5916\u56FD\u5B66\u8BF5\u8BFB";
-    return {
-      ...item,
-      volume,
-      scopeType,
-      sourceLabel,
-      sourceNote: scopeType === "classic" ? "\u8BFE\u5916\u56FD\u5B66\u62D3\u5C55\uFF0C\u4E0D\u6807\u4F5C\u67D0\u4E00\u8BFE" : `\u7EDF\u7F16\u7248\u8BED\u6587${item.grade}\u5E74\u7EA7${volumeLabel(volume)}`,
-      edition: scopeType === "classic" ? "\u8BFE\u5916\u62D3\u5C55" : "2026\u7EDF\u7F16\u7248",
-      order: index
-    };
-  });
-  var allRaw = [...cleaned, ...additions];
-  var items = allRaw.map((item, index) => {
-    const category = categories.find((c) => c.id === item.category);
-    return {
-      ...item,
-      order: item.order ?? index,
-      id: item.id || `${item.category}-g${item.grade}-${index}`,
-      categoryName: category?.name || item.category,
-      scopeName: scopeLabels[item.scopeType]?.name || "\u8BFE\u5916\u56FD\u5B66",
-      volumeLabel: volumeLabel(item.volume),
-      gradeLabel: `${item.grade}\u5E74\u7EA7${volumeLabel(item.volume)}`
-    };
-  }).sort((a, b) => a.grade - b.grade || (a.volume === "\u4E0A" ? 0 : a.volume === "\u4E0B" ? 1 : 2) - (b.volume === "\u4E0A" ? 0 : b.volume === "\u4E0B" ? 1 : 2) || a.order - b.order);
   var categoryById = Object.fromEntries(categories.map((c) => [c.id, c]));
   var itemById = Object.fromEntries(items.map((i) => [i.id, i]));
-  function searchItems(list, { grade = "all", category = "all", volume = "all", scope = "all", keyword = "", favoriteIds = [], onlyFavorites = false } = {}) {
-    const query = keyword.trim().toLowerCase();
+  function searchItems(list, options = {}) {
+    const grade = options.grade || "all";
+    const category = options.category || "all";
+    const volume = options.volume || "all";
+    const query = String(options.keyword || "").trim().toLowerCase();
     return list.filter((item) => {
-      if (onlyFavorites && !favoriteIds.includes(item.id)) return false;
       if (grade !== "all" && item.grade !== Number(grade)) return false;
       if (category !== "all" && item.category !== category) return false;
-      if (volume === "classic" && item.volume !== "classic") return false;
-      if (volume !== "all" && volume !== "classic" && item.volume !== volume) return false;
-      if (scope !== "all" && item.scopeType !== scope) return false;
+      if (volume !== "all" && item.volume !== volume) return false;
       if (!query) return true;
-      const haystack = [item.title, item.author, item.dynasty, item.summary, item.excerpt, item.meaning, item.sourceLabel, ...item.tags || [], ...item.keywords || []].filter(Boolean).join(" ").toLowerCase();
-      return haystack.includes(query);
+      return [item.title, item.author, item.dynasty, item.excerpt, item.meaning, item.unit, ...item.tags || [], ...item.keywords || []].filter(Boolean).join(" ").toLowerCase().includes(query);
     });
   }
 
@@ -2813,30 +3868,6 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     return `<div class="illus${small}" aria-hidden="true"><svg viewBox="0 0 400 240" role="img"><defs><linearGradient id="sky-${seed}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${p.sky[0]}"/><stop offset="1" stop-color="${p.sky[1]}"/></linearGradient>${grain}</defs><rect width="400" height="240" fill="url(#sky-${seed})"/>${sun(p)}${birds(p.dark, 2, 55, 50)}${motif(p)}<rect width="400" height="240" filter="url(#grain-${seed})" opacity=".8"/>${overlay ? `<rect y="172" width="400" height="68" fill="url(#fade-${seed})"/>` : ""}<linearGradient id="fade-${seed}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${p.dark}" stop-opacity="0"/><stop offset="1" stop-color="${p.dark}" stop-opacity=".22"/></linearGradient></svg></div>`;
   }
 
-  // assets/media.js
-  var mediaFinders = {
-    poetry: { label: "\u53E4\u8BD7\u8BB2\u89E3\u4E0E\u6717\u8BFB", source: "B\u7AD9\u8BFE\u5802", note: "\u9002\u5408\u8BFE\u524D\u7406\u89E3\u3001\u8BFE\u540E\u8DDF\u8BFB" },
-    idiom: { label: "\u6210\u8BED\u52A8\u753B\u4E0E\u5178\u6545", source: "B\u7AD9\u8BFE\u5802", note: "\u7528\u6545\u4E8B\u7406\u89E3\u6210\u8BED" },
-    fable: { label: "\u5BD3\u8A00\u52A8\u753B\u4E0E\u8BB2\u8BFB", source: "B\u7AD9\u8BFE\u5802", note: "\u5148\u770B\u6545\u4E8B\uFF0C\u518D\u8BF4\u9053\u7406" },
-    sanzi: { label: "\u4E09\u5B57\u7ECF\u8BF5\u8BFB", source: "B\u7AD9\u8BFE\u5802", note: "\u542C\u8282\u594F\uFF0C\u8DDF\u8BFB\u80CC\u8BF5" },
-    lunyu: { label: "\u8BBA\u8BED\u7CBE\u8BB2", source: "B\u7AD9\u8BFE\u5802", note: "\u4ECE\u4E00\u53E5\u8BDD\u7406\u89E3\u4E00\u4E2A\u4EBA" },
-    dizigui: { label: "\u5F1F\u5B50\u89C4\u8BB2\u8BFB", source: "B\u7AD9\u8BFE\u5802", note: "\u8054\u7CFB\u751F\u6D3B\u505A\u8DF5\u884C" },
-    qianziwen: { label: "\u5343\u5B57\u6587\u8BF5\u8BFB", source: "B\u7AD9\u8BFE\u5802", note: "\u8BC6\u5B57\u3001\u6B63\u97F3\u3001\u660E\u4E49" }
-  };
-  function bilibiliSearchUrl(query) {
-    return `https://search.bilibili.com/all?keyword=${encodeURIComponent(query)}`;
-  }
-  function douyinSearchUrl(query) {
-    return `https://www.douyin.com/search/${encodeURIComponent(query)}`;
-  }
-  function makeVideoLinks(item) {
-    const q = item.videoQuery || `${item.title} ${item.category === "poetry" ? "\u53E4\u8BD7" : "\u8BB2\u89E3"} \u513F\u7AE5`;
-    return [
-      { name: "B\u7AD9", label: "\u6253\u5F00\u89C6\u9891\u8BFE\u5802", url: bilibiliSearchUrl(q), tone: "bili" },
-      { name: "\u6296\u97F3", label: "\u77ED\u89C6\u9891\u8BB2\u89E3", url: douyinSearchUrl(q), tone: "douyin" }
-    ];
-  }
-
   // assets/app.js
   var app = document.querySelector("#app");
   var KEYS = { favorites: "guoxue-favorites-v2", read: "guoxue-read-v2", prefs: "guoxue-prefs-v2" };
@@ -2874,7 +3905,6 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
   var categoryMap = Object.fromEntries(categories.map((c) => [c.id, c]));
   var esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   var categoryStyle = (c) => "--cat-color:" + c.color + ";--cat-soft:" + c.soft;
-  var scopeOf = (item) => scopeLabels[item.scopeType] || scopeLabels.classic;
   function savePrefs() {
     save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope });
   }
@@ -2917,17 +3947,18 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     render();
   }
   function topbar() {
-    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span><span class="brand-name">\u56FD\u5B66\u542F\u8499</span><span class="brand-sub">2026 \u7EDF\u7F16\u7248 \xB7 \u5C0F\u5B66\u8BED\u6587</span></span></a><div class="top-actions"><button class="search-btn" data-go="search" aria-label="\u641C\u7D22">' + icon("search", 17) + '<span class="search-label">\u641C\u7D22\u7BC7\u76EE</span></button><button class="icon-btn ' + (state.favorites.size ? "active" : "") + '" data-go="favorites" aria-label="\u6536\u85CF">' + icon("heart", 19) + "</button></div></header>";
+    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span class="brand-text"><span class="brand-name">\u8BFE\u672C\u56FD\u5B66</span><span class="brand-sub">\u4EBA\u6559\u7248 \xB7 \u5C0F\u5B66\u8BED\u6587</span></span></a><div class="top-actions"><button class="icon-btn ' + (state.favorites.size ? "active" : "") + '" data-go="favorites" aria-label="\u6536\u85CF">' + icon("heart", 19) + "</button></div></header>";
   }
   function nav() {
     const active = (v) => state.view === v ? "active" : "";
     return '<nav class="bottom-nav" aria-label="\u4E3B\u5BFC\u822A"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 19) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 19) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A\u8BFB\u4E00\u7BC7">' + icon("sparkle", 20) + '</button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 19) + "<span>\u6536\u85CF</span></button></nav>";
   }
   function categoryHub() {
-    return '<div class="category-hub">' + categories.map((c) => {
+    const used = categories.filter((c) => items.some((i) => i.category === c.id));
+    return '<div class="category-hub">' + used.map((c) => {
       const count = items.filter((i) => i.category === c.id).length;
       const selected = state.category === c.id;
-      return '<button class="hub-card ' + (selected ? "active" : "") + '" style="' + categoryStyle(c) + '" data-category="' + c.id + '"><span class="hub-icon">' + icon(c.icon, 20) + '</span><span class="hub-main"><b>' + c.name + "</b><small>" + c.description + '</small></span><span class="hub-count">' + count + "</span></button>";
+      return '<button class="hub-card ' + (selected ? "active" : "") + '" style="' + categoryStyle(c) + '" data-category="' + c.id + '"><span class="hub-main"><b>' + c.name + "</b><small>" + (c.description || "") + '</small></span><span class="hub-count">' + count + "</span></button>";
     }).join("") + "</div>";
   }
   function gradeChips() {
@@ -2936,19 +3967,15 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
   function volumeChips() {
     return '<div class="segment-row">' + volumeOptions.map((v) => '<button class="segment ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + "</div>";
   }
-  function scopeChips() {
-    return '<div class="quick-chips scope-chips">' + [{ id: "all", label: "\u5168\u90E8\u6765\u6E90" }, { id: "textbook", label: "\u7EDF\u7F16\u8BFE\u6587" }, { id: "garden", label: "\u8BED\u6587\u56ED\u5730" }, { id: "classic", label: "\u8BFE\u5916\u56FD\u5B66" }].map((s) => '<button class="quick-chip ' + (state.scope === s.id ? "active" : "") + '" data-scope="' + s.id + '">' + s.label + "</button>").join("") + "</div>";
-  }
   function libraryCard(item) {
     const c = categoryMap[item.category];
     const favorite = state.favorites.has(item.id);
-    return '<article class="library-card" style="' + categoryStyle(c) + '" data-open="' + esc(item.id) + '" tabindex="0" role="button" aria-label="\u9605\u8BFB' + esc(item.title) + '"><div class="library-cover">' + illustration(item.image, { small: true }) + '<span class="list-grade">' + item.grade + '\u5E74</span></div><div class="library-info"><div class="library-kicker"><span class="source-badge ' + item.scopeType + '">' + esc(scopeOf(item).name) + "</span><span>" + esc(item.categoryName) + "</span></div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-meta"><span>' + item.gradeLabel + "</span><span>" + esc(item.tags && item.tags[0] || "") + '</span></div></div><button class="list-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="' + (favorite ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF") + '">' + icon("heart", 16) + "</button></article>";
+    return '<article class="library-card" style="' + categoryStyle(c) + '" data-open="' + esc(item.id) + '" tabindex="0" role="button" aria-label="\u9605\u8BFB' + esc(item.title) + '"><div class="library-info"><div class="library-kicker"><span>' + esc(item.categoryName) + "</span><span>" + esc(item.volumeLabel || "") + "</span></div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-meta"><span>' + esc(item.gradeLabel) + "</span><span>" + esc(item.sourceLabel) + '</span></div></div><button class="list-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="' + (favorite ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF") + '">' + icon("heart", 16) + "</button></article>";
   }
   function homeView() {
     const current = filteredItems();
     const cat = state.category === "all" ? "\u5168\u90E8\u5185\u5BB9" : categoryMap[state.category].name;
-    const scope = state.scope === "all" ? "" : scopeLabels[state.scope] && scopeLabels[state.scope].name;
-    return '<main class="page-enter clean-home">' + topbar() + '<section class="home-intro"><div class="intro-copy"><span class="eyebrow">2026 \u7EDF\u7F16\u7248 \xB7 \u5C0F\u5B66\u8BED\u6587</span><h1>\u5148\u9009\u5185\u5BB9\uFF0C<br><em>\u518D\u9009\u5E74\u7EA7\u4E0E\u518C\u6B21\u3002</em></h1><p>\u53E4\u8BD7\u8BCD\u3001\u6210\u8BED\u3001\u5BD3\u8A00\u4E0E\u56FD\u5B66\u7ECF\u5178\uFF0C\u6309\u771F\u5B9E\u5E74\u7EA7\u548C\u4E0A/\u4E0B\u518C\u6574\u7406\u3002\u8BFE\u5185\u7BC7\u76EE\u3001\u8BED\u6587\u56ED\u5730\u4E0E\u8BFE\u5916\u56FD\u5B66\u5206\u5F00\u6807\u6CE8\u3002</p><div class="intro-stats"><span><b>' + items.length + '</b>\u7BC7\u5B66\u4E60\u8D44\u6599</span><span><b>12</b>\u518C\u6B21</span><span><b>7</b>\u7C7B\u5185\u5BB9</span></div></div><div class="intro-mark">\u8BED<br>\u6587</div></section><section class="home-section"><div class="section-head"><div class="section-title-wrap"><span class="section-index">01</span><h2 class="section-title">\u6309\u5185\u5BB9\u5206\u7C7B</h2></div><span class="section-note">\u5148\u9009\u5B66\u79D1\u5185\u5BB9</span></div>' + categoryHub() + '</section><section class="library-section" id="library"><div class="library-heading"><div><span class="eyebrow">\u5206\u7EA7\u68C0\u7D22</span><h2>' + cat + '</h2></div><span class="result-count"><b>' + current.length + '</b> \u7BC7</span></div><div class="library-search"><div class="search-input-wrap">' + icon("search", 17) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u641C\u8BD7\u53E5\u3001\u7BC7\u540D\u3001\u4F5C\u8005" aria-label="\u641C\u7D22\u5F53\u524D\u5206\u7C7B"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A\u641C\u7D22">' + icon("close", 14) + '</button></div></div><div class="filter-stack"><div class="filter-line"><span class="filter-label">\u5E74\u7EA7</span>' + gradeChips() + '</div><div class="filter-line"><span class="filter-label">\u518C\u6B21</span>' + volumeChips() + '</div><div class="filter-line"><span class="filter-label">\u6765\u6E90</span>' + scopeChips() + '</div></div><div class="library-toolbar"><span>' + (state.grade === "all" ? "\u5168\u5E74\u7EA7" : state.grade + "\u5E74\u7EA7") + " \xB7 " + (volumeOptions.find((v) => v.id === state.volume) || volumeOptions[0]).label + (scope ? " \xB7 " + scope : "") + '</span><button class="reset-link" data-reset-filters>\u91CD\u7F6E</button></div><div class="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><span class="empty-icon">' + icon("search", 22) + '</span><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><p>\u6362\u4E00\u4E2A\u5E74\u7EA7\u3001\u518C\u6B21\u6216\u5173\u952E\u8BCD\u8BD5\u8BD5\u3002</p><button class="btn btn-secondary" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + '</div></section><div class="source-note"><b>\u5173\u4E8E\u7248\u672C</b><p>\u53C2\u8003\u8D44\u6599\u6309 2026 \u7EDF\u7F16\u7248\uFF08\u4EBA\u6559\u7248\uFF09\u5C0F\u5B66\u8BED\u6587\u518C\u6B21\u6574\u7406\uFF1B\u201C\u8BED\u6587\u56ED\u5730\u201D\u548C\u201C\u8BFE\u5916\u56FD\u5B66\u201D\u4E0D\u8BA1\u4F5C\u6B63\u5F0F\u8BFE\u6587\u3002\u6559\u6750\u7BC7\u76EE\u53EF\u80FD\u56E0\u5730\u533A\u4F7F\u7528\u7248\u672C\u6216\u5370\u6B21\u5FAE\u8C03\uFF0C\u8BF7\u4EE5\u5B66\u6821\u5B9E\u9645\u8BFE\u672C\u4E3A\u51C6\u3002</p><a href="https://jc.pep.com.cn/?filed=%E5%B0%8F%E5%AD%A6&subject=%E8%AF%AD%E6%96%87" target="_blank" rel="noopener noreferrer">\u67E5\u770B\u4EBA\u6559\u793E\u6559\u6750\u4E2D\u5FC3 ' + icon("external", 13) + '</a></div><footer class="footer-note"><span>\u56FD\u5B66\u542F\u8499 \xB7 2026 \u7EDF\u7F16\u7248\u5B66\u4E60\u8D44\u6599</span><span>READ \xB7 LISTEN \xB7 UNDERSTAND</span></footer>' + nav() + "</main>";
+    return '<main class="page-enter mobile-page">' + topbar() + '<section class="mobile-intro"><h1>\u8BFE\u672C\u56FD\u5B66</h1></section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u5206\u7C7B</h2></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u7BC7</span></div><div class="mobile-filters"><div class="mobile-filter-row"><span>\u5E74\u7EA7</span>' + gradeChips() + '</div><div class="mobile-filter-row"><span>\u518C\u6B21</span>' + volumeChips() + '</div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u641C\u7D22\u7BC7\u540D\u3001\u4F5C\u8005\u6216\u539F\u6587" aria-label="\u641C\u7D22\u8BFE\u6587"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A\u641C\u7D22">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn btn-secondary" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
   }
   function filteredItems() {
     return searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword, favoriteIds: [...state.favorites] });
@@ -2961,21 +3988,12 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     const pyLines = splitLines(item.pinyin);
     return textLines.map((text, index) => ({ text, pinyin: pyLines[index] || "" }));
   }
-  function relatedFor(item) {
-    return items.filter((i) => i.id !== item.id).sort((a, b) => {
-      const score = (x) => (x.category === item.category ? 3 : 0) + (x.grade === item.grade ? 2 : 0) + (x.volume === item.volume ? 1 : 0);
-      return score(b) - score(a);
-    }).slice(0, 3);
-  }
   function detailView() {
     const item = items.find((i) => i.id === state.itemId);
     if (!item) return homeView();
-    const c = categoryMap[item.category];
-    const favorite = state.favorites.has(item.id);
     const pairs = splitPairs(item);
-    const videoLinks = makeVideoLinks(item);
-    const finder = mediaFinders[item.category];
-    return '<main class="page-enter detail-page">' + topbar() + '<div class="detail-back"><button class="back-btn" data-go="home">' + icon("back", 17) + ' \u8FD4\u56DE\u5206\u7C7B</button><div class="detail-actions"><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '">' + icon("heart", 19) + '</button><button class="icon-btn" data-go="search">' + icon("search", 18) + '</button></div></div><div class="detail-grid"><article class="detail-main"><section class="detail-hero" style="' + categoryStyle(c) + '"><div class="detail-art">' + illustration(item.image) + '<span class="detail-art-caption">' + esc(item.categoryName) + " \xB7 " + item.gradeLabel + '</span></div><div class="detail-heading"><div class="detail-meta"><span class="badge">' + esc(item.categoryName) + '</span><span class="badge outline">' + item.gradeLabel + '</span><span class="badge ' + item.scopeType + '">' + esc(item.scopeName) + '</span></div><h1 class="detail-title">' + esc(item.title) + '</h1><div class="detail-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><p class="source-line">' + esc(item.sourceLabel) + " \xB7 " + esc(item.edition) + '</p><p class="detail-lead">' + esc(item.summary) + '</p><div class="read-actions"><button class="btn btn-listen" data-speak="' + esc(item.id) + '" id="speak-btn">' + icon("volume", 16) + ' \u6717\u8BFB</button><button class="btn btn-secondary" data-quiz="' + esc(item.id) + '">' + icon("quiz", 16) + ' \u968F\u5802\u4E00\u95EE</button><button class="btn btn-secondary" data-copy="' + esc(item.id) + '">' + icon("book", 16) + ' \u590D\u5236</button></div></div></section><section class="text-panel"><div class="panel-heading"><h2>\u539F\u6587\u4E0E\u62FC\u97F3</h2><span class="panel-hint">\u8DDF\u8BFB\u65F6\u6CE8\u610F\u505C\u987F</span></div><div class="original-lines">' + pairs.map((pair) => '<div class="original-line"><div class="line-pinyin">' + esc(pair.pinyin) + '</div><div class="line-text">' + esc(pair.text) + "</div></div>").join("") + '</div></section><section class="meaning-panel"><h3>' + icon("book", 16) + " \u767D\u8BDD\u8BD1\u6587</h3><p>" + esc(item.meaning) + '</p></section><section class="appreciation"><h3>\u8D4F\u6790\u4E0E\u542F\u53D1</h3><p>' + esc(item.appreciation) + '</p></section><section class="keywords"><h3>\u5173\u952E\u8BCD</h3><div class="keyword-row">' + (item.keywords || []).map((k) => '<button class="keyword" data-search="' + esc(k) + '">' + esc(k) + "</button>").join("") + '</div></section></article><aside class="detail-aside"><section class="aside-card source-card"><h3>\u6559\u6750\u6765\u6E90</h3><p class="source-note-line">' + esc(item.sourceNote) + '</p><p class="source-scale">\u9002\u7528\u4E8E 2026 \u7EDF\u7F16\u7248\uFF08\u4EBA\u6559\u7248\uFF09\u5C0F\u5B66\u8BED\u6587\u5B66\u4E60\u3002\u4E0D\u540C\u5730\u533A\u7684\u6559\u6750\u5370\u6B21\u53EF\u80FD\u5FAE\u8C03\uFF0C\u8BF7\u4EE5\u5B66\u6821\u5B9E\u9645\u8BFE\u672C\u4E3A\u51C6\u3002</p><a href="https://jc.pep.com.cn/?filed=%E5%B0%8F%E5%AD%A6&subject=%E8%AF%AD%E6%96%87" target="_blank" rel="noopener noreferrer" class="source-link">\u6838\u5BF9\u4EBA\u6559\u793E\u6559\u6750 ' + icon("external", 14) + '</a></section><section class="aside-card media-card"><h3>\u89C6\u9891\u8BFE\u5802</h3><p>' + esc(finder && finder.label || "\u76F8\u5173\u8BB2\u89E3") + '</p><div class="media-list">' + videoLinks.map((link) => '<a class="media-link" href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer"><span class="media-mark">' + (link.name === "B\u7AD9" ? "B" : "\u6296") + '</span><span class="media-text"><span class="media-name">' + esc(link.label) + '</span><span class="media-desc">' + esc(finder && finder.note || "\u62D3\u5C55\u5B66\u4E60") + "</span></span>" + icon("external", 15) + "</a>").join("") + '</div></section><section class="aside-card"><h3>\u540C\u5E74\u7EA7\u63A8\u8350</h3><div class="related-list">' + relatedFor(item).map((r) => '<button class="related-item" data-open="' + esc(r.id) + '"><span class="related-thumb">' + illustration(r.image, { small: true }) + '</span><span class="related-text"><span class="related-title">' + esc(r.title) + '</span><span class="related-meta">' + r.gradeLabel + " \xB7 " + esc(r.categoryName) + "</span></span></button>").join("") + '</div></section><div class="aside-tip"><strong>\u8BFB\u6CD5\u5EFA\u8BAE</strong>' + (item.grade <= 2 ? "\u5148\u542C\u4E00\u904D\uFF0C\u518D\u8DDF\u8BFB\u3002\u9047\u5230\u751F\u5B57\u770B\u62FC\u97F3\uFF0C\u4E0D\u5FC5\u4E00\u6B21\u80CC\u4F1A\u3002" : item.grade <= 4 ? "\u5148\u8BFB\u539F\u6587\uFF0C\u518D\u770B\u8BD1\u6587\uFF0C\u8BD5\u7740\u590D\u8FF0\u8BD7\u4E2D\u753B\u9762\u6216\u6545\u4E8B\u3002" : "\u5173\u6CE8\u4F5C\u8005\u5199\u4E86\u4EC0\u4E48\u3001\u4E3A\u4EC0\u4E48\u8FD9\u6837\u5199\uFF0C\u518D\u8054\u7CFB\u751F\u6D3B\u8BF4\u611F\u53D7\u3002") + '</div></aside></div><footer class="footer-note"><span>' + esc(item.categoryName) + " \xB7 " + esc(item.title) + "</span><span>2026 \u7EDF\u7F16\u7248\u5B66\u4E60\u8D44\u6599</span></footer>" + nav() + "</main>";
+    const isFav = state.favorites.has(item.id);
+    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="reader-back"><button class="back-btn" data-go="home">' + icon("back", 18) + ' \u8FD4\u56DE</button><button class="icon-btn ' + (isFav ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 20) + '</button></div><article class="reader-article"><header class="reader-header"><span class="reader-category">' + esc(item.categoryName) + "</span><h1>" + esc(item.title) + '</h1><div class="reader-meta">' + esc(item.gradeLabel) + '</div><div class="reader-source">' + esc(item.sourceLabel) + '</div></header><div class="reader-audio"><button class="audio-button" data-speak="' + esc(item.id) + '" id="speak-btn">' + icon("volume", 20) + ' \u6717\u8BFB</button><audio id="reader-audio" preload="metadata" webkit-playsinline playsinline src="audio/' + esc(item.id) + '.mp3"></audio></div><section class="reader-text"><div class="reader-label">\u539F\u6587\u4E0E\u62FC\u97F3</div>' + pairs.map((pair) => '<div class="reader-line"><div class="reader-pinyin">' + esc(pair.pinyin) + '</div><div class="reader-text-content">' + esc(pair.text) + "</div></div>").join("") + '</section><section class="reader-meaning"><h2>\u8BD1\u6587</h2><p>' + esc(item.meaning) + '</p></section><section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + '</p></section><figure class="reader-illustration">' + illustration(item.image) + "<figcaption>" + esc(item.title) + " \xB7 \u8BFE\u6587\u914D\u56FE</figcaption></figure></article></main>" + nav();
   }
   function escapeRegex(value) {
     return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -2987,12 +4005,11 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
   }
   function favoritesView() {
     const allFav = items.filter((i) => state.favorites.has(i.id));
-    const readCount = items.filter((i) => state.read.has(i.id)).length;
-    return '<main class="page-enter">' + topbar() + '<div class="favorites-page"><div class="page-header"><div><span class="eyebrow">\u93B4\u6220\u6B91\u6D94\uFE3D\u57E7 \u8DEF \u701B\uFE3F\u7BC4\u74D2\u5BA0\u6297</span><h1>\u93C0\u60F0\u68CC\u6D93\u5EA4\u51BB\u6769?/h1><p>\u93C0\u60F0\u68CC\u9428\u52ED\u7612\u9429\uE1BB\u7D30\u6DC7\u6FC6\u74E8\u9366\u3126\u6E70\u93C8\u6052\u20AC?/p></div></div><div class="favorite-stats"><div class="favorite-stat"><b>' + allFav.length + '</b><span>\u7EE1\u56E8\u6579\u9498?/span></div><div class="favorite-stat"><b>' + readCount + "</b><span>\u7EE1\u56E7\u51E1\u7487?/span></div></div>" + (allFav.length ? '<div class="favorite-list">' + allFav.map((item) => '<article class="favorite-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="favorite-thumb">' + illustration(item.image, { small: true }) + '</span><span class="favorite-info"><h3>' + esc(item.title) + '</h3><span class="favorite-meta">' + item.gradeLabel + " \u8DEF " + esc(item.categoryName) + "</span><p>" + esc(item.summary) + "</p></span></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u6769\u6A3B\u75C5\u93C8\u590B\u6579\u9498?/h2><p>\u7487\u8BF2\u57CC\u9360\u6EC4\uE0BD\u9428\u52ED\u7612\u9429\uE1C6\u7D1D\u9410\u901B\u7AF4\u6D93\u5B2C\u57CD\u8E47\u51BF\u7D1D\u704F\u8FAB\u5158\u9366\u3128\u7E56\u95B2\u5C7E\u58D8\u9352\u822C\u20AC?/p><button class="btn btn-primary" data-go="home">\u9358\u5A5A\u20AC\u590B\u5AE8\u9350\u546D\uE190</button></div>') + '<footer class="footer-note"><span>\u93C0\u60F0\u68CC\u6D93\u5EA1\u51E1\u7487\u660F\uE187\u8930\u66DE\u5F67\u6DC7\u6FC6\u74E8\u9366\u3126\u6E70\u93C8\u70D8\u797B\u7459\u581D\u6AD2</span><span>MY LIBRARY</span></footer></div></main>' + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><div class="page-header"><h1>\u6536\u85CF</h1></div>' + (allFav.length ? '<div class="favorite-list">' + allFav.map((item) => '<article class="favorite-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="favorite-info"><h3>' + esc(item.title) + '</h3><span class="favorite-meta">' + esc(item.gradeLabel) + " \xB7 " + esc(item.categoryName) + "</span></span></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u8FD8\u6CA1\u6709\u6536\u85CF</h2><p>\u5728\u8BFE\u6587\u9875\u9762\u70B9\u51FB\u7231\u5FC3\uFF0C\u5373\u53EF\u5728\u8FD9\u91CC\u627E\u5230\u3002</p><button class="btn btn-primary" data-go="home">\u8FD4\u56DE\u9996\u9875</button></div>') + "</div></main>" + nav();
   }
   function searchView() {
     const result = searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword, favoriteIds: [...state.favorites] });
-    return '<main class="page-enter">' + topbar() + '<div class="search-page"><span class="eyebrow">\u68C0\u7D22 \xB7 \u6309\u5185\u5BB9\u4E0E\u518C\u6B21</span><h1>\u641C\u4E00\u7BC7\uFF0C\u8BFB\u61C2\u5B83\u3002</h1><p class="search-lead">\u652F\u6301\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u8BD7\u53E5\u548C\u4E3B\u9898\u3002\u53EF\u4EE5\u7EE7\u7EED\u7528\u5E74\u7EA7\u4E0E\u4E0A\u518C/\u4E0B\u518C\u7F29\u5C0F\u8303\u56F4\u3002</p><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8BD5\u8BD5\uFF1A\u674E\u767D\u3001\u6625\u5929\u3001\u6708\u4EAE\u3001\u5B66\u4E60" autocomplete="off" aria-label="\u641C\u7D22\u56FD\u5B66\u5185\u5BB9"><button class="search-submit" type="submit">\u68C0\u7D22</button></form><div class="search-suggestions"><span>\u8BD5\u8BD5</span>' + ["\u6708\u4EAE", "\u6625\u5929", "\u674E\u767D", "\u5B66\u4E60", "\u601D\u4E61", "\u6210\u8BED"].map((s) => '<button class="suggestion-chip" data-search="' + esc(s) + '">' + esc(s) + "</button>").join("") + '</div><section class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u5185\u5BB9</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u5E74\u7EA7</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u518C\u6B21</span><div class="filter-options">' + volumeOptions.map((v) => '<button class="filter-option ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + '</div></div></section><div class="search-results-heading"><h2>' + (state.keyword ? "\u641C\u7D22\u7ED3\u679C" : "\u5168\u90E8\u8D44\u6599") + "</h2><span>" + result.length + ' \u7BC7</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="search-result-thumb">' + illustration(item.image, { small: true }) + '</span><span class="search-result-text"><div class="search-result-title">' + highlight(item.title, state.keyword) + '</div><div class="search-result-meta">' + item.gradeLabel + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.scopeName) + '</div><p class="search-result-summary">' + highlight(item.summary, state.keyword) + "</p></span></article>").join("") : '<div class="empty-state"><span class="empty-icon">' + icon("search", 23) + '</span><h3>\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</h3><p>\u6362\u4E00\u4E2A\u66F4\u77ED\u7684\u5173\u952E\u8BCD\uFF0C\u6216\u6E05\u9664\u7B5B\u9009\u540E\u518D\u8BD5\u3002</p><button class="btn btn-secondary" data-reset-filters>\u91CD\u7F6E\u7B5B\u9009</button></div>') + '</div><footer class="footer-note"><span>\u652F\u6301\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u8BD7\u53E5\u4E0E\u4E3B\u9898\u68C0\u7D22</span><span>SEARCH</span></footer></div></main>' + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + '<div class="search-page"><h1>\u67E5\u8BE2</h1><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u7BC7\u540D\u3001\u4F5C\u8005\u6216\u539F\u6587" autocomplete="off" aria-label="\u641C\u7D22\u56FD\u5B66\u5185\u5BB9"><button class="search-submit" type="submit">\u67E5\u8BE2</button></form><section class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u5E74\u7EA7</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u518C\u6B21</span><div class="filter-options">' + volumeOptions.map((v) => '<button class="filter-option ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + '</div></div></section><div class="search-results-heading"><h2>\u67E5\u8BE2\u7ED3\u679C</h2><span>' + result.length + ' \u7BC7</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="search-result-text"><div class="search-result-title">' + highlight(item.title, state.keyword) + '</div><div class="search-result-meta">' + esc(item.gradeLabel) + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.sourceLabel) + '</div><p class="search-result-summary">' + highlight(item.excerpt, state.keyword) + "</p></span></article>").join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn btn-secondary" data-reset-filters>\u91CD\u7F6E\u7B5B\u9009</button></div>') + "</div></div></main>" + nav();
   }
   function openItem(id) {
     state.itemId = id;
@@ -3009,21 +4026,25 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     const pool = filteredItems().length ? filteredItems() : items;
     openItem(pool[Math.floor(Math.random() * pool.length)].id);
   }
-  function speakText(text) {
-    if (!("speechSynthesis" in window)) {
-      toast("\u4E0D\u652F\u6301\u8BED\u97F3\u6717\u8BFB", "volume");
+  function speakText(id) {
+    const player = document.getElementById("reader-audio");
+    const button = document.getElementById("speak-btn");
+    if (!player || !button) return;
+    if (!player.paused) {
+      player.pause();
+      button.innerHTML = icon("volume", 20) + " \u6717\u8BFB";
       return;
     }
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text.replace(/\n/g, String.fromCharCode(65292)));
-    u.lang = "zh-CN";
-    u.rate = 0.72;
-    const btn = document.querySelector("#speak-btn");
-    btn?.classList.add("speaking");
-    u.onend = () => btn?.classList.remove("speaking");
-    u.onerror = () => btn?.classList.remove("speaking");
-    speechSynthesis.speak(u);
-    toast("\u6B63\u5728\u6717\u8BFB\uFF0C\u8BF7\u8DDF\u8BFB", "volume");
+    player.play().then(() => {
+      button.innerHTML = icon("volume", 20) + " \u6682\u505C";
+      toast("\u6B63\u5728\u6717\u8BFB", "volume");
+    }).catch(() => {
+      button.innerHTML = icon("volume", 20) + " \u6717\u8BFB";
+      toast("\u5F55\u97F3\u52A0\u8F7D\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u540E\u91CD\u8BD5", "volume");
+    });
+    player.onended = () => {
+      button.innerHTML = icon("volume", 20) + " \u6717\u8BFB";
+    };
   }
   function fallbackCopy(text, done) {
     const ta = document.createElement("textarea");
@@ -3164,7 +4185,7 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
       return;
     }
     if (el.dataset.speak) {
-      speakText(items.find((i) => i.id === el.dataset.speak)?.excerpt || "");
+      speakText(el.dataset.speak);
       return;
     }
     if (el.dataset.copy) {
@@ -3203,10 +4224,10 @@ mark { padding: 0 2px; color: var(--cinnabar-deep); background: #F1DDC9; border-
     if (event.target.id === "inline-search") {
       state.keyword = event.target.value;
       const current = filteredItems();
-      const list = document.querySelector(".library-list");
-      if (list) list.innerHTML = current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><p>\u8BD5\u8BD5\u5176\u4ED6\u5173\u952E\u8BCD\u3002</p></div>';
-      const count = document.querySelector(".result-count b");
-      if (count) count.textContent = current.length;
+      const list = document.querySelector("#library-list");
+      if (list) list.innerHTML = current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn btn-secondary" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>';
+      const count = document.querySelector("#result-count");
+      if (count) count.textContent = current.length + " \u7BC7";
     }
   });
   document.addEventListener("keydown", (event) => {
