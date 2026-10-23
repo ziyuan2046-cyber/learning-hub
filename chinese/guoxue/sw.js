@@ -1,8 +1,7 @@
-const CACHE = 'guoxue-20261023-v3';
+const CACHE = 'guoxue-20261023-v4-packs';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
-  './assets/icon-192.png', './assets/icon-512.png',
-  './audio/poetry-g1-jiangnan.mp3'
+  './assets/icon-192.png', './assets/icon-512.png'
 ];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
