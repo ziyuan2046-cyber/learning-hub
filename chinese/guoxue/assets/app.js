@@ -1,6 +1,5 @@
 import { categories, grades, items, lessonItems, extraItems, searchItems } from './data.js';
 import { icon } from './icons.js';
-import { illustration } from './art.js';
 
 const app = document.querySelector('#app');
 const KEYS = { favorites: 'guoxue-favorites-v3', read: 'guoxue-read-v3', prefs: 'guoxue-prefs-v3' };
@@ -56,7 +55,7 @@ function nav() {
 }
 
 function sourceTabs() {
-  return '<div class="source-tabs"><button class="source-tab ' + (state.scope === 'textbook' ? 'active' : '') + '" data-scope="textbook">教材必背 <b>' + lessonItems.length + '</b></button><button class="source-tab ' + (state.scope === 'extra' ? 'active' : '') + '" data-scope="extra">课外拓展 <b>' + extraItems.length + '</b></button></div>';
+  return '<div class="source-tabs"><button class="source-tab ' + (state.scope === 'textbook' ? 'active' : '') + '" data-scope="textbook">教材内容 <b>' + lessonItems.length + '</b></button><button class="source-tab ' + (state.scope === 'extra' ? 'active' : '') + '" data-scope="extra">课外拓展 <b>' + extraItems.length + '</b></button></div>';
 }
 function categoryHub() {
   const list = state.scope === 'textbook' ? lessonItems : extraItems;
@@ -83,7 +82,7 @@ function homeView() {
   const cat = state.category === 'all' ? '全部内容' : categoryMap[state.category].name;
   const filters = state.scope === 'textbook' ? '<div class="mobile-filter-row"><span>年级</span>' + gradeChips() + '</div><div class="mobile-filter-row"><span>册次</span>' + volumeChips() + '</div>' : '';
   return '<main class="page-enter mobile-page">' + topbar() +
-    '<section class="mobile-intro"><h1>小学古诗文</h1></section>' +
+    '<section class="mobile-intro"><h1>小学语文国学</h1></section>' +
     '<section class="mobile-section"><div class="mobile-section-head"><h2>内容来源</h2></div>' + sourceTabs() + '</section>' +
     '<section class="mobile-section"><div class="mobile-section-head"><h2>内容分类</h2></div>' + categoryHub() + '</section>' +
     '<section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' 篇</span></div>' +
@@ -108,19 +107,22 @@ function detailView() {
   return '<main class="page-enter detail-page mobile-page">' + topbar() +
     '<div class="reader-back"><button class="back-btn" data-go="home">' + icon('back', 18) + ' 返回</button><button class="icon-btn ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏">' + icon('heart', 20) + '</button></div>' +
     '<article class="reader-article"><header class="reader-header"><span class="reader-category">' + esc(item.categoryName) + '</span><h1>' + esc(item.title) + '</h1><div class="reader-meta">' + esc(item.dynasty) + ' · ' + esc(item.author) + '</div><div class="reader-source">' + esc(item.sourceLabel) + '</div></header>' +
-    '<div class="reader-audio"><button class="audio-button" data-speak="' + esc(item.id) + '" id="speak-btn">' + icon('volume', 20) + ' 朗读</button><audio id="reader-audio" preload="metadata" playsinline webkit-playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio></div>' +
-    '<section class="reader-text"><div class="reader-label">原文 · 拼音</div>' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</section>' +
-    (item.meaning && item.meaning !== '本册必背。' ? '<section class="reader-meaning"><h2>译文</h2><p>' + esc(item.meaning) + '</p></section>' : '') +
-    (item.appreciation ? '<section class="reader-note"><h2>赏析</h2><p>' + esc(item.appreciation) + '</p></section>' : '') + video +
-    '<figure class="reader-illustration">' + illustration(item.image) + '<figcaption>' + esc(item.title) + ' · 配图</figcaption></figure></article></main>' + nav();
+    '<div class="reader-audio"><button class="audio-button" data-speak="text" id="speak-btn">' + icon('volume', 20) + ' ' + (item.category === 'idiom' ? '朗读释义' : '朗读原文') + '</button>' + (item.meaning && item.meaning !== '本册必背。' ? '<button class="audio-button audio-secondary" data-speak="meaning" id="meaning-speak-btn">' + icon('volume', 20) + ' ' + (item.category === 'idiom' ? '朗读例句' : '朗读译文') + '</button>' : '') + '<audio id="reader-audio" preload="metadata" playsinline webkit-playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline webkit-playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio></div>' +
+    '<section class="reader-text"><div class="reader-label">' + (item.category === 'idiom' ? '释义 · 拼音' : '原文 · 拼音') + '</div>' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</section>' +
+    (item.meaning && item.meaning !== '本册必背。' ? '<section class="reader-meaning"><h2>' + (item.category === 'idiom' ? '释义与例句' : '译文') + '</h2><p>' + esc(item.meaning) + '</p></section>' : '') +
+    (item.appreciation ? '<section class="reader-note"><h2>赏析</h2><p>' + esc(item.appreciation) + '</p></section>' : '') + (item.category === 'idiom' ? '' : video) + '</article></main>' + nav();
 }
-function speakText(id) {
-  const player = document.querySelector('#reader-audio');
-  const button = document.querySelector('#speak-btn');
+function speakText(kind) {
+  const isMeaning = kind === 'meaning';
+  const player = document.querySelector(isMeaning ? '#meaning-audio' : '#reader-audio');
+  const other = document.querySelector(isMeaning ? '#reader-audio' : '#meaning-audio');
+  const button = document.querySelector(isMeaning ? '#meaning-speak-btn' : '#speak-btn');
   if (!player || !button) return;
-  if (!player.paused) { player.pause(); button.innerHTML = icon('volume', 20) + ' 朗读'; return; }
-  player.play().then(() => { button.innerHTML = icon('volume', 20) + ' 暂停'; toast('正在朗读', 'volume'); }).catch(() => toast('音频加载失败', 'volume'));
-  player.onended = () => { button.innerHTML = icon('volume', 20) + ' 朗读'; };
+  const label = isMeaning ? (document.body.innerText.includes('释义与例句') ? '朗读例句' : '朗读译文') : (document.body.innerText.includes('释义与例句') ? '朗读释义' : '朗读原文');
+  if (!player.paused) { player.pause(); button.innerHTML = icon('volume', 20) + ' ' + label; return; }
+  if (other) { other.pause(); const ob = document.querySelector(isMeaning ? '#speak-btn' : '#meaning-speak-btn'); if (ob) ob.innerHTML = icon('volume', 20) + (isMeaning ? (document.body.innerText.includes('释义与例句') ? ' 朗读释义' : ' 朗读原文') : (document.body.innerText.includes('释义与例句') ? ' 朗读例句' : ' 朗读译文')); }
+  player.play().then(() => { button.innerHTML = icon('volume', 20) + ' 暂停'; toast(isMeaning ? '正在朗读译文' : '正在朗读原文', 'volume'); }).catch(() => toast('音频加载失败', 'volume'));
+  player.onended = () => { button.innerHTML = icon('volume', 20) + ' ' + label; };
 }
 function searchView() {
   const result = filteredItems();

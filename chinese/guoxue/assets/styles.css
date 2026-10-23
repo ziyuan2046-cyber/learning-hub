@@ -609,7 +609,7 @@ body { background: #F4EFE2; }
 .library-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--cinnabar); font-size: 11px; line-height: 1.5; }
 .library-info h3 { margin-top: 3px; font-family: var(--sans); font-size: 19px; font-weight: 700; line-height: 1.45; white-space: normal; }
 .library-author { margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.library-excerpt { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin-top: 5px; color: var(--ink-soft); font-family: var(--sans); font-size: 14px; line-height: 1.65; white-space: pre-line; }
+.library-excerpt { margin-top: 6px; color: var(--ink-soft); font-family: var(--sans); font-size: 15px; line-height: 1.75; white-space: pre-line; overflow-wrap: anywhere; }
 .library-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 7px; color: var(--muted); font-size: 11px; line-height: 1.5; }
 .list-fav { position: absolute; right: 7px; top: 8px; width: 32px; height: 32px; display: grid; place-items: center; border: 0; border-radius: 50%; color: #A8A293; background: transparent; }
 .list-fav.active { color: var(--cinnabar); background: var(--cinnabar-soft); }
@@ -632,8 +632,9 @@ body { background: #F4EFE2; }
 .reader-meta, .reader-source { margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .reader-meta { color: var(--cinnabar); }
 .reader-source { color: var(--ink-soft); }
-.reader-audio { display: flex; align-items: center; padding: 12px 18px; border-bottom: 1px solid var(--line); background: #FAF5E9; }
+.reader-audio { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: #FAF5E9; }
 .audio-button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 17px; border: 0; border-radius: 999px; color: #FFFDF8; background: var(--ink); font-size: 15px; }
+.audio-secondary { color: var(--cinnabar); background: #FFFDF8; border: 1px solid #D8B9AE; }
 .reader-text { padding: 20px 18px 16px; }
 .reader-label { margin-bottom: 5px; color: var(--muted); font-size: 13px; }
 .reader-line { padding: 12px 0 11px; border-bottom: 1px dashed var(--line); }
@@ -646,10 +647,6 @@ body { background: #F4EFE2; }
 .reader-meaning h2, .reader-note h2 { margin-bottom: 7px; font-family: var(--sans); font-size: 19px; font-weight: 700; }
 .reader-meaning p, .reader-note p { font-family: var(--sans); font-size: 18px; line-height: 1.9; }
 .reader-note { margin-bottom: 14px; }
-.reader-illustration { margin: 4px 16px 17px; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: #F7F1E4; }
-.reader-illustration .illus { display: block; width: 100%; height: 150px; }
-.reader-illustration svg { width: 100%; height: 100%; display: block; }
-.reader-illustration figcaption { padding: 7px 11px 8px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
 /* New packs and official video */
 .source-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -674,6 +671,7 @@ body { background: #F4EFE2; }
 .favorite-card h3 { font-family: var(--sans); font-size: 18px; }
 .favorite-card > span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
 @media (max-width: 380px) {
+  .audio-button { min-height: 42px; padding: 0 13px; font-size: 14px; }
   .video-section { margin-left: 12px; margin-right: 12px; padding: 12px; }
   .video-label { font-size: 13px; }
 }
@@ -699,7 +697,7 @@ body { background: #F4EFE2; }
 .search-result-card { display: block; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: #FFFDF8; }
 .search-result-title { font-size: 18px; font-weight: 700; line-height: 1.5; }
 .search-result-meta { margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.search-result-summary { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin-top: 5px; color: var(--ink-soft); font-size: 14px; line-height: 1.7; white-space: pre-line; }
+.search-result-summary { margin-top: 5px; color: var(--ink-soft); font-size: 14px; line-height: 1.7; white-space: pre-line; }
 mark { background: #F0D8C4; color: inherit; }
 .favorite-list { display: flex; flex-direction: column; gap: 7px; margin-top: 14px; }
 .favorite-card { display: flex; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: #FFFDF8; }

@@ -2,6 +2,7 @@ import { packData } from './pack-data.js';
 
 export const categories = [
   { id: 'poetry', name: '古诗词', short: '诗', color: '#A94B3C', soft: '#F4E5E0', icon: 'poem', description: '诗、词、曲' },
+  { id: 'idiom', name: '成语', short: '成', color: '#8A5B36', soft: '#F3E7D8', icon: 'fable', description: '释义与例句' },
   { id: 'classical', name: '文言文', short: '文', color: '#4A657D', soft: '#E2EAF0', icon: 'three', description: '古文名篇' },
   { id: 'fable', name: '寓言', short: '寓', color: '#9A6A2F', soft: '#F2E8D5', icon: 'fable', description: '寓言故事' },
   { id: 'myth', name: '神话传说', short: '神', color: '#6E6244', soft: '#EEE9DC', icon: 'rules', description: '传统故事' },
@@ -21,8 +22,8 @@ function normalize(item, index, extra = false) {
     gradeLabel: extra ? '课外拓展' : (item.gradeLabel || (gradeLabels[item.grade - 1] + item.volume + '册')),
     volumeLabel: extra ? '课外' : (item.volume + '册'),
     scopeType: extra ? 'extra' : 'textbook',
-    scopeName: extra ? '课外拓展' : '教材必背',
-    sourceLabel: extra ? '拓展诗词包' : (item.sourceLabel || (gradeLabels[item.grade - 1] + item.volume + '册 · 必背')),
+    scopeName: extra ? '课外拓展' : '教材内容',
+    sourceLabel: extra ? (item.sourceLabel || '拓展诗词包') : (item.sourceLabel || (gradeLabels[item.grade - 1] + item.volume + '册 · 必背')),
   };
 }
 

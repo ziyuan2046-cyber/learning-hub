@@ -119,6 +119,54 @@ export const packData = {
       "appreciation": ""
     },
     {
+      "id": "idiom-g1-上-0",
+      "grade": 1,
+      "volume": "上",
+      "title": "一心一意",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "用心专一，注意力集中。",
+      "pinyin": "yòng xīn zhuān yī， zhù yì lì jí zhōng。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "1年级上册 · 成语",
+      "meaning": "读书写字时，他一心一意，连窗外的小鸟飞过也没有看见。",
+      "appreciation": "",
+      "tags": [
+        "专注",
+        "认真",
+        "学习"
+      ],
+      "related": [
+        "一心一意",
+        "专心致志"
+      ]
+    },
+    {
+      "id": "idiom-g1-上-1",
+      "grade": 1,
+      "volume": "上",
+      "title": "七上八下",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "形容心里慌乱不安。",
+      "pinyin": "xíng róng xīn lǐ huāng luàn bù ān。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "1年级上册 · 成语",
+      "meaning": "第一次走上讲台，我心里七上八下，手心都出汗了。",
+      "appreciation": "",
+      "tags": [
+        "紧张",
+        "心情",
+        "讲述"
+      ],
+      "related": [
+        "七上八下",
+        "忐忑不安"
+      ]
+    },
+    {
       "id": "pack-1-下-poem-6",
       "grade": 1,
       "volume": "下",
@@ -264,6 +312,54 @@ export const packData = {
         "url": "https://www.bilibili.com/bangumi/play/ep829180",
         "title": "不鸣则已一鸣惊人的唐伯虎写的《画鸡》你知道吗？"
       }
+    },
+    {
+      "id": "idiom-g1-下-2",
+      "grade": 1,
+      "volume": "下",
+      "title": "春暖花开",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "春天气候温暖，百花盛开。形容春天美丽的景象。",
+      "pinyin": "chūn tiān qì hòu wēn nuǎn， bǎi huā shèng kāi。 xíng róng chūn tiān měi lì de jǐng xiàng。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "1年级下册 · 成语",
+      "meaning": "春暖花开的时候，公园里到处都是赏花的人。",
+      "appreciation": "",
+      "tags": [
+        "春天",
+        "景色",
+        "描写"
+      ],
+      "related": [
+        "春暖花开",
+        "百花齐放"
+      ]
+    },
+    {
+      "id": "idiom-g1-下-3",
+      "grade": 1,
+      "volume": "下",
+      "title": "鸟语花香",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "鸟儿鸣叫，花儿飘香。形容春天美好的景象。",
+      "pinyin": "niǎo ér míng jiào， huā ér piāo xiāng。 xíng róng chūn tiān měi hǎo de jǐng xiàng。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "1年级下册 · 成语",
+      "meaning": "清晨的校园鸟语花香，让人心情格外舒畅。",
+      "appreciation": "",
+      "tags": [
+        "春天",
+        "自然",
+        "描写"
+      ],
+      "related": [
+        "鸟语花香",
+        "春意盎然"
+      ]
     },
     {
       "id": "pack-2-上-poem-13",
@@ -420,6 +516,54 @@ export const packData = {
       }
     },
     {
+      "id": "idiom-g2-上-4",
+      "grade": 2,
+      "volume": "上",
+      "title": "五光十色",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "形容色彩鲜艳，花样繁多。",
+      "pinyin": "xíng róng sè cǎi xiān yàn， huā yàng fán duō。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "2年级上册 · 成语",
+      "meaning": "节日的广场上挂着五光十色的彩灯。",
+      "appreciation": "",
+      "tags": [
+        "颜色",
+        "景色",
+        "描写"
+      ],
+      "related": [
+        "五光十色",
+        "五彩缤纷"
+      ]
+    },
+    {
+      "id": "idiom-g2-上-5",
+      "grade": 2,
+      "volume": "上",
+      "title": "无边无际",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "没有边际，形容非常辽阔。",
+      "pinyin": "méi yǒu biān jì， xíng róng fēi cháng liáo kuò。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "2年级上册 · 成语",
+      "meaning": "站在海边望去，蓝蓝的大海无边无际。",
+      "appreciation": "",
+      "tags": [
+        "辽阔",
+        "大海",
+        "描写"
+      ],
+      "related": [
+        "无边无际",
+        "一望无际"
+      ]
+    },
+    {
       "id": "pack-2-下-poem-20",
       "grade": 2,
       "volume": "下",
@@ -572,6 +716,54 @@ export const packData = {
         "url": "https://www.bilibili.com/bangumi/play/ep834223",
         "title": "《江上渔者》都讲了些什么，你知道吗？"
       }
+    },
+    {
+      "id": "idiom-g2-下-6",
+      "grade": 2,
+      "volume": "下",
+      "title": "亡羊补牢",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "羊丢了以后修补羊圈，还不算晚。比喻出了问题及时补救，可以避免更大的损失。",
+      "pinyin": "yáng diū le yǐ hòu xiū bǔ yáng juàn， hái bù suàn wǎn。 bǐ yù chū le wèn tí jí shí bǔ jiù， kě yǐ bì miǎn gèng dà de sǔn shī。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "2年级下册 · 成语",
+      "meaning": "发现作业中的错误后，他马上改正，真是亡羊补牢，为时未晚。",
+      "appreciation": "",
+      "tags": [
+        "寓言",
+        "改错",
+        "及时"
+      ],
+      "related": [
+        "亡羊补牢",
+        "知错就改"
+      ]
+    },
+    {
+      "id": "idiom-g2-下-7",
+      "grade": 2,
+      "volume": "下",
+      "title": "揠苗助长",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "把禾苗往上拔，帮助它生长。比喻违背事物发展规律，急于求成，反而把事情弄坏。",
+      "pinyin": "bǎ hé miáo wǎng shàng bá， bāng zhù tā shēng zhǎng。 bǐ yù wéi bèi shì wù fā zhǎn guī lǜ， jí yú qiú chéng， fǎn ér bǎ shì qíng nòng huài。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "2年级下册 · 成语",
+      "meaning": "学习要一步一步来，违背规律地揠苗助长，反而会适得其反。",
+      "appreciation": "",
+      "tags": [
+        "寓言",
+        "规律",
+        "成长"
+      ],
+      "related": [
+        "揠苗助长",
+        "急于求成"
+      ]
     },
     {
       "id": "pack-3-上-poem-27",
@@ -788,6 +980,54 @@ export const packData = {
       "appreciation": ""
     },
     {
+      "id": "idiom-g3-上-8",
+      "grade": 3,
+      "volume": "上",
+      "title": "秋高气爽",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "形容秋天天空晴朗，空气清新凉爽。",
+      "pinyin": "xíng róng qiū tiān tiān kōng qíng lǎng， kōng qì qīng xīn liáng shuǎng。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "3年级上册 · 成语",
+      "meaning": "秋高气爽的日子里，我们一起去郊外看枫叶。",
+      "appreciation": "",
+      "tags": [
+        "秋天",
+        "天气",
+        "描写"
+      ],
+      "related": [
+        "秋高气爽",
+        "天高云淡"
+      ]
+    },
+    {
+      "id": "idiom-g3-上-9",
+      "grade": 3,
+      "volume": "上",
+      "title": "层林尽染",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "山上一层层的树林都被秋霜染上了颜色。多形容秋天美丽的山林景色。",
+      "pinyin": "shān shàng yī céng céng de shù lín dōu bèi qiū shuāng rǎn shàng le yán sè。 duō xíng róng qiū tiān měi lì de shān lín jǐng sè。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "3年级上册 · 成语",
+      "meaning": "深秋时节，山上层林尽染，像一幅彩色的画。",
+      "appreciation": "",
+      "tags": [
+        "秋天",
+        "山林",
+        "景色"
+      ],
+      "related": [
+        "层林尽染",
+        "漫山红遍"
+      ]
+    },
+    {
       "id": "pack-3-下-poem-38",
       "grade": 3,
       "volume": "下",
@@ -978,6 +1218,54 @@ export const packData = {
         "url": "https://www.bilibili.com/bangumi/play/ep831663",
         "title": "古诗里还有地理知识？那请看白居易的《大林寺桃花》"
       }
+    },
+    {
+      "id": "idiom-g3-下-10",
+      "grade": 3,
+      "volume": "下",
+      "title": "画蛇添足",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "画蛇时给蛇添上脚。比喻做了多余的事，反而不合适。",
+      "pinyin": "huà shé shí gěi shé tiān shàng jiǎo。 bǐ yù zuò le duō yú de shì， fǎn ér bù hé shì。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "3年级下册 · 成语",
+      "meaning": "文章已经把意思说清楚了，再加一段反而画蛇添足。",
+      "appreciation": "",
+      "tags": [
+        "成语故事",
+        "恰当",
+        "表达"
+      ],
+      "related": [
+        "画蛇添足",
+        "多此一举"
+      ]
+    },
+    {
+      "id": "idiom-g3-下-11",
+      "grade": 3,
+      "volume": "下",
+      "title": "井底之蛙",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "井底的青蛙只能看见井口那么大的天。比喻见识狭小的人。",
+      "pinyin": "jǐng dǐ de qīng wā zhǐ néng kàn jiàn jǐng kǒu nà me dà de tiān。 bǐ yù jiàn shí xiá xiǎo de rén。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "3年级下册 · 成语",
+      "meaning": "多读书、多观察，才不会成为井底之蛙。",
+      "appreciation": "",
+      "tags": [
+        "寓言",
+        "眼界",
+        "学习"
+      ],
+      "related": [
+        "井底之蛙",
+        "坐井观天"
+      ]
     },
     {
       "id": "pack-4-上-poem-48",
@@ -1202,6 +1490,54 @@ export const packData = {
       "appreciation": ""
     },
     {
+      "id": "idiom-g4-上-12",
+      "grade": 4,
+      "volume": "上",
+      "title": "人山人海",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "人群像山一样多，像海一样大。形容聚集的人非常多。",
+      "pinyin": "rén qún xiàng shān yī yàng duō， xiàng hǎi yī yàng dà。 xíng róng jù jí de rén fēi cháng duō。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "4年级上册 · 成语",
+      "meaning": "国庆节的景区人山人海，热闹极了。",
+      "appreciation": "",
+      "tags": [
+        "人群",
+        "热闹",
+        "描写"
+      ],
+      "related": [
+        "人山人海",
+        "熙熙攘攘"
+      ]
+    },
+    {
+      "id": "idiom-g4-上-13",
+      "grade": 4,
+      "volume": "上",
+      "title": "若隐若现",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "好像隐藏起来，又好像显现出来。形容景物看不清楚。",
+      "pinyin": "hǎo xiàng yǐn cáng qǐ lái， yòu hǎo xiàng xiǎn xiàn chū lái。 xíng róng jǐng wù kàn bù qīng chǔ。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "4年级上册 · 成语",
+      "meaning": "薄雾中的远山若隐若现，像一幅水墨画。",
+      "appreciation": "",
+      "tags": [
+        "景物",
+        "雾气",
+        "描写"
+      ],
+      "related": [
+        "若隐若现",
+        "隐隐约约"
+      ]
+    },
+    {
       "id": "pack-4-下-poem-60",
       "grade": 4,
       "volume": "下",
@@ -1401,6 +1737,54 @@ export const packData = {
       "sourceLabel": "4年级下册 · 必背",
       "meaning": "磨针溪在象耳山下。传说李白在山中读书，没有完成就离开了。经过这条溪，遇到一位老妇人正在磨铁杵。问她做什么，她说：“想做针。”李白被她的意志感动，回去完成了学业。",
       "appreciation": ""
+    },
+    {
+      "id": "idiom-g4-下-14",
+      "grade": 4,
+      "volume": "下",
+      "title": "一丝不苟",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "连最细小的地方也不马虎。形容做事认真、细致。",
+      "pinyin": "lián zuì xì xiǎo de dì fāng yě bù mǎ hǔ。 xíng róng zuò shì rèn zhēn、 xì zhì。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "4年级下册 · 成语",
+      "meaning": "他做题时一丝不苟，每一步都写得很清楚。",
+      "appreciation": "",
+      "tags": [
+        "认真",
+        "仔细",
+        "习惯"
+      ],
+      "related": [
+        "一丝不苟",
+        "精益求精"
+      ]
+    },
+    {
+      "id": "idiom-g4-下-15",
+      "grade": 4,
+      "volume": "下",
+      "title": "凿壁偷光",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "西汉匡衡家贫，夜里凿穿墙壁，借邻舍烛光读书。比喻在艰苦条件下勤奋学习。",
+      "pinyin": "xī hàn kuāng héng jiā pín，yè lǐ záo chuān qiáng bì，jiè lín shè zhú guāng dú shū。bǐ yù zài jiān kǔ tiáo jiàn xià qín fèn xué xí。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "4年级下册 · 成语",
+      "meaning": "匡衡小时候家里很穷，买不起灯油。他在墙上凿了一个小洞，借邻居家的灯光读书，最终成为很有学问的人。",
+      "appreciation": "",
+      "tags": [
+        "勤奋",
+        "学习",
+        "条件"
+      ],
+      "related": [
+        "凿壁偷光",
+        "囊萤夜读"
+      ]
     },
     {
       "id": "pack-5-上-poem-72",
@@ -1640,6 +2024,54 @@ export const packData = {
       }
     },
     {
+      "id": "idiom-g5-上-16",
+      "grade": 5,
+      "volume": "上",
+      "title": "举一反三",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "从一件事类推而知道许多事情。形容善于学习和思考。",
+      "pinyin": "cóng yī jiàn shì lèi tuī ér zhī dào xǔ duō shì qíng。 xíng róng shàn yú xué xí hé sī kǎo。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "5年级上册 · 成语",
+      "meaning": "学完一种解题方法后，他又举一反三，做出了几道类似的题。",
+      "appreciation": "",
+      "tags": [
+        "学习",
+        "思考",
+        "方法"
+      ],
+      "related": [
+        "举一反三",
+        "触类旁通"
+      ]
+    },
+    {
+      "id": "idiom-g5-上-17",
+      "grade": 5,
+      "volume": "上",
+      "title": "震天动地",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "震动了天地。形容声音或气势非常大。",
+      "pinyin": "zhèn dòng le tiān dì。 xíng róng shēng yīn huò qì shì fēi cháng dà。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "5年级上册 · 成语",
+      "meaning": "运动会上，同学们的加油声震天动地。",
+      "appreciation": "",
+      "tags": [
+        "声音",
+        "气势",
+        "描写"
+      ],
+      "related": [
+        "震天动地",
+        "惊天动地"
+      ]
+    },
+    {
       "id": "pack-5-下-poem-85",
       "grade": 5,
       "volume": "下",
@@ -1856,6 +2288,54 @@ export const packData = {
       "appreciation": ""
     },
     {
+      "id": "idiom-g5-下-18",
+      "grade": 5,
+      "volume": "下",
+      "title": "神机妙算",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "惊人的机智，巧妙的谋划。形容善于估计形势、决定策略。",
+      "pinyin": "jīng rén de jī zhì， qiǎo miào de móu huà。 xíng róng shàn yú gū jì xíng shì、 jué dìng cè lüè。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "5年级下册 · 成语",
+      "meaning": "诸葛亮神机妙算，借箭成功，令周瑜十分佩服。",
+      "appreciation": "",
+      "tags": [
+        "智慧",
+        "计谋",
+        "人物"
+      ],
+      "related": [
+        "神机妙算",
+        "足智多谋"
+      ]
+    },
+    {
+      "id": "idiom-g5-下-19",
+      "grade": 5,
+      "volume": "下",
+      "title": "目瞪口呆",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "眼睛直盯着不动，嘴里说不出话来。形容因吃惊、害怕或发愣而发傻的样子。",
+      "pinyin": "yǎn jīng zhí dīng zhe bù dòng， zuǐ lǐ shuō bù chū huà lái。 xíng róng yīn chī jīng、 hài pà huò fā lèng ér fā shǎ de yàng zi。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "5年级下册 · 成语",
+      "meaning": "看到魔术师变出白鸽，大家都目瞪口呆。",
+      "appreciation": "",
+      "tags": [
+        "惊讶",
+        "神态",
+        "人物"
+      ],
+      "related": [
+        "目瞪口呆",
+        "瞠目结舌"
+      ]
+    },
+    {
       "id": "pack-6-上-poem-98",
       "grade": 6,
       "volume": "上",
@@ -1988,6 +2468,54 @@ export const packData = {
       "sourceLabel": "6年级上册 · 必背",
       "meaning": "邓哀王曹冲字仓舒，小时候聪慧善察，五六岁时智慧就像成年人。孙权送来一头大象，曹操想知道它有多重，问遍群臣都没人能想出办法。曹冲说：“把象放到船上，记下水痕所到的位置，再往船上装东西，称出这些东西的重量，就知道象有多重了。”曹操很高兴，立即照办。",
       "appreciation": ""
+    },
+    {
+      "id": "idiom-g6-上-20",
+      "grade": 6,
+      "volume": "上",
+      "title": "居高临下",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "占据高处，俯视下面。形容处于有利的地位或从高处向下看。",
+      "pinyin": "zhàn jù gāo chù， fǔ shì xià miàn。 xíng róng chǔ yú yǒu lì de dì wèi huò cóng gāo chù xiàng xià kàn。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "6年级上册 · 成语",
+      "meaning": "站在山顶居高临下，整座小城尽收眼底。",
+      "appreciation": "",
+      "tags": [
+        "位置",
+        "观察",
+        "描写"
+      ],
+      "related": [
+        "居高临下",
+        "高瞻远瞩"
+      ]
+    },
+    {
+      "id": "idiom-g6-上-21",
+      "grade": 6,
+      "volume": "上",
+      "title": "排山倒海",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "把山推开，把海翻倒。形容力量强、声势大。",
+      "pinyin": "bǎ shān tuī kāi， bǎ hǎi fān dǎo。 xíng róng lì liàng qiáng、 shēng shì dà。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "6年级上册 · 成语",
+      "meaning": "洪水排山倒海般涌来，人们迅速转移到了安全地带。",
+      "appreciation": "",
+      "tags": [
+        "气势",
+        "力量",
+        "描写"
+      ],
+      "related": [
+        "排山倒海",
+        "势不可挡"
+      ]
     },
     {
       "id": "pack-6-下-poem-106",
@@ -2299,6 +2827,54 @@ export const packData = {
       "sourceLabel": "6年级下册 · 必背",
       "meaning": "春天回到哪里去了？寂寞中找不到它的踪迹。如果有人知道春天的去处，请把它唤回来同住。春天的踪迹有谁知道？除非去问黄鹂。它婉转啼叫却无人听懂，一阵风吹来，飞过蔷薇花丛。",
       "appreciation": ""
+    },
+    {
+      "id": "idiom-g6-下-22",
+      "grade": 6,
+      "volume": "下",
+      "title": "司空见惯",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "看惯了就不觉得奇怪。",
+      "pinyin": "kàn guàn le jiù bù jué dé qí guài。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "6年级下册 · 成语",
+      "meaning": "他每天提前到校整理图书，大家已经司空见惯了。",
+      "appreciation": "",
+      "tags": [
+        "习惯",
+        "见闻",
+        "成语"
+      ],
+      "related": [
+        "司空见惯",
+        "习以为常"
+      ]
+    },
+    {
+      "id": "idiom-g6-下-23",
+      "grade": 6,
+      "volume": "下",
+      "title": "见微知著",
+      "author": "课内成语积累",
+      "dynasty": "小学语文",
+      "excerpt": "看到细小的苗头，就能知道事物发展的趋势。",
+      "pinyin": "kàn dào xì xiǎo de miáo tou， jiù néng zhī dào shì wù fā zhǎn de qū shì。",
+      "category": "idiom",
+      "sourceType": "textbook",
+      "sourceLabel": "6年级下册 · 成语",
+      "meaning": "科学家从一个小现象中见微知著，发现了新的规律。",
+      "appreciation": "",
+      "tags": [
+        "观察",
+        "思考",
+        "科学"
+      ],
+      "related": [
+        "见微知著",
+        "一叶知秋"
+      ]
     }
   ],
   "extra": [
@@ -3955,6 +4531,294 @@ export const packData = {
       "sourceLabel": "拓展诗词包 · 课外",
       "meaning": "",
       "appreciation": ""
+    },
+    {
+      "id": "idiom-extra-0",
+      "grade": null,
+      "volume": "课外",
+      "title": "胸有成竹",
+      "author": "宋·苏轼《文与可画筼筜谷偃竹记》",
+      "dynasty": "常用成语",
+      "excerpt": "画竹子以前，心里已经有了竹子的完整形象。比喻做事以前已经做好充分准备，心中很有把握。",
+      "pinyin": "huà zhú zi yǐ qián， xīn lǐ yǐ jīng yǒu le zhú zi de wán zhěng xíng xiàng。 bǐ yù zuò shì yǐ qián yǐ jīng zuò hǎo chōng fèn zhǔn bèi， xīn zhōng hěn yǒu bǎ wò。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "比赛前，他反复练习，早已胸有成竹。",
+      "appreciation": "",
+      "tags": [
+        "准备",
+        "信心",
+        "做事"
+      ],
+      "related": [
+        "胸有成竹",
+        "成竹在胸"
+      ]
+    },
+    {
+      "id": "idiom-extra-1",
+      "grade": null,
+      "volume": "课外",
+      "title": "全神贯注",
+      "author": "《庄子·达生》",
+      "dynasty": "常用成语",
+      "excerpt": "全部精神集中在一点上。形容注意力高度集中。",
+      "pinyin": "quán bù jīng shén jí zhōng zài yì diǎn shàng。 xíng róng zhù yì lì gāo dù jí zhōng。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "上课时，她全神贯注地听讲，连下课铃都没听见。",
+      "appreciation": "",
+      "tags": [
+        "专注",
+        "学习",
+        "注意力"
+      ],
+      "related": [
+        "全神贯注",
+        "聚精会神"
+      ]
+    },
+    {
+      "id": "idiom-extra-2",
+      "grade": null,
+      "volume": "课外",
+      "title": "持之以恒",
+      "author": "清·曾国藩家书",
+      "dynasty": "常用成语",
+      "excerpt": "长久地坚持下去。形容有恒心，不半途而废。",
+      "pinyin": "cháng jiǔ dì jiān chí xià qù。 xíng róng yǒu héng xīn， bù bàn tú ér fèi。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "每天读十分钟书，持之以恒，也会有很大的收获。",
+      "appreciation": "",
+      "tags": [
+        "坚持",
+        "恒心",
+        "学习"
+      ],
+      "related": [
+        "持之以恒",
+        "锲而不舍"
+      ]
+    },
+    {
+      "id": "idiom-extra-3",
+      "grade": null,
+      "volume": "课外",
+      "title": "精益求精",
+      "author": "《论语集注》",
+      "dynasty": "常用成语",
+      "excerpt": "已经很好了，还要求更好。形容对工作、学习认真负责，不断追求进步。",
+      "pinyin": "yǐ jīng hěn hǎo le， hái yāo qiú gèng hǎo。 xíng róng duì gōng zuò、 xué xí rèn zhēn fù zé， bù duàn zhuī qiú jìn bù。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "他修改作文时精益求精，连一个标点也不放过。",
+      "appreciation": "",
+      "tags": [
+        "认真",
+        "进步",
+        "工匠"
+      ],
+      "related": [
+        "精益求精",
+        "精雕细琢"
+      ]
+    },
+    {
+      "id": "idiom-extra-4",
+      "grade": null,
+      "volume": "课外",
+      "title": "别出心裁",
+      "author": "清·李渔《闲情偶寄》",
+      "dynasty": "常用成语",
+      "excerpt": "想出与众不同的新主意、新办法。",
+      "pinyin": "xiǎng chū yǔ zhòng bù tóng de xīn zhǔ yì、 xīn bàn fǎ。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "这次手工作业别出心裁，用旧纸盒做成了小机器人。",
+      "appreciation": "",
+      "tags": [
+        "创新",
+        "方法",
+        "表达"
+      ],
+      "related": [
+        "别出心裁",
+        "独树一帜"
+      ]
+    },
+    {
+      "id": "idiom-extra-5",
+      "grade": null,
+      "volume": "课外",
+      "title": "水到渠成",
+      "author": "宋·苏轼《答秦太虚书》",
+      "dynasty": "常用成语",
+      "excerpt": "水流到的地方自然形成渠道。比喻条件成熟，事情自然成功。",
+      "pinyin": "shuǐ liú dào de dì fāng zì rán xíng chéng qú dào。 bǐ yù tiáo jiàn chéng shú， shì qíng zì rán chéng gōng。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "平时认真积累，考试时取得好成绩便是水到渠成的事。",
+      "appreciation": "",
+      "tags": [
+        "积累",
+        "条件",
+        "成功"
+      ],
+      "related": [
+        "水到渠成",
+        "顺理成章"
+      ]
+    },
+    {
+      "id": "idiom-extra-6",
+      "grade": null,
+      "volume": "课外",
+      "title": "温故知新",
+      "author": "《论语·为政》",
+      "dynasty": "常用成语",
+      "excerpt": "温习学过的知识，从而得到新的理解和体会。",
+      "pinyin": "wēn xí xué guò de zhī shí， cóng ér dé dào xīn de lǐ jiě hé tǐ huì。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "复习旧课时，他常能温故知新，发现以前忽略的细节。",
+      "appreciation": "",
+      "tags": [
+        "复习",
+        "学习",
+        "思考"
+      ],
+      "related": [
+        "温故知新",
+        "学而时习"
+      ]
+    },
+    {
+      "id": "idiom-extra-7",
+      "grade": null,
+      "volume": "课外",
+      "title": "循序渐进",
+      "author": "宋·朱熹《读书之要》",
+      "dynasty": "常用成语",
+      "excerpt": "按照一定的次序、步骤逐渐深入或提高。",
+      "pinyin": "àn zhào yí dìng de cì xù、 bù zhòu zhú jiàn shēn rù huò tí gāo。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "学习古诗要循序渐进，先读准字音，再理解意思。",
+      "appreciation": "",
+      "tags": [
+        "顺序",
+        "学习",
+        "方法"
+      ],
+      "related": [
+        "循序渐进",
+        "按部就班"
+      ]
+    },
+    {
+      "id": "idiom-extra-8",
+      "grade": null,
+      "volume": "课外",
+      "title": "锲而不舍",
+      "author": "《荀子·劝学》",
+      "dynasty": "常用成语",
+      "excerpt": "不停地雕刻。比喻有恒心、有毅力，坚持不懈。",
+      "pinyin": "bù tíng dì diāo kè。 bǐ yù yǒu héng xīn、 yǒu yì lì， jiān chí bù xiè。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "他锲而不舍地练习跳绳，终于突破了原来的成绩。",
+      "appreciation": "",
+      "tags": [
+        "坚持",
+        "毅力",
+        "学习"
+      ],
+      "related": [
+        "锲而不舍",
+        "坚持不懈"
+      ]
+    },
+    {
+      "id": "idiom-extra-9",
+      "grade": null,
+      "volume": "课外",
+      "title": "熟能生巧",
+      "author": "宋·欧阳修《卖油翁》",
+      "dynasty": "常用成语",
+      "excerpt": "熟练了就能产生巧办法，做得更好。",
+      "pinyin": "shú liàn le jiù néng chǎn shēng qiǎo bàn fǎ， zuò dé gèng hǎo。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "每天练习口算，熟能生巧，他计算得又快又准。",
+      "appreciation": "",
+      "tags": [
+        "练习",
+        "熟练",
+        "方法"
+      ],
+      "related": [
+        "熟能生巧",
+        "勤能补拙"
+      ]
+    },
+    {
+      "id": "idiom-extra-10",
+      "grade": null,
+      "volume": "课外",
+      "title": "手不释卷",
+      "author": "《三国志·吴书·吕蒙传》注引《江表传》",
+      "dynasty": "常用成语",
+      "excerpt": "手里舍不得放下书本。形容勤奋好学，读书入迷。",
+      "pinyin": "shǒu lǐ shě bù dé fàng xià shū běn。 xíng róng qín fèn hào xué， dú shū rù mí。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "他爱读书，常常手不释卷，一有空就看几页。",
+      "appreciation": "",
+      "tags": [
+        "读书",
+        "勤奋",
+        "习惯"
+      ],
+      "related": [
+        "手不释卷",
+        "废寝忘食"
+      ]
+    },
+    {
+      "id": "idiom-extra-11",
+      "grade": null,
+      "volume": "课外",
+      "title": "饮水思源",
+      "author": "北周·庾信《徵调曲》",
+      "dynasty": "常用成语",
+      "excerpt": "喝水的时候想到水的来源。比喻不忘本，记得别人的帮助。",
+      "pinyin": "hē shuǐ de shí hòu xiǎng dào shuǐ de lái yuán。 bǐ yù bù wàng běn， jì de bié rén de bāng zhù。",
+      "category": "idiom",
+      "sourceType": "extra",
+      "sourceLabel": "课外常用成语",
+      "meaning": "长大后，我们要饮水思源，感谢曾经帮助过自己的人。",
+      "appreciation": "",
+      "tags": [
+        "感恩",
+        "品格",
+        "成长"
+      ],
+      "related": [
+        "饮水思源",
+        "知恩图报"
+      ]
     }
   ]
 };
