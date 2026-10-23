@@ -192,11 +192,11 @@ export const corrections = [
   },
   {
     "id": "classical-g5-gurentandushu",
-    "excerpt": "敏而好学，不耻下问。知之为知之，不知为不知，是知也。默而识之，学而不厌，诲人不倦。\n余尝谓读书有三到，谓心到、眼到、口到。心不在此，则眼不看仔细，心眼既不专一，却只漫浪诵读，决不能记，记亦不能久也。三到之中，心到最急。心既到矣，眼口岂不到乎？",
-    "pinyin": "minerhaoxue，buchixiawen。zhizhiweizhizhi，buzhiweibuzhi，shizhiye。moershizhi，xueerbuyan，huirenbujuan。\nyuchangweidushuyousandao，weixindao、yandao、koudao。xinbuzaici，zeyanbukanzaixi，xinyanjibuzhuanyi，quezhimanlangsongdu，juebunengji，jiyibunengjiuye。sandaozhizhong，xindaozuiji。xinjidaoyi，yankouqibudaohu？",
-    "summary": "课文选取古人的读书名言，强调虚心好问、诚实求知和读书要心到、眼到、口到。",
-    "meaning": "聪敏又爱好学习，不把向地位比自己低的人请教当作羞耻。知道就是知道，不知道就是不知道，这才是真正的智慧。默默记住所学，学习不满足，教导别人不疲倦。我曾经说过读书要做到三到：心到、眼到、口到。心思不在书上，眼睛就看不仔细；心和眼不专一，只是随意诵读，一定记不住，记住了也不能长久。三到之中，心到最重要。",
-    "appreciation": "选文从学习态度谈到读书方法，句子短而明确。“心到最急”指出专注是阅读的关键。",
+    "excerpt": "敏而好学，不耻下问。知之为知之，不知为不知，是知也。默而识之，学而不厌，诲人不倦。\n余尝谓读书有三到，谓心到、眼到、口到。心不在此，则眼不看仔细，心眼既不专一，却只漫浪诵读，决不能记，记亦不能久也。三到之中，心到最急。心既到矣，眼口岂不到乎？\n盖士人读书，第一要有志，第二要有识，第三要有恒。有志则断不甘为下流；有识则知学问无尽，不敢以一得自足，如河伯之观海，如井蛙之窥天，皆无识者也；有恒则断无不成之事。此三者缺一不可。",
+    "pinyin": "minerhaoxue，buchixiawen。zhizhiweizhizhi，buzhiweibuzhi，shizhiye。moershizhi，xueerbuyan，huirenbujuan。\nyuchangweidushuyousandao，weixindao、yandao、koudao。xinbuzaici，zeyanbukanzaixi，xinyanjibuzhuanyi，quezhimanlangsongdu，juebunengji，jiyibunengjiuye。sandaozhizhong，xindaozuiji。xinjidaoyi，yankouqibudaohu？\ngaishirendushu，diyiyaoyouzhi，dieryaoyoushi，disanyaoyouheng。youzhizeduanbuganweixialiu；youshizezhixuewenwujin，buganyiyidezizu，ruhebozhiguanhai，rujingwazhikuitian，jiewushizheye；youhengzeduanwubuchengzhishi。cisanzhequeyibuke。",
+    "summary": "课文选取古人的读书名言，强调虚心好问、诚实求知，读书要心到、眼到、口到，并要有志、有识、有恒。",
+    "meaning": "聪敏又爱好学习，不把向地位比自己低的人请教当作羞耻。知道就是知道，不知道就是不知道，这才是真正的智慧。默默记住所学，学习不满足，教导别人不疲倦。我曾经说过读书要做到三到：心到、眼到、口到。心思不在书上，眼睛就看不仔细；心和眼不专一，只是随意诵读，一定记不住，记住了也不能长久。三到之中，心到最重要。 读书人还要有志向、有见识、有恒心。有志向就不会甘居下流；有见识就知道学问没有穷尽，不会因一点收获而满足；有恒心就没有做不成的事。这三者缺一不可。",
+    "appreciation": "选文从学习态度、读书方法和治学品格三方面展开，层次清楚。“心到最急”和“有志、有识、有恒”都点明了读书的关键。",
     "keywords": [
       "读书",
       "好问",
