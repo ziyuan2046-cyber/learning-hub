@@ -166,21 +166,66 @@
     return box.val !== undefined ? box.val : box;
   }
 
+  /**
+   * 读取一份数据：优先 .js（仓库里一定有），再退 .json。
+   * 之前只读 .json，线上 404 时返回 null，导致识字表/名称表空白。
+   */
   function loadData(name, jsonPath) {
-    if (canFetchFiles()) {
+    var prop = '__HANZI_' + name.toUpperCase() + '__';
+    var cached = fromStore(prop);
+    if (cached) return Promise.resolve(cached);
+
+    return loadScript('assets/data/' + name + '.js?v=20261024-1').then(function () {
+      var v = fromStore(prop);
+      if (v) return v;
+      return null;
+    }).catch(function () {
+      return null;
+    }).then(function (v) {
+      if (v) return v;
+      if (!canFetchFiles() || !jsonPath) return null;
       return fetchJSON(jsonPath).catch(function () { return null; });
-    }
-    return loadScript('assets/data/' + name + '.js').then(function () {
-      return fromStore('__HANZI_' + name.toUpperCase() + '__');
-    }).catch(function () { return null; });
+    });
   }
 
-  function loadShizi() {
-    var inline = typeof window !== 'undefined' && window.__HANZI_SHIZI__;
-    if (inline) return Promise.resolve(inline.val !== undefined ? inline.val : inline);
-    var lazy = lazyGet('shizi');
-    if (lazy) return Promise.resolve(lazy);
-    return loadData('shizi', 'assets/data/shizi.json');
+  /* 识字表：先读目录（很小），每册按需加载 */
+  var shiziIndex = null;
+  var shiziBooksCache = {};
+
+  function loadShiziIndex() {
+    if (shiziIndex) return Promise.resolve(shiziIndex);
+    var inline = typeof window !== 'undefined' && window.__HANZI_SHIZI_INDEX__;
+    if (inline) {
+      shiziIndex = inline.val !== undefined ? inline.val : inline;
+      return Promise.resolve(shiziIndex);
+    }
+    var lazy = lazyGet('shizi_index');
+    if (lazy) { shiziIndex = lazy; return Promise.resolve(lazy); }
+
+    return loadScript('assets/data/shizi_index.js?v=20261024-1').then(function () {
+      var b = (typeof window !== 'undefined') && window.__HANZI_SHIZI_INDEX__;
+      if (b) shiziIndex = b.val !== undefined ? b.val : b;
+      return shiziIndex;
+    }).catch(function () {
+      return null;
+    });
+  }
+
+  function loadShiziBook(entry) {
+    if (shiziBooksCache[entry.id]) return Promise.resolve(shiziBooksCache[entry.id]);
+    var inline = typeof window !== 'undefined' && window['__HANZI_' + entry.key.toUpperCase() + '__'];
+    if (inline) {
+      var v0 = inline.val !== undefined ? inline.val : inline;
+      shiziBooksCache[entry.id] = v0;
+      return Promise.resolve(v0);
+    }
+    return loadScript('assets/data/' + entry.key + '.js?v=20261024-1').then(function () {
+      var b = (typeof window !== 'undefined') && window['__HANZI_' + entry.key.toUpperCase() + '__'];
+      if (!b) return null;
+      var v = b.val !== undefined ? b.val : b;
+      shiziBooksCache[entry.id] = v;
+      return v;
+    }).catch(function () { return null; });
   }
 
   function loadRefTables() {
@@ -304,12 +349,10 @@
       });
 
     bindEvents();
-    setTimeout(function () { buildPathIndex(); }, 300);
     bindMainTabs();
     bindReadEvents();
     bindRefEvents();
     initReadView();
-    initRefView();
   }
 
   function curChar() {
@@ -1138,8 +1181,16 @@
    * ================================================================ */
 
   var read = {
-    books: [], grade: 1, bookId: null, book: null,
-    index: -1, current: 0, playing: false, autoPlay: true, demo: null
+    catalog: [],        // 目录（id/title/grade/term/count）
+    books: [],          // 已加载的册
+    grade: 1,
+    bookId: null,
+    book: null,
+    index: -1,          // 当前字下标
+    current: 0,
+    playing: false,
+    autoPlay: true,
+    demo: null
   };
 
   function readChar() {
@@ -1170,34 +1221,33 @@
     var box = $('rAutoPlay');
     if (box) box.checked = read.autoPlay;
 
-    loadShizi().then(function (list) {
-      if (!list || !list.length) {
+    loadShiziIndex().then(function (idx) {
+      if (!idx || !idx.length) {
         $('readTitle').textContent = '识字表数据加载失败';
         $('readGrid').innerHTML = '<div class="empty">未能读取识字表数据</div>';
         return;
       }
-      list.forEach(function (b) {
-        b.chars.forEach(function (c) {
-          if (c.nm && !c.strokes) c.strokes = c.nm;
-          if (c.ol && !c.paths) { c.paths = c.ol; c.medians = c.med; }
-        });
-      });
-      read.books = list;
-      var first = list.filter(function (b) { return b.grade === 1; })[0] || list[0];
-      read.bookId = first.id;
+      read.catalog = idx;        // 目录（只有 id/title/count）
+      read.books = [];           // 已加载的册
+      var first = idx.filter(function (b) { return b.grade === 1; })[0] || idx[0];
       read.grade = first.grade;
       renderReadGradeTabs();
-      selectReadBook(first.id);
+      selectReadBookEntry(first);
     });
+  }
+
+  /** 目录里该年级的册（含未加载的） */
+  function readEntriesOf(grade) {
+    return (read.catalog || []).filter(function (b) { return b.grade === grade; });
   }
 
   function renderReadGradeTabs() {
     var html = '';
     for (var g = 1; g <= 6; g++) {
-      var list = read.books.filter(function (b) { return b.grade === g; });
+      var list = readEntriesOf(g);
       if (!list.length) continue;
       var total = 0;
-      list.forEach(function (b) { total += b.chars.length; });
+      list.forEach(function (b) { total += b.count || 0; });
       html += '<div class="grade-tab' + (g === read.grade ? ' on' : '') +
         '" data-g="' + g + '">' + g + '年级<span class="n">' + total + '</span></div>';
     }
@@ -1205,12 +1255,12 @@
   }
 
   function renderReadTermTabs() {
-    var list = read.books.filter(function (b) { return b.grade === read.grade; });
+    var list = readEntriesOf(read.grade);
     var html = '';
     list.forEach(function (b) {
       html += '<div class="term-tab' + (b.id === read.bookId ? ' on' : '') +
         '" data-id="' + b.id + '">' + b.title +
-        '<span class="n">' + b.chars.length + '字</span></div>';
+        '<span class="n">' + (b.count || 0) + '字</span></div>';
     });
     $('readTermTabs').innerHTML = html;
 
@@ -1224,18 +1274,52 @@
     }
   }
 
-  function selectReadBook(id) {
-    var book = read.books.filter(function (b) { return b.id === id; })[0];
-    if (!book) return;
-    read.bookId = id;
+  /** 按目录项加载并显示某一册 */
+  function selectReadBookEntry(entry) {
+    if (!entry) return;
+    read.bookId = entry.id;
+    read.grade = entry.grade;
+    $('readTitle').textContent = entry.title + '识字表';
+    $('readCount').textContent = (entry.count || 0) + ' 字';
+    if (!read.book || read.book.id !== entry.id) {
+      $('readGrid').innerHTML = '<div class="empty">加载中…</div>';
+    }
+    renderReadGradeTabs();
+    renderReadTermTabs();
+
+    var cached = shiziBooksCache[entry.id];
+    if (cached) { applyReadBook(cached); return; }
+    loadShiziBook(entry).then(function (b) {
+      if (!b) {
+        $('readGrid').innerHTML = '<div class="empty">该册数据加载失败</div>';
+        return;
+      }
+      if (read.bookId !== entry.id) return;   // 用户已切走
+      applyReadBook(b);
+    });
+  }
+
+  function applyReadBook(book) {
+    // 字段名对齐
+    (book.chars || []).forEach(function (c) {
+      if (c.nm && !c.strokes) c.strokes = c.nm;
+      if (c.strokes && !c.nm) c.nm = c.strokes;
+      if (c.ol && !c.paths) { c.paths = c.ol; c.medians = c.med; }
+    });
     read.book = book;
-    read.grade = book.grade;
+    read.grade = book.grade || read.grade;
     $('readTitle').textContent = book.title + '识字表';
-    $('readCount').textContent = book.chars.length + ' 字';
+    $('readCount').textContent = (book.chars || []).length + ' 字';
     renderReadGradeTabs();
     renderReadTermTabs();
     renderReadGrid();
-    if (book.chars.length) selectReadChar(0);
+    if (book.chars && book.chars.length) selectReadChar(0);
+  }
+
+  /** 兼容旧调用 */
+  function selectReadBook(id) {
+    var e = (read.catalog || []).filter(function (b) { return b.id === id; })[0];
+    if (e) selectReadBookEntry(e);
   }
 
   function renderReadGrid() {
@@ -1298,7 +1382,15 @@
 
   /* 写字表里的字可直接借用它的笔顺轮廓，识字表只为独有字内置轮廓 */
   var pathIndex = {};      // ch -> {medians, outlines}
-  var pathIndexReady = null;
+
+  /** 识字表第 N 册 大致对应写字表第 N 册 */
+  function guessWritingBook(ch) {
+    var b = read.book;
+    if (!b) return 'b0';
+    var m = /shizi(\d+)/.exec(b.id || '');
+    if (m) return 'b' + m[1];
+    return 'b0';
+  }
 
   function buildPathIndex() {
     if (pathIndexReady) return pathIndexReady;
@@ -1322,12 +1414,37 @@
     });
   }
 
+  /** 把当前册加入路径索引（避免一次加载全部 12 册） */
+  var indexedBooks = {};
+
+  function indexBook(bookId) {
+    if (indexedBooks[bookId]) return;
+    indexedBooks[bookId] = true;
+    loadBookText(bookId).then(function (book) {
+      var metaChars = book.meta.chars;
+      book.chars.forEach(function (c, i) {
+        var ch = metaChars[i];
+        if (!ch || pathIndex[ch]) return;
+        pathIndex[ch] = { medians: c.medians, outlines: c.strokes };
+      });
+      // 数据到了，补画一次
+      if (read.book && bookId === (read.book.linkBook || read.book.id)) {
+        drawRead(); renderReadSeq(); markReadSeq();
+      }
+    }).catch(function () {});
+  }
+
   /** 识字表数据 -> 动画器所需结构 {strokes:指令, medians:中线} */
   function toStrokeData(c) {
     var paths = c.paths, medians = c.medians;
     if (!paths) {
       var p = pathIndex[c.ch];
       if (p) { paths = p.outlines; medians = p.medians; }
+      else if (c.ch) {
+        // 该字不在识字表自带的轮廓里，按册索引写字表数据（只取当前册）
+        var bid = guessWritingBook(c.ch);
+        if (bid) indexBook(bid);
+      }
     }
     return {
       strokes: decodeOutline(paths),
@@ -1404,14 +1521,14 @@
       if (!t) return;
       var g = parseInt(t.dataset.g, 10);
       if (g === read.grade) return;
-      var list = read.books.filter(function (b) { return b.grade === g; });
+      var list = readEntriesOf(g);
       if (!list.length) return;
       var wantLower = read.book && read.book.term === '下册';
       var target = null;
       list.forEach(function (b) {
         if (!target && b.term === (wantLower ? '下册' : '上册')) target = b;
       });
-      selectReadBook((target || list[0]).id);
+      selectReadBookEntry(target || list[0]);
     });
 
     $('readTermTabs').addEventListener('click', function (e) {
@@ -1653,11 +1770,30 @@
 
   function initRefView() {
     loadRefTables().then(function (r) {
+      if (!r) {
+        $('strokeTable').innerHTML = '<div class="empty">笔画名称表加载失败</div>';
+        $('radicalTable').innerHTML = '<div class="empty">偏旁名称表加载失败</div>';
+        return;
+      }
+      refState.strokes = r.strokes;
+      refState.radicals = r.radicals;
+      renderRefTables();
+    });
+  }
+
+  /** 名称表按需加载（切到该页签时才取） */
+  function ensureRefTables() {
+    if (refState.strokes && refState.radicals) return Promise.resolve();
+    if (refState.loading) return refState.loading;
+    refState.strokes = refState.strokes || null;
+    refState.loading = loadRefTables().then(function (r) {
+      refState.loading = null;
       if (!r) return;
       refState.strokes = r.strokes;
       refState.radicals = r.radicals;
       renderRefTables();
     });
+    return refState.loading;
   }
 
   /* ---------------- 主视图切换 ---------------- */
@@ -1677,7 +1813,14 @@
     if (name === 'write') {
       demo.resize(); drawDemo(); drawSeq();
     } else if (name === 'read') {
-      read.demo.resize(); drawRead(); renderReadSeq(); markReadSeq();
+      if (read.charTick === undefined && $('readGrid').children.length === 0) {
+        // 视图首次打开时若数据未就绪，补一次
+        var first = read.catalog.filter(function (b) { return b.grade === read.grade; })[0];
+        if (first) selectReadBookEntry(first);
+      }
+      if (read.demo) { read.demo.resize(); drawRead(); renderReadSeq(); markReadSeq(); }
+    } else if (name === 'ref') {
+      ensureRefTables();
     }
     window.scrollTo({ top: 0, behavior: 'auto' });
   }
