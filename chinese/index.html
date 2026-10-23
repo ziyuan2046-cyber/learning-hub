@@ -54,7 +54,7 @@
   /* ============ 顶部主标签（写字表 / 识字表 / 名称表） ============ */
   .main-tabs {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 4px;
     background: var(--card);
     border-radius: var(--radius);
@@ -63,7 +63,8 @@
     box-shadow: 0 1px 8px rgba(120, 100, 70, .06);
   }
   .main-tab {
-    padding: 9px 2px;
+    padding: 8px 1px;
+    font-size: 12.5px;
     border-radius: 9px;
     border: 1px solid transparent;
     background: transparent;
@@ -630,6 +631,44 @@
   .tag.poly { background: #eef3fb; color: var(--blue); font-weight: 600; }
   .cell .kn { font-size: 8.5px; color: #c3b8a4; }
 
+  /* ============ 元素周期表 ============ */
+  .elem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+    gap: 5px;
+  }
+  .elem-cell {
+    border: 1px solid #efe6d4;
+    background: #fdfbf6;
+    border-radius: 9px;
+    padding: 3px 2px 4px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.15;
+  }
+  .elem-cell.on {
+    background: #fff5ec;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 2px rgba(226, 112, 58, .2);
+  }
+  .elem-cell .no {
+    font-size: 9px; color: #b0a48f;
+    display: flex; justify-content: space-between; padding: 0 3px;
+  }
+  .elem-cell .sym { font-size: 9.5px; color: #8a7f6d; }
+  .elem-cell .ch {
+    font-family: 'HanziKai', 'KaiTi', serif;
+    font-size: 25px; line-height: 29px; color: var(--ink);
+  }
+  .elem-cell .py { font-size: 9.5px; color: #b08968; }
+  .elem-cell.nostroke .ch { color: #9a8f7d; }
+
+  .elem-grid.by-period { grid-template-columns: repeat(18, minmax(30px, 1fr)); gap: 2px; }
+  .elem-grid.by-period .elem-cell { padding: 1px; }
+  .elem-grid.by-period .elem-cell .ch { font-size: 16px; line-height: 18px; }
+  .elem-grid.by-period .elem-cell .py,
+  .elem-grid.by-period .elem-cell .sym { display: none; }
+
   .loading, .empty { text-align: center; color: var(--sub); font-size: 13px; padding: 40px 0; }
 </style>
 <style>
@@ -667,6 +706,7 @@
     <button class="main-tab on" data-view="write">必会写字表<span class="sub" id="tabWriteCount">2407 字</span></button>
     <button class="main-tab" data-view="read">识字表<span class="sub" id="tabReadCount">认读</span></button>
     <button class="main-tab" data-view="ref">名称表<span class="sub">笔画 · 偏旁</span></button>
+    <button class="main-tab" data-view="elem">元素周期表<span class="sub">118 种</span></button>
   </div>
 
   <!-- ============ 视图：必会写字表 ============ -->
@@ -871,6 +911,75 @@
       <div class="ref-result" id="refResult"></div>
     </div>
   </div><!-- /viewRef -->
+
+  <!-- ============ 视图：元素周期表 ============ -->
+  <div id="viewElem" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>化学元素周期表</h2>
+        <span id="elemCount">118 种</span>
+      </div>
+      <div class="panel-sub">
+        <span>点任意元素查看笔顺与读音</span>
+        <button class="btn xs" id="elemToggle">按周期显示</button>
+      </div>
+      <div class="elem-grid" id="elemGrid"></div>
+    </div>
+
+    <div class="card">
+      <div class="head">
+        <div class="glyph" id="eBigChar">—</div>
+        <div class="info">
+          <div class="py" id="ePy">—</div>
+          <div class="sub" id="eInfo">点上方元素查看</div>
+          <div class="tags">
+            <span class="tag">序号 <b id="eNo">—</b></span>
+            <span class="tag rad">符号 <b id="eSym">—</b></span>
+            <span class="tag">笔画 <b id="eStroke">—</b></span>
+          </div>
+        </div>
+        <label class="switch" title="自动播放笔顺">
+          <input type="checkbox" id="eAutoPlay">
+          <span class="track"></span>
+          <span class="txt">自动</span>
+        </label>
+      </div>
+
+      <div class="grid-wrap">
+        <div class="grid-box">
+          <canvas id="elemCanvas"></canvas>
+        </div>
+      </div>
+
+      <div class="seq">
+        <div class="seq-head">
+          <h3>笔顺与名称</h3>
+          <span class="hint">点每一笔可单独查看</span>
+        </div>
+        <div class="seq-grid" id="elemSeq"></div>
+      </div>
+
+      <div class="progress">
+        <span id="eStep">第 0 / 0 笔</span>
+        <span class="bar"><i id="eBar" style="width:0%"></i></span>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn" id="ePrev">‹ 上一个元素</button>
+        <button class="btn" id="eNext">下一个元素 ›</button>
+      </div>
+      <div class="ctrl-row">
+        <button class="btn" id="ePrevStroke">上一笔</button>
+        <button class="btn primary" id="ePlay">播放笔顺</button>
+        <button class="btn" id="eNextStroke">下一笔</button>
+      </div>
+      <div class="btn-row2">
+        <button class="btn" id="eReplay">重播</button>
+        <button class="btn accent" id="eBack">返回元素表</button>
+      </div>
+      <div class="tip" id="eTip">元素汉字多为生僻字，这里提供笔顺与读音。</div>
+    </div>
+  </div><!-- /viewElem -->
 </div>
 
 <!-- 放大弹窗 -->
@@ -973,9 +1082,9 @@ window.__HANZI_BUILD__ = '2026-10-23-web';
   window.addEventListener('load', function () { setTimeout(report, 6000); });
 })();
 </script>
-<script src="assets/js/hanzi-codec.js?v=20261028-1"></script>
-<script src="assets/js/tianzige.js?v=20261028-1"></script>
-<script src="assets/js/animator.js?v=20261028-1"></script>
-<script src="assets/js/app.js?v=20261028-1"></script>
+<script src="assets/js/hanzi-codec.js?v=20261029-1"></script>
+<script src="assets/js/tianzige.js?v=20261029-1"></script>
+<script src="assets/js/animator.js?v=20261029-1"></script>
+<script src="assets/js/app.js?v=20261029-1"></script>
 </body>
 </html>

@@ -351,6 +351,8 @@
     bindEvents();
     bindMainTabs();
     bindReadEvents();
+    bindElemEvents();
+    initElemView();
     bindRefEvents();
     initReadView();
   }
@@ -1624,13 +1626,22 @@
    * 数据里 t = [sx, sy, cx, cy]：以笔画中心为原点做非等比缩放，
    * 让长笔画铺满格子、细笔画保持足够粗度（教材里的笔画都很饱满）。
    */
+  /**
+   * 笔画示意：楷体笔画轮廓，等比缩放（不拉伸变形）。
+   * 数据 t 有两种写法：
+   *   [sx, sy, cx, cy] —— 旧：非等比
+   *   [s, cx, cy]      —— 新：等比（推荐）
+   */
   function glyphHtml(glyph, data) {
-    if (data && data.d && data.t) {
-      var t = data.t;
+    if (data && data.d) {
+      var t = data.t || [0.09, 512, 512];
+      var sx, sy, cx, cy;
+      if (t.length >= 4) { sx = t[0]; sy = t[1]; cx = t[2]; cy = t[3]; }
+      else { sx = sy = t[0]; cx = t[1]; cy = t[2]; }
       return '<div class="glyph-cell">' +
         '<svg viewBox="0 0 100 100" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
-        '<g transform="translate(50,50) scale(' + t[0] + ',' + t[1] + ') translate(' +
-        (-t[2]) + ',' + (-t[3]) + ')">' +
+        '<g transform="translate(50,50) scale(' + sx + ',' + sy + ') translate(' +
+        (-cx) + ',' + (-cy) + ')">' +
         '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero"/></g></svg></div>';
     }
     if (!glyph) return '<div class="glyph-cell"></div>';
@@ -1803,7 +1814,7 @@
   /* ---------------- 主视图切换 ---------------- */
 
   function switchView(name) {
-    ['write', 'read', 'ref'].forEach(function (v) {
+    ['write', 'read', 'ref', 'elem'].forEach(function (v) {
       var el = $('view' + v.charAt(0).toUpperCase() + v.slice(1));
       if (el) el.hidden = (v !== name);
     });
@@ -1812,7 +1823,8 @@
       btns[i].classList.toggle('on', btns[i].dataset.view === name);
     }
     $('appTitle').textContent = name === 'read' ? '小学必认识字'
-      : name === 'ref' ? '字表速查' : '小学必会写字';
+      : name === 'ref' ? '字表速查'
+      : name === 'elem' ? '化学元素周期表' : '小学必会写字';
 
     if (name === 'write') {
       demo.resize(); drawDemo(); drawSeq();
@@ -1825,6 +1837,8 @@
       if (read.demo) { read.demo.resize(); drawRead(); renderReadSeq(); markReadSeq(); }
     } else if (name === 'ref') {
       ensureRefTables();
+    } else if (name === 'elem') {
+      if (elem.demo) { elem.demo.resize(); drawElem(); renderElemSeq(); markElemSeq(); }
     }
     window.scrollTo({ top: 0, behavior: 'auto' });
   }
@@ -1837,10 +1851,237 @@
     });
 
     // 支持 ?view=read / ?view=ref 直达（便于分享与二维码）
-    var m = /[?&]view=(write|read|ref)/.exec(location.search || '');
+    var m = /[?&]view=(write|read|ref|elem)/.exec(location.search || '');
     if (m) {
       setTimeout(function () { switchView(m[1]); }, 60);
     }
+  }
+
+  /* ================================================================
+   *  元素周期表视图
+   * ================================================================ */
+
+  var elem = { list: null, index: 0, current: 0, playing: false, autoPlay: true, demo: null, byPeriod: false };
+
+  function loadElements() {
+    var inline = typeof window !== 'undefined' && window.__HANZI_ELEMENTS__;
+    if (inline) return Promise.resolve(inline.val !== undefined ? inline.val : inline);
+    return loadData('elements', 'assets/data/elements.json');
+  }
+
+  function curElem() {
+    if (!elem.list || !elem.list.length) return null;
+    return elem.list[elem.index] || null;
+  }
+
+  function initElemView() {
+    elem.demo = new StrokeAnimator($('elemCanvas'), {
+      strokeColor: '#1f2937',
+      tipColor: '#e2703a',
+      speed: 1 / 3,
+      onFrame: function (done) {
+        elem.current = done;
+        updateElemProgress();
+        markElemSeq();
+      },
+      onEnd: function () {
+        elem.playing = false;
+        var e = curElem();
+        elem.current = e && e.strokes ? e.strokes.length : 0;
+        $('ePlay').textContent = '播放笔顺';
+        updateElemProgress();
+        drawElem();
+        markElemSeq();
+      }
+    });
+    var box = $('eAutoPlay');
+    if (box) box.checked = elem.autoPlay;
+
+    loadElements().then(function (list) {
+      if (!list || !list.length) {
+        $('elemGrid').innerHTML = '<div class="empty">元素数据加载失败</div>';
+        return;
+      }
+      elem.list = list;
+      renderElemGrid();
+      selectElem(0);
+    });
+  }
+
+  function renderElemGrid() {
+    var html = '';
+    for (var i = 0; i < elem.list.length; i++) {
+      var e = elem.list[i];
+      html += '<div class="elem-cell' + (i === elem.index ? ' on' : '') +
+        (e.strokes ? '' : ' nostroke') + '" data-i="' + i + '">' +
+        '<div class="no"><span>' + e.no + '</span><span class="sym">' + e.symbol + '</span></div>' +
+        '<div class="ch">' + e.ch + '</div>' +
+        '<div class="py">' + (e.py || '') + '</div></div>';
+    }
+    $('elemGrid').innerHTML = html;
+    $('elemCount').textContent = elem.list.length + ' 种';
+  }
+
+  function elemStrokeData(e) {
+    if (!e || !e.strokes) return null;
+    return { strokes: e.strokes, medians: e.medians || [], count: e.strokes.length };
+  }
+
+  function selectElem(i) {
+    if (!elem.list || i < 0 || i >= elem.list.length) return;
+    elem.index = i;
+    elem.current = 0;
+    elem.playing = false;
+    elem.demo.stop();
+    $('ePlay').textContent = '播放笔顺';
+
+    var e = curElem();
+    $('eBigChar').textContent = e.ch;
+    $('ePy').textContent = e.py || '';
+    $('eInfo').textContent = '第 ' + e.no + ' 号元素 · ' + e.symbol;
+    $('eNo').textContent = e.no;
+    $('eSym').textContent = e.symbol;
+    $('eStroke').textContent = e.strokes ? (e.strokes.length + ' 画') : '暂无';
+
+    var cells = $('elemGrid').querySelectorAll('.elem-cell');
+    for (var k = 0; k < cells.length; k++) cells[k].classList.toggle('on', k === i);
+
+    updateElemProgress();
+    drawElem();
+    renderElemSeq();
+    markElemSeq();
+    if (e.strokes && elem.autoPlay) playElem();
+  }
+
+  function drawElem() {
+    var e = curElem();
+    if (!e) return;
+    elem.demo.resize();
+    var d = elemStrokeData(e);
+    if (d) { elem.demo.render(d, elem.current, true); return; }
+    // 无笔顺数据：直接画字形轮廓
+    var ctx = elem.demo.ctx;
+    var g = elem.demo._geom();
+    var size = g.size, ox = g.ox, oy = g.oy;
+    TianZiGe.drawGrid(ctx, ox, oy, size, size, elem.demo.gridOpt || {});
+    if (e.glyph) {
+      ctx.save();
+      var s = size / 1024;
+      ctx.translate(ox, oy);
+      ctx.scale(s, s);
+      var pth = new Path2D(e.glyph);
+      ctx.fillStyle = '#243042';
+      ctx.fill(pth, 'nonzero');
+      ctx.restore();
+    }
+  }
+
+  function renderElemSeq() {
+    var e = curElem();
+    var box = $('elemSeq');
+    if (!e || !box) return;
+    var names = e.names || [];
+    if (!e.strokes) {
+      box.innerHTML = '<div class="empty" style="padding:14px 0">该元素汉字为近年新造字，暂缺笔顺数据</div>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < e.strokes.length; i++) {
+      html += '<div class="seq-item" data-s="' + i + '">' +
+        '<canvas id="elemCv' + i + '"></canvas>' +
+        '<div class="no">第' + (i + 1) + '笔</div></div>';
+    }
+    box.innerHTML = html;
+    var dpr = window.devicePixelRatio || 1, size = 56;
+    for (var j = 0; j < e.strokes.length; j++) {
+      var cv = $('elemCv' + j);
+      if (!cv) continue;
+      cv.width = size * dpr; cv.height = size * dpr;
+      var ctx = cv.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      TianZiGe.drawGrid(ctx, 0, 0, size, size, { lineWidth: 1, showDiagonal: false });
+      TianZiGe.drawStrokes(ctx, e.strokes.slice(0, j + 1), 0, 0, size, { color: '#1f2937', pad: size * 0.06 });
+    }
+  }
+
+  function markElemSeq() {
+    var box = $('elemSeq');
+    if (!box) return;
+    var items = box.querySelectorAll('.seq-item');
+    for (var i = 0; i < items.length; i++) items[i].classList.toggle('on', i === elem.current - 1);
+  }
+
+  function updateElemProgress() {
+    var e = curElem();
+    var total = e && e.strokes ? e.strokes.length : 0;
+    $('eStep').textContent = '第 ' + elem.current + ' / ' + total + ' 笔';
+    $('eBar').style.width = (total ? (elem.current / total * 100) : 0) + '%';
+    markElemSeq();
+  }
+
+  function playElem() {
+    var e = curElem();
+    var d = elemStrokeData(e);
+    if (!d) return;
+    elem.current = 0;
+    elem.playing = true;
+    $('ePlay').textContent = '暂停';
+    updateElemProgress();
+    elem.demo.play(d, 0);
+  }
+
+  function bindElemEvents() {
+    $('elemGrid').addEventListener('click', function (ev) {
+      var t = ev.target.closest('.elem-cell');
+      if (!t) return;
+      selectElem(parseInt(t.dataset.i, 10));
+    });
+    $('ePrev').addEventListener('click', function () { selectElem(elem.index - 1); });
+    $('eNext').addEventListener('click', function () { selectElem(elem.index + 1); });
+    $('ePlay').addEventListener('click', function () {
+      var d = elemStrokeData(curElem());
+      if (!d) return;
+      if (elem.playing) {
+        elem.demo.stop(); elem.playing = false;
+        $('ePlay').textContent = '播放笔顺'; drawElem(); return;
+      }
+      elem.demo.play(d, elem.current >= d.count ? 0 : elem.current);
+      elem.playing = true;
+      $('ePlay').textContent = '暂停';
+    });
+    $('eReplay').addEventListener('click', playElem);
+    $('ePrevStroke').addEventListener('click', function () {
+      var e = curElem(); if (!e || !e.strokes) return;
+      elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺';
+      elem.current = Math.max(0, elem.current - 1);
+      updateElemProgress(); drawElem(); markElemSeq();
+    });
+    $('eNextStroke').addEventListener('click', function () {
+      var e = curElem(); if (!e || !e.strokes) return;
+      elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺';
+      elem.current = Math.min(e.strokes.length, elem.current + 1);
+      updateElemProgress(); drawElem(); markElemSeq();
+    });
+    $('elemSeq').addEventListener('click', function (ev) {
+      var t = ev.target.closest('.seq-item');
+      if (!t) return;
+      elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺';
+      elem.current = parseInt(t.dataset.s, 10) + 1;
+      updateElemProgress(); drawElem(); markElemSeq();
+    });
+    $('eAutoPlay').addEventListener('change', function () {
+      elem.autoPlay = this.checked;
+      if (elem.autoPlay) playElem();
+      else { elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺'; drawElem(); }
+    });
+    $('eBack').addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    $('elemToggle').addEventListener('click', function () {
+      elem.byPeriod = !elem.byPeriod;
+      $('elemGrid').classList.toggle('by-period', elem.byPeriod);
+      this.textContent = elem.byPeriod ? '按列表显示' : '按周期显示';
+    });
   }
 
   if (document.readyState === 'loading') {
