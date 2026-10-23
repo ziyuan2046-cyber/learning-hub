@@ -107,12 +107,18 @@
       var lazy = lazyGet(key);
       if (lazy !== undefined) return Promise.resolve(lazy);
     }
-    // http(s) 下 fetch 可用：直接用原始 books.json 作为唯一数据源
-    if (canFetchFiles()) return fetchJSON(url);
-    return loadScript('assets/data/' + key + '.js').then(function () {
-      var s = dataStore();
-      if (s[key] !== undefined) return s[key];
-      return fetchJSON(url);
+    // 优先读 .json；缺失时回退到等价的 .js（仓库里通常只有 .js）
+    var tryJson = canFetchFiles() ? fetchJSON(url).catch(function () { return null; }) : Promise.resolve(null);
+    return tryJson.then(function (v) {
+      if (v !== null) return v;
+      if (!key) throw new Error('无法读取 ' + url);
+      return loadScript('assets/data/' + key + '.js?v=20261023-1').then(function () {
+        var s = dataStore();
+        if (s[key] !== undefined) return s[key];
+        var lz = lazyGet(key);
+        if (lz !== undefined) return lz;
+        throw new Error('无法读取 ' + key);
+      });
     });
   }
 
@@ -207,6 +213,8 @@
     return loadScript(url + '.js?v=20261023-1').then(function () {
       var s = dataStore();
       if (typeof s[id] === 'string') return HanziCodec.parseBook(s[id]);
+      var lz = lazyGet(id);
+      if (typeof lz === 'string') return HanziCodec.parseBook(lz);
       return fetchText(url + '.txt').then(HanziCodec.parseBook);
     });
   }
