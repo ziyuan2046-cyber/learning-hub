@@ -1831,6 +1831,12 @@
       if (!t) return;
       switchView(t.dataset.view);
     });
+
+    // 支持 ?view=read / ?view=ref 直达（便于分享与二维码）
+    var m = /[?&]view=(write|read|ref)/.exec(location.search || '');
+    if (m) {
+      setTimeout(function () { switchView(m[1]); }, 60);
+    }
   }
 
   if (document.readyState === 'loading') {
