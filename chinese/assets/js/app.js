@@ -1619,8 +1619,20 @@
 
   var refState = { tab: 'stroke', strokes: null, radicals: null };
 
-  /** 笔画示意：直接用字体里的标准笔画字形（HanziStroke） */
-  function glyphHtml(glyph) {
+  /**
+   * 笔画示意：楷体笔画轮廓。
+   * 数据里 t = [sx, sy, cx, cy]：以笔画中心为原点做非等比缩放，
+   * 让长笔画铺满格子、细笔画保持足够粗度（教材里的笔画都很饱满）。
+   */
+  function glyphHtml(glyph, data) {
+    if (data && data.d && data.t) {
+      var t = data.t;
+      return '<div class="glyph-cell">' +
+        '<svg viewBox="0 0 100 100" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
+        '<g transform="translate(50,50) scale(' + t[0] + ',' + t[1] + ') translate(' +
+        (-t[2]) + ',' + (-t[3]) + ')">' +
+        '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero"/></g></svg></div>';
+    }
     if (!glyph) return '<div class="glyph-cell"></div>';
     return '<div class="glyph-cell">' + glyph + '</div>';
   }
@@ -1635,7 +1647,7 @@
       ex += '<span data-ch="' + examples[i] + '">' + examples[i] + '</span>';
     }
     return '<div class="ref-row">' +
-      glyphHtml(glyph) +
+      glyphHtml(glyph, svg) +
       '<div class="name-cell">' + name + '</div>' +
       '<div class="ex">' + ex + '</div>' +
       '</div>';
