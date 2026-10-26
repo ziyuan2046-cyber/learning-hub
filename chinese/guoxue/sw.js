@@ -1,4 +1,4 @@
-const CACHE = 'guoxue-20261026-v11-glossary';
+const CACHE = 'guoxue-20261026-v12-photo-detail';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   './assets/icon-192.png', './assets/icon-512.png'

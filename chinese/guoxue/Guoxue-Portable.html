@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#F6F7F4"><meta name="description" content="小学语文国学：古诗文、成语、国学经典，支持查询、朗读和视频。"><title>小学语文国学 · 课本与拓展</title><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png"><link rel="apple-touch-icon" href="assets/icon-192.png"><style>/* Clean reading interface */
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F4EFE2">
+  <meta name="description" content="小学语文国学学习：含古诗词、成语、文言文、原文拼音、译文朗读与官方视频。">
+  <title>小学语文国学 · 课本与拓展</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <style>/* Clean reading interface */
 :root{--bg:#f6f7f4;--surface:#fff;--ink:#1f2a25;--muted:#68736d;--line:#e2e7e3;--green:#2f6858;--green-dark:#235244;--green-soft:#e9f2ee;--accent:#b4543e;--accent-soft:#f8ece6;--radius:14px;--shadow:0 7px 24px rgba(27,48,39,.06);--sans:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);overscroll-behavior-y:contain}body.modal-open{overflow:hidden}button,input{font:inherit}button{cursor:pointer;color:inherit}a{color:inherit;text-decoration:none}svg{display:block}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:.01em}.icon{flex:0 0 auto}.mobile-page{width:100%;max-width:520px;margin:0 auto;padding:0 12px calc(82px + env(safe-area-inset-bottom))}.page-enter{animation:pageIn .25s ease both}@keyframes pageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 .topbar{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 2px}.brand{display:flex;align-items:center;gap:10px}.brand-seal{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:var(--green);color:#fff;font-weight:700;font-size:19px}.brand-text{display:flex;flex-direction:column;line-height:1.3}.brand-name{font-size:19px;font-weight:700;letter-spacing:.04em}.brand-sub{font-size:11px;color:var(--muted)}.icon-btn{width:42px;height:42px;display:grid;place-items:center;border:1px solid transparent;border-radius:50%;background:transparent;color:var(--muted)}.icon-btn:hover,.icon-btn.active{color:var(--accent);background:var(--accent-soft)}
@@ -27,8 +38,15 @@
 @media(max-width:380px){.reader-header h1{font-size:28px}.reader-author{font-size:18px}.video-section{margin-left:12px;margin-right:12px}.reader-glossary{margin:9px 12px;padding:14px}.glossary-item dt{flex-basis:65px;font-size:15px}.glossary-item dd{font-size:15px}}
 
 .reader-glossary .glossary-item{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed #eadfca}.reader-glossary .glossary-item:last-child{border-bottom:0}.reader-glossary dt,.reader-glossary dd{font-size:16px}.reader-glossary dt{white-space:nowrap;color:#a04c36}.reader-glossary dd{line-height:1.75}
-</style></head>
-<body><div id="app"><div class="loading-screen"><span class="loading-mark">学</span><span>正在打开书房…</span></div></div><script>(() => {
+
+.reader-section-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}.reader-section-head h2{margin:0}.inline-audio-button{display:inline-flex;align-items:center;gap:4px;min-height:30px;padding:0 9px;border:1px solid #cfe0d7;border-radius:7px;background:#fff;color:var(--green-dark);font-size:12px;white-space:nowrap}.inline-audio-button:hover{background:var(--green-soft)}.reader-audio{display:none}.reader-meaning .reader-section-head{margin-bottom:8px}
+.reader-photo-bg{position:absolute;inset:0 0 auto;height:330px;overflow:hidden;pointer-events:none;z-index:0}.reader-photo-bg img{width:100%;height:100%;object-fit:cover;display:block}.reader-photo-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,40,32,.45),rgba(255,255,255,.55) 55%,#fff 100%)}.reader-header{position:relative;z-index:1}.reader-header h1,.reader-author{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}.reader-header .reader-meta{color:rgba(255,255,255,.88);text-shadow:0 1px 6px rgba(0,0,0,.35)}.reader-text{position:relative;z-index:1;background:#fff}.reader-text .reader-section-head{padding-top:3px}.reader-photo-source{display:block;margin:8px 17px 0;color:var(--muted);font-size:10px;text-align:right}.reader-article{position:relative}
+
+</style>
+</head>
+<body>
+  <div id="app"><div class="loading-screen"><span class="loading-mark">学</span><span>正在打开书房…</span></div></div>
+  <script>(() => {
   // assets/pack-data.js
   var packData = {
     "lesson": [
@@ -7073,14 +7091,22 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     if (!terms.length || item.category === "idiom") return "";
     return '<section class="reader-glossary"><h2>\u91CD\u70B9\u5B57\u8BCD</h2><dl>' + terms.slice(0, 4).map(([word, meaning]) => '<div class="glossary-item"><dt>' + esc(word) + "</dt><dd>" + esc(meaning) + "</dd></div>").join("") + "</dl></section>";
   }
+  function photoFor(item) {
+    const text = item.title + item.excerpt;
+    if (/竹|笋/.test(text)) return "bamboo.jpg";
+    if (/雪|寒|霜|边塞|出塞|凉州|塞下/.test(text)) return "snow.jpg";
+    if (/月|嫦娥|七夕|夜|星|银河|迢迢牵牛/.test(text)) return "stars.jpg";
+    if (/山|江|河|湖|水|舟|瀑布|洞庭|天门/.test(text)) return "mountain.jpg";
+    return "mountain2.jpg";
+  }
   function detailView() {
     const item = items.find((i) => i.id === state.itemId);
     if (!item) return homeView();
     const pairs = splitPairs(item), favorite = state.favorites.has(item.id);
     const isIdiom = item.category === "idiom";
-    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.author) + '</div><div class="reader-meta">' + esc(item.dynasty) + " \xB7 " + esc(item.gradeLabel) + '</div></header><div class="reader-audio"><button class="audio-button" data-speak="text" id="speak-btn">' + icon("volume", 19) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button>" + (item.meaning ? '<button class="audio-button audio-secondary" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 19) + " " + (isIdiom ? "\u8BFB\u4F8B\u53E5" : "\u8BFB\u8BD1\u6587") + "</button>" : "") + '<audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio></div><section class="reader-text"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + " \xB7 \u62FC\u97F3</div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + (item.appreciation ? '<section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + "</p></section>" : "") + videoBlock(item) + "</article></main>" + nav();
+    const photo = isIdiom ? "" : '<div class="reader-photo-bg" aria-hidden="true"><img src="assets/photos/' + photoFor(item) + '" alt=""></div>';
+    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article">' + photo + '<a class="reader-photo-source" href="https://www.pexels.com/" target="_blank" rel="noopener">\u80CC\u666F\u7167\u7247\uFF1APexels \u5F00\u653E\u56FE\u5E93</a><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header><audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + ' \xB7 \u62FC\u97F3</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon("volume", 16) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button></div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2>" + (isIdiom ? "" : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 16) + " \u8BFB\u8BD1\u6587</button>") + "</div><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + (item.appreciation ? '<section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + "</p></section>" : "") + videoBlock(item) + "</article></main>" + nav();
   }
-  var currentAudio = null;
   function playAudio(kind) {
     const meaning = kind === "meaning";
     const player = document.querySelector(meaning ? "#meaning-audio" : "#reader-audio");
@@ -7106,12 +7132,13 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     event?.stopPropagation();
     const item = items.find((i) => i.id === id);
     if (!item?.video) return;
-    document.querySelector("#video-modal")?.remove();
+    const existing = document.querySelector("#video-modal");
+    if (existing) existing.remove();
     const modal = document.createElement("div");
     modal.id = "video-modal";
     modal.className = "video-modal";
     const src = "https://player.bilibili.com/player.html?bvid=" + encodeURIComponent(item.video.bvid) + "&page=1&high_quality=1&autoplay=1";
-    modal.innerHTML = '<div class="video-modal-backdrop" data-close-video></div><div class="video-modal-panel"><div class="video-modal-head"><div><span>\u5BF9\u5E94\u89C6\u9891</span><b>' + esc(item.title) + '</b></div><button class="icon-btn" data-close-video aria-label="\u5173\u95ED">' + icon("close", 20) + '</button></div><div class="video-frame"><iframe src="' + src + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="' + esc(item.title) + '"></iframe></div><div class="video-modal-note">\u82E5\u89C6\u9891\u533A\u57DF\u672A\u5F00\u59CB\u64AD\u653E\uFF0C\u8BF7\u70B9\u51FB\u4E0B\u65B9\u6309\u94AE</span><a class="video-external-primary" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">' + icon("external", 15) + " \u5728\u54D4\u54E9\u54D4\u54E9\u89C2\u770B</a></div></div>";
+    modal.innerHTML = '<div class="video-modal-backdrop" data-close-video></div><div class="video-modal-panel"><div class="video-modal-head"><div><span>\u5BF9\u5E94\u89C6\u9891</span><b>' + esc(item.title) + '</b></div><button class="icon-btn" data-close-video aria-label="\u5173\u95ED">' + icon("close", 20) + '</button></div><div class="video-frame"><iframe src="' + src + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="' + esc(item.title) + '"></iframe></div><div class="video-modal-note"><span>\u82E5\u89C6\u9891\u533A\u57DF\u672A\u5F00\u59CB\u64AD\u653E\uFF0C\u8BF7\u70B9\u51FB\u4E0B\u65B9\u6309\u94AE</span><a class="video-external-primary" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">' + icon("external", 15) + " \u5728\u54D4\u54E9\u54D4\u54E9\u89C2\u770B</a></div></div>";
     document.body.appendChild(modal);
     document.body.classList.add("modal-open");
   }
@@ -7221,4 +7248,6 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   window.addEventListener("hashchange", route);
   route();
 })();
-</script></body></html>
+</script>
+</body>
+</html>

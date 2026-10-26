@@ -109,20 +109,27 @@ function glossaryBlock(item) {
   if (!terms.length || item.category === 'idiom') return '';
   return '<section class="reader-glossary"><h2>重点字词</h2><dl>' + terms.slice(0, 4).map(([word, meaning]) => '<div class="glossary-item"><dt>' + esc(word) + '</dt><dd>' + esc(meaning) + '</dd></div>').join('') + '</dl></section>';
 }
+function photoFor(item) {
+  const text = item.title + item.excerpt;
+  if (/竹|笋/.test(text)) return 'bamboo.jpg';
+  if (/雪|寒|霜|边塞|出塞|凉州|塞下/.test(text)) return 'snow.jpg';
+  if (/月|嫦娥|七夕|夜|星|银河|迢迢牵牛/.test(text)) return 'stars.jpg';
+  if (/山|江|河|湖|水|舟|瀑布|洞庭|天门/.test(text)) return 'mountain.jpg';
+  return 'mountain2.jpg';
+}
 function detailView() {
   const item = items.find(i => i.id === state.itemId); if (!item) return homeView();
   const pairs = splitPairs(item), favorite = state.favorites.has(item.id);
   const isIdiom = item.category === 'idiom';
+  const photo = isIdiom ? '' : '<div class="reader-photo-bg" aria-hidden="true"><img src="assets/photos/' + photoFor(item) + '" alt=""></div>';
   return '<main class="page-enter detail-page mobile-page">' + topbar() +
     '<div class="breadcrumb"><button data-go="home">首页</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + '</span><span>/</span><span>' + esc(item.categoryName) + '</span></div>' +
-    '<article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏">' + icon('heart', 21) + '</button></div><h1>' + esc(item.title) + '</h1><div class="reader-author">' + esc(item.author) + '</div><div class="reader-meta">' + esc(item.dynasty) + ' · ' + esc(item.gradeLabel) + '</div></header>' +
-    '<div class="reader-audio"><button class="audio-button" data-speak="text" id="speak-btn">' + icon('volume', 19) + ' ' + (isIdiom ? '读释义' : '读原文') + '</button>' + (item.meaning ? '<button class="audio-button audio-secondary" data-speak="meaning" id="meaning-speak-btn">' + icon('volume', 19) + ' ' + (isIdiom ? '读例句' : '读译文') + '</button>' : '') + '<audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio></div>' +
-    '<section class="reader-text"><div class="reader-label">' + (isIdiom ? '释义' : '原文') + ' · 拼音</div>' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</section>' +
-    (item.meaning ? '<section class="reader-meaning"><h2>' + (isIdiom ? '释义与例句' : '译文') + '</h2><p>' + esc(item.meaning) + '</p></section>' : '') +
+    '<article class="reader-article">' + photo + '<a class="reader-photo-source" href="https://www.pexels.com/" target="_blank" rel="noopener">背景照片：Pexels 开放图库</a><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏">' + icon('heart', 21) + '</button></div><h1>' + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + ' · ' + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header>' +
+    '<audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio>' +
+    '<section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? '释义' : '原文') + ' · 拼音</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon('volume', 16) + ' ' + (isIdiom ? '读释义' : '读原文') + '</button></div>' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</section>' +
+    (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? '释义与例句' : '译文') + '</h2>' + (isIdiom ? '' : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon('volume', 16) + ' 读译文</button>') + '</div><p>' + esc(item.meaning) + '</p></section>' : '') +
     glossaryBlock(item) + (item.appreciation ? '<section class="reader-note"><h2>赏析</h2><p>' + esc(item.appreciation) + '</p></section>' : '') + videoBlock(item) + '</article></main>' + nav();
 }
-
-let currentAudio = null;
 function playAudio(kind) {
   const meaning = kind === 'meaning';
   const player = document.querySelector(meaning ? '#meaning-audio' : '#reader-audio');
@@ -138,13 +145,13 @@ function playAudio(kind) {
 function openVideo(id, event) {
   event?.preventDefault(); event?.stopPropagation();
   const item = items.find(i => i.id === id); if (!item?.video) return;
-  document.querySelector('#video-modal')?.remove();
-  const modal = document.createElement('div'); modal.id = 'video-modal'; modal.className = 'video-modal';
-  const src = 'https://player.bilibili.com/player.html?bvid=' + encodeURIComponent(item.video.bvid) + '&page=1&high_quality=1&autoplay=1';
-  modal.innerHTML = '<div class="video-modal-backdrop" data-close-video></div><div class="video-modal-panel"><div class="video-modal-head"><div><span>对应视频</span><b>' + esc(item.title) + '</b></div><button class="icon-btn" data-close-video aria-label="关闭">' + icon('close', 20) + '</button></div><div class="video-frame"><iframe src="' + src + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="' + esc(item.title) + '"></iframe></div><div class="video-modal-note">若视频区域未开始播放，请点击下方按钮</span><a class="video-external-primary" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">' + icon('external', 15) + ' 在哔哩哔哩观看</a></div></div>';
-  document.body.appendChild(modal); document.body.classList.add('modal-open');
+  const existing = document.querySelector("#video-modal"); if (existing) existing.remove();
+  const modal = document.createElement("div"); modal.id = "video-modal"; modal.className = "video-modal";
+  const src = "https://player.bilibili.com/player.html?bvid=" + encodeURIComponent(item.video.bvid) + "&page=1&high_quality=1&autoplay=1";
+  modal.innerHTML = "<div class=\"video-modal-backdrop\" data-close-video></div><div class=\"video-modal-panel\"><div class=\"video-modal-head\"><div><span>对应视频</span><b>" + esc(item.title) + "</b></div><button class=\"icon-btn\" data-close-video aria-label=\"关闭\">" + icon("close", 20) + "</button></div><div class=\"video-frame\"><iframe src=\"" + src + "\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen referrerpolicy=\"no-referrer-when-downgrade\" title=\"" + esc(item.title) + "\"></iframe></div><div class=\"video-modal-note\"><span>若视频区域未开始播放，请点击下方按钮</span><a class=\"video-external-primary\" href=\"" + esc(item.video.url) + "\" target=\"_blank\" rel=\"noopener\">" + icon("external", 15) + " 在哔哩哔哩观看</a></div></div>";
+  document.body.appendChild(modal); document.body.classList.add("modal-open");
 }
-function closeVideo() { document.querySelector('#video-modal')?.remove(); document.body.classList.remove('modal-open'); }
+function closeVideo() { document.querySelector("#video-modal")?.remove(); document.body.classList.remove("modal-open"); }
 
 function searchView() {
   const result = filteredItems();
