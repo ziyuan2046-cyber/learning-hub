@@ -353,6 +353,7 @@
     bindReadEvents();
     bindElemEvents();
     initElemView();
+    bindGlobalSearch();
     bindRefEvents();
     initReadView();
   }
@@ -1622,26 +1623,26 @@
   var refState = { tab: 'stroke', strokes: null, radicals: null };
 
   /**
-   * 笔画示意：楷体笔画轮廓。
-   * 数据里 t = [sx, sy, cx, cy]：以笔画中心为原点做非等比缩放，
-   * 让长笔画铺满格子、细笔画保持足够粗度（教材里的笔画都很饱满）。
-   */
-  /**
-   * 笔画示意：楷体笔画轮廓，等比缩放（不拉伸变形）。
-   * 数据 t 有两种写法：
-   *   [sx, sy, cx, cy] —— 旧：非等比
-   *   [s, cx, cy]      —— 新：等比（推荐）
+   * 笔画示意：楷体真实笔画轮廓。
+   * 数据 m = [scale, tx, ty]，已按正方形视框等比缩放并居中，笔形不变形。
    */
   function glyphHtml(glyph, data) {
     if (data && data.d) {
+      var m = data.m;
+      if (m && m.length === 3) {
+        return '<div class="glyph-cell">' +
+          '<svg viewBox="0 0 100 100" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
+          '<g transform="translate(' + m[1] + ',' + m[2] + ') scale(' + m[0] + ')">' +
+          '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero"/></g></svg></div>';
+      }
+      // 兼容旧格式
       var t = data.t || [0.09, 512, 512];
       var sx, sy, cx, cy;
       if (t.length >= 4) { sx = t[0]; sy = t[1]; cx = t[2]; cy = t[3]; }
       else { sx = sy = t[0]; cx = t[1]; cy = t[2]; }
       return '<div class="glyph-cell">' +
         '<svg viewBox="0 0 100 100" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
-        '<g transform="translate(50,50) scale(' + sx + ',' + sy + ') translate(' +
-        (-cx) + ',' + (-cy) + ')">' +
+        '<g transform="translate(50,50) scale(' + sx + ',' + sy + ') translate(' + (-cx) + ',' + (-cy) + ')">' +
         '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero"/></g></svg></div>';
     }
     if (!glyph) return '<div class="glyph-cell"></div>';
@@ -1913,7 +1914,7 @@
     for (var i = 0; i < elem.list.length; i++) {
       var e = elem.list[i];
       html += '<div class="elem-cell' + (i === elem.index ? ' on' : '') +
-        (e.strokes ? '' : ' nostroke') + '" data-i="' + i + '">' +
+        (elemStrokeData(e) ? '' : ' nostroke') + '" data-i="' + i + '">' +
         '<div class="no"><span>' + e.no + '</span><span class="sym">' + e.symbol + '</span></div>' +
         '<div class="ch">' + e.ch + '</div>' +
         '<div class="py">' + (e.py || '') + '</div></div>';
@@ -1923,8 +1924,10 @@
   }
 
   function elemStrokeData(e) {
-    if (!e || !e.strokes) return null;
-    return { strokes: e.strokes, medians: e.medians || [], count: e.strokes.length };
+    if (!e) return null;
+    var paths = e.paths || e.strokes;
+    if (!paths || !paths.length) return null;
+    return { strokes: paths, medians: e.medians || [], count: paths.length };
   }
 
   function selectElem(i) {
@@ -1941,7 +1944,8 @@
     $('eInfo').textContent = '第 ' + e.no + ' 号元素 · ' + e.symbol;
     $('eNo').textContent = e.no;
     $('eSym').textContent = e.symbol;
-    $('eStroke').textContent = e.strokes ? (e.strokes.length + ' 画') : '暂无';
+    var esd = elemStrokeData(e);
+    $('eStroke').textContent = esd ? (esd.count + ' 画') : '暂无';
 
     var cells = $('elemGrid').querySelectorAll('.elem-cell');
     for (var k = 0; k < cells.length; k++) cells[k].classList.toggle('on', k === i);
@@ -1950,7 +1954,7 @@
     drawElem();
     renderElemSeq();
     markElemSeq();
-    if (e.strokes && elem.autoPlay) playElem();
+    if (esd && elem.autoPlay) playElem();
   }
 
   function drawElem() {
@@ -1964,15 +1968,10 @@
     var g = elem.demo._geom();
     var size = g.size, ox = g.ox, oy = g.oy;
     TianZiGe.drawGrid(ctx, ox, oy, size, size, elem.demo.gridOpt || {});
-    if (e.glyph) {
-      ctx.save();
-      var s = size / 1024;
-      ctx.translate(ox, oy);
-      ctx.scale(s, s);
-      var pth = new Path2D(e.glyph);
-      ctx.fillStyle = '#243042';
-      ctx.fill(pth, 'nonzero');
-      ctx.restore();
+    if (e.glyphPath) {
+      TianZiGe.drawStrokes(ctx, [e.glyphPath], ox, oy, size, {
+        color: '#243042', pad: size * 0.06
+      });
     }
   }
 
@@ -1980,27 +1979,28 @@
     var e = curElem();
     var box = $('elemSeq');
     if (!e || !box) return;
-    var names = e.names || [];
-    if (!e.strokes) {
+    var esd = elemStrokeData(e);
+    if (!esd) {
       box.innerHTML = '<div class="empty" style="padding:14px 0">该元素汉字为近年新造字，暂缺笔顺数据</div>';
       return;
     }
+    var paths = esd.strokes;
     var html = '';
-    for (var i = 0; i < e.strokes.length; i++) {
+    for (var i = 0; i < paths.length; i++) {
       html += '<div class="seq-item" data-s="' + i + '">' +
         '<canvas id="elemCv' + i + '"></canvas>' +
         '<div class="no">第' + (i + 1) + '笔</div></div>';
     }
     box.innerHTML = html;
     var dpr = window.devicePixelRatio || 1, size = 56;
-    for (var j = 0; j < e.strokes.length; j++) {
+    for (var j = 0; j < paths.length; j++) {
       var cv = $('elemCv' + j);
       if (!cv) continue;
       cv.width = size * dpr; cv.height = size * dpr;
       var ctx = cv.getContext('2d');
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       TianZiGe.drawGrid(ctx, 0, 0, size, size, { lineWidth: 1, showDiagonal: false });
-      TianZiGe.drawStrokes(ctx, e.strokes.slice(0, j + 1), 0, 0, size, { color: '#1f2937', pad: size * 0.06 });
+      TianZiGe.drawStrokes(ctx, paths.slice(0, j + 1), 0, 0, size, { color: '#1f2937', pad: size * 0.06 });
     }
   }
 
@@ -2013,7 +2013,8 @@
 
   function updateElemProgress() {
     var e = curElem();
-    var total = e && e.strokes ? e.strokes.length : 0;
+    var esd = e ? elemStrokeData(e) : null;
+    var total = esd ? esd.count : 0;
     $('eStep').textContent = '第 ' + elem.current + ' / ' + total + ' 笔';
     $('eBar').style.width = (total ? (elem.current / total * 100) : 0) + '%';
     markElemSeq();
@@ -2051,15 +2052,15 @@
     });
     $('eReplay').addEventListener('click', playElem);
     $('ePrevStroke').addEventListener('click', function () {
-      var e = curElem(); if (!e || !e.strokes) return;
+      var d = elemStrokeData(curElem()); if (!d) return;
       elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺';
       elem.current = Math.max(0, elem.current - 1);
       updateElemProgress(); drawElem(); markElemSeq();
     });
     $('eNextStroke').addEventListener('click', function () {
-      var e = curElem(); if (!e || !e.strokes) return;
+      var d2 = elemStrokeData(curElem()); if (!d2) return;
       elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺';
-      elem.current = Math.min(e.strokes.length, elem.current + 1);
+      elem.current = Math.min(d2.count, elem.current + 1);
       updateElemProgress(); drawElem(); markElemSeq();
     });
     $('elemSeq').addEventListener('click', function (ev) {
@@ -2082,6 +2083,152 @@
       $('elemGrid').classList.toggle('by-period', elem.byPeriod);
       this.textContent = elem.byPeriod ? '按列表显示' : '按周期显示';
     });
+  }
+
+  /* ================================================================
+   *  全库查询（写字表 + 识字表 + 元素周期表）
+   * ================================================================ */
+
+  var gIndex = null;         // [{ch, py, plain, kind, ref...}]
+  var gIndexPromise = null;
+
+  function plainPinyin2(py) {
+    return (py || '')
+      .replace(/[āáǎà]/g, 'a').replace(/[ēéěè]/g, 'e')
+      .replace(/[īíǐì]/g, 'i').replace(/[ōóǒò]/g, 'o')
+      .replace(/[ūúǔù]/g, 'u').replace(/[ǖǘǚǜü]/g, 'v')
+      .replace(/[ńňǹ]/g, 'n').replace(/[ḿ]/g, 'm')
+      .toLowerCase();
+  }
+
+  /** 懒加载地建立全库索引（只建一次） */
+  function buildGlobalIndex() {
+    if (gIndex) return Promise.resolve(gIndex);
+    if (gIndexPromise) return gIndexPromise;
+
+    var jobs = [];
+
+    // 1) 写字表：12 册
+    (state.books || []).forEach(function (b) {
+      jobs.push(loadBookText(b.id).then(function (book) {
+        return book.chars.map(function (c, i) {
+          return {
+            ch: book.meta.chars[i], py: c.pinyin, plain: plainPinyin2(c.pinyin),
+            kind: 'write', book: b.id, i: i, title: book.meta.title,
+            extra: (c.radical || '') + '部 · ' + (c.count || 0) + '画'
+          };
+        });
+      }).catch(function () { return []; }));
+    });
+
+    // 2) 识字表：目录中的每一册
+    var cat = read.catalog || [];
+    cat.forEach(function (entry) {
+      jobs.push(loadShiziBook(entry).then(function (book) {
+        if (!book || !book.chars) return [];
+        return book.chars.map(function (c, i) {
+          return {
+            ch: c.ch, py: c.py, plain: plainPinyin2(c.py),
+            kind: 'read', book: entry.id, i: i, title: entry.title,
+            extra: (c.strokes ? c.strokes.length : 0) + '画'
+          };
+        });
+      }).catch(function () { return []; }));
+    });
+
+    // 3) 元素周期表
+    jobs.push(loadElements().then(function (list) {
+      if (!list) return [];
+      return list.map(function (e, i) {
+        return {
+          ch: e.ch, py: e.py, plain: plainPinyin2(e.py),
+          kind: 'elem', i: i, title: '元素周期表',
+          symbol: e.symbol, no: e.no,
+          extra: e.no + '号 · ' + e.symbol
+        };
+      });
+    }).catch(function () { return []; }));
+
+    gIndexPromise = Promise.all(jobs).then(function (lists) {
+      gIndex = [].concat.apply([], lists).filter(function (o) { return o && o.ch; });
+      return gIndex;
+    });
+    return gIndexPromise;
+  }
+
+  function doGlobalSearch(q) {
+    var box = $('gSearchRes');
+    if (!q) { box.innerHTML = ''; return; }
+    buildGlobalIndex().then(function (list) {
+      var low = q.trim().toLowerCase();
+      var plain = plainPinyin2(low);
+      var hits = list.filter(function (o) {
+        if (o.ch === q) return true;
+        if (o.symbol && o.symbol.toLowerCase() === low) return true;
+        if (o.py && o.py.toLowerCase().indexOf(low) === 0) return true;
+        if (o.plain && o.plain.indexOf(plain) === 0) return true;
+        if (String(o.no) === low) return true;
+        return false;
+      });
+      // 同一个字在多处出现时合并显示，优先显示写字表
+      var order = { write: 0, read: 1, elem: 2 };
+      hits.sort(function (a, b) {
+        if (a.ch === b.ch) return order[a.kind] - order[b.kind];
+        return order[a.kind] - order[b.kind];
+      });
+      if (!hits.length) {
+        box.innerHTML = '<div class="gr-more">没有找到「' + q + '」</div>';
+        return;
+      }
+      var shown = hits.slice(0, 40);
+      var label = { write: '写字', read: '识字', elem: '元素' };
+      box.innerHTML = shown.map(function (o, i) {
+        var meta = o.kind === 'elem' ? (o.no + '号 ' + o.symbol) : (o.title || '');
+        return '<div class="gr-chip" data-k="' + i + '">' +
+          '<span class="c">' + o.ch + '</span>' +
+          '<span class="p">' + (o.py || '') + '</span>' +
+          '<span class="t ' + o.kind + '">' + label[o.kind] + '</span>' +
+          '</div>';
+      }).join('') + (hits.length > 40 ?
+        '<div class="gr-more">共 ' + hits.length + ' 条，仅显示前 40 条</div>' : '');
+
+      var btns = box.querySelectorAll('.gr-chip');
+      for (var k = 0; k < btns.length; k++) {
+        (function (idx) {
+          btns[k].addEventListener('click', function () { openGlobalHit(shown[idx]); });
+        })(k);
+      }
+    });
+  }
+
+  /** 点击搜索结果 -> 跳到对应视图并选中 */
+  function openGlobalHit(o) {
+    $('gSearchRes').innerHTML = '';
+    $('gSearch').value = '';
+    if (o.kind === 'write') {
+      switchView('write');
+      if (o.book === state.bookId) selectChar(o.i);
+      else selectBook(o.book).then(function () { selectChar(o.i); });
+    } else if (o.kind === 'read') {
+      switchView('read');
+      selectReadBook(o.book);
+      setTimeout(function () { selectReadChar(o.i); }, 60);
+    } else if (o.kind === 'elem') {
+      switchView('elem');
+      selectElem(o.i);
+    }
+  }
+
+  function bindGlobalSearch() {
+    var input = $('gSearch');
+    var timer = null;
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      var v = input.value.trim();
+      timer = setTimeout(function () { doGlobalSearch(v); }, 180);
+    });
+    // 预建索引：空闲时后台做，不阻塞首屏
+    setTimeout(function () { buildGlobalIndex(); }, 2500);
   }
 
   if (document.readyState === 'loading') {
