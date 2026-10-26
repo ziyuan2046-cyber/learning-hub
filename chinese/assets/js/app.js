@@ -1914,11 +1914,12 @@
     var html = '';
     for (var i = 0; i < elem.list.length; i++) {
       var e = elem.list[i];
+      var hasGlyph = !e.noGlyph;
       html += '<div class="elem-cell' + (i === elem.index ? ' on' : '') +
-        (elemStrokeData(e) ? '' : ' nostroke') + '" data-i="' + i + '">' +
+        (hasGlyph ? '' : ' nostroke') + '" data-i="' + i + '">' +
         '<div class="no"><span>' + e.no + '</span><span class="sym">' + e.symbol + '</span></div>' +
-        '<div class="ch">' + e.ch + '</div>' +
-        '<div class="py">' + (e.py || '') + '</div></div>';
+        '<div class="ch">' + (hasGlyph ? e.ch : '') + '</div>' +
+        '<div class="py">' + (hasGlyph ? (e.py || '') : '暂无字形') + '</div></div>';
     }
     $('elemGrid').innerHTML = html;
     $('elemCount').textContent = elem.list.length + ' 种';
@@ -1940,10 +1941,11 @@
     $('ePlay').textContent = '播放笔顺';
 
     var e = curElem();
-    $('eBigChar').textContent = e.ch;
+    $('eBigChar').textContent = e.noGlyph ? '—' : e.ch;
     $('eBigChar').style.fontFamily = "'HanziKai','KaiTi',serif";
-    $('ePy').textContent = e.py || '';
-    $('eInfo').textContent = '第 ' + e.no + ' 号元素 · ' + e.symbol;
+    $('ePy').textContent = e.noGlyph ? '' : (e.py || '');
+    $('eInfo').textContent = '第 ' + e.no + ' 号元素 · ' + e.symbol +
+      (e.noGlyph ? ' · 该元素汉字暂无可用字形' : '');
     $('eNo').textContent = e.no;
     $('eSym').textContent = e.symbol;
     var esd = elemStrokeData(e);
@@ -1951,6 +1953,11 @@
 
     var cells = $('elemGrid').querySelectorAll('.elem-cell');
     for (var k = 0; k < cells.length; k++) cells[k].classList.toggle('on', k === i);
+
+    var gw = $('elemCanvas').closest('.grid-box');
+    if (gw) gw.style.display = e.noGlyph ? 'none' : '';
+    var zb = $('elemZoomBtn');
+    if (zb) zb.style.display = e.noGlyph ? 'none' : '';
 
     updateElemProgress();
     drawElem();
