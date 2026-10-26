@@ -5380,6 +5380,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     search: `<circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/>`,
     heart: `<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/>`,
     book: `<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>`,
+    pause: `<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>`,
     play: `<circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4V8Z"/>`,
     volume: `<path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/>`,
     arrow: `<path d="M5 12h14M13 6l6 6-6 6"/>`,
@@ -6932,9 +6933,11 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     favorites: new Set(load(KEYS.favorites, [])),
     read: new Set(load(KEYS.read, [])),
     history: load(KEYS.history, []),
+    historyUndo: null,
     ...savedPrefs
   };
   if (state.scope === "classics") state.scope = "textbook";
+  state.view = "home";
   var categoryMap = Object.fromEntries(categories.map((c) => [c.id, c]));
   var esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   var scopeName = (scope) => scope === "textbook" ? "\u6559\u6750\u5185\u5BB9" : "\u8BFE\u5916\u62D3\u5C55";
@@ -6965,6 +6968,28 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     state.history = [id, ...state.history.filter((x) => x !== id)].slice(0, 30);
     save(KEYS.history, state.history);
   }
+  function removeHistory(id) {
+    state.historyUndo = [...state.history];
+    state.history = state.history.filter((x) => x !== id);
+    save(KEYS.history, state.history);
+    render();
+    toast("\u5DF2\u79FB\u9664\uFF0C\u53EF\u64A4\u9500", "check");
+  }
+  function undoHistory() {
+    if (!state.historyUndo) return;
+    state.history = state.historyUndo;
+    state.historyUndo = null;
+    save(KEYS.history, state.history);
+    render();
+    toast("\u5DF2\u6062\u590D\u5386\u53F2", "history");
+  }
+  function clearHistory() {
+    state.historyUndo = [...state.history];
+    state.history = [];
+    save(KEYS.history, state.history);
+    render();
+    toast("\u5386\u53F2\u5DF2\u6E05\u7A7A", "check");
+  }
   function scopePool(scope = state.scope) {
     return scope === "textbook" ? lessonItems : extraItems;
   }
@@ -6991,15 +7016,15 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function topbar() {
     const fav = state.favorites.size ? "active" : "";
-    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span class="brand-text"><span class="brand-name">\u8BFE\u672C\u56FD\u5B66</span><span class="brand-sub">\u5C0F\u5B66\u8BED\u6587 \xB7 \u56FD\u5B66\u542F\u8499</span></span></a><button class="icon-btn ' + fav + '" data-go="favorites" aria-label="\u6536\u85CF">' + icon("heart", 20) + "</button></header>";
+    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span class="brand-name">\u8BFE\u672C\u56FD\u5B66</span></a></header>';
   }
   function topSearch() {
     const results = globalResults();
-    return '<section class="top-search-section"><form class="top-search" id="top-search-form">' + icon("search", 21) + '<input id="top-search-input" autocomplete="off" value="' + esc(state.topQuery) + '" placeholder="\u641C\u7D22\u53E4\u8BD7\u3001\u6210\u8BED\u3001\u6587\u8A00\u6587\u6216\u56FD\u5B66\u7ECF\u5178"><button type="submit" class="top-search-button">\u67E5\u8BE2</button></form>' + (state.topQuery.trim() ? '<div class="top-search-results">' + (results.length ? results.slice(0, 8).map((i) => '<button class="top-result" data-open="' + esc(i.id) + '"><span><b>' + esc(i.title) + "</b><small>" + (esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel)) + "</small></span>" + icon("chevron", 16) + "</button>").join("") + '<div class="top-result-count">\u5171 ' + results.length + " \u6761\u7ED3\u679C</div>" : '<div class="top-result-empty">\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</div>') + "</div>" : "") + "</section>";
+    return '<section class="top-search-section"><form class="top-search" id="top-search-form">' + icon("search", 21) + '<input id="top-search-input" autocomplete="off" value="' + esc(state.topQuery) + '" placeholder="\u641C\u7D22\u53E4\u8BD7\u3001\u6210\u8BED\u3001\u6587\u8A00\u6587"><button type="submit" class="top-search-button">\u67E5\u8BE2</button></form>' + (state.topQuery.trim() ? '<div class="top-search-results">' + (results.length ? results.slice(0, 8).map((i) => '<button class="top-result" data-open="' + esc(i.id) + '"><span><b>' + esc(i.title) + "</b><small>" + (esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel)) + "</small></span>" + icon("chevron", 16) + "</button>").join("") + '<div class="top-result-count">\u5171 ' + results.length + " \u6761\u7ED3\u679C</div>" : '<div class="top-result-empty">\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</div>') + "</div>" : "") + "</section>";
   }
   function nav() {
     const active = (v) => state.view === v ? "active" : "";
-    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="history" aria-label="\u67E5\u770B\u5386\u53F2">' + icon("history", 19) + '<span>\u5386\u53F2</span></button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
+    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-item ' + active("history") + '" data-go="history">' + icon("history", 20) + '<span>\u5386\u53F2</span></button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
   }
   function sourceTabs() {
     const tabs = [{ id: "textbook", label: "\u6559\u6750\u5185\u5BB9", count: lessonItems.length }, { id: "extra", label: "\u8BFE\u5916\u62D3\u5C55", count: extraItems.length }];
@@ -7010,7 +7035,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     const used = categories.filter((c) => list.some((i) => i.category === c.id));
     return '<div class="category-hub">' + used.map((c) => {
       const count = list.filter((i) => i.category === c.id).length;
-      return '<button class="hub-card ' + (state.category === c.id ? "active" : "") + '" style="--cat-color:' + c.color + ";--cat-soft:" + c.soft + '" data-category="' + c.id + '"><span class="hub-main"><b>' + c.name + "</b><small>" + c.description + '</small></span><span class="hub-count">' + count + "</span></button>";
+      return '<button class="hub-card ' + (state.category === c.id ? "active" : "") + '" style="--cat-color:' + c.color + ";--cat-soft:" + c.soft + '" data-category="' + c.id + '"><span class="hub-main"><b>' + c.name + '</b></span><span class="hub-count">' + count + "</span></button>";
     }).join("") + "</div>";
   }
   function gradeChips() {
@@ -7030,7 +7055,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     const cat = state.category === "all" ? "\u5168\u90E8\u5185\u5BB9" : categoryMap[state.category].name;
     const showFilters = state.scope === "textbook";
     const filters = showFilters ? '<div class="mobile-filter-row"><span>\u5E74\u7EA7</span>' + gradeChips() + '</div><div class="mobile-filter-row"><span>\u518C\u6B21</span>' + volumeChips() + "</div>" : "";
-    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<section class="mobile-intro"><h1>\u5C0F\u5B66\u8BED\u6587\u56FD\u5B66</h1></section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u6765\u6E90</h2></div>' + sourceTabs() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u5206\u7C7B</h2></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u9879</span></div><div class="mobile-filters">' + filters + '<div class="mobile-filter-row"><span>\u89C6\u9891</span><button class="video-filter ' + (state.videoOnly ? "active" : "") + '" data-video-only="1">' + icon("play", 14) + ' \u53EA\u770B\u6709\u89C6\u9891</button></div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u5728\u5F53\u524D\u5185\u5BB9\u4E2D\u641C\u7D22"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<section class="mobile-section source-section">' + sourceTabs() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5206\u7C7B</h2><button class="text-action" data-category="all">\u5168\u90E8</button></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u9879</span></div><div class="filter-actions"><button class="filters-toggle" type="button" data-toggle-filters aria-expanded="false">\u7B5B\u9009</button></div><div class="mobile-filters collapsed" id="filters-panel">' + filters + '<div class="mobile-filter-row video-row"><span></span><button class="video-filter ' + (state.videoOnly ? "active" : "") + '" data-video-only="1">' + icon("play", 14) + ' \u53EA\u770B\u6709\u89C6\u9891</button></div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u5728\u5F53\u524D\u5185\u5BB9\u4E2D\u641C\u7D22"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
   }
   function splitLines(text) {
     return String(text || "").split(/\n+/).filter(Boolean);
@@ -7053,31 +7078,50 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     if (!item) return homeView();
     const pairs = splitPairs(item), favorite = state.favorites.has(item.id);
     const isIdiom = item.category === "idiom";
-    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header><audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + ' \xB7 \u62FC\u97F3</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon("volume", 16) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button></div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2>" + (isIdiom ? "" : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 16) + " \u8BFB\u8BD1\u6587</button>") + "</div><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + (item.appreciation ? '<section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + "</p></section>" : "") + videoBlock(item) + "</article></main>" + nav();
+    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header><audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + '</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon("volume", 16) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button></div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2>" + (isIdiom ? "" : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 16) + " \u8BFB\u8BD1\u6587</button>") + "</div><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + videoBlock(item) + "</article></main>" + nav();
   }
+  var currentAudio = null;
   function playAudio(kind) {
     const meaning = kind === "meaning";
     const player = document.querySelector(meaning ? "#meaning-audio" : "#reader-audio");
     const button = document.querySelector(meaning ? "#meaning-speak-btn" : "#speak-btn");
     if (!player || !button) return;
-    currentAudio && currentAudio !== player && currentAudio.pause();
+    const isIdiom = document.querySelector(".reader-label")?.textContent.includes("\u91CA\u4E49") || false;
+    const label = meaning ? isIdiom ? "\u8BFB\u4F8B\u53E5" : "\u8BFB\u8BD1\u6587" : isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587";
+    if (currentAudio && currentAudio !== player) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
     currentAudio = player;
-    const label = meaning ? document.body.innerText.includes("\u91CA\u4E49\u4E0E\u4F8B\u53E5") ? "\u8BFB\u4F8B\u53E5" : "\u8BFB\u8BD1\u6587" : document.body.innerText.includes("\u91CA\u4E49\u4E0E\u4F8B\u53E5") ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587";
+    const resetLabel = () => {
+      button.innerHTML = icon("volume", 17) + " " + label;
+      button.classList.remove("playing");
+    };
     if (!player.paused) {
       player.pause();
-      button.innerHTML = icon("volume", 19) + " " + label;
+      resetLabel();
       return;
     }
-    player.play().then(() => {
-      button.innerHTML = icon("volume", 19) + " \u6682\u505C";
-    }).catch(() => toast("\u97F3\u9891\u52A0\u8F7D\u5931\u8D25", "volume"));
-    player.onended = () => {
-      button.innerHTML = icon("volume", 19) + " " + label;
+    player.volume = 1;
+    const playPromise = player.play();
+    if (playPromise?.then) {
+      playPromise.then(() => {
+        button.innerHTML = icon("pause", 17) + " \u6682\u505C";
+        button.classList.add("playing");
+      }).catch((err) => {
+        resetLabel();
+        toast(err?.name === "NotAllowedError" ? "\u8BF7\u518D\u70B9\u4E00\u6B21\u64AD\u653E" : "\u97F3\u9891\u52A0\u8F7D\u5931\u8D25", "volume");
+      });
+    }
+    player.onended = resetLabel;
+    player.onerror = () => {
+      resetLabel();
+      toast("\u97F3\u9891\u52A0\u8F7D\u5931\u8D25", "volume");
     };
   }
   function searchView() {
     const result = filteredItems();
-    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<div class="search-page"><h1>\u67E5\u8BE2</h1><p class="search-hint">\u53EF\u641C\u7D22\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u539F\u6587\u6216\u91CA\u4E49</p><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8F93\u5165\u5173\u952E\u8BCD"><button class="search-submit">\u67E5\u8BE2</button></form><div class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u6765\u6E90</span><div class="filter-options"><button class="filter-option ' + (state.scope === "all" ? "active" : "") + '" data-scope="all">\u5168\u90E8</button><button class="filter-option ' + (state.scope === "textbook" ? "active" : "") + '" data-scope="textbook">\u6559\u6750</button><button class="filter-option ' + (state.scope === "extra" ? "active" : "") + '" data-scope="extra">\u62D3\u5C55</button></div></div><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u90E8</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div></div><div class="search-results-heading"><h2>\u67E5\u8BE2\u7ED3\u679C</h2><span>' + result.length + ' \u9879</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '"><div class="search-result-title">' + esc(item.title) + '</div><div class="search-result-meta">' + (esc(scopeName(item.scopeType)) + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.gradeLabel)) + '</div><p class="search-result-summary">' + esc(item.excerpt) + "</p></article>").join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3></div>') + "</div></div></main>" + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<div class="search-page"><h1>\u67E5\u8BE2</h1><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8F93\u5165\u7BC7\u540D\u3001\u4F5C\u8005\u6216\u6B63\u6587"><button class="search-submit">\u67E5\u8BE2</button></form><div class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u6765\u6E90</span><div class="filter-options"><button class="filter-option ' + (state.scope === "all" ? "active" : "") + '" data-scope="all">\u5168\u90E8</button><button class="filter-option ' + (state.scope === "textbook" ? "active" : "") + '" data-scope="textbook">\u6559\u6750</button><button class="filter-option ' + (state.scope === "extra" ? "active" : "") + '" data-scope="extra">\u62D3\u5C55</button></div></div><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u90E8</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div></div><div class="search-results-heading"><h2>\u67E5\u8BE2\u7ED3\u679C</h2><span>' + result.length + ' \u9879</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '"><div class="search-result-title">' + esc(item.title) + '</div><div class="search-result-meta">' + (esc(scopeName(item.scopeType)) + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.gradeLabel)) + '</div><p class="search-result-summary">' + esc(item.excerpt) + "</p></article>").join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3></div>') + "</div></div></main>" + nav();
   }
   function favoritesView() {
     const list = items.filter((i) => state.favorites.has(i.id));
@@ -7085,7 +7129,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function historyView() {
     const list = state.history.map((id) => items.find((i) => i.id === id)).filter(Boolean);
-    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><h1>\u5386\u53F2\u67E5\u770B</h1>' + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.categoryName) + " \xB7 " + esc(i.gradeLabel) + "</span></div></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u6682\u65E0\u6D4F\u89C8\u8BB0\u5F55</h2><p>\u6253\u5F00\u8FC7\u7684\u5185\u5BB9\u4F1A\u6309\u6700\u65B0\u67E5\u770B\u987A\u5E8F\u663E\u793A\u5728\u8FD9\u91CC\u3002</p><button class="btn" data-go="home">\u53BB\u6D4F\u89C8</button></div>') + "</div></main>" + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + '<div class="collection-page"><div class="collection-head"><div><h1>\u5386\u53F2</h1><p>\u6700\u8FD1\u9605\u8BFB</p></div><div class="collection-actions">' + (state.historyUndo ? '<button class="text-action undo-action" data-history-undo>\u64A4\u9500</button>' : "") + (list.length ? '<button class="text-action" data-history-clear>\u6E05\u7A7A</button>' : "") + "</div></div>" + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="collection-index">' + icon("history", 17) + '</div><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + esc(i.categoryName) + " \xB7 " + esc(i.gradeLabel) + '</span></div><button class="history-remove" data-history-remove="' + esc(i.id) + '" aria-label="\u5220\u9664\u8FD9\u6761\u5386\u53F2">' + icon("close", 17) + "</button></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u6682\u65E0\u6D4F\u89C8\u8BB0\u5F55</h2><button class="btn" data-go="home">\u53BB\u9605\u8BFB</button></div>') + "</div></main>" + nav();
   }
   function openItem(id) {
     state.itemId = id;
@@ -7120,8 +7164,20 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   document.addEventListener("click", (event) => {
     if (event.target.closest(".card-play, .video-card")) return;
-    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only]");
+    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-toggle-filters]");
     if (!el) return;
+    if (el.dataset.toggleFilters !== void 0) {
+      const panel = document.querySelector("#filters-panel");
+      panel.classList.toggle("collapsed");
+      el.setAttribute("aria-expanded", String(!panel.classList.contains("collapsed")));
+      return;
+    }
+    if (el.dataset.historyRemove) {
+      event.stopPropagation();
+      return removeHistory(el.dataset.historyRemove);
+    }
+    if (el.dataset.historyClear !== void 0) return clearHistory();
+    if (el.dataset.historyUndo !== void 0) return undoHistory();
     if (el.dataset.fav) return toggleFavorite(el.dataset.fav, event);
     if (el.dataset.open) return openItem(el.dataset.open);
     if (el.dataset.grade !== void 0) return updateFilter({ grade: el.dataset.grade });

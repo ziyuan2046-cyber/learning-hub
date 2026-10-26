@@ -1,4 +1,4 @@
-const CACHE = 'guoxue-20261026-v13-history';
+const CACHE = 'guoxue-20261026-v14-redesign-audio';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   './assets/icon-192.png', './assets/icon-512.png'
