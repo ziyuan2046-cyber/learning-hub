@@ -1627,23 +1627,34 @@
    * 笔画示意：楷体真实笔画轮廓。
    * 数据 m = [scale, tx, ty]，已按正方形视框等比缩放并居中，笔形不变形。
    */
+  /**
+   * 字形/笔画示意。
+   *  data.vb = [x,y,w,h]  -> 用 viewBox 裁切（偏旁部件，保持原字形不变形）
+   *  data.m  = [s, tx, ty] -> 等比缩放并居中（笔画）
+   */
+  var __glyphSeq = 0;
+
+  /**
+   * 字形/笔画示意。
+   *  data.vb = [x,y,w,h]  -> 用 clipPath 真正裁出该部件（保持原字形不变形）
+   *  data.m  = [s, tx, ty] -> 等比缩放并居中（笔画）
+   */
   function glyphHtml(glyph, data) {
-    if (data && data.d) {
+    if (data && data.d && data.vb) {
+      var v = data.vb;
+      var id = 'gc' + (++__glyphSeq);
+      return '<div class="glyph-cell">' +
+        '<svg viewBox="' + v.join(' ') + '" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
+        '<defs><clipPath id="' + id + '"><rect x="' + v[0] + '" y="' + v[1] +
+        '" width="' + v[2] + '" height="' + v[3] + '"/></clipPath></defs>' +
+        '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero" clip-path="url(#' + id + ')"/>' +
+        '</svg></div>';
+    }
+    if (data && data.d && data.m) {
       var m = data.m;
-      if (m && m.length === 3) {
-        return '<div class="glyph-cell">' +
-          '<svg viewBox="0 0 100 100" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
-          '<g transform="translate(' + m[1] + ',' + m[2] + ') scale(' + m[0] + ')">' +
-          '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero"/></g></svg></div>';
-      }
-      // 兼容旧格式
-      var t = data.t || [0.09, 512, 512];
-      var sx, sy, cx, cy;
-      if (t.length >= 4) { sx = t[0]; sy = t[1]; cx = t[2]; cy = t[3]; }
-      else { sx = sy = t[0]; cx = t[1]; cy = t[2]; }
       return '<div class="glyph-cell">' +
         '<svg viewBox="0 0 100 100" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
-        '<g transform="translate(50,50) scale(' + sx + ',' + sy + ') translate(' + (-cx) + ',' + (-cy) + ')">' +
+        '<g transform="translate(' + m[1] + ',' + m[2] + ') scale(' + m[0] + ')">' +
         '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero"/></g></svg></div>';
     }
     if (!glyph) return '<div class="glyph-cell"></div>';
