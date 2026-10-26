@@ -456,7 +456,8 @@
       cells[k].classList.toggle('on', k === i);
     }
     var on = $('charGrid').querySelector('.cell.on');
-    if (on && on.scrollIntoView) on.scrollIntoView({ block: 'nearest' });
+    // 首次进入页面时不要滚动，否则会把顶部的标题和「返回主页」按钮推出视野
+    if (on && on.scrollIntoView && !firstSelect) on.scrollIntoView({ block: 'nearest' });
 
     drawDemo();
     drawSeq();
@@ -468,10 +469,13 @@
     if (state.gridOpen) renderGridModal();
 
     if (state.autoPlay) playCurrent();
-    // 手机上字表占满屏，选字后需要把写字卡片带进视野，否则看不到任何变化
-    if (!state.modalOpen && !state.gridOpen) revealCard();
+    // 手机上字表占满屏，选字后需要把写字卡片带进视野，否则看不到任何变化。
+    // 但首次进入页面时不滚动，否则会把顶部标题与「返回主页」按钮推出视野。
+    if (firstSelect) { firstSelect = false; }
+    else if (!state.modalOpen && !state.gridOpen) revealCard();
   }
 
+  var firstSelect = true;   // 首次选字（页面初始化）不触发滚动
   var lastReveal = 0;
   function revealCard() {
     var now = Date.now();
