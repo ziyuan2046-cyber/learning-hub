@@ -1,5 +1,6 @@
 import { categories, grades, items, lessonItems, extraItems, classicItems, searchItems } from './data.js';
 import { icon } from './icons.js';
+import { glossary } from './glossary-data.js';
 
 const app = document.querySelector('#app');
 const KEYS = { favorites: 'guoxue-favorites-v4', read: 'guoxue-read-v4', prefs: 'guoxue-prefs-v4' };
@@ -56,7 +57,7 @@ function topSearch() {
 }
 function nav() {
   const active = v => state.view === v ? 'active' : '';
-  return '<nav class="bottom-nav"><button class="nav-item ' + active('home') + '" data-go="home">' + icon('home', 20) + '<span>首页</span></button><button class="nav-item ' + active('search') + '" data-go="search">' + icon('search', 20) + '<span>查询</span></button><button class="nav-fab" data-go="random" aria-label="随机">' + icon('sparkle', 21) + '</button><button class="nav-item ' + active('favorites') + '" data-go="favorites">' + icon('heart', 20) + '<span>收藏</span></button></nav>';
+  return '<nav class="bottom-nav"><button class="nav-item ' + active('home') + '" data-go="home">' + icon('home', 20) + '<span>首页</span></button><button class="nav-item ' + active('search') + '" data-go="search">' + icon('search', 20) + '<span>查询</span></button><button class="nav-fab" data-go="random" aria-label="随机打开一篇">' + icon('shuffle', 19) + '<span>随机</span></button><button class="nav-item ' + active('favorites') + '" data-go="favorites">' + icon('heart', 20) + '<span>收藏</span></button></nav>';
 }
 function sourceTabs() {
   const tabs = [{ id:'textbook', label:'教材内容', count:lessonItems.length }, { id:'extra', label:'课外拓展', count:extraItems.length }, { id:'classics', label:'国学经典', count:classicItems.length }];
@@ -101,7 +102,12 @@ function splitLines(text) { return String(text || '').split(/\n+/).filter(Boolea
 function splitPairs(item) { const a = splitLines(item.excerpt), b = splitLines(item.pinyin); return a.map((text, i) => ({ text, pinyin: b[i] || '' })); }
 function videoBlock(item) {
   if (item.category === 'idiom' || !item.video) return '';
-  return '<section class="video-section"><div class="video-head"><span class="video-label">' + icon('play', 16) + '对应视频</span><span class="video-series">' + esc(item.video.season) + ' · 第' + item.video.episode + '集</span></div><button class="video-card" data-play="' + esc(item.id) + '"><span class="video-cover">' + icon('play', 26) + '</span><span class="video-info"><b>在页面播放</b><span>' + esc(item.video.title) + '</span></span>' + icon('chevron', 18) + '</button><a class="video-open" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">在哔哩哔哩打开 ' + icon('external', 15) + '</a></section>';
+  return '<section class="video-section"><div class="video-head"><span class="video-label">' + icon('play', 16) + '对应视频</span><span class="video-series">' + esc(item.video.season) + ' · 第' + item.video.episode + '集</span></div><button class="video-card" data-play="' + esc(item.id) + '"><span class="video-cover">' + icon('play', 22) + '</span><span class="video-info"><b>点击播放</b><span>' + esc(item.video.title) + '</span></span></button><a class="video-open" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">' + icon('external', 14) + ' 在哔哩哔哩打开</a></section>';
+}
+function glossaryBlock(item) {
+  const terms = glossary[item.title] || [];
+  if (!terms.length || item.category === 'idiom') return '';
+  return '<section class="reader-glossary"><h2>重点字词</h2><dl>' + terms.slice(0, 4).map(([word, meaning]) => '<div class="glossary-item"><dt>' + esc(word) + '</dt><dd>' + esc(meaning) + '</dd></div>').join('') + '</dl></section>';
 }
 function detailView() {
   const item = items.find(i => i.id === state.itemId); if (!item) return homeView();
@@ -109,11 +115,11 @@ function detailView() {
   const isIdiom = item.category === 'idiom';
   return '<main class="page-enter detail-page mobile-page">' + topbar() +
     '<div class="breadcrumb"><button data-go="home">首页</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + '</span><span>/</span><span>' + esc(item.categoryName) + '</span></div>' +
-    '<article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏">' + icon('heart', 21) + '</button></div><h1>' + esc(item.title) + '</h1><div class="reader-meta">' + esc(item.dynasty) + ' · ' + esc(item.author) + '</div><div class="reader-source">' + esc(item.sourceLabel) + ' · ' + esc(item.gradeLabel) + '</div></header>' +
+    '<article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏">' + icon('heart', 21) + '</button></div><h1>' + esc(item.title) + '</h1><div class="reader-author">' + esc(item.author) + '</div><div class="reader-meta">' + esc(item.dynasty) + ' · ' + esc(item.gradeLabel) + '</div></header>' +
     '<div class="reader-audio"><button class="audio-button" data-speak="text" id="speak-btn">' + icon('volume', 19) + ' ' + (isIdiom ? '读释义' : '读原文') + '</button>' + (item.meaning ? '<button class="audio-button audio-secondary" data-speak="meaning" id="meaning-speak-btn">' + icon('volume', 19) + ' ' + (isIdiom ? '读例句' : '读译文') + '</button>' : '') + '<audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio></div>' +
     '<section class="reader-text"><div class="reader-label">' + (isIdiom ? '释义' : '原文') + ' · 拼音</div>' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</section>' +
     (item.meaning ? '<section class="reader-meaning"><h2>' + (isIdiom ? '释义与例句' : '译文') + '</h2><p>' + esc(item.meaning) + '</p></section>' : '') +
-    (item.appreciation ? '<section class="reader-note"><h2>赏析</h2><p>' + esc(item.appreciation) + '</p></section>' : '') + videoBlock(item) + '</article></main>' + nav();
+    glossaryBlock(item) + (item.appreciation ? '<section class="reader-note"><h2>赏析</h2><p>' + esc(item.appreciation) + '</p></section>' : '') + videoBlock(item) + '</article></main>' + nav();
 }
 
 let currentAudio = null;
