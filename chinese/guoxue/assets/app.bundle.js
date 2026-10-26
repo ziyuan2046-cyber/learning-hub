@@ -1,2854 +1,5368 @@
 (() => {
-  // assets/grade1.js
-  var grade1 = [
-    {
-      id: "poetry-g1-jiangnan",
-      grade: 1,
-      category: "poetry",
-      title: "\u6C5F\u5357",
-      author: "\u6C49\u4E50\u5E9C",
-      dynasty: "\u6C49",
-      excerpt: "\u6C5F\u5357\u53EF\u91C7\u83B2\uFF0C\u83B2\u53F6\u4F55\u7530\u7530\u3002\n\u9C7C\u620F\u83B2\u53F6\u95F4\u3002\n\u9C7C\u620F\u83B2\u53F6\u4E1C\uFF0C\u9C7C\u620F\u83B2\u53F6\u897F\uFF0C\n\u9C7C\u620F\u83B2\u53F6\u5357\uFF0C\u9C7C\u620F\u83B2\u53F6\u5317\u3002",
-      pinyin: "ji\u0101ng n\xE1n k\u011B c\u01CEi li\xE1n\uFF0Cli\xE1n y\xE8 h\xE9 ti\xE1n ti\xE1n\u3002\ny\xFA x\xEC li\xE1n y\xE8 ji\u0101n\u3002\ny\xFA x\xEC li\xE1n y\xE8 d\u014Dng\uFF0Cy\xFA x\xEC li\xE1n y\xE8 x\u012B\uFF0C\ny\xFA x\xEC li\xE1n y\xE8 n\xE1n\uFF0Cy\xFA x\xEC li\xE1n y\xE8 b\u011Bi\u3002",
-      summary: "\u4E00\u9996\u6E05\u65B0\u6D3B\u6CFC\u7684\u6C49\u4E50\u5E9C\u6C11\u6B4C\u3002\u91C7\u83B2\u4EBA\u62E8\u5F00\u7530\u7530\u8377\u53F6\uFF0C\u9C7C\u513F\u5728\u83B2\u53F6\u95F4\u81EA\u7531\u5B09\u620F\uFF0C\u4E1C\u897F\u5357\u5317\u56DB\u4E2A\u65B9\u5411\u53CD\u590D\u541F\u5531\uFF0C\u50CF\u4E00\u9996\u8F7B\u5FEB\u7684\u52B3\u52A8\u6B4C\u3002",
-      meaning: "\u6C5F\u5357\u53C8\u5230\u4E86\u91C7\u83B2\u7684\u5B63\u8282\uFF0C\u8377\u53F6\u6328\u6328\u6324\u6324\uFF0C\u591A\u4E48\u8302\u76DB\u3002\u9C7C\u513F\u5728\u83B2\u53F6\u95F4\u6E38\u6765\u6E38\u53BB\uFF1A\u4E00\u4F1A\u513F\u6E38\u5230\u4E1C\u8FB9\uFF0C\u4E00\u4F1A\u513F\u6E38\u5230\u897F\u8FB9\uFF0C\u4E00\u4F1A\u513F\u6E38\u5230\u5357\u8FB9\uFF0C\u4E00\u4F1A\u513F\u6E38\u5230\u5317\u8FB9\u3002",
-      appreciation: "\u5168\u8BD7\u6CA1\u6709\u76F4\u63A5\u5199\u4EBA\uFF0C\u5374\u5904\u5904\u80FD\u542C\u89C1\u91C7\u83B2\u4EBA\u7684\u6B4C\u58F0\u3002\u91CD\u590D\u7684\u53E5\u5F0F\u548C\u65B9\u4F4D\u8BCD\uFF0C\u8BA9\u753B\u9762\u50CF\u955C\u5934\u4E00\u6837\u79FB\u52A8\uFF0C\u8BFB\u8D77\u6765\u660E\u5FEB\u3001\u7075\u52A8\u3002",
-      keywords: ["\u91C7\u83B2", "\u8377\u53F6", "\u9C7C\u513F", "\u6C11\u6B4C"],
-      tags: ["\u6C49\u4E50\u5E9C", "\u5199\u666F", "\u6C11\u6B4C"],
-      image: "poetry-lotus",
-      videoQuery: "\u6C5F\u5357 \u6C49\u4E50\u5E9C \u513F\u7AE5 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g1-yonge",
-      grade: 1,
-      category: "poetry",
-      title: "\u548F\u9E45",
-      author: "\u9A86\u5BBE\u738B",
-      dynasty: "\u5510",
-      excerpt: "\u9E45\uFF0C\u9E45\uFF0C\u9E45\uFF0C\u66F2\u9879\u5411\u5929\u6B4C\u3002\n\u767D\u6BDB\u6D6E\u7EFF\u6C34\uFF0C\u7EA2\u638C\u62E8\u6E05\u6CE2\u3002",
-      pinyin: "\xE9\uFF0C\xE9\uFF0C\xE9\uFF0Cq\u016B xi\xE0ng xi\xE0ng ti\u0101n g\u0113\u3002\nb\xE1i m\xE1o f\xFA l\u01DC shu\u01D0\uFF0Ch\xF3ng zh\u01CEng b\u014D q\u012Bng b\u014D\u3002",
-      summary: "\u76F8\u4F20\u662F\u9A86\u5BBE\u738B\u4E03\u5C81\u65F6\u6240\u4F5C\u3002\u8BD7\u4EBA\u6293\u4F4F\u767D\u9E45\u7684\u53EB\u58F0\u3001\u5F2F\u9888\u3001\u767D\u6BDB\u3001\u7EA2\u638C\u548C\u7EFF\u6C34\u6E05\u6CE2\uFF0C\u5199\u51FA\u4E86\u4E00\u53EA\u9C9C\u4EAE\u53EF\u7231\u7684\u9E45\u3002",
-      meaning: "\u9E45\u5440\u9E45\uFF0C\u5F2F\u7740\u8116\u5B50\u671D\u5929\u6B22\u53EB\u3002\u96EA\u767D\u7684\u7FBD\u6BDB\u6D6E\u5728\u78A7\u7EFF\u7684\u6C34\u9762\u4E0A\uFF0C\u7EA2\u8272\u7684\u811A\u638C\u62E8\u52A8\u6E05\u6E05\u7684\u6C34\u6CE2\u3002",
-      appreciation: "\u201C\u767D\u6BDB\u201D\u5BF9\u201C\u7EFF\u6C34\u201D\uFF0C\u201C\u7EA2\u638C\u201D\u5BF9\u201C\u6E05\u6CE2\u201D\uFF0C\u989C\u8272\u9C9C\u660E\uFF0C\u52A8\u9759\u76F8\u886C\u3002\u77ED\u77ED\u5341\u516B\u4E2A\u5B57\uFF0C\u5C31\u753B\u51FA\u4E86\u4E00\u5E45\u6709\u58F0\u6709\u8272\u7684\u6C60\u5858\u9E45\u620F\u56FE\u3002",
-      keywords: ["\u767D\u9E45", "\u6C60\u5858", "\u989C\u8272", "\u89C2\u5BDF"],
-      tags: ["\u548F\u7269", "\u5199\u666F", "\u7AE5\u8DA3"],
-      image: "poetry-goose",
-      videoQuery: "\u548F\u9E45 \u9A86\u5BBE\u738B \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g1-minnong",
-      grade: 1,
-      category: "poetry",
-      title: "\u60AF\u519C\uFF08\u5176\u4E8C\uFF09",
-      author: "\u674E\u7EC5",
-      dynasty: "\u5510",
-      excerpt: "\u9504\u79BE\u65E5\u5F53\u5348\uFF0C\u6C57\u6EF4\u79BE\u4E0B\u571F\u3002\n\u8C01\u77E5\u76D8\u4E2D\u9910\uFF0C\u7C92\u7C92\u7686\u8F9B\u82E6\u3002",
-      pinyin: "ch\xFA h\xE9 r\xEC d\u0101ng w\u01D4\uFF0Ch\xE0n d\u012B h\xE9 xi\xE0 t\u01D4\u3002\nshu\xED zh\u012B p\xE1n zh\u014Dng c\u0101n\uFF0Cl\xEC l\xEC ji\u0113 x\u012Bn k\u01D4\u3002",
-      summary: "\u8BD7\u4EBA\u5728\u70C8\u65E5\u5F53\u7A7A\u7684\u6B63\u5348\u770B\u89C1\u519C\u6C11\u9504\u79BE\uFF0C\u6C57\u6C34\u4E00\u6EF4\u6EF4\u843D\u8FDB\u6CE5\u571F\uFF0C\u7531\u6B64\u60F3\u5230\u7897\u4E2D\u7684\u6BCF\u4E00\u7C92\u7C73\u90FD\u6765\u4E4B\u4E0D\u6613\u3002",
-      meaning: "\u519C\u6C11\u5728\u6B63\u5348\u7684\u70C8\u65E5\u4E0B\u7ED9\u79BE\u82D7\u677E\u571F\u9664\u8349\uFF0C\u6C57\u6C34\u6EF4\u843D\u5230\u79BE\u82D7\u4E0B\u7684\u6CE5\u571F\u91CC\u3002\u6709\u8C01\u77E5\u9053\u76D8\u4E2D\u7684\u996D\u98DF\uFF0C\u6BCF\u4E00\u7C92\u90FD\u51DD\u7ED3\u7740\u519C\u6C11\u7684\u8F9B\u82E6\uFF1F",
-      appreciation: "\u524D\u4E24\u53E5\u5199\u773C\u524D\u52B3\u4F5C\uFF0C\u540E\u4E24\u53E5\u5199\u5FC3\u4E2D\u8FFD\u95EE\u3002\u6CA1\u6709\u590D\u6742\u8F9E\u85FB\uFF0C\u5374\u628A\u201C\u73CD\u60DC\u7CAE\u98DF\u201D\u7684\u9053\u7406\u5199\u5F97\u6C89\u7538\u7538\u3002",
-      keywords: ["\u519C\u6C11", "\u7CAE\u98DF", "\u52B3\u52A8", "\u73CD\u60DC"],
-      tags: ["\u60AF\u519C", "\u52B3\u52A8", "\u60DC\u7CAE"],
-      image: "poetry-farmer",
-      videoQuery: "\u60AF\u519C \u9504\u79BE\u65E5\u5F53\u5348 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g1-gulangyuexing",
-      grade: 1,
-      category: "poetry",
-      title: "\u53E4\u6717\u6708\u884C\uFF08\u8282\u9009\uFF09",
-      author: "\u674E\u767D",
-      dynasty: "\u5510",
-      excerpt: "\u5C0F\u65F6\u4E0D\u8BC6\u6708\uFF0C\u547C\u4F5C\u767D\u7389\u76D8\u3002\n\u53C8\u7591\u7476\u53F0\u955C\uFF0C\u98DE\u5728\u9752\u4E91\u7AEF\u3002",
-      pinyin: "xi\u01CEo sh\xED b\xF9 sh\xED yu\xE8\uFF0Ch\u016B zu\xF2 b\xE1i y\xF9 p\xE1n\u3002\ny\xF2u y\xED y\xE1o t\xE1i j\xECng\uFF0Cf\u0113i z\xE0i q\u012Bng y\xFAn du\u0101n\u3002",
-      summary: "\u674E\u767D\u56DE\u5FC6\u7AE5\u5E74\u773C\u4E2D\u7684\u6708\u4EAE\uFF1A\u5706\u5706\u7684\u50CF\u767D\u7389\u76D8\uFF0C\u53C8\u50CF\u4ED9\u5BAB\u91CC\u7684\u955C\u5B50\u98DE\u4E0A\u4E91\u7AEF\uFF0C\u5145\u6EE1\u5929\u771F\u5947\u5999\u7684\u60F3\u8C61\u3002",
-      meaning: "\u5C0F\u65F6\u5019\u4E0D\u8BA4\u8BC6\u6708\u4EAE\uFF0C\u628A\u5B83\u53EB\u4F5C\u767D\u7389\u76D8\u3002\u53C8\u6000\u7591\u5B83\u662F\u7476\u53F0\u4E0A\u7684\u4ED9\u955C\uFF0C\u98DE\u5728\u9752\u4E91\u4E4B\u4E0A\u3002",
-      appreciation: "\u4E24\u4E2A\u6BD4\u55BB\u90FD\u7D27\u6263\u6708\u4EAE\u7684\u5706\u4E0E\u4EAE\u3002\u201C\u547C\u201D\u201C\u7591\u201D\u4E24\u4E2A\u52A8\u8BCD\uFF0C\u628A\u513F\u7AE5\u7684\u597D\u5947\u548C\u60F3\u8C61\u5199\u5F97\u6D3B\u7075\u6D3B\u73B0\u3002",
-      keywords: ["\u6708\u4EAE", "\u7AE5\u5E74", "\u767D\u7389\u76D8", "\u60F3\u8C61"],
-      tags: ["\u674E\u767D", "\u6708\u4EAE", "\u60F3\u8C61"],
-      image: "poetry-moon",
-      videoQuery: "\u53E4\u6717\u6708\u884C \u674E\u767D \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "idiom-g1-shouzhudaitu",
-      grade: 1,
-      category: "idiom",
-      title: "\u5B88\u682A\u5F85\u5154",
-      author: "\u300A\u97E9\u975E\u5B50\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u5B8B\u4EBA\u6709\u8015\u8005\uFF0C\u7530\u4E2D\u6709\u682A\u3002\u5154\u8D70\u89E6\u682A\uFF0C\u6298\u9888\u800C\u6B7B\u3002\u56E0\u91CA\u5176\u8012\u800C\u5B88\u682A\uFF0C\u5180\u590D\u5F97\u5154\u3002\u5154\u4E0D\u53EF\u590D\u5F97\uFF0C\u800C\u8EAB\u4E3A\u5B8B\u56FD\u7B11\u3002",
-      pinyin: "s\xF2ng r\xE9n y\u01D2u g\u0113ng zh\u011B\uFF0Cti\xE1n zh\u014Dng y\u01D2u zh\u016B\u3002t\xF9 z\u01D2u ch\xF9 zh\u016B\uFF0Czh\xE9 j\u01D0ng \xE9r s\u01D0\u3002y\u012Bn sh\xEC q\xED l\u011Bi \xE9r sh\u01D2u zh\u016B\uFF0Cj\xEC f\xF9 d\xE9 t\xF9\u3002t\xF9 b\xF9 k\u011B f\xF9 d\xE9\uFF0C\xE9r sh\u0113n w\xE9i s\xF2ng gu\xF3 xi\xE0o\u3002",
-      summary: "\u5B8B\u56FD\u519C\u592B\u5076\u7136\u6361\u5230\u4E00\u53EA\u649E\u6811\u6869\u800C\u6B7B\u7684\u5154\u5B50\uFF0C\u4ECE\u6B64\u653E\u4E0B\u519C\u5177\u5B88\u7740\u6811\u6869\uFF0C\u5E0C\u671B\u518D\u5F97\u5230\u5154\u5B50\uFF0C\u7ED3\u679C\u4E00\u65E0\u6240\u83B7\u3002",
-      meaning: "\u5B8B\u56FD\u6709\u4E2A\u519C\u592B\uFF0C\u7530\u91CC\u6709\u4E00\u622A\u6811\u6869\u3002\u4E00\u53EA\u5154\u5B50\u5954\u8DD1\u65F6\u649E\u4E0A\u6811\u6869\uFF0C\u6298\u65AD\u8116\u5B50\u6B7B\u4E86\u3002\u519C\u592B\u4FBF\u653E\u4E0B\u519C\u5177\u5B88\u7740\u6811\u6869\uFF0C\u5E0C\u671B\u518D\u6361\u5230\u5154\u5B50\u3002\u5154\u5B50\u6CA1\u6709\u518D\u5F97\u5230\uFF0C\u4ED6\u81EA\u5DF1\u5374\u6210\u4E86\u5B8B\u56FD\u4EBA\u7684\u7B11\u67C4\u3002",
-      appreciation: "\u6545\u4E8B\u7528\u4E00\u6B21\u5076\u7136\u548C\u957F\u671F\u7B49\u5F85\u5F62\u6210\u5F3A\u70C8\u5BF9\u6BD4\uFF0C\u63D0\u9192\u6211\u4EEC\uFF1A\u628A\u5076\u7136\u5F53\u6210\u5FC5\u7136\uFF0C\u4E0D\u80AF\u4ED8\u51FA\u65B0\u7684\u52AA\u529B\uFF0C\u5C31\u4F1A\u9519\u5931\u771F\u6B63\u8BE5\u505A\u7684\u4E8B\u3002",
-      keywords: ["\u6811\u6869", "\u5154\u5B50", "\u519C\u592B", "\u5076\u7136", "\u4FA5\u5E78"],
-      tags: ["\u5BD3\u8A00\u6210\u8BED", "\u505A\u4E8B", "\u52E4\u52C9"],
-      image: "idiom-rabbit",
-      videoQuery: "\u5B88\u682A\u5F85\u5154 \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "idiom-g1-wangyangbudao",
-      grade: 1,
-      category: "idiom",
-      title: "\u4EA1\u7F8A\u8865\u7262",
-      author: "\u300A\u6218\u56FD\u7B56\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u89C1\u5154\u800C\u987E\u72AC\uFF0C\u672A\u4E3A\u665A\u4E5F\uFF1B\u4EA1\u7F8A\u800C\u8865\u7262\uFF0C\u672A\u4E3A\u8FDF\u4E5F\u3002",
-      pinyin: "ji\xE0n t\xF9 \xE9r g\xF9 qu\u01CEn\uFF0Cw\xE8i w\xE9i w\u01CEn y\u011B\uFF1Bw\xE1ng y\xE1ng \xE9r b\u01D4 l\xE1o\uFF0Cw\xE8i w\xE9i ch\xED y\u011B\u3002",
-      summary: "\u7F8A\u4E22\u4E86\u4EE5\u540E\u4FEE\u8865\u7F8A\u5708\uFF0C\u8FD8\u4E0D\u7B97\u592A\u665A\u3002\u5B83\u544A\u8BC9\u4EBA\u4EEC\uFF1A\u53D1\u73B0\u95EE\u9898\u548C\u6F0F\u6D1E\u540E\u53CA\u65F6\u8865\u6551\uFF0C\u4ECD\u80FD\u907F\u514D\u66F4\u5927\u7684\u635F\u5931\u3002",
-      meaning: "\u770B\u89C1\u5154\u5B50\u518D\u56DE\u5934\u5524\u730E\u72D7\uFF0C\u8FD8\u4E0D\u7B97\u665A\uFF1B\u7F8A\u4E22\u5931\u540E\u518D\u4FEE\u8865\u7F8A\u5708\uFF0C\u4E5F\u8FD8\u4E0D\u7B97\u8FDF\u3002",
-      appreciation: "\u8FD9\u4E2A\u6210\u8BED\u7684\u91CD\u70B9\u4E0D\u662F\u201C\u5DF2\u7ECF\u5931\u53BB\u201D\uFF0C\u800C\u662F\u201C\u9A6C\u4E0A\u884C\u52A8\u201D\u3002\u627F\u8BA4\u9519\u8BEF\u3001\u53CA\u65F6\u6539\u6B63\uFF0C\u6BD4\u4E00\u5473\u61CA\u6094\u66F4\u6709\u4EF7\u503C\u3002",
-      keywords: ["\u7F8A\u5708", "\u8865\u6551", "\u53CA\u65F6", "\u6539\u9519"],
-      tags: ["\u6210\u8BED", "\u6539\u9519", "\u5904\u4E8B"],
-      image: "idiom-sheep",
-      videoQuery: "\u4EA1\u7F8A\u8865\u7262 \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "fable-g1-huliheputao",
-      grade: 1,
-      category: "fable",
-      title: "\u72D0\u72F8\u548C\u8461\u8404",
-      author: "\u4F0A\u7D22\u5BD3\u8A00",
-      dynasty: "\u53E4\u5E0C\u814A",
-      excerpt: "\u4E00\u53EA\u9965\u997F\u7684\u72D0\u72F8\u770B\u89C1\u8461\u8404\u67B6\u4E0A\u6302\u7740\u4E00\u4E32\u4E32\u8461\u8404\u3002\u5B83\u8DF3\u4E86\u4E00\u6B21\u53C8\u4E00\u6B21\uFF0C\u5374\u600E\u4E48\u4E5F\u591F\u4E0D\u7740\u3002\u6700\u540E\u5B83\u8BF4\uFF1A\u201C\u8FD9\u4E9B\u8461\u8404\u80AF\u5B9A\u662F\u9178\u7684\u3002\u201D",
-      pinyin: "y\u012B zh\u012B j\u012B \xE8 de h\xFA li k\xE0n ji\xE0n p\xFA tao ji\xE0 sh\xE0ng gu\xE0 zhe y\u012B chu\xE0n chu\xE0n p\xFA tao\u3002t\u0101 ti\xE0o le y\u012B c\xEC y\xF2u y\u012B c\xEC\uFF0Cqu\xE8 z\u011Bn me y\u011B g\xF2u b\xF9 zh\xE1o\u3002zu\xEC h\xF2u t\u0101 shu\u014D\uFF1A\u201Czh\xE8 xi\u0113 p\xFA tao k\u011Bn d\xECng sh\xEC su\u0101n de\u3002\u201D",
-      summary: "\u72D0\u72F8\u591F\u4E0D\u7740\u8461\u8404\uFF0C\u4FBF\u8BF4\u8461\u8404\u662F\u9178\u7684\u3002\u6545\u4E8B\u8BBD\u523A\u4E86\u5F97\u4E0D\u5230\u67D0\u6837\u4E1C\u897F\u65F6\uFF0C\u5C31\u8D2C\u4F4E\u5B83\u3001\u4E3A\u81EA\u5DF1\u627E\u501F\u53E3\u7684\u5FC3\u6001\u3002",
-      meaning: "\u72D0\u72F8\u60F3\u5403\u8461\u8404\u5374\u591F\u4E0D\u5230\uFF0C\u4E8E\u662F\u7528\u201C\u8461\u8404\u5F88\u9178\u201D\u6765\u5B89\u6170\u81EA\u5DF1\u3002\u540E\u6765\u4EBA\u4EEC\u7528\u201C\u9178\u8461\u8404\u5FC3\u7406\u201D\u5F62\u5BB9\u56E0\u4E3A\u5F97\u4E0D\u5230\u800C\u6545\u610F\u8D2C\u4F4E\u3002",
-      appreciation: "\u6545\u4E8B\u77ED\u5C0F\uFF0C\u8F6C\u6298\u5F88\u6E05\u695A\u3002\u72D0\u72F8\u524D\u540E\u7684\u8BF4\u6CD5\u66B4\u9732\u4E86\u5B83\u771F\u6B63\u7684\u56F0\u96BE\uFF1A\u4E0D\u662F\u8461\u8404\u9178\uFF0C\u800C\u662F\u81EA\u5DF1\u6CA1\u6709\u627E\u5230\u529E\u6CD5\u3002",
-      keywords: ["\u72D0\u72F8", "\u8461\u8404", "\u501F\u53E3", "\u5FC3\u7406"],
-      tags: ["\u4F0A\u7D22\u5BD3\u8A00", "\u8BDA\u5B9E", "\u5FC3\u6001"],
-      image: "fable-fox",
-      videoQuery: "\u72D0\u72F8\u548C\u8461\u8404 \u5BD3\u8A00\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "sanzi-g1-renzhichu",
-      grade: 1,
-      category: "sanzi",
-      title: "\u4EBA\u4E4B\u521D",
-      author: "\u300A\u4E09\u5B57\u7ECF\u300B",
-      dynasty: "\u5357\u5B8B",
-      excerpt: "\u4EBA\u4E4B\u521D\uFF0C\u6027\u672C\u5584\u3002\u6027\u76F8\u8FD1\uFF0C\u4E60\u76F8\u8FDC\u3002\n\u82DF\u4E0D\u6559\uFF0C\u6027\u4E43\u8FC1\u3002\u6559\u4E4B\u9053\uFF0C\u8D35\u4EE5\u4E13\u3002",
-      pinyin: "r\xE9n zh\u012B ch\u016B\uFF0Cx\xECng b\u011Bn sh\xE0n\u3002x\xECng xi\u0101ng j\xECn\uFF0Cx\xED xi\u0101ng yu\u01CEn\u3002\ng\u01D2u b\xF9 ji\xE0o\uFF0Cx\xECng n\u01CEi qi\u0101n\u3002ji\xE0o zh\u012B d\xE0o\uFF0Cgu\xEC y\u01D0 zhu\u0101n\u3002",
-      summary: "\u5F00\u7BC7\u8C08\u4EBA\u7684\u672C\u6027\u4E0E\u540E\u5929\u5B66\u4E60\uFF1A\u4EBA\u521A\u51FA\u751F\u65F6\u5929\u6027\u5584\u826F\uFF0C\u5F7C\u6B64\u7684\u6027\u60C5\u76F8\u8FD1\uFF0C\u540E\u6765\u56E0\u4E3A\u73AF\u5883\u548C\u4E60\u60EF\u4E0D\u540C\u800C\u4EA7\u751F\u5DEE\u522B\u3002",
-      meaning: "\u4EBA\u521A\u51FA\u751F\u7684\u65F6\u5019\uFF0C\u672C\u6027\u662F\u5584\u826F\u7684\u3002\u5929\u6027\u672C\u6765\u76F8\u5DEE\u4E0D\u8FDC\uFF0C\u540E\u6765\u56E0\u4E3A\u5B66\u4E60\u548C\u73AF\u5883\u4E0D\u540C\uFF0C\u624D\u6E10\u6E10\u6709\u4E86\u5F88\u5927\u5DEE\u522B\u3002\u5982\u679C\u4E0D\u597D\u597D\u6559\u80B2\uFF0C\u5584\u826F\u7684\u672C\u6027\u5C31\u4F1A\u6539\u53D8\u3002\u6559\u80B2\u7684\u65B9\u6CD5\uFF0C\u6700\u91CD\u8981\u7684\u662F\u4E13\u5FC3\u4E00\u81F4\u3002",
-      appreciation: "\u6587\u5B57\u91C7\u7528\u4E09\u5B57\u4E00\u987F\u7684\u8282\u594F\uFF0C\u4FBF\u4E8E\u8BF5\u8BFB\u3002\u5B83\u5F3A\u8C03\u540E\u5929\u6559\u80B2\u548C\u4E60\u60EF\u7684\u91CD\u8981\uFF0C\u4E5F\u63D0\u9192\u5B66\u4E60\u8005\u8981\u4E13\u6CE8\u3001\u6709\u6052\u5FC3\u3002",
-      keywords: ["\u672C\u6027", "\u6559\u80B2", "\u4E60\u60EF", "\u4E13\u5FC3"],
-      tags: ["\u4E09\u5B57\u7ECF", "\u542F\u8499", "\u6559\u80B2"],
-      image: "classic-books",
-      videoQuery: "\u4E09\u5B57\u7ECF \u4EBA\u4E4B\u521D \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "lunyu-g1-xueer",
-      grade: 1,
-      category: "lunyu",
-      title: "\u5B66\u800C\u65F6\u4E60\u4E4B",
-      author: "\u300A\u8BBA\u8BED\u300B",
-      dynasty: "\u6625\u79CB",
-      excerpt: "\u5B50\u66F0\uFF1A\u201C\u5B66\u800C\u65F6\u4E60\u4E4B\uFF0C\u4E0D\u4EA6\u8BF4\u4E4E\uFF1F\u6709\u670B\u81EA\u8FDC\u65B9\u6765\uFF0C\u4E0D\u4EA6\u4E50\u4E4E\uFF1F\u4EBA\u4E0D\u77E5\u800C\u4E0D\u6120\uFF0C\u4E0D\u4EA6\u541B\u5B50\u4E4E\uFF1F\u201D",
-      pinyin: "z\u01D0 yu\u0113\uFF1A\u201Cxu\xE9 \xE9r sh\xED x\xED zh\u012B\uFF0Cb\xF9 y\xEC yu\xE8 h\u016B\uFF1Fy\u01D2u p\xE9ng z\xEC yu\u01CEn f\u0101ng l\xE1i\uFF0Cb\xF9 y\xEC l\xE8 h\u016B\uFF1Fr\xE9n b\xF9 zh\u012B \xE9r b\xF9 y\xF9n\uFF0Cb\xF9 y\xEC j\u016Bn z\u01D0 h\u016B\uFF1F\u201D",
-      summary: "\u300A\u8BBA\u8BED\u300B\u5F00\u7BC7\u8C08\u8BBA\u5B66\u4E60\u3001\u670B\u53CB\u548C\u81EA\u6211\u4FEE\u517B\u3002\u5B66\u4E60\u540E\u6309\u65F6\u6E29\u4E60\u5E76\u5B9E\u8DF5\uFF0C\u670B\u53CB\u4ECE\u8FDC\u65B9\u6765\u76F8\u805A\uFF0C\u522B\u4EBA\u4E0D\u4E86\u89E3\u81EA\u5DF1\u4E5F\u4E0D\u751F\u6C14\uFF0C\u90FD\u662F\u503C\u5F97\u5FEB\u4E50\u7684\u4E8B\u3002",
-      meaning: "\u5B54\u5B50\u8BF4\uFF1A\u201C\u5B66\u4E60\u4E86\u77E5\u8BC6\u5E76\u6309\u65F6\u6E29\u4E60\u3001\u5B9E\u8DF5\uFF0C\u4E0D\u4E5F\u5F88\u6109\u5FEB\u5417\uFF1F\u6709\u5FD7\u540C\u9053\u5408\u7684\u670B\u53CB\u4ECE\u8FDC\u65B9\u6765\uFF0C\u4E0D\u4E5F\u5F88\u5FEB\u4E50\u5417\uFF1F\u522B\u4EBA\u4E0D\u4E86\u89E3\u6211\uFF0C\u6211\u5374\u4E0D\u607C\u6012\uFF0C\u4E0D\u4E5F\u662F\u541B\u5B50\u5417\uFF1F\u201D",
-      appreciation: "\u4E09\u53E5\u8BDD\u4ECE\u201C\u5B66\u201D\u5230\u201C\u53CB\u201D\u518D\u5230\u201C\u4FEE\u8EAB\u201D\uFF0C\u5C42\u5C42\u5C55\u5F00\u3002\u5B83\u544A\u8BC9\u6211\u4EEC\uFF0C\u5B66\u4E60\u7684\u5FEB\u4E50\u6765\u81EA\u53CD\u590D\u5B9E\u8DF5\uFF0C\u771F\u6B63\u7684\u4FEE\u517B\u4E5F\u4F53\u73B0\u5728\u88AB\u8BEF\u89E3\u65F6\u7684\u4ECE\u5BB9\u3002",
-      keywords: ["\u5B66\u4E60", "\u6E29\u4E60", "\u670B\u53CB", "\u541B\u5B50"],
-      tags: ["\u8BBA\u8BED", "\u5B54\u5B50", "\u5B66\u4E60"],
-      image: "classic-lunyu",
-      videoQuery: "\u8BBA\u8BED \u5B66\u800C\u65F6\u4E60\u4E4B \u513F\u7AE5 \u8BB2\u89E3"
-    },
-    {
-      id: "dizigui-g1-fumu",
-      grade: 1,
-      category: "dizigui",
-      title: "\u7236\u6BCD\u547C",
-      author: "\u300A\u5F1F\u5B50\u89C4\u300B",
-      dynasty: "\u6E05",
-      excerpt: "\u7236\u6BCD\u547C\uFF0C\u5E94\u52FF\u7F13\u3002\u7236\u6BCD\u547D\uFF0C\u884C\u52FF\u61D2\u3002\n\u7236\u6BCD\u6559\uFF0C\u987B\u656C\u542C\u3002\u7236\u6BCD\u8D23\uFF0C\u987B\u987A\u627F\u3002",
-      pinyin: "f\xF9 m\u01D4 h\u016B\uFF0Cy\xECng w\xF9 hu\u01CEn\u3002f\xF9 m\u01D4 m\xECng\uFF0Cx\xEDng w\xF9 l\u01CEn\u3002\nf\xF9 m\u01D4 ji\xE0o\uFF0Cx\u016B j\xECng t\u012Bng\u3002f\xF9 m\u01D4 z\xE9\uFF0Cx\u016B sh\xF9n ch\xE9ng\u3002",
-      summary: "\u300A\u5F1F\u5B50\u89C4\u300B\u4E2D\u5173\u4E8E\u5B5D\u656C\u7236\u6BCD\u7684\u57FA\u672C\u8981\u6C42\uFF1A\u7236\u6BCD\u547C\u5524\u8981\u53CA\u65F6\u56DE\u5E94\uFF0C\u7236\u6BCD\u4EA4\u4EE3\u7684\u4E8B\u60C5\u8981\u8BA4\u771F\u53BB\u505A\uFF0C\u6559\u5BFC\u548C\u8D23\u5907\u65F6\u8981\u606D\u656C\u542C\u53D6\u3002",
-      meaning: "\u7236\u6BCD\u53EB\u4F60\u7684\u65F6\u5019\uFF0C\u8981\u8D76\u5FEB\u7B54\u5E94\uFF0C\u4E0D\u8981\u6162\u6162\u541E\u541E\u3002\u7236\u6BCD\u8BA9\u4F60\u505A\u4E8B\uFF0C\u8981\u7ACB\u523B\u884C\u52A8\uFF0C\u4E0D\u8981\u5077\u61D2\u3002\u7236\u6BCD\u6559\u5BFC\u4F60\u65F6\uFF0C\u8981\u606D\u656C\u5730\u542C\uFF1B\u7236\u6BCD\u8D23\u5907\u4F60\u65F6\uFF0C\u8981\u865A\u5FC3\u63A5\u53D7\u3002",
-      appreciation: "\u53E5\u5B50\u7B80\u77ED\u6574\u9F50\uFF0C\u50CF\u4E00\u9996\u884C\u4E3A\u6B4C\u3002\u5B83\u5F3A\u8C03\u7684\u4E0D\u4EC5\u662F\u6709\u793C\u8C8C\uFF0C\u66F4\u662F\u628A\u5C0A\u91CD\u843D\u5B9E\u5728\u53CA\u65F6\u56DE\u5E94\u3001\u8BA4\u771F\u884C\u52A8\u8FD9\u4E9B\u5C0F\u4E8B\u4E0A\u3002",
-      keywords: ["\u7236\u6BCD", "\u5B5D\u987A", "\u793C\u8C8C", "\u884C\u52A8"],
-      tags: ["\u5F1F\u5B50\u89C4", "\u5B5D\u4EB2", "\u4E60\u60EF"],
-      image: "classic-family",
-      videoQuery: "\u5F1F\u5B50\u89C4 \u7236\u6BCD\u547C \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "qianziwen-g1-tiandixuanhuang",
-      grade: 1,
-      category: "qianziwen",
-      title: "\u5929\u5730\u7384\u9EC4",
-      author: "\u5468\u5174\u55E3",
-      dynasty: "\u5357\u671D\u6881",
-      excerpt: "\u5929\u5730\u7384\u9EC4\uFF0C\u5B87\u5B99\u6D2A\u8352\u3002\n\u65E5\u6708\u76C8\u6603\uFF0C\u8FB0\u5BBF\u5217\u5F20\u3002",
-      pinyin: "ti\u0101n d\xEC xu\xE1n hu\xE1ng\uFF0Cy\u01D4 zh\xF2u h\xF3ng hu\u0101ng\u3002\nr\xEC yu\xE8 y\xEDng z\xE8\uFF0Cch\xE9n xi\xF9 li\xE8 zh\u0101ng\u3002",
-      summary: "\u300A\u5343\u5B57\u6587\u300B\u5F00\u7BC7\u5199\u5929\u5730\u5B87\u5B99\uFF1A\u5929\u7A7A\u9752\u9ED1\uFF0C\u5927\u5730\u9EC4\u8272\uFF1B\u65E5\u6708\u6709\u5706\u6709\u7F3A\uFF0C\u661F\u8FB0\u5E03\u6EE1\u5929\u7A7A\u3002\u77ED\u77ED\u5341\u516D\u5B57\uFF0C\u6253\u5F00\u4E86\u8BA4\u8BC6\u4E16\u754C\u7684\u5927\u95E8\u3002",
-      meaning: "\u5929\u7A7A\u662F\u9752\u9ED1\u8272\u7684\uFF0C\u5927\u5730\u662F\u9EC4\u8272\u7684\u3002\u5B87\u5B99\u8FBD\u9614\u65E0\u8FB9\uFF0C\u8FDC\u53E4\u65F6\u4EE3\u4E00\u7247\u82CD\u832B\u3002\u592A\u9633\u6709\u6B63\u6709\u659C\uFF0C\u6708\u4EAE\u6709\u5706\u6709\u7F3A\uFF0C\u661F\u8FB0\u6574\u9F50\u5730\u6392\u5217\u5728\u5929\u7A7A\u4E2D\u3002",
-      appreciation: "\u56DB\u5B57\u4E00\u53E5\uFF0C\u5BF9\u4ED7\u5DE5\u6574\uFF0C\u628A\u5929\u5730\u3001\u5B87\u5B99\u3001\u65E5\u6708\u3001\u661F\u8FB0\u6536\u5165\u4E00\u5E45\u5927\u753B\u9762\u3002\u8BFB\u7684\u65F6\u5019\u53EF\u60F3\u8C61\u62AC\u5934\u671B\u5929\uFF0C\u611F\u53D7\u53E4\u4EBA\u5BF9\u81EA\u7136\u7684\u89C2\u5BDF\u3002",
-      keywords: ["\u5929\u5730", "\u5B87\u5B99", "\u65E5\u6708", "\u661F\u8FB0"],
-      tags: ["\u5343\u5B57\u6587", "\u81EA\u7136", "\u542F\u8499"],
-      image: "classic-cosmos",
-      videoQuery: "\u5343\u5B57\u6587 \u5929\u5730\u7384\u9EC4 \u513F\u7AE5 \u8BF5\u8BFB"
-    }
-  ];
+  // assets/pack-data.js
+  var packData = {
+    "lesson": [
+      {
+        "id": "pack-1-\u4E0A-poem-0",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u548F\u9E45",
+        "author": "\u9A86\u5BBE\u738B",
+        "dynasty": "\u5510",
+        "excerpt": "\u9E45\uFF0C\u9E45\uFF0C\u9E45\uFF0C\n\u66F2\u9879\u5411\u5929\u6B4C\u3002\n\u767D\u6BDB\u6D6E\u7EFF\u6C34\uFF0C\n\u7EA2\u638C\u62E8\u6E05\u6CE2\u3002",
+        "pinyin": "\xE9\uFF0C \xE9\uFF0C \xE9\uFF0C\nq\u016B xi\xE0ng xi\xE0ng ti\u0101n g\u0113\u3002\nb\xE1i m\xE1o f\xFA l\u01DC shu\u01D0\uFF0C\nh\xF3ng zh\u01CEng b\u014D q\u012Bng b\u014D\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9E45\u5440\u9E45\uFF0C\u5F2F\u7740\u8116\u5B50\u671D\u5929\u7A7A\u6B4C\u5531\u3002\u96EA\u767D\u7684\u7FBD\u6BDB\u6D6E\u5728\u78A7\u7EFF\u7684\u6C34\u9762\u4E0A\uFF0C\u7EA2\u8272\u7684\u811A\u638C\u62E8\u52A8\u7740\u6E05\u6E05\u7684\u6C34\u6CE2\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 1,
+          "bvid": "BV15N4y1v7DF",
+          "url": "https://www.bilibili.com/bangumi/play/ep810539",
+          "title": "\u300A\u548F\u9E45\u300B\u90FD\u4F1A\u80CC\uFF0C\u4F46\u80CC\u540E\u7684\u6545\u4E8B\u4F60\u77E5\u9053\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0A-poem-1",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u753B",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u8FDC\u770B\u5C71\u6709\u8272\uFF0C\n\u8FD1\u542C\u6C34\u65E0\u58F0\u3002\n\u6625\u53BB\u82B1\u8FD8\u5728\uFF0C\n\u4EBA\u6765\u9E1F\u4E0D\u60CA\u3002",
+        "pinyin": "yu\u01CEn k\xE0n sh\u0101n y\u01D2u s\xE8\uFF0C\nj\xECn t\u012Bng shu\u01D0 w\xFA sh\u0113ng\u3002\nch\u016Bn q\xF9 hu\u0101 h\xE1i z\xE0i\uFF0C\nr\xE9n l\xE1i ni\u01CEo b\xF9 j\u012Bng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8FDC\u770B\u5C71\u5CAD\u8272\u5F69\u9C9C\u660E\uFF0C\u8D70\u8FD1\u542C\u6D41\u6C34\u5374\u542C\u4E0D\u5230\u58F0\u97F3\u3002\u6625\u5929\u8FC7\u53BB\u4E86\uFF0C\u82B1\u513F\u4F9D\u7136\u5F00\u653E\uFF1B\u4EBA\u8D70\u8FD1\u4E86\uFF0C\u9E1F\u513F\u4E5F\u4E0D\u60CA\u98DE\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 29,
+          "bvid": "BV1C94y1N7Sb",
+          "url": "https://www.bilibili.com/bangumi/play/ep811458",
+          "title": "\u5343\u767E\u5E74\u6765\u8FD9\u9996\u300A\u753B\u300B\u7684\u4F5C\u8005\u5230\u5E95\u662F\u8C01\uFF1F"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0A-poem-2",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u60AF\u519C\uFF08\u5176\u4E8C\uFF09",
+        "author": "\u674E\u7EC5",
+        "dynasty": "\u5510",
+        "excerpt": "\u9504\u79BE\u65E5\u5F53\u5348\uFF0C\n\u6C57\u6EF4\u79BE\u4E0B\u571F\u3002\n\u8C01\u77E5\u76D8\u4E2D\u9910\uFF0C\n\u7C92\u7C92\u7686\u8F9B\u82E6\u3002",
+        "pinyin": "ch\xFA h\xE9 r\xEC d\u0101ng w\u01D4\uFF0C\nh\xE0n d\u012B h\xE9 xi\xE0 t\u01D4\u3002\nshu\xED zh\u012B p\xE1n zh\u014Dng c\u0101n\uFF0C\nl\xEC l\xEC ji\u0113 x\u012Bn k\u01D4\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u519C\u6C11\u5728\u6B63\u5348\u7684\u70C8\u65E5\u4E0B\u9504\u5730\uFF0C\u6C57\u6C34\u4E00\u6EF4\u6EF4\u843D\u8FDB\u79BE\u82D7\u4E0B\u7684\u6CE5\u571F\u3002\u6709\u8C01\u77E5\u9053\u76D8\u4E2D\u7684\u996D\u98DF\uFF0C\u6BCF\u4E00\u7C92\u90FD\u9971\u542B\u7740\u519C\u6C11\u7684\u8F9B\u82E6\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 3,
+          "bvid": "BV1LK4y1r7b6",
+          "url": "https://www.bilibili.com/bangumi/play/ep810541",
+          "title": "\u674E\u7EC5\u5199\u4E0B\u300A\u60AF\u519C\u300B\u7684\u80CC\u540E\u6709\u4EC0\u4E48\u6837\u7684\u6545\u4E8B\uFF1F"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0A-poem-3",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u6C5F\u5357",
+        "author": "\u6C49\u4E50\u5E9C",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u6C5F\u5357\u53EF\u91C7\u83B2\uFF0C\n\u83B2\u53F6\u4F55\u7530\u7530\u3002\n\u9C7C\u620F\u83B2\u53F6\u95F4\u3002\n\u9C7C\u620F\u83B2\u53F6\u4E1C\uFF0C\n\u9C7C\u620F\u83B2\u53F6\u897F\uFF0C\n\u9C7C\u620F\u83B2\u53F6\u5357\uFF0C\n\u9C7C\u620F\u83B2\u53F6\u5317\u3002",
+        "pinyin": "ji\u0101ng n\xE1n k\u011B c\u01CEi li\xE1n\uFF0C\nli\xE1n y\xE8 h\xE9 ti\xE1n ti\xE1n\u3002\ny\xFA x\xEC li\xE1n y\xE8 ji\u0101n\u3002\ny\xFA x\xEC li\xE1n y\xE8 d\u014Dng\uFF0C\ny\xFA x\xEC li\xE1n y\xE8 x\u012B\uFF0C\ny\xFA x\xEC li\xE1n y\xE8 n\xE1n\uFF0C\ny\xFA x\xEC li\xE1n y\xE8 b\u011Bi\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6C5F\u5357\u53C8\u5230\u4E86\u91C7\u83B2\u7684\u5B63\u8282\uFF0C\u8377\u53F6\u6328\u6328\u6324\u6324\uFF0C\u591A\u4E48\u8302\u76DB\u3002\u9C7C\u513F\u5728\u83B2\u53F6\u95F4\u6E38\u6765\u6E38\u53BB\uFF1A\u4E00\u4F1A\u513F\u6E38\u5230\u4E1C\u8FB9\uFF0C\u4E00\u4F1A\u513F\u6E38\u5230\u897F\u8FB9\uFF0C\u4E00\u4F1A\u513F\u6E38\u5230\u5357\u8FB9\uFF0C\u4E00\u4F1A\u513F\u6E38\u5230\u5317\u8FB9\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 1,
+          "bvid": "BV1V4421U7mM",
+          "url": "https://www.bilibili.com/bangumi/play/ep829178",
+          "title": "\u201C\u6C49\u4E50\u5E9C\u201D\u5230\u5E95\u662F\u4E2A\u4EC0\u4E48\u673A\u6784\uFF1F"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0A-poem-4",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u53E4\u6717\u6708\u884C\uFF08\u8282\u9009\uFF09",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u5C0F\u65F6\u4E0D\u8BC6\u6708\uFF0C\n\u547C\u4F5C\u767D\u7389\u76D8\u3002\n\u53C8\u7591\u7476\u53F0\u955C\uFF0C\n\u98DE\u5728\u9752\u4E91\u7AEF\u3002",
+        "pinyin": "xi\u01CEo sh\xED b\xF9 sh\xED yu\xE8\uFF0C\nh\u016B zu\xF2 b\xE1i y\xF9 p\xE1n\u3002\ny\xF2u y\xED y\xE1o t\xE1i j\xECng\uFF0C\nf\u0113i z\xE0i q\u012Bng y\xFAn du\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5C0F\u65F6\u5019\u4E0D\u8BA4\u8BC6\u6708\u4EAE\uFF0C\u628A\u5B83\u53EB\u4F5C\u767D\u7389\u76D8\u3002\u53C8\u6000\u7591\u5B83\u662F\u7476\u53F0\u4E0A\u7684\u955C\u5B50\uFF0C\u98DE\u5230\u4E86\u9752\u4E91\u4E4B\u4E0A\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-1-\u4E0A-poem-5",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u98CE",
+        "author": "\u674E\u5CE4",
+        "dynasty": "\u5510",
+        "excerpt": "\u89E3\u843D\u4E09\u79CB\u53F6\uFF0C\n\u80FD\u5F00\u4E8C\u6708\u82B1\u3002\n\u8FC7\u6C5F\u5343\u5C3A\u6D6A\uFF0C\n\u5165\u7AF9\u4E07\u7AFF\u659C\u3002",
+        "pinyin": "ji\u011B lu\xF2 s\u0101n qi\u016B y\xE8\uFF0C\nn\xE9ng k\u0101i \xE8r yu\xE8 hu\u0101\u3002\ngu\xF2 ji\u0101ng qi\u0101n ch\u01D0 l\xE0ng\uFF0C\nr\xF9 zh\xFA w\xE0n g\u0101n xi\xE9\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u98CE\u80FD\u5439\u843D\u6DF1\u79CB\u7684\u6811\u53F6\uFF0C\u4E5F\u80FD\u50AC\u5F00\u4E8C\u6708\u7684\u9C9C\u82B1\uFF1B\u5B83\u63A0\u8FC7\u6C5F\u9762\u65F6\u6380\u8D77\u5343\u5C3A\u5DE8\u6D6A\uFF0C\u5439\u8FDB\u7AF9\u6797\u65F6\u8BA9\u4E07\u7AFF\u7AF9\u5B50\u503E\u659C\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-g1-\u4E0A-0",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u4E00\u5FC3\u4E00\u610F",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u7528\u5FC3\u4E13\u4E00\uFF0C\u6CE8\u610F\u529B\u96C6\u4E2D\u3002",
+        "pinyin": "y\xF2ng x\u012Bn zhu\u0101n y\u012B\uFF0C zh\xF9 y\xEC l\xEC j\xED zh\u014Dng\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u8BFB\u4E66\u5199\u5B57\u65F6\uFF0C\u4ED6\u4E00\u5FC3\u4E00\u610F\uFF0C\u8FDE\u7A97\u5916\u7684\u5C0F\u9E1F\u98DE\u8FC7\u4E5F\u6CA1\u6709\u770B\u89C1\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u4E13\u6CE8",
+          "\u8BA4\u771F",
+          "\u5B66\u4E60"
+        ],
+        "related": [
+          "\u4E00\u5FC3\u4E00\u610F",
+          "\u4E13\u5FC3\u81F4\u5FD7"
+        ]
+      },
+      {
+        "id": "idiom-g1-\u4E0A-1",
+        "grade": 1,
+        "volume": "\u4E0A",
+        "title": "\u4E03\u4E0A\u516B\u4E0B",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u5F62\u5BB9\u5FC3\u91CC\u614C\u4E71\u4E0D\u5B89\u3002",
+        "pinyin": "x\xEDng r\xF3ng x\u012Bn l\u01D0 hu\u0101ng lu\xE0n b\xF9 \u0101n\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u7B2C\u4E00\u6B21\u8D70\u4E0A\u8BB2\u53F0\uFF0C\u6211\u5FC3\u91CC\u4E03\u4E0A\u516B\u4E0B\uFF0C\u624B\u5FC3\u90FD\u51FA\u6C57\u4E86\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u7D27\u5F20",
+          "\u5FC3\u60C5",
+          "\u8BB2\u8FF0"
+        ],
+        "related": [
+          "\u4E03\u4E0A\u516B\u4E0B",
+          "\u5FD0\u5FD1\u4E0D\u5B89"
+        ]
+      },
+      {
+        "id": "pack-1-\u4E0B-poem-6",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u6625\u6653",
+        "author": "\u5B5F\u6D69\u7136",
+        "dynasty": "\u5510",
+        "excerpt": "\u6625\u7720\u4E0D\u89C9\u6653\uFF0C\n\u5904\u5904\u95FB\u557C\u9E1F\u3002\n\u591C\u6765\u98CE\u96E8\u58F0\uFF0C\n\u82B1\u843D\u77E5\u591A\u5C11\u3002",
+        "pinyin": "ch\u016Bn mi\xE1n b\xF9 ju\xE9 xi\u01CEo\uFF0C\nch\xF9 ch\xF9 w\xE9n t\xED ni\u01CEo\u3002\ny\xE8 l\xE1i f\u0113ng y\u01D4 sh\u0113ng\uFF0C\nhu\u0101 lu\xF2 zh\u012B du\u014D sh\u01CEo\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6625\u5929\u7761\u5F97\u9999\u751C\uFF0C\u4E0D\u77E5\u4E0D\u89C9\u5929\u5DF2\u7ECF\u4EAE\u4E86\uFF0C\u5230\u5904\u90FD\u80FD\u542C\u89C1\u9E1F\u9E23\u3002\u56DE\u60F3\u591C\u91CC\u98CE\u96E8\u7684\u58F0\u97F3\uFF0C\u4E0D\u77E5\u9053\u6709\u591A\u5C11\u82B1\u513F\u88AB\u6253\u843D\u4E86\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 4,
+          "bvid": "BV1tw411g7QX",
+          "url": "https://www.bilibili.com/bangumi/play/ep810542",
+          "title": "\u4E3A\u4E86\u770B\u5B5F\u6D69\u7136\u5199\u300A\u6625\u6653\u300B\uFF0C\u6211\u4E0D\u60DC\u53D8\u8EAB\u5927\u9EC4\u9E1F"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0B-poem-7",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u5BFB\u9690\u8005\u4E0D\u9047",
+        "author": "\u8D3E\u5C9B",
+        "dynasty": "\u5510",
+        "excerpt": "\u677E\u4E0B\u95EE\u7AE5\u5B50\uFF0C\n\u8A00\u5E08\u91C7\u836F\u53BB\u3002\n\u53EA\u5728\u6B64\u5C71\u4E2D\uFF0C\n\u4E91\u6DF1\u4E0D\u77E5\u5904\u3002",
+        "pinyin": "s\u014Dng xi\xE0 w\xE8n t\xF3ng zi\uFF0C\ny\xE1n sh\u012B c\u01CEi y\xE0o q\xF9\u3002\nzh\u01D0 z\xE0i c\u01D0 sh\u0101n zh\u014Dng\uFF0C\ny\xFAn sh\u0113n b\xF9 zh\u012B ch\xF9\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5728\u677E\u6811\u4E0B\u8BE2\u95EE\u9690\u8005\u7684\u7AE5\u5B50\uFF0C\u7AE5\u5B50\u8BF4\u5E08\u7236\u91C7\u836F\u53BB\u4E86\u3002\u5E08\u7236\u5C31\u5728\u8FD9\u5EA7\u5C71\u91CC\uFF0C\u53EF\u662F\u4E91\u96FE\u592A\u6DF1\uFF0C\u4E0D\u77E5\u9053\u4ED6\u5728\u54EA\u91CC\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 5,
+          "bvid": "BV1aV41197fz",
+          "url": "https://www.bilibili.com/bangumi/play/ep810543",
+          "title": "\u8D3E\u5C9B\u6700\u540E\u627E\u5230\u9690\u8005\u5927\u5E08\u4E86\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0B-poem-8",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u8D60\u6C6A\u4F26",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u674E\u767D\u4E58\u821F\u5C06\u6B32\u884C\uFF0C\n\u5FFD\u95FB\u5CB8\u4E0A\u8E0F\u6B4C\u58F0\u3002\n\u6843\u82B1\u6F6D\u6C34\u6DF1\u5343\u5C3A\uFF0C\n\u4E0D\u53CA\u6C6A\u4F26\u9001\u6211\u60C5\u3002",
+        "pinyin": "l\u01D0 b\xE1i ch\xE9ng zh\u014Du ji\u0101ng y\xF9 x\xEDng\uFF0C\nh\u016B w\xE9n \xE0n sh\xE0ng t\xE0 g\u0113 sh\u0113ng\u3002\nt\xE1o hu\u0101 t\xE1n shu\u01D0 sh\u0113n qi\u0101n ch\u01D0\uFF0C\nb\xF9 j\xED w\u0101ng l\xFAn s\xF2ng w\u01D2 q\xEDng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u674E\u767D\u4E58\u8239\u5C06\u8981\u79BB\u5F00\uFF0C\u5FFD\u7136\u542C\u89C1\u5CB8\u4E0A\u4F20\u6765\u8E0F\u6B4C\u9001\u522B\u7684\u58F0\u97F3\u3002\u6843\u82B1\u6F6D\u7684\u6C34\u5373\u4F7F\u6709\u5343\u5C3A\u6DF1\uFF0C\u4E5F\u6BD4\u4E0D\u4E0A\u6C6A\u4F26\u9001\u6211\u7684\u60C5\u8C0A\u6DF1\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 42,
+          "bvid": "BV19m411U7Wu",
+          "url": "https://www.bilibili.com/bangumi/play/ep815287",
+          "title": "\u5F53\u8111\u6B8B\u7C89\u4E5F\u80FD\u540D\u5782\u9752\u53F2\uFF1F\u5FEB\u6765\u770B\u300A\u8D60\u6C6A\u4F26\u300B\uFF01"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0B-poem-9",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u9759\u591C\u601D",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u5E8A\u524D\u660E\u6708\u5149\uFF0C\n\u7591\u662F\u5730\u4E0A\u971C\u3002\n\u4E3E\u5934\u671B\u660E\u6708\uFF0C\n\u4F4E\u5934\u601D\u6545\u4E61\u3002",
+        "pinyin": "chu\xE1ng qi\xE1n m\xEDng yu\xE8 gu\u0101ng\uFF0C\ny\xED sh\xEC d\xEC sh\xE0ng shu\u0101ng\u3002\nj\u01D4 t\xF3u w\xE0ng m\xEDng yu\xE8\uFF0C\nd\u012B t\xF3u s\u012B g\xF9 xi\u0101ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u660E\u4EAE\u7684\u6708\u5149\u6D12\u5728\u5E8A\u524D\uFF0C\u597D\u50CF\u5730\u4E0A\u94FA\u4E86\u4E00\u5C42\u767D\u971C\u3002\u62AC\u8D77\u5934\u671B\u7740\u5929\u4E0A\u7684\u660E\u6708\uFF0C\u4F4E\u4E0B\u5934\u4FBF\u601D\u5FF5\u8D77\u6545\u4E61\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 15,
+          "bvid": "BV1U5411v7qo",
+          "url": "https://www.bilibili.com/bangumi/play/ep810553",
+          "title": "\u300A\u9759\u591C\u601D\u300B\u90FD\u4F1A\u80CC\uFF0C\u4F46\u4F60\u77E5\u9053\u674E\u767D\u4E3A\u4EC0\u4E48\u5199\u5B83\u5462\uFF1F"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0B-poem-10",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u6C60\u4E0A",
+        "author": "\u767D\u5C45\u6613",
+        "dynasty": "\u5510",
+        "excerpt": "\u5C0F\u5A03\u6491\u5C0F\u8247\uFF0C\n\u5077\u91C7\u767D\u83B2\u56DE\u3002\n\u4E0D\u89E3\u85CF\u8E2A\u8FF9\uFF0C\n\u6D6E\u840D\u4E00\u9053\u5F00\u3002",
+        "pinyin": "xi\u01CEo w\xE1 ch\u0113ng xi\u01CEo t\u01D0ng\uFF0C\nt\u014Du c\u01CEi b\xE1i li\xE1n hu\xED\u3002\nb\xF9 ji\u011B c\xE1ng z\u014Dng j\xEC\uFF0C\nf\xFA p\xEDng y\u012B d\xE0o k\u0101i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E00\u4E2A\u5C0F\u5B69\u6491\u7740\u5C0F\u8239\uFF0C\u5077\u5077\u91C7\u4E86\u767D\u83B2\u56DE\u6765\u3002\u4ED6\u4E0D\u61C2\u5F97\u9690\u85CF\u81EA\u5DF1\u7684\u884C\u8E2A\uFF0C\u6C34\u9762\u7684\u6D6E\u840D\u88AB\u8239\u5206\u5F00\uFF0C\u7559\u4E0B\u4E86\u4E00\u9053\u957F\u957F\u7684\u75D5\u8FF9\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-1-\u4E0B-poem-11",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u5C0F\u6C60",
+        "author": "\u6768\u4E07\u91CC",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6CC9\u773C\u65E0\u58F0\u60DC\u7EC6\u6D41\uFF0C\n\u6811\u9634\u7167\u6C34\u7231\u6674\u67D4\u3002\n\u5C0F\u8377\u624D\u9732\u5C16\u5C16\u89D2\uFF0C\n\u65E9\u6709\u873B\u8713\u7ACB\u4E0A\u5934\u3002",
+        "pinyin": "qu\xE1n y\u01CEn w\xFA sh\u0113ng x\u012B x\xEC li\xFA\uFF0C\nsh\xF9 y\u012Bn zh\xE0o shu\u01D0 \xE0i q\xEDng r\xF3u\u3002\nxi\u01CEo h\xE9 c\xE1i l\xF9 ji\u0101n ji\u0101n ji\u01CEo\uFF0C\nz\u01CEo y\u01D2u q\u012Bng t\xEDng l\xEC sh\xE0ng tou\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6CC9\u773C\u6084\u6084\u6D41\u51FA\u7EC6\u6D41\uFF0C\u6811\u836B\u6620\u5728\u6C34\u9762\uFF1B\u5C0F\u8377\u521A\u9732\u51FA\u5C16\u89D2\uFF0C\u873B\u8713\u5DF2\u505C\u5728\u4E0A\u5934\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 2,
+          "bvid": "BV1Gi421Y7Xv",
+          "url": "https://www.bilibili.com/bangumi/play/ep829179",
+          "title": "\u4EC0\u4E48\u53EB\u53CD\u5DEE\u840C\uFF0C\u770B\u6768\u4E07\u91CC\u5199\u7684\u840C\u840C\u54D2\u7684\u300A\u5C0F\u6C60\u300B\u5427"
+        }
+      },
+      {
+        "id": "pack-1-\u4E0B-poem-12",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u753B\u9E21",
+        "author": "\u5510\u5BC5",
+        "dynasty": "\u660E",
+        "excerpt": "\u5934\u4E0A\u7EA2\u51A0\u4E0D\u7528\u88C1\uFF0C\n\u6EE1\u8EAB\u96EA\u767D\u8D70\u5C06\u6765\u3002\n\u5E73\u751F\u4E0D\u6562\u8F7B\u8A00\u8BED\uFF0C\n\u4E00\u53EB\u5343\u95E8\u4E07\u6237\u5F00\u3002",
+        "pinyin": "t\xF3u sh\xE0ng h\xF3ng gu\u0101n b\xF9 y\xF2ng c\xE1i\uFF0C\nm\u01CEn sh\u0113n xu\u011B b\xE1i z\u01D2u ji\u0101ng l\xE1i\u3002\np\xEDng sh\u0113ng b\xF9 g\u01CEn q\u012Bng y\xE1n y\u01D4\uFF0C\ny\u012B ji\xE0o qi\u0101n m\xE9n w\xE0n h\xF9 k\u0101i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u516C\u9E21\u5934\u4E0A\u7684\u7EA2\u51A0\u4E0D\u7528\u88C1\u526A\uFF0C\u6D51\u8EAB\u96EA\u767D\u5730\u8D70\u8FC7\u6765\u3002\u5B83\u5E73\u65F6\u4E0D\u8F7B\u6613\u9E23\u53EB\uFF0C\u4E00\u53EB\u8D77\u6765\u4FBF\u5524\u5F00\u4E86\u5343\u5BB6\u4E07\u6237\u7684\u95E8\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 3,
+          "bvid": "BV1QH4y1F7N2",
+          "url": "https://www.bilibili.com/bangumi/play/ep829180",
+          "title": "\u4E0D\u9E23\u5219\u5DF2\u4E00\u9E23\u60CA\u4EBA\u7684\u5510\u4F2F\u864E\u5199\u7684\u300A\u753B\u9E21\u300B\u4F60\u77E5\u9053\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "idiom-g1-\u4E0B-2",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u6625\u6696\u82B1\u5F00",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u6625\u5929\u6C14\u5019\u6E29\u6696\uFF0C\u767E\u82B1\u76DB\u5F00\u3002\u5F62\u5BB9\u6625\u5929\u7F8E\u4E3D\u7684\u666F\u8C61\u3002",
+        "pinyin": "ch\u016Bn ti\u0101n q\xEC h\xF2u w\u0113n nu\u01CEn\uFF0C b\u01CEi hu\u0101 sh\xE8ng k\u0101i\u3002 x\xEDng r\xF3ng ch\u016Bn ti\u0101n m\u011Bi l\xEC de j\u01D0ng xi\xE0ng\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u6625\u6696\u82B1\u5F00\u7684\u65F6\u5019\uFF0C\u516C\u56ED\u91CC\u5230\u5904\u90FD\u662F\u8D4F\u82B1\u7684\u4EBA\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u6625\u5929",
+          "\u666F\u8272",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u6625\u6696\u82B1\u5F00",
+          "\u767E\u82B1\u9F50\u653E"
+        ]
+      },
+      {
+        "id": "idiom-g1-\u4E0B-3",
+        "grade": 1,
+        "volume": "\u4E0B",
+        "title": "\u9E1F\u8BED\u82B1\u9999",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u9E1F\u513F\u9E23\u53EB\uFF0C\u82B1\u513F\u98D8\u9999\u3002\u5F62\u5BB9\u6625\u5929\u7F8E\u597D\u7684\u666F\u8C61\u3002",
+        "pinyin": "ni\u01CEo \xE9r m\xEDng ji\xE0o\uFF0C hu\u0101 \xE9r pi\u0101o xi\u0101ng\u3002 x\xEDng r\xF3ng ch\u016Bn ti\u0101n m\u011Bi h\u01CEo de j\u01D0ng xi\xE0ng\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "1\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u6E05\u6668\u7684\u6821\u56ED\u9E1F\u8BED\u82B1\u9999\uFF0C\u8BA9\u4EBA\u5FC3\u60C5\u683C\u5916\u8212\u7545\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u6625\u5929",
+          "\u81EA\u7136",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u9E1F\u8BED\u82B1\u9999",
+          "\u6625\u610F\u76CE\u7136"
+        ]
+      },
+      {
+        "id": "pack-2-\u4E0A-poem-13",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u6885\u82B1",
+        "author": "\u738B\u5B89\u77F3",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u5899\u89D2\u6570\u679D\u6885\uFF0C\n\u51CC\u5BD2\u72EC\u81EA\u5F00\u3002\n\u9065\u77E5\u4E0D\u662F\u96EA\uFF0C\n\u4E3A\u6709\u6697\u9999\u6765\u3002",
+        "pinyin": "qi\xE1ng ji\u01CEo sh\xF9 zh\u012B m\xE9i\uFF0C\nl\xEDng h\xE1n d\xFA z\xEC k\u0101i\u3002\ny\xE1o zh\u012B b\xFA sh\xEC xu\u011B\uFF0C\nw\xE8i y\u01D2u \xE0n xi\u0101ng l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5899\u89D2\u6709\u51E0\u679D\u6885\u82B1\uFF0C\u5728\u4E25\u5BD2\u4E2D\u72EC\u81EA\u5F00\u653E\u3002\u8FDC\u8FDC\u5C31\u77E5\u9053\u90A3\u4E0D\u662F\u96EA\uFF0C\u56E0\u4E3A\u6709\u6DE1\u6DE1\u7684\u6E05\u9999\u98D8\u6765\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 34,
+          "bvid": "BV1V74y1m7en",
+          "url": "https://www.bilibili.com/bangumi/play/ep833975",
+          "title": "\u5927\u5BB0\u76F8\u738B\u5B89\u77F3\u4E3A\u4EC0\u4E48\u4F1A\u5199\u4E00\u9996\u300A\u6885\u82B1\u300B\u6D41\u4F20\u5343\u53E4\u5462"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0A-poem-14",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u5C0F\u513F\u5782\u9493",
+        "author": "\u80E1\u4EE4\u80FD",
+        "dynasty": "\u5510",
+        "excerpt": "\u84EC\u5934\u7A1A\u5B50\u5B66\u5782\u7EB6\uFF0C\n\u4FA7\u5750\u8393\u82D4\u8349\u6620\u8EAB\u3002\n\u8DEF\u4EBA\u501F\u95EE\u9065\u62DB\u624B\uFF0C\n\u6015\u5F97\u9C7C\u60CA\u4E0D\u5E94\u4EBA\u3002",
+        "pinyin": "p\xE9ng t\xF3u zh\xEC zi xu\xE9 chu\xED l\xFAn\uFF0C\nc\xE8 zu\xF2 m\xE9i t\xE1i c\u01CEo y\xECng sh\u0113n\u3002\nl\xF9 r\xE9n ji\xE8 w\xE8n y\xE1o zh\u0101o sh\u01D2u\uFF0C\np\xE0 d\xE9 y\xFA j\u012Bng b\xF9 y\u012Bng r\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E00\u4E2A\u5934\u53D1\u84EC\u4E71\u7684\u5C0F\u5B69\u5728\u5B66\u9493\u9C7C\uFF0C\u4FA7\u8EAB\u5750\u5728\u9752\u82D4\u65C1\uFF0C\u91CE\u8349\u906E\u4F4F\u4E86\u4ED6\u7684\u8EAB\u5B50\u3002\u8DEF\u4EBA\u5411\u4ED6\u95EE\u8DEF\uFF0C\u4ED6\u8FDC\u8FDC\u62DB\u624B\uFF0C\u6015\u60CA\u52A8\u9C7C\u513F\uFF0C\u4E0D\u6562\u7B54\u5E94\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 4,
+          "bvid": "BV1MZ421u7v9",
+          "url": "https://www.bilibili.com/bangumi/play/ep829531",
+          "title": "\u5C0F\u5B69\u54E5\u9493\u9C7C\uFF0C\u9493\u4E0A\u6765\u4EC0\u4E48\u4E86\u5462\uFF1F"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0A-poem-15",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u767B\u9E73\u96C0\u697C",
+        "author": "\u738B\u4E4B\u6DA3",
+        "dynasty": "\u5510",
+        "excerpt": "\u767D\u65E5\u4F9D\u5C71\u5C3D\uFF0C\n\u9EC4\u6CB3\u5165\u6D77\u6D41\u3002\n\u6B32\u7A77\u5343\u91CC\u76EE\uFF0C\n\u66F4\u4E0A\u4E00\u5C42\u697C\u3002",
+        "pinyin": "b\xE1i r\xEC y\u012B sh\u0101n j\u01D0n\uFF0C\nhu\xE1ng h\xE9 r\xF9 h\u01CEi li\xFA\u3002\ny\xF9 qi\xF3ng qi\u0101n l\u01D0 m\xF9\uFF0C\ng\xE8ng sh\xE0ng y\u012B c\xE9ng l\xF3u\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5915\u9633\u6328\u7740\u7FA4\u5C71\u6162\u6162\u843D\u4E0B\uFF0C\u9EC4\u6CB3\u5954\u817E\u7740\u6D41\u5411\u5927\u6D77\u3002\u60F3\u8981\u770B\u5230\u5343\u91CC\u4E4B\u5916\u7684\u666F\u8272\uFF0C\u5C31\u8981\u518D\u767B\u4E0A\u4E00\u5C42\u9AD8\u697C\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 5,
+          "bvid": "BV1nT421k7MF",
+          "url": "https://www.bilibili.com/bangumi/play/ep829532",
+          "title": "\u8BA9\u6211\u770B\u770B\u8C01\u8FD8\u4E0D\u4F1A\u80CC\u300A\u767B\u9E73\u96C0\u697C\u300B"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0A-poem-16",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u671B\u5E90\u5C71\u7011\u5E03",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u65E5\u7167\u9999\u7089\u751F\u7D2B\u70DF\uFF0C\n\u9065\u770B\u7011\u5E03\u6302\u524D\u5DDD\u3002\n\u98DE\u6D41\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\n\u7591\u662F\u94F6\u6CB3\u843D\u4E5D\u5929\u3002",
+        "pinyin": "r\xEC zh\xE0o xi\u0101ng l\xFA sh\u0113ng z\u01D0 y\u0101n\uFF0C\ny\xE1o k\xE0n p\xF9 b\xF9 gu\xE0 qi\xE1n chu\u0101n\u3002\nf\u0113i li\xFA zh\xED xi\xE0 s\u0101n qi\u0101n ch\u01D0\uFF0C\ny\xED sh\xEC y\xEDn h\xE9 lu\xF2 ji\u01D4 ti\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9633\u5149\u7167\u7740\u9999\u7089\u5CF0\uFF0C\u5347\u8D77\u7D2B\u8272\u7684\u4E91\u70DF\uFF0C\u8FDC\u8FDC\u671B\u53BB\uFF0C\u7011\u5E03\u50CF\u4E00\u6761\u767D\u7EC3\u6302\u5728\u5C71\u524D\u3002\u6C34\u6D41\u98DE\u6CFB\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u8BA9\u4EBA\u6000\u7591\u662F\u94F6\u6CB3\u4ECE\u4E5D\u5929\u4E0A\u843D\u4E86\u4E0B\u6765\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 11,
+          "bvid": "BV12e411e7FV",
+          "url": "https://www.bilibili.com/bangumi/play/ep810549",
+          "title": "\u660E\u660E\u53EF\u4EE5\u9760\u989C\u503C\uFF0C\u5374\u504F\u8981\u9760\u624D\u534E\uFF0C\u5199\u7011\u5E03\u7684\u7B2C\u4E00\u4F73\u4F5C\u5C31\u8FD9\u4E48\u8BDE\u751F\u4E86"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0A-poem-17",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u6C5F\u96EA",
+        "author": "\u67F3\u5B97\u5143",
+        "dynasty": "\u5510",
+        "excerpt": "\u5343\u5C71\u9E1F\u98DE\u7EDD\uFF0C\n\u4E07\u5F84\u4EBA\u8E2A\u706D\u3002\n\u5B64\u821F\u84D1\u7B20\u7FC1\uFF0C\n\u72EC\u9493\u5BD2\u6C5F\u96EA\u3002",
+        "pinyin": "qi\u0101n sh\u0101n ni\u01CEo f\u0113i ju\xE9\uFF0C\nw\xE0n j\xECng r\xE9n z\u014Dng mi\xE8\u3002\ng\u016B zh\u014Du su\u014D l\xEC w\u0113ng\uFF0C\nd\xFA di\xE0o h\xE1n ji\u0101ng xu\u011B\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5343\u5C71\u4E07\u5CAD\u770B\u4E0D\u5230\u98DE\u9E1F\uFF0C\u6240\u6709\u5C0F\u8DEF\u4E0A\u90FD\u6CA1\u6709\u4EBA\u7684\u8E2A\u8FF9\u3002\u6C5F\u9762\u4E0A\u53EA\u6709\u4E00\u6761\u5C0F\u8239\uFF0C\u4E00\u4F4D\u62AB\u7740\u84D1\u8863\u3001\u6234\u7740\u6597\u7B20\u7684\u8001\u4EBA\uFF0C\u72EC\u81EA\u5728\u5BD2\u51B7\u7684\u96EA\u6C5F\u4E2D\u9493\u9C7C\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 6,
+          "bvid": "BV1w6421f7CW",
+          "url": "https://www.bilibili.com/bangumi/play/ep829533",
+          "title": "\u67F3\u5B97\u5143\u5728\u6700\u82E6\u95F7\u7684\u65F6\u5019\u5199\u51FA\u4E86\u5B83-\u300A\u6C5F\u96EA\u300B"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0A-poem-18",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u6555\u52D2\u6B4C",
+        "author": "\u5317\u671D\u6C11\u6B4C",
+        "dynasty": "\u5317\u671D",
+        "excerpt": "\u6555\u52D2\u5DDD\uFF0C\u9634\u5C71\u4E0B\uFF0C\n\u5929\u4F3C\u7A79\u5E90\uFF0C\u7B3C\u76D6\u56DB\u91CE\u3002\n\u5929\u82CD\u82CD\uFF0C\u91CE\u832B\u832B\uFF0C\n\u98CE\u5439\u8349\u4F4E\u89C1\u725B\u7F8A\u3002",
+        "pinyin": "ch\xEC l\u0113i chu\u0101n\uFF0C y\u012Bn sh\u0101n xi\xE0\uFF0C\nti\u0101n sh\xEC qi\xF3ng l\xFA\uFF0C l\xF3ng g\xE0i s\xEC y\u011B\u3002\nti\u0101n c\u0101ng c\u0101ng\uFF0C y\u011B m\xE1ng m\xE1ng\uFF0C\nf\u0113ng chu\u012B c\u01CEo d\u012B ji\xE0n ni\xFA y\xE1ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6555\u52D2\u5DDD\u4F4D\u4E8E\u9634\u5C71\u811A\u4E0B\u3002\u5929\u7A7A\u50CF\u5DE8\u5927\u7684\u5E10\u7BF7\uFF0C\u7B3C\u7F69\u7740\u56DB\u9762\u516B\u65B9\u3002\u5929\u82CD\u82CD\uFF0C\u91CE\u832B\u832B\uFF0C\u98CE\u5439\u8349\u4F4E\uFF0C\u9732\u51FA\u6210\u7FA4\u7684\u725B\u7F8A\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 7,
+          "bvid": "BV1VC4y1Y77W",
+          "url": "https://www.bilibili.com/bangumi/play/ep810545",
+          "title": "\u5929\u751F\u827A\u672F\u7EC6\u83CC\u8D85\u591A\u7684\u5C11\u6570\u6C11\u65CF\u540C\u80DE\u521B\u4F5C\u51FA\u7684\u8FD9\u9996\u8BD7\uFF0C\u4F60\u4F1A\u80CC\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0A-poem-19",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u591C\u5BBF\u5C71\u5BFA",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u5371\u697C\u9AD8\u767E\u5C3A\uFF0C\n\u624B\u53EF\u6458\u661F\u8FB0\u3002\n\u4E0D\u6562\u9AD8\u58F0\u8BED\uFF0C\n\u6050\u60CA\u5929\u4E0A\u4EBA\u3002",
+        "pinyin": "w\u0113i l\xF3u g\u0101o b\u01CEi ch\u01D0\uFF0C\nsh\u01D2u k\u011B zh\u0101i x\u012Bng ch\xE9n\u3002\nb\xF9 g\u01CEn g\u0101o sh\u0113ng y\u01D4\uFF0C\nk\u01D2ng j\u012Bng ti\u0101n sh\xE0ng r\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5C71\u4E0A\u5BFA\u697C\u9AD8\u5F97\u4EFF\u4F5B\u6709\u4E00\u767E\u5C3A\uFF0C\u4F38\u624B\u5C31\u80FD\u6458\u4E0B\u661F\u8FB0\u3002\u6211\u4E0D\u6562\u5927\u58F0\u8BF4\u8BDD\uFF0C\u6015\u60CA\u52A8\u4E86\u5929\u4E0A\u7684\u4ED9\u4EBA\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 28,
+          "bvid": "BV1JK4y1q7dt",
+          "url": "https://www.bilibili.com/bangumi/play/ep811457",
+          "title": "\u5565\uFF1F\u674E\u767D\u8FD8\u662F\u5C0F\u5B9D\u5B9D\u7684\u65F6\u5019\u5C31\u5199\u4E86\u300A\u591C\u5BBF\u5C71\u5BFA\u300B\uFF1F"
+        }
+      },
+      {
+        "id": "idiom-g2-\u4E0A-4",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u4E94\u5149\u5341\u8272",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u5F62\u5BB9\u8272\u5F69\u9C9C\u8273\uFF0C\u82B1\u6837\u7E41\u591A\u3002",
+        "pinyin": "x\xEDng r\xF3ng s\xE8 c\u01CEi xi\u0101n y\xE0n\uFF0C hu\u0101 y\xE0ng f\xE1n du\u014D\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u8282\u65E5\u7684\u5E7F\u573A\u4E0A\u6302\u7740\u4E94\u5149\u5341\u8272\u7684\u5F69\u706F\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u989C\u8272",
+          "\u666F\u8272",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u4E94\u5149\u5341\u8272",
+          "\u4E94\u5F69\u7F24\u7EB7"
+        ]
+      },
+      {
+        "id": "idiom-g2-\u4E0A-5",
+        "grade": 2,
+        "volume": "\u4E0A",
+        "title": "\u65E0\u8FB9\u65E0\u9645",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u6CA1\u6709\u8FB9\u9645\uFF0C\u5F62\u5BB9\u975E\u5E38\u8FBD\u9614\u3002",
+        "pinyin": "m\xE9i y\u01D2u bi\u0101n j\xEC\uFF0C x\xEDng r\xF3ng f\u0113i ch\xE1ng li\xE1o ku\xF2\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u7AD9\u5728\u6D77\u8FB9\u671B\u53BB\uFF0C\u84DD\u84DD\u7684\u5927\u6D77\u65E0\u8FB9\u65E0\u9645\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u8FBD\u9614",
+          "\u5927\u6D77",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u65E0\u8FB9\u65E0\u9645",
+          "\u4E00\u671B\u65E0\u9645"
+        ]
+      },
+      {
+        "id": "pack-2-\u4E0B-poem-20",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u548F\u67F3",
+        "author": "\u8D3A\u77E5\u7AE0",
+        "dynasty": "\u5510",
+        "excerpt": "\u78A7\u7389\u5986\u6210\u4E00\u6811\u9AD8\uFF0C\n\u4E07\u6761\u5782\u4E0B\u7EFF\u4E1D\u7EE6\u3002\n\u4E0D\u77E5\u7EC6\u53F6\u8C01\u88C1\u51FA\uFF0C\n\u4E8C\u6708\u6625\u98CE\u4F3C\u526A\u5200\u3002",
+        "pinyin": "b\xEC y\xF9 zhu\u0101ng ch\xE9ng y\u012B sh\xF9 g\u0101o\uFF0C\nw\xE0n ti\xE1o chu\xED xi\xE0 l\u01DC s\u012B t\u0101o\u3002\nb\xF9 zh\u012B x\xEC y\xE8 shu\xED c\xE1i ch\u016B\uFF0C\n\xE8r yu\xE8 ch\u016Bn f\u0113ng sh\xEC ji\u01CEn d\u0101o\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9AD8\u9AD8\u7684\u67F3\u6811\u50CF\u7528\u78A7\u7389\u88C5\u626E\u800C\u6210\uFF0C\u5343\u4E07\u6761\u67F3\u679D\u5782\u4E0B\u6765\uFF0C\u50CF\u7EFF\u8272\u7684\u4E1D\u5E26\u3002\u4E0D\u77E5\u9053\u8FD9\u7EC6\u7EC6\u7684\u67F3\u53F6\u662F\u8C01\u88C1\u526A\u51FA\u6765\u7684\uFF0C\u539F\u6765\u4E8C\u6708\u7684\u6625\u98CE\u5C31\u50CF\u4E00\u628A\u526A\u5200\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 8,
+          "bvid": "BV1ha4y1m7Vp",
+          "url": "https://www.bilibili.com/bangumi/play/ep810546",
+          "title": "\u5316\u8EAB\u5A40\u5A1C\u67F3\u6811\u4ED9\u5973\uFF0C\u6210\u4E3A\u8D3A\u8001\u521B\u4F5C\u300A\u548F\u67F3\u300B\u7684\u7075\u611F\u7F2A\u65AF"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0B-poem-21",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u6751\u5C45",
+        "author": "\u9AD8\u9F0E",
+        "dynasty": "\u6E05",
+        "excerpt": "\u8349\u957F\u83BA\u98DE\u4E8C\u6708\u5929\uFF0C\n\u62C2\u5824\u6768\u67F3\u9189\u6625\u70DF\u3002\n\u513F\u7AE5\u6563\u5B66\u5F52\u6765\u65E9\uFF0C\n\u5FD9\u8D81\u4E1C\u98CE\u653E\u7EB8\u9E22\u3002",
+        "pinyin": "c\u01CEo zh\u01CEng y\u012Bng f\u0113i \xE8r yu\xE8 ti\u0101n\uFF0C\nf\xFA d\u012B y\xE1ng li\u01D4 zu\xEC ch\u016Bn y\u0101n\u3002\n\xE9r t\xF3ng s\xE0n xu\xE9 gu\u012B l\xE1i z\u01CEo\uFF0C\nm\xE1ng ch\xE8n d\u014Dng f\u0113ng f\xE0ng zh\u01D0 yu\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u519C\u5386\u4E8C\u6708\uFF0C\u8349\u6728\u751F\u957F\uFF0C\u9EC4\u83BA\u98DE\u821E\uFF0C\u6768\u67F3\u8F7B\u8F7B\u62C2\u7740\u5824\u5CB8\uFF0C\u597D\u50CF\u9676\u9189\u5728\u6625\u5929\u7684\u70DF\u96FE\u91CC\u3002\u5B69\u5B50\u4EEC\u653E\u5B66\u56DE\u6765\u5F97\u65E9\uFF0C\u6025\u5FD9\u8D81\u7740\u4E1C\u98CE\u653E\u8D77\u4E86\u98CE\u7B5D\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 8,
+          "bvid": "BV1Mf421q785",
+          "url": "https://www.bilibili.com/bangumi/play/ep830239",
+          "title": "\u8C01\u8BF4\u6E05\u671D\u6CA1\u6709\u5927\u8BD7\u4EBA\uFF0C\u9AD8\u9F0E\u7B2C\u4E00\u4E2A\u4E0D\u540C\u610F\uFF01"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0B-poem-22",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u8D4B\u5F97\u53E4\u539F\u8349\u9001\u522B\uFF08\u8282\u9009\uFF09",
+        "author": "\u767D\u5C45\u6613",
+        "dynasty": "\u5510",
+        "excerpt": "\u79BB\u79BB\u539F\u4E0A\u8349\uFF0C\n\u4E00\u5C81\u4E00\u67AF\u8363\u3002\n\u91CE\u706B\u70E7\u4E0D\u5C3D\uFF0C\n\u6625\u98CE\u5439\u53C8\u751F\u3002",
+        "pinyin": "l\xED l\xED yu\xE1n sh\xE0ng c\u01CEo\uFF0C\ny\u012B su\xEC y\u012B k\u016B r\xF3ng\u3002\ny\u011B hu\u01D2 sh\u0101o b\xF9 j\xECn\uFF0C\nch\u016Bn f\u0113ng chu\u012B y\xF2u sh\u0113ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u539F\u91CE\u4E0A\u7684\u8349\u957F\u5F97\u8302\u76DB\uFF0C\u4E00\u5E74\u67AF\u840E\u4E00\u6B21\uFF0C\u53C8\u7E41\u8302\u4E00\u6B21\u3002\u91CE\u706B\u4E5F\u70E7\u4E0D\u5C3D\u5B83\uFF0C\u6625\u98CE\u4E00\u5439\u53C8\u957F\u51FA\u65B0\u82BD\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 9,
+          "bvid": "BV1vT421k7ey",
+          "url": "https://www.bilibili.com/bangumi/play/ep830240",
+          "title": "\u767D\u5C45\u661310\u5C81\u5C31\u5199\u4E86\u300A\u8D4B\u5F97\u53E4\u539F\u8349\u9001\u522B\u300B\uFF1F"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0B-poem-23",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u7EDD\u53E5",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E24\u4E2A\u9EC4\u9E42\u9E23\u7FE0\u67F3\uFF0C\n\u4E00\u884C\u767D\u9E6D\u4E0A\u9752\u5929\u3002\n\u7A97\u542B\u897F\u5CAD\u5343\u79CB\u96EA\uFF0C\n\u95E8\u6CCA\u4E1C\u5434\u4E07\u91CC\u8239\u3002",
+        "pinyin": "li\u01CEng g\xE8 hu\xE1ng l\xED m\xEDng cu\xEC li\u01D4\uFF0C\ny\u012B x\xEDng b\xE1i l\xF9 sh\xE0ng q\u012Bng ti\u0101n\u3002\nchu\u0101ng h\xE1n x\u012B l\u01D0ng qi\u0101n qi\u016B xu\u011B\uFF0C\nm\xE9n p\u014D d\u014Dng w\xFA w\xE0n l\u01D0 chu\xE1n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E24\u53EA\u9EC4\u9E42\u5728\u7FE0\u7EFF\u7684\u67F3\u6811\u4E0A\u9E23\u53EB\uFF0C\u4E00\u884C\u767D\u9E6D\u98DE\u4E0A\u9752\u5929\u3002\u4ECE\u7A97\u53E3\u671B\u53BB\uFF0C\u897F\u5CAD\u4E0A\u79EF\u7740\u5343\u5E74\u4E0D\u5316\u7684\u96EA\uFF1B\u95E8\u524D\u505C\u6CCA\u7740\u4ECE\u4E07\u91CC\u4E4B\u5916\u7684\u4E1C\u5434\u6765\u7684\u8239\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 35,
+          "bvid": "BV1Dp4y1m7Zy",
+          "url": "https://www.bilibili.com/bangumi/play/ep812925",
+          "title": "\u624B\u8868\u88AB\u5077\uFF0C\u8FD8\u597D\u6709\u675C\u752B\u7684\u300A\u7EDD\u53E5\u300B\u629A\u6170\u6211"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0B-poem-24",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u6653\u51FA\u51C0\u6148\u5BFA\u9001\u6797\u5B50\u65B9",
+        "author": "\u6768\u4E07\u91CC",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6BD5\u7ADF\u897F\u6E56\u516D\u6708\u4E2D\uFF0C\n\u98CE\u5149\u4E0D\u4E0E\u56DB\u65F6\u540C\u3002\n\u63A5\u5929\u83B2\u53F6\u65E0\u7A77\u78A7\uFF0C\n\u6620\u65E5\u8377\u82B1\u522B\u6837\u7EA2\u3002",
+        "pinyin": "b\xEC j\xECng x\u012B h\xFA li\xF9 yu\xE8 zh\u014Dng\uFF0C\nf\u0113ng gu\u0101ng b\xF9 y\u01D4 s\xEC sh\xED t\xF3ng\u3002\nji\u0113 ti\u0101n li\xE1n y\xE8 w\xFA qi\xF3ng b\xEC\uFF0C\ny\xECng r\xEC h\xE9 hu\u0101 bi\xE9 y\xE0ng h\xF3ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5230\u5E95\u662F\u516D\u6708\u7684\u897F\u6E56\uFF0C\u98CE\u5149\u548C\u5176\u4ED6\u5B63\u8282\u4E0D\u4E00\u6837\u3002\u78A7\u7EFF\u7684\u83B2\u53F6\u4E00\u76F4\u94FA\u5230\u5929\u8FB9\uFF0C\u671B\u4E0D\u5230\u5934\uFF1B\u8377\u82B1\u5728\u9633\u5149\u7684\u6620\u7167\u4E0B\uFF0C\u663E\u5F97\u683C\u5916\u9C9C\u7EA2\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 10,
+          "bvid": "BV1sb421E7HF",
+          "url": "https://www.bilibili.com/bangumi/play/ep830241",
+          "title": "\u9001\u522B\u8BD7\u5C45\u7136\u5199\u51FA\u4E86\u897F\u6E56\u6781\u81F4\u7684\u7F8E\u666F\uFF1F"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0B-poem-25",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u60AF\u519C\uFF08\u5176\u4E00\uFF09",
+        "author": "\u674E\u7EC5",
+        "dynasty": "\u5510",
+        "excerpt": "\u6625\u79CD\u4E00\u7C92\u7C9F\uFF0C\n\u79CB\u6536\u4E07\u9897\u5B50\u3002\n\u56DB\u6D77\u65E0\u95F2\u7530\uFF0C\n\u519C\u592B\u72B9\u997F\u6B7B\u3002",
+        "pinyin": "ch\u016Bn zh\xF2ng y\u012B l\xEC s\xF9\uFF0C\nqi\u016B sh\u014Du w\xE0n k\u0113 zi\u3002\ns\xEC h\u01CEi w\xFA xi\xE1n ti\xE1n\uFF0C\nn\xF3ng f\u016B y\xF3u \xE8 s\u01D0\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6625\u5929\u64AD\u4E0B\u4E00\u7C92\u79CD\u5B50\uFF0C\u79CB\u5929\u80FD\u6536\u83B7\u5F88\u591A\u7CAE\u98DF\u3002\u5929\u4E0B\u6CA1\u6709\u8352\u5E9F\u7684\u7530\u5730\uFF0C\u519C\u6C11\u5374\u4ECD\u7136\u4F1A\u997F\u6B7B\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 10,
+          "bvid": "BV12C4y1Y7s1",
+          "url": "https://www.bilibili.com/bangumi/play/ep810548",
+          "title": "\u300A\u60AF\u519C\u300B\u5C45\u7136\u8FD8\u6709\u53E6\u4E00\u9996\uFF0C\u674E\u7EC5\u6700\u540E\u771F\u7684\u5FD8\u672C\u4E86\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-2-\u4E0B-poem-26",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u6C5F\u4E0A\u6E14\u8005",
+        "author": "\u8303\u4EF2\u6DF9",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6C5F\u4E0A\u5F80\u6765\u4EBA\uFF0C\n\u4F46\u7231\u9C88\u9C7C\u7F8E\u3002\n\u541B\u770B\u4E00\u53F6\u821F\uFF0C\n\u51FA\u6CA1\u98CE\u6CE2\u91CC\u3002",
+        "pinyin": "ji\u0101ng sh\xE0ng w\u01CEng l\xE1i r\xE9n\uFF0C\nd\xE0n \xE0i l\xFA y\xFA m\u011Bi\u3002\nj\u016Bn k\xE0n y\u012B y\xE8 zh\u014Du\uFF0C\nch\u016B m\xF2 f\u0113ng b\u014D l\u01D0\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6C5F\u4E0A\u6765\u6765\u5F80\u5F80\u7684\u4EBA\uFF0C\u53EA\u559C\u7231\u9C88\u9C7C\u5473\u9053\u9C9C\u7F8E\u3002\u8BF7\u770B\u90A3\u53EA\u5C0F\u5C0F\u7684\u6E14\u8239\uFF0C\u5728\u98CE\u6D6A\u4E2D\u65F6\u9690\u65F6\u73B0\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 37,
+          "bvid": "BV12f421i7Q4",
+          "url": "https://www.bilibili.com/bangumi/play/ep834223",
+          "title": "\u300A\u6C5F\u4E0A\u6E14\u8005\u300B\u90FD\u8BB2\u4E86\u4E9B\u4EC0\u4E48\uFF0C\u4F60\u77E5\u9053\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "idiom-g2-\u4E0B-6",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u4EA1\u7F8A\u8865\u7262",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u7F8A\u4E22\u4E86\u4EE5\u540E\u4FEE\u8865\u7F8A\u5708\uFF0C\u8FD8\u4E0D\u7B97\u665A\u3002\u6BD4\u55BB\u51FA\u4E86\u95EE\u9898\u53CA\u65F6\u8865\u6551\uFF0C\u53EF\u4EE5\u907F\u514D\u66F4\u5927\u7684\u635F\u5931\u3002",
+        "pinyin": "y\xE1ng di\u016B le y\u01D0 h\xF2u xi\u016B b\u01D4 y\xE1ng ju\xE0n\uFF0C h\xE1i b\xF9 su\xE0n w\u01CEn\u3002 b\u01D0 y\xF9 ch\u016B le w\xE8n t\xED j\xED sh\xED b\u01D4 ji\xF9\uFF0C k\u011B y\u01D0 b\xEC mi\u01CEn g\xE8ng d\xE0 de s\u01D4n sh\u012B\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u53D1\u73B0\u4F5C\u4E1A\u4E2D\u7684\u9519\u8BEF\u540E\uFF0C\u4ED6\u9A6C\u4E0A\u6539\u6B63\uFF0C\u771F\u662F\u4EA1\u7F8A\u8865\u7262\uFF0C\u4E3A\u65F6\u672A\u665A\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u5BD3\u8A00",
+          "\u6539\u9519",
+          "\u53CA\u65F6"
+        ],
+        "related": [
+          "\u4EA1\u7F8A\u8865\u7262",
+          "\u77E5\u9519\u5C31\u6539"
+        ]
+      },
+      {
+        "id": "idiom-g2-\u4E0B-7",
+        "grade": 2,
+        "volume": "\u4E0B",
+        "title": "\u63E0\u82D7\u52A9\u957F",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u628A\u79BE\u82D7\u5F80\u4E0A\u62D4\uFF0C\u5E2E\u52A9\u5B83\u751F\u957F\u3002\u6BD4\u55BB\u8FDD\u80CC\u4E8B\u7269\u53D1\u5C55\u89C4\u5F8B\uFF0C\u6025\u4E8E\u6C42\u6210\uFF0C\u53CD\u800C\u628A\u4E8B\u60C5\u5F04\u574F\u3002",
+        "pinyin": "b\u01CE h\xE9 mi\xE1o w\u01CEng sh\xE0ng b\xE1\uFF0C b\u0101ng zh\xF9 t\u0101 sh\u0113ng zh\u01CEng\u3002 b\u01D0 y\xF9 w\xE9i b\xE8i sh\xEC w\xF9 f\u0101 zh\u01CEn gu\u012B l\u01DC\uFF0C j\xED y\xFA qi\xFA ch\xE9ng\uFF0C f\u01CEn \xE9r b\u01CE sh\xEC q\xEDng n\xF2ng hu\xE0i\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "2\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u5B66\u4E60\u8981\u4E00\u6B65\u4E00\u6B65\u6765\uFF0C\u8FDD\u80CC\u89C4\u5F8B\u5730\u63E0\u82D7\u52A9\u957F\uFF0C\u53CD\u800C\u4F1A\u9002\u5F97\u5176\u53CD\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u5BD3\u8A00",
+          "\u89C4\u5F8B",
+          "\u6210\u957F"
+        ],
+        "related": [
+          "\u63E0\u82D7\u52A9\u957F",
+          "\u6025\u4E8E\u6C42\u6210"
+        ]
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-27",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u6240\u89C1",
+        "author": "\u8881\u679A",
+        "dynasty": "\u6E05",
+        "excerpt": "\u7267\u7AE5\u9A91\u9EC4\u725B\uFF0C\n\u6B4C\u58F0\u632F\u6797\u6A3E\u3002\n\u610F\u6B32\u6355\u9E23\u8749\uFF0C\n\u5FFD\u7136\u95ED\u53E3\u7ACB\u3002",
+        "pinyin": "m\xF9 t\xF3ng q\xED hu\xE1ng ni\xFA\uFF0C\ng\u0113 sh\u0113ng zh\xE8n l\xEDn yu\xE8\u3002\ny\xEC y\xF9 b\u01D4 m\xEDng ch\xE1n\uFF0C\nh\u016B r\xE1n b\xEC k\u01D2u l\xEC\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u7267\u7AE5\u9A91\u7740\u9EC4\u725B\uFF0C\u6B4C\u58F0\u5728\u6811\u6797\u4E2D\u56DE\u8361\u3002\u4ED6\u60F3\u8981\u6355\u6349\u9E23\u53EB\u7684\u77E5\u4E86\uFF0C\u5FFD\u7136\u95ED\u4E0A\u5634\uFF0C\u9759\u9759\u5730\u7AD9\u4F4F\u4E86\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-28",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u671B\u6D1E\u5EAD",
+        "author": "\u5218\u79B9\u9521",
+        "dynasty": "\u5510",
+        "excerpt": "\u6E56\u5149\u79CB\u6708\u4E24\u76F8\u548C\uFF0C\n\u6F6D\u9762\u65E0\u98CE\u955C\u672A\u78E8\u3002\n\u9065\u671B\u6D1E\u5EAD\u5C71\u6C34\u7FE0\uFF0C\n\u767D\u94F6\u76D8\u91CC\u4E00\u9752\u87BA\u3002",
+        "pinyin": "h\xFA gu\u0101ng qi\u016B yu\xE8 li\u01CEng xi\u0101ng h\xE9\uFF0C\nt\xE1n mi\xE0n w\xFA f\u0113ng j\xECng w\xE8i m\xF3\u3002\ny\xE1o w\xE0ng d\xF2ng t\xEDng sh\u0101n shu\u01D0 cu\xEC\uFF0C\nb\xE1i y\xEDn p\xE1n l\u01D0 y\u012B q\u012Bng lu\xF3\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6D1E\u5EAD\u6E56\u7684\u6E56\u5149\u4E0E\u79CB\u6708\u4E92\u76F8\u6620\u886C\uFF0C\u6E56\u9762\u6CA1\u6709\u98CE\uFF0C\u5E73\u9759\u5F97\u50CF\u4E00\u9762\u6CA1\u6709\u6253\u78E8\u7684\u94DC\u955C\u3002\u8FDC\u8FDC\u671B\u53BB\uFF0C\u6D1E\u5EAD\u6E56\u5C71\u6C34\u9752\u7FE0\uFF0C\u5C31\u50CF\u767D\u94F6\u76D8\u91CC\u653E\u7740\u4E00\u53EA\u9752\u87BA\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 19,
+          "bvid": "BV15x4y1s7hQ",
+          "url": "https://www.bilibili.com/bangumi/play/ep831815",
+          "title": "\u79CB\u5929\u7684\u6D1E\u5EAD\u6E56\u4E0D\u4F46\u53C8\u300A\u671B\u6D1E\u5EAD\u300B\u8FD8\u6709\u5927\u95F8\u87F9"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-29",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u5C71\u884C",
+        "author": "\u675C\u7267",
+        "dynasty": "\u5510",
+        "excerpt": "\u8FDC\u4E0A\u5BD2\u5C71\u77F3\u5F84\u659C\uFF0C\n\u767D\u4E91\u751F\u5904\u6709\u4EBA\u5BB6\u3002\n\u505C\u8F66\u5750\u7231\u67AB\u6797\u665A\uFF0C\n\u971C\u53F6\u7EA2\u4E8E\u4E8C\u6708\u82B1\u3002",
+        "pinyin": "yu\u01CEn sh\xE0ng h\xE1n sh\u0101n sh\xED j\xECng xi\xE9\uFF0C\nb\xE1i y\xFAn sh\u0113ng ch\xF9 y\u01D2u r\xE9n ji\u0101\u3002\nt\xEDng ch\u0113 zu\xF2 \xE0i f\u0113ng l\xEDn w\u01CEn\uFF0C\nshu\u0101ng y\xE8 h\xF3ng y\xFA \xE8r yu\xE8 hu\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E00\u6761\u77F3\u5F84\u5F2F\u5F2F\u66F2\u66F2\u4F38\u5411\u6DF1\u79CB\u7684\u5C71\u4E0A\uFF0C\u767D\u4E91\u751F\u5904\u9690\u7EA6\u6709\u4EBA\u5BB6\u3002\u505C\u4E0B\u8F66\u6765\uFF0C\u662F\u56E0\u4E3A\u559C\u7231\u508D\u665A\u7684\u67AB\u6797\uFF1B\u7ECF\u971C\u7684\u67AB\u53F6\u7EA2\u5F97\u6BD4\u4E8C\u6708\u7684\u6625\u82B1\u8FD8\u8981\u9C9C\u8273\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 24,
+          "bvid": "BV1NT421r7Um",
+          "url": "https://www.bilibili.com/bangumi/play/ep832348",
+          "title": "\u675C\u7267\u767B\u5C71\u73B0\u5546\u673A\uFF0C\u300A\u5C71\u884C\u300B\u5C31\u8FD9\u4E48\u5199\u51FA\u6765\u4E86"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-30",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u591C\u4E66\u6240\u89C1",
+        "author": "\u53F6\u7ECD\u7FC1",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u8427\u8427\u68A7\u53F6\u9001\u5BD2\u58F0\uFF0C\n\u6C5F\u4E0A\u79CB\u98CE\u52A8\u5BA2\u60C5\u3002\n\u77E5\u6709\u513F\u7AE5\u6311\u4FC3\u7EC7\uFF0C\n\u591C\u6DF1\u7BF1\u843D\u4E00\u706F\u660E\u3002",
+        "pinyin": "xi\u0101o xi\u0101o w\xFA y\xE8 s\xF2ng h\xE1n sh\u0113ng\uFF0C\nji\u0101ng sh\xE0ng qi\u016B f\u0113ng d\xF2ng k\xE8 q\xEDng\u3002\nzh\u012B y\u01D2u \xE9r t\xF3ng ti\u0101o c\xF9 zh\u012B\uFF0C\ny\xE8 sh\u0113n l\xED lu\xF2 y\u012B d\u0113ng m\xEDng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u79CB\u98CE\u5439\u52A8\u68A7\u6850\u53F6\uFF0C\u9001\u6765\u5BD2\u610F\uFF1B\u6C5F\u4E0A\u79CB\u98CE\u89E6\u52A8\u65C5\u4EBA\u7684\u4E61\u60C5\u3002\u77E5\u9053\u6709\u513F\u7AE5\u5728\u6349\u87CB\u87C0\uFF0C\u591C\u6DF1\u4E86\u7BF1\u7B06\u8FB9\u8FD8\u6709\u4E00\u76CF\u706F\u4EAE\u7740\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-31",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u821F\u591C\u4E66\u6240\u89C1",
+        "author": "\u67E5\u614E\u884C",
+        "dynasty": "\u6E05",
+        "excerpt": "\u6708\u9ED1\u89C1\u6E14\u706F\uFF0C\n\u5B64\u5149\u4E00\u70B9\u8424\u3002\n\u5FAE\u5FAE\u98CE\u7C07\u6D6A\uFF0C\n\u6563\u4F5C\u6EE1\u6CB3\u661F\u3002",
+        "pinyin": "yu\xE8 h\u0113i ji\xE0n y\xFA d\u0113ng\uFF0C\ng\u016B gu\u0101ng y\xEC di\u01CEn y\xEDng\u3002\nw\u0113i w\u0113i f\u0113ng c\xF9 l\xE0ng\uFF0C\ns\xE0n zu\xF2 m\u01CEn h\xE9 x\u012Bng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6CA1\u6709\u6708\u4EAE\u7684\u591C\u91CC\uFF0C\u8FDC\u8FDC\u671B\u89C1\u4E00\u76CF\u6E14\u706F\uFF0C\u5B64\u96F6\u96F6\u7684\u5149\u50CF\u8424\u706B\u866B\u4E00\u6837\u3002\u5FAE\u98CE\u5439\u8D77\u7EC6\u6D6A\uFF0C\u706F\u5F71\u6563\u5F00\uFF0C\u597D\u50CF\u6EE1\u6CB3\u90FD\u662F\u661F\u5149\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-32",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u65E9\u53D1\u767D\u5E1D\u57CE",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u671D\u8F9E\u767D\u5E1D\u5F69\u4E91\u95F4\uFF0C\n\u5343\u91CC\u6C5F\u9675\u4E00\u65E5\u8FD8\u3002\n\u4E24\u5CB8\u733F\u58F0\u557C\u4E0D\u4F4F\uFF0C\n\u8F7B\u821F\u5DF2\u8FC7\u4E07\u91CD\u5C71\u3002",
+        "pinyin": "ch\xE1o c\xED b\xE1i d\xEC c\u01CEi y\xFAn ji\u0101n\uFF0C\nqi\u0101n l\u01D0 ji\u0101ng l\xEDng y\u012B r\xEC h\xE1i\u3002\nli\u01CEng \xE0n yu\xE1n sh\u0113ng t\xED b\xFA zh\xF9\uFF0C\nq\u012Bng zh\u014Du y\u01D0 gu\xF2 w\xE0n zh\xF2ng sh\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6E05\u6668\u79BB\u5F00\u5F69\u4E91\u7F2D\u7ED5\u7684\u767D\u5E1D\u57CE\uFF0C\u5343\u91CC\u4E4B\u5916\u7684\u6C5F\u9675\u4E00\u5929\u5C31\u80FD\u5230\u8FBE\u3002\u4E24\u5CB8\u733F\u58F0\u8FD8\u5728\u8033\u8FB9\u56DE\u54CD\uFF0C\u8F7B\u5FEB\u7684\u5C0F\u8239\u5DF2\u7ECF\u9A76\u8FC7\u91CD\u91CD\u9AD8\u5C71\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 45,
+          "bvid": "BV1dS421P7aR",
+          "url": "https://www.bilibili.com/bangumi/play/ep815290",
+          "title": "\u4F60\u77E5\u9053\u8BD7\u4ED9\u674E\u767D\u662F\u5982\u4F55\u5199\u51FA\u300A\u65E9\u53D1\u767D\u5E1D\u57CE\u300B\u7684\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-33",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u9E7F\u67F4",
+        "author": "\u738B\u7EF4",
+        "dynasty": "\u5510",
+        "excerpt": "\u7A7A\u5C71\u4E0D\u89C1\u4EBA\uFF0C\n\u4F46\u95FB\u4EBA\u8BED\u54CD\u3002\n\u8FD4\u666F\u5165\u6DF1\u6797\uFF0C\n\u590D\u7167\u9752\u82D4\u4E0A\u3002",
+        "pinyin": "k\u014Dng sh\u0101n b\xFA ji\xE0n r\xE9n\uFF0C\nd\xE0n w\xE9n r\xE9n y\u01D4 xi\u01CEng\u3002\nf\u01CEn j\u01D0ng r\xF9 sh\u0113n l\xEDn\uFF0C\nf\xF9 zh\xE0o q\u012Bng t\xE1i sh\xE0ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u7A7A\u65F7\u7684\u5C71\u4E2D\u770B\u4E0D\u89C1\u4EBA\uFF0C\u53EA\u542C\u89C1\u8BF4\u8BDD\u58F0\u3002\u5915\u9633\u8FD4\u7167\u8FDB\u5165\u6DF1\u6797\uFF0C\u53C8\u7167\u5728\u9752\u82D4\u4E0A\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 22,
+          "bvid": "BV1Ht4y1o7s1",
+          "url": "https://www.bilibili.com/bangumi/play/ep810560",
+          "title": " \u6211\u7684\u5149\u5934\u53D8\u6708\u4EAE\uFF0C\u5C45\u7136\u6210\u4E86\u5927\u8BD7\u4EBA\u738B\u7EF4\u7684\u7075\u611F\u6765\u6E90"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-34",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u671B\u5929\u95E8\u5C71",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u5929\u95E8\u4E2D\u65AD\u695A\u6C5F\u5F00\uFF0C\n\u78A7\u6C34\u4E1C\u6D41\u81F3\u6B64\u56DE\u3002\n\u4E24\u5CB8\u9752\u5C71\u76F8\u5BF9\u51FA\uFF0C\n\u5B64\u5E06\u4E00\u7247\u65E5\u8FB9\u6765\u3002",
+        "pinyin": "ti\u0101n m\xE9n zh\u014Dng du\xE0n ch\u01D4 ji\u0101ng k\u0101i\uFF0C\nb\xEC shu\u01D0 d\u014Dng li\xFA zh\xEC c\u01D0 hu\xED\u3002\nli\u01CEng \xE0n q\u012Bng sh\u0101n xi\u0101ng du\xEC ch\u016B\uFF0C\ng\u016B f\u0101n y\u012B pi\xE0n r\xEC bi\u0101n l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5929\u95E8\u5C71\u4ECE\u4E2D\u95F4\u65AD\u88C2\uFF0C\u695A\u6C5F\u4ECE\u7F3A\u53E3\u5954\u6D41\u800C\u51FA\uFF1B\u78A7\u7EFF\u7684\u6C5F\u6C34\u5411\u4E1C\u6D41\u5230\u8FD9\u91CC\uFF0C\u6FC0\u8D77\u56DE\u65CB\u3002\u4E24\u5CB8\u9752\u5C71\u76F8\u5BF9\u7740\u51FA\u73B0\u5728\u773C\u524D\uFF0C\u4E00\u53EA\u5C0F\u8239\u4ECE\u592A\u9633\u5347\u8D77\u7684\u5730\u65B9\u9A76\u6765\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 6,
+          "bvid": "BV11e411e71H",
+          "url": "https://www.bilibili.com/bangumi/play/ep810544",
+          "title": "\u8FD9\u9996\u300A\u671B\u5929\u95E8\u5C71\u300B\u80CC\u540E\u7684\u6545\u4E8B\u4F60\u53EF\u66FE\u77E5\u9053\uFF1F"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-35",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u996E\u6E56\u4E0A\u521D\u6674\u540E\u96E8",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6C34\u5149\u6F4B\u6EDF\u6674\u65B9\u597D\uFF0C\n\u5C71\u8272\u7A7A\u8499\u96E8\u4EA6\u5947\u3002\n\u6B32\u628A\u897F\u6E56\u6BD4\u897F\u5B50\uFF0C\n\u6DE1\u5986\u6D53\u62B9\u603B\u76F8\u5B9C\u3002",
+        "pinyin": "shu\u01D0 gu\u0101ng li\xE0n y\xE0n q\xEDng f\u0101ng h\u01CEo\uFF0C\nsh\u0101n s\xE8 k\u014Dng m\xE9ng y\u01D4 y\xEC q\xED\u3002\ny\xF9 b\u01CE x\u012B h\xFA b\u01D0 x\u012B zi\uFF0C\nd\xE0n zhu\u0101ng n\xF3ng m\u01D2 z\u01D2ng xi\u0101ng y\xED\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6674\u5929\u65F6\u897F\u6E56\u6CE2\u5149\u95EA\u52A8\uFF0C\u6B63\u662F\u597D\u98CE\u666F\uFF1B\u4E0B\u96E8\u65F6\u5C71\u8272\u6726\u80E7\uFF0C\u4E5F\u522B\u6709\u5947\u5999\u3002\u82E5\u628A\u897F\u6E56\u6BD4\u4F5C\u7F8E\u4EBA\u897F\u65BD\uFF0C\u65E0\u8BBA\u662F\u6DE1\u96C5\u88C5\u626E\u8FD8\u662F\u6D53\u8273\u6253\u626E\uFF0C\u90FD\u5341\u5206\u5408\u9002\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 12,
+          "bvid": "BV1hK411v7fA",
+          "url": "https://www.bilibili.com/bangumi/play/ep810550",
+          "title": "\u897F\u6E56\u4E0D\u6B62\u6709\u918B\u9C7C\uFF0C\u8FD8\u6709\u4E00\u6BB5\u82CF\u8F7C\u8DDF\u897F\u6E56\u7684\u4F73\u8BDD"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-36",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u91C7\u83B2\u66F2",
+        "author": "\u738B\u660C\u9F84",
+        "dynasty": "\u5510",
+        "excerpt": "\u8377\u53F6\u7F57\u88D9\u4E00\u8272\u88C1\uFF0C\n\u8299\u84C9\u5411\u8138\u4E24\u8FB9\u5F00\u3002\n\u4E71\u5165\u6C60\u4E2D\u770B\u4E0D\u89C1\uFF0C\n\u95FB\u6B4C\u59CB\u89C9\u6709\u4EBA\u6765\u3002",
+        "pinyin": "h\xE9 y\xE8 lu\xF3 q\xFAn y\u012B s\xE8 c\xE1i\uFF0C\nf\xFA r\xF3ng xi\xE0ng li\u01CEn li\u01CEng bi\u0101n k\u0101i\u3002\nlu\xE0n r\xF9 ch\xED zh\u014Dng k\xE0n b\xFA ji\xE0n\uFF0C\nw\xE9n g\u0113 sh\u01D0 ju\xE9 y\u01D2u r\xE9n l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8377\u53F6\u548C\u91C7\u83B2\u5973\u7684\u7F57\u88D9\u50CF\u7528\u540C\u4E00\u79CD\u989C\u8272\u88C1\u6210\uFF0C\u8377\u82B1\u6620\u7740\u5979\u7684\u8138\u5E9E\uFF0C\u5728\u4E24\u8FB9\u76DB\u5F00\u3002\u5979\u6DF7\u5165\u8377\u5858\u540E\u518D\u4E5F\u770B\u4E0D\u89C1\uFF0C\u542C\u5230\u6B4C\u58F0\u624D\u77E5\u9053\u6709\u4EBA\u6765\u4E86\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 20,
+          "bvid": "BV1gW42197FC",
+          "url": "https://www.bilibili.com/bangumi/play/ep831816",
+          "title": "\u4F60\u53EF\u77E5\u9053\u300A\u91C7\u83B2\u66F2\u300B\u662F\u8FB9\u585E\u8BD7\u4EBA\u738B\u660C\u9F84\u5199\u7684"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0A-poem-37",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u53F8\u9A6C\u5149",
+        "author": "\u300A\u5B8B\u53F2\u300B",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u7FA4\u513F\u620F\u4E8E\u5EAD\uFF0C\u4E00\u513F\u767B\u74EE\uFF0C\u8DB3\u8DCC\u6CA1\u6C34\u4E2D\u3002\u4F17\u7686\u5F03\u53BB\uFF0C\u5149\u6301\u77F3\u51FB\u74EE\u7834\u4E4B\uFF0C\u6C34\u8FF8\uFF0C\u513F\u5F97\u6D3B\u3002",
+        "pinyin": "q\xFAn \xE9r x\xEC y\xFA t\xEDng\uFF0C y\u012B \xE9r d\u0113ng w\xE8ng\uFF0C z\xFA di\u0113 m\xE9i shu\u01D0 zh\u014Dng\u3002 zh\xF2ng ji\u0113 q\xEC q\xF9\uFF0C gu\u0101ng ch\xED sh\xED j\u012B w\xE8ng p\xF2 zh\u012B\uFF0C shu\u01D0 b\xE8ng\uFF0C \xE9r d\xE9 hu\xF3\u3002",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E00\u7FA4\u5B69\u5B50\u5728\u5EAD\u9662\u91CC\u73A9\u800D\uFF0C\u4E00\u4E2A\u5B69\u5B50\u722C\u4E0A\u6C34\u7F38\uFF0C\u811A\u4E0B\u4E00\u6ED1\u6389\u8FDB\u6C34\u91CC\u3002\u5176\u4ED6\u5B69\u5B50\u90FD\u8DD1\u4E86\uFF0C\u53F8\u9A6C\u5149\u62FF\u77F3\u5934\u7838\u7834\u6C34\u7F38\uFF0C\u6C34\u6D8C\u51FA\u6765\uFF0C\u5B69\u5B50\u5F97\u6551\u4E86\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-g3-\u4E0A-8",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u79CB\u9AD8\u6C14\u723D",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u5F62\u5BB9\u79CB\u5929\u5929\u7A7A\u6674\u6717\uFF0C\u7A7A\u6C14\u6E05\u65B0\u51C9\u723D\u3002",
+        "pinyin": "x\xEDng r\xF3ng qi\u016B ti\u0101n ti\u0101n k\u014Dng q\xEDng l\u01CEng\uFF0C k\u014Dng q\xEC q\u012Bng x\u012Bn li\xE1ng shu\u01CEng\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u79CB\u9AD8\u6C14\u723D\u7684\u65E5\u5B50\u91CC\uFF0C\u6211\u4EEC\u4E00\u8D77\u53BB\u90CA\u5916\u770B\u67AB\u53F6\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u79CB\u5929",
+          "\u5929\u6C14",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u79CB\u9AD8\u6C14\u723D",
+          "\u5929\u9AD8\u4E91\u6DE1"
+        ]
+      },
+      {
+        "id": "idiom-g3-\u4E0A-9",
+        "grade": 3,
+        "volume": "\u4E0A",
+        "title": "\u5C42\u6797\u5C3D\u67D3",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u5C71\u4E0A\u4E00\u5C42\u5C42\u7684\u6811\u6797\u90FD\u88AB\u79CB\u971C\u67D3\u4E0A\u4E86\u989C\u8272\u3002\u591A\u5F62\u5BB9\u79CB\u5929\u7F8E\u4E3D\u7684\u5C71\u6797\u666F\u8272\u3002",
+        "pinyin": "sh\u0101n sh\xE0ng y\u012B c\xE9ng c\xE9ng de sh\xF9 l\xEDn d\u014Du b\xE8i qi\u016B shu\u0101ng r\u01CEn sh\xE0ng le y\xE1n s\xE8\u3002 du\u014D x\xEDng r\xF3ng qi\u016B ti\u0101n m\u011Bi l\xEC de sh\u0101n l\xEDn j\u01D0ng s\xE8\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u6DF1\u79CB\u65F6\u8282\uFF0C\u5C71\u4E0A\u5C42\u6797\u5C3D\u67D3\uFF0C\u50CF\u4E00\u5E45\u5F69\u8272\u7684\u753B\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u79CB\u5929",
+          "\u5C71\u6797",
+          "\u666F\u8272"
+        ],
+        "related": [
+          "\u5C42\u6797\u5C3D\u67D3",
+          "\u6F2B\u5C71\u7EA2\u904D"
+        ]
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-38",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u7EDD\u53E5",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u8FDF\u65E5\u6C5F\u5C71\u4E3D\uFF0C\n\u6625\u98CE\u82B1\u8349\u9999\u3002\n\u6CE5\u878D\u98DE\u71D5\u5B50\uFF0C\n\u6C99\u6696\u7761\u9E33\u9E2F\u3002",
+        "pinyin": "ch\xED r\xEC ji\u0101ng sh\u0101n l\xEC\uFF0C\nch\u016Bn f\u0113ng hu\u0101 c\u01CEo xi\u0101ng\u3002\nn\xED r\xF3ng f\u0113i y\xE0n zi\uFF0C\nsh\u0101 nu\u01CEn shu\xEC yu\u0101n y\u0101ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6625\u65E5\u9633\u5149\u7167\u8000\uFF0C\u6C5F\u5C71\u660E\u4E3D\uFF1B\u6625\u98CE\u9001\u6765\u82B1\u8349\u7684\u9999\u6C14\u3002\u6CE5\u571F\u6E7F\u6DA6\uFF0C\u71D5\u5B50\u98DE\u6765\u98DE\u53BB\uFF1B\u6C99\u5730\u6E29\u6696\uFF0C\u9E33\u9E2F\u5B89\u7761\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 35,
+          "bvid": "BV1Dp4y1m7Zy",
+          "url": "https://www.bilibili.com/bangumi/play/ep812925",
+          "title": "\u624B\u8868\u88AB\u5077\uFF0C\u8FD8\u597D\u6709\u675C\u752B\u7684\u300A\u7EDD\u53E5\u300B\u629A\u6170\u6211"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-39",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u60E0\u5D07\u6625\u6C5F\u665A\u666F",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u7AF9\u5916\u6843\u82B1\u4E09\u4E24\u679D\uFF0C\n\u6625\u6C5F\u6C34\u6696\u9E2D\u5148\u77E5\u3002\n\u848C\u84BF\u6EE1\u5730\u82A6\u82BD\u77ED\uFF0C\n\u6B63\u662F\u6CB3\u8C5A\u6B32\u4E0A\u65F6\u3002",
+        "pinyin": "zh\xFA w\xE0i t\xE1o hu\u0101 s\u0101n li\u01CEng zh\u012B\uFF0C\nch\u016Bn ji\u0101ng shu\u01D0 nu\u01CEn y\u0101 xi\u0101n zh\u012B\u3002\nl\xF3u h\u0101o m\u01CEn d\xEC l\xFA y\xE1 du\u01CEn\uFF0C\nzh\xE8ng sh\xEC h\xE9 t\xFAn y\xF9 sh\xE0ng sh\xED\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u7AF9\u6797\u5916\u5F00\u7740\u4E24\u4E09\u679D\u6843\u82B1\uFF0C\u6625\u5929\u7684\u6C5F\u6C34\u53D8\u6696\u4E86\uFF0C\u9E2D\u5B50\u6700\u5148\u611F\u89C9\u5230\u3002\u5CB8\u4E0A\u957F\u6EE1\u848C\u84BF\uFF0C\u82A6\u82BD\u8FD8\u5F88\u77ED\uFF0C\u8FD9\u6B63\u662F\u6CB3\u8C5A\u5C06\u8981\u9006\u6D41\u800C\u4E0A\u7684\u65F6\u5019\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 21,
+          "bvid": "BV1Xc411t7RD",
+          "url": "https://www.bilibili.com/bangumi/play/ep810559",
+          "title": "\u4E00\u9996\u8BD7\u5C31\u80FD\u66B4\u9732\u5403\u8D27\u672C\u6027\uFF0C\u771F\u4E0D\u6127\u662F\u5927\u8BD7\uFF08\u5403\uFF09\u4EBA\uFF08\u8D27\uFF09\u554A\uFF01"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-40",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u4E09\u8862\u9053\u4E2D",
+        "author": "\u66FE\u51E0",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6885\u5B50\u9EC4\u65F6\u65E5\u65E5\u6674\uFF0C\n\u5C0F\u6EAA\u6CDB\u5C3D\u5374\u5C71\u884C\u3002\n\u7EFF\u9634\u4E0D\u51CF\u6765\u65F6\u8DEF\uFF0C\n\u6DFB\u5F97\u9EC4\u9E42\u56DB\u4E94\u58F0\u3002",
+        "pinyin": "m\xE9i zi hu\xE1ng sh\xED r\xEC r\xEC q\xEDng\uFF0C\nxi\u01CEo x\u012B f\xE0n j\u01D0n qu\xE8 sh\u0101n x\xEDng\u3002\nl\u01DC y\u012Bn b\xF9 ji\u01CEn l\xE1i sh\xED l\xF9\uFF0C\nti\u0101n d\xE9 hu\xE1ng l\xED s\xEC w\u01D4 sh\u0113ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6885\u5B50\u9EC4\u65F6\u5929\u5929\u6674\u6717\uFF0C\u4E58\u8239\u5230\u5C0F\u6EAA\u5C3D\u5934\u518D\u8D70\u5C71\u8DEF\u3002\u7EFF\u836B\u4E0D\u6BD4\u6765\u65F6\u5C11\uFF0C\u8FD8\u6DFB\u4E86\u56DB\u4E94\u58F0\u9EC4\u9E42\u9E23\u53EB\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-41",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u5FC6\u6C5F\u5357",
+        "author": "\u767D\u5C45\u6613",
+        "dynasty": "\u5510",
+        "excerpt": "\u6C5F\u5357\u597D\uFF0C\n\u98CE\u666F\u65E7\u66FE\u8C19\u3002\n\u65E5\u51FA\u6C5F\u82B1\u7EA2\u80DC\u706B\uFF0C\n\u6625\u6765\u6C5F\u6C34\u7EFF\u5982\u84DD\u3002\n\u80FD\u4E0D\u5FC6\u6C5F\u5357\uFF1F",
+        "pinyin": "ji\u0101ng n\xE1n h\u01CEo\uFF0C\nf\u0113ng j\u01D0ng ji\xF9 c\xE9ng \u0101n\u3002\nr\xEC ch\u016B ji\u0101ng hu\u0101 h\xF3ng sh\xE8ng hu\u01D2\uFF0C\nch\u016Bn l\xE1i ji\u0101ng shu\u01D0 l\u01DC r\xFA l\xE1n\u3002\nn\xE9ng b\xF9 y\xEC ji\u0101ng n\xE1n\uFF1F",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6C5F\u5357\u771F\u597D\uFF0C\u90A3\u91CC\u7684\u98CE\u666F\u6211\u4ECE\u524D\u5C31\u5F88\u719F\u6089\u3002\u592A\u9633\u51FA\u6765\u65F6\uFF0C\u6C5F\u8FB9\u7684\u82B1\u7EA2\u5F97\u80DC\u8FC7\u706B\u7130\uFF1B\u6625\u5929\u5230\u6765\u65F6\uFF0C\u6C5F\u6C34\u7EFF\u5F97\u50CF\u84DD\u8349\u3002\u600E\u80FD\u4E0D\u8BA9\u4EBA\u6000\u5FF5\u6C5F\u5357\uFF1F",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-42",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u5B88\u682A\u5F85\u5154",
+        "author": "\u300A\u97E9\u975E\u5B50\u300B",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u5B8B\u4EBA\u6709\u8015\u8005\u3002\u7530\u4E2D\u6709\u682A\u3002\u5154\u8D70\u89E6\u682A\uFF0C\u6298\u9888\u800C\u6B7B\u3002\u56E0\u91CA\u5176\u8012\u800C\u5B88\u682A\uFF0C\u5180\u590D\u5F97\u5154\u3002\u5154\u4E0D\u53EF\u590D\u5F97\uFF0C\u800C\u8EAB\u4E3A\u5B8B\u56FD\u7B11\u3002",
+        "pinyin": "s\xF2ng r\xE9n y\u01D2u g\u0113ng zh\u011B\u3002 ti\xE1n zh\u014Dng y\u01D2u zh\u016B\u3002 t\xF9 z\u01D2u ch\xF9 zh\u016B\uFF0C zh\xE9 j\u01D0ng \xE9r s\u01D0\u3002 y\u012Bn sh\xEC q\xED l\u011Bi \xE9r sh\u01D2u zh\u016B\uFF0C j\xEC f\xF9 d\xE9 t\xF9\u3002 t\xF9 b\xF9 k\u011B f\xF9 d\xE9\uFF0C \xE9r sh\u0113n w\xE8i s\xF2ng gu\xF3 xi\xE0o\u3002",
+        "category": "fable",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5B8B\u56FD\u6709\u4E2A\u519C\u592B\uFF0C\u7530\u91CC\u6709\u4E00\u622A\u6811\u6869\u3002\u4E00\u53EA\u5154\u5B50\u5954\u8DD1\u65F6\u649E\u4E0A\u6811\u6869\uFF0C\u6298\u65AD\u8116\u5B50\u6B7B\u4E86\u3002\u519C\u592B\u4FBF\u653E\u4E0B\u519C\u5177\u5B88\u7740\u6811\u6869\uFF0C\u5E0C\u671B\u518D\u6361\u5230\u5154\u5B50\u3002\u5154\u5B50\u6CA1\u6709\u518D\u5F97\u5230\uFF0C\u4ED6\u81EA\u5DF1\u5374\u6210\u4E86\u5B8B\u56FD\u4EBA\u7684\u7B11\u67C4\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-43",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u6EC1\u5DDE\u897F\u6DA7",
+        "author": "\u97E6\u5E94\u7269",
+        "dynasty": "\u5510",
+        "excerpt": "\u72EC\u601C\u5E7D\u8349\u6DA7\u8FB9\u751F\uFF0C\n\u4E0A\u6709\u9EC4\u9E42\u6DF1\u6811\u9E23\u3002\n\u6625\u6F6E\u5E26\u96E8\u665A\u6765\u6025\uFF0C\n\u91CE\u6E21\u65E0\u4EBA\u821F\u81EA\u6A2A\u3002",
+        "pinyin": "d\xFA li\xE1n y\u014Du c\u01CEo ji\xE0n bi\u0101n sh\u0113ng\uFF0C\nsh\xE0ng y\u01D2u hu\xE1ng l\xED sh\u0113n sh\xF9 m\xEDng\u3002\nch\u016Bn ch\xE1o d\xE0i y\u01D4 w\u01CEn l\xE1i j\xED\uFF0C\ny\u011B d\xF9 w\xFA r\xE9n zh\u014Du z\xEC h\xE9ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6211\u72EC\u81EA\u559C\u7231\u6DA7\u8FB9\u751F\u957F\u7684\u5E7D\u9759\u91CE\u8349\uFF0C\u6811\u6797\u6DF1\u5904\u4F20\u6765\u9EC4\u9E42\u7684\u9E23\u53EB\u3002\u508D\u665A\u6625\u6F6E\u5939\u7740\u96E8\u6C34\u6D41\u5F97\u66F4\u6025\uFF0C\u8352\u91CE\u6E21\u53E3\u6CA1\u6709\u4EBA\uFF0C\u53EA\u6709\u5C0F\u8239\u6A2A\u5728\u6C34\u9762\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-44",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u5143\u65E5",
+        "author": "\u738B\u5B89\u77F3",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u7206\u7AF9\u58F0\u4E2D\u4E00\u5C81\u9664\uFF0C\n\u6625\u98CE\u9001\u6696\u5165\u5C60\u82CF\u3002\n\u5343\u95E8\u4E07\u6237\u66C8\u66C8\u65E5\uFF0C\n\u603B\u628A\u65B0\u6843\u6362\u65E7\u7B26\u3002",
+        "pinyin": "b\xE0o zh\xFA sh\u0113ng zh\u014Dng y\u012B su\xEC ch\xFA\uFF0C\nch\u016Bn f\u0113ng s\xF2ng nu\u01CEn r\xF9 t\xFA s\u016B\u3002\nqi\u0101n m\xE9n w\xE0n h\xF9 t\xF3ng t\xF3ng r\xEC\uFF0C\nz\u01D2ng b\u01CE x\u012Bn t\xE1o hu\xE0n ji\xF9 f\xFA\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5728\u9635\u9635\u7206\u7AF9\u58F0\u4E2D\uFF0C\u65E7\u7684\u4E00\u5E74\u8FC7\u53BB\u4E86\uFF1B\u6625\u98CE\u9001\u6765\u6696\u610F\uFF0C\u4EBA\u4EEC\u559D\u7740\u5C60\u82CF\u9152\u3002\u521D\u5347\u7684\u592A\u9633\u7167\u8000\u7740\u5343\u5BB6\u4E07\u6237\uFF0C\u5BB6\u5BB6\u90FD\u628A\u65E7\u7684\u6843\u7B26\u6362\u6210\u65B0\u7684\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 15,
+          "bvid": "BV1e4421Z7wm",
+          "url": "https://www.bilibili.com/bangumi/play/ep831660",
+          "title": "\u738B\u5B89\u77F3\u4E0D\u4F46\u4F1A\u53D8\u6CD5\uFF0C\u8FD8\u4F1A\u5199\u8BD7\u3002\u8FD9\u9996\u63CF\u5199\u6625\u8282\u7684\u300A\u5143\u65E5\u300B\u4F60\u77E5\u9053\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-45",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u6E05\u660E",
+        "author": "\u675C\u7267",
+        "dynasty": "\u5510",
+        "excerpt": "\u6E05\u660E\u65F6\u8282\u96E8\u7EB7\u7EB7\uFF0C\n\u8DEF\u4E0A\u884C\u4EBA\u6B32\u65AD\u9B42\u3002\n\u501F\u95EE\u9152\u5BB6\u4F55\u5904\u6709\uFF1F\n\u7267\u7AE5\u9065\u6307\u674F\u82B1\u6751\u3002",
+        "pinyin": "q\u012Bng m\xEDng sh\xED ji\xE9 y\u01D4 f\u0113n f\u0113n\uFF0C\nl\xF9 sh\xE0ng x\xEDng r\xE9n y\xF9 du\xE0n h\xFAn\u3002\nji\xE8 w\xE8n ji\u01D4 ji\u0101 h\xE9 ch\xF9 y\u01D2u\uFF1F\nm\xF9 t\xF3ng y\xE1o zh\u01D0 x\xECng hu\u0101 c\u016Bn\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6E05\u660E\u65F6\u8282\u7EC6\u96E8\u7EB7\u7EB7\uFF0C\u8DEF\u4E0A\u7684\u884C\u4EBA\u5FC3\u60C5\u6101\u95F7\u3002\u5411\u4EBA\u6253\u542C\u54EA\u91CC\u6709\u9152\u5BB6\uFF0C\u7267\u7AE5\u6307\u4E86\u6307\u8FDC\u5904\u5F00\u6EE1\u674F\u82B1\u7684\u6751\u5E84\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 16,
+          "bvid": "BV15W42197W4",
+          "url": "https://www.bilibili.com/bangumi/play/ep831661",
+          "title": "\u5199\u51FA\u8FD9\u9996\u6E05\u660E\u95EE\u8DEF\u56FE\u7684\u675C\u7267\uFF0C\u5C45\u7136\u4E5F\u662F\u6587\u6B66\u5168\u624D\uFF01"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-46",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u4E5D\u6708\u4E5D\u65E5\u5FC6\u5C71\u4E1C\u5144\u5F1F",
+        "author": "\u738B\u7EF4",
+        "dynasty": "\u5510",
+        "excerpt": "\u72EC\u5728\u5F02\u4E61\u4E3A\u5F02\u5BA2\uFF0C\n\u6BCF\u9022\u4F73\u8282\u500D\u601D\u4EB2\u3002\n\u9065\u77E5\u5144\u5F1F\u767B\u9AD8\u5904\uFF0C\n\u904D\u63D2\u8331\u8438\u5C11\u4E00\u4EBA\u3002",
+        "pinyin": "d\xFA z\xE0i y\xEC xi\u0101ng w\xE8i y\xEC k\xE8\uFF0C\nm\u011Bi f\xE9ng ji\u0101 ji\xE9 b\xE8i s\u012B q\u012Bn\u3002\ny\xE1o zh\u012B xi\u014Dng d\xEC d\u0113ng g\u0101o ch\xF9\uFF0C\nbi\xE0n ch\u0101 zh\u016B y\xFA sh\u01CEo y\u012B r\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u72EC\u81EA\u5728\u4ED6\u4E61\u505A\u5BA2\uFF0C\u6BCF\u9022\u4F73\u8282\u5C31\u66F4\u52A0\u601D\u5FF5\u4EB2\u4EBA\u3002\u60F3\u5230\u5144\u5F1F\u4EEC\u767B\u9AD8\u65F6\u4EBA\u4EBA\u63D2\u7740\u8331\u8438\uFF0C\u5374\u5C11\u4E86\u6211\u4E00\u4E2A\u4EBA\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 2,
+          "bvid": "BV11Q4y1j71c",
+          "url": "https://www.bilibili.com/bangumi/play/ep810540",
+          "title": " \u738B\u7EF4\u96BE\u9053\u662F\u5C71\u4E1C\u4EBA\uFF1F"
+        }
+      },
+      {
+        "id": "pack-3-\u4E0B-poem-47",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u5927\u6797\u5BFA\u6843\u82B1",
+        "author": "\u767D\u5C45\u6613",
+        "dynasty": "\u5510",
+        "excerpt": "\u4EBA\u95F4\u56DB\u6708\u82B3\u83F2\u5C3D\uFF0C\n\u5C71\u5BFA\u6843\u82B1\u59CB\u76DB\u5F00\u3002\n\u957F\u6068\u6625\u5F52\u65E0\u89C5\u5904\uFF0C\n\u4E0D\u77E5\u8F6C\u5165\u6B64\u4E2D\u6765\u3002",
+        "pinyin": "r\xE9n ji\u0101n s\xEC yu\xE8 f\u0101ng f\u0113i j\u01D0n\uFF0C\nsh\u0101n s\xEC t\xE1o hu\u0101 sh\u01D0 sh\xE8ng k\u0101i\u3002\nzh\u01CEng h\xE8n ch\u016Bn gu\u012B w\xFA m\xEC ch\xF9\uFF0C\nb\xF9 zh\u012B zhu\u01CEn r\xF9 c\u01D0 zh\u014Dng l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4EBA\u95F4\u56DB\u6708\uFF0C\u767E\u82B1\u90FD\u5DF2\u51CB\u8C22\uFF0C\u9AD8\u5C71\u5BFA\u5E99\u91CC\u7684\u6843\u82B1\u624D\u5F00\u59CB\u76DB\u5F00\u3002\u6211\u5E38\u9057\u61BE\u6625\u5929\u79BB\u53BB\u540E\u65E0\u5904\u5BFB\u627E\uFF0C\u6CA1\u60F3\u5230\u5B83\u8F6C\u5230\u4E86\u8FD9\u91CC\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 18,
+          "bvid": "BV1WM4m117e6",
+          "url": "https://www.bilibili.com/bangumi/play/ep831663",
+          "title": "\u53E4\u8BD7\u91CC\u8FD8\u6709\u5730\u7406\u77E5\u8BC6\uFF1F\u90A3\u8BF7\u770B\u767D\u5C45\u6613\u7684\u300A\u5927\u6797\u5BFA\u6843\u82B1\u300B"
+        }
+      },
+      {
+        "id": "idiom-g3-\u4E0B-10",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u753B\u86C7\u6DFB\u8DB3",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u753B\u86C7\u65F6\u7ED9\u86C7\u6DFB\u4E0A\u811A\u3002\u6BD4\u55BB\u505A\u4E86\u591A\u4F59\u7684\u4E8B\uFF0C\u53CD\u800C\u4E0D\u5408\u9002\u3002",
+        "pinyin": "hu\xE0 sh\xE9 sh\xED g\u011Bi sh\xE9 ti\u0101n sh\xE0ng ji\u01CEo\u3002 b\u01D0 y\xF9 zu\xF2 le du\u014D y\xFA de sh\xEC\uFF0C f\u01CEn \xE9r b\xF9 h\xE9 sh\xEC\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u6587\u7AE0\u5DF2\u7ECF\u628A\u610F\u601D\u8BF4\u6E05\u695A\u4E86\uFF0C\u518D\u52A0\u4E00\u6BB5\u53CD\u800C\u753B\u86C7\u6DFB\u8DB3\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u6210\u8BED\u6545\u4E8B",
+          "\u6070\u5F53",
+          "\u8868\u8FBE"
+        ],
+        "related": [
+          "\u753B\u86C7\u6DFB\u8DB3",
+          "\u591A\u6B64\u4E00\u4E3E"
+        ]
+      },
+      {
+        "id": "idiom-g3-\u4E0B-11",
+        "grade": 3,
+        "volume": "\u4E0B",
+        "title": "\u4E95\u5E95\u4E4B\u86D9",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u4E95\u5E95\u7684\u9752\u86D9\u53EA\u80FD\u770B\u89C1\u4E95\u53E3\u90A3\u4E48\u5927\u7684\u5929\u3002\u6BD4\u55BB\u89C1\u8BC6\u72ED\u5C0F\u7684\u4EBA\u3002",
+        "pinyin": "j\u01D0ng d\u01D0 de q\u012Bng w\u0101 zh\u01D0 n\xE9ng k\xE0n ji\xE0n j\u01D0ng k\u01D2u n\xE0 me d\xE0 de ti\u0101n\u3002 b\u01D0 y\xF9 ji\xE0n sh\xED xi\xE1 xi\u01CEo de r\xE9n\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "3\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u591A\u8BFB\u4E66\u3001\u591A\u89C2\u5BDF\uFF0C\u624D\u4E0D\u4F1A\u6210\u4E3A\u4E95\u5E95\u4E4B\u86D9\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u5BD3\u8A00",
+          "\u773C\u754C",
+          "\u5B66\u4E60"
+        ],
+        "related": [
+          "\u4E95\u5E95\u4E4B\u86D9",
+          "\u5750\u4E95\u89C2\u5929"
+        ]
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-48",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u66AE\u6C5F\u541F",
+        "author": "\u767D\u5C45\u6613",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E00\u9053\u6B8B\u9633\u94FA\u6C34\u4E2D\uFF0C\n\u534A\u6C5F\u745F\u745F\u534A\u6C5F\u7EA2\u3002\n\u53EF\u601C\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\n\u9732\u4F3C\u771F\u73E0\u6708\u4F3C\u5F13\u3002",
+        "pinyin": "y\u012B d\xE0o c\xE1n y\xE1ng p\xF9 shu\u01D0 zh\u014Dng\uFF0C\nb\xE0n ji\u0101ng s\xE8 s\xE8 b\xE0n ji\u0101ng h\xF3ng\u3002\nk\u011B li\xE1n ji\u01D4 yu\xE8 ch\u016B s\u0101n y\xE8\uFF0C\nl\xF9 sh\xEC zh\u0113n zh\u016B yu\xE8 sh\xEC g\u014Dng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E00\u9053\u6B8B\u9633\u94FA\u5728\u6C34\u4E2D\uFF0C\u534A\u8FB9\u6C5F\u9762\u78A7\u7EFF\uFF0C\u534A\u8FB9\u6C5F\u9762\u901A\u7EA2\u3002\u53EF\u7231\u7684\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\u9732\u73E0\u50CF\u73CD\u73E0\uFF0C\u6708\u4EAE\u50CF\u5F2F\u5F13\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-49",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u9898\u897F\u6797\u58C1",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6A2A\u770B\u6210\u5CAD\u4FA7\u6210\u5CF0\uFF0C\n\u8FDC\u8FD1\u9AD8\u4F4E\u5404\u4E0D\u540C\u3002\n\u4E0D\u8BC6\u5E90\u5C71\u771F\u9762\u76EE\uFF0C\n\u53EA\u7F18\u8EAB\u5728\u6B64\u5C71\u4E2D\u3002",
+        "pinyin": "h\xE9ng k\xE0n ch\xE9ng l\u01D0ng c\xE8 ch\xE9ng f\u0113ng\uFF0C\nyu\u01CEn j\xECn g\u0101o d\u012B g\xE8 b\xF9 t\xF3ng\u3002\nb\xF9 sh\xED l\xFA sh\u0101n zh\u0113n mi\xE0n m\xF9\uFF0C\nzh\u01D0 yu\xE1n sh\u0113n z\xE0i c\u01D0 sh\u0101n zh\u014Dng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4ECE\u6B63\u9762\u770B\u5E90\u5C71\u662F\u7EF5\u5EF6\u7684\u5C71\u5CAD\uFF0C\u4ECE\u4FA7\u9762\u770B\u53C8\u6210\u4E86\u9AD8\u8038\u7684\u5C71\u5CF0\uFF1B\u8FDC\u8FD1\u9AD8\u4F4E\u4E0D\u540C\uFF0C\u770B\u5230\u7684\u666F\u8C61\u4E5F\u4E0D\u540C\u3002\u4E3A\u4EC0\u4E48\u8BA4\u4E0D\u6E05\u5E90\u5C71\u771F\u6B63\u7684\u9762\u76EE\uFF1F\u53EA\u56E0\u4E3A\u81EA\u5DF1\u5C31\u5728\u8FD9\u5EA7\u5C71\u4E2D\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 16,
+          "bvid": "BV1Ca4y1m7DG",
+          "url": "https://www.bilibili.com/bangumi/play/ep810554",
+          "title": "\u5FEB\u6765\u770B\u5927\u5403\u8D27\uFF0C\u54E6\u4E0D\uFF0C\u5927\u8BD7\u4EBA\u82CF\u8F7C\u7684\u6253\u8138\u73B0\u573A"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-50",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u96EA\u6885",
+        "author": "\u5362\u94BA",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6885\u96EA\u4E89\u6625\u672A\u80AF\u964D\uFF0C\n\u9A9A\u4EBA\u9601\u7B14\u8D39\u8BC4\u7AE0\u3002\n\u6885\u987B\u900A\u96EA\u4E09\u5206\u767D\uFF0C\n\u96EA\u5374\u8F93\u6885\u4E00\u6BB5\u9999\u3002",
+        "pinyin": "m\xE9i xu\u011B zh\u0113ng ch\u016Bn w\xE8i k\u011Bn ji\xE0ng\uFF0C\ns\u0101o r\xE9n g\xE9 b\u01D0 f\xE8i p\xEDng zh\u0101ng\u3002\nm\xE9i x\u016B x\xF9n xu\u011B s\u0101n f\u0113n b\xE1i\uFF0C\nxu\u011B qu\xE8 sh\u016B m\xE9i y\u012B du\xE0n xi\u0101ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6885\u82B1\u548C\u96EA\u82B1\u4E89\u6625\uFF0C\u8C01\u4E5F\u4E0D\u80AF\u8BA4\u8F93\uFF0C\u8BD7\u4EBA\u653E\u4E0B\u7B14\u96BE\u4EE5\u8BC4\u65AD\u3002\u6885\u82B1\u6BD4\u96EA\u5C11\u4E09\u5206\u6D01\u767D\uFF0C\u96EA\u5374\u4E0D\u5982\u6885\u82B1\u6709\u4E00\u6BB5\u6E05\u9999\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-51",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u51C9\u5DDE\u8BCD",
+        "author": "\u738B\u7FF0",
+        "dynasty": "\u5510",
+        "excerpt": "\u8461\u8404\u7F8E\u9152\u591C\u5149\u676F\uFF0C\n\u6B32\u996E\u7435\u7436\u9A6C\u4E0A\u50AC\u3002\n\u9189\u5367\u6C99\u573A\u541B\u83AB\u7B11\uFF0C\n\u53E4\u6765\u5F81\u6218\u51E0\u4EBA\u56DE?",
+        "pinyin": "p\xFA t\xE1o m\u011Bi ji\u01D4 y\xE8 gu\u0101ng b\u0113i\uFF0C\ny\xF9 y\u01D0n p\xED p\xE1 m\u01CE sh\xE0ng cu\u012B\u3002\nzu\xEC w\xF2 sh\u0101 ch\u01CEng j\u016Bn m\xF2 xi\xE0o\uFF0C\ng\u01D4 l\xE1i zh\u0113ng zh\xE0n j\u01D0 r\xE9n hu\xED?",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u591C\u5149\u676F\u91CC\u76DB\u7740\u8461\u8404\u7F8E\u9152\uFF0C\u521A\u8981\u7545\u996E\uFF0C\u9A6C\u4E0A\u7684\u7435\u7436\u58F0\u5C31\u50AC\u4EBA\u51FA\u53D1\u3002\u9189\u5012\u5728\u6C99\u573A\u4E0A\u8BF7\u4E0D\u8981\u7B11\uFF0C\u81EA\u53E4\u4EE5\u6765\u51FA\u5F81\u7684\u4EBA\u80FD\u6709\u51E0\u4E2A\u5E73\u5B89\u56DE\u6765\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 22,
+          "bvid": "BV1Br421K7KW",
+          "url": "https://www.bilibili.com/bangumi/play/ep831818",
+          "title": "\u8D85\u70ED\u8840\u7684\u300A\u51C9\u5DDE\u8BCD\u300B\u662F\u600E\u4E48\u5199\u51FA\u6765\u7684\uFF1F"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-52",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u51FA\u585E",
+        "author": "\u738B\u660C\u9F84",
+        "dynasty": "\u5510",
+        "excerpt": "\u79E6\u65F6\u660E\u6708\u6C49\u65F6\u5173\uFF0C\n\u4E07\u91CC\u957F\u5F81\u4EBA\u672A\u8FD8\u3002\n\u4F46\u4F7F\u9F99\u57CE\u98DE\u5C06\u5728\uFF0C\n\u4E0D\u6559\u80E1\u9A6C\u5EA6\u9634\u5C71\u3002",
+        "pinyin": "q\xEDn sh\xED m\xEDng yu\xE8 h\xE0n sh\xED gu\u0101n\uFF0C\nw\xE0n l\u01D0 ch\xE1ng zh\u0113ng r\xE9n w\xE8i h\xE1i\u3002\nd\xE0n sh\u01D0 l\xF3ng ch\xE9ng f\u0113i ji\u0101ng z\xE0i\uFF0C\nb\xF9 ji\xE0o h\xFA m\u01CE d\xF9 y\u012Bn sh\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4F9D\u65E7\u662F\u79E6\u6C49\u65F6\u7684\u660E\u6708\u548C\u8FB9\u5173\uFF0C\u4E07\u91CC\u51FA\u5F81\u7684\u5C06\u58EB\u8FD8\u6CA1\u6709\u56DE\u6765\u3002\u53EA\u8981\u9F99\u57CE\u6709\u50CF\u674E\u5E7F\u90A3\u6837\u7684\u98DE\u5C06\u519B\u5728\uFF0C\u5C31\u4E0D\u4F1A\u8BA9\u654C\u4EBA\u7684\u6218\u9A6C\u8D8A\u8FC7\u9634\u5C71\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 17,
+          "bvid": "BV1Z5411v7yz",
+          "url": "https://www.bilibili.com/bangumi/play/ep810555",
+          "title": "\u4F60\u77E5\u9053\u8FB9\u585E\u8BD7\u662F\u600E\u4E48\u521B\u4F5C\u7684\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-53",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u590F\u65E5\u7EDD\u53E5",
+        "author": "\u674E\u6E05\u7167",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u751F\u5F53\u4F5C\u4EBA\u6770\uFF0C\n\u6B7B\u4EA6\u4E3A\u9B3C\u96C4\u3002\n\u81F3\u4ECA\u601D\u9879\u7FBD\uFF0C\n\u4E0D\u80AF\u8FC7\u6C5F\u4E1C\u3002",
+        "pinyin": "sh\u0113ng d\xE0ng zu\xF2 r\xE9n ji\xE9\uFF0C\ns\u01D0 y\xEC w\xE8i gu\u01D0 xi\xF3ng\u3002\nzh\xEC j\u012Bn s\u012B xi\xE0ng y\u01D4\uFF0C\nb\xF9 k\u011Bn gu\xF2 ji\u0101ng d\u014Dng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6D3B\u7740\u5C31\u5E94\u5F53\u505A\u4EBA\u4E2D\u7684\u8C6A\u6770\uFF0C\u6B7B\u4E86\u4E5F\u8981\u6210\u4E3A\u9B3C\u4E2D\u7684\u82F1\u96C4\u3002\u76F4\u5230\u4ECA\u5929\uFF0C\u4EBA\u4EEC\u8FD8\u601D\u5FF5\u9879\u7FBD\uFF0C\u56E0\u4E3A\u4ED6\u5175\u8D25\u540E\u4E0D\u80AF\u6E21\u8FC7\u6C5F\u4E1C\u82DF\u4E14\u5077\u751F\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 18,
+          "bvid": "BV1ci4y1B7E2",
+          "url": "https://www.bilibili.com/bangumi/play/ep810556",
+          "title": "\u8C01\u8BF4\u5973\u5B50\u4E0D\u5982\u7537\uFF0C\u674E\u6E05\u7167\u4E5F\u5199\u8FC7\u5982\u6B64\u6177\u6168\u8C6A\u8FC8\u7684\u8BD7"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-54",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u8D60\u5218\u666F\u6587",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u8377\u5C3D\u5DF2\u65E0\u64CE\u96E8\u76D6\uFF0C\n\u83CA\u6B8B\u72B9\u6709\u50B2\u971C\u679D\u3002\n\u4E00\u5E74\u597D\u666F\u541B\u987B\u8BB0\uFF0C\n\u6700\u662F\u6A59\u9EC4\u6A58\u7EFF\u65F6\u3002",
+        "pinyin": "h\xE9 j\u01D0n y\u01D0 w\xFA q\xEDng y\u01D4 g\xE0i\uFF0C\nj\xFA c\xE1n y\xF3u y\u01D2u \xE0o shu\u0101ng zh\u012B\u3002\ny\u012B ni\xE1n h\u01CEo j\u01D0ng j\u016Bn x\u016B j\xEC\uFF0C\nzu\xEC sh\xEC ch\xE9ng hu\xE1ng j\xFA l\u01DC sh\xED\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8377\u82B1\u51CB\u8C22\uFF0C\u8FDE\u906E\u96E8\u7684\u8377\u53F6\u4E5F\u67AF\u5C3D\u4E86\uFF1B\u83CA\u82B1\u6B8B\u8D25\uFF0C\u4ECD\u6709\u679D\u6761\u8FCE\u7740\u5BD2\u971C\u633A\u7ACB\u3002\u4E00\u5E74\u4E2D\u6700\u597D\u7684\u666F\u8272\u4F60\u8981\u8BB0\u4F4F\uFF0C\u6B63\u662F\u6A59\u5B50\u91D1\u9EC4\u3001\u6A58\u5B50\u9752\u7EFF\u7684\u65F6\u8282\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 26,
+          "bvid": "BV1nW4y1A7YG",
+          "url": "https://www.bilibili.com/bangumi/play/ep810564",
+          "title": "\u82CF\u8F7C\u5199\u7ED9\u522B\u4EBA\u7684\u8BD7\uFF0C\u5C45\u7136\u4E5F\u79BB\u4E0D\u5F00\u5403"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-55",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u5AE6\u5A25",
+        "author": "\u674E\u5546\u9690",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E91\u6BCD\u5C4F\u98CE\u70DB\u5F71\u6DF1\uFF0C\n\u957F\u6CB3\u6E10\u843D\u6653\u661F\u6C89\u3002\n\u5AE6\u5A25\u5E94\u6094\u5077\u7075\u836F\uFF0C\n\u78A7\u6D77\u9752\u5929\u591C\u591C\u5FC3\u3002",
+        "pinyin": "y\xFAn m\u01D4 p\xEDng f\u0113ng zh\xFA y\u01D0ng sh\u0113n\uFF0C\nch\xE1ng h\xE9 ji\xE0n lu\xF2 xi\u01CEo x\u012Bng ch\xE9n\u3002\nch\xE1ng \xE9 y\u012Bng hu\u01D0 t\u014Du l\xEDng y\xE0o\uFF0C\nb\xEC h\u01CEi q\u012Bng ti\u0101n y\xE8 y\xE8 x\u012Bn\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E91\u6BCD\u5C4F\u98CE\u4E0A\u70DB\u5F71\u6DF1\u6DF1\uFF0C\u94F6\u6CB3\u6E10\u6E10\u897F\u843D\uFF0C\u6668\u661F\u4E5F\u6C89\u6CA1\u4E86\u3002\u5AE6\u5A25\u5E94\u8BE5\u540E\u6094\u5077\u5403\u4E86\u7075\u836F\uFF0C\u5982\u4ECA\u53EA\u80FD\u5728\u78A7\u6D77\u9752\u5929\u4E4B\u95F4\u591C\u591C\u5B64\u5BC2\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-56",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u9EC4\u9E64\u697C\u9001\u5B5F\u6D69\u7136\u4E4B\u5E7F\u9675",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u6545\u4EBA\u897F\u8F9E\u9EC4\u9E64\u697C\uFF0C\n\u70DF\u82B1\u4E09\u6708\u4E0B\u626C\u5DDE\u3002\n\u5B64\u5E06\u8FDC\u5F71\u78A7\u7A7A\u5C3D\uFF0C\n\u552F\u89C1\u957F\u6C5F\u5929\u9645\u6D41\u3002",
+        "pinyin": "g\xF9 r\xE9n x\u012B c\xED hu\xE1ng h\xE8 l\xF3u\uFF0C\ny\u0101n hu\u0101 s\u0101n yu\xE8 xi\xE0 y\xE1ng zh\u014Du\u3002\ng\u016B f\u0101n yu\u01CEn y\u01D0ng b\xEC k\u014Dng j\u01D0n\uFF0C\nw\xE9i ji\xE0n zh\u01CEng ji\u0101ng ti\u0101n j\xEC li\xFA\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8001\u670B\u53CB\u8F9E\u522B\u9EC4\u9E64\u697C\u5411\u4E1C\u800C\u53BB\uFF0C\u5728\u7E41\u82B1\u4F3C\u9526\u7684\u4E09\u6708\u524D\u5F80\u626C\u5DDE\u3002\u5B64\u5E06\u7684\u5F71\u5B50\u6E10\u6E10\u6D88\u5931\u5728\u78A7\u7A7A\u5C3D\u5934\uFF0C\u53EA\u770B\u89C1\u957F\u6C5F\u5411\u5929\u8FB9\u5954\u6D41\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-57",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u522B\u8463\u5927",
+        "author": "\u9AD8\u9002",
+        "dynasty": "\u5510",
+        "excerpt": "\u5343\u91CC\u9EC4\u4E91\u767D\u65E5\u66DB\uFF0C\n\u5317\u98CE\u5439\u96C1\u96EA\u7EB7\u7EB7\u3002\n\u83AB\u6101\u524D\u8DEF\u65E0\u77E5\u5DF1\uFF0C\n\u5929\u4E0B\u8C01\u4EBA\u4E0D\u8BC6\u541B?",
+        "pinyin": "qi\u0101n l\u01D0 hu\xE1ng y\xFAn b\xE1i r\xEC x\u016Bn\uFF0C\nb\u011Bi f\u0113ng chu\u012B y\xE0n xu\u011B f\u0113n f\u0113n\u3002\nm\xF2 ch\xF3u qi\xE1n l\xF9 w\xFA zh\u012B j\u01D0\uFF0C\nti\u0101n xi\xE0 shu\xED r\xE9n b\xF9 sh\xED j\u016Bn?",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5343\u91CC\u9EC4\u4E91\u906E\u6697\u4E86\u9633\u5149\uFF0C\u5317\u98CE\u5439\u7740\u5927\u96C1\uFF0C\u96EA\u82B1\u7EB7\u7EB7\u98D8\u843D\u3002\u4E0D\u8981\u62C5\u5FC3\u524D\u65B9\u6CA1\u6709\u77E5\u5DF1\uFF0C\u5929\u4E0B\u6709\u8C01\u4E0D\u8BA4\u8BC6\u4F60\u5462\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 44,
+          "bvid": "BV1Vvp7epEqc",
+          "url": "https://www.bilibili.com/bangumi/play/ep834932",
+          "title": "\u7B14\u6746\u5B50\u6BD4\u5C0F\u5200\u8FD8\u950B\u5229\u7684\u8BD7\u4EBA\u662F\u8C01\uFF1F"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-58",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u7CBE\u536B\u586B\u6D77",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u708E\u5E1D\u4E4B\u5C11\u5973\uFF0C\u540D\u66F0\u5973\u5A03\u3002\u5973\u5A03\u6E38\u4E8E\u4E1C\u6D77\uFF0C\u6EBA\u800C\u4E0D\u8FD4\uFF0C\u6545\u4E3A\u7CBE\u536B\uFF0C\u5E38\u8854\u897F\u5C71\u4E4B\u6728\u77F3\uFF0C\u4EE5\u5819\u4E8E\u4E1C\u6D77\u3002",
+        "pinyin": "y\xE1n d\xEC zh\u012B sh\xE0o n\u01DA\uFF0C m\xEDng yu\u0113 n\u01DA w\xE1\u3002 n\u01DA w\xE1 y\xF3u y\xFA d\u014Dng h\u01CEi\uFF0C n\xEC \xE9r b\xF9 f\u01CEn\uFF0C g\xF9 w\xE8i j\u012Bng w\xE8i\uFF0C ch\xE1ng xi\xE1n x\u012B sh\u0101n zh\u012B m\xF9 sh\xED\uFF0C y\u01D0 y\u012Bn y\xFA d\u014Dng h\u01CEi\u3002",
+        "category": "myth",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u708E\u5E1D\u7684\u5C0F\u5973\u513F\u540D\u53EB\u5973\u5A03\u3002\u5973\u5A03\u5230\u4E1C\u6D77\u6E38\u73A9\uFF0C\u6EBA\u6C34\u6CA1\u6709\u56DE\u6765\uFF0C\u56E0\u6B64\u5316\u4E3A\u7CBE\u536B\u9E1F\uFF0C\u5E38\u5E38\u8854\u897F\u5C71\u7684\u6811\u679D\u548C\u77F3\u5934\uFF0C\u7528\u6765\u586B\u585E\u4E1C\u6D77\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0A-poem-59",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u738B\u620E\u4E0D\u53D6\u9053\u65C1\u674E",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u738B\u620E\u4E03\u5C81\uFF0C\u5C1D\u4E0E\u8BF8\u5C0F\u513F\u6E38\u3002\u770B\u9053\u8FB9\u674E\u6811\u591A\u5B50\u6298\u679D\uFF0C\u8BF8\u513F\u7ADE\u8D70\u53D6\u4E4B\uFF0C\u552F\u620E\u4E0D\u52A8\u3002\u4EBA\u95EE\u4E4B\uFF0C\u7B54\u66F0:\u201C\u6811\u5728\u9053\u8FB9\u800C\u591A\u5B50\uFF0C\u6B64\u5FC5\u82E6\u674E\u3002\u201D\u53D6\u4E4B\uFF0C\u4FE1\u7136\u3002",
+        "pinyin": "w\xE1ng r\xF3ng q\u012B su\xEC\uFF0C ch\xE1ng y\u01D4 zh\u016B xi\u01CEo \xE9r y\xF3u\u3002 k\xE0n d\xE0o bi\u0101n l\u01D0 sh\xF9 du\u014D zi zh\xE9 zh\u012B\uFF0C zh\u016B \xE9r j\xECng z\u01D2u q\u01D4 zh\u012B\uFF0C w\xE9i r\xF3ng b\xF9 d\xF2ng\u3002 r\xE9n w\xE8n zh\u012B\uFF0C d\xE1 yu\u0113 :\u201C sh\xF9 z\xE0i d\xE0o bi\u0101n \xE9r du\u014D zi\uFF0C c\u01D0 b\xEC k\u01D4 l\u01D0\u3002\u201D q\u01D4 zh\u012B\uFF0C x\xECn r\xE1n\u3002",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u738B\u620E\u4E03\u5C81\u65F6\u548C\u5B69\u5B50\u4EEC\u6E38\u73A9\uFF0C\u770B\u89C1\u8DEF\u8FB9\u674E\u6811\u679C\u5B9E\u5F88\u591A\u538B\u5F2F\u6811\u679D\uFF0C\u5B69\u5B50\u4EEC\u4E89\u7740\u53BB\u6458\uFF0C\u53EA\u6709\u738B\u620E\u4E0D\u52A8\u3002\u6709\u4EBA\u95EE\u539F\u56E0\uFF0C\u4ED6\u8BF4\uFF1A\u201C\u6811\u5728\u8DEF\u8FB9\u5374\u8FD8\u6709\u5F88\u591A\u679C\u5B50\uFF0C\u8FD9\u4E00\u5B9A\u662F\u82E6\u674E\u3002\u201D\u6458\u6765\u4E00\u5C1D\uFF0C\u679C\u7136\u5982\u6B64\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-g4-\u4E0A-12",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u4EBA\u5C71\u4EBA\u6D77",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u4EBA\u7FA4\u50CF\u5C71\u4E00\u6837\u591A\uFF0C\u50CF\u6D77\u4E00\u6837\u5927\u3002\u5F62\u5BB9\u805A\u96C6\u7684\u4EBA\u975E\u5E38\u591A\u3002",
+        "pinyin": "r\xE9n q\xFAn xi\xE0ng sh\u0101n y\u012B y\xE0ng du\u014D\uFF0C xi\xE0ng h\u01CEi y\u012B y\xE0ng d\xE0\u3002 x\xEDng r\xF3ng j\xF9 j\xED de r\xE9n f\u0113i ch\xE1ng du\u014D\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u56FD\u5E86\u8282\u7684\u666F\u533A\u4EBA\u5C71\u4EBA\u6D77\uFF0C\u70ED\u95F9\u6781\u4E86\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u4EBA\u7FA4",
+          "\u70ED\u95F9",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u4EBA\u5C71\u4EBA\u6D77",
+          "\u7199\u7199\u6518\u6518"
+        ]
+      },
+      {
+        "id": "idiom-g4-\u4E0A-13",
+        "grade": 4,
+        "volume": "\u4E0A",
+        "title": "\u82E5\u9690\u82E5\u73B0",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u597D\u50CF\u9690\u85CF\u8D77\u6765\uFF0C\u53C8\u597D\u50CF\u663E\u73B0\u51FA\u6765\u3002\u5F62\u5BB9\u666F\u7269\u770B\u4E0D\u6E05\u695A\u3002",
+        "pinyin": "h\u01CEo xi\xE0ng y\u01D0n c\xE1ng q\u01D0 l\xE1i\uFF0C y\xF2u h\u01CEo xi\xE0ng xi\u01CEn xi\xE0n ch\u016B l\xE1i\u3002 x\xEDng r\xF3ng j\u01D0ng w\xF9 k\xE0n b\xF9 q\u012Bng ch\u01D4\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u8584\u96FE\u4E2D\u7684\u8FDC\u5C71\u82E5\u9690\u82E5\u73B0\uFF0C\u50CF\u4E00\u5E45\u6C34\u58A8\u753B\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u666F\u7269",
+          "\u96FE\u6C14",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u82E5\u9690\u82E5\u73B0",
+          "\u9690\u9690\u7EA6\u7EA6"
+        ]
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-60",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u56DB\u65F6\u7530\u56ED\u6742\u5174(\u5176\u4E8C\u5341\u4E94)",
+        "author": "\u8303\u6210\u5927",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6885\u5B50\u91D1\u9EC4\u674F\u5B50\u80A5\uFF0C\n\u9EA6\u82B1\u96EA\u767D\u83DC\u82B1\u7A00\u3002\n\u65E5\u957F\u7BF1\u843D\u65E0\u4EBA\u8FC7\uFF0C\n\u60DF\u6709\u873B\u8713\u86F1\u8776\u98DE\u3002",
+        "pinyin": "m\xE9i zi j\u012Bn hu\xE1ng x\xECng zi f\xE9i\uFF0C\nm\xE0i hu\u0101 xu\u011B b\xE1i c\xE0i hu\u0101 x\u012B\u3002\nr\xEC zh\u01CEng l\xED lu\xF2 w\xFA r\xE9n gu\xF2\uFF0C\nw\xE9i y\u01D2u q\u012Bng t\xEDng ji\xE1 di\xE9 f\u0113i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6885\u5B50\u53D8\u5F97\u91D1\u9EC4\uFF0C\u674F\u5B50\u957F\u5F97\u9971\u6EE1\uFF1B\u9EA6\u82B1\u96EA\u767D\uFF0C\u83DC\u82B1\u6E10\u6E10\u7A00\u5C11\u3002\u767D\u5929\u53D8\u957F\uFF0C\u7BF1\u7B06\u65C1\u6CA1\u6709\u4EBA\u7ECF\u8FC7\uFF0C\u53EA\u6709\u873B\u8713\u548C\u8774\u8776\u98DE\u6765\u98DE\u53BB\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-61",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u5BBF\u65B0\u5E02\u5F90\u516C\u5E97",
+        "author": "\u6768\u4E07\u91CC",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u7BF1\u843D\u758F\u758F\u4E00\u5F84\u6DF1\uFF0C\n\u6811\u5934\u65B0\u7EFF\u672A\u6210\u9634\u3002\n\u513F\u7AE5\u6025\u8D70\u8FFD\u9EC4\u8776\uFF0C\n\u98DE\u5165\u83DC\u82B1\u65E0\u5904\u5BFB\u3002",
+        "pinyin": "l\xED lu\xF2 sh\u016B sh\u016B y\u012B j\xECng sh\u0113n\uFF0C\nsh\xF9 t\xF3u x\u012Bn l\u01DC w\xE8i ch\xE9ng y\u012Bn\u3002\n\xE9r t\xF3ng j\xED z\u01D2u zhu\u012B hu\xE1ng di\xE9\uFF0C\nf\u0113i r\xF9 c\xE0i hu\u0101 w\xFA ch\u01D4 x\xFAn\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u7A00\u7A00\u758F\u758F\u7684\u7BF1\u7B06\u65C1\uFF0C\u4E00\u6761\u5C0F\u8DEF\u4F38\u5411\u8FDC\u65B9\uFF0C\u6811\u68A2\u521A\u957F\u51FA\u5AE9\u7EFF\u7684\u65B0\u53F6\uFF0C\u8FD8\u6CA1\u6709\u5F62\u6210\u6D53\u5BC6\u7684\u6811\u836B\u3002\u5B69\u5B50\u6025\u5FD9\u5954\u8DD1\u7740\u8FFD\u9EC4\u8774\u8776\uFF0C\u8774\u8776\u98DE\u8FDB\u91D1\u9EC4\u7684\u83DC\u82B1\u4E1B\u91CC\uFF0C\u518D\u4E5F\u627E\u4E0D\u5230\u4E86\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-62",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u8299\u84C9\u697C\u9001\u8F9B\u6E10",
+        "author": "\u738B\u660C\u9F84",
+        "dynasty": "\u5510",
+        "excerpt": "\u5BD2\u96E8\u8FDE\u6C5F\u591C\u5165\u5434\uFF0C\n\u5E73\u660E\u9001\u5BA2\u695A\u5C71\u5B64\u3002\n\u6D1B\u9633\u4EB2\u53CB\u5982\u76F8\u95EE\uFF0C\n\u4E00\u7247\u51B0\u5FC3\u5728\u7389\u58F6\u3002",
+        "pinyin": "h\xE1n y\u01D4 li\xE1n ji\u0101ng y\xE8 r\xF9 w\xFA\uFF0C\np\xEDng m\xEDng s\xF2ng k\xE8 ch\u01D4 sh\u0101n g\u016B\u3002\nlu\xF2 y\xE1ng q\u012Bn y\u01D2u r\xFA xi\u0101ng w\xE8n\uFF0C\ny\u012B pi\xE0n b\u012Bng x\u012Bn z\xE0i y\xF9 h\xFA\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5BD2\u51B7\u7684\u96E8\u8FDE\u7740\u6C5F\u9762\uFF0C\u591C\u91CC\u6765\u5230\u5434\u5730\uFF1B\u5929\u4EAE\u65F6\u9001\u522B\u670B\u53CB\uFF0C\u695A\u5C71\u663E\u5F97\u683C\u5916\u5B64\u5355\u3002\u6D1B\u9633\u7684\u4EB2\u53CB\u5982\u679C\u95EE\u8D77\u6211\uFF0C\u8BF7\u544A\u8BC9\u4ED6\u4EEC\uFF0C\u6211\u7684\u4E00\u7247\u7EAF\u6D01\u4E4B\u5FC3\u4ECD\u50CF\u7389\u58F6\u4E2D\u7684\u51B0\u4E00\u6837\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 21,
+          "bvid": "BV1xT42167AY",
+          "url": "https://www.bilibili.com/bangumi/play/ep831817",
+          "title": "\u88AB\u4E16\u4EBA\u6C38\u8FDC\u94ED\u8BB0\u7684\u9001\u522B\u8BD7\uFF0C\u4F60\u77E5\u9053\u662F\u54EA\u9996\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-63",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u585E\u4E0B\u66F2",
+        "author": "\u5362\u7EB6",
+        "dynasty": "\u5510",
+        "excerpt": "\u6708\u9ED1\u96C1\u98DE\u9AD8\uFF0C\n\u5355\u4E8E\u591C\u9041\u9003\u3002\n\u6B32\u5C06\u8F7B\u9A91\u9010\uFF0C\n\u5927\u96EA\u6EE1\u5F13\u5200\u3002",
+        "pinyin": "yu\xE8 h\u0113i y\xE0n f\u0113i g\u0101o\uFF0C\nch\xE1n y\xFA y\xE8 d\xF9n t\xE1o\u3002\ny\xF9 ji\u0101ng q\u012Bng q\xED zh\xFA\uFF0C\nd\xE0 xu\u011B m\u01CEn g\u014Dng d\u0101o\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u591C\u8272\u6F06\u9ED1\uFF0C\u5927\u96C1\u9AD8\u98DE\uFF0C\u5355\u4E8E\u8D81\u591C\u9003\u8DD1\u3002\u5C06\u519B\u51C6\u5907\u7387\u8F7B\u9A91\u8FFD\u51FB\uFF0C\u5927\u96EA\u843D\u6EE1\u5F13\u5200\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 17,
+          "bvid": "BV1KE4m1d7KC",
+          "url": "https://www.bilibili.com/bangumi/play/ep831662",
+          "title": "\u5FA1\u524D\u4F8D\u536B\u4E5F\u662F\u5927\u8BD7\u4EBA\uFF1F\u4F60\u77E5\u9053\u662F\u8C01\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-64",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u6885",
+        "author": "\u738B\u5195",
+        "dynasty": "\u5143",
+        "excerpt": "\u6211\u5BB6\u6D17\u781A\u6C60\u5934\u6811\uFF0C\n\u6735\u6735\u82B1\u5F00\u6DE1\u58A8\u75D5\u3002\n\u4E0D\u8981\u4EBA\u5938\u597D\u989C\u8272\uFF0C\n\u53EA\u7559\u6E05\u6C14\u6EE1\u4E7E\u5764\u3002",
+        "pinyin": "w\u01D2 ji\u0101 x\u01D0 y\xE0n ch\xED t\xF3u sh\xF9\uFF0C\ndu\u01D2 du\u01D2 hu\u0101 k\u0101i d\xE0n m\xF2 h\xE9n\u3002\nb\xFA y\xE0o r\xE9n ku\u0101 h\u01CEo y\xE1n s\xE8\uFF0C\nzh\u01D0 li\xFA q\u012Bng q\xEC m\u01CEn qi\xE1n k\u016Bn\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6211\u5BB6\u6D17\u781A\u6C60\u8FB9\u6709\u4E00\u68F5\u6885\u6811\uFF0C\u6735\u6735\u82B1\u5F00\u90FD\u5E26\u7740\u6DE1\u6DE1\u7684\u58A8\u75D5\u3002\u4E0D\u6C42\u522B\u4EBA\u5938\u8D5E\u989C\u8272\u597D\u770B\uFF0C\u53EA\u613F\u628A\u6E05\u9999\u7559\u5728\u5929\u5730\u4E4B\u95F4\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-65",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u535C\u7B97\u5B50\xB7\u548F\u6885",
+        "author": "\u6BDB\u6CFD\u4E1C",
+        "dynasty": "\u73B0\u4EE3",
+        "excerpt": "\u98CE\u96E8\u9001\u6625\u5F52\uFF0C\u98DE\u96EA\u8FCE\u6625\u5230\u3002\u5DF2\u662F\u60AC\u5D16\u767E\u4E08\u51B0\uFF0C\u72B9\u6709\u82B1\u679D\u4FCF\u3002\u4FCF\u4E5F\u4E0D\u4E89\u6625\uFF0C\u53EA\u628A\u6625\u6765\u62A5\u3002\u5F85\u5230\u5C71\u82B1\u70C2\u6F2B\u65F6\uFF0C\u5979\u5728\u4E1B\u4E2D\u7B11\u3002",
+        "pinyin": "f\u0113ng y\u01D4 s\xF2ng ch\u016Bn gu\u012B\uFF0C f\u0113i xu\u011B y\xEDng ch\u016Bn d\xE0o\u3002 y\u01D0 sh\xEC xu\xE1n y\xE1 b\u01CEi zh\xE0ng b\u012Bng\uFF0C y\xF3u y\u01D2u hu\u0101 zh\u012B qi\xE0o\u3002 qi\xE0o y\u011B b\xF9 zh\u0113ng ch\u016Bn\uFF0C zh\u01D0 b\u01CE ch\u016Bn l\xE1i b\xE0o\u3002 d\xE0i d\xE0o sh\u0101n hu\u0101 l\xE0n m\xE0n sh\xED\uFF0C t\u0101 z\xE0i c\xF3ng zh\u014Dng xi\xE0o\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u98CE\u96E8\u628A\u6625\u5929\u9001\u8D70\uFF0C\u98DE\u96EA\u53C8\u628A\u6625\u5929\u8FCE\u6765\u3002\u60AC\u5D16\u4E0A\u7ED3\u7740\u767E\u4E08\u575A\u51B0\uFF0C\u6885\u82B1\u679D\u5934\u4F9D\u7136\u4FCF\u4E3D\u3002\u5979\u867D\u7F8E\u4E3D\u5374\u4E0D\u4E89\u6625\uFF0C\u53EA\u628A\u6625\u5929\u5230\u6765\u7684\u6D88\u606F\u62A5\u544A\u3002\u7B49\u5230\u5C71\u82B1\u70C2\u6F2B\u65F6\uFF0C\u5979\u5728\u82B1\u4E1B\u4E2D\u5FAE\u7B11\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-66",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u6C5F\u7554\u72EC\u6B65\u5BFB\u82B1",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u9EC4\u5E08\u5854\u524D\u6C5F\u6C34\u4E1C\uFF0C\n\u6625\u5149\u61D2\u56F0\u501A\u5FAE\u98CE\u3002\n\u6843\u82B1\u4E00\u7C07\u5F00\u65E0\u4E3B\uFF0C\n\u53EF\u7231\u6DF1\u7EA2\u7231\u6D45\u7EA2?",
+        "pinyin": "hu\xE1ng sh\u012B t\u01CE qi\xE1n ji\u0101ng shu\u01D0 d\u014Dng\uFF0C\nch\u016Bn gu\u0101ng l\u01CEn k\xF9n y\u01D0 w\u0113i f\u0113ng\u3002\nt\xE1o hu\u0101 y\u012B c\xF9 k\u0101i w\xFA zh\u01D4\uFF0C\nk\u011B \xE0i sh\u0113n h\xF3ng \xE0i qi\u01CEn h\xF3ng?",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9EC4\u5E08\u5854\u524D\u7684\u6C5F\u6C34\u5411\u4E1C\u6D41\u53BB\uFF0C\u6625\u5149\u8BA9\u4EBA\u6175\u61D2\uFF0C\u5FAE\u98CE\u8F7B\u8F7B\u5439\u62C2\u3002\u4E00\u7C07\u65E0\u4E3B\u7684\u6843\u82B1\u6B63\u5728\u76DB\u5F00\uFF0C\u6211\u8BE5\u559C\u7231\u6DF1\u7EA2\u7684\u8FD8\u662F\u6D45\u7EA2\u7684\u5462\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 30,
+          "bvid": "BV1c94y1K7rY",
+          "url": "https://www.bilibili.com/bangumi/play/ep812139",
+          "title": "\u675C\u752B\u4E3A\u5565\u8FD9\u4E48\u5FD9\uFF1F\u539F\u6765\u662F\u5E2E\u6211\u627E\u7075\u611F"
+        }
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-67",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u8702",
+        "author": "\u7F57\u9690",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E0D\u8BBA\u5E73\u5730\u4E0E\u5C71\u5C16\uFF0C\n\u65E0\u9650\u98CE\u5149\u5C3D\u88AB\u5360\u3002\n\u91C7\u5F97\u767E\u82B1\u6210\u871C\u540E\uFF0C\n\u4E3A\u8C01\u8F9B\u82E6\u4E3A\u8C01\u751C?",
+        "pinyin": "b\xF9 l\xF9n p\xEDng d\xEC y\u01D4 sh\u0101n ji\u0101n\uFF0C\nw\xFA xi\xE0n f\u0113ng gu\u0101ng j\u01D0n b\xE8i zh\xE0n\u3002\nc\u01CEi d\xE9 b\u01CEi hu\u0101 ch\xE9ng m\xEC h\xF2u\uFF0C\nw\xE8i shu\xED x\u012Bn k\u01D4 w\xE8i shu\xED ti\xE1n?",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u65E0\u8BBA\u5728\u5E73\u5730\u8FD8\u662F\u5C71\u9876\uFF0C\u51E1\u662F\u82B1\u5F00\u7684\u5730\u65B9\u90FD\u6709\u871C\u8702\u7684\u8EAB\u5F71\u3002\u5B83\u91C7\u5C3D\u767E\u82B1\u917F\u6210\u8702\u871C\uFF0C\u7A76\u7ADF\u662F\u4E3A\u8C01\u8F9B\u82E6\u3001\u4E3A\u8C01\u917F\u9020\u9999\u751C\u5462\uFF1F",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-68",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u72EC\u5750\u656C\u4EAD\u5C71",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u4F17\u9E1F\u9AD8\u98DE\u5C3D\uFF0C\n\u5B64\u4E91\u72EC\u53BB\u95F2\u3002\n\u76F8\u770B\u4E24\u4E0D\u538C\uFF0C\n\u53EA\u6709\u656C\u4EAD\u5C71\u3002",
+        "pinyin": "zh\xF2ng ni\u01CEo g\u0101o f\u0113i j\u01D0n\uFF0C\ng\u016B y\xFAn d\xFA q\xF9 xi\xE1n\u3002\nxi\u0101ng k\xE0n li\u01CEng b\xF9 y\xE0n\uFF0C\nzh\u01D0 y\u01D2u j\xECng t\xEDng sh\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9E1F\u513F\u90FD\u9AD8\u9AD8\u98DE\u8D70\u4E86\uFF0C\u5B64\u4E91\u4E5F\u60A0\u95F2\u5730\u98D8\u8FDC\u3002\u6211\u548C\u656C\u4EAD\u5C71\u4E92\u76F8\u51DD\u671B\uFF0C\u5F7C\u6B64\u90FD\u4E0D\u538C\u5026\uFF0C\u966A\u6211\u7684\u53EA\u6709\u8FD9\u5EA7\u5C71\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-69",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u6E05\u5E73\u4E50\xB7\u6751\u5C45",
+        "author": "\u8F9B\u5F03\u75BE",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u8305\u6A90\u4F4E\u5C0F\uFF0C\u6EAA\u4E0A\u9752\u9752\u8349\u3002\u9189\u91CC\u5434\u97F3\u76F8\u5A9A\u597D\uFF0C\u767D\u53D1\u8C01\u5BB6\u7FC1\u5AAA? \u5927\u513F\u9504\u8C46\u6EAA\u4E1C\uFF0C\u4E2D\u513F\n\u6B63\u7EC7\u9E21\u7B3C\u3002\u6700\u559C\u5C0F\u513F\u4EA1\u8D56\uFF0C\u6EAA\u5934\u5367\u5265\u83B2\u84EC\u3002",
+        "pinyin": "m\xE1o y\xE1n d\u012B xi\u01CEo\uFF0C x\u012B sh\xE0ng q\u012Bng q\u012Bng c\u01CEo\u3002 zu\xEC l\u01D0 w\xFA y\u012Bn xi\u0101ng m\xE8i h\u01CEo\uFF0C b\xE1i f\xE0 shu\xED ji\u0101 w\u0113ng \u01CEo? d\xE0 \xE9r ch\xFA d\xF2u x\u012B d\u014Dng\uFF0C zh\u014Dng \xE9r\nzh\xE8ng zh\u012B j\u012B l\xF3ng\u3002 zu\xEC x\u01D0 xi\u01CEo \xE9r w\xE1ng l\xE0i\uFF0C x\u012B t\xF3u w\xF2 b\u014D li\xE1n p\xE9ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8305\u8349\u5C4B\u4F4E\u77EE\uFF0C\u6EAA\u8FB9\u957F\u6EE1\u9752\u8349\u3002\u542B\u9189\u610F\u7684\u5434\u5730\u65B9\u8A00\u6E29\u67D4\u4EB2\u5207\uFF0C\u90A3\u767D\u53D1\u7684\u662F\u8C01\u5BB6\u7684\u8001\u592B\u59BB\uFF1F\u5927\u513F\u5B50\u5728\u6EAA\u4E1C\u9504\u8C46\uFF0C\u4E8C\u513F\u5B50\u5728\u7F16\u9E21\u7B3C\u3002\u6700\u559C\u987D\u76AE\u7684\u5C0F\u513F\u5B50\uFF0C\u8DB4\u5728\u6EAA\u5934\u5265\u83B2\u84EC\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-70",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u56CA\u8424\u591C\u8BFB",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u80E4\u606D\u52E4\u4E0D\u5026\uFF0C\u535A\u5B66\u591A\u901A\u3002\u5BB6\u8D2B\u4E0D\u5E38\u5F97\u6CB9\uFF0C\u590F\u6708\u5219\u7EC3\u56CA\u76DB\u6570\u5341\u8424\u706B\u4EE5\u7167\u4E66\uFF0C\u4EE5\u591C\u7EE7\u65E5\u7109\u3002",
+        "pinyin": "y\xECn g\u014Dng q\xEDn b\xF9 ju\xE0n\uFF0C b\xF3 xu\xE9 du\u014D t\u014Dng\u3002 ji\u0101 p\xEDn b\xF9 ch\xE1ng d\xE9 y\xF3u\uFF0C xi\xE0 yu\xE8 z\xE9 li\xE0n n\xE1ng sh\xE8ng sh\xF9 sh\xED y\xEDng hu\u01D2 y\u01D0 zh\xE0o sh\u016B\uFF0C y\u01D0 y\xE8 j\xEC r\xEC y\u0101n\u3002",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8F66\u80E4\u8C28\u614E\u52E4\u52C9\uFF0C\u4E0D\u77E5\u75B2\u5026\uFF0C\u5B66\u8BC6\u5E7F\u535A\u3002\u5BB6\u91CC\u8D2B\u7A77\uFF0C\u4E0D\u5E38\u6709\u706F\u6CB9\uFF0C\u590F\u5929\u5C31\u7528\u767D\u7EE2\u888B\u88C5\u51E0\u5341\u53EA\u8424\u706B\u866B\u7167\u660E\u8BFB\u4E66\uFF0C\u591C\u4EE5\u7EE7\u65E5\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-4-\u4E0B-poem-71",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u94C1\u6775\u6210\u9488",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u78E8\u9488\u6EAA\uFF0C\u5728\u8C61\u8033\u5C71\u4E0B\u3002\u4E16\u4F20\u674E\u592A\u767D\u8BFB\u4E66\u5C71\u4E2D\uFF0C\u672A\u6210\uFF0C\u5F03\u53BB\u3002\u8FC7\u662F\u6EAA\uFF0C\u9022\u8001\u5AAA\u65B9\u78E8\u94C1\u6775\u3002\u95EE\u4E4B\uFF0C\u66F0:\u201C\u6B32\u4F5C\u9488\u3002\u201D\u592A\u767D\u611F\u5176\u610F\uFF0C\u8FD8\u5352\u4E1A\u3002",
+        "pinyin": "m\xF3 zh\u0113n x\u012B\uFF0C z\xE0i xi\xE0ng \u011Br sh\u0101n xi\xE0\u3002 sh\xEC chu\xE1n l\u01D0 t\xE0i b\xE1i d\xFA sh\u016B sh\u0101n zh\u014Dng\uFF0C w\xE8i ch\xE9ng\uFF0C q\xEC q\xF9\u3002 gu\xF2 sh\xEC x\u012B\uFF0C f\xE9ng l\u01CEo \u01CEo f\u0101ng m\xF3 ti\u011B ch\u01D4\u3002 w\xE8n zh\u012B\uFF0C yu\u0113 :\u201C y\xF9 zu\xF2 zh\u0113n\u3002\u201D t\xE0i b\xE1i g\u01CEn q\xED y\xEC\uFF0C h\xE1i z\xFA y\xE8\u3002",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u78E8\u9488\u6EAA\u5728\u8C61\u8033\u5C71\u4E0B\u3002\u4F20\u8BF4\u674E\u767D\u5728\u5C71\u4E2D\u8BFB\u4E66\uFF0C\u6CA1\u6709\u5B8C\u6210\u5C31\u79BB\u5F00\u4E86\u3002\u7ECF\u8FC7\u8FD9\u6761\u6EAA\uFF0C\u9047\u5230\u4E00\u4F4D\u8001\u5987\u4EBA\u6B63\u5728\u78E8\u94C1\u6775\u3002\u95EE\u5979\u505A\u4EC0\u4E48\uFF0C\u5979\u8BF4\uFF1A\u201C\u60F3\u505A\u9488\u3002\u201D\u674E\u767D\u88AB\u5979\u7684\u610F\u5FD7\u611F\u52A8\uFF0C\u56DE\u53BB\u5B8C\u6210\u4E86\u5B66\u4E1A\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-g4-\u4E0B-14",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u4E00\u4E1D\u4E0D\u82DF",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u8FDE\u6700\u7EC6\u5C0F\u7684\u5730\u65B9\u4E5F\u4E0D\u9A6C\u864E\u3002\u5F62\u5BB9\u505A\u4E8B\u8BA4\u771F\u3001\u7EC6\u81F4\u3002",
+        "pinyin": "li\xE1n zu\xEC x\xEC xi\u01CEo de d\xEC f\u0101ng y\u011B b\xF9 m\u01CE h\u01D4\u3002 x\xEDng r\xF3ng zu\xF2 sh\xEC r\xE8n zh\u0113n\u3001 x\xEC zh\xEC\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u4ED6\u505A\u9898\u65F6\u4E00\u4E1D\u4E0D\u82DF\uFF0C\u6BCF\u4E00\u6B65\u90FD\u5199\u5F97\u5F88\u6E05\u695A\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u8BA4\u771F",
+          "\u4ED4\u7EC6",
+          "\u4E60\u60EF"
+        ],
+        "related": [
+          "\u4E00\u4E1D\u4E0D\u82DF",
+          "\u7CBE\u76CA\u6C42\u7CBE"
+        ]
+      },
+      {
+        "id": "idiom-g4-\u4E0B-15",
+        "grade": 4,
+        "volume": "\u4E0B",
+        "title": "\u51FF\u58C1\u5077\u5149",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u897F\u6C49\u5321\u8861\u5BB6\u8D2B\uFF0C\u591C\u91CC\u51FF\u7A7F\u5899\u58C1\uFF0C\u501F\u90BB\u820D\u70DB\u5149\u8BFB\u4E66\u3002\u6BD4\u55BB\u5728\u8270\u82E6\u6761\u4EF6\u4E0B\u52E4\u594B\u5B66\u4E60\u3002",
+        "pinyin": "x\u012B h\xE0n ku\u0101ng h\xE9ng ji\u0101 p\xEDn\uFF0Cy\xE8 l\u01D0 z\xE1o chu\u0101n qi\xE1ng b\xEC\uFF0Cji\xE8 l\xEDn sh\xE8 zh\xFA gu\u0101ng d\xFA sh\u016B\u3002b\u01D0 y\xF9 z\xE0i ji\u0101n k\u01D4 ti\xE1o ji\xE0n xi\xE0 q\xEDn f\xE8n xu\xE9 x\xED\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "4\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u5321\u8861\u5C0F\u65F6\u5019\u5BB6\u91CC\u5F88\u7A77\uFF0C\u4E70\u4E0D\u8D77\u706F\u6CB9\u3002\u4ED6\u5728\u5899\u4E0A\u51FF\u4E86\u4E00\u4E2A\u5C0F\u6D1E\uFF0C\u501F\u90BB\u5C45\u5BB6\u7684\u706F\u5149\u8BFB\u4E66\uFF0C\u6700\u7EC8\u6210\u4E3A\u5F88\u6709\u5B66\u95EE\u7684\u4EBA\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u52E4\u594B",
+          "\u5B66\u4E60",
+          "\u6761\u4EF6"
+        ],
+        "related": [
+          "\u51FF\u58C1\u5077\u5149",
+          "\u56CA\u8424\u591C\u8BFB"
+        ]
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-72",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u4E5E\u5DE7",
+        "author": "\u6797\u6770",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E03\u5915\u4ECA\u5BB5\u770B\u78A7\u9704\uFF0C\n\u7275\u725B\u7EC7\u5973\u6E21\u6CB3\u6865\u3002\n\u5BB6\u5BB6\u4E5E\u5DE7\u671B\u79CB\u6708\uFF0C\n\u7A7F\u5C3D\u7EA2\u4E1D\u51E0\u4E07\u6761\u3002",
+        "pinyin": "q\u012B x\u012B j\u012Bn xi\u0101o k\xE0n b\xEC xi\u0101o\uFF0C\nqi\u0101n ni\xFA zh\u012B n\u01DA d\xF9 h\xE9 qi\xE1o\u3002\nji\u0101 ji\u0101 q\u01D0 qi\u01CEo w\xE0ng qi\u016B yu\xE8\uFF0C\nchu\u0101n j\u01D0n h\xF3ng s\u012B j\u01D0 w\xE0n ti\xE1o\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E03\u5915\u7684\u591C\u665A\u4EF0\u671B\u78A7\u84DD\u7684\u5929\u7A7A\uFF0C\u725B\u90CE\u7EC7\u5973\u6E21\u8FC7\u9E4A\u6865\u76F8\u4F1A\u3002\u5BB6\u5BB6\u6237\u6237\u671B\u7740\u79CB\u6708\u4E5E\u6C42\u7075\u5DE7\uFF0C\u7A7F\u8FC7\u7684\u7EA2\u4E1D\u7EBF\u4E0D\u77E5\u6709\u51E0\u4E07\u6761\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-73",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u793A\u513F",
+        "author": "\u9646\u6E38",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6B7B\u53BB\u5143\u77E5\u4E07\u4E8B\u7A7A\uFF0C\n\u4F46\u60B2\u4E0D\u89C1\u4E5D\u5DDE\u540C\u3002\n\u738B\u5E08\u5317\u5B9A\u4E2D\u539F\u65E5\uFF0C\n\u5BB6\u796D\u65E0\u5FD8\u544A\u4E43\u7FC1\u3002",
+        "pinyin": "s\u01D0 q\xF9 yu\xE1n zh\u012B w\xE0n sh\xEC k\u014Dng\uFF0C\nd\xE0n b\u0113i b\xFA ji\xE0n ji\u01D4 zh\u014Du t\xF3ng\u3002\nw\xE1ng sh\u012B b\u011Bi d\xECng zh\u014Dng yu\xE1n r\xEC\uFF0C\nji\u0101 j\xEC w\xFA w\xE0ng g\xE0o n\u01CEi w\u0113ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6211\u672C\u6765\u77E5\u9053\u6B7B\u540E\u4E07\u4E8B\u7686\u7A7A\uFF0C\u53EA\u60B2\u4F24\u6CA1\u80FD\u770B\u5230\u56FD\u5BB6\u7EDF\u4E00\u3002\u671D\u5EF7\u519B\u961F\u6536\u590D\u4E2D\u539F\u65F6\uFF0C\u5BB6\u796D\u4E0D\u8981\u5FD8\u8BB0\u544A\u8BC9\u6211\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 19,
+          "bvid": "BV1HK411v7Z5",
+          "url": "https://www.bilibili.com/bangumi/play/ep810557",
+          "title": "\u4E0D\u4F1A\u6253\u4ED7\u7684\u4E66\u751F\u4E0D\u662F\u597D\u8BD7\u4EBA\uFF0C\u8FD9\u8BF4\u7684\u662F\u8C01\uFF1F"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-74",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u9898\u4E34\u5B89\u90B8",
+        "author": "\u6797\u5347",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u5C71\u5916\u9752\u5C71\u697C\u5916\u697C\uFF0C\n\u897F\u6E56\u6B4C\u821E\u51E0\u65F6\u4F11\uFF1F\n\u6696\u98CE\u718F\u5F97\u6E38\u4EBA\u9189\uFF0C\n\u76F4\u628A\u676D\u5DDE\u4F5C\u6C74\u5DDE\u3002",
+        "pinyin": "sh\u0101n w\xE0i q\u012Bng sh\u0101n l\xF3u w\xE0i l\xF3u\uFF0C\nx\u012B h\xFA g\u0113 w\u01D4 j\u01D0 sh\xED xi\u016B\uFF1F\nnu\u01CEn f\u0113ng x\u016Bn d\xE9 y\xF3u r\xE9n zu\xEC\uFF0C\nzh\xED b\u01CE h\xE1ng zh\u014Du zu\xF2 bi\xE0n zh\u014Du\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9752\u5C71\u4E4B\u5916\u8FD8\u6709\u9752\u5C71\uFF0C\u697C\u9601\u4E4B\u5916\u8FD8\u6709\u697C\u9601\uFF0C\u897F\u6E56\u7684\u6B4C\u821E\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u505C\u6B62\uFF1F\u6E29\u6696\u7684\u98CE\u628A\u6E38\u4EBA\u5439\u9189\uFF0C\u7ADF\u628A\u676D\u5DDE\u5F53\u6210\u4E86\u6C74\u5DDE\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-75",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u5DF1\u4EA5\u6742\u8BD7",
+        "author": "\u9F9A\u81EA\u73CD",
+        "dynasty": "\u6E05",
+        "excerpt": "\u4E5D\u5DDE\u751F\u6C14\u6043\u98CE\u96F7\uFF0C\n\u4E07\u9A6C\u9F50\u5591\u7A76\u53EF\u54C0\u3002\n\u6211\u529D\u5929\u516C\u91CD\u6296\u64DE\uFF0C\n\u4E0D\u62D8\u4E00\u683C\u964D\u4EBA\u624D\u3002",
+        "pinyin": "ji\u01D4 zh\u014Du sh\u0113ng q\xEC sh\xEC f\u0113ng l\xE9i\uFF0C\nw\xE0n m\u01CE q\xED y\u012Bn ji\u016B k\u011B \u0101i\u3002\nw\u01D2 qu\xE0n ti\u0101n g\u014Dng zh\xF2ng d\u01D2u s\u01D2u\uFF0C\nb\xF9 j\u016B y\u012B g\xE9 ji\xE0ng r\xE9n c\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u53EA\u6709\u4F9D\u9760\u98CE\u96F7\u822C\u7684\u5DE8\u5927\u529B\u91CF\uFF0C\u624D\u80FD\u4F7F\u4E2D\u56FD\u5927\u5730\u7115\u53D1\u751F\u673A\uFF1B\u4EBA\u4EEC\u90FD\u4E0D\u6562\u8BF4\u8BDD\u3001\u6BEB\u65E0\u751F\u6C14\u7684\u5C40\u9762\u7EC8\u7A76\u4EE4\u4EBA\u60B2\u54C0\u3002\u6211\u529D\u8001\u5929\u7237\u91CD\u65B0\u632F\u4F5C\u7CBE\u795E\uFF0C\u4E0D\u8981\u62D8\u5B88\u4E00\u79CD\u89C4\u683C\uFF0C\u8BA9\u5404\u79CD\u4EBA\u624D\u964D\u751F\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 25,
+          "bvid": "BV1ky411i71Z",
+          "url": "https://www.bilibili.com/bangumi/play/ep832349",
+          "title": "\u53EA\u8BC6\u5510\u8BD7\u5B8B\u8BCD\uFF1F\u9F9A\u81EA\u73CD\u7684\u300A\u5DF1\u4EA5\u6742\u8BD7\u300B\u4F60\u53EF\u66FE\u77E5\u9053\uFF1F"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-76",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u5C11\u5E74\u4E2D\u56FD\u8BF4\uFF08\u8282\u9009\uFF09",
+        "author": "\u6881\u542F\u8D85",
+        "dynasty": "\u6E05",
+        "excerpt": "\u6545\u4ECA\u65E5\u4E4B\u8D23\u4EFB\uFF0C\u4E0D\u5728\u4ED6\u4EBA\uFF0C\u800C\u5168\u5728\u6211\u5C11\u5E74\u3002 \u5C11\u5E74\u667A\u5219\u56FD\u667A\uFF0C\u5C11\u5E74\u5BCC\u5219\u56FD\u5BCC\uFF1B\u5C11\u5E74\u5F3A\u5219\u56FD\u5F3A\uFF0C\u5C11\u5E74\u72EC\u7ACB\u5219\u56FD\u72EC\u7ACB\uFF1B\u5C11\u5E74\u81EA\u7531\u5219\u56FD\u81EA\u7531\uFF1B\u5C11\u5E74\u8FDB\u6B65\u5219\u56FD\u8FDB\u6B65\uFF1B\u5C11\u5E74\u80DC\u4E8E\u6B27\u6D32\u5219\u56FD\u80DC\u4E8E\u6B27\u6D32\uFF1B\u5C11\u5E74\u96C4\u4E8E\u5730\u7403\u5219\u56FD\u96C4\u4E8E\u5730\u7403\u3002\n\u7EA2\u65E5\u521D\u5347\uFF0C\u5176\u9053\u5927\u5149\u3002\u6CB3\u51FA\u4F0F\u6D41\uFF0C\u4E00\u6CFB\u6C6A\u6D0B\u3002\u6F5C\u9F99\u817E\u6E0A\uFF0C\u9CDE\u722A\u98DE\u626C\u3002\u4E73\u864E\u5578\u8C37\uFF0C\u767E\u517D\u9707\u60F6\u3002\u9E70\u96BC\u8BD5\u7FFC\uFF0C\u98CE\u5C18\u5438\u5F20\u3002\u5947\u82B1\u521D\u80CE\uFF0C\u77DE\u77DE\u7687\u7687\u3002\u5E72\u5C06\u53D1\u784E\uFF0C\u6709\u4F5C\u5176\u8292\u3002\u5929\u6234\u5176\u82CD\uFF0C\u5730\u5C65\u5176\u9EC4\u3002\u7EB5\u6709\u5343\u53E4\uFF0C\u6A2A\u6709\u516B\u8352\u3002\u524D\u9014\u4F3C\u6D77\uFF0C\u6765\u65E5\u65B9\u957F\u3002\n\u7F8E\u54C9\uFF0C\u6211\u5C11\u5E74\u4E2D\u56FD\uFF0C\u4E0E\u5929\u4E0D\u8001\uFF01\u58EE\u54C9\uFF0C\u6211\u4E2D\u56FD\u5C11\u5E74\uFF0C\u4E0E\u56FD\u65E0\u7586\uFF01",
+        "pinyin": "g\xF9 j\u012Bn r\xEC zh\u012B z\xE9 r\xE8n\uFF0C b\xF9 z\xE0i t\u0101 r\xE9n\uFF0C \xE9r qu\xE1n z\xE0i w\u01D2 sh\xE0o ni\xE1n\u3002 sh\xE0o ni\xE1n zh\xEC z\xE9 gu\xF3 zh\xEC\uFF0C sh\xE0o ni\xE1n f\xF9 z\xE9 gu\xF3 f\xF9\uFF1B sh\xE0o ni\xE1n qi\xE1ng z\xE9 gu\xF3 qi\xE1ng\uFF0C sh\xE0o ni\xE1n d\xFA l\xEC z\xE9 gu\xF3 d\xFA l\xEC\uFF1B sh\xE0o ni\xE1n z\xEC y\xF3u z\xE9 gu\xF3 z\xEC y\xF3u\uFF1B sh\xE0o ni\xE1n j\xECn b\xF9 z\xE9 gu\xF3 j\xECn b\xF9\uFF1B sh\xE0o ni\xE1n sh\xE8ng y\xFA \u014Du zh\u014Du z\xE9 gu\xF3 sh\xE8ng y\xFA \u014Du zh\u014Du\uFF1B sh\xE0o ni\xE1n xi\xF3ng y\xFA d\xEC qi\xFA z\xE9 gu\xF3 xi\xF3ng y\xFA d\xEC qi\xFA\u3002\nh\xF3ng r\xEC ch\u016B sh\u0113ng\uFF0C q\xED d\xE0o d\xE0 gu\u0101ng\u3002 h\xE9 ch\u016B f\xFA li\xFA\uFF0C y\u012B xi\xE8 w\u0101ng y\xE1ng\u3002 qi\xE1n l\xF3ng t\xE9ng yu\u0101n\uFF0C l\xEDn zh\u01CEo f\u0113i y\xE1ng\u3002 r\u01D4 h\u01D4 xi\xE0o g\u01D4\uFF0C b\u01CEi sh\xF2u zh\xE8n hu\xE1ng\u3002 y\u012Bng s\u01D4n sh\xEC y\xEC\uFF0C f\u0113ng ch\xE9n x\u012B zh\u0101ng\u3002 q\xED hu\u0101 ch\u016B t\u0101i\uFF0C y\xF9 y\xF9 hu\xE1ng hu\xE1ng\u3002 g\xE0n ji\xE0ng f\u0101 x\xEDng\uFF0C y\u01D2u zu\xF2 q\xED m\xE1ng\u3002 ti\u0101n d\xE0i q\xED c\u0101ng\uFF0C d\xEC l\u01DA q\xED hu\xE1ng\u3002 z\xF2ng y\u01D2u qi\u0101n g\u01D4\uFF0C h\xE9ng y\u01D2u b\u0101 hu\u0101ng\u3002 qi\xE1n t\xFA sh\xEC h\u01CEi\uFF0C l\xE1i r\xEC f\u0101ng ch\xE1ng\u3002\nm\u011Bi z\u0101i\uFF0C w\u01D2 sh\xE0o ni\xE1n zh\u014Dng gu\xF3\uFF0C y\u01D4 ti\u0101n b\xF9 l\u01CEo\uFF01 zhu\xE0ng z\u0101i\uFF0C w\u01D2 zh\u014Dng gu\xF3 sh\xE0o ni\xE1n\uFF0C y\u01D4 gu\xF3 w\xFA ji\u0101ng\uFF01",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u56E0\u6B64\u4ECA\u5929\u7684\u8D23\u4EFB\uFF0C\u4E0D\u5728\u522B\u4EBA\uFF0C\u5168\u5728\u6211\u4EEC\u5C11\u5E74\u8EAB\u4E0A\u3002\u5C11\u5E74\u806A\u660E\uFF0C\u56FD\u5BB6\u5C31\u806A\u660E\uFF1B\u5C11\u5E74\u5BCC\u88D5\uFF0C\u56FD\u5BB6\u5C31\u5BCC\u88D5\uFF1B\u5C11\u5E74\u5F3A\u5927\uFF0C\u56FD\u5BB6\u5C31\u5F3A\u5927\uFF1B\u5C11\u5E74\u72EC\u7ACB\uFF0C\u56FD\u5BB6\u5C31\u72EC\u7ACB\uFF1B\u5C11\u5E74\u81EA\u7531\uFF0C\u56FD\u5BB6\u5C31\u81EA\u7531\uFF1B\u5C11\u5E74\u8FDB\u6B65\uFF0C\u56FD\u5BB6\u5C31\u8FDB\u6B65\u3002\u5C11\u5E74\u80DC\u8FC7\u6B27\u6D32\uFF0C\u56FD\u5BB6\u5C31\u80DC\u8FC7\u6B27\u6D32\uFF1B\u5C11\u5E74\u96C4\u4E8E\u5730\u7403\uFF0C\u56FD\u5BB6\u5C31\u96C4\u4E8E\u5730\u7403\u3002\u7EA2\u65E5\u521A\u521A\u5347\u8D77\uFF0C\u524D\u8DEF\u5149\u660E\uFF1B\u9EC4\u6CB3\u4ECE\u5730\u4E0B\u6D8C\u51FA\uFF0C\u4E00\u6CFB\u5343\u91CC\u3002\u6F5C\u9F99\u4ECE\u6DF1\u6E0A\u817E\u8D77\uFF0C\u9CDE\u722A\u98DE\u626C\uFF1B\u5E7C\u864E\u5728\u5C71\u8C37\u6012\u543C\uFF0C\u767E\u517D\u9707\u6050\uFF1B\u96C4\u9E70\u8BD5\u7FFC\uFF0C\u98CE\u5C18\u5F20\u5F00\uFF1B\u5947\u82B1\u521D\u7EFD\uFF0C\u5149\u5F69\u593A\u76EE\uFF1B\u5B9D\u5251\u65B0\u78E8\uFF0C\u950B\u8292\u663E\u9732\u3002\u5934\u9876\u82CD\u5929\uFF0C\u811A\u8E0F\u9EC4\u571F\uFF0C\u7EB5\u6709\u5343\u53E4\uFF0C\u6A2A\u6709\u516B\u8352\u3002\u524D\u9014\u50CF\u5927\u6D77\u4E00\u6837\u5BBD\u5E7F\uFF0C\u6765\u65E5\u65B9\u957F\u3002\u7F8E\u4E3D\u554A\uFF0C\u6211\u7684\u5C11\u5E74\u4E2D\u56FD\uFF0C\u4E0E\u5929\u4E00\u6837\u4E0D\u8001\uFF01\u58EE\u4E3D\u554A\uFF0C\u6211\u7684\u4E2D\u56FD\u5C11\u5E74\uFF0C\u4E0E\u7956\u56FD\u4E00\u6837\u65E0\u9645\uFF01",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-77",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u6E38\u5B50\u541F",
+        "author": "\u5B5F\u90CA",
+        "dynasty": "\u5510",
+        "excerpt": "\u6148\u6BCD\u624B\u4E2D\u7EBF\uFF0C\u6E38\u5B50\u8EAB\u4E0A\u8863\u3002\n\u4E34\u884C\u5BC6\u5BC6\u7F1D\uFF0C\u610F\u6050\u8FDF\u8FDF\u5F52\u3002\n\u8C01\u8A00\u5BF8\u8349\u5FC3\uFF0C\u62A5\u5F97\u4E09\u6625\u6656\u3002",
+        "pinyin": "c\xED m\u01D4 sh\u01D2u zh\u014Dng xi\xE0n\uFF0C y\xF3u zi sh\u0113n sh\xE0ng y\u012B\u3002\nl\xEDn x\xEDng m\xEC m\xEC f\xE8ng\uFF0C y\xEC k\u01D2ng ch\xED ch\xED gu\u012B\u3002\nshu\xED y\xE1n c\xF9n c\u01CEo x\u012Bn\uFF0C b\xE0o d\xE9 s\u0101n ch\u016Bn hu\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6148\u7231\u7684\u6BCD\u4EB2\u624B\u91CC\u62FF\u7740\u9488\u7EBF\uFF0C\u4E3A\u5373\u5C06\u8FDC\u884C\u7684\u5B69\u5B50\u7F1D\u8863\u670D\u3002\u4E34\u8D70\u524D\u5BC6\u5BC6\u5730\u7F1D\uFF0C\u62C5\u5FC3\u5B69\u5B50\u8FDF\u8FDF\u4E0D\u80FD\u56DE\u5BB6\u3002\u8C01\u8BF4\u5C0F\u8349\u822C\u5FAE\u5F31\u7684\u5B5D\u5FC3\uFF0C\u80FD\u62A5\u7B54\u6625\u5929\u9633\u5149\u822C\u7684\u6BCD\u7231\u5462\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 24,
+          "bvid": "BV1JQ4y157Pp",
+          "url": "https://www.bilibili.com/bangumi/play/ep810562",
+          "title": "\u8BA9\u6211\u4EEC\u8DDF\u5927\u8BD7\u4EBA\u5B5F\u90CA\u4E00\u8D77\u5BF9\u5988\u5988\u8BF4\u4E00\u58F0\u6211\u7231\u4F60"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-78",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u5C71\u5C45\u79CB\u669D",
+        "author": "\u738B\u7EF4",
+        "dynasty": "\u5510",
+        "excerpt": "\u7A7A\u5C71\u65B0\u96E8\u540E\uFF0C\u5929\u6C14\u665A\u6765\u79CB\u3002\n\u660E\u6708\u677E\u95F4\u7167\uFF0C\u6E05\u6CC9\u77F3\u4E0A\u6D41\u3002\n\u7AF9\u55A7\u5F52\u6D63\u5973\uFF0C\u83B2\u52A8\u4E0B\u6E14\u821F\u3002\n\u968F\u610F\u6625\u82B3\u6B47\uFF0C\u738B\u5B59\u81EA\u53EF\u7559\u3002",
+        "pinyin": "k\u014Dng sh\u0101n x\u012Bn y\u01D4 h\xF2u\uFF0C ti\u0101n q\xEC w\u01CEn l\xE1i qi\u016B\u3002\nm\xEDng yu\xE8 s\u014Dng ji\u0101n zh\xE0o\uFF0C q\u012Bng qu\xE1n sh\xED sh\xE0ng li\xFA\u3002\nzh\xFA xu\u0101n gu\u012B hu\xE0n n\u01DA\uFF0C li\xE1n d\xF2ng xi\xE0 y\xFA zh\u014Du\u3002\nsu\xED y\xEC ch\u016Bn f\u0101ng xi\u0113\uFF0C w\xE1ng s\u016Bn z\xEC k\u011B li\xFA\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u7A7A\u65F7\u7684\u5C71\u4E2D\u521A\u4E0B\u8FC7\u4E00\u573A\u65B0\u96E8\uFF0C\u508D\u665A\u5E26\u6765\u79CB\u610F\u3002\u660E\u6708\u4ECE\u677E\u6797\u95F4\u7167\u4E0B\uFF0C\u6E05\u6CC9\u5728\u5C71\u77F3\u4E0A\u6D41\u6DCC\u3002\u7AF9\u6797\u91CC\u4F20\u6765\u55A7\u95F9\u58F0\uFF0C\u662F\u6D17\u8863\u5973\u5B50\u5F52\u6765\uFF1B\u83B2\u53F6\u6447\u52A8\uFF0C\u662F\u6E14\u821F\u987A\u6D41\u800C\u4E0B\u3002\u4EFB\u51ED\u6625\u5929\u82B1\u8349\u51CB\u8C22\uFF0C\u6211\u4E5F\u613F\u610F\u7559\u5728\u8FD9\u5C71\u4E2D\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 28,
+          "bvid": "BV1AH4y1c7gi",
+          "url": "https://www.bilibili.com/bangumi/play/ep833223",
+          "title": "\u5165\u79CB\u4E86\u770B\u5927\u8BD7\u4EBA\u738B\u7EF4\u5982\u4F55\u63CF\u5199\u79CB\u8272"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-79",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u67AB\u6865\u591C\u6CCA",
+        "author": "\u5F20\u7EE7",
+        "dynasty": "\u5510",
+        "excerpt": "\u6708\u843D\u4E4C\u557C\u971C\u6EE1\u5929\uFF0C\n\u6C5F\u67AB\u6E14\u706B\u5BF9\u6101\u7720\u3002\n\u59D1\u82CF\u57CE\u5916\u5BD2\u5C71\u5BFA\uFF0C\n\u591C\u534A\u949F\u58F0\u5230\u5BA2\u8239\u3002",
+        "pinyin": "yu\xE8 lu\xF2 w\u016B t\xED shu\u0101ng m\u01CEn ti\u0101n\uFF0C\nji\u0101ng f\u0113ng y\xFA hu\u01D2 du\xEC ch\xF3u mi\xE1n\u3002\ng\u016B s\u016B ch\xE9ng w\xE0i h\xE1n sh\u0101n s\xEC\uFF0C\ny\xE8 b\xE0n zh\u014Dng sh\u0113ng d\xE0o k\xE8 chu\xE1n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6708\u4EAE\u843D\u4E0B\uFF0C\u4E4C\u9E26\u557C\u53EB\uFF0C\u5BD2\u971C\u6EE1\u5929\uFF1B\u6C5F\u8FB9\u67AB\u6811\u548C\u6E14\u706B\u76F8\u5BF9\uFF0C\u966A\u4F34\u7740\u6EE1\u6000\u6101\u7EEA\u3001\u96BE\u4EE5\u5165\u7761\u7684\u65C5\u4EBA\u3002\u59D1\u82CF\u57CE\u5916\u5BD2\u5C71\u5BFA\u7684\u534A\u591C\u949F\u58F0\uFF0C\u4F20\u5230\u4E86\u5BA2\u8239\u4E0A\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 23,
+          "bvid": "BV1Ak4y1Q7f2",
+          "url": "https://www.bilibili.com/bangumi/play/ep810561",
+          "title": "\u706B\u51FA\u56FD\u95E8\u7684\u300A\u67AB\u6865\u591C\u6CCA\u300B\u4F60\u77E5\u9053\u5B83\u80CC\u540E\u7684\u6545\u4E8B\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-80",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u65E9\u6625\u5448\u6C34\u90E8\u5F20\u5341\u516B\u5458\u5916",
+        "author": "\u97E9\u6108",
+        "dynasty": "\u5510",
+        "excerpt": "\u5929\u8857\u5C0F\u96E8\u6DA6\u5982\u9165\uFF0C\n\u8349\u8272\u9065\u770B\u8FD1\u5374\u65E0\u3002\n\u6700\u662F\u4E00\u5E74\u6625\u597D\u5904\uFF0C\n\u7EDD\u80DC\u70DF\u67F3\u6EE1\u7687\u90FD\u3002",
+        "pinyin": "ti\u0101n ji\u0113 xi\u01CEo y\u01D4 r\xF9n r\xFA s\u016B\uFF0C\nc\u01CEo s\xE8 y\xE1o k\xE0n j\xECn qu\xE8 w\xFA\u3002\nzu\xEC sh\xEC y\u012B ni\xE1n ch\u016Bn h\u01CEo ch\xF9\uFF0C\nju\xE9 sh\xE8ng y\u0101n li\u01D4 m\u01CEn hu\xE1ng d\u014Du\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4EAC\u57CE\u8857\u9053\u4E0A\u7684\u5C0F\u96E8\u6DA6\u6CFD\u5982\u9165\u6CB9\uFF0C\u8FDC\u770B\u8349\u8272\u9752\u9752\uFF0C\u8FD1\u770B\u5374\u8FD8\u6CA1\u6709\u957F\u51FA\u6765\u3002\u4E00\u5E74\u4E2D\u6700\u597D\u7684\u6625\u666F\u5C31\u5728\u6B64\u65F6\uFF0C\u8FDC\u80DC\u8FC7\u6EE1\u57CE\u70DF\u67F3\u7684\u665A\u6625\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-81",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u6E14\u6B4C\u5B50",
+        "author": "\u5F20\u5FD7\u548C",
+        "dynasty": "\u5510",
+        "excerpt": "\u897F\u585E\u5C71\u524D\u767D\u9E6D\u98DE\uFF0C\n\u6843\u82B1\u6D41\u6C34\u9CDC\u9C7C\u80A5\u3002\n\u9752\u7BAC\u7B20\uFF0C\u7EFF\u84D1\u8863\uFF0C\n\u659C\u98CE\u7EC6\u96E8\u4E0D\u987B\u5F52\u3002",
+        "pinyin": "x\u012B s\u0101i sh\u0101n qi\xE1n b\xE1i l\xF9 f\u0113i\uFF0C\nt\xE1o hu\u0101 li\xFA shu\u01D0 gu\xEC y\xFA f\xE9i\u3002\nq\u012Bng ru\xF2 l\xEC\uFF0C l\u01DC su\u014D y\u012B\uFF0C\nxi\xE9 f\u0113ng x\xEC y\u01D4 b\xF9 x\u016B gu\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u897F\u585E\u5C71\u524D\u767D\u9E6D\u98DE\u7FD4\uFF0C\u6843\u82B1\u76DB\u5F00\uFF0C\u6C5F\u6C34\u4E0A\u6DA8\uFF0C\u9CDC\u9C7C\u80A5\u7F8E\u3002\u6E14\u7FC1\u6234\u7740\u9752\u8272\u6597\u7B20\u3001\u7A7F\u7740\u7EFF\u8272\u84D1\u8863\uFF0C\u5728\u659C\u98CE\u7EC6\u96E8\u4E2D\u4E50\u800C\u5FD8\u5F52\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-82",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u53E4\u4EBA\u8C08\u8BFB\u4E66\xB7\u8BBA\u8BED",
+        "author": "\u5B54\u5B50\u53CA\u5176\u5F1F\u5B50",
+        "dynasty": "\u6625\u79CB",
+        "excerpt": "\u77E5\u4E4B\u4E3A\u77E5\u4E4B\uFF0C\u4E0D\u77E5\u4E3A\u4E0D\u77E5\uFF0C\u662F\u77E5\u4E5F\u3002\\n\u654F\u800C\u597D\u5B66\uFF0C\u4E0D\u803B\u4E0B\u95EE\u3002\\n\u9ED8\u800C\u8BC6\u4E4B\uFF0C\u5B66\u800C\u4E0D\u538C\uFF0C\u8BF2\u4EBA\u4E0D\u5026\u3002\\n\u6211\u975E\u751F\u800C\u77E5\u4E4B\u8005\uFF0C\u597D\u53E4\uFF0C\u654F\u4EE5\u6C42\u4E4B\u8005\u4E5F\u3002\\n\u543E\u5C1D\u7EC8\u65E5\u4E0D\u98DF\uFF0C\u7EC8\u591C\u4E0D\u5BDD\uFF0C\u4EE5\u601D\uFF0C\u65E0\u76CA\uFF0C\u4E0D\u5982\u5B66\u4E5F\u3002",
+        "pinyin": "zh\u012B zh\u012B w\xE9i zh\u012B zh\u012B\uFF0C b\xF9 zh\u012B w\xE8i b\xF9 zh\u012B\uFF0C sh\xEC zh\u012B y\u011B\u3002\\n m\u01D0n \xE9r h\xE0o xu\xE9\uFF0C b\xF9 ch\u01D0 xi\xE0 w\xE8n\u3002\\n m\xF2 \xE9r sh\xED zh\u012B\uFF0C xu\xE9 \xE9r b\xF9 y\xE0n\uFF0C hu\xEC r\xE9n b\xF9 ju\xE0n\u3002\\n w\u01D2 f\u0113i sh\u0113ng \xE9r zh\u012B zh\u012B zh\u011B\uFF0C h\xE0o g\u01D4\uFF0C m\u01D0n y\u01D0 qi\xFA zh\u012B zh\u011B y\u011B\u3002\\n w\xFA ch\xE1ng zh\u014Dng r\xEC b\xF9 sh\xED\uFF0C zh\u014Dng y\xE8 b\xF9 q\u01D0n\uFF0C y\u01D0 s\u012B\uFF0C w\xFA y\xEC\uFF0C b\xF9 r\xFA xu\xE9 y\u011B\u3002",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u771F\u6B63\u7684\u667A\u6167\u3002\u806A\u660E\u53C8\u7231\u597D\u5B66\u4E60\uFF0C\u4E0D\u628A\u5411\u5730\u4F4D\u6BD4\u81EA\u5DF1\u4F4E\u7684\u4EBA\u8BF7\u6559\u5F53\u4F5C\u7F9E\u803B\u3002\u9ED8\u9ED8\u8BB0\u4F4F\u6240\u5B66\uFF0C\u5B66\u4E60\u4E0D\u6EE1\u8DB3\uFF0C\u6559\u5BFC\u522B\u4EBA\u4E0D\u75B2\u5026\u3002\u6211\u5E76\u4E0D\u662F\u751F\u6765\u5C31\u77E5\u9053\u4E00\u5207\u7684\u4EBA\uFF0C\u800C\u662F\u7231\u597D\u53E4\u4EE3\u6587\u5316\u3001\u52E4\u52C9\u6C42\u7D22\u7684\u4EBA\u3002\u6211\u66FE\u6574\u5929\u4E0D\u5403\u3001\u6574\u591C\u4E0D\u7761\u5730\u601D\u8003\uFF0C\u7ED3\u679C\u6CA1\u6709\u76CA\u5904\uFF0C\u8FD8\u4E0D\u5982\u53BB\u5B66\u4E60\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-83",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u53E4\u4EBA\u8C08\u8BFB\u4E66\xB7\u6731\u71B9",
+        "author": "\u6731\u71B9",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u4F59\u5C1D\u8C13\u8BFB\u4E66\u6709\u4E09\u5230\uFF0C\u8C13\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\u3002\u5FC3\u4E0D\u5728\u6B64\uFF0C\u5219\u773C\u4E0D\u770B\u4ED4\u7EC6\uFF0C\u5FC3\u773C\u65E2\u4E0D\u4E13\u4E00\uFF0C\u5374\u53EA\u6F2B\u6D6A\u8BF5\u8BFB\uFF0C\u51B3\u4E0D\u80FD\u8BB0\uFF0C\u8BB0\u4EA6\u4E0D\u80FD\u4E45\u4E5F\u3002\u4E09\u5230\u4E4B\u4E2D\uFF0C\u5FC3\u5230\u6700\u6025\u3002\u5FC3\u65E2\u5230\u77E3\uFF0C\u773C\u53E3\u5C82\u4E0D\u5230\u4E4E\uFF1F",
+        "pinyin": "y\xFA ch\xE1ng w\xE8i d\xFA sh\u016B y\u01D2u s\u0101n d\xE0o\uFF0C w\xE8i x\u012Bn d\xE0o\u3001 y\u01CEn d\xE0o\u3001 k\u01D2u d\xE0o\u3002 x\u012Bn b\xF9 z\xE0i c\u01D0\uFF0C z\xE9 y\u01CEn b\xF9 k\xE0n z\u01D0 x\xEC\uFF0C x\u012Bn y\u01CEn j\xEC b\xF9 zhu\u0101n y\u012B\uFF0C qu\xE8 zh\u01D0 m\xE0n l\xE0ng s\xF2ng d\xFA\uFF0C ju\xE9 b\xF9 n\xE9ng j\xEC\uFF0C j\xEC y\xEC b\xF9 n\xE9ng ji\u01D4 y\u011B\u3002 s\u0101n d\xE0o zh\u012B zh\u014Dng\uFF0C x\u012Bn d\xE0o zu\xEC j\xED\u3002 x\u012Bn j\xEC d\xE0o y\u01D0\uFF0C y\u01CEn k\u01D2u q\u01D0 b\xF9 d\xE0o h\u016B\uFF1F",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6211\u66FE\u7ECF\u8BF4\u8BFB\u4E66\u8981\u505A\u5230\u4E09\u5230\uFF1A\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\u3002\u5FC3\u601D\u4E0D\u5728\u4E66\u4E0A\uFF0C\u773C\u775B\u5C31\u770B\u4ED4\u7EC6\uFF1B\u5FC3\u548C\u773C\u4E0D\u4E13\u4E00\uFF0C\u53EA\u662F\u968F\u610F\u8BF5\u8BFB\uFF0C\u4E00\u5B9A\u8BB0\u4E0D\u4F4F\uFF0C\u5373\u4F7F\u8BB0\u4F4F\u4E5F\u4E0D\u80FD\u957F\u4E45\u3002\u4E09\u5230\u4E4B\u4E2D\uFF0C\u5FC3\u5230\u6700\u91CD\u8981\u3002\u5FC3\u5DF2\u7ECF\u5230\u4E86\uFF0C\u773C\u548C\u53E3\u600E\u4E48\u4F1A\u4E0D\u5230\u5462\uFF1F",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0A-poem-84",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u89C2\u4E66\u6709\u611F\uFF08\u5176\u4E00\uFF09",
+        "author": "\u6731\u71B9",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u534A\u4EA9\u65B9\u5858\u4E00\u9274\u5F00\uFF0C\n\u5929\u5149\u4E91\u5F71\u5171\u5F98\u5F8A\u3002\n\u95EE\u6E20\u90A3\u5F97\u6E05\u5982\u8BB8\uFF1F\n\u4E3A\u6709\u6E90\u5934\u6D3B\u6C34\u6765\u3002",
+        "pinyin": "b\xE0n m\u01D4 f\u0101ng t\xE1ng y\u012B ji\xE0n k\u0101i\uFF0C\nti\u0101n gu\u0101ng y\xFAn y\u01D0ng g\xF2ng p\xE1i hu\xE1i\u3002\nw\xE8n q\xFA n\xE0 d\xE9 q\u012Bng r\xFA x\u01D4\uFF1F\nw\xE8i y\u01D2u yu\xE1n t\xF3u hu\xF3 shu\u01D0 l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u534A\u4EA9\u5927\u7684\u65B9\u5858\u50CF\u4E00\u9762\u955C\u5B50\u6253\u5F00\uFF0C\u5929\u5149\u548C\u4E91\u5F71\u4E00\u8D77\u5728\u6C34\u4E2D\u5F98\u5F8A\u3002\u8981\u95EE\u6C60\u6C34\u4E3A\u4EC0\u4E48\u8FD9\u6837\u6E05\u6F88\uFF0C\u662F\u56E0\u4E3A\u6709\u6D3B\u6C34\u4ECE\u6E90\u5934\u4E0D\u65AD\u6D41\u6765\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 40,
+          "bvid": "BV13tHDeVEDY",
+          "url": "https://www.bilibili.com/bangumi/play/ep834739",
+          "title": "\u8BFB\u540E\u611F\u600E\u4E48\u5199\uFF1F\u6731\u71B9\u6765\u6559\u4F60"
+        }
+      },
+      {
+        "id": "idiom-g5-\u4E0A-16",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u4E3E\u4E00\u53CD\u4E09",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u4ECE\u4E00\u4EF6\u4E8B\u7C7B\u63A8\u800C\u77E5\u9053\u8BB8\u591A\u4E8B\u60C5\u3002\u5F62\u5BB9\u5584\u4E8E\u5B66\u4E60\u548C\u601D\u8003\u3002",
+        "pinyin": "c\xF3ng y\u012B ji\xE0n sh\xEC l\xE8i tu\u012B \xE9r zh\u012B d\xE0o x\u01D4 du\u014D sh\xEC q\xEDng\u3002 x\xEDng r\xF3ng sh\xE0n y\xFA xu\xE9 x\xED h\xE9 s\u012B k\u01CEo\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u5B66\u5B8C\u4E00\u79CD\u89E3\u9898\u65B9\u6CD5\u540E\uFF0C\u4ED6\u53C8\u4E3E\u4E00\u53CD\u4E09\uFF0C\u505A\u51FA\u4E86\u51E0\u9053\u7C7B\u4F3C\u7684\u9898\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u5B66\u4E60",
+          "\u601D\u8003",
+          "\u65B9\u6CD5"
+        ],
+        "related": [
+          "\u4E3E\u4E00\u53CD\u4E09",
+          "\u89E6\u7C7B\u65C1\u901A"
+        ]
+      },
+      {
+        "id": "idiom-g5-\u4E0A-17",
+        "grade": 5,
+        "volume": "\u4E0A",
+        "title": "\u9707\u5929\u52A8\u5730",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u9707\u52A8\u4E86\u5929\u5730\u3002\u5F62\u5BB9\u58F0\u97F3\u6216\u6C14\u52BF\u975E\u5E38\u5927\u3002",
+        "pinyin": "zh\xE8n d\xF2ng le ti\u0101n d\xEC\u3002 x\xEDng r\xF3ng sh\u0113ng y\u012Bn hu\xF2 q\xEC sh\xEC f\u0113i ch\xE1ng d\xE0\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u8FD0\u52A8\u4F1A\u4E0A\uFF0C\u540C\u5B66\u4EEC\u7684\u52A0\u6CB9\u58F0\u9707\u5929\u52A8\u5730\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u58F0\u97F3",
+          "\u6C14\u52BF",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u9707\u5929\u52A8\u5730",
+          "\u60CA\u5929\u52A8\u5730"
+        ]
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-85",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E09\u5341\u4E00\uFF09",
+        "author": "\u8303\u6210\u5927",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u663C\u51FA\u8018\u7530\u591C\u7EE9\u9EBB\uFF0C\n\u6751\u5E84\u513F\u5973\u5404\u5F53\u5BB6\u3002\n\u7AE5\u5B59\u672A\u89E3\u4F9B\u8015\u7EC7\uFF0C\n\u4E5F\u508D\u6851\u9634\u5B66\u79CD\u74DC\u3002",
+        "pinyin": "zh\xF2u ch\u016B y\xFAn ti\xE1n y\xE8 j\xEC m\xE1\uFF0C\nc\u016Bn zhu\u0101ng \xE9r n\u01DA g\xE8 d\u0101ng ji\u0101\u3002\nt\xF3ng s\u016Bn w\xE8i ji\u011B g\u014Dng g\u0113ng zh\u012B\uFF0C\ny\u011B b\xE0ng s\u0101ng y\u012Bn xu\xE9 zh\u01D2ng gu\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u767D\u5929\u51FA\u53BB\u9504\u8349\uFF0C\u591C\u91CC\u6413\u9EBB\u7EBF\uFF0C\u6751\u91CC\u7537\u5973\u5404\u81EA\u627F\u62C5\u5BB6\u52A1\u3002\u5C0F\u5B69\u5B50\u8FD8\u4E0D\u4F1A\u8015\u7530\u7EC7\u5E03\uFF0C\u4E5F\u5728\u6851\u6811\u836B\u4E0B\u5B66\u7740\u79CD\u74DC\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 23,
+          "bvid": "BV1eS421X7LW",
+          "url": "https://www.bilibili.com/bangumi/play/ep832347",
+          "title": "\u7231\u56FD\u8BD7\u4EBA\u8303\u6210\u5927\uFF0C\u5982\u4F55\u5199\u7684\u8FD9\u9996\u300A\u56DB\u65F6\u7530\u56ED\u6742\u5174\u300B"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-86",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u7A1A\u5B50\u5F04\u51B0",
+        "author": "\u6768\u4E07\u91CC",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u7A1A\u5B50\u91D1\u76C6\u8131\u6653\u51B0\uFF0C\n\u5F69\u4E1D\u7A7F\u53D6\u5F53\u94F6\u94B2\u3002\n\u6572\u6210\u7389\u78EC\u7A7F\u6797\u54CD\uFF0C\n\u5FFD\u4F5C\u73BB\u7483\u788E\u5730\u58F0\u3002",
+        "pinyin": "zh\xEC zi j\u012Bn p\xE9n tu\u014D xi\u01CEo b\u012Bng\uFF0C\nc\u01CEi s\u012B chu\u0101n q\u01D4 d\u0101ng y\xEDn zh\u0113ng\u3002\nqi\u0101o ch\xE9ng y\xF9 q\xECng chu\u0101n l\xEDn xi\u01CEng\uFF0C\nh\u016B zu\xF2 b\u014D l\xED su\xEC d\xEC sh\u0113ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5B69\u5B50\u4ECE\u91D1\u5C5E\u76C6\u91CC\u53D6\u51FA\u65E9\u6668\u7ED3\u7684\u51B0\uFF0C\u7528\u5F69\u7EBF\u7A7F\u8D77\u6765\u5F53\u4F5C\u94F6\u94B2\u6572\u6253\u3002\u6E05\u8106\u7684\u58F0\u97F3\u7A7F\u8FC7\u6811\u6797\uFF0C\u5FFD\u7136\u51B0\u6389\u5728\u5730\u4E0A\uFF0C\u53D1\u51FA\u50CF\u73BB\u7483\u7834\u788E\u4E00\u6837\u7684\u58F0\u97F3\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-87",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u6751\u665A",
+        "author": "\u96F7\u9707",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u8349\u6EE1\u6C60\u5858\u6C34\u6EE1\u9642\uFF0C\n\u5C71\u8854\u843D\u65E5\u6D78\u5BD2\u6F2A\u3002\n\u7267\u7AE5\u5F52\u53BB\u6A2A\u725B\u80CC\uFF0C\n\u77ED\u7B1B\u65E0\u8154\u4FE1\u53E3\u5439\u3002",
+        "pinyin": "c\u01CEo m\u01CEn ch\xED t\xE1ng shu\u01D0 m\u01CEn b\u0113i\uFF0C\nsh\u0101n xi\xE1n lu\xF2 r\xEC j\xECn h\xE1n y\u012B\u3002\nm\xF9 t\xF3ng gu\u012B q\xF9 h\xE9ng ni\xFA b\xE8i\uFF0C\ndu\u01CEn d\xED w\xFA qi\u0101ng x\xECn k\u01D2u chu\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6C60\u5858\u8FB9\u957F\u6EE1\u9752\u8349\uFF0C\u6C60\u6C34\u6F2B\u4E0A\u5CB8\uFF1B\u8FDC\u5C71\u50CF\u8854\u7740\u843D\u65E5\uFF0C\u5012\u6620\u5728\u6E05\u51C9\u7684\u6C34\u6CE2\u4E2D\u3002\u7267\u7AE5\u6A2A\u5750\u5728\u725B\u80CC\u4E0A\u56DE\u5BB6\uFF0C\u968F\u610F\u5439\u7740\u6CA1\u6709\u56FA\u5B9A\u66F2\u8C03\u7684\u77ED\u7B1B\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-88",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u6E38\u5B50\u541F",
+        "author": "\u5B5F\u90CA",
+        "dynasty": "\u5510",
+        "excerpt": "\u6148\u6BCD\u624B\u4E2D\u7EBF\uFF0C\n\u6E38\u5B50\u8EAB\u4E0A\u8863\u3002\n\u4E34\u884C\u5BC6\u5BC6\u7F1D\uFF0C\n\u610F\u6050\u8FDF\u8FDF\u5F52\u3002\n\u8C01\u8A00\u5BF8\u8349\u5FC3\uFF0C\n\u62A5\u5F97\u4E09\u6625\u6656\u3002",
+        "pinyin": "c\xED m\u01D4 sh\u01D2u zh\u014Dng xi\xE0n\uFF0C\ny\xF3u zi sh\u0113n sh\xE0ng y\u012B\u3002\nl\xEDn x\xEDng m\xEC m\xEC f\xE8ng\uFF0C\ny\xEC k\u01D2ng ch\xED ch\xED gu\u012B\u3002\nshu\xED y\xE1n c\xF9n c\u01CEo x\u012Bn\uFF0C\nb\xE0o d\xE9 s\u0101n ch\u016Bn hu\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6148\u7231\u7684\u6BCD\u4EB2\u624B\u91CC\u62FF\u7740\u9488\u7EBF\uFF0C\u4E3A\u5373\u5C06\u8FDC\u884C\u7684\u5B69\u5B50\u7F1D\u8863\u670D\u3002\u4E34\u8D70\u524D\u5BC6\u5BC6\u5730\u7F1D\uFF0C\u62C5\u5FC3\u5B69\u5B50\u8FDF\u8FDF\u4E0D\u80FD\u56DE\u5BB6\u3002\u8C01\u8BF4\u5C0F\u8349\u822C\u5FAE\u5F31\u7684\u5B5D\u5FC3\uFF0C\u80FD\u62A5\u7B54\u6625\u5929\u9633\u5149\u822C\u7684\u6BCD\u7231\u5462\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 24,
+          "bvid": "BV1JQ4y157Pp",
+          "url": "https://www.bilibili.com/bangumi/play/ep810562",
+          "title": "\u8BA9\u6211\u4EEC\u8DDF\u5927\u8BD7\u4EBA\u5B5F\u90CA\u4E00\u8D77\u5BF9\u5988\u5988\u8BF4\u4E00\u58F0\u6211\u7231\u4F60"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-89",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u9E1F\u9E23\u6DA7",
+        "author": "\u738B\u7EF4",
+        "dynasty": "\u5510",
+        "excerpt": "\u4EBA\u95F2\u6842\u82B1\u843D\uFF0C\n\u591C\u9759\u6625\u5C71\u7A7A\u3002\n\u6708\u51FA\u60CA\u5C71\u9E1F\uFF0C\n\u65F6\u9E23\u6625\u6DA7\u4E2D\u3002",
+        "pinyin": "r\xE9n xi\xE1n gu\xEC hu\u0101 lu\xF2\uFF0C\ny\xE8 j\xECng ch\u016Bn sh\u0101n k\u014Dng\u3002\nyu\xE8 ch\u016B j\u012Bng sh\u0101n ni\u01CEo\uFF0C\nsh\xED m\xEDng ch\u016Bn ji\xE0n zh\u014Dng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4EBA\u58F0\u5B89\u9759\u65F6\uFF0C\u6842\u82B1\u6084\u7136\u98D8\u843D\uFF1B\u591C\u8272\u5BC2\u9759\uFF0C\u6625\u5C71\u663E\u5F97\u683C\u5916\u7A7A\u8361\u3002\u6708\u4EAE\u5347\u8D77\uFF0C\u60CA\u52A8\u4E86\u5C71\u4E2D\u7684\u9E1F\uFF0C\u5B83\u4EEC\u4E0D\u65F6\u5728\u6625\u6DA7\u4E2D\u9E23\u53EB\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-90",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u4ECE\u519B\u884C",
+        "author": "\u738B\u660C\u9F84",
+        "dynasty": "\u5510",
+        "excerpt": "\u9752\u6D77\u957F\u4E91\u6697\u96EA\u5C71\uFF0C\n\u5B64\u57CE\u9065\u671B\u7389\u95E8\u5173\u3002\n\u9EC4\u6C99\u767E\u6218\u7A7F\u91D1\u7532\uFF0C\n\u4E0D\u7834\u697C\u5170\u7EC8\u4E0D\u8FD8\u3002",
+        "pinyin": "q\u012Bng h\u01CEi zh\u01CEng y\xFAn \xE0n xu\u011B sh\u0101n\uFF0C\ng\u016B ch\xE9ng y\xE1o w\xE0ng y\xF9 m\xE9n gu\u0101n\u3002\nhu\xE1ng sh\u0101 b\u01CEi zh\xE0n chu\u0101n j\u012Bn ji\u01CE\uFF0C\nb\xF9 p\xF2 l\xF3u l\xE1n zh\u014Dng b\xF9 h\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9752\u6D77\u6E56\u4E0A\u4E4C\u4E91\u5BC6\u5E03\uFF0C\u906E\u6697\u4E86\u96EA\u5C71\uFF1B\u5B64\u57CE\u9065\u9065\u671B\u7740\u7389\u95E8\u5173\u3002\u5728\u9EC4\u6C99\u4E2D\u8EAB\u7ECF\u767E\u6218\uFF0C\u8FDE\u94E0\u7532\u90FD\u78E8\u7A7F\u4E86\uFF1B\u4E0D\u653B\u7834\u697C\u5170\uFF0C\u7EDD\u4E0D\u8FD4\u56DE\u5BB6\u4E61\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-91",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u79CB\u591C\u5C06\u6653\u51FA\u7BF1\u95E8\u8FCE\u51C9\u6709\u611F",
+        "author": "\u9646\u6E38",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u4E09\u4E07\u91CC\u6CB3\u4E1C\u5165\u6D77\uFF0C\n\u4E94\u5343\u4EDE\u5CB3\u4E0A\u6469\u5929\u3002\n\u9057\u6C11\u6CEA\u5C3D\u80E1\u5C18\u91CC\uFF0C\n\u5357\u671B\u738B\u5E08\u53C8\u4E00\u5E74\u3002",
+        "pinyin": "s\u0101n w\xE0n l\u01D0 h\xE9 d\u014Dng r\xF9 h\u01CEi\uFF0C\nw\u01D4 qi\u0101n r\xE8n yu\xE8 sh\xE0ng m\xF3 ti\u0101n\u3002\ny\xED m\xEDn l\xE8i j\u01D0n h\xFA ch\xE9n l\u01D0\uFF0C\nn\xE1n w\xE0ng w\xE1ng sh\u012B y\xF2u y\u012B ni\xE1n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E09\u4E07\u91CC\u9EC4\u6CB3\u5411\u4E1C\u6D41\u5165\u5927\u6D77\uFF0C\u4E94\u5343\u4EDE\u534E\u5C71\u9AD8\u8038\u5165\u4E91\u3002\u6CA6\u9677\u533A\u7684\u767E\u59D3\u6D41\u5C3D\u773C\u6CEA\uFF0C\u5411\u5357\u76FC\u671B\u671D\u5EF7\u519B\u961F\u53C8\u8FC7\u4E86\u4E00\u5E74\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-92",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u95FB\u5B98\u519B\u6536\u6CB3\u5357\u6CB3\u5317",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u5251\u5916\u5FFD\u4F20\u6536\u84DF\u5317\uFF0C\n\u521D\u95FB\u6D95\u6CEA\u6EE1\u8863\u88F3\u3002\n\u5374\u770B\u59BB\u5B50\u6101\u4F55\u5728\uFF0C\n\u6F2B\u5377\u8BD7\u4E66\u559C\u6B32\u72C2\u3002\n\u767D\u9996\u653E\u6B4C\u987B\u7EB5\u9152\uFF0C\n\u9752\u6625\u4F5C\u4F34\u597D\u8FD8\u4E61\u3002\n\u5373\u4ECE\u5DF4\u5CE1\u7A7F\u5DEB\u5CE1\uFF0C\n\u4FBF\u4E0B\u8944\u9633\u5411\u6D1B\u9633\u3002",
+        "pinyin": "ji\xE0n w\xE0i h\u016B chu\xE1n sh\u014Du j\xEC b\u011Bi\uFF0C\nch\u016B w\xE9n t\xEC l\xE8i m\u01CEn y\u012B shang\u3002\nqu\xE8 k\xE0n q\u012B z\u01D0 ch\xF3u h\xE9 z\xE0i\uFF0C\nm\xE0n ju\u01CEn sh\u012B sh\u016B x\u01D0 y\xF9 ku\xE1ng\u3002\nb\xE1i sh\u01D2u f\xE0ng g\u0113 x\u016B z\xF2ng ji\u01D4\uFF0C\nq\u012Bng ch\u016Bn zu\xF2 b\xE0n h\u01CEo hu\xE1n xi\u0101ng\u3002\nj\xED c\xF3ng b\u0101 xi\xE1 chu\u0101n w\u016B xi\xE1\uFF0C\nbi\xE0n xi\xE0 xi\u0101ng y\xE1ng xi\xE0ng lu\xF2 y\xE1ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5251\u95E8\u5173\u5916\u5FFD\u7136\u4F20\u6765\u5B98\u519B\u6536\u590D\u84DF\u5317\u7684\u6D88\u606F\uFF0C\u521A\u542C\u5230\u65F6\u6211\u6FC0\u52A8\u5F97\u6CEA\u6C34\u6CBE\u6EE1\u8863\u88F3\u3002\u56DE\u5934\u770B\u59BB\u5B50\u513F\u5973\uFF0C\u54EA\u91CC\u8FD8\u6709\u5FE7\u6101\uFF1F\u968F\u624B\u5377\u8D77\u8BD7\u4E66\uFF0C\u9AD8\u5174\u5F97\u5FEB\u8981\u53D1\u72C2\u3002\u767D\u5929\u653E\u58F0\u9AD8\u6B4C\uFF0C\u8FD8\u8981\u7EB5\u60C5\u996E\u9152\uFF1B\u6709\u660E\u5A9A\u6625\u5149\u4F5C\u4F34\uFF0C\u6B63\u597D\u8FD4\u56DE\u6545\u4E61\u3002\u6211\u8981\u7ACB\u5373\u4ECE\u5DF4\u5CE1\u7A7F\u8FC7\u5DEB\u5CE1\uFF0C\u518D\u987A\u6D41\u800C\u4E0B\u5230\u8944\u9633\uFF0C\u8F6C\u5411\u6D1B\u9633\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-93",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u51C9\u5DDE\u8BCD",
+        "author": "\u738B\u4E4B\u6DA3",
+        "dynasty": "\u5510",
+        "excerpt": "\u9EC4\u6CB3\u8FDC\u4E0A\u767D\u4E91\u95F4\uFF0C\n\u4E00\u7247\u5B64\u57CE\u4E07\u4EDE\u5C71\u3002\n\u7F8C\u7B1B\u4F55\u987B\u6028\u6768\u67F3\uFF0C\n\u6625\u98CE\u4E0D\u5EA6\u7389\u95E8\u5173\u3002",
+        "pinyin": "hu\xE1ng h\xE9 yu\u01CEn sh\xE0ng b\xE1i y\xFAn ji\u0101n\uFF0C\ny\u012B pi\xE0n g\u016B ch\xE9ng w\xE0n r\xE8n sh\u0101n\u3002\nqi\u0101ng d\xED h\xE9 x\u016B yu\xE0n y\xE1ng li\u01D4\uFF0C\nch\u016Bn f\u0113ng b\xF9 d\xF9 y\xF9 m\xE9n gu\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u591C\u5149\u676F\u91CC\u76DB\u7740\u8461\u8404\u7F8E\u9152\uFF0C\u521A\u8981\u7545\u996E\uFF0C\u9A6C\u4E0A\u7684\u7435\u7436\u58F0\u5C31\u50AC\u4EBA\u51FA\u53D1\u3002\u9189\u5012\u5728\u6C99\u573A\u4E0A\u8BF7\u4E0D\u8981\u7B11\uFF0C\u81EA\u53E4\u4EE5\u6765\u51FA\u5F81\u7684\u4EBA\u80FD\u6709\u51E0\u4E2A\u5E73\u5B89\u56DE\u6765\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 22,
+          "bvid": "BV1Br421K7KW",
+          "url": "https://www.bilibili.com/bangumi/play/ep831818",
+          "title": "\u8D85\u70ED\u8840\u7684\u300A\u51C9\u5DDE\u8BCD\u300B\u662F\u600E\u4E48\u5199\u51FA\u6765\u7684\uFF1F"
+        }
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-94",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u9EC4\u9E64\u697C\u9001\u5B5F\u6D69\u7136\u4E4B\u5E7F\u9675",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u6545\u4EBA\u897F\u8F9E\u9EC4\u9E64\u697C\uFF0C\n\u70DF\u82B1\u4E09\u6708\u4E0B\u626C\u5DDE\u3002\n\u5B64\u5E06\u8FDC\u5F71\u78A7\u7A7A\u5C3D\uFF0C\n\u552F\u89C1\u957F\u6C5F\u5929\u9645\u6D41\u3002",
+        "pinyin": "g\xF9 r\xE9n x\u012B c\xED hu\xE1ng h\xE8 l\xF3u\uFF0C\ny\u0101n hu\u0101 s\u0101n yu\xE8 xi\xE0 y\xE1ng zh\u014Du\u3002\ng\u016B f\u0101n yu\u01CEn y\u01D0ng b\xEC k\u014Dng j\u01D0n\uFF0C\nw\xE9i ji\xE0n zh\u01CEng ji\u0101ng ti\u0101n j\xEC li\xFA\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8001\u670B\u53CB\u8F9E\u522B\u9EC4\u9E64\u697C\u5411\u4E1C\u800C\u53BB\uFF0C\u5728\u7E41\u82B1\u4F3C\u9526\u7684\u4E09\u6708\u524D\u5F80\u626C\u5DDE\u3002\u5B64\u5E06\u7684\u5F71\u5B50\u6E10\u6E10\u6D88\u5931\u5728\u78A7\u7A7A\u5C3D\u5934\uFF0C\u53EA\u770B\u89C1\u957F\u6C5F\u5411\u5929\u8FB9\u5954\u6D41\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-95",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u81EA\u76F8\u77DB\u76FE",
+        "author": "\u300A\u97E9\u975E\u5B50\u300B",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u695A\u4EBA\u6709\u9B3B\u76FE\u4E0E\u77DB\u8005\uFF0C\u8A89\u4E4B\u66F0\uFF1A\u201C\u543E\u76FE\u4E4B\u575A\uFF0C\u7269\u83AB\u80FD\u9677\u4E5F\u3002\u201D\u53C8\u8A89\u5176\u77DB\u66F0\uFF1A\u201C\u543E\u77DB\u4E4B\u5229\uFF0C\u4E8E\u7269\u65E0\u4E0D\u9677\u4E5F\u3002\u201D\u6216\u66F0\uFF1A\u201C\u4EE5\u5B50\u4E4B\u77DB\u9677\u5B50\u4E4B\u76FE\uFF0C\u4F55\u5982\uFF1F\u201D\u5176\u4EBA\u5F17\u80FD\u5E94\u4E5F\u3002\u592B\u4E0D\u53EF\u9677\u4E4B\u76FE\u4E0E\u65E0\u4E0D\u9677\u4E4B\u77DB\uFF0C\u4E0D\u53EF\u540C\u4E16\u800C\u7ACB\u3002",
+        "pinyin": "ch\u01D4 r\xE9n y\u01D2u y\xF9 d\xF9n y\u01D4 m\xE1o zh\u011B\uFF0C y\xF9 zh\u012B yu\u0113\uFF1A\u201C w\xFA d\xF9n zh\u012B ji\u0101n\uFF0C w\xF9 m\xF2 n\xE9ng xi\xE0n y\u011B\u3002\u201D y\xF2u y\xF9 q\xED m\xE1o yu\u0113\uFF1A\u201C w\xFA m\xE1o zh\u012B l\xEC\uFF0C y\xFA w\xF9 w\xFA b\xF9 xi\xE0n y\u011B\u3002\u201D hu\xF2 yu\u0113\uFF1A\u201C y\u01D0 zi zh\u012B m\xE1o xi\xE0n zi zh\u012B d\xF9n\uFF0C h\xE9 r\xFA\uFF1F\u201D q\xED r\xE9n f\xFA n\xE9ng y\u012Bng y\u011B\u3002 f\u016B b\xF9 k\u011B xi\xE0n zh\u012B d\xF9n y\u01D4 w\xFA b\xF9 xi\xE0n zh\u012B m\xE1o\uFF0C b\xF9 k\u011B t\xF3ng sh\xEC \xE9r l\xEC\u3002",
+        "category": "fable",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u695A\u56FD\u6709\u4E2A\u5356\u76FE\u548C\u77DB\u7684\u4EBA\uFF0C\u5938\u8D5E\u81EA\u5DF1\u7684\u76FE\u8BF4\uFF1A\u201C\u6211\u7684\u76FE\u5F88\u575A\u56FA\uFF0C\u6CA1\u6709\u4EC0\u4E48\u80FD\u523A\u7A7F\u5B83\u3002\u201D\u53C8\u5938\u8D5E\u81EA\u5DF1\u7684\u77DB\u8BF4\uFF1A\u201C\u6211\u7684\u77DB\u5F88\u950B\u5229\uFF0C\u6CA1\u6709\u4EC0\u4E48\u523A\u4E0D\u7A7F\u3002\u201D\u6709\u4EBA\u95EE\uFF1A\u201C\u7528\u4F60\u7684\u77DB\u523A\u4F60\u7684\u76FE\uFF0C\u4F1A\u600E\u6837\uFF1F\u201D\u90A3\u4E2A\u4EBA\u65E0\u6CD5\u56DE\u7B54\u3002\u4E0D\u80FD\u88AB\u523A\u7A7F\u7684\u76FE\u548C\u4EC0\u4E48\u90FD\u80FD\u523A\u7A7F\u7684\u77DB\uFF0C\u4E0D\u53EF\u80FD\u540C\u65F6\u5B58\u5728\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-96",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u4E61\u6751\u56DB\u6708",
+        "author": "\u7FC1\u5377",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u7EFF\u904D\u5C71\u539F\u767D\u6EE1\u5DDD\uFF0C\n\u5B50\u89C4\u58F0\u91CC\u96E8\u5982\u70DF\u3002\n\u4E61\u6751\u56DB\u6708\u95F2\u4EBA\u5C11\uFF0C\n\u624D\u4E86\u8695\u6851\u53C8\u63D2\u7530\u3002",
+        "pinyin": "l\u01DC bi\xE0n sh\u0101n yu\xE1n b\xE1i m\u01CEn chu\u0101n\uFF0C\nzi gu\u012B sh\u0113ng l\u01D0 y\u01D4 r\xFA y\u0101n\u3002\nxi\u0101ng c\u016Bn s\xEC yu\xE8 xi\xE1n r\xE9n sh\u01CEo\uFF0C\nc\xE1i le c\xE1n s\u0101ng y\xF2u ch\u0101 ti\xE1n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5C71\u5761\u548C\u539F\u91CE\u7EFF\u904D\uFF0C\u6CB3\u5DDD\u6620\u7740\u767D\u5149\uFF1B\u675C\u9E43\u58F0\u91CC\uFF0C\u7EC6\u96E8\u5982\u70DF\u3002\u4E61\u6751\u56DB\u6708\u5F88\u5C11\u6709\u95F2\u4EBA\uFF0C\u521A\u5FD9\u5B8C\u517B\u8695\u91C7\u6851\uFF0C\u53C8\u8981\u4E0B\u7530\u63D2\u79E7\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-5-\u4E0B-poem-97",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u6768\u6C0F\u4E4B\u5B50",
+        "author": "\u300A\u4E16\u8BF4\u65B0\u8BED\u300B",
+        "dynasty": "\u5357\u671D\u5B8B",
+        "excerpt": "\u6881\u56FD\u6768\u6C0F\u5B50\u4E5D\u5C81\uFF0C\u751A\u806A\u60E0\u3002\u5B54\u541B\u5E73\u8BE3\u5176\u7236\uFF0C\u7236\u4E0D\u5728\uFF0C\u4E43\u547C\u513F\u51FA\u3002\u4E3A\u8BBE\u679C\uFF0C\u679C\u6709\u6768\u6885\u3002\u5B54\u6307\u4EE5\u793A\u513F\u66F0:\u201C\u6B64\u662F\u541B\u5BB6\u679C\u3002\u201D\u513F\u5E94\u58F0\u7B54\u66F0\uFF1A\u201C\u672A\u95FB\u5B54\u96C0\u662F\u592B\u5B50\u5BB6\u79BD\u3002\u201D",
+        "pinyin": "li\xE1ng gu\xF3 y\xE1ng sh\xEC zi ji\u01D4 su\xEC\uFF0C sh\xE8n c\u014Dng hu\xEC\u3002 k\u01D2ng j\u016Bn p\xEDng y\xEC q\xED f\xF9\uFF0C f\xF9 b\xF9 z\xE0i\uFF0C n\u01CEi h\u016B \xE9r ch\u016B\u3002 w\xE8i sh\xE8 gu\u01D2\uFF0C gu\u01D2 y\u01D2u y\xE1ng m\xE9i\u3002 k\u01D2ng zh\u01D0 y\u01D0 sh\xEC \xE9r yu\u0113 :\u201C c\u01D0 sh\xEC j\u016Bn ji\u0101 gu\u01D2\u3002\u201D \xE9r y\u012Bng sh\u0113ng d\xE1 yu\u0113\uFF1A\u201C w\xE8i w\xE9n k\u01D2ng qu\xE8 sh\xEC f\u016B z\u01D0 ji\u0101 q\xEDn\u3002\u201D",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6881\u56FD\u6768\u5BB6\u7684\u513F\u5B50\u4E5D\u5C81\uFF0C\u975E\u5E38\u806A\u660E\u3002\u5B54\u541B\u5E73\u6765\u62DC\u8BBF\u4ED6\u7684\u7236\u4EB2\uFF0C\u7236\u4EB2\u4E0D\u5728\uFF0C\u5C31\u53EB\u5B69\u5B50\u51FA\u6765\u3002\u5B69\u5B50\u6446\u4E0A\u6C34\u679C\uFF0C\u6C34\u679C\u4E2D\u6709\u6768\u6885\u3002\u5B54\u541B\u5E73\u6307\u7740\u6768\u6885\u8BF4\uFF1A\u201C\u8FD9\u662F\u4F60\u5BB6\u7684\u679C\u5B50\u3002\u201D\u5B69\u5B50\u9A6C\u4E0A\u56DE\u7B54\uFF1A\u201C\u6CA1\u6709\u542C\u8BF4\u5B54\u96C0\u662F\u60A8\u5BB6\u7684\u9E1F\u3002\u201D",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-g5-\u4E0B-18",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u795E\u673A\u5999\u7B97",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u60CA\u4EBA\u7684\u673A\u667A\uFF0C\u5DE7\u5999\u7684\u8C0B\u5212\u3002\u5F62\u5BB9\u5584\u4E8E\u4F30\u8BA1\u5F62\u52BF\u3001\u51B3\u5B9A\u7B56\u7565\u3002",
+        "pinyin": "j\u012Bng r\xE9n de j\u012B zh\xEC\uFF0C qi\u01CEo mi\xE0o de m\xF3u hu\xE0\u3002 x\xEDng r\xF3ng sh\xE0n y\xFA g\u016B j\xEC x\xEDng sh\xEC\u3001 ju\xE9 d\xECng c\xE8 l\xFC\xE8\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u8BF8\u845B\u4EAE\u795E\u673A\u5999\u7B97\uFF0C\u501F\u7BAD\u6210\u529F\uFF0C\u4EE4\u5468\u745C\u5341\u5206\u4F69\u670D\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u667A\u6167",
+          "\u8BA1\u8C0B",
+          "\u4EBA\u7269"
+        ],
+        "related": [
+          "\u795E\u673A\u5999\u7B97",
+          "\u8DB3\u667A\u591A\u8C0B"
+        ]
+      },
+      {
+        "id": "idiom-g5-\u4E0B-19",
+        "grade": 5,
+        "volume": "\u4E0B",
+        "title": "\u76EE\u77AA\u53E3\u5446",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u773C\u775B\u76F4\u76EF\u7740\u4E0D\u52A8\uFF0C\u5634\u91CC\u8BF4\u4E0D\u51FA\u8BDD\u6765\u3002\u5F62\u5BB9\u56E0\u5403\u60CA\u3001\u5BB3\u6015\u6216\u53D1\u6123\u800C\u53D1\u50BB\u7684\u6837\u5B50\u3002",
+        "pinyin": "y\u01CEn j\u012Bng zh\xED d\u012Bng zhe b\xF9 d\xF2ng\uFF0C zu\u01D0 l\u01D0 shu\u014D b\xF9 ch\u016B hu\xE0 l\xE1i\u3002 x\xEDng r\xF3ng y\u012Bn ch\u012B j\u012Bng\u3001 h\xE0i p\xE0 hu\xF2 f\u0101 l\xE8ng \xE9r f\u0101 sh\u01CE de y\xE0ng zi\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "5\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u770B\u5230\u9B54\u672F\u5E08\u53D8\u51FA\u767D\u9E3D\uFF0C\u5927\u5BB6\u90FD\u76EE\u77AA\u53E3\u5446\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u60CA\u8BB6",
+          "\u795E\u6001",
+          "\u4EBA\u7269"
+        ],
+        "related": [
+          "\u76EE\u77AA\u53E3\u5446",
+          "\u77A0\u76EE\u7ED3\u820C"
+        ]
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-98",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u5BBF\u5EFA\u5FB7\u6C5F",
+        "author": "\u5B5F\u6D69\u7136",
+        "dynasty": "\u5510",
+        "excerpt": "\u79FB\u821F\u6CCA\u70DF\u6E1A\uFF0C\n\u65E5\u66AE\u5BA2\u6101\u65B0\u3002\n\u91CE\u65F7\u5929\u4F4E\u6811\uFF0C\n\u6C5F\u6E05\u6708\u8FD1\u4EBA\u3002",
+        "pinyin": "y\xED zh\u014Du p\u014D y\u0101n zh\u01D4\uFF0C\nr\xEC m\xF9 k\xE8 ch\xF3u x\u012Bn\u3002\ny\u011B ku\xE0ng ti\u0101n d\u012B sh\xF9\uFF0C\nji\u0101ng q\u012Bng yu\xE8 j\xECn r\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u628A\u8239\u79FB\u5230\u70DF\u96FE\u7B3C\u7F69\u7684\u5C0F\u6D32\u8FB9\u505C\u6CCA\uFF0C\u592A\u9633\u843D\u5C71\u65F6\uFF0C\u65C5\u4EBA\u7684\u6101\u7EEA\u53C8\u6DFB\u4E86\u4E00\u5C42\u3002\u539F\u91CE\u7A7A\u65F7\u8FBD\u9614\uFF0C\u8FDC\u5904\u7684\u5929\u4F3C\u4E4E\u6BD4\u6811\u8FD8\u4F4E\uFF1B\u6C5F\u6C34\u6E05\u6F88\uFF0C\u6C34\u4E2D\u6708\u5F71\u597D\u50CF\u79BB\u4EBA\u5F88\u8FD1\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 33,
+          "bvid": "BV1j5411C7Dk",
+          "url": "https://www.bilibili.com/bangumi/play/ep812923",
+          "title": "\u597D\u70E6\u597D\u70E6\u7684\u5B5F\u6D69\u7136\u5C45\u7136\u5199\u51FA\u4E86\u300A\u5BBF\u5EFA\u5FB7\u6C5F\u300B"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-99",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u516D\u6708\u4E8C\u5341\u4E03\u65E5\u671B\u6E56\u697C\u9189\u4E66",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u9ED1\u4E91\u7FFB\u58A8\u672A\u906E\u5C71\uFF0C\n\u767D\u96E8\u8DF3\u73E0\u4E71\u5165\u8239\u3002\n\u5377\u5730\u98CE\u6765\u5FFD\u5439\u6563\uFF0C\n\u671B\u6E56\u697C\u4E0B\u6C34\u5982\u5929\u3002",
+        "pinyin": "h\u0113i y\xFAn f\u0101n m\xF2 w\xE8i zh\u0113 sh\u0101n\uFF0C\nb\xE1i y\u01D4 ti\xE0o zh\u016B lu\xE0n r\xF9 chu\xE1n\u3002\nju\u01CEn d\xEC f\u0113ng l\xE1i h\u016B chu\u012B s\xE0n\uFF0C\nw\xE0ng h\xFA l\xF3u xi\xE0 shu\u01D0 r\xFA ti\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9ED1\u4E91\u7FFB\u6EDA\uFF0C\u50CF\u6253\u7FFB\u7684\u58A8\u6C41\uFF0C\u8FD8\u6CA1\u6709\u906E\u4F4F\u5C71\uFF1B\u767D\u4EAE\u7684\u96E8\u70B9\u50CF\u8DF3\u52A8\u7684\u73CD\u73E0\uFF0C\u4E71\u7EB7\u7EB7\u5730\u843D\u8FDB\u8239\u91CC\u3002\u5FFD\u7136\u4E00\u9635\u5377\u5730\u5927\u98CE\u628A\u4E91\u96E8\u5439\u6563\uFF0C\u671B\u6E56\u697C\u4E0B\u6C34\u9762\u5E73\u9759\u660E\u51C0\uFF0C\u597D\u50CF\u4E0E\u5929\u7A7A\u8FDE\u6210\u4E00\u7247\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-100",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u897F\u6C5F\u6708\xB7\u591C\u884C\u9EC4\u6C99\u9053\u4E2D",
+        "author": "\u8F9B\u5F03\u75BE",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u660E\u6708\u522B\u679D\u60CA\u9E4A\uFF0C\u6E05\u98CE\u534A\u591C\u9E23\u8749\u3002\u7A3B\u82B1\u9999\u91CC\u8BF4\u4E30\u5E74\uFF0C\u542C\u53D6\u86D9\u58F0\u4E00\u7247\u3002\n\u4E03\u516B\u4E2A\u661F\u5929\u5916\uFF0C\u4E24\u4E09\u70B9\u96E8\u5C71\u524D\u3002\u65E7\u65F6\u8305\u5E97\u793E\u6797\u8FB9\uFF0C\u8DEF\u8F6C\u6EAA\u6865\u5FFD\u89C1\u3002",
+        "pinyin": "m\xEDng yu\xE8 bi\xE9 zh\u012B j\u012Bng qu\xE8\uFF0C q\u012Bng f\u0113ng b\xE0n y\xE8 m\xEDng ch\xE1n\u3002 d\xE0o hu\u0101 xi\u0101ng l\u01D0 shu\u014D f\u0113ng ni\xE1n\uFF0C t\u012Bng q\u01D4 w\u0101 sh\u0113ng y\u012B pi\xE0n\u3002\nq\u012B b\u0101 g\xE8 x\u012Bng ti\u0101n w\xE0i\uFF0C li\u01CEng s\u0101n di\u01CEn y\u01D4 sh\u0101n qi\xE1n\u3002 ji\xF9 sh\xED m\xE1o di\xE0n sh\xE8 l\xEDn bi\u0101n\uFF0C l\xF9 zhu\u01CEn x\u012B qi\xE1o h\u016B ji\xE0n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u660E\u4EAE\u7684\u6708\u5149\u79FB\u52A8\uFF0C\u60CA\u52A8\u4E86\u6811\u679D\u4E0A\u7684\u559C\u9E4A\uFF1B\u6E05\u98CE\u5439\u6765\uFF0C\u534A\u591C\u8749\u9E23\u9635\u9635\u3002\u7A3B\u82B1\u9999\u91CC\uFF0C\u4EBA\u4EEC\u8C08\u8BBA\u7740\u4E30\u6536\u7684\u5E74\u666F\uFF0C\u8033\u8FB9\u4F20\u6765\u4E00\u7247\u86D9\u58F0\u3002\u5929\u8FB9\u53EA\u6709\u4E03\u516B\u9897\u661F\uFF0C\u5C71\u524D\u843D\u4E0B\u4E24\u4E09\u70B9\u96E8\u3002\u4ECE\u524D\u793E\u6797\u8FB9\u7684\u90A3\u5BB6\u8305\u5E97\uFF0C\u8F6C\u8FC7\u6EAA\u6865\u5FFD\u7136\u51FA\u73B0\u5728\u773C\u524D\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-101",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u6D6A\u6DD8\u6C99\uFF08\u5176\u4E00\uFF09",
+        "author": "\u5218\u79B9\u9521",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E5D\u66F2\u9EC4\u6CB3\u4E07\u91CC\u6C99\uFF0C\n\u6D6A\u6DD8\u98CE\u7C38\u81EA\u5929\u6DAF\u3002\n\u5982\u4ECA\u76F4\u4E0A\u94F6\u6CB3\u53BB\uFF0C\n\u540C\u5230\u7275\u725B\u7EC7\u5973\u5BB6\u3002",
+        "pinyin": "ji\u01D4 q\u016B hu\xE1ng h\xE9 w\xE0n l\u01D0 sh\u0101\uFF0C\nl\xE0ng t\xE1o f\u0113ng b\u01D2 z\xEC ti\u0101n y\xE1\u3002\nr\xFA j\u012Bn zh\xED sh\xE0ng y\xEDn h\xE9 q\xF9\uFF0C\nt\xF3ng d\xE0o qi\u0101n ni\xFA zh\u012B n\u01DA ji\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4E5D\u66F2\u9EC4\u6CB3\u631F\u7740\u4E07\u91CC\u6CE5\u6C99\uFF0C\u98CE\u6D6A\u4ECE\u5929\u6DAF\u6EDA\u6EDA\u800C\u6765\u3002\u5982\u4ECA\u6211\u8981\u76F4\u4E0A\u94F6\u6CB3\uFF0C\u4E00\u540C\u5230\u725B\u90CE\u7EC7\u5973\u5BB6\u53BB\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-102",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u6C5F\u5357\u6625",
+        "author": "\u675C\u7267",
+        "dynasty": "\u5510",
+        "excerpt": "\u5343\u91CC\u83BA\u557C\u7EFF\u6620\u7EA2\uFF0C\n\u6C34\u6751\u5C71\u90ED\u9152\u65D7\u98CE\u3002\n\u5357\u671D\u56DB\u767E\u516B\u5341\u5BFA\uFF0C\n\u591A\u5C11\u697C\u53F0\u70DF\u96E8\u4E2D\u3002",
+        "pinyin": "qi\u0101n l\u01D0 y\u012Bng t\xED l\u01DC y\xECng h\xF3ng\uFF0C\nshu\u01D0 c\u016Bn sh\u0101n gu\u014D ji\u01D4 q\xED f\u0113ng\u3002\nn\xE1n ch\xE1o s\xEC b\u01CEi b\u0101 sh\xED s\xEC\uFF0C\ndu\u014D sh\u01CEo l\xF3u t\xE1i y\u0101n y\u01D4 zh\u014Dng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5343\u91CC\u6C5F\u5357\uFF0C\u9EC4\u83BA\u557C\u53EB\uFF0C\u7EFF\u6811\u6620\u7740\u7EA2\u82B1\uFF1B\u6C34\u8FB9\u6751\u5E84\u3001\u5C71\u8FB9\u57CE\u90ED\uFF0C\u9152\u65D7\u8FCE\u98CE\u98D8\u52A8\u3002\u5357\u671D\u7559\u4E0B\u7684\u4F17\u591A\u5BFA\u5E99\uFF0C\u591A\u5C11\u697C\u53F0\u7B3C\u7F69\u5728\u70DF\u96E8\u4E2D\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 11,
+          "bvid": "BV1uZ421K7F9",
+          "url": "https://www.bilibili.com/bangumi/play/ep830817",
+          "title": "\u300A\u6C5F\u5357\u6625\u300B\u4E0D\u53EA\u8BF4\u4E86\u7F8E\u666F\uFF0C\u8FD8\u8BF4\u4E86\u4E9B\u4EC0\u4E48\u5462\uFF1F"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-103",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u4E66\u6E56\u9634\u5148\u751F\u58C1",
+        "author": "\u738B\u5B89\u77F3",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u8305\u6A90\u957F\u626B\u51C0\u65E0\u82D4\uFF0C\n\u82B1\u6728\u6210\u7566\u624B\u81EA\u683D\u3002\n\u4E00\u6C34\u62A4\u7530\u5C06\u7EFF\u7ED5\uFF0C\n\u4E24\u5C71\u6392\u95FC\u9001\u9752\u6765\u3002",
+        "pinyin": "m\xE1o y\xE1n zh\u01CEng s\u01CEo j\xECng w\xFA t\xE1i\uFF0C\nhu\u0101 m\xF9 ch\xE9ng q\xED sh\u01D2u z\xEC z\u0101i\u3002\ny\u012B shu\u01D0 h\xF9 ti\xE1n ji\u0101ng l\u01DC r\xE0o\uFF0C\nli\u01CEng sh\u0101n p\xE1i t\xE0 s\xF2ng q\u012Bng l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u8305\u5C4B\u6A90\u4E0B\u5E38\u6253\u626B\uFF0C\u5E72\u51C0\u5F97\u6CA1\u6709\u9752\u82D4\uFF1B\u82B1\u6728\u6210\u7566\uFF0C\u90FD\u662F\u4E3B\u4EBA\u4EB2\u624B\u683D\u79CD\u3002\u4E00\u6761\u6EAA\u6C34\u62A4\u7740\u7530\u5730\uFF0C\u628A\u7EFF\u8272\u73AF\u7ED5\u8D77\u6765\uFF1B\u4E24\u5EA7\u9752\u5C71\u63A8\u95E8\u9001\u6765\u9752\u7FE0\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-104",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u4E24\u5C0F\u513F\u8FA9\u65E5",
+        "author": "\u300A\u5217\u5B50\u300B",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u5B54\u5B50\u4E1C\u6E38\uFF0C\u89C1\u4E24\u5C0F\u513F\u8FA9\u6597\uFF0C\u95EE\u5176\u6545\u3002\n\u4E00\u513F\u66F0\uFF1A\u201C\u6211\u4EE5\u65E5\u59CB\u51FA\u65F6\u53BB\u4EBA\u8FD1\uFF0C\u800C\u65E5\u4E2D\u65F6\u8FDC\u4E5F\u3002\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u6211\u4EE5\u65E5\u521D\u51FA\u8FDC\uFF0C\u800C\u65E5\u4E2D\u65F6\u8FD1\u4E5F\u3002\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u65E5\u521D\u51FA\u5927\u5982\u8F66\u76D6\uFF0C\u53CA\u65E5\u4E2D\u5219\u5982\u76D8\u76C2\uFF0C\u6B64\u4E0D\u4E3A\u8FDC\u8005\u5C0F\u800C\u8FD1\u8005\u5927\u4E4E\uFF1F\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u65E5\u521D\u51FA\u6CA7\u6CA7\u51C9\u51C9\uFF0C\u53CA\u5176\u65E5\u4E2D\u5982\u63A2\u6C64\uFF0C\u6B64\u4E0D\u4E3A\u8FD1\u8005\u70ED\u800C\u8FDC\u8005\u51C9\u4E4E\uFF1F\u201D\n\u5B54\u5B50\u4E0D\u80FD\u51B3\u4E5F\u3002\n\u4E24\u5C0F\u513F\u7B11\u66F0\uFF1A\u201C\u5B70\u4E3A\u6C5D\u591A\u77E5\u4E4E\uFF1F\u201D",
+        "pinyin": "k\u01D2ng zi d\u014Dng y\xF3u\uFF0C ji\xE0n li\u01CEng xi\u01CEo \xE9r bi\xE0n d\xF2u\uFF0C w\xE8n q\xED g\xF9\u3002\ny\u012B \xE9r yu\u0113\uFF1A\u201C w\u01D2 y\u01D0 r\xEC sh\u01D0 ch\u016B sh\xED q\xF9 r\xE9n j\xECn\uFF0C \xE9r r\xEC zh\u014Dng sh\xED yu\u01CEn y\u011B\u3002\u201D\ny\u012B \xE9r yu\u0113\uFF1A\u201C w\u01D2 y\u01D0 r\xEC ch\u016B ch\u016B yu\u01CEn\uFF0C \xE9r r\xEC zh\u014Dng sh\xED j\xECn y\u011B\u3002\u201D\ny\u012B \xE9r yu\u0113\uFF1A\u201C r\xEC ch\u016B ch\u016B d\xE0 r\xFA ch\u0113 g\xE0i\uFF0C j\xED r\xEC zh\u014Dng z\xE9 r\xFA p\xE1n y\xFA\uFF0C c\u01D0 b\xF9 w\xE8i yu\u01CEn zh\u011B xi\u01CEo \xE9r j\xECn zh\u011B d\xE0 h\u016B\uFF1F\u201D\ny\u012B \xE9r yu\u0113\uFF1A\u201C r\xEC ch\u016B ch\u016B c\u0101ng c\u0101ng li\xE1ng li\xE1ng\uFF0C j\xED q\xED r\xEC zh\u014Dng r\xFA t\xE0n t\u0101ng\uFF0C c\u01D0 b\xF9 w\xE8i j\xECn zh\u011B r\xE8 \xE9r yu\u01CEn zh\u011B li\xE1ng h\u016B\uFF1F\u201D\nk\u01D2ng zi b\xF9 n\xE9ng ju\xE9 y\u011B\u3002\nli\u01CEng xi\u01CEo \xE9r xi\xE0o yu\u0113\uFF1A\u201C sh\xFA w\xE8i r\u01D4 du\u014D zh\u012B h\u016B\uFF1F\u201D",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5B54\u5B50\u5230\u4E1C\u65B9\u6E38\u5386\uFF0C\u770B\u89C1\u4E24\u4E2A\u5C0F\u5B69\u5728\u4E89\u8BBA\uFF0C\u4FBF\u95EE\u539F\u56E0\u3002\u4E00\u4E2A\u5C0F\u5B69\u8BA4\u4E3A\u592A\u9633\u521A\u5347\u8D77\u65F6\u79BB\u4EBA\u8FD1\uFF0C\u4E2D\u5348\u8FDC\uFF1B\u53E6\u4E00\u4E2A\u8BA4\u4E3A\u521A\u5347\u8D77\u65F6\u8FDC\uFF0C\u4E2D\u5348\u8FD1\u3002\u4E00\u4E2A\u8BF4\u592A\u9633\u521D\u5347\u5927\u5F97\u50CF\u8F66\u76D6\uFF0C\u4E2D\u5348\u5C0F\u5F97\u50CF\u76D8\u76C2\uFF0C\u8FD9\u4E0D\u662F\u8FDC\u5C0F\u8FD1\u5927\u5417\uFF1F\u53E6\u4E00\u4E2A\u8BF4\u592A\u9633\u521D\u5347\u6E05\u51C9\uFF0C\u4E2D\u5348\u70ED\u5F97\u50CF\u628A\u624B\u4F38\u8FDB\u70ED\u6C34\uFF0C\u8FD9\u4E0D\u662F\u8FD1\u70ED\u8FDC\u51C9\u5417\uFF1F\u5B54\u5B50\u65E0\u6CD5\u5224\u65AD\u3002\u4E24\u4E2A\u5C0F\u5B69\u7B11\u7740\u8BF4\uFF1A\u201C\u8C01\u8BF4\u4F60\u77E5\u8BC6\u6E0A\u535A\u5462\uFF1F\u201D",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0A-poem-105",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u66F9\u51B2\u79F0\u8C61",
+        "author": "\u300A\u4E09\u56FD\u5FD7\u300B",
+        "dynasty": "\u897F\u664B",
+        "excerpt": "\u9093\u54C0\u738B\u5145\u5B57\u4ED3\u8212\uFF0C\u5C11\u806A\u5BDF\u5C90\u5DB7\uFF0C\u751F\u4E94\u516D\u5C81\uFF0C\u667A\u610F\u6240\u53CA\uFF0C\u6709\u82E5\u6210\u4EBA\u4E4B\u667A\u3002\u65F6\u5B59\u6743\u66FE\u81F4\u5DE8\u8C61\uFF0C\u592A\u7956\u6B32\u77E5\u5176\u65A4\u91CD\uFF0C\u8BBF\u4E4B\u7FA4\u4E0B\uFF0C\u54B8\u83AB\u80FD\u51FA\u5176\u7406\u3002\u51B2\u66F0\uFF1A\u201C\u7F6E\u8C61\u5927\u8239\u4E4B\u4E0A\uFF0C\u800C\u523B\u5176\u6C34\u75D5\u6240\u81F3\uFF0C\u79F0\u7269\u4EE5\u8F7D\u4E4B\uFF0C\u5219\u6821\u53EF\u77E5\u77E3\u3002\u201D\u592A\u7956\u5927\u60A6\uFF0C\u5373\u65BD\u884C\u7109\u3002",
+        "pinyin": "d\xE8ng \u0101i w\xE1ng ch\u014Dng z\xEC c\u0101ng sh\u016B\uFF0C sh\u01CEo c\u014Dng ch\xE1 q\xED y\xED\uFF0C sh\u0113ng w\u01D4 li\xF9 su\xEC\uFF0C zh\xEC y\xEC su\u01D2 j\xED\uFF0C y\u01D2u ru\xF2 ch\xE9ng r\xE9n zh\u012B zh\xEC\u3002 sh\xED s\u016Bn qu\xE1n c\xE9ng zh\xEC j\xF9 xi\xE0ng\uFF0C t\xE0i z\u01D4 y\xF9 zh\u012B q\xED j\u012Bn zh\xF2ng\uFF0C f\u01CEng zh\u012B q\xFAn xi\xE0\uFF0C xi\xE1n m\xF2 n\xE9ng ch\u016B q\xED l\u01D0\u3002 ch\u014Dng yu\u0113\uFF1A\u201C zh\xEC xi\xE0ng d\xE0 chu\xE1n zh\u012B sh\xE0ng\uFF0C \xE9r k\xE8 q\xED shu\u01D0 h\xE9n su\u01D2 zh\xEC\uFF0C ch\u0113ng w\xF9 y\u01D0 z\xE0i zh\u012B\uFF0C z\xE9 xi\xE0o k\u011B zh\u012B y\u01D0\u3002\u201D t\xE0i z\u01D4 d\xE0 yu\xE8\uFF0C j\xED sh\u012B x\xEDng y\u0101n\u3002",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9093\u54C0\u738B\u66F9\u51B2\u5B57\u4ED3\u8212\uFF0C\u5C0F\u65F6\u5019\u806A\u6167\u5584\u5BDF\uFF0C\u4E94\u516D\u5C81\u65F6\u667A\u6167\u5C31\u50CF\u6210\u5E74\u4EBA\u3002\u5B59\u6743\u9001\u6765\u4E00\u5934\u5927\u8C61\uFF0C\u66F9\u64CD\u60F3\u77E5\u9053\u5B83\u6709\u591A\u91CD\uFF0C\u95EE\u904D\u7FA4\u81E3\u90FD\u6CA1\u4EBA\u80FD\u60F3\u51FA\u529E\u6CD5\u3002\u66F9\u51B2\u8BF4\uFF1A\u201C\u628A\u8C61\u653E\u5230\u8239\u4E0A\uFF0C\u8BB0\u4E0B\u6C34\u75D5\u6240\u5230\u7684\u4F4D\u7F6E\uFF0C\u518D\u5F80\u8239\u4E0A\u88C5\u4E1C\u897F\uFF0C\u79F0\u51FA\u8FD9\u4E9B\u4E1C\u897F\u7684\u91CD\u91CF\uFF0C\u5C31\u77E5\u9053\u8C61\u6709\u591A\u91CD\u4E86\u3002\u201D\u66F9\u64CD\u5F88\u9AD8\u5174\uFF0C\u7ACB\u5373\u7167\u529E\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-g6-\u4E0A-20",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u5C45\u9AD8\u4E34\u4E0B",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u5360\u636E\u9AD8\u5904\uFF0C\u4FEF\u89C6\u4E0B\u9762\u3002\u5F62\u5BB9\u5904\u4E8E\u6709\u5229\u7684\u5730\u4F4D\u6216\u4ECE\u9AD8\u5904\u5411\u4E0B\u770B\u3002",
+        "pinyin": "zh\xE0n j\xF9 g\u0101o ch\xF9\uFF0C f\u01D4 sh\xEC xi\xE0 mi\xE0n\u3002 x\xEDng r\xF3ng ch\u01D4 y\xFA y\u01D2u l\xEC de d\xEC w\xE8i hu\xF2 c\xF3ng g\u0101o ch\xF9 xi\xE0ng xi\xE0 k\xE0n\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u7AD9\u5728\u5C71\u9876\u5C45\u9AD8\u4E34\u4E0B\uFF0C\u6574\u5EA7\u5C0F\u57CE\u5C3D\u6536\u773C\u5E95\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u4F4D\u7F6E",
+          "\u89C2\u5BDF",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u5C45\u9AD8\u4E34\u4E0B",
+          "\u9AD8\u77BB\u8FDC\u77A9"
+        ]
+      },
+      {
+        "id": "idiom-g6-\u4E0A-21",
+        "grade": 6,
+        "volume": "\u4E0A",
+        "title": "\u6392\u5C71\u5012\u6D77",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u628A\u5C71\u63A8\u5F00\uFF0C\u628A\u6D77\u7FFB\u5012\u3002\u5F62\u5BB9\u529B\u91CF\u5F3A\u3001\u58F0\u52BF\u5927\u3002",
+        "pinyin": "b\u01CE sh\u0101n tu\u012B k\u0101i\uFF0C b\u01CE h\u01CEi f\u0101n d\u01CEo\u3002 x\xEDng r\xF3ng l\xEC li\xE0ng qi\xE1ng\u3001 sh\u0113ng sh\xEC d\xE0\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0A\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u6D2A\u6C34\u6392\u5C71\u5012\u6D77\u822C\u6D8C\u6765\uFF0C\u4EBA\u4EEC\u8FC5\u901F\u8F6C\u79FB\u5230\u4E86\u5B89\u5168\u5730\u5E26\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u6C14\u52BF",
+          "\u529B\u91CF",
+          "\u63CF\u5199"
+        ],
+        "related": [
+          "\u6392\u5C71\u5012\u6D77",
+          "\u52BF\u4E0D\u53EF\u6321"
+        ]
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-106",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u5BD2\u98DF",
+        "author": "\u97E9\u7FC3",
+        "dynasty": "\u5510",
+        "excerpt": "\u6625\u57CE\u65E0\u5904\u4E0D\u98DE\u82B1\uFF0C\n\u5BD2\u98DF\u4E1C\u98CE\u5FA1\u67F3\u659C\u3002\n\u65E5\u66AE\u6C49\u5BAB\u4F20\u8721\u70DB\uFF0C\n\u8F7B\u70DF\u6563\u5165\u4E94\u4FAF\u5BB6\u3002",
+        "pinyin": "ch\u016Bn ch\xE9ng w\xFA ch\u01D4 b\xF9 f\u0113i hu\u0101\uFF0C\nh\xE1n sh\xED d\u014Dng f\u0113ng y\xF9 li\u01D4 xi\xE9\u3002\nr\xEC m\xF9 h\xE0n g\u014Dng chu\xE1n l\xE0 zh\xFA\uFF0C\nq\u012Bng y\u0101n s\xE0n r\xF9 w\u01D4 h\xF3u ji\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6625\u5929\u7684\u957F\u5B89\u57CE\u5904\u5904\u98DE\u82B1\uFF0C\u5BD2\u98DF\u8282\u4E1C\u98CE\u5439\u659C\u5FA1\u67F3\u3002\u508D\u665A\u5BAB\u4E2D\u4F20\u9001\u8721\u70DB\uFF0C\u8F7B\u70DF\u6563\u5165\u4E94\u4FAF\u4E4B\u5BB6\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-107",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u8FE2\u8FE2\u7275\u725B\u661F",
+        "author": "\u300A\u53E4\u8BD7\u5341\u4E5D\u9996\u300B",
+        "dynasty": "\u6C49",
+        "excerpt": "\u8FE2\u8FE2\u7275\u725B\u661F\uFF0C\u768E\u768E\u6CB3\u6C49\u5973\u3002\n\u7EA4\u7EA4\u64E2\u7D20\u624B\uFF0C\u672D\u672D\u5F04\u673A\u677C\u3002\n\u7EC8\u65E5\u4E0D\u6210\u7AE0\uFF0C\u6CE3\u6D95\u96F6\u5982\u96E8\u3002\n\u6CB3\u6C49\u6E05\u4E14\u6D45\uFF0C\u76F8\u53BB\u590D\u51E0\u8BB8\u3002\n\u76C8\u76C8\u4E00\u6C34\u95F4\uFF0C\u8109\u8109\u4E0D\u5F97\u8BED\u3002",
+        "pinyin": "ti\xE1o ti\xE1o qi\u0101n ni\xFA x\u012Bng\uFF0C ji\u01CEo ji\u01CEo h\xE9 h\xE0n n\u01DA\u3002\nxi\u0101n xi\u0101n zhu\xF3 s\xF9 sh\u01D2u\uFF0C zh\xE1 zh\xE1 n\xF2ng j\u012B zh\xF9\u3002\nzh\u014Dng r\xEC b\xF9 ch\xE9ng zh\u0101ng\uFF0C q\xEC t\xEC l\xEDng r\xFA y\u01D4\u3002\nh\xE9 h\xE0n q\u012Bng qi\u011B qi\u01CEn\uFF0C xi\u0101ng q\xF9 f\xF9 j\u01D0 x\u01D4\u3002\ny\xEDng y\xEDng y\u012B shu\u01D0 ji\u0101n\uFF0C m\xF2 m\xF2 b\xF9 d\xE9 y\u01D4\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u9065\u8FDC\u7684\u7275\u725B\u661F\u548C\u660E\u4EAE\u7684\u7EC7\u5973\u661F\u9694\u6CB3\u76F8\u671B\u3002\u7EC7\u5973\u4F38\u51FA\u767D\u7699\u7684\u624B\uFF0C\u7EC7\u673A\u672D\u672D\u4F5C\u54CD\uFF0C\u53EF\u4E00\u6574\u5929\u4E5F\u7EC7\u4E0D\u6210\u4E00\u5339\u5E03\uFF0C\u773C\u6CEA\u50CF\u96E8\u4E00\u6837\u843D\u4E0B\u3002\u94F6\u6CB3\u53C8\u6E05\u53C8\u6D45\uFF0C\u76F8\u9694\u53C8\u80FD\u6709\u591A\u8FDC\uFF1F\u4E24\u4EBA\u53EA\u9694\u7740\u4E00\u6761\u6E05\u6D45\u7684\u6C34\uFF0C\u5374\u53EA\u80FD\u542B\u60C5\u76F8\u671B\uFF0C\u4E0D\u80FD\u8BF4\u8BDD\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-108",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u5341\u4E94\u591C\u671B\u6708",
+        "author": "\u738B\u5EFA",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E2D\u5EAD\u5730\u767D\u6811\u6816\u9E26\uFF0C\n\u51B7\u9732\u65E0\u58F0\u6E7F\u6842\u82B1\u3002\n\u4ECA\u591C\u6708\u660E\u4EBA\u5C3D\u671B\uFF0C\n\u4E0D\u77E5\u79CB\u601D\u843D\u8C01\u5BB6\u3002",
+        "pinyin": "zh\u014Dng t\xEDng d\xEC b\xE1i sh\xF9 q\u012B y\u0101\uFF0C\nl\u011Bng l\xF9 w\xFA sh\u0113ng sh\u012B gu\xEC hu\u0101\u3002\nj\u012Bn y\xE8 yu\xE8 m\xEDng r\xE9n j\u01D0n w\xE0ng\uFF0C\nb\xF9 zh\u012B qi\u016B s\u012B lu\xF2 shu\xED ji\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5EAD\u9662\u4E2D\u6708\u5149\u6D12\u5730\uFF0C\u6D01\u767D\u5982\u971C\uFF0C\u6811\u4E0A\u6816\u7740\u4E4C\u9E26\uFF1B\u51B7\u9732\u65E0\u58F0\u6253\u6E7F\u6842\u82B1\u3002\u4ECA\u591C\u660E\u6708\u5F53\u7A7A\uFF0C\u4EBA\u4EBA\u90FD\u5728\u671B\u6708\uFF0C\u4E0D\u77E5\u79CB\u601D\u843D\u5728\u8C01\u5BB6\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-109",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u9A6C\u8BD7",
+        "author": "\u674E\u8D3A",
+        "dynasty": "\u5510",
+        "excerpt": "\u5927\u6F20\u6C99\u5982\u96EA\uFF0C\n\u71D5\u5C71\u6708\u4F3C\u94A9\u3002\n\u4F55\u5F53\u91D1\u7EDC\u8111\uFF0C\n\u5FEB\u8D70\u8E0F\u6E05\u79CB\u3002",
+        "pinyin": "d\xE0 m\xF2 sh\u0101 r\xFA xu\u011B\uFF0C\ny\u0101n sh\u0101n yu\xE8 sh\xEC g\u014Du\u3002\nh\xE9 d\u0101ng j\u012Bn lu\xF2 n\u01CEo\uFF0C\nku\xE0i z\u01D2u t\xE0 q\u012Bng qi\u016B\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5E7F\u9614\u7684\u5927\u6F20\u4E0A\uFF0C\u6C99\u5B50\u5728\u6708\u5149\u4E0B\u50CF\u96EA\u4E00\u6837\u767D\uFF1B\u71D5\u5C71\u4E0A\u7684\u65B0\u6708\u50CF\u5F2F\u94A9\u3002\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u7ED9\u9A6C\u6234\u4E0A\u91D1\u8272\u7B3C\u5934\uFF0C\u8BA9\u5B83\u5728\u6E05\u79CB\u7684\u539F\u91CE\u4E0A\u5C3D\u60C5\u5954\u9A70\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 33,
+          "bvid": "BV1H74y1m75A",
+          "url": "https://www.bilibili.com/bangumi/play/ep833974",
+          "title": "\u674E\u8D3A\u4E3A\u4EC0\u4E48\u7ED9\u9A6C\u5199\u4E86\u8FD9\u4E48\u591A\u9996\u8BD7"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-110",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u77F3\u7070\u541F",
+        "author": "\u4E8E\u8C26",
+        "dynasty": "\u660E",
+        "excerpt": "\u5343\u9524\u4E07\u51FF\u51FA\u6DF1\u5C71\uFF0C\n\u70C8\u706B\u711A\u70E7\u82E5\u7B49\u95F2\u3002\n\u7C89\u9AA8\u788E\u8EAB\u6D51\u4E0D\u6015\uFF0C\n\u8981\u7559\u6E05\u767D\u5728\u4EBA\u95F4\u3002",
+        "pinyin": "qi\u0101n chu\xED w\xE0n z\xE1o ch\u016B sh\u0113n sh\u0101n\uFF0C\nli\xE8 hu\u01D2 f\xE9n sh\u0101o ru\xF2 d\u011Bng xi\xE1n\u3002\nf\u011Bn g\u01D4 su\xEC sh\u0113n h\xFAn b\xF9 p\xE0\uFF0C\ny\xE0o li\xFA q\u012Bng b\xE1i z\xE0i r\xE9n ji\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u77F3\u7070\u77F3\u7ECF\u8FC7\u5343\u4E07\u6B21\u9524\u6253\u3001\u5F00\u51FF\uFF0C\u4ECE\u6DF1\u5C71\u91CC\u5F00\u91C7\u51FA\u6765\uFF0C\u53C8\u628A\u70C8\u706B\u711A\u70E7\u770B\u4F5C\u5E73\u5E38\u7684\u4E8B\u3002\u5373\u4F7F\u8EAB\u4F53\u7C89\u788E\u4E5F\u5168\u7136\u4E0D\u6015\uFF0C\u53EA\u5E0C\u671B\u628A\u6E05\u767D\u7559\u5728\u4EBA\u4E16\u95F4\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 36,
+          "bvid": "BV16T4m1U7kq",
+          "url": "https://www.bilibili.com/bangumi/play/ep813438",
+          "title": "\u660E\u671D\u6709\u4E2A\u4E8E\u8C26\uFF0C\u4ED6\u5199\u7684\u8BD7\u4F60\u8BFB\u8FC7\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-111",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u7AF9\u77F3",
+        "author": "\u90D1\u71EE",
+        "dynasty": "\u6E05",
+        "excerpt": "\u54AC\u5B9A\u9752\u5C71\u4E0D\u653E\u677E\uFF0C\n\u7ACB\u6839\u539F\u5728\u7834\u5CA9\u4E2D\u3002\n\u5343\u78E8\u4E07\u51FB\u8FD8\u575A\u52B2\uFF0C\n\u4EFB\u5C14\u4E1C\u897F\u5357\u5317\u98CE\u3002",
+        "pinyin": "y\u01CEo d\xECng q\u012Bng sh\u0101n b\xF9 f\xE0ng s\u014Dng\uFF0C\nl\xEC g\u0113n yu\xE1n z\xE0i p\xF2 y\xE1n zh\u014Dng\u3002\nqi\u0101n m\xF3 w\xE0n j\u012B h\xE1i ji\u0101n j\xECn\uFF0C\nr\xE8n \u011Br d\u014Dng x\u012B n\xE1n b\u011Bi f\u0113ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u7AF9\u5B50\u7D27\u7D27\u54AC\u4F4F\u9752\u5C71\uFF0C\u4E00\u70B9\u4E5F\u4E0D\u653E\u677E\uFF0C\u6839\u539F\u672C\u5C31\u624E\u5728\u7834\u88C2\u7684\u5CA9\u77F3\u4E2D\u3002\u7ECF\u5386\u5343\u4E07\u6B21\u78E8\u96BE\u548C\u6253\u51FB\uFF0C\u4ECD\u7136\u575A\u5F3A\u633A\u62D4\uFF0C\u4EFB\u51ED\u4E1C\u897F\u5357\u5317\u7684\u98CE\u600E\u6837\u5439\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 35,
+          "bvid": "BV1cS421X7Fe",
+          "url": "https://www.bilibili.com/bangumi/play/ep834221",
+          "title": "\u90D1\u677F\u6865\u5C45\u7136\u8FD8\u8981\u5728\u8857\u8FB9\u6446\u644A\uFF0C\u8FD9\u662F\u53D1\u751F\u4E86\u4EC0\u4E48\uFF1F"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-112",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u5B66\u5F08\uFF08\u300A\u5B5F\u5B50\xB7\u544A\u5B50\u4E0A\u300B\uFF09",
+        "author": "\u300A\u5B5F\u5B50\u300B",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u5F08\u79CB\uFF0C\u901A\u56FD\u4E4B\u5584\u5F08\u8005\u4E5F\u3002\u4F7F\u5F08\u79CB\u8BF2\u4E8C\u4EBA\u5F08\uFF0C\u5176\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u60DF\u5F08\u79CB\u4E4B\u4E3A\u542C\uFF1B\u4E00\u4EBA\u867D\u542C\u4E4B\uFF0C\u4E00\u5FC3\u4EE5\u4E3A\u6709\u9E3F\u9E44\u5C06\u81F3\uFF0C\u601D\u63F4\u5F13\u7F34\u800C\u5C04\u4E4B\u3002\u867D\u4E0E\u4E4B\u4FF1\u5B66\uFF0C\u5F17\u82E5\u4E4B\u77E3\u3002\u4E3A\u662F\u5176\u667A\u5F17\u82E5\u4E0E\uFF1F\u66F0\uFF1A\u975E\u7136\u4E5F\u3002",
+        "pinyin": "y\xEC qi\u016B\uFF0C t\u014Dng gu\xF3 zh\u012B sh\xE0n y\xEC zh\u011B y\u011B\u3002 sh\u01D0 y\xEC qi\u016B hu\xEC \xE8r r\xE9n y\xEC\uFF0C q\xED y\u012B r\xE9n zhu\u0101n x\u012Bn zh\xEC zh\xEC\uFF0C w\xE9i y\xEC qi\u016B zh\u012B w\xE8i t\u012Bng\uFF1B y\u012B r\xE9n su\u012B t\u012Bng zh\u012B\uFF0C y\u012B x\u012Bn y\u01D0 w\xE9i y\u01D2u h\xF3ng h\xFA ji\u0101ng zh\xEC\uFF0C s\u012B yu\xE1n g\u014Dng ji\u01CEo \xE9r sh\xE8 zh\u012B\u3002 su\u012B y\u01D4 zh\u012B j\xF9 xu\xE9\uFF0C f\xFA ru\xF2 zh\u012B y\u01D0\u3002 w\xE8i sh\xEC q\xED zh\xEC f\xFA ru\xF2 y\u01D4\uFF1F yu\u0113\uFF1A f\u0113i r\xE1n y\u011B\u3002",
+        "category": "classical",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5F08\u79CB\u662F\u5168\u56FD\u6700\u64C5\u957F\u4E0B\u68CB\u7684\u4EBA\u3002\u4ED6\u6559\u4E24\u4E2A\u4EBA\u4E0B\u68CB\uFF0C\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u53EA\u542C\u5F08\u79CB\u7684\u6559\u5BFC\uFF1B\u53E6\u4E00\u4EBA\u867D\u7136\u4E5F\u5728\u542C\uFF0C\u5374\u60F3\u7740\u5929\u9E45\u5C06\u8981\u98DE\u6765\uFF0C\u60F3\u62C9\u5F13\u5C04\u5B83\u3002\u4E24\u4EBA\u4E00\u8D77\u5B66\u4E60\uFF0C\u540E\u8005\u7684\u6210\u7EE9\u5374\u4E0D\u5982\u524D\u8005\u3002\u662F\u56E0\u4E3A\u4ED6\u667A\u529B\u4E0D\u5982\u4EBA\u5417\uFF1F\u56DE\u7B54\u8BF4\uFF1A\u4E0D\u662F\u8FD9\u6837\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-113",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u91C7\u8587\uFF08\u8282\u9009 \u300A\u8BD7\u7ECF\xB7\u5C0F\u96C5\u300B\uFF09",
+        "author": "\u300A\u8BD7\u7ECF\u300B",
+        "dynasty": "\u5148\u79E6",
+        "excerpt": "\u6614\u6211\u5F80\u77E3\uFF0C\u6768\u67F3\u4F9D\u4F9D\u3002\n\u4ECA\u6211\u6765\u601D\uFF0C\u96E8\u96EA\u970F\u970F\u3002\n\u884C\u9053\u8FDF\u8FDF\uFF0C\u8F7D\u6E34\u8F7D\u9965\u3002\n\u6211\u5FC3\u4F24\u60B2\uFF0C\u83AB\u77E5\u6211\u54C0\uFF01",
+        "pinyin": "x\u012B w\u01D2 w\u01CEng y\u01D0\uFF0C y\xE1ng li\u01D4 y\u012B y\u012B\u3002\nj\u012Bn w\u01D2 l\xE1i s\u012B\uFF0C y\u01D4 xu\u011B f\u0113i f\u0113i\u3002\nh\xE1ng d\xE0o ch\xED ch\xED\uFF0C z\xE0i k\u011B z\xE0i j\u012B\u3002\nw\u01D2 x\u012Bn sh\u0101ng b\u0113i\uFF0C m\xF2 zh\u012B w\u01D2 \u0101i\uFF01",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5F53\u5E74\u6211\u79BB\u5F00\u5BB6\u4E61\u65F6\uFF0C\u6768\u67F3\u8F7B\u8F7B\u98D8\u62C2\uFF1B\u5982\u4ECA\u6211\u56DE\u6765\uFF0C\u96E8\u96EA\u7EB7\u7EB7\u843D\u4E0B\u3002\u9053\u8DEF\u6F2B\u957F\u96BE\u884C\uFF0C\u53C8\u6E34\u53C8\u997F\u3002\u6211\u7684\u5FC3\u91CC\u5145\u6EE1\u60B2\u4F24\uFF0C\u5374\u6CA1\u6709\u4EBA\u77E5\u9053\u6211\u7684\u54C0\u75DB\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-114",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u9001\u5143\u4E8C\u4F7F\u5B89\u897F",
+        "author": "\u738B\u7EF4",
+        "dynasty": "\u5510",
+        "excerpt": "\u6E2D\u57CE\u671D\u96E8\u6D65\u8F7B\u5C18\uFF0C\n\u5BA2\u820D\u9752\u9752\u67F3\u8272\u65B0\u3002\n\u529D\u541B\u66F4\u5C3D\u4E00\u676F\u9152\uFF0C\n\u897F\u51FA\u9633\u5173\u65E0\u6545\u4EBA\u3002",
+        "pinyin": "w\xE8i ch\xE9ng ch\xE1o y\u01D4 y\xEC q\u012Bng ch\xE9n\uFF0C\nk\xE8 sh\u011B q\u012Bng q\u012Bng li\u01D4 s\xE8 x\u012Bn\u3002\nqu\xE0n j\u016Bn g\xE8ng j\u01D0n y\u012B b\u0113i ji\u01D4\uFF0C\nx\u012B ch\u016B y\xE1ng gu\u0101n w\xFA g\xF9 r\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6E2D\u57CE\u6E05\u6668\u7684\u5C0F\u96E8\u6DA6\u6E7F\u4E86\u8F7B\u5C18\uFF0C\u5BA2\u820D\u65C1\u7684\u67F3\u6811\u663E\u5F97\u683C\u5916\u9752\u7FE0\u3002\u8BF7\u4F60\u518D\u559D\u4E00\u676F\u9152\uFF0C\u5411\u897F\u51FA\u4E86\u9633\u5173\uFF0C\u5C31\u518D\u4E5F\u6CA1\u6709\u8001\u670B\u53CB\u4E86\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 7,
+          "bvid": "BV1Ei421Y7FF",
+          "url": "https://www.bilibili.com/bangumi/play/ep830238",
+          "title": "\u738B\u7EF4\u5F53\u4E2A\u5B98\u600E\u4E48\u8FD8\u90C1\u95F7\u4E86\uFF1F"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-115",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u6625\u591C\u559C\u96E8",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u597D\u96E8\u77E5\u65F6\u8282\uFF0C\u5F53\u6625\u4E43\u53D1\u751F\u3002\n\u968F\u98CE\u6F5C\u5165\u591C\uFF0C\u6DA6\u7269\u7EC6\u65E0\u58F0\u3002\n\u91CE\u5F84\u4E91\u4FF1\u9ED1\uFF0C\u6C5F\u8239\u706B\u72EC\u660E\u3002\n\u6653\u770B\u7EA2\u6E7F\u5904\uFF0C\u82B1\u91CD\u9526\u5B98\u57CE\u3002",
+        "pinyin": "h\u01CEo y\u01D4 zh\u012B sh\xED ji\xE9\uFF0C d\u0101ng ch\u016Bn n\u01CEi f\u0101 sh\u0113ng\u3002\nsu\xED f\u0113ng qi\xE1n r\xF9 y\xE8\uFF0C r\xF9n w\xF9 x\xEC w\xFA sh\u0113ng\u3002\ny\u011B j\xECng y\xFAn j\xF9 h\u0113i\uFF0C ji\u0101ng chu\xE1n hu\u01D2 d\xFA m\xEDng\u3002\nxi\u01CEo k\xE0n h\xF3ng sh\u012B ch\xF9\uFF0C hu\u0101 zh\xF2ng j\u01D0n gu\u0101n ch\xE9ng\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u597D\u96E8\u77E5\u9053\u65F6\u8282\uFF0C\u6625\u5929\u4E00\u5230\u4FBF\u964D\u4E34\u3002\u5B83\u968F\u7740\u6625\u98CE\u6084\u6084\u5728\u591C\u91CC\u843D\u4E0B\uFF0C\u65E0\u58F0\u5730\u6ECB\u6DA6\u4E07\u7269\u3002\u91CE\u5916\u5C0F\u8DEF\u548C\u4E91\u90FD\u9ED1\u6C89\u6C89\u7684\uFF0C\u53EA\u6709\u6C5F\u8239\u4E0A\u7684\u706F\u706B\u660E\u4EAE\u3002\u5929\u4EAE\u540E\u770B\u90A3\u88AB\u96E8\u6253\u6E7F\u7684\u82B1\u4E1B\uFF0C\u9526\u5B98\u57CE\u91CC\u7684\u82B1\u4E00\u5B9A\u6C89\u7538\u7538\u5730\u5F00\u6EE1\u679D\u5934\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 25,
+          "bvid": "BV19g4y1U71V",
+          "url": "https://www.bilibili.com/bangumi/play/ep810563",
+          "title": " \u770B\u675C\u752B\u662F\u5982\u4F55\u628A\u6625\u96E8\u5199\u7684\u51FA\u795E\u5165\u5316\u7684"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-116",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u65E9\u6625\u5448\u6C34\u90E8\u5F20\u5341\u516B\u5458\u5916",
+        "author": "\u97E9\u6108",
+        "dynasty": "\u5510",
+        "excerpt": "\u5929\u8857\u5C0F\u96E8\u6DA6\u5982\u9165\uFF0C\n\u8349\u8272\u9065\u770B\u8FD1\u5374\u65E0\u3002\n\u6700\u662F\u4E00\u5E74\u6625\u597D\u5904\uFF0C\n\u7EDD\u80DC\u70DF\u67F3\u6EE1\u7687\u90FD\u3002",
+        "pinyin": "ti\u0101n ji\u0113 xi\u01CEo y\u01D4 r\xF9n r\xFA s\u016B\uFF0C\nc\u01CEo s\xE8 y\xE1o k\xE0n j\xECn qu\xE8 w\xFA\u3002\nzu\xEC sh\xEC y\u012B ni\xE1n ch\u016Bn h\u01CEo ch\xF9\uFF0C\nju\xE9 sh\xE8ng y\u0101n li\u01D4 m\u01CEn hu\xE1ng d\u014Du\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4EAC\u57CE\u8857\u9053\u4E0A\u7684\u5C0F\u96E8\u6DA6\u6CFD\u5982\u9165\u6CB9\uFF0C\u8FDC\u770B\u8349\u8272\u9752\u9752\uFF0C\u8FD1\u770B\u5374\u8FD8\u6CA1\u6709\u957F\u51FA\u6765\u3002\u4E00\u5E74\u4E2D\u6700\u597D\u7684\u6625\u666F\u5C31\u5728\u6B64\u65F6\uFF0C\u8FDC\u80DC\u8FC7\u6EE1\u57CE\u70DF\u67F3\u7684\u665A\u6625\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-117",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u6C5F\u4E0A\u6E14\u8005",
+        "author": "\u8303\u4EF2\u6DF9",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6C5F\u4E0A\u5F80\u6765\u4EBA\uFF0C\n\u4F46\u7231\u9C88\u9C7C\u7F8E\u3002\n\u541B\u770B\u4E00\u53F6\u821F\uFF0C\n\u51FA\u6CA1\u98CE\u6CE2\u91CC\u3002",
+        "pinyin": "ji\u0101ng sh\xE0ng w\u01CEng l\xE1i r\xE9n\uFF0C\nd\xE0n \xE0i l\xFA y\xFA m\u011Bi\u3002\nj\u016Bn k\xE0n y\u012B y\xE8 zh\u014Du\uFF0C\nch\u016B m\xF2 f\u0113ng b\u014D l\u01D0\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6C5F\u4E0A\u6765\u6765\u5F80\u5F80\u7684\u4EBA\uFF0C\u53EA\u559C\u7231\u9C88\u9C7C\u5473\u9053\u9C9C\u7F8E\u3002\u8BF7\u770B\u90A3\u53EA\u5C0F\u5C0F\u7684\u6E14\u8239\uFF0C\u5728\u98CE\u6D6A\u4E2D\u65F6\u9690\u65F6\u73B0\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 37,
+          "bvid": "BV12f421i7Q4",
+          "url": "https://www.bilibili.com/bangumi/play/ep834223",
+          "title": "\u300A\u6C5F\u4E0A\u6E14\u8005\u300B\u90FD\u8BB2\u4E86\u4E9B\u4EC0\u4E48\uFF0C\u4F60\u77E5\u9053\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-118",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u6CCA\u8239\u74DC\u6D32",
+        "author": "\u738B\u5B89\u77F3",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u4EAC\u53E3\u74DC\u6D32\u4E00\u6C34\u95F4\uFF0C\n\u949F\u5C71\u53EA\u9694\u6570\u91CD\u5C71\u3002\n\u6625\u98CE\u53C8\u7EFF\u6C5F\u5357\u5CB8\uFF0C\n\u660E\u6708\u4F55\u65F6\u7167\u6211\u8FD8\u3002",
+        "pinyin": "j\u012Bng k\u01D2u gu\u0101 zh\u014Du y\u012B shu\u01D0 ji\u0101n\uFF0C\nzh\u014Dng sh\u0101n zh\u01D0 g\xE9 sh\xF9 zh\xF2ng sh\u0101n\u3002\nch\u016Bn f\u0113ng y\xF2u l\u01DC ji\u0101ng n\xE1n \xE0n\uFF0C\nm\xEDng yu\xE8 h\xE9 sh\xED zh\xE0o w\u01D2 h\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u4EAC\u53E3\u548C\u74DC\u6D32\u4E4B\u95F4\u53EA\u9694\u7740\u4E00\u6761\u6C5F\uFF0C\u949F\u5C71\u4E5F\u53EA\u9694\u7740\u51E0\u91CD\u5C71\u3002\u6625\u98CE\u53C8\u628A\u6C5F\u5357\u5CB8\u5439\u7EFF\u4E86\uFF0C\u660E\u6708\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u7167\u7740\u6211\u56DE\u5BB6\u5462\uFF1F",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 26,
+          "bvid": "BV1fU411U7Bp",
+          "url": "https://www.bilibili.com/bangumi/play/ep832350",
+          "title": "\u5BB0\u76F8\u4E5F\u662F\u8BD7\u4EBA\uFF0C\u770B\u738B\u5B89\u77F3\u5982\u4F55\u5199\u51FA\u300A\u6CCA\u8239\u74DC\u6D32\u300B"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-122-yoyuanbuzhi",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u6E38\u56ED\u4E0D\u503C",
+        "author": "\u53F6\u7ECD\u7FC1",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u5E94\u601C\u5C50\u9F7F\u5370\u82CD\u82D4\uFF0C\n\u5C0F\u6263\u67F4\u6249\u4E45\u4E0D\u5F00\u3002\n\u6625\u8272\u6EE1\u56ED\u5173\u4E0D\u4F4F\uFF0C\n\u4E00\u679D\u7EA2\u674F\u51FA\u5899\u6765\u3002",
+        "pinyin": "y\u012Bng li\xE1n j\u012B ch\u01D0 y\xECn c\u0101ng t\xE1i\uFF0C\nxi\u01CEo k\xF2u ch\xE1i f\u0113i ji\u01D4 b\xF9 k\u0101i\u3002\nch\u016Bn s\xE8 m\u01CEn yu\xE1n gu\u0101n b\xFA zh\xF9\uFF0C\ny\u012B zh\u012B h\xF3ng x\xECng ch\u016B qi\xE1ng l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u5927\u6982\u662F\u56ED\u4E3B\u4EBA\u6015\u6728\u5C50\u8E29\u574F\u4E86\u9752\u82D4\uFF0C\u6211\u8F7B\u8F7B\u6572\u95E8\uFF0C\u67F4\u95E8\u4E45\u4E45\u6CA1\u6709\u6253\u5F00\u3002\u53EF\u662F\u6EE1\u56ED\u7684\u6625\u8272\u662F\u5173\u4E0D\u4F4F\u7684\uFF0C\u4E00\u679D\u7EA2\u674F\u5DF2\u7ECF\u4F38\u51FA\u5899\u5934\u3002",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 34,
+          "bvid": "BV1VN4y1n718",
+          "url": "https://www.bilibili.com/bangumi/play/ep812924",
+          "title": "\u53E4\u8BD7\u8FD8\u6709\u4E0D\u662F\u539F\u521B\u7684\uFF1F\u5FEB\u6765\u770B\u300A\u6E38\u56ED\u4E0D\u503C\u300B"
+        }
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-119",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u535C\u7B97\u5B50\xB7\u9001\u9C8D\u6D69\u7136\u4E4B\u6D59\u4E1C",
+        "author": "\u738B\u89C2",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6C34\u662F\u773C\u6CE2\u6A2A\uFF0C\u5C71\u662F\u7709\u5CF0\u805A\u3002\u6B32\u95EE\u884C\u4EBA\u53BB\u90A3\u8FB9\uFF1F\u7709\u773C\u76C8\u76C8\u5904\u3002\n\u624D\u59CB\u9001\u6625\u5F52\uFF0C\u53C8\u9001\u541B\u5F52\u53BB\u3002\u82E5\u5230\u6C5F\u5357\u8D76\u4E0A\u6625\uFF0C\u5343\u4E07\u548C\u6625\u4F4F\u3002",
+        "pinyin": "shu\u01D0 sh\xEC y\u01CEn b\u014D h\xE9ng\uFF0C sh\u0101n sh\xEC m\xE9i f\u0113ng j\xF9\u3002 y\xF9 w\xE8n x\xEDng r\xE9n q\xF9 n\xE0 bi\u0101n\uFF1F m\xE9i y\u01CEn y\xEDng y\xEDng ch\xF9\u3002\nc\xE1i sh\u01D0 s\xF2ng ch\u016Bn gu\u012B\uFF0C y\xF2u s\xF2ng j\u016Bn gu\u012B q\xF9\u3002 ru\xF2 d\xE0o ji\u0101ng n\xE1n g\u01CEn sh\xE0ng ch\u016Bn\uFF0C qi\u0101n w\xE0n h\xE9 ch\u016Bn zh\xF9\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6C34\u50CF\u7F8E\u4EBA\u6D41\u52A8\u7684\u773C\u6CE2\uFF0C\u5C71\u50CF\u7F8E\u4EBA\u805A\u8D77\u7684\u7709\u5CF0\u3002\u95EE\u884C\u4EBA\u8981\u53BB\u54EA\u91CC\uFF1F\u5C31\u5728\u90A3\u7709\u773C\u76C8\u76C8\u7684\u6C5F\u5357\u3002\u521A\u521A\u9001\u8D70\u6625\u5929\uFF0C\u53C8\u9001\u4F60\u5F52\u53BB\uFF1B\u5982\u679C\u4F60\u5230\u6C5F\u5357\u8D76\u4E0A\u6625\u5929\uFF0C\u5343\u4E07\u8981\u548C\u6625\u5929\u4F4F\u5728\u4E00\u8D77\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-120",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u6D63\u6EAA\u6C99",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6E38\u8572\u6C34\u6E05\u6CC9\u5BFA\uFF0C\u5BFA\u4E34\u5170\u6EAA\uFF0C\u6EAA\u6C34\u897F\u6D41\u3002\n\u5C71\u4E0B\u5170\u82BD\u77ED\u6D78\u6EAA\uFF0C\u677E\u95F4\u6C99\u8DEF\u51C0\u65E0\u6CE5\u3002\u8427\u8427\u66AE\u96E8\u5B50\u89C4\u557C\u3002\n\u8C01\u9053\u4EBA\u751F\u65E0\u518D\u5C11\uFF1F\u95E8\u524D\u6D41\u6C34\u5C1A\u80FD\u897F\uFF01\u4F11\u5C06\u767D\u53D1\u5531\u9EC4\u9E21\u3002",
+        "pinyin": "y\xF3u q\xED shu\u01D0 q\u012Bng qu\xE1n s\xEC\uFF0C s\xEC l\xEDn l\xE1n x\u012B\uFF0C x\u012B shu\u01D0 x\u012B li\xFA\u3002\nsh\u0101n xi\xE0 l\xE1n y\xE1 du\u01CEn j\xECn x\u012B\uFF0C s\u014Dng ji\u0101n sh\u0101 l\xF9 j\xECng w\xFA n\xED\u3002 xi\u0101o xi\u0101o m\xF9 y\u01D4 zi gu\u012B t\xED\u3002\nshu\xED d\xE0o r\xE9n sh\u0113ng w\xFA z\xE0i sh\u01CEo\uFF1F m\xE9n qi\xE1n li\xFA shu\u01D0 sh\xE0ng n\xE9ng x\u012B\uFF01 xi\u016B ji\u0101ng b\xE1i f\xE0 ch\xE0ng hu\xE1ng j\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6E38\u73A9\u8572\u6C34\u6E05\u6CC9\u5BFA\uFF0C\u5BFA\u4E34\u5170\u6EAA\uFF0C\u6EAA\u6C34\u5411\u897F\u6D41\u3002\u5C71\u4E0B\u5170\u82BD\u77ED\u5C0F\uFF0C\u6D78\u5728\u6EAA\u6C34\u91CC\uFF1B\u677E\u95F4\u6C99\u8DEF\u6D01\u51C0\u65E0\u6CE5\uFF0C\u508D\u665A\u7EC6\u96E8\u6F47\u6F47\uFF0C\u675C\u9E43\u557C\u53EB\u3002\u8C01\u8BF4\u4EBA\u751F\u4E0D\u80FD\u518D\u5E74\u8F7B\uFF1F\u95E8\u524D\u7684\u6D41\u6C34\u5C1A\u4E14\u80FD\u5411\u897F\u6D41\uFF01\u4E0D\u8981\u5230\u767D\u53D1\u82CD\u82CD\u65F6\u518D\u5531\u53F9\u65F6\u5149\u6D41\u901D\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "pack-6-\u4E0B-poem-121",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u6E05\u5E73\u4E50",
+        "author": "\u9EC4\u5EAD\u575A",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6625\u5F52\u4F55\u5904\uFF1F\u5BC2\u5BDE\u65E0\u884C\u8DEF\u3002\u82E5\u6709\u4EBA\u77E5\u6625\u53BB\u5904\uFF0C\u5524\u53D6\u5F52\u6765\u540C\u4F4F\u3002\n\u6625\u65E0\u8E2A\u8FF9\u8C01\u77E5\uFF1F\u9664\u975E\u95EE\u53D6\u9EC4\u9E42\u3002\u767E\u556D\u65E0\u4EBA\u80FD\u89E3\uFF0C\u56E0\u98CE\u98DE\u8FC7\u8537\u8587\u3002",
+        "pinyin": "ch\u016Bn gu\u012B h\xE9 ch\xF9\uFF1F j\xEC m\xF2 w\xFA x\xEDng l\xF9\u3002 ru\xF2 y\u01D2u r\xE9n zh\u012B ch\u016Bn q\xF9 ch\xF9\uFF0C hu\xE0n q\u01D4 gu\u012B l\xE1i t\xF3ng zh\xF9\u3002\nch\u016Bn w\xFA z\u014Dng j\xEC shu\xED zh\u012B\uFF1F ch\xFA f\u0113i w\xE8n q\u01D4 hu\xE1ng l\xED\u3002 b\u01CEi zhu\xE0n w\xFA r\xE9n n\xE9ng ji\u011B\uFF0C y\u012Bn f\u0113ng f\u0113i gu\xF2 qi\xE1ng w\u0113i\u3002",
+        "category": "poetry",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u5FC5\u80CC",
+        "meaning": "\u6625\u5929\u56DE\u5230\u54EA\u91CC\u53BB\u4E86\uFF1F\u5BC2\u5BDE\u4E2D\u627E\u4E0D\u5230\u5B83\u7684\u8E2A\u8FF9\u3002\u5982\u679C\u6709\u4EBA\u77E5\u9053\u6625\u5929\u7684\u53BB\u5904\uFF0C\u8BF7\u628A\u5B83\u5524\u56DE\u6765\u540C\u4F4F\u3002\u6625\u5929\u7684\u8E2A\u8FF9\u6709\u8C01\u77E5\u9053\uFF1F\u9664\u975E\u53BB\u95EE\u9EC4\u9E42\u3002\u5B83\u5A49\u8F6C\u557C\u53EB\u5374\u65E0\u4EBA\u542C\u61C2\uFF0C\u4E00\u9635\u98CE\u5439\u6765\uFF0C\u98DE\u8FC7\u8537\u8587\u82B1\u4E1B\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-g6-\u4E0B-22",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u53F8\u7A7A\u89C1\u60EF",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u770B\u60EF\u4E86\u5C31\u4E0D\u89C9\u5F97\u5947\u602A\u3002",
+        "pinyin": "k\xE0n gu\xE0n le ji\xF9 b\xF9 ju\xE9 d\xE9 q\xED gu\xE0i\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u4ED6\u6BCF\u5929\u63D0\u524D\u5230\u6821\u6574\u7406\u56FE\u4E66\uFF0C\u5927\u5BB6\u5DF2\u7ECF\u53F8\u7A7A\u89C1\u60EF\u4E86\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u4E60\u60EF",
+          "\u89C1\u95FB",
+          "\u6210\u8BED"
+        ],
+        "related": [
+          "\u53F8\u7A7A\u89C1\u60EF",
+          "\u4E60\u4EE5\u4E3A\u5E38"
+        ]
+      },
+      {
+        "id": "idiom-g6-\u4E0B-23",
+        "grade": 6,
+        "volume": "\u4E0B",
+        "title": "\u89C1\u5FAE\u77E5\u8457",
+        "author": "\u8BFE\u5185\u6210\u8BED\u79EF\u7D2F",
+        "dynasty": "\u5C0F\u5B66\u8BED\u6587",
+        "excerpt": "\u770B\u5230\u7EC6\u5C0F\u7684\u82D7\u5934\uFF0C\u5C31\u80FD\u77E5\u9053\u4E8B\u7269\u53D1\u5C55\u7684\u8D8B\u52BF\u3002",
+        "pinyin": "k\xE0n d\xE0o x\xEC xi\u01CEo de mi\xE1o tou\uFF0C ji\xF9 n\xE9ng zh\u012B d\xE0o sh\xEC w\xF9 f\u0101 zh\u01CEn de q\u016B sh\xEC\u3002",
+        "category": "idiom",
+        "sourceType": "textbook",
+        "sourceLabel": "6\u5E74\u7EA7\u4E0B\u518C \xB7 \u6210\u8BED",
+        "meaning": "\u79D1\u5B66\u5BB6\u4ECE\u4E00\u4E2A\u5C0F\u73B0\u8C61\u4E2D\u89C1\u5FAE\u77E5\u8457\uFF0C\u53D1\u73B0\u4E86\u65B0\u7684\u89C4\u5F8B\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u89C2\u5BDF",
+          "\u601D\u8003",
+          "\u79D1\u5B66"
+        ],
+        "related": [
+          "\u89C1\u5FAE\u77E5\u8457",
+          "\u4E00\u53F6\u77E5\u79CB"
+        ]
+      }
+    ],
+    "extra": [
+      {
+        "id": "extra-0-poem-0",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u89C2\u6CA7\u6D77",
+        "author": "\u66F9\u64CD",
+        "dynasty": "\u4E1C\u6C49",
+        "excerpt": "\u4E1C\u4E34\u78A3\u77F3\uFF0C\u4EE5\u89C2\u6CA7\u6D77\u3002\u6C34\u4F55\u6FB9\u6FB9\uFF0C\u5C71\u5C9B\u7AE6\u5CD9\u3002\n\u6811\u6728\u4E1B\u751F\uFF0C\u767E\u8349\u4E30\u8302\u3002\u79CB\u98CE\u8427\u745F\uFF0C\u6D2A\u6CE2\u6D8C\u8D77\u3002\n\u65E5\u6708\u4E4B\u884C\uFF0C\u82E5\u51FA\u5176\u4E2D;\u661F\u6C49\u707F\u70C2\uFF0C\u82E5\u51FA\u5176\u91CC\u3002\u5E78\u751A\u81F3\u54C9\uFF0C\u6B4C\u4EE5\u548F\u5FD7\u3002",
+        "pinyin": "d\u014Dng l\xEDn ji\xE9 sh\xED\uFF0C y\u01D0 gu\u0101n c\u0101ng h\u01CEi\u3002 shu\u01D0 h\xE9 d\xE0n d\xE0n\uFF0C sh\u0101n d\u01CEo s\u01D2ng zh\xEC\u3002\nsh\xF9 m\xF9 c\xF3ng sh\u0113ng\uFF0C b\u01CEi c\u01CEo f\u0113ng m\xE0o\u3002 qi\u016B f\u0113ng xi\u0101o s\xE8\uFF0C h\xF3ng b\u014D y\u01D2ng q\u01D0\u3002\nr\xEC yu\xE8 zh\u012B x\xEDng\uFF0C ru\xF2 ch\u016B q\xED zh\u014Dng; x\u012Bng h\xE0n c\xE0n l\xE0n\uFF0C ru\xF2 ch\u016B q\xED l\u01D0\u3002 x\xECng sh\xE8n zh\xEC z\u0101i\uFF0C g\u0113 y\u01D0 y\u01D2ng zh\xEC\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 45,
+          "bvid": "BV174p7eZEEz",
+          "url": "https://www.bilibili.com/bangumi/play/ep834933",
+          "title": "\u66F9\u64CD\u5728\u4F60\u7684\u5370\u8C61\u91CC\u662F\u4EC0\u4E48\u6837\u7684\u4EBA\u5462\uFF1F"
+        }
+      },
+      {
+        "id": "extra-1-poem-1",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u95FB\u738B\u660C\u9F84\u5DE6\u8FC1\u9F99\u6807\u9065\u6709\u6B64\u5BC4",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u6768\u82B1\u843D\u5C3D\u5B50\u89C4\u557C\uFF0C\u95FB\u9053\u9F99\u6807\u8FC7\u4E94\u6EAA\u3002\u6211\u5BC4\u6101\u5FC3\u4E0E\u660E\u6708\uFF0C\u968F\u98CE\u76F4\u5230\u591C\u90CE\u897F\u3002",
+        "pinyin": "y\xE1ng hu\u0101 lu\xF2 j\u01D0n zi gu\u012B t\xED\uFF0C w\xE9n d\xE0o l\xF3ng bi\u0101o gu\xF2 w\u01D4 x\u012B\u3002 w\u01D2 j\xEC ch\xF3u x\u012Bn y\u01D4 m\xEDng yu\xE8\uFF0C su\xED f\u0113ng zh\xED d\xE0o y\xE8 l\xE1ng x\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-2-poem-2",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6B21\u5317\u56FA\u5C71\u4E0B",
+        "author": "\u738B\u6E7E",
+        "dynasty": "\u5510",
+        "excerpt": "\u5BA2\u8DEF\u9752\u5C71\u5916\uFF0C\u884C\u821F\u7EFF\u6C34\u524D\u3002\u6F6E\u5E73\u4E24\u5CB8\u9614\uFF0C\u98CE\u6B63\u4E00\u5E06\u60AC\u3002\n\u6D77\u65E5\u751F\u6B8B\u591C\uFF0C\u6C5F\u6625\u5165\u65E7\u5E74\u3002\u4E61\u4E66\u4F55\u5904\u8FBE\uFF0C\u5F52\u96C1\u6D1B\u9633\u8FB9\u3002",
+        "pinyin": "k\xE8 l\xF9 q\u012Bng sh\u0101n w\xE0i\uFF0C x\xEDng zh\u014Du l\u01DC shu\u01D0 qi\xE1n\u3002 ch\xE1o p\xEDng li\u01CEng \xE0n ku\xF2\uFF0C f\u0113ng zh\xE8ng y\u012B f\u0101n xu\xE1n\u3002\nh\u01CEi r\xEC sh\u0113ng c\xE1n y\xE8\uFF0C ji\u0101ng ch\u016Bn r\xF9 ji\xF9 ni\xE1n\u3002 xi\u0101ng sh\u016B h\xE9 ch\xF9 d\xE1\uFF0C gu\u012B y\xE0n lu\xF2 y\xE1ng bi\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-3-poem-3",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5929\u51C0\u6C99\xB7\u79CB\u601D",
+        "author": "\u9A6C\u81F4\u8FDC",
+        "dynasty": "\u5143",
+        "excerpt": "\u67AF\u85E4\u8001\u6811\u660F\u9E26\uFF0C\u5C0F\u6865\u6D41\u6C34\u4EBA\u5BB6\uFF0C\u53E4\u9053\u897F\u98CE\u7626\u9A6C\u3002\u5915\u9633\u897F\u4E0B\uFF0C\u65AD\u80A0\u4EBA\u5728\u5929\u6DAF\u3002",
+        "pinyin": "k\u016B t\xE9ng l\u01CEo sh\xF9 h\u016Bn y\u0101\uFF0C xi\u01CEo qi\xE1o li\xFA shu\u01D0 r\xE9n ji\u0101\uFF0C g\u01D4 d\xE0o x\u012B f\u0113ng sh\xF2u m\u01CE\u3002 x\u012B y\xE1ng x\u012B xi\xE0\uFF0C du\xE0n ch\xE1ng r\xE9n z\xE0i ti\u0101n y\xE1\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-4-poem-4",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8BBA\u8BED\xB7\u5341\u4E8C\u5219",
+        "author": "\u5B54\u5B50\u53CA\u5176\u5F1F\u5B50",
+        "dynasty": "\u6625\u79CB",
+        "excerpt": "1.\u5B50\u66F0:\u201C\u5B66\u800C\u65F6\u4E60\u4E4B\uFF0C\u4E0D\u4EA6\u8BF4\u4E4E?\u6709\u670B\u81EA\u8FDC\u65B9\u6765\uFF0C\u4E0D\u4EA6\u4E50\u4E4E?\u4EBA\u4E0D\u77E5\u800C\u4E0D\u6120\uFF0C\u4E0D\u4EA6\u541B\u5B50\u4E4E?\u201D\n2.\u66FE\u5B50\u66F0:\u201C\u543E\u65E5\u4E09\u7701\u543E\u8EAB:\u4E3A\u4EBA\u8C0B\u800C\u4E0D\u5FE0\u4E4E?\u4E0E\u670B\u53CB\u4EA4\u800C\u4E0D\u4FE1\u4E4E?\u4F20\u4E0D\u4E60\u4E4E?\u201D\n3.\u5B50\u66F0:\u201C\u543E\u5341\u6709\u4E94\u800C\u5FD7\u4E8E\u5B66\uFF0C\u4E09\u5341\u800C\u7ACB\uFF0C\u56DB\u5341\u800C\u4E0D\u60D1\uFF0C\u4E94\u5341\u800C\u77E5\u5929\u547D\uFF0C\u516D\u5341\u800C\u8033\u987A\uFF0C\u4E03\u5341\u800C\u4ECE\u5FC3\u6240\u6B32\uFF0C\u4E0D\u903E\u77E9\u3002\u201D\n4.\u5B50\u66F0:\u201C\u6E29\u6545\u800C\u77E5\u65B0\uFF0C\u53EF\u4EE5\u4E3A\u5E08\u77E3\u3002\u201D\n5.\u5B50\u66F0:\u201C\u5B66\u800C\u4E0D\u601D\u5219\u7F54\uFF0C\u601D\u800C\u4E0D\u5B66\u5219\u6B86\u3002\u201D\n6.\u5B50\u66F0:\u201C\u8D24\u54C9\u56DE\u4E5F\uFF0C\u4E00\u7BAA\u98DF\uFF0C\u4E00\u74E2\u996E\uFF0C\u5728\u964B\u5DF7\uFF0C\u4EBA\u4E0D\u582A\u5176\u5FE7\uFF0C\u56DE\u4E5F\u4E0D\u6539\u5176\u4E50\u3002\u8D24\u54C9\u56DE\u4E5F\u3002\u201D\n7.\u5B50\u66F0:\u201C\u77E5\u4E4B\u8005\u4E0D\u5982\u597D\u4E4B\u8005\uFF0C\u597D\u4E4B\u8005\u4E0D\u5982\u4E50\u4E4B\u8005\u3002\u201D\n8.\u5B50\u66F0:\u201C\u996D\u758F\u98DF\u996E\u6C34\uFF0C\u66F2\u80B1\u800C\u6795\u4E4B\uFF0C\u4E50\u4EA6\u5728\u5176\u4E2D\u77E3\u3002\u4E0D\u4E49\u800C\u5BCC\u4E14\u8D35\uFF0C\u4E8E\u6211\u5982\u6D6E\u4E91\u3002\u201D\n9.\u5B50\u66F0:\u201C\u4E09\u4EBA\u884C\uFF0C\u5FC5\u6709\u6211\u5E08\u7109\u3002\u62E9\u5176\u5584\u8005\u800C\u4ECE\u4E4B\uFF0C\u5176\u4E0D\u5584\u8005\u800C\u6539\u4E4B\u3002\u201D\n10.\u5B50\u5728\u5DDD\u4E0A\u66F0:\u201C\u901D\u8005\u5982\u65AF\u592B!\u4E0D\u820D\u663C\u591C\u3002\u201D\n11.\u5B50\u66F0:\u201C\u4E09\u519B\u53EF\u593A\u5E05\u4E5F\uFF0C\u5339\u592B\u4E0D\u53EF\u593A\u5FD7\u4E5F\u3002\u201D\n12.\u5B50\u590F\u66F0:\u201C\u535A\u5B66\u800C\u7B03\u5FD7\uFF0C\u5207\u95EE\u800C\u8FD1\u601D\uFF0C\u4EC1\u5728\u5176\u4E2D\u77E3\u3002\u201D",
+        "pinyin": "1. zi yu\u0113 :\u201C xu\xE9 \xE9r sh\xED x\xED zh\u012B\uFF0C b\xF9 y\xEC yu\xE8 h\u016B? y\u01D2u p\xE9ng z\xEC yu\u01CEn f\u0101ng l\xE1i\uFF0C b\xF9 y\xEC l\xE8 h\u016B? r\xE9n b\xF9 zh\u012B \xE9r b\xF9 y\xF9n\uFF0C b\xF9 y\xEC j\u016Bn z\u01D0 h\u016B?\u201D\n2. c\xE9ng zi yu\u0113 :\u201C w\xFA r\xEC s\u0101n x\u01D0ng w\xFA sh\u0113n : w\xE9i r\xE9n m\xF3u \xE9r b\xF9 zh\u014Dng h\u016B? y\u01D4 p\xE9ng y\u01D2u ji\u0101o \xE9r b\xF9 x\xECn h\u016B? chu\xE1n b\xF9 x\xED h\u016B?\u201D\n3. zi yu\u0113 :\u201C w\xFA sh\xED y\u01D2u w\u01D4 \xE9r zh\xEC y\xFA xu\xE9\uFF0C s\u0101n sh\xED \xE9r l\xEC\uFF0C s\xEC sh\xED \xE9r b\xF9 hu\xF2\uFF0C w\u01D4 sh\xED \xE9r zh\u012B ti\u0101n m\xECng\uFF0C li\xF9 sh\xED \xE9r \u011Br sh\xF9n\uFF0C q\u012B sh\xED \xE9r c\xF3ng x\u012Bn su\u01D2 y\xF9\uFF0C b\xF9 y\xFA j\u01D4\u3002\u201D\n4. zi yu\u0113 :\u201C w\u0113n g\xF9 \xE9r zh\u012B x\u012Bn\uFF0C k\u011B y\u01D0 w\xE8i sh\u012B y\u01D0\u3002\u201D\n5. zi yu\u0113 :\u201C xu\xE9 \xE9r b\xF9 s\u012B z\xE9 w\u01CEng\uFF0C s\u012B \xE9r b\xF9 xu\xE9 z\xE9 d\xE0i\u3002\u201D\n6. zi yu\u0113 :\u201C xi\xE1n z\u0101i hu\xED y\u011B\uFF0C y\u012B d\u0101n sh\xED\uFF0C y\u012B pi\xE1o y\u01D0n\uFF0C z\xE0i l\xF2u xi\xE0ng\uFF0C r\xE9n b\xF9 k\u0101n q\xED y\u014Du\uFF0C hu\xED y\u011B b\xF9 g\u01CEi q\xED l\xE8\u3002 xi\xE1n z\u0101i hu\xED y\u011B\u3002\u201D\n7. zi yu\u0113 :\u201C zh\u012B zh\u012B zh\u011B b\xF9 r\xFA h\u01CEo zh\u012B zh\u011B\uFF0C h\u01CEo zh\u012B zh\u011B b\xF9 r\xFA l\xE8 zh\u012B zh\u011B\u3002\u201D\n8. zi yu\u0113 :\u201C f\xE0n sh\u016B sh\xED y\u01D0n shu\u01D0\uFF0C q\u01D4 g\u014Dng \xE9r zh\u011Bn zh\u012B\uFF0C l\xE8 y\xEC z\xE0i q\xED zh\u014Dng y\u01D0\u3002 b\xFA y\xEC \xE9r f\xF9 qi\u011B gu\xEC\uFF0C y\xFA w\u01D2 r\xFA f\xFA y\xFAn\u3002\u201D\n9. zi yu\u0113 :\u201C s\u0101n r\xE9n x\xEDng\uFF0C b\xEC y\u01D2u w\u01D2 sh\u012B y\u0101n\u3002 z\xE9 q\xED sh\xE0n zh\u011B \xE9r c\xF3ng zh\u012B\uFF0C q\xED b\xF9 sh\xE0n zh\u011B \xE9r g\u01CEi zh\u012B\u3002\u201D\n10. zi z\xE0i chu\u0101n sh\xE0ng yu\u0113 :\u201C sh\xEC zh\u011B r\xFA s\u012B f\u016B! b\xF9 sh\u011B zh\xF2u y\xE8\u3002\u201D\n11. zi yu\u0113 :\u201C s\u0101n j\u016Bn k\u011B du\xF3 shu\xE0i y\u011B\uFF0C p\u01D0 f\u016B b\xF9 k\u011B du\xF3 zh\xEC y\u011B\u3002\u201D\n12. zi xi\xE0 yu\u0113 :\u201C b\xF3 xu\xE9 \xE9r d\u01D4 zh\xEC\uFF0C qi\xE8 w\xE8n \xE9r j\xECn s\u012B\uFF0C r\xE9n z\xE0i q\xED zh\u014Dng y\u01D0\u3002\u201D",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-5-poem-5",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8BEB\u5B50\u4E66",
+        "author": "\u8BF8\u845B\u4EAE",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u592B\u541B\u5B50\u4E4B\u884C\uFF0C\u9759\u4EE5\u4FEE\u8EAB\uFF0C\u4FED\u4EE5\u517B\u5FB7\u3002\u975E\u6DE1\u6CCA\u65E0\u4EE5\u660E\u5FD7\uFF0C\u975E\u5B81\u9759\u65E0\u4EE5\u81F4\u8FDC\u3002\u592B\u5B66\u987B\u9759\u4E5F\uFF0C\u624D\u987B\u5B66\u4E5F\uFF0C\u975E\u5B66\u65E0\u4EE5\u5E7F\u624D\uFF0C\u975E\u5FD7\u65E0\u4EE5\u6210\u5B66\u3002\u6DEB\u6162\u5219\u4E0D\u80FD\u52B1\u7CBE\uFF0C\u9669\u8E81\u5219\u4E0D\u80FD\u6CBB\u6027\u3002\u5E74\u4E0E\u65F6\u9A70\uFF0C\u610F\u4E0E\u65E5\u53BB\uFF0C\u9042\u6210\u67AF\u843D\uFF0C\u591A\u4E0D\u63A5\u4E16\uFF0C\u60B2\u5B88\u7A77\u5E90\uFF0C\u5C06\u590D\u4F55\u53CA\uFF01",
+        "pinyin": "f\u016B j\u016Bn zi zh\u012B x\xEDng\uFF0C j\xECng y\u01D0 xi\u016B sh\u0113n\uFF0C ji\u01CEn y\u01D0 y\u01CEng d\xE9\u3002 f\u0113i d\xE0n b\xF3 w\xFA y\u01D0 m\xEDng zh\xEC\uFF0C f\u0113i n\xEDng j\xECng w\xFA y\u01D0 zh\xEC yu\u01CEn\u3002 f\u016B xu\xE9 x\u016B j\xECng y\u011B\uFF0C c\xE1i x\u016B xu\xE9 y\u011B\uFF0C f\u0113i xu\xE9 w\xFA y\u01D0 gu\u01CEng c\xE1i\uFF0C f\u0113i zh\xEC w\xFA y\u01D0 ch\xE9ng xu\xE9\u3002 y\xEDn m\xE0n z\xE9 b\xF9 n\xE9ng l\xEC j\u012Bng\uFF0C xi\u01CEn z\xE0o z\xE9 b\xF9 n\xE9ng zh\xEC x\xECng\u3002 ni\xE1n y\u01D4 sh\xED ch\xED\uFF0C y\xEC y\u01D4 r\xEC q\xF9\uFF0C su\xEC ch\xE9ng k\u016B lu\xF2\uFF0C du\u014D b\xF9 ji\u0113 sh\xEC\uFF0C b\u0113i sh\u01D2u qi\xF3ng l\xFA\uFF0C ji\u0101ng f\xF9 h\xE9 j\xED\uFF01",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-6-poem-6",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5CE8\u7709\u5C71\u6708\u6B4C",
+        "author": "\u674E\u767D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5CE8\u7709\u5C71\u6708\u534A\u8F6E\u79CB\uFF0C\u5F71\u5165\u5E73\u7F8C\u6C5F\u6C34\u6D41\u3002\u591C\u53D1\u6E05\u6EAA\u5411\u4E09\u5CE1\uFF0C\u601D\u541B\u4E0D\u89C1\u4E0B\u6E1D\u5DDE\u3002",
+        "pinyin": "\xE9 m\xE9i sh\u0101n yu\xE8 b\xE0n l\xFAn qi\u016B\uFF0C y\u01D0ng r\xF9 p\xEDng qi\u0101ng ji\u0101ng shu\u01D0 li\xFA\u3002 y\xE8 f\u0101 q\u012Bng x\u012B xi\xE0ng s\u0101n xi\xE1\uFF0C s\u012B j\u016Bn b\xFA ji\xE0n xi\xE0 y\xFA zh\u014Du\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-7-poem-7",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6C5F\u5357\u9022\u674E\u9F9F\u5E74",
+        "author": "\u675C\u752B",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5C90\u738B\u5B85\u91CC\u5BFB\u5E38\u89C1\uFF0C\u5D14\u4E5D\u5802\u524D\u51E0\u5EA6\u95FB\u3002\u6B63\u662F\u6C5F\u5357\u597D\u98CE\u666F\uFF0C\u843D\u82B1\u65F6\u8282\u53C8\u9022\u541B\u3002",
+        "pinyin": "q\xED w\xE1ng zh\xE1i l\u01D0 x\xFAn ch\xE1ng ji\xE0n\uFF0C cu\u012B ji\u01D4 t\xE1ng qi\xE1n j\u01D0 d\xF9 w\xE9n\u3002 zh\xE8ng sh\xEC ji\u0101ng n\xE1n h\u01CEo f\u0113ng j\u01D0ng\uFF0C lu\xF2 hu\u0101 sh\xED ji\xE9 y\xF2u f\xE9ng j\u016Bn\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-8-poem-8",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u884C\u519B\u4E5D\u65E5\u601D\u957F\u5B89\u6545\u56ED",
+        "author": "\u5C91\u53C2",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5F3A\u6B32\u767B\u9AD8\u53BB\uFF0C\u65E0\u4EBA\u9001\u9152\u6765\u3002\u9065\u601C\u6545\u56ED\u83CA\uFF0C\u5E94\u508D\u6218\u573A\u5F00\u3002",
+        "pinyin": "qi\xE1ng y\xF9 d\u0113ng g\u0101o q\xF9\uFF0C w\xFA r\xE9n s\xF2ng ji\u01D4 l\xE1i\u3002 y\xE1o li\xE1n g\xF9 yu\xE1n j\xFA\uFF0C y\u012Bng b\xE0ng zh\xE0n ch\u01CEng k\u0101i\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-9-poem-9",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u591C\u4E0A\u53D7\u964D\u57CE\u95FB\u7B1B",
+        "author": "\u674E\u76CA",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u56DE\u4E50\u70FD\u524D\u6C99\u4F3C\u96EA\uFF0C\u53D7\u964D\u57CE\u5916\u6708\u5982\u971C\u3002\u4E0D\u77E5\u4F55\u5904\u5439\u82A6\u7BA1\uFF0C\u4E00\u591C\u5F81\u4EBA\u5C3D\u671B\u4E61\u3002",
+        "pinyin": "hu\xED l\xE8 f\u0113ng qi\xE1n sh\u0101 sh\xEC xu\u011B\uFF0C sh\xF2u xi\xE1ng ch\xE9ng w\xE0i yu\xE8 r\xFA shu\u0101ng\u3002 b\xF9 zh\u012B h\xE9 ch\xF9 chu\u012B l\xFA gu\u01CEn\uFF0C y\u012B y\xE8 zh\u0113ng r\xE9n j\u01D0n w\xE0ng xi\u0101ng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-10-poem-10",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u79CB\u8BCD\uFF08\u5176\u4E00\uFF09",
+        "author": "\u5218\u79B9\u9521",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u81EA\u53E4\u9022\u79CB\u60B2\u5BC2\u5BE5\uFF0C\u6211\u8A00\u79CB\u65E5\u80DC\u6625\u671D\u3002\u6674\u7A7A\u4E00\u9E64\u6392\u4E91\u4E0A\uFF0C\u4FBF\u5F15\u8BD7\u60C5\u5230\u78A7\u9704\u3002",
+        "pinyin": "z\xEC g\u01D4 f\xE9ng qi\u016B b\u0113i j\xEC li\xE1o\uFF0C w\u01D2 y\xE1n qi\u016B r\xEC sh\xE8ng ch\u016Bn ch\xE1o\u3002 q\xEDng k\u014Dng y\u012B h\xE8 p\xE1i y\xFAn sh\xE0ng\uFF0C bi\xE0n y\u01D0n sh\u012B q\xEDng d\xE0o b\xEC xi\u0101o\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 14,
+          "bvid": "BV1p5411i7UD",
+          "url": "https://www.bilibili.com/bangumi/play/ep810552",
+          "title": "\u8BD7\u4ED9\u3001\u8BD7\u5723\u4F60\u53EF\u80FD\u77E5\u9053\u662F\u8C01\uFF0C\u8BD7\u8C6A\u4F60\u77E5\u9053\u662F\u8C01\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "extra-11-poem-11",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u591C\u96E8\u5BC4\u5317",
+        "author": "\u674E\u5546\u9690",
+        "dynasty": "\u5510",
+        "excerpt": "\u541B\u95EE\u5F52\u671F\u672A\u6709\u671F\uFF0C\u5DF4\u5C71\u591C\u96E8\u6DA8\u79CB\u6C60\u3002\u4F55\u5F53\u5171\u526A\u897F\u7A97\u70DB\uFF0C\u5374\u8BDD\u5DF4\u5C71\u591C\u96E8\u65F6\u3002",
+        "pinyin": "j\u016Bn w\xE8n gu\u012B q\u012B w\xE8i y\u01D2u q\u012B\uFF0C b\u0101 sh\u0101n y\xE8 y\u01D4 zh\u01CEng qi\u016B ch\xED\u3002 h\xE9 d\u0101ng g\xF2ng ji\u01CEn x\u012B chu\u0101ng zh\xFA\uFF0C qu\xE8 hu\xE0 b\u0101 sh\u0101n y\xE8 y\u01D4 sh\xED\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-12-poem-12",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5341\u4E00\u6708\u56DB\u65E5\u98CE\u96E8\u5927\u4F5C\uFF08\u5176\u4E8C\uFF09",
+        "author": "\u9646\u6E38",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u50F5\u5367\u5B64\u6751\u4E0D\u81EA\u54C0\uFF0C\u5C1A\u601D\u4E3A\u56FD\u620D\u8F6E\u53F0\u3002\u591C\u9611\u5367\u542C\u98CE\u5439\u96E8\uFF0C\u94C1\u9A6C\u51B0\u6CB3\u5165\u68A6\u6765\u3002",
+        "pinyin": "ji\u0101ng w\xF2 g\u016B c\u016Bn b\xF9 z\xEC \u0101i\uFF0C sh\xE0ng s\u012B w\xE8i gu\xF3 sh\xF9 l\xFAn t\xE1i\u3002 y\xE8 l\xE1n w\xF2 t\u012Bng f\u0113ng chu\u012B y\u01D4\uFF0C ti\u011B m\u01CE b\u012Bng h\xE9 r\xF9 m\xE8ng l\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-13-poem-13",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6F7C\u5173",
+        "author": "\u8C2D\u55E3\u540C",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u7EC8\u53E4\u9AD8\u4E91\u7C07\u6B64\u57CE\uFF0C\u79CB\u98CE\u5439\u6563\u9A6C\u8E44\u58F0\u3002\u6CB3\u6D41\u5927\u91CE\u72B9\u5ACC\u675F\uFF0C\u5C71\u5165\u6F7C\u5173\u89E3\u4E0D\u5E73\u3002",
+        "pinyin": "zh\u014Dng g\u01D4 g\u0101o y\xFAn c\xF9 c\u01D0 ch\xE9ng\uFF0C qi\u016B f\u0113ng chu\u012B s\xE0n m\u01CE t\xED sh\u0113ng\u3002 h\xE9 li\xFA d\xE0 y\u011B y\xF3u xi\xE1n sh\xF9\uFF0C sh\u0101n r\xF9 t\xF3ng gu\u0101n ji\u011B b\xF9 p\xEDng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-14-poem-14",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6728\u5170\u8BD7",
+        "author": "\u5317\u671D\u6C11\u6B4C",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5527\u5527\u590D\u5527\u5527\uFF0C\u6728\u5170\u5F53\u6237\u7EC7\u3002\u4E0D\u95FB\u673A\u677C\u58F0\uFF0C\u552F\u95FB\u5973\u53F9\u606F\u3002\u95EE\u5973\u4F55\u6240\u601D\uFF0C\u95EE\u5973\u4F55\u6240\u5FC6\u3002\u5973\u4EA6\u65E0\u6240\u601D\uFF0C\u5973\u4EA6\u65E0\u6240\u5FC6\u3002\u5527\u5527\u590D\u5527\u5527\uFF0C\u6728\u5170\u5F53\u6237\u7EC7\u3002\u4E0D\u95FB\u673A\u677C\u58F0\uFF0C\u552F\u95FB\u5973\u53F9\u606F\u3002\n\u95EE\u5973\u4F55\u6240\u601D\uFF0C\u95EE\u5973\u4F55\u6240\u5FC6\u3002\u5973\u4EA6\u65E0\u6240\u601D\uFF0C\u5973\u4EA6\u65E0\u6240\u5FC6\u3002\u6628\u591C\u89C1\u519B\u5E16\uFF0C\u53EF\u6C57\u5927\u70B9\u5175\uFF0C\u519B\u4E66\u5341\u4E8C\u5377\uFF0C\u5377\u5377\u6709\u7237\u540D\u3002\u963F\u7237\u65E0\u5927\u513F\uFF0C\u6728\u5170\u65E0\u957F\u5144\uFF0C\u613F\u4E3A\u5E02\u978D\u9A6C\uFF0C\u4ECE\u6B64\u66FF\u7237\u5F81\u3002\n\u4E1C\u5E02\u4E70\u9A8F\u9A6C\uFF0C\u897F\u5E02\u4E70\u978D\u97AF\uFF0C\u5357\u5E02\u4E70\u8F94\u5934\uFF0C\u5317\u5E02\u4E70\u957F\u97AD\u3002\u65E6\u8F9E\u7237\u5A18\u53BB\uFF0C\u66AE\u5BBF\u9EC4\u6CB3\u8FB9\uFF0C\u4E0D\u95FB\u7237\u5A18\u5524\u5973\u58F0\uFF0C\u4F46\u95FB\u9EC4\u6CB3\u6D41\u6C34\u9E23\u6E85\u6E85\u3002\u65E6\u8F9E\u9EC4\u6CB3\u53BB\uFF0C\u66AE\u81F3\u9ED1\u5C71\u5934\uFF0C\u4E0D\u95FB\u7237\u5A18\u5524\u5973\u58F0\uFF0C\u4F46\u95FB\u71D5\u5C71\u80E1\u9A91\u9E23\u557E\u557E\u3002\n\u4E07\u91CC\u8D74\u620E\u673A\uFF0C\u5173\u5C71\u5EA6\u82E5\u98DE\u3002\u6714\u6C14\u4F20\u91D1\u67DD\uFF0C\u5BD2\u5149\u7167\u94C1\u8863\u3002\u5C06\u519B\u767E\u6218\u6B7B\uFF0C\u58EE\u58EB\u5341\u5E74\u5F52\u3002\n\u5F52\u6765\u89C1\u5929\u5B50\uFF0C\u5929\u5B50\u5750\u660E\u5802\u3002\u7B56\u52CB\u5341\u4E8C\u8F6C\uFF0C\u8D4F\u8D50\u767E\u5343\u5F3A\u3002\u53EF\u6C57\u95EE\u6240\u6B32\uFF0C\u6728\u5170\u4E0D\u7528\u5C1A\u4E66\u90CE\uFF0C\u613F\u9A70\u5343\u91CC\u8DB3\uFF0C\u9001\u513F\u8FD8\u6545\u4E61\u3002\n\u7237\u5A18\u95FB\u5973\u6765\uFF0C\u51FA\u90ED\u76F8\u6276\u5C06\uFF1B\u963F\u59CA\u95FB\u59B9\u6765\uFF0C\u5F53\u6237\u7406\u7EA2\u5986\uFF1B\u5C0F\u5F1F\u95FB\u59CA\u6765\uFF0C\u78E8\u5200\u970D\u970D\u5411\u732A\u7F8A\u3002\u5F00\u6211\u4E1C\u9601\u95E8\uFF0C\u5750\u6211\u897F\u9601\u5E8A\u3002\u8131\u6211\u6218\u65F6\u888D\uFF0C\u8457\u6211\u65E7\u65F6\u88F3\u3002\u5F53\u7A97\u7406\u4E91\u9B13\uFF0C\u5BF9\u955C\u5E16\u82B1\u9EC4\u3002\u51FA\u95E8\u770B\u706B\u4F34\uFF0C\u706B\u4F34\u7686\u60CA\u5FD9\uFF1A\u540C\u884C\u5341\u4E8C\u5E74\uFF0C\u4E0D\u77E5\u6728\u5170\u662F\u5973\u90CE\u3002\n\u96C4\u5154\u811A\u6251\u6714\uFF0C\u96CC\u5154\u773C\u8FF7\u79BB\uFF1B\u53CC\u5154\u508D\u5730\u8D70\uFF0C\u5B89\u80FD\u8FA8\u6211\u662F\u96C4\u96CC\uFF1F",
+        "pinyin": "j\u012B j\u012B f\xF9 j\u012B j\u012B\uFF0C m\xF9 l\xE1n d\u0101ng h\xF9 zh\u012B\u3002 b\xF9 w\xE9n j\u012B zh\xF9 sh\u0113ng\uFF0C w\xE9i w\xE9n n\u01DA t\xE0n x\u012B\u3002 w\xE8n n\u01DA h\xE9 su\u01D2 s\u012B\uFF0C w\xE8n n\u01DA h\xE9 su\u01D2 y\xEC\u3002 n\u01DA y\xEC w\xFA su\u01D2 s\u012B\uFF0C n\u01DA y\xEC w\xFA su\u01D2 y\xEC\u3002 j\u012B j\u012B f\xF9 j\u012B j\u012B\uFF0C m\xF9 l\xE1n d\u0101ng h\xF9 zh\u012B\u3002 b\xF9 w\xE9n j\u012B zh\xF9 sh\u0113ng\uFF0C w\xE9i w\xE9n n\u01DA t\xE0n x\u012B\u3002\nw\xE8n n\u01DA h\xE9 su\u01D2 s\u012B\uFF0C w\xE8n n\u01DA h\xE9 su\u01D2 y\xEC\u3002 n\u01DA y\xEC w\xFA su\u01D2 s\u012B\uFF0C n\u01DA y\xEC w\xFA su\u01D2 y\xEC\u3002 zu\xF3 y\xE8 ji\xE0n j\u016Bn ti\u011B\uFF0C k\xE8 h\xE1n d\xE0 di\u01CEn b\u012Bng\uFF0C j\u016Bn sh\u016B sh\xED \xE8r ju\u01CEn\uFF0C ju\xE0n ju\xE0n y\u01D2u y\xE9 m\xEDng\u3002 \u0101 y\xE9 w\xFA d\xE0 \xE9r\uFF0C m\xF9 l\xE1n w\xFA zh\u01CEng xi\u014Dng\uFF0C yu\xE0n w\xE8i sh\xEC \u0101n m\u01CE\uFF0C c\xF3ng c\u01D0 t\xEC y\xE9 zh\u0113ng\u3002\nd\u014Dng sh\xEC m\u01CEi j\xF9n m\u01CE\uFF0C x\u012B sh\xEC m\u01CEi \u0101n ji\u0101n\uFF0C n\xE1n sh\xEC m\u01CEi p\xE8i t\xF3u\uFF0C b\u011Bi sh\xEC m\u01CEi zh\u01CEng bi\u0101n\u3002 d\xE0n c\xED y\xE9 ni\xE1ng q\xF9\uFF0C m\xF9 s\xF9 hu\xE1ng h\xE9 bi\u0101n\uFF0C b\xF9 w\xE9n y\xE9 ni\xE1ng hu\xE0n n\u01DA sh\u0113ng\uFF0C d\xE0n w\xE9n hu\xE1ng h\xE9 li\xFA shu\u01D0 m\xEDng ji\xE0n ji\xE0n\u3002 d\xE0n c\xED hu\xE1ng h\xE9 q\xF9\uFF0C m\xF9 zh\xEC h\u0113i sh\u0101n t\xF3u\uFF0C b\xF9 w\xE9n y\xE9 ni\xE1ng hu\xE0n n\u01DA sh\u0113ng\uFF0C d\xE0n w\xE9n y\u0101n sh\u0101n h\xFA q\xED m\xEDng ji\u016B ji\u016B\u3002\nw\xE0n l\u01D0 f\xF9 r\xF3ng j\u012B\uFF0C gu\u0101n sh\u0101n d\xF9 ru\xF2 f\u0113i\u3002 shu\xF2 q\xEC chu\xE1n j\u012Bn tu\xF2\uFF0C h\xE1n gu\u0101ng zh\xE0o ti\u011B y\u012B\u3002 ji\u0101ng j\u016Bn b\u01CEi zh\xE0n s\u01D0\uFF0C zhu\xE0ng sh\xEC sh\xED ni\xE1n gu\u012B\u3002\ngu\u012B l\xE1i ji\xE0n ti\u0101n zi\uFF0C ti\u0101n zi zu\xF2 m\xEDng t\xE1ng\u3002 c\xE8 x\u016Bn sh\xED \xE8r zhu\u01CEn\uFF0C sh\u01CEng c\xEC b\u01CEi qi\u0101n qi\xE1ng\u3002 k\xE8 h\xE1n w\xE8n su\u01D2 y\xF9\uFF0C m\xF9 l\xE1n b\xF9 y\xF2ng sh\xE0ng sh\u016B l\xE1ng\uFF0C yu\xE0n ch\xED qi\u0101n l\u01D0 z\xFA\uFF0C s\xF2ng \xE9r h\xE1i g\xF9 xi\u0101ng\u3002\ny\xE9 ni\xE1ng w\xE9n n\u01DA l\xE1i\uFF0C ch\u016B gu\u014D xi\u0101ng f\xFA ji\u0101ng\uFF1B \u0101 z\u01D0 w\xE9n m\xE8i l\xE1i\uFF0C d\u0101ng h\xF9 l\u01D0 h\xF3ng zhu\u0101ng\uFF1B xi\u01CEo d\xEC w\xE9n z\u01D0 l\xE1i\uFF0C m\xF3 d\u0101o hu\xF2 hu\xF2 xi\xE0ng zh\u016B y\xE1ng\u3002 k\u0101i w\u01D2 d\u014Dng g\xE9 m\xE9n\uFF0C zu\xF2 w\u01D2 x\u012B g\xE9 chu\xE1ng\u3002 tu\u014D w\u01D2 zh\xE0n sh\xED p\xE1o\uFF0C zh\xF9 w\u01D2 ji\xF9 sh\xED shang\u3002 d\u0101ng chu\u0101ng l\u01D0 y\xFAn b\xECn\uFF0C du\xEC j\xECng ti\u0113 hu\u0101 hu\xE1ng\u3002 ch\u016B m\xE9n k\xE0n hu\u01D2 b\xE0n\uFF0C hu\u01D2 b\xE0n ji\u0113 j\u012Bng m\xE1ng\uFF1A t\xF3ng h\xE1ng sh\xED \xE8r ni\xE1n\uFF0C b\xF9 zh\u012B m\xF9 l\xE1n sh\xEC n\u01DA l\xE1ng\u3002\nxi\xF3ng t\xF9 ji\u01CEo p\u016B shu\xF2\uFF0C c\xED t\xF9 y\u01CEn m\xED l\xED\uFF1B shu\u0101ng t\xF9 b\xE0ng d\xEC z\u01D2u\uFF0C \u0101n n\xE9ng bi\xE0n w\u01D2 sh\xEC xi\xF3ng c\xED\uFF1F",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-15-poem-15",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u964B\u5BA4\u94ED",
+        "author": "\u5218\u79B9\u9521",
+        "dynasty": "\u5510",
+        "excerpt": "\u5C71\u4E0D\u5728\u9AD8\uFF0C\u6709\u4ED9\u5219\u540D\u3002\u6C34\u4E0D\u5728\u6DF1\uFF0C\u6709\u9F99\u5219\u7075\u3002\u65AF\u662F\u964B\u5BA4\uFF0C\u60DF\u543E\u5FB7\u99A8\u3002\u82D4\u75D5\u4E0A\u9636\u7EFF\uFF0C\u8349\u8272\u5165\u5E18\u9752\u3002\u8C08\u7B11\u6709\u9E3F\u5112\uFF0C\u5F80\u6765\u65E0\u767D\u4E01\u3002\u53EF\u4EE5\u8C03\u7D20\u7434\uFF0C\u9605\u91D1\u7ECF\u3002\u65E0\u4E1D\u7AF9\u4E4B\u4E71\u8033\uFF0C\u65E0\u6848\u724D\u4E4B\u52B3\u5F62\u3002\u5357\u9633\u8BF8\u845B\u5E90\uFF0C\u897F\u8700\u5B50\u4E91\u4EAD\u3002\u5B54\u5B50\u4E91:\u201C\u4F55\u964B\u4E4B\u6709?\u201D",
+        "pinyin": "sh\u0101n b\xF9 z\xE0i g\u0101o\uFF0C y\u01D2u xi\u0101n z\xE9 m\xEDng\u3002 shu\u01D0 b\xF9 z\xE0i sh\u0113n\uFF0C y\u01D2u l\xF3ng z\xE9 l\xEDng\u3002 s\u012B sh\xEC l\xF2u sh\xEC\uFF0C w\xE9i w\xFA d\xE9 x\u012Bn\u3002 t\xE1i h\xE9n sh\xE0ng ji\u0113 l\u01DC\uFF0C c\u01CEo s\xE8 r\xF9 li\xE1n q\u012Bng\u3002 t\xE1n xi\xE0o y\u01D2u h\xF3ng r\xFA\uFF0C w\u01CEng l\xE1i w\xFA b\xE1i d\u012Bng\u3002 k\u011B y\u01D0 di\xE0o s\xF9 q\xEDn\uFF0C yu\xE8 j\u012Bn j\u012Bng\u3002 w\xFA s\u012B zh\xFA zh\u012B lu\xE0n \u011Br\uFF0C w\xFA \xE0n d\xFA zh\u012B l\xE1o x\xEDng\u3002 n\xE1n y\xE1ng zh\u016B g\u011B l\xFA\uFF0C x\u012B sh\u01D4 zi y\xFAn t\xEDng\u3002 k\u01D2ng zi y\xFAn :\u201C h\xE9 l\xF2u zh\u012B y\u01D2u?\u201D",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-16-poem-16",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u7231\u83B2\u8BF4",
+        "author": "\u5468\u6566\u9890",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u6C34\u9646\u8349\u6728\u4E4B\u82B1\uFF0C\u53EF\u7231\u8005\u751A\u8543\u3002\u664B\u9676\u6E0A\u660E\u72EC\u7231\u83CA\u3002\u81EA\u674E\u5510\u6765\uFF0C\u4E16\u4EBA\u751A\u7231\u7261\u4E39\u3002\u4E88\u72EC\u7231\u83B2\u4E4B\u51FA\u6DE4\u6CE5\u800C\u4E0D\u67D3\uFF0C\u6FEF\u6E05\u6D9F\u800C\u4E0D\u5996\uFF0C\u4E2D\u901A\u5916\u76F4\uFF0C\u4E0D\u8513\u4E0D\u679D\uFF0C\u9999\u8FDC\u76CA\u6E05\uFF0C\u4EAD\u4EAD\u51C0\u690D\uFF0C\u53EF\u8FDC\u89C2\u800C\u4E0D\u53EF\u4EB5\u73A9\u7109\u3002\n\u4E88\u8C13\u83CA\uFF0C\u82B1\u4E4B\u9690\u9038\u8005\u4E5F\uFF1B\u7261\u4E39\uFF0C\u82B1\u4E4B\u5BCC\u8D35\u8005\u4E5F\uFF1B\u83B2\uFF0C\u82B1\u4E4B\u541B\u5B50\u8005\u4E5F\u3002\u566B\uFF01\u83CA\u4E4B\u7231\uFF0C\u9676\u540E\u9C9C\u6709\u95FB\uFF1B\u83B2\u4E4B\u7231\uFF0C\u540C\u4E88\u8005\u4F55\u4EBA\uFF1F\u7261\u4E39\u4E4B\u7231\uFF0C\u5B9C\u4E4E\u4F17\u77E3\u3002",
+        "pinyin": "shu\u01D0 l\xF9 c\u01CEo m\xF9 zh\u012B hu\u0101\uFF0C k\u011B \xE0i zh\u011B sh\xE8n f\u0101n\u3002 j\xECn t\xE1o yu\u0101n m\xEDng d\xFA \xE0i j\xFA\u3002 z\xEC l\u01D0 t\xE1ng l\xE1i\uFF0C sh\xEC r\xE9n sh\xE8n \xE0i m\u01D4 d\u0101n\u3002 y\u01D4 d\xFA \xE0i li\xE1n zh\u012B ch\u016B y\u016B n\xED \xE9r b\xF9 r\u01CEn\uFF0C zhu\xF3 q\u012Bng li\xE1n \xE9r b\xF9 y\u0101o\uFF0C zh\u014Dng t\u014Dng w\xE0i zh\xED\uFF0C b\xF9 m\xE0n b\xF9 zh\u012B\uFF0C xi\u0101ng yu\u01CEn y\xEC q\u012Bng\uFF0C t\xEDng t\xEDng j\xECng zh\xED\uFF0C k\u011B yu\u01CEn gu\u0101n \xE9r b\xF9 k\u011B xi\xE8 w\xE1n y\u0101n\u3002\ny\u01D4 w\xE8i j\xFA\uFF0C hu\u0101 zh\u012B y\u01D0n y\xEC zh\u011B y\u011B\uFF1B m\u01D4 d\u0101n\uFF0C hu\u0101 zh\u012B f\xF9 gu\xEC zh\u011B y\u011B\uFF1B li\xE1n\uFF0C hu\u0101 zh\u012B j\u016Bn z\u01D0 zh\u011B y\u011B\u3002 y\u012B\uFF01 j\xFA zh\u012B \xE0i\uFF0C t\xE1o h\xF2u xi\u01CEn y\u01D2u w\xE9n\uFF1B li\xE1n zh\u012B \xE0i\uFF0C t\xF3ng y\u01D4 zh\u011B h\xE9 r\xE9n\uFF1F m\u01D4 d\u0101n zh\u012B \xE0i\uFF0C y\xED h\u016B zh\xF2ng y\u01D0\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-17-poem-17",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u767B\u5E7D\u5DDE\u53F0\u6B4C",
+        "author": "\u9648\u5B50\u6602",
+        "dynasty": "\u5510",
+        "excerpt": "\u524D\u4E0D\u89C1\u53E4\u4EBA\uFF0C\u540E\u4E0D\u89C1\u6765\u8005\u3002\u5FF5\u5929\u5730\u4E4B\u60A0\u60A0\uFF0C\u72EC\u6006\u7136\u800C\u6D95\u4E0B\u3002",
+        "pinyin": "qi\xE1n b\xFA ji\xE0n g\u01D4 r\xE9n\uFF0C h\xF2u b\xFA ji\xE0n l\xE1i zh\u011B\u3002 ni\xE0n ti\u0101n d\xEC zh\u012B y\u014Du y\u014Du\uFF0C d\xFA chu\xE0ng r\xE1n \xE9r t\xEC xi\xE0\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-18-poem-18",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u671B\u5CB3",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u5CB1\u5B97\u592B\u5982\u4F55?\u9F50\u9C81\u9752\u672A\u4E86\u3002\u9020\u5316\u949F\u795E\u79C0\uFF0C\u9634\u9633\u5272\u660F\u6653\u3002\n\u8361\u80F8\u751F\u66FE\u4E91\uFF0C\u51B3\u7726\u5165\u5F52\u9E1F\u3002\u4F1A\u5F53\u51CC\u7EDD\u9876\uFF0C\u4E00\u89C8\u4F17\u5C71\u5C0F\u3002",
+        "pinyin": "d\xE0i z\u014Dng f\u016B r\xFA h\xE9? q\xED l\u01D4 q\u012Bng w\xE8i li\u01CEo\u3002 z\xE0o hu\xE0 zh\u014Dng sh\xE9n xi\xF9\uFF0C y\u012Bn y\xE1ng g\u0113 h\u016Bn xi\u01CEo\u3002\nd\xE0ng xi\u014Dng sh\u0113ng c\xE9ng y\xFAn\uFF0C ju\xE9 z\xEC r\xF9 gu\u012B ni\u01CEo\u3002 hu\xEC d\u0101ng l\xEDng ju\xE9 d\u01D0ng\uFF0C y\u012B l\u01CEn zh\xF2ng sh\u0101n xi\u01CEo\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 9,
+          "bvid": "BV1t64y1K7QS",
+          "url": "https://www.bilibili.com/bangumi/play/ep810547",
+          "title": "\u300A\u671B\u5CB3\u300B\u773A\u671B\u7684\u662F\u90A3\u5EA7\u5C71\u5462\uFF1F"
+        }
+      },
+      {
+        "id": "extra-19-poem-19",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u767B\u98DE\u6765\u5CF0",
+        "author": "\u738B\u5B89\u77F3",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u98DE\u6765\u5CF0\u4E0A\u5343\u5BFB\u5854\uFF0C\u95FB\u8BF4\u9E21\u9E23\u89C1\u65E5\u5347\u3002\u4E0D\u754F\u6D6E\u4E91\u906E\u671B\u8DDF\uFF0C\u53EA\u7F18\u8EAB\u5728\u6700\u9AD8\u5C42\u3002",
+        "pinyin": "f\u0113i l\xE1i f\u0113ng sh\xE0ng qi\u0101n x\xFAn t\u01CE\uFF0C w\xE9n shu\u014D j\u012B m\xEDng ji\xE0n r\xEC sh\u0113ng\u3002 b\xF9 w\xE8i f\xFA y\xFAn zh\u0113 w\xE0ng g\u0113n\uFF0C zh\u01D0 yu\xE1n sh\u0113n z\xE0i zu\xEC g\u0101o c\xE9ng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-20-poem-20",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6E38\u5C71\u897F\u6751",
+        "author": "\u9646\u6E38",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u83AB\u7B11\u519C\u5BB6\u814A\u9152\u6D51\uFF0C\u4E30\u5E74\u7559\u5BA2\u8DB3\u9E21\u8C5A\u3002\u5C71\u91CD\u6C34\u590D\u7591\u65E0\u8DEF\uFF0C\u67F3\u6697\u82B1\u660E\u53C8\u4E00\u6751\u3002\n\u8427\u9F13\u8FFD\u968F\u6625\u793E\u8FD1\uFF0C\u8863\u51A0\u7B80\u6734\u53E4\u98CE\u5B58\u3002\u4ECE\u4ECA\u82E5\u8BB8\u95F2\u4E58\u6708\uFF0C\u62C4\u6756\u65E0\u65F6\u591C\u53E9\u95E8\u3002",
+        "pinyin": "m\xF2 xi\xE0o n\xF3ng ji\u0101 l\xE0 ji\u01D4 h\xFAn\uFF0C f\u0113ng ni\xE1n li\xFA k\xE8 z\xFA j\u012B t\xFAn\u3002 sh\u0101n ch\xF3ng shu\u01D0 f\xF9 y\xED w\xFA l\xF9\uFF0C li\u01D4 \xE0n hu\u0101 m\xEDng y\xF2u y\u012B c\u016Bn\u3002\nxi\u0101o g\u01D4 zhu\u012B su\xED ch\u016Bn sh\xE8 j\xECn\uFF0C y\u012B gu\u0101n ji\u01CEn pi\xE1o g\u01D4 f\u0113ng c\xFAn\u3002 c\xF3ng j\u012Bn ru\xF2 x\u01D4 xi\xE1n ch\xE9ng yu\xE8\uFF0C zh\u01D4 zh\xE0ng w\xFA sh\xED y\xE8 k\xF2u m\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 38,
+          "bvid": "BV1tC411r7An",
+          "url": "https://www.bilibili.com/bangumi/play/ep813440",
+          "title": "\u9646\u6E38\u7684\u300A\u6E38\u5C71\u897F\u6751\u300B\u662F\u5C71\u897F\u7684\u6751\u5B50\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "extra-21-poem-21",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5DF1\u4EA5\u6742\u8BD7",
+        "author": "\u9F9A\u81EA\u73CD",
+        "dynasty": "\u6E05",
+        "excerpt": "\u6D69\u8361\u79BB\u6101\u767D\u65E5\u659C\uFF0C\u541F\u97AD\u4E1C\u6307\u5373\u5929\u6DAF\u3002\u843D\u7EA2\u4E0D\u662F\u65E0\u60C5\u7269\uFF0C\u5316\u4F5C\u6625\u6CE5\u66F4\u62A4\u82B1\u3002",
+        "pinyin": "h\xE0o d\xE0ng l\xED ch\xF3u b\xE1i r\xEC xi\xE9\uFF0C y\xEDn bi\u0101n d\u014Dng zh\u01D0 j\xED ti\u0101n y\xE1\u3002 lu\xF2 h\xF3ng b\xFA sh\xEC w\xFA q\xEDng w\xF9\uFF0C hu\xE0 zu\xF2 ch\u016Bn n\xED g\xE8ng h\xF9 hu\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "\u53EA\u6709\u4F9D\u9760\u98CE\u96F7\u822C\u7684\u5DE8\u5927\u529B\u91CF\uFF0C\u624D\u80FD\u4F7F\u4E2D\u56FD\u5927\u5730\u7115\u53D1\u751F\u673A\uFF1B\u4EBA\u4EEC\u90FD\u4E0D\u6562\u8BF4\u8BDD\u3001\u6BEB\u65E0\u751F\u6C14\u7684\u5C40\u9762\u7EC8\u7A76\u4EE4\u4EBA\u60B2\u54C0\u3002\u6211\u529D\u8001\u5929\u7237\u91CD\u65B0\u632F\u4F5C\u7CBE\u795E\uFF0C\u4E0D\u8981\u62D8\u5B88\u4E00\u79CD\u89C4\u683C\uFF0C\u8BA9\u5404\u79CD\u4EBA\u624D\u964D\u751F\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-22-poem-22",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6CCA\u79E6\u6DEE",
+        "author": "\u675C\u7267",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u70DF\u7B3C\u5BD2\u6C34\u6708\u7B3C\u6C99\uFF0C\u591C\u6CCA\u79E6\u6DEE\u8FD1\u9152\u5BB6\u3002\u5546\u5973\u4E0D\u77E5\u4EA1\u56FD\u6068\uFF0C\u9694\u6C5F\u72B9\u5531\u540E\u5EAD\u82B1\u3002",
+        "pinyin": "y\u0101n l\xF3ng h\xE1n shu\u01D0 yu\xE8 l\xF3ng sh\u0101\uFF0C y\xE8 p\u014D q\xEDn hu\xE1i j\xECn ji\u01D4 ji\u0101\u3002 sh\u0101ng n\u01DA b\xF9 zh\u012B w\xE1ng gu\xF3 h\xE8n\uFF0C g\xE9 ji\u0101ng y\xF3u ch\xE0ng h\xF2u t\xEDng hu\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-23-poem-23",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8D3E\u751F",
+        "author": "\u674E\u5546\u9690",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5BA3\u5BA4\u6C42\u8D24\u8BBF\u9010\u81E3\uFF0C\n\u8D3E\u751F\u624D\u8C03\u66F4\u65E0\u4F26\u3002\n\u53EF\u601C\u591C\u534A\u865A\u524D\u5E2D\uFF0C\n\u4E0D\u95EE\u82CD\u751F\u95EE\u9B3C\u795E\u3002",
+        "pinyin": "xu\u0101n sh\xEC qi\xFA xi\xE1n f\u01CEng zh\xFA ch\xE9n\uFF0C\nji\u01CE sh\u0113ng c\xE1i di\xE0o g\xE8ng w\xFA l\xFAn\u3002\nk\u011B li\xE1n y\xE8 b\xE0n x\u016B qi\xE1n x\xED\uFF0C\nb\xF9 w\xE8n c\u0101ng sh\u0113ng w\xE8n gu\u01D0 sh\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-24-poem-24",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8FC7\u677E\u6E90\u6668\u708A\u6F06\u516C\u5E97\uFF08\u5176\u4E94\uFF09",
+        "author": "\u6768\u4E07\u91CC",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u83AB\u8A00\u4E0B\u5CAD\u4FBF\u65E0\u96BE\uFF0C\n\u8D5A\u5F97\u884C\u4EBA\u9519\u559C\u6B22\u3002\n\u653F\u5165\u4E07\u5C71\u56F4\u5B50\u91CC\uFF0C\n\u4E00\u5C71\u653E\u51FA\u4E00\u5C71\u62E6\u3002",
+        "pinyin": "m\xF2 y\xE1n xi\xE0 l\u01D0ng bi\xE0n w\xFA n\xE1n\uFF0C\nzu\xE0n de x\xEDng r\xE9n cu\xF2 x\u01D0 hu\u0101n\u3002\nzh\xE8ng r\xF9 w\xE0n sh\u0101n w\xE9i zi l\u01D0\uFF0C\ny\u012B sh\u0101n f\xE0ng ch\u016B y\u012B sh\u0101n l\xE1n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-25-poem-25",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u7EA6\u5BA2",
+        "author": "\u8D75\u5E08\u79C0",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u9EC4\u6885\u65F6\u8282\u5BB6\u5BB6\u96E8\uFF0C\n\u9752\u8349\u6C60\u5858\u5904\u5904\u86D9\u3002\n\u6709\u7EA6\u4E0D\u6765\u8FC7\u591C\u534A\uFF0C\n\u95F2\u6572\u68CB\u5B50\u843D\u706F\u82B1\u3002",
+        "pinyin": "hu\xE1ng m\xE9i sh\xED ji\xE9 ji\u0101 ji\u0101 y\u01D4\uFF0C\nq\u012Bng c\u01CEo ch\xED t\xE1ng ch\xF9 ch\xF9 w\u0101\u3002\ny\u01D2u yu\u0113 b\xF9 l\xE1i gu\xF2 y\xE8 b\xE0n\uFF0C\nxi\xE1n qi\u0101o q\xED zi lu\xF2 d\u0113ng hu\u0101\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-26-poem-26",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u4E09\u5CE1",
+        "author": "\u90E6\u9053\u5143",
+        "dynasty": "\u5357\u5317\u671D",
+        "excerpt": "\u81EA\u4E09\u5CE1\u4E03\u767E\u91CC\u4E2D\uFF0C\u4E24\u5CB8\u8FDE\u5C71\uFF0C\u7565\u65E0\u9619\u5904\u3002\u91CD\u5CA9\u53E0\u5D82\uFF0C\u9690\u5929\u853D\u65E5\uFF0C\u81EA\u975E\u4EAD\u5348\u591C\u5206\uFF0C\u4E0D\u89C1\u66E6\u6708\u3002\n\u81F3\u4E8E\u590F\u6C34\u8944\u9675\uFF0C\u6CBF\u6EAF\u963B\u7EDD\u3002\u6216\u738B\u547D\u6025\u5BA3\uFF0C\u6709\u65F6\u671D\u53D1\u767D\u5E1D\uFF0C\u66AE\u5230\u6C5F\u9675\uFF0C\u5176\u95F4\u5343\u4E8C\u767E\u91CC\uFF0C\u867D\u4E58\u5954\u5FA1\u98CE\uFF0C\u4E0D\u4EE5\u75BE\u4E5F\u3002\n\u6625\u51AC\u4E4B\u65F6\uFF0C\u5219\u7D20\u6E4D\u7EFF\u6F6D\uFF0C\u56DE\u6E05\u5012\u5F71\uFF0C\u7EDD\u5DD8\u591A\u751F\u602A\u67CF\uFF0C\u60AC\u6CC9\u7011\u5E03\uFF0C\u98DE\u6F31\u5176\u95F4\uFF0C\u6E05\u8363\u5CFB\u8302\uFF0C\u826F\u591A\u8DA3\u5473\u3002\n\u6BCF\u81F3\u6674\u521D\u971C\u65E6\uFF0C\u6797\u5BD2\u6DA7\u8083\uFF0C\u5E38\u6709\u9AD8\u733F\u957F\u5578\uFF0C\u5C5E\u5F15\u51C4\u5F02\uFF0C\u7A7A\u8C37\u4F20\u54CD\uFF0C\u54C0\u8F6C\u4E45\u7EDD\u3002\u6545\u6E14\u8005\u6B4C\u66F0\uFF1A\u201C\u5DF4\u4E1C\u4E09\u5CE1\u5DEB\u5CE1\u957F\uFF0C\u733F\u9E23\u4E09\u58F0\u6CEA\u6CBE\u88F3\u3002",
+        "pinyin": "z\xEC s\u0101n xi\xE1 q\u012B b\u01CEi l\u01D0 zh\u014Dng\uFF0C li\u01CEng \xE0n li\xE1n sh\u0101n\uFF0C l\xFC\xE8 w\xFA qu\u0113 ch\xF9\u3002 ch\xF3ng y\xE1n di\xE9 zh\xE0ng\uFF0C y\u01D0n ti\u0101n b\xEC r\xEC\uFF0C z\xEC f\u0113i t\xEDng w\u01D4 y\xE8 f\u0113n\uFF0C b\xFA ji\xE0n x\u012B yu\xE8\u3002\nzh\xEC y\xFA xi\xE0 shu\u01D0 xi\u0101ng l\xEDng\uFF0C y\xE1n s\xF9 z\u01D4 ju\xE9\u3002 hu\xF2 w\xE1ng m\xECng j\xED xu\u0101n\uFF0C y\u01D2u sh\xED ch\xE1o f\u0101 b\xE1i d\xEC\uFF0C m\xF9 d\xE0o ji\u0101ng l\xEDng\uFF0C q\xED ji\u0101n qi\u0101n \xE8r b\u01CEi l\u01D0\uFF0C su\u012B ch\xE9ng b\u0113n y\xF9 f\u0113ng\uFF0C b\xF9 y\u01D0 j\xED y\u011B\u3002\nch\u016Bn d\u014Dng zh\u012B sh\xED\uFF0C z\xE9 s\xF9 tu\u0101n l\u01DC t\xE1n\uFF0C hu\xED q\u012Bng d\xE0o y\u01D0ng\uFF0C ju\xE9 y\u01CEn du\u014D sh\u0113ng gu\xE0i b\u01CEi\uFF0C xu\xE1n qu\xE1n p\xF9 b\xF9\uFF0C f\u0113i sh\xF9 q\xED ji\u0101n\uFF0C q\u012Bng r\xF3ng j\xF9n m\xE0o\uFF0C li\xE1ng du\u014D q\xF9 w\xE8i\u3002\nm\u011Bi zh\xEC q\xEDng ch\u016B shu\u0101ng d\xE0n\uFF0C l\xEDn h\xE1n ji\xE0n s\xF9\uFF0C ch\xE1ng y\u01D2u g\u0101o yu\xE1n ch\xE1ng xi\xE0o\uFF0C sh\u01D4 y\u01D0n q\u012B y\xEC\uFF0C k\u014Dng g\u01D4 chu\xE1n xi\u01CEng\uFF0C \u0101i zhu\u01CEn ji\u01D4 ju\xE9\u3002 g\xF9 y\xFA zh\u011B g\u0113 yu\u0113\uFF1A\u201C b\u0101 d\u014Dng s\u0101n xi\xE1 w\u016B xi\xE1 zh\u01CEng\uFF0C yu\xE1n m\xEDng s\u0101n sh\u0113ng l\xE8i zh\u0101n shang\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-27-poem-27",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u7B54\u8C22\u4E2D\u4E66\u4E66",
+        "author": "\u9676\u5F18\u666F",
+        "dynasty": "\u5357\u671D",
+        "excerpt": "\u5C71\u5DDD\u4E4B\u7F8E\uFF0C\u53E4\u6765\u5171\u8C08\u3002\u9AD8\u5CF0\u5165\u4E91\uFF0C\u795E\u6D41\u89C1\u5E95\u3002\u4E24\u5CB8\u77F3\u58C1\uFF0C\u4E94\u8272\u4EA4\u8F89\u3002\u9752\u6797\u7FE0\u7AF9,\u56DB\u65F6\u4FF1\u5907\u3002\u6653\u96FE\u5C06\u6B47,\u5FAE\u733F\u9E1F\u4E71\u9E23;\u5915\u65E5\u6B32\u9893\uFF0C\u6C89\u9E9F\u7ADE\u8DC3\u3002\u5B9E\u662F\u6B32\u754C\u4E4B\u4ED9\u90FD\u3002\u81EA\u5EB7\u4E50\u4EE5\u6765\uFF0C\u672A\u590D\u6709\u80FD\u4E0E\u5176\u5947\u8005\u3002",
+        "pinyin": "sh\u0101n chu\u0101n zh\u012B m\u011Bi\uFF0C g\u01D4 l\xE1i g\xF2ng t\xE1n\u3002 g\u0101o f\u0113ng r\xF9 y\xFAn\uFF0C sh\xE9n li\xFA ji\xE0n d\u01D0\u3002 li\u01CEng \xE0n sh\xED b\xEC\uFF0C w\u01D4 s\xE8 ji\u0101o hu\u012B\u3002 q\u012Bng l\xEDn cu\xEC zh\xFA, s\xEC sh\xED j\xF9 b\xE8i\u3002 xi\u01CEo w\xF9 ji\u0101ng xi\u0113, w\u0113i yu\xE1n ni\u01CEo lu\xE0n m\xEDng; x\u012B r\xEC y\xF9 tu\xED\uFF0C ch\xE9n l\xEDn j\xECng yu\xE8\u3002 sh\xED sh\xEC y\xF9 ji\xE8 zh\u012B xi\u0101n d\u014Du\u3002 z\xEC k\u0101ng l\xE8 y\u01D0 l\xE1i\uFF0C w\xE8i f\xF9 y\u01D2u n\xE9ng y\u01D4 q\xED q\xED zh\u011B\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-28-poem-28",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8BB0\u627F\u5929\u5BFA\u591C\u6E38",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u5143\u4E30\u516D\u5E74\u5341\u6708\u5341\u4E8C\u65E5\u591C\uFF0C\u89E3\u8863\u6B32\u7761\uFF0C\u6708\u8272\u5165\u6237\uFF0C\u6B23\u7136\u8D77\u884C\u3002\u5FF5\u65E0\u4E0E\u4E3A\u4E50\u8005\uFF0C\u9042\u81F3\u627F\u5929\u5BFA\u5BFB\u5F20\u6000\u6C11\u3002\u6000\u6C11\u4EA6\u672A\u5BDD\uFF0C\u76F8\u4E0E\u6B65\u4E8E\u4E2D\u5EAD\u3002\n\u5EAD\u4E0B\u5982\u79EF\u6C34\u7A7A\u660E\uFF0C\u6C34\u4E2D\u85FB\u3001\u8347\u4EA4\u6A2A\uFF0C\u76D6\u7AF9\u67CF\u5F71\u4E5F\u3002\u4F55\u591C\u65E0\u6708?\u4F55\u5904\u65E0\u7AF9\u67CF?\u4F46\u5C11\u95F2\u4EBA\u5982\u543E\u4E24\u4EBA\u8005\u8033\u3002",
+        "pinyin": "yu\xE1n f\u0113ng li\xF9 ni\xE1n sh\xED yu\xE8 sh\xED \xE8r r\xEC y\xE8\uFF0C ji\u011B y\u012B y\xF9 shu\xEC\uFF0C yu\xE8 s\xE8 r\xF9 h\xF9\uFF0C x\u012Bn r\xE1n q\u01D0 x\xEDng\u3002 ni\xE0n w\xFA y\u01D4 w\xE8i l\xE8 zh\u011B\uFF0C su\xEC zh\xEC ch\xE9ng ti\u0101n s\xEC x\xFAn zh\u0101ng hu\xE1i m\xEDn\u3002 hu\xE1i m\xEDn y\xEC w\xE8i q\u01D0n\uFF0C xi\u0101ng y\u01D4 b\xF9 y\xFA zh\u014Dng t\xEDng\u3002\nt\xEDng xi\xE0 r\xFA j\u012B shu\u01D0 k\u014Dng m\xEDng\uFF0C shu\u01D0 zh\u014Dng z\u01CEo\u3001 x\xECng ji\u0101o h\xE9ng\uFF0C g\xE0i zh\xFA b\u01CEi y\u01D0ng y\u011B\u3002 h\xE9 y\xE8 w\xFA yu\xE8? h\xE9 ch\xF9 w\xFA zh\xFA b\u01CEi? d\xE0n sh\u01CEo xi\xE1n r\xE9n r\xFA w\xFA li\u01CEng r\xE9n zh\u011B \u011Br\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-29-poem-29",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u4E0E\u6731\u5143\u601D\u4E66",
+        "author": "\u5434\u5747",
+        "dynasty": "\u5357\u5317\u671D",
+        "excerpt": "\u98CE\u70DF\u4FF1\u51C0\uFF0C\u5929\u5C71\u5171\u8272\u3002\u4ECE\u6D41\u98D8\u8361\uFF0C\u4EFB\u610F\u4E1C\u897F\u3002\u81EA\u5BCC\u9633\u81F3\u6850\u5E90\u4E00\u767E\u8BB8\u91CC\uFF0C\u5947\u5C71\u5F02\u6C34\uFF0C\u5929\u4E0B\u72EC\u7EDD\u3002\n\u6C34\u7686\u7F25\u78A7\uFF0C\u5343\u4E08\u89C1\u5E95\u3002\u6E38\u9C7C\u7EC6\u77F3\uFF0C\u76F4\u89C6\u65E0\u788D\u3002\u6025\u6E4D\u751A\u7BAD\uFF0C\u731B\u6D6A\u82E5\u5954\u3002\n\u5939\u5CB8\u9AD8\u5C71\uFF0C\u7686\u751F\u5BD2\u6811\uFF0C\u8D1F\u52BF\u7ADE\u4E0A\uFF0C\u4E92\u76F8\u8F69\u9088\uFF0C\u4E89\u9AD8\u76F4\u6307\uFF0C\u5343\u767E\u6210\u5CF0\u3002\u6CC9\u6C34\u6FC0\u77F3\uFF0C\u6CE0\u6CE0\u4F5C\u54CD;\u597D\u9E1F\u76F8\u9E23\uFF0C\u5624\u5624\u6210\u97F5\u3002\u8749\u5219\u5343\u8F6C\u4E0D\u7A77\uFF0C\u733F\u5219\u767E\u53EB\u65E0\u7EDD\u3002\u9E22\u98DE\u623E\u5929\u8005\uFF0C\u671B\u5CF0\u606F\u5FC3;\u7ECF\u7EB6\u4E16\u52A1\u8005\uFF0C\u7AA5\u8C37\u5FD8\u53CD\u3002\u6A2A\u67EF\u4E0A\u853D\uFF0C\u5728\u663C\u72B9\u660F;\u758F\u6761\u4EA4\u6620\uFF0C\u6709\u65F6\u89C1\u65E5\u3002",
+        "pinyin": "f\u0113ng y\u0101n j\xF9 j\xECng\uFF0C ti\u0101n sh\u0101n g\xF2ng s\xE8\u3002 c\xF3ng li\xFA pi\u0101o d\xE0ng\uFF0C r\xE8n y\xEC d\u014Dng x\u012B\u3002 z\xEC f\xF9 y\xE1ng zh\xEC t\xF3ng l\xFA y\xEC b\u01CEi x\u01D4 l\u01D0\uFF0C q\xED sh\u0101n y\xEC shu\u01D0\uFF0C ti\u0101n xi\xE0 d\xFA ju\xE9\u3002\nshu\u01D0 ji\u0113 pi\u0101o b\xEC\uFF0C qi\u0101n zh\xE0ng ji\xE0n d\u01D0\u3002 y\xF3u y\xFA x\xEC sh\xED\uFF0C zh\xED sh\xEC w\xFA \xE0i\u3002 j\xED tu\u0101n sh\xE8n ji\xE0n\uFF0C m\u011Bng l\xE0ng ru\xF2 b\u0113n\u3002\nji\u0101 \xE0n g\u0101o sh\u0101n\uFF0C ji\u0113 sh\u0113ng h\xE1n sh\xF9\uFF0C f\xF9 sh\xEC j\xECng sh\xE0ng\uFF0C h\xF9 xi\u0101ng xu\u0101n mi\u01CEo\uFF0C zh\u0113ng g\u0101o zh\xED zh\u01D0\uFF0C qi\u0101n b\u01CEi ch\xE9ng f\u0113ng\u3002 qu\xE1n shu\u01D0 j\u012B sh\xED\uFF0C l\xEDng l\xEDng zu\xF2 xi\u01CEng; h\u01CEo ni\u01CEo xi\u0101ng m\xEDng\uFF0C y\u012Bng y\u012Bng ch\xE9ng y\xF9n\u3002 ch\xE1n z\xE9 qi\u0101n zhu\u01CEn b\xF9 qi\xF3ng\uFF0C yu\xE1n z\xE9 b\u01CEi ji\xE0o w\xFA ju\xE9\u3002 yu\u0101n f\u0113i l\xEC ti\u0101n zh\u011B\uFF0C w\xE0ng f\u0113ng x\u012B x\u012Bn; j\u012Bng l\xFAn sh\xEC w\xF9 zh\u011B\uFF0C ku\u012B g\u01D4 w\xE0ng f\u01CEn\u3002 h\xE9ng k\u0113 sh\xE0ng b\xEC\uFF0C z\xE0i zh\xF2u y\xF3u h\u016Bn; sh\u016B ti\xE1o ji\u0101o y\xECng\uFF0C y\u01D2u sh\xED ji\xE0n r\xEC\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-30-poem-30",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u91CE\u671B",
+        "author": "\u738B\u7EE9",
+        "dynasty": "\u5510",
+        "excerpt": "\u4E1C\u768B\u8584\u66AE\u671B\uFF0C \u5F99\u501A\u6B32\u4F55\u4F9D\u3002\u6811\u6811\u7686\u79CB\u8272\uFF0C \u5C71\u5C71\u552F\u843D\u6656\u3002\n\u7267\u4EBA\u9A71\u728A\u8FD4\uFF0C \u730E\u9A6C\u5E26\u79BD\u5F52\u3002\u76F8\u987E\u65E0\u76F8\u8BC6\uFF0C \u957F\u6B4C\u6000\u91C7\u8587\u3002",
+        "pinyin": "d\u014Dng g\u0101o b\xF3 m\xF9 w\xE0ng\uFF0C x\u01D0 y\u01D0 y\xF9 h\xE9 y\u012B\u3002 sh\xF9 sh\xF9 ji\u0113 qi\u016B s\xE8\uFF0C sh\u0101n sh\u0101n w\xE9i lu\xF2 hu\u012B\u3002\nm\xF9 r\xE9n q\u016B d\xFA f\u01CEn\uFF0C li\xE8 m\u01CE d\xE0i q\xEDn gu\u012B\u3002 xi\u0101ng g\xF9 w\xFA xi\u0101ng sh\xED\uFF0C zh\u01CEng g\u0113 hu\xE1i c\u01CEi w\u0113i\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-31-poem-31",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9EC4\u9E64\u697C",
+        "author": "\u5D14\u98A2",
+        "dynasty": "\u5510",
+        "excerpt": "\u6614\u4EBA\u5DF2\u4E58\u9EC4\u9E64\u53BB\uFF0C\u6B64\u5730\u7A7A\u4F59\u9EC4\u9E64\u697C\u3002\u9EC4\u9E64\u4E00\u53BB\u4E0D\u590D\u8FD4\uFF0C\u767D\u4E91\u5343\u8F7D\u7A7A\u60A0\u60A0\u3002\n\u6674\u5DDD\u5386\u5386\u6C49\u9633\u6811\uFF0C\u82B3\u8349\u840B\u840B\u9E66\u9E49\u6D32\u3002\u65E5\u66AE\u4E61\u5173\u4F55\u5904\u662F?\u70DF\u6CE2\u6C5F\u4E0A\u4F7F\u4EBA\u6101\u3002",
+        "pinyin": "x\u012B r\xE9n y\u01D0 ch\xE9ng hu\xE1ng h\xE8 q\xF9\uFF0C c\u01D0 d\xEC k\xF2ng y\xFA hu\xE1ng h\xE8 l\xF3u\u3002 hu\xE1ng h\xE8 y\u012B q\xF9 b\xF9 f\xF9 f\u01CEn\uFF0C b\xE1i y\xFAn qi\u0101n z\xE0i k\u014Dng y\u014Du y\u014Du\u3002\nq\xEDng chu\u0101n l\xEC l\xEC h\xE0n y\xE1ng sh\xF9\uFF0C f\u0101ng c\u01CEo q\u012B q\u012B y\u012Bng w\u01D4 zh\u014Du\u3002 r\xEC m\xF9 xi\u0101ng gu\u0101n h\xE9 ch\xF9 sh\xEC? y\u0101n b\u014D ji\u0101ng sh\xE0ng sh\u01D0 r\xE9n ch\xF3u\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-32-poem-32",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u4F7F\u81F3\u585E\u4E0A",
+        "author": "\u738B\u7EF4",
+        "dynasty": "\u5510",
+        "excerpt": "\u5355\u8F66\u6B32\u95EE\u8FB9\uFF0C\u5C5E\u56FD\u8FC7\u5C45\u5EF6\uFF0C\u5F81\u84EC\u51FA\u6C49\u585E\uFF0C\u5F52\u96C1\u5165\u80E1\u5929\uFF0C\n\u5927\u6F20\u5B64\u70DF\u76F4\u3002\u957F\u6CB3\u843D\u65E5\u5706\uFF0C\u8427\u5173\u9022\u4FAF\u9A91\uFF0C\u90FD\u62A4\u5728\u71D5\u7136\u3002",
+        "pinyin": "d\u0101n ch\u0113 y\xF9 w\xE8n bi\u0101n\uFF0C sh\u01D4 gu\xF3 gu\xF2 j\u016B y\xE1n\uFF0C zh\u0113ng p\xE9ng ch\u016B h\xE0n s\u0101i\uFF0C gu\u012B y\xE0n r\xF9 h\xFA ti\u0101n\uFF0C\nd\xE0 m\xF2 g\u016B y\u0101n zh\xED\u3002 ch\xE1ng h\xE9 lu\xF2 r\xEC yu\xE1n\uFF0C xi\u0101o gu\u0101n f\xE9ng h\xF3u q\xED\uFF0C d\u014Du h\xF9 z\xE0i y\xE0n r\xE1n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-33-poem-33",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6E21\u8346\u95E8\u9001\u522B",
+        "author": "\u674E\u767D",
+        "dynasty": "\u5510",
+        "excerpt": "\u6E21\u8FDC\u8346\u95E8\u5916\uFF0C\u6765\u4ECE\u695A\u56FD\u6E38\u3002\u5C71\u968F\u5E73\u91CE\u5C3D\uFF0C\u6C5F\u5165\u5927\u8352\u6D41\u3002\n\u6708\u4E0B\u98DE\u5929\u955C\uFF0C\u4E91\u751F\u7ED3\u6D77\u697C\u3002\u4ECD\u601C\u6545\u4E61\u6C34\uFF0C\u4E07\u91CC\u9001\u884C\u821F\u3002",
+        "pinyin": "d\xF9 yu\u01CEn j\u012Bng m\xE9n w\xE0i\uFF0C l\xE1i c\xF3ng ch\u01D4 gu\xF3 y\xF3u\u3002 sh\u0101n su\xED p\xEDng y\u011B j\u01D0n\uFF0C ji\u0101ng r\xF9 d\xE0 hu\u0101ng li\xFA\u3002\nyu\xE8 xi\xE0 f\u0113i ti\u0101n j\xECng\uFF0C y\xFAn sh\u0113ng ji\xE9 h\u01CEi l\xF3u\u3002 r\xE9ng li\xE1n g\xF9 xi\u0101ng shu\u01D0\uFF0C w\xE0n l\u01D0 s\xF2ng x\xEDng zh\u014Du\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-34-poem-34",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u94B1\u5858\u6E56\u6625\u884C",
+        "author": "\u767D\u5C45\u6613",
+        "dynasty": "\u5510",
+        "excerpt": "\u5B64\u5C71\u5BFA\u5317\u8D3E\u4EAD\u897F\uFF0C\u6C34\u9762\u521D\u5E73\u4E91\u811A\u4F4E\u3002\u51E0\u5904\u65E9\u83BA\u4E89\u6696\u6811\uFF0C\u8C01\u5BB6\u659C\u71D5\u5544\u6625\u6CE5\u3002\n\u4E71\u82B1\u6E10\u6B32\u8FF7\u4EBA\u773C\uFF0C\u6D45\u8349\u624D\u80FD\u6CA1\u9A6C\u8E44\u3002\u6700\u7231\u6E56\u4E1C\u884C\u4E0D\u8DB3\uFF0C\u7EFF\u6768\u9634\u91CC\u767D\u6C99\u5824\u3002",
+        "pinyin": "g\u016B sh\u0101n s\xEC b\u011Bi ji\u01CE t\xEDng x\u012B\uFF0C shu\u01D0 mi\xE0n ch\u016B p\xEDng y\xFAn ji\u01CEo d\u012B\u3002 j\u01D0 ch\xF9 z\u01CEo y\u012Bng zh\u0113ng nu\u01CEn sh\xF9\uFF0C shu\xED ji\u0101 xi\xE9 y\xE0n zhu\xF3 ch\u016Bn n\xED\u3002\nlu\xE0n hu\u0101 ji\xE0n y\xF9 m\xED r\xE9n y\u01CEn\uFF0C qi\u01CEn c\u01CEo c\xE1i n\xE9ng m\xE9i m\u01CE t\xED\u3002 zu\xEC \xE0i h\xFA d\u014Dng x\xEDng b\xF9 z\xFA\uFF0C l\u01DC y\xE1ng y\u012Bn l\u01D0 b\xE1i sh\u0101 d\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-35-poem-35",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5EAD\u4E2D\u6709\u5947\u6811\u300A\u53E4\u8BD7\u5341\u4E5D\u9996\u300B",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5EAD\u4E2D\u6709\u5947\u6811\uFF0C\u7EFF\u53F6\u53D1\u534E\u6ECB\u3002\u6500\u6761\u6298\u5176\u8363\uFF0C\u5C06\u4EE5\u9057\u6240\u601D\u3002\n\u99A8\u9999\u76C8\u6000\u8896\uFF0C\u8DEF\u8FDC\u83AB\u81F4\u4E4B\u3002\u6B64\u7269\u4F55\u8DB3\u8D35\uFF1F\u4F46\u611F\u522B\u7ECF\u65F6\u3002",
+        "pinyin": "t\xEDng zh\u014Dng y\u01D2u q\xED sh\xF9\uFF0C l\u01DC y\xE8 f\u0101 hu\xE1 z\u012B\u3002 p\u0101n ti\xE1o zh\xE9 q\xED r\xF3ng\uFF0C ji\u0101ng y\u01D0 y\xED su\u01D2 s\u012B\u3002\nx\u012Bn xi\u0101ng y\xEDng hu\xE1i xi\xF9\uFF0C l\xF9 yu\u01CEn m\xF2 zh\xEC zh\u012B\u3002 c\u01D0 w\xF9 h\xE9 z\xFA gu\xEC\uFF1F d\xE0n g\u01CEn bi\xE9 j\u012Bng sh\xED\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-36-poem-36",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9F9F\u867D\u5BFF \u4E1C\u6C49 \u66F9\u64CD",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u795E\u9F9F\u867D\u5BFF\uFF0C\u72B9\u6709\u7ADF\u65F6\u3002\u817E\u86C7\u4E58\u96FE\uFF0C\u7EC8\u4E3A\u571F\u7070\u3002\n\u8001\u9AA5\u4F0F\u67A5\uFF0C\u5FD7\u5728\u5343\u91CC\u3002\u70C8\u58EB\u66AE\u5E74\uFF0C\u58EE\u5FC3\u4E0D\u5DF2\u3002\n\u76C8\u7F29\u4E4B\u671F\uFF0C\u4E0D\u4F46\u5728\u5929\u3002\u517B\u6021\u4E4B\u798F\uFF0C\u53EF\u5F97\u6C38\u5E74\u3002\u5E78\u751A\u81F3\u54C9\uFF0C\u6B4C\u4EE5\u548F\u5FD7\u3002",
+        "pinyin": "sh\xE9n gu\u012B su\u012B sh\xF2u\uFF0C y\xF3u y\u01D2u j\xECng sh\xED\u3002 t\xE9ng sh\xE9 ch\xE9ng w\xF9\uFF0C zh\u014Dng w\xE8i t\u01D4 hu\u012B\u3002\nl\u01CEo j\xEC f\xFA l\xEC\uFF0C zh\xEC z\xE0i qi\u0101n l\u01D0\u3002 li\xE8 sh\xEC m\xF9 ni\xE1n\uFF0C zhu\xE0ng x\u012Bn b\xF9 y\u01D0\u3002\ny\xEDng su\u014D zh\u012B q\u012B\uFF0C b\xF9 d\xE0n z\xE0i ti\u0101n\u3002 y\u01CEng y\xED zh\u012B f\xFA\uFF0C k\u011B d\xE9 y\u01D2ng ni\xE1n\u3002 x\xECng sh\xE8n zh\xEC z\u0101i\uFF0C g\u0113 y\u01D0 y\u01D2ng zh\xEC\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-37-poem-37",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8D60\u4ECE\u5F1F",
+        "author": "\u5218\u6862",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4EAD\u4EAD\u5C71\u4E0A\u677E\uFF0C\u745F\u745F\u8C37\u4E2D\u98CE\u3002\u98CE\u58F0\u4E00\u4F55\u76DB\uFF0C\u677E\u679D\u4E00\u4F55\u52B2\u3002\n\u51B0\u971C\u6B63\u60E8\u51C4\uFF0C\u7EC8\u5C81\u5E38\u7AEF\u6B63\u3002\u5C82\u4E0D\u7F79\u51DD\u5BD2\uFF0C\u677E\u67CF\u6709\u672C\u6027\u3002",
+        "pinyin": "t\xEDng t\xEDng sh\u0101n sh\xE0ng s\u014Dng\uFF0C s\xE8 s\xE8 g\u01D4 zh\xF2ng f\u0113ng\u3002 f\u0113ng sh\u0113ng y\u012B h\xE9 sh\xE8ng\uFF0C s\u014Dng zh\u012B y\u012B h\xE9 j\xECn\u3002\nb\u012Bng shu\u0101ng zh\xE8ng c\u01CEn q\u012B\uFF0C zh\u014Dng su\xEC ch\xE1ng du\u0101n zh\xE8ng\u3002 q\u01D0 b\xF9 l\xED n\xEDng h\xE1n\uFF0C s\u014Dng b\u01CEi y\u01D2u b\u011Bn x\xECng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-38-poem-38",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6881\u752B\u884C",
+        "author": "\u66F9\u690D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u516B\u65B9\u5404\u5F02\u6C14\uFF0C\u5343\u91CC\u6B8A\u98CE\u96E8\u3002\u5267\u54C9\u8FB9\u6D77\u6C11\uFF0C\u5BC4\u8EAB\u4E8E\u8349\u91CE\u3002\n\u59BB\u5B50\u8C61\u79BD\u517D\uFF0C\u884C\u6B62\u4F9D\u6797\u963B\u3002\u67F4\u95E8\u4F55\u8427\u6761\uFF0C\u72D0\u5154\u7FD4\u6211\u5B87\u3002",
+        "pinyin": "b\u0101 f\u0101ng g\xE8 y\xEC q\xEC\uFF0C qi\u0101n l\u01D0 sh\u016B f\u0113ng y\u01D4\u3002 j\xF9 z\u0101i bi\u0101n h\u01CEi m\xEDn\uFF0C j\xEC sh\u0113n y\xFA c\u01CEo y\u011B\u3002\nq\u012B z\u01D0 xi\xE0ng q\xEDn sh\xF2u\uFF0C x\xEDng zh\u01D0 y\u012B l\xEDn z\u01D4\u3002 ch\xE1i m\xE9n h\xE9 xi\u0101o ti\xE1o\uFF0C h\xFA t\xF9 xi\xE1ng w\u01D2 y\u01D4\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-39-poem-39",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5B5F\u5B50\u300A\u5F97\u9053\u591A\u52A9\uFF0C\u5931\u9053\u5BE1\u52A9\u300B",
+        "author": "\u5B5F\u5B50",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u5929\u65F6\u4E0D\u5982\u5730\u5229\uFF0C\u5730\u5229\u4E0D\u5982\u4EBA\u548C\u3002\u4E09\u91CC\u4E4B\u57CE\uFF0C\u4E03\u91CC\u4E4B\u90ED\uFF0C\u73AF\u800C\u653B\u4E4B\u800C\u4E0D\u80DC\u3002\u592B\u73AF\u800C\u653B\u4E4B\uFF0C\u5FC5\u6709\u5F97\u5929\u65F6\u8005\u77E3\uFF0C\u7136\u800C\u4E0D\u80DC\u8005\uFF0C\u662F\u5929\u65F6\u4E0D\u5982\u5730\u5229\u4E5F\u3002\n\u57CE\u975E\u4E0D\u9AD8\u4E5F\uFF0C\u6C60\u975E\u4E0D\u6DF1\u4E5F\uFF0C\u5175\u9769\u975E\u4E0D\u575A\u5229\u4E5F\uFF0C\u7C73\u7C9F\u975E\u4E0D\u591A\u4E5F\uFF0C\u59D4\u800C\u53BB\u4E4B\uFF0C\u662F\u5730\u5229\u4E0D\u5982\u4EBA\u548C\u4E5F\u3002\n\u6545\u66F0\uFF1A\u57DF\u6C11\u4E0D\u4EE5\u5C01\u7586\u4E4B\u754C\uFF0C\u56FA\u56FD\u4E0D\u4EE5\u5C71\u6EAA\u4E4B\u9669\uFF0C\u5A01\u5929\u4E0B\u4E0D\u4EE5\u5175\u9769\u4E4B\u5229\u3002\u5F97\u9053\u8005\u591A\u52A9\uFF0C\u5931\u9053\u8005\u5BE1\u52A9\u3002\u5BE1\u52A9\u4E4B\u81F3\uFF0C\u4EB2\u621A\u7554\u4E4B\uFF1B\u591A\u52A9\u4E4B\u81F3\uFF0C\u5929\u4E0B\u987A\u4E4B\u3002\u4EE5\u5929\u4E0B\u4E4B\u6240\u987A\uFF0C\u653B\u4EB2\u621A\u4E4B\u6240\u7554\uFF0C\u6545\u541B\u5B50\u6709\u4E0D\u6218\uFF0C\u6218\u5FC5\u80DC\u77E3\u3002",
+        "pinyin": "ti\u0101n sh\xED b\xF9 r\xFA d\xEC l\xEC\uFF0C d\xEC l\xEC b\xF9 r\xFA r\xE9n h\xE9\u3002 s\u0101n l\u01D0 zh\u012B ch\xE9ng\uFF0C q\u012B l\u01D0 zh\u012B gu\u014D\uFF0C hu\xE1n \xE9r g\u014Dng zh\u012B \xE9r b\xF9 sh\xE8ng\u3002 f\u016B hu\xE1n \xE9r g\u014Dng zh\u012B\uFF0C b\xEC y\u01D2u d\xE9 ti\u0101n sh\xED zh\u011B y\u01D0\uFF0C r\xE1n \xE9r b\xF9 sh\xE8ng zh\u011B\uFF0C sh\xEC ti\u0101n sh\xED b\xF9 r\xFA d\xEC l\xEC y\u011B\u3002\nch\xE9ng f\u0113i b\xF9 g\u0101o y\u011B\uFF0C ch\xED f\u0113i b\xF9 sh\u0113n y\u011B\uFF0C b\u012Bng g\xE9 f\u0113i b\xF9 ji\u0101n l\xEC y\u011B\uFF0C m\u01D0 s\xF9 f\u0113i b\xF9 du\u014D y\u011B\uFF0C w\u011Bi \xE9r q\xF9 zh\u012B\uFF0C sh\xEC d\xEC l\xEC b\xF9 r\xFA r\xE9n h\xE9 y\u011B\u3002\ng\xF9 yu\u0113\uFF1A y\xF9 m\xEDn b\xF9 y\u01D0 f\u0113ng ji\u0101ng zh\u012B ji\xE8\uFF0C g\xF9 gu\xF3 b\xF9 y\u01D0 sh\u0101n x\u012B zh\u012B xi\u01CEn\uFF0C w\u0113i ti\u0101n xi\xE0 b\xF9 y\u01D0 b\u012Bng g\xE9 zh\u012B l\xEC\u3002 d\xE9 d\xE0o zh\u011B du\u014D zh\xF9\uFF0C sh\u012B d\xE0o zh\u011B gu\u01CE zh\xF9\u3002 gu\u01CE zh\xF9 zh\u012B zh\xEC\uFF0C q\u012Bn q\u012B p\xE0n zh\u012B\uFF1B du\u014D zh\xF9 zh\u012B zh\xEC\uFF0C ti\u0101n xi\xE0 sh\xF9n zh\u012B\u3002 y\u01D0 ti\u0101n xi\xE0 zh\u012B su\u01D2 sh\xF9n\uFF0C g\u014Dng q\u012Bn q\u012B zh\u012B su\u01D2 p\xE0n\uFF0C g\xF9 j\u016Bn z\u01D0 y\u01D2u b\xF9 zh\xE0n\uFF0C zh\xE0n b\xEC sh\xE8ng y\u01D0\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-40-poem-40",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5B5F\u5B50\u300A\u5BCC\u8D35\u4E0D\u80FD\u6DEB\u300B",
+        "author": "\u5B5F\u5B50",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": `\u666F\u6625\u66F0:"\u516C\u5B59\u884D\u3001\u5F20\u4EEA\u5C82\u4E0D\u8BDA\u5927\u4E08\u592B\u54C9?\u4E00\u6012\u800C\u8BF8\u4FAF\u60E7\uFF0C\u5B89\u5C45\u800C\u5929\u4E0B\u7184\u3002"
+\u5B5F\u5B50\u66F0:"\u662F\u7109\u5F97\u4E3A\u5927\u4E08\u592B\u4E4E?\u5B50\u672A\u5B66\u793C\u4E4E?\u4E08\u592B\u4E4B\u51A0\u4E5F\uFF0C\u7236\u4E4B;\u5973\u5B50\u4E4B\u5AC1\u4E5F\uFF0C\u6BCD\u547D\u4E4B\uFF0C\u5F80\u9001\u4E4B\u95E8\uFF0C\u6212\u4E4B\u66F0:'\u5F80\u4E4B\u5973\u5BB6\uFF0C\u5FC5\u656C\u5FC5\u6212\uFF0C\u65E0\u8FDD\u592B\u5B50!'\u4EE5\u987A\u4E3A\u6B63\u8005\uFF0C\u59BE\u5987\u4E4B\u9053\u4E5F\u3002\u5C45\u5929\u4E0B\u4E4B\u5E7F\u5C45\uFF0C\u7ACB\u5929\u4E0B\u4E4B\u6B63\u4F4D\uFF0C\u884C\u5929\u4E0B\u4E4B\u5927\u9053;\u5F97\u5FD7\uFF0C\u4E0E\u6C11\u7531\u4E4B;\u4E0D\u5F97\u5FD7\uFF0C\u72EC\u884C\u5176\u9053\u3002\u5BCC\u8D35\u4E0D\u80FD\u6DEB\uFF0C\u8D2B\u8D31\u4E0D\u80FD\u79FB\uFF0C\u5A01\u6B66\u4E0D\u80FD\u5C48\uFF0C\u6B64\u4E4B\u8C13\u5927\u4E08\u592B\u3002"`,
+        "pinyin": `j\u01D0ng ch\u016Bn yu\u0113 :" g\u014Dng s\u016Bn y\u01CEn\u3001 zh\u0101ng y\xED q\u01D0 b\xF9 ch\xE9ng d\xE0 zh\xE0ng f\u016B z\u0101i? y\u012B n\xF9 \xE9r zh\u016B h\xF3u j\xF9\uFF0C \u0101n j\u016B \xE9r ti\u0101n xi\xE0 x\u012B\u3002"
+m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u016B? zi w\xE8i xu\xE9 l\u01D0 h\u016B? zh\xE0ng f\u016B zh\u012B gu\u0101n y\u011B\uFF0C f\xF9 zh\u012B; n\u01DA z\u01D0 zh\u012B ji\xE0 y\u011B\uFF0C m\u01D4 m\xECng zh\u012B\uFF0C w\u01CEng s\xF2ng zh\u012B m\xE9n\uFF0C ji\xE8 zh\u012B yu\u0113 :' w\u01CEng zh\u012B n\u01DA ji\u0101\uFF0C b\xEC j\xECng b\xEC ji\xE8\uFF0C w\xFA w\xE9i f\u016B z\u01D0!' y\u01D0 sh\xF9n w\xE8i zh\xE8ng zh\u011B\uFF0C qi\xE8 f\xF9 zh\u012B d\xE0o y\u011B\u3002 j\u016B ti\u0101n xi\xE0 zh\u012B gu\u01CEng j\u016B\uFF0C l\xEC ti\u0101n xi\xE0 zh\u012B zh\xE8ng w\xE8i\uFF0C x\xEDng ti\u0101n xi\xE0 zh\u012B d\xE0 d\xE0o; d\xE9 zh\xEC\uFF0C y\u01D4 m\xEDn y\xF3u zh\u012B; b\xF9 d\xE9 zh\xEC\uFF0C d\xFA x\xEDng q\xED d\xE0o\u3002 f\xF9 gu\xEC b\xF9 n\xE9ng y\xEDn\uFF0C p\xEDn ji\xE0n b\xF9 n\xE9ng y\xED\uFF0C w\u0113i w\u01D4 b\xF9 n\xE9ng q\u016B\uFF0C c\u01D0 zh\u012B w\xE8i d\xE0 zh\xE0ng f\u016B\u3002"`,
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-41-poem-41",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5B5F\u5B50\u300A\u751F\u4E8E\u5FE7\u60A3\uFF0C\u6B7B\u4E8E\u5B89\u4E50\u300B",
+        "author": "\u5B5F\u5B50",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u821C\u53D1\u4E8E\u754E\u4EA9\u4E4B\u4E2D\uFF0C\u5085\u8BF4\u4E3E\u4E8E\u7248\u7B51\u4E4B\u95F4\uFF0C\u80F6\u9B32\u4E3E\u4E8E\u9C7C\u76D0\u4E4B\u4E2D\uFF0C\u7BA1\u5937\u543E\u4E3E\u4E8E\u58EB\uFF0C\u5B59\u53D4\u6556\u4E3E\u4E8E\u6D77\uFF0C\u767E\u91CC\u595A\u4E3E\u4E8E\u5E02\u3002\u6545\u5929\u5C06\u964D\u5927\u4EFB\u4E8E\u65AF\u4EBA\u4E5F\uFF0C\u5FC5\u5148\u82E6\u5176\u5FC3\u5FD7\uFF0C\u52B3\u5176\u7B4B\u9AA8\uFF0C\u997F\u5176\u4F53\u80A4\uFF0C\u7A7A\u4E4F\u5176\u8EAB\uFF0C\u884C\u62C2\u4E71\u5176\u6240\u4E3A\uFF0C\u6240\u4EE5\u52A8\u5FC3\u5FCD\u6027\uFF0C\u66FE\u76CA\u5176\u6240\u4E0D\u80FD\u3002\n\u4EBA\u6052\u8FC7\uFF0C\u7136\u540E\u80FD\u6539;\u56F0\u4E8E\u5FC3\uFF0C\u8861\u4E8E\u8651\uFF0C\u800C\u540E\u4F5C;\u5F81\u4E8E\u8272\uFF0C\u53D1\u4E8E\u58F0\uFF0C\u800C\u540E\u55BB\u3002\u5165\u5219\u65E0\u6CD5\u5BB6\u62C2\u58EB\uFF0C\u51FA\u5219\u65E0\u654C\u56FD\u5916\u60A3\u8005\uFF0C\u56FD\u6052\u4EA1\u3002\u7136\u540E\u77E5\u751F\u4E8E\u5FE7\u60A3\u800C\u6B7B\u4E8E\u5B89\u4E50\u4E5F\u3002",
+        "pinyin": "sh\xF9n f\u0101 y\xFA qu\u01CEn m\u01D4 zh\u012B zh\u014Dng\uFF0C f\xF9 shu\u014D j\u01D4 y\xFA b\u01CEn zh\xF9 zh\u012B ji\u0101n\uFF0C ji\u0101o g\xE9 j\u01D4 y\xFA y\xFA y\xE1n zh\u012B zh\u014Dng\uFF0C gu\u01CEn y\xED w\xFA j\u01D4 y\xFA sh\xEC\uFF0C s\u016Bn sh\u016B \xE1o j\u01D4 y\xFA h\u01CEi\uFF0C b\u01CEi l\u01D0 x\u012B j\u01D4 y\xFA sh\xEC\u3002 g\xF9 ti\u0101n ji\u0101ng ji\xE0ng d\xE0 r\xE8n y\xFA s\u012B r\xE9n y\u011B\uFF0C b\xEC xi\u0101n k\u01D4 q\xED x\u012Bn zh\xEC\uFF0C l\xE1o q\xED j\u012Bn g\u01D4\uFF0C \xE8 q\xED t\u01D0 f\u016B\uFF0C k\u014Dng f\xE1 q\xED sh\u0113n\uFF0C x\xEDng f\xFA lu\xE0n q\xED su\u01D2 w\xE8i\uFF0C su\u01D2 y\u01D0 d\xF2ng x\u012Bn r\u011Bn x\xECng\uFF0C c\xE9ng y\xEC q\xED su\u01D2 b\xF9 n\xE9ng\u3002\nr\xE9n h\xE9ng gu\xF2\uFF0C r\xE1n h\xF2u n\xE9ng g\u01CEi; k\xF9n y\xFA x\u012Bn\uFF0C h\xE9ng y\xFA l\u01DC\uFF0C \xE9r h\xF2u zu\xF2; zh\u0113ng y\xFA s\xE8\uFF0C f\u0101 y\xFA sh\u0113ng\uFF0C \xE9r h\xF2u y\xF9\u3002 r\xF9 z\xE9 w\xFA f\u01CE ji\u0101 b\xEC sh\xEC\uFF0C ch\u016B z\xE9 w\xFA d\xED gu\xF3 w\xE0i hu\xE0n zh\u011B\uFF0C gu\xF3 h\xE9ng w\xE1ng\u3002 r\xE1n h\xF2u zh\u012B sh\u0113ng y\xFA y\u014Du hu\xE0n \xE9r s\u01D0 y\xFA \u0101n l\xE8 y\u011B\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-42-poem-42",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u611A\u516C\u79FB\u5C71",
+        "author": "\u5217\u5FA1\u5BC7",
+        "dynasty": "\u5148\u79E6",
+        "excerpt": "\u592A\u884C\u3001\u738B\u5C4B\u4E8C\u5C71\uFF0C\u65B9\u4E03\u767E\u91CC\uFF0C\u9AD8\u4E07\u4EDE\uFF0C\u672C\u5728\u5180\u5DDE\u4E4B\u5357\uFF0C\u6CB3\u9633\u4E4B\u5317\u3002\n\u5317\u5C71\u611A\u516C\u8005\uFF0C\u5E74\u4E14\u4E5D\u5341\uFF0C\u9762\u5C71\u800C\u5C45\u3002\u60E9\u5C71\u5317\u4E4B\u585E\uFF0C\u51FA\u5165\u4E4B\u8FC2\u4E5F\uFF0C\u805A\u5BA4\u800C\u8C0B\u66F0\uFF1A\u201C\u543E\u4E0E\u6C5D\u6BD5\u529B\u5E73\u9669\uFF0C\u6307\u901A\u8C6B\u5357\uFF0C\u8FBE\u4E8E\u6C49\u9634\uFF0C\u53EF\u4E4E\uFF1F\u201D\u6742\u7136\u76F8\u8BB8\u3002\u5176\u59BB\u732E\u7591\u66F0\uFF1A\u201C\u4EE5\u541B\u4E4B\u529B\uFF0C\u66FE\u4E0D\u80FD\u635F\u9B41\u7236\u4E4B\u4E18\uFF0C\u5982\u592A\u884C\u3001\u738B\u5C4B\u4F55\uFF1F\u4E14\u7109\u7F6E\u571F\u77F3\uFF1F\u201D\u6742\u66F0\uFF1A\u201C\u6295\u8BF8\u6E24\u6D77\u4E4B\u5C3E\uFF0C\u9690\u571F\u4E4B\u5317\u3002\u201D\u9042\u7387\u5B50\u5B59\u8377\u62C5\u8005\u4E09\u592B\uFF0C\u53E9\u77F3\u57A6\u58E4\uFF0C\u7B95\u755A\u8FD0\u4E8E\u6E24\u6D77\u4E4B\u5C3E\u3002\u90BB\u4EBA\u4EAC\u57CE\u6C0F\u4E4B\u5B40\u59BB\u6709\u9057\u7537\uFF0C\u59CB\u9F80\uFF0C\u8DF3\u5F80\u52A9\u4E4B\u3002\u5BD2\u6691\u6613\u8282\uFF0C\u59CB\u4E00\u53CD\u7109\u3002\n\u6CB3\u66F2\u667A\u53DF\u7B11\u800C\u6B62\u4E4B\u66F0\uFF1A\u201C\u751A\u77E3\uFF0C\u6C5D\u4E4B\u4E0D\u60E0\uFF01\u4EE5\u6B8B\u5E74\u4F59\u529B\uFF0C\u66FE\u4E0D\u80FD\u6BC1\u5C71\u4E4B\u4E00\u6BDB\uFF0C\u5176\u5982\u571F\u77F3\u4F55\uFF1F\u201D\u5317\u5C71\u611A\u516C\u957F\u606F\u66F0\uFF1A\u201C\u6C5D\u5FC3\u4E4B\u56FA\uFF0C\u56FA\u4E0D\u53EF\u5F7B\uFF0C\u66FE\u4E0D\u82E5\u5B40\u59BB\u5F31\u5B50\u3002\u867D\u6211\u4E4B\u6B7B\uFF0C\u6709\u5B50\u5B58\u7109\u3002\u5B50\u53C8\u751F\u5B59\uFF0C\u5B59\u53C8\u751F\u5B50\uFF1B\u5B50\u53C8\u6709\u5B50\uFF0C\u5B50\u53C8\u6709\u5B59\uFF1B\u5B50\u5B50\u5B59\u5B59\u65E0\u7A77\u532E\u4E5F\uFF0C\u800C\u5C71\u4E0D\u52A0\u589E\uFF0C\u4F55\u82E6\u800C\u4E0D\u5E73\uFF1F\u201D\u6CB3\u66F2\u667A\u53DF\u4EA1\u4EE5\u5E94\u3002\n\u64CD\u86C7\u4E4B\u795E\u95FB\u4E4B\uFF0C\u60E7\u5176\u4E0D\u5DF2\u4E5F\uFF0C\u544A\u4E4B\u4E8E\u5E1D\u3002\u5E1D\u611F\u5176\u8BDA\uFF0C\u547D\u5938\u5A25\u6C0F\u4E8C\u5B50\u8D1F\u4E8C\u5C71\uFF0C\u4E00\u539D\u6714\u4E1C\uFF0C\u4E00\u539D\u96CD\u5357\u3002\u81EA\u6B64\uFF0C\u5180\u4E4B\u5357\uFF0C\u6C49\u4E4B\u9634\uFF0C\u65E0\u9647\u65AD\u7109\u3002",
+        "pinyin": "t\xE0i x\xEDng\u3001 w\xE1ng w\u016B \xE8r sh\u0101n\uFF0C f\u0101ng q\u012B b\u01CEi l\u01D0\uFF0C g\u0101o w\xE0n r\xE8n\uFF0C b\u011Bn z\xE0i j\xEC zh\u014Du zh\u012B n\xE1n\uFF0C h\xE9 y\xE1ng zh\u012B b\u011Bi\u3002\nb\u011Bi sh\u0101n y\xFA g\u014Dng zh\u011B\uFF0C ni\xE1n qi\u011B ji\u01D4 sh\xED\uFF0C mi\xE0n sh\u0101n \xE9r j\u016B\u3002 ch\xE9ng sh\u0101n b\u011Bi zh\u012B s\u0101i\uFF0C ch\u016B r\xF9 zh\u012B y\u016B y\u011B\uFF0C j\xF9 sh\xEC \xE9r m\xF3u yu\u0113\uFF1A\u201C w\xFA y\u01D4 r\u01D4 b\xEC l\xEC p\xEDng xi\u01CEn\uFF0C zh\u01D0 t\u014Dng y\xF9 n\xE1n\uFF0C d\xE1 y\xFA h\xE0n y\u012Bn\uFF0C k\u011B h\u016B\uFF1F\u201D z\xE1 r\xE1n xi\u0101ng x\u01D4\u3002 q\xED q\u012B xi\xE0n y\xED yu\u0113\uFF1A\u201C y\u01D0 j\u016Bn zh\u012B l\xEC\uFF0C c\xE9ng b\xF9 n\xE9ng s\u01D4n ku\xED f\xF9 zh\u012B qi\u016B\uFF0C r\xFA t\xE0i x\xEDng\u3001 w\xE1ng w\u016B h\xE9\uFF1F qi\u011B y\u0101n zh\xEC t\u01D4 sh\xED\uFF1F\u201D z\xE1 yu\u0113\uFF1A\u201C t\xF3u zh\u016B b\xF3 h\u01CEi zh\u012B w\u011Bi\uFF0C y\u01D0n t\u01D4 zh\u012B b\u011Bi\u3002\u201D su\xEC l\u01DC z\u01D0 s\u016Bn h\xE9 d\u0101n zh\u011B s\u0101n f\u016B\uFF0C k\xF2u sh\xED k\u011Bn r\u01CEng\uFF0C j\u012B b\u011Bn y\xF9n y\xFA b\xF3 h\u01CEi zh\u012B w\u011Bi\u3002 l\xEDn r\xE9n j\u012Bng ch\xE9ng sh\xEC zh\u012B shu\u0101ng q\u012B y\u01D2u y\xED n\xE1n\uFF0C sh\u01D0 ch\xE8n\uFF0C ti\xE0o w\u01CEng zh\xF9 zh\u012B\u3002 h\xE1n sh\u01D4 y\xEC ji\xE9\uFF0C sh\u01D0 y\u012B f\u01CEn y\u0101n\u3002\nh\xE9 q\u016B zh\xEC s\u01D2u xi\xE0o \xE9r zh\u01D0 zh\u012B yu\u0113\uFF1A\u201C sh\xE8n y\u01D0\uFF0C r\u01D4 zh\u012B b\xF9 hu\xEC\uFF01 y\u01D0 c\xE1n ni\xE1n y\xFA l\xEC\uFF0C c\xE9ng b\xF9 n\xE9ng hu\u01D0 sh\u0101n zh\u012B y\u012B m\xE1o\uFF0C q\xED r\xFA t\u01D4 sh\xED h\xE9\uFF1F\u201D b\u011Bi sh\u0101n y\xFA g\u014Dng zh\u01CEng x\u012B yu\u0113\uFF1A\u201C r\u01D4 x\u012Bn zh\u012B g\xF9\uFF0C g\xF9 b\xF9 k\u011B ch\xE8\uFF0C c\xE9ng b\xF9 ru\xF2 shu\u0101ng q\u012B ru\xF2 z\u01D0\u3002 su\u012B w\u01D2 zh\u012B s\u01D0\uFF0C y\u01D2u zi c\xFAn y\u0101n\u3002 zi y\xF2u sh\u0113ng s\u016Bn\uFF0C s\u016Bn y\xF2u sh\u0113ng zi\uFF1B zi y\xF2u y\u01D2u zi\uFF0C zi y\xF2u y\u01D2u s\u016Bn\uFF1B z\u01D0 z\u01D0 s\u016Bn s\u016Bn w\xFA qi\xF3ng ku\xEC y\u011B\uFF0C \xE9r sh\u0101n b\xF9 ji\u0101 z\u0113ng\uFF0C h\xE9 k\u01D4 \xE9r b\xF9 p\xEDng\uFF1F\u201D h\xE9 q\u016B zh\xEC s\u01D2u w\xE1ng y\u01D0 y\u012Bng\u3002\nc\u0101o sh\xE9 zh\u012B sh\xE9n w\xE9n zh\u012B\uFF0C j\xF9 q\xED b\xF9 y\u01D0 y\u011B\uFF0C g\xE0o zh\u012B y\xFA d\xEC\u3002 d\xEC g\u01CEn q\xED ch\xE9ng\uFF0C m\xECng ku\u0101 \xE9 sh\xEC \xE8r zi f\xF9 \xE8r sh\u0101n\uFF0C y\u012B cu\xF2 shu\xF2 d\u014Dng\uFF0C y\u012B cu\xF2 y\u014Dng n\xE1n\u3002 z\xEC c\u01D0\uFF0C j\xEC zh\u012B n\xE1n\uFF0C h\xE0n zh\u012B y\u012Bn\uFF0C w\xFA l\u01D2ng du\xE0n y\u0101n\u3002",
+        "category": "fable",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-43-poem-43",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5468\u4E9A\u592B\u519B\u7EC6\u67F3",
+        "author": "\u53F8\u9A6C\u8FC1",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u6587\u5E1D\u4E4B\u540E\u516D\u5E74\uFF0C\u5308\u5974\u5927\u5165\u8FB9\u3002\u4E43\u4EE5\u5B97\u6B63\u5218\u793C\u4E3A\u5C06\u519B\uFF0C\u519B\u9738\u4E0A\uFF1B\u795D\u5179\u4FAF\u5F90\u5389\u4E3A\u5C06\u519B\uFF0C\u519B\u68D8\u95E8\uFF1B\u4EE5\u6CB3\u5185\u5B88\u4E9A\u592B\u4E3A\u5C06\u519B\uFF0C\u519B\u7EC6\u67F3\uFF1A\u4EE5\u5907\u80E1\u3002\n\u4E0A\u81EA\u52B3\u519B\u3002\u81F3\u9738\u4E0A\u53CA\u68D8\u95E8\u519B\uFF0C\u76F4\u9A70\u5165\uFF0C\u5C06\u4EE5\u4E0B\u9A91\u9001\u8FCE\u3002\u5DF2\u800C\u4E4B\u7EC6\u67F3\u519B\uFF0C\u519B\u58EB\u540F\u88AB\u7532\uFF0C\u9510\u5175\u5203\uFF0C\u5F40\u5F13\u5F29\uFF0C\u6301\u6EE1\u3002\u5929\u5B50\u5148\u9A71\u81F3\uFF0C\u4E0D\u5F97\u5165\u3002\u5148\u9A71\u66F0\uFF1A\u201C\u5929\u5B50\u4E14\u81F3\uFF01\u201D\u519B\u95E8\u90FD\u5C09\u66F0\uFF1A\u201C\u5C06\u519B\u4EE4\u66F0\uFF1A \u2018\u519B\u4E2D\u95FB\u5C06\u519B\u4EE4\uFF0C\u4E0D\u95FB\u5929\u5B50\u4E4B\u8BCF\u3002\u2019\u201D\u5C45\u65E0\u4F55\uFF0C\u4E0A\u81F3\uFF0C\u53C8\u4E0D\u5F97\u5165\u3002\u4E8E\u662F\u4E0A\u4E43\u4F7F\u4F7F\u6301\u8282\u8BCF\u5C06\u519B\uFF1A\u201C\u543E\u6B32\u5165\u52B3\u519B\u3002\u201D\u4E9A\u592B\u4E43\u4F20\u8A00\u5F00\u58C1\u95E8\u3002\u58C1\u95E8\u58EB\u540F\u8C13\u4ECE\u5C5E\u8F66\u9A91\u66F0\uFF1A\u201C\u5C06\u519B\u7EA6\uFF0C\u519B\u4E2D\u4E0D\u5F97\u9A71\u9A70\u3002\u201D\u4E8E\u662F\u5929\u5B50\u4E43\u6309\u8F94\u5F90\u884C\u3002\u81F3\u8425\uFF0C\u5C06\u519B\u4E9A\u592B\u6301\u5175\u63D6\u66F0\uFF1A\u201C\u4ECB\u80C4\u4E4B\u58EB\u4E0D\u62DC\uFF0C\u8BF7\u4EE5\u519B\u793C\u89C1\u3002\u201D\u5929\u5B50\u4E3A\u52A8\uFF0C\u6539\u5BB9\u5F0F\u8F66\u3002\u4F7F\u4EBA\u79F0\u8C22\uFF1A\u201C\u7687\u5E1D\u656C\u52B3\u5C06\u519B\u3002\u201D\u6210\u793C\u800C\u53BB\u3002\n\u65E2\u51FA\u519B\u95E8\uFF0C\u7FA4\u81E3\u7686\u60CA\u3002\u6587\u5E1D\u66F0\uFF1A\u201C\u55DF\u4E4E\uFF0C\u6B64\u771F\u5C06\u519B\u77E3\uFF01\u66E9\u8005\u9738\u4E0A\u3001\u68D8\u95E8\u519B\uFF0C\u82E5\u513F\u620F\u8033\uFF0C\u5176\u5C06\u56FA\u53EF\u88AD\u800C\u864F\u4E5F\u3002\u81F3\u4E8E\u4E9A\u592B\uFF0C\u53EF\u5F97\u800C\u72AF\u90AA\uFF01\u201D\u79F0\u5584\u8005\u4E45\u4E4B\u3002",
+        "pinyin": "w\xE9n d\xEC zh\u012B h\xF2u li\xF9 ni\xE1n\uFF0C xi\u014Dng n\xFA d\xE0 r\xF9 bi\u0101n\u3002 n\u01CEi y\u01D0 z\u014Dng zh\xE8ng li\xFA l\u01D0 w\xE8i ji\u0101ng j\u016Bn\uFF0C j\u016Bn b\xE0 sh\xE0ng\uFF1B zh\xF9 z\u012B h\xF3u x\xFA l\xEC w\xE8i ji\u0101ng j\u016Bn\uFF0C j\u016Bn j\xED m\xE9n\uFF1B y\u01D0 h\xE9 n\xE8i sh\u01D2u y\xE0 f\u016B w\xE8i ji\u0101ng j\u016Bn\uFF0C j\u016Bn x\xEC li\u01D4\uFF1A y\u01D0 b\xE8i h\xFA\u3002\nsh\xE0ng z\xEC l\xE1o j\u016Bn\u3002 zh\xEC b\xE0 sh\xE0ng j\xED j\xED m\xE9n j\u016Bn\uFF0C zh\xED ch\xED r\xF9\uFF0C ji\u0101ng y\u01D0 xi\xE0 q\xED s\xF2ng y\xEDng\u3002 y\u01D0 \xE9r zh\u012B x\xEC li\u01D4 j\u016Bn\uFF0C j\u016Bn sh\xEC l\xEC b\xE8i ji\u01CE\uFF0C ru\xEC b\u012Bng r\xE8n\uFF0C g\xF2u g\u014Dng n\u01D4\uFF0C ch\xED m\u01CEn\u3002 ti\u0101n zi xi\u0101n q\u016B zh\xEC\uFF0C b\xF9 d\xE9 r\xF9\u3002 xi\u0101n q\u016B yu\u0113\uFF1A\u201C ti\u0101n zi qi\u011B zh\xEC\uFF01\u201D j\u016Bn m\xE9n d\u016B w\xE8i yu\u0113\uFF1A\u201C ji\u0101ng j\u016Bn l\xECng yu\u0113\uFF1A \u2018 j\u016Bn zh\u014Dng w\xE9n ji\u0101ng j\u016Bn l\xECng\uFF0C b\xF9 w\xE9n ti\u0101n zi zh\u012B zh\xE0o\u3002\u2019\u201D j\u016B w\xFA h\xE9\uFF0C sh\xE0ng zh\xEC\uFF0C y\xF2u b\xF9 d\xE9 r\xF9\u3002 y\xFA sh\xEC sh\xE0ng n\u01CEi sh\u01D0 sh\u01D0 ch\xED ji\xE9 zh\xE0o ji\u0101ng j\u016Bn\uFF1A\u201C w\xFA y\xF9 r\xF9 l\xE1o j\u016Bn\u3002\u201D y\xE0 f\u016B n\u01CEi chu\xE1n y\xE1n k\u0101i b\xEC m\xE9n\u3002 b\xEC m\xE9n sh\xEC l\xEC w\xE8i c\xF3ng sh\u01D4 ch\u0113 q\xED yu\u0113\uFF1A\u201C ji\u0101ng j\u016Bn yu\u0113\uFF0C j\u016Bn zh\u014Dng b\xF9 d\xE9 q\u016B ch\xED\u3002\u201D y\xFA sh\xEC ti\u0101n zi n\u01CEi \xE0n p\xE8i x\xFA x\xEDng\u3002 zh\xEC y\xEDng\uFF0C ji\u0101ng j\u016Bn y\xE0 f\u016B ch\xED b\u012Bng y\u012B yu\u0113\uFF1A\u201C ji\xE8 zh\xF2u zh\u012B sh\xEC b\xF9 b\xE0i\uFF0C q\u01D0ng y\u01D0 j\u016Bn l\u01D0 ji\xE0n\u3002\u201D ti\u0101n zi w\xE8i d\xF2ng\uFF0C g\u01CEi r\xF3ng sh\xEC ch\u0113\u3002 sh\u01D0 r\xE9n ch\u0113ng xi\xE8\uFF1A\u201C hu\xE1ng d\xEC j\xECng l\xE1o ji\u0101ng j\u016Bn\u3002\u201D ch\xE9ng l\u01D0 \xE9r q\xF9\u3002\nj\xEC ch\u016B j\u016Bn m\xE9n\uFF0C q\xFAn ch\xE9n ji\u0113 j\u012Bng\u3002 w\xE9n d\xEC yu\u0113\uFF1A\u201C ji\u0113 h\u016B\uFF0C c\u01D0 zh\u0113n ji\u0101ng j\u016Bn y\u01D0\uFF01 n\u01CEng zh\u011B b\xE0 sh\xE0ng\u3001 j\xED m\xE9n j\u016Bn\uFF0C ru\xF2 \xE9r x\xEC \u011Br\uFF0C q\xED ji\u0101ng g\xF9 k\u011B x\xED \xE9r l\u01D4 y\u011B\u3002 zh\xEC y\xFA y\xE0 f\u016B\uFF0C k\u011B d\xE9 \xE9r f\xE0n xi\xE9\uFF01\u201D ch\u0113ng sh\xE0n zh\u011B ji\u01D4 zh\u012B\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-44-poem-44",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u996E\u9152",
+        "author": "\u9676\u6E0A\u660E",
+        "dynasty": "\u4E1C\u664B",
+        "excerpt": "\u7ED3\u5E90\u5728\u4EBA\u5883\uFF0C\u800C\u65E0\u8F66\u9A6C\u55A7\u3002\u95EE\u541B\u4F55\u80FD\u5C14\uFF0C\u5FC3\u8FDC\u5730\u81EA\u504F\u3002\n\u91C7\u83CA\u4E1C\u7BF1\u4E0B\uFF0C\u60A0\u60A0\u89C1\u5357\u5C71\u3002\u5C71\u6C14\u65E5\u5915\u4F73\uFF0C\u98DE\u9E1F\u76F8\u4E0E\u8FD8\u3002\n\u6B64\u4E2D\u6709\u771F\u610F\uFF0C\u6B32\u8FA8\u5DF2\u5FD8\u8A00\u3002",
+        "pinyin": "ji\xE9 l\xFA z\xE0i r\xE9n j\xECng\uFF0C \xE9r w\xFA ch\u0113 m\u01CE xu\u0101n\u3002 w\xE8n j\u016Bn h\xE9 n\xE9ng \u011Br\uFF0C x\u012Bn yu\u01CEn d\xEC z\xEC pi\u0101n\u3002\nc\u01CEi j\xFA d\u014Dng l\xED xi\xE0\uFF0C y\u014Du y\u014Du ji\xE0n n\xE1n sh\u0101n\u3002 sh\u0101n q\xEC r\xEC x\u012B ji\u0101\uFF0C f\u0113i ni\u01CEo xi\u0101ng y\u01D4 h\xE1i\u3002\nc\u01D0 zh\u014Dng y\u01D2u zh\u0113n y\xEC\uFF0C y\xF9 bi\xE0n y\u01D0 w\xE0ng y\xE1n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-45-poem-45",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6625\u671B",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u56FD\u7834\u5C71\u6CB3\u5728\uFF0C \u57CE\u6625\u8349\u6728\u6DF1\u3002\u611F\u65F6\u82B1\u6E85\u6CEA\uFF0C \u6068\u522B\u9E1F\u60CA\u5FC3\u3002\n\u70FD\u706B\u8FDE\u4E09\u6708\uFF0C \u5BB6\u4E66\u62B5\u4E07\u91D1\u3002\u767D\u5934\u6414\u66F4\u77ED\uFF0C \u6D51\u6B32\u4E0D\u80DC\u7C2A\u3002",
+        "pinyin": "gu\xF3 p\xF2 sh\u0101n h\xE9 z\xE0i\uFF0C ch\xE9ng ch\u016Bn c\u01CEo m\xF9 sh\u0113n\u3002 g\u01CEn sh\xED hu\u0101 ji\xE0n l\xE8i\uFF0C h\xE8n bi\xE9 ni\u01CEo j\u012Bng x\u012Bn\u3002\nf\u0113ng hu\u01D2 li\xE1n s\u0101n yu\xE8\uFF0C ji\u0101 sh\u016B d\u01D0 w\xE0n j\u012Bn\u3002 b\xE1i t\xF3u s\u0101o g\xE8ng du\u01CEn\uFF0C h\xFAn y\xF9 b\xF9 sh\xE8ng z\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 13,
+          "bvid": "BV1yg4y1U7WW",
+          "url": "https://www.bilibili.com/bangumi/play/ep810551",
+          "title": "\u4F60\u77E5\u9053\u8FD9\u9996\u300A\u6625\u671B\u300B\u662F\u600E\u4E48\u521B\u4F5C\u51FA\u6765\u7684\u5417\uFF1F"
+        }
+      },
+      {
+        "id": "extra-46-poem-46",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u96C1\u95E8\u592A\u5B88\u884C",
+        "author": "\u674E\u8D3A",
+        "dynasty": "\u5510",
+        "excerpt": "\u9ED1\u4E91\u538B\u57CE\u57CE\u6B32\u6467\uFF0C \u7532\u5149\u5411\u65E5\u91D1\u9CDE\u5F00\u3002\u89D2\u58F0\u6EE1\u5929\u79CB\u8272\u91CC\uFF0C \u585E\u4E0A\u71D5\u8102\u51DD\u591C\u7D2B\u3002\n\u534A\u5377\u7EA2\u65D7\u4E34\u6613\u6C34\uFF0C \u971C\u91CD\u9F13\u5BD2\u58F0\u4E0D\u8D77\u3002\u62A5\u541B\u9EC4\u91D1\u53F0\u4E0A\u610F\uFF0C \u63D0\u643A\u7389\u9F99\u4E3A\u541B\u6B7B\u3002",
+        "pinyin": "h\u0113i y\xFAn y\u0101 ch\xE9ng ch\xE9ng y\xF9 cu\u012B\uFF0C ji\u01CE gu\u0101ng xi\xE0ng r\xEC j\u012Bn l\xEDn k\u0101i\u3002 ji\u01CEo sh\u0113ng m\u01CEn ti\u0101n qi\u016B s\xE8 l\u01D0\uFF0C s\xE0i sh\xE0ng y\xE0n zh\u012B n\xEDng y\xE8 z\u01D0\u3002\nb\xE0n ju\u01CEn h\xF3ng q\xED l\xEDn y\xEC shu\u01D0\uFF0C shu\u0101ng zh\xF2ng g\u01D4 h\xE1n sh\u0113ng b\xF9 q\u01D0\u3002 b\xE0o j\u016Bn hu\xE1ng j\u012Bn t\xE1i sh\xE0ng y\xEC\uFF0C t\xED xi\xE9 y\xF9 l\xF3ng w\xE8i j\u016Bn s\u01D0\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-47-poem-47",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8D64\u58C1",
+        "author": "\u675C\u7267",
+        "dynasty": "\u5510",
+        "excerpt": "\u6298\u621F\u6C89\u6C99\u94C1\u672A\u9500\uFF0C\u81EA\u5C06\u78E8\u6D17\u8BA4\u524D\u671D\u3002\u4E1C\u98CE\u4E0D\u4E0E\u5468\u90CE\u4FBF\uFF0C\u94DC\u96C0\u6625\u6DF1\u9501\u4E8C\u4E54\u3002",
+        "pinyin": "zh\xE9 j\u01D0 ch\xE9n sh\u0101 ti\u011B w\xE8i xi\u0101o\uFF0C z\xEC ji\u0101ng m\xF3 x\u01D0 r\xE8n qi\xE1n ch\xE1o\u3002 d\u014Dng f\u0113ng b\xF9 y\u01D4 zh\u014Du l\xE1ng bi\xE0n\uFF0C t\xF3ng qu\xE8 ch\u016Bn sh\u0113n su\u01D2 \xE8r qi\xE1o\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-48-poem-48",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6E14\u5BB6\u50B2",
+        "author": "\u5B8B \u674E\u6E05\u7167",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5929\u63A5\u4E91\u6D9B\u8FDE\u6653\u96FE\uFF0C\u661F\u6CB3\u6B32\u8F6C\u5343\u5E06\u821E\u3002\u4EFF\u4F5B\u68A6\u9B42\u5F52\u5E1D\u6240\u3002\u95FB\u5929\u8BED\uFF0C\u6BB7\u52E4\u95EE\u6211\u5F52\u4F55\u5904\u3002\n\u6211\u62A5\u8DEF\u957F\u55DF\u65E5\u66AE\uFF0C\u5B66\u8BD7\u8C29\u6709\u60CA\u4EBA\u53E5\u3002\u4E5D\u4E07\u91CC\u98CE\u9E4F\u6B63\u4E3E\u3002\u98CE\u4F11\u4F4F\uFF0C\u84EC\u821F\u5439\u53D6\u4E09\u5C71\u53BB\uFF01",
+        "pinyin": "ti\u0101n ji\u0113 y\xFAn t\u0101o li\xE1n xi\u01CEo w\xF9\uFF0C x\u012Bng h\xE9 y\xF9 zhu\u01CEn qi\u0101n f\u0101n w\u01D4\u3002 f\u01CEng f\xFA m\xE8ng h\xFAn gu\u012B d\xEC su\u01D2\u3002 w\xE9n ti\u0101n y\u01D4\uFF0C y\u012Bn q\xEDn w\xE8n w\u01D2 gu\u012B h\xE9 ch\xF9\u3002\nw\u01D2 b\xE0o l\xF9 zh\u01CEng ji\u0113 r\xEC m\xF9\uFF0C xu\xE9 sh\u012B m\xE1n y\u01D2u j\u012Bng r\xE9n j\xF9\u3002 ji\u01D4 w\xE0n l\u01D0 f\u0113ng p\xE9ng zh\xE8ng j\u01D4\u3002 f\u0113ng xi\u016B zh\xF9\uFF0C p\xE9ng zh\u014Du chu\u012B q\u01D4 s\u0101n sh\u0101n q\xF9\uFF01",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-49-poem-49",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6D63\u6EAA\u6C99",
+        "author": "\u664F\u6B8A",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u4E00\u66F2\u65B0\u8BCD\u9152\u4E00\u676F\uFF0C\u53BB\u5E74\u5929\u6C14\u65E7\u4EAD\u53F0\u3002\u5915\u9633\u897F\u4E0B\u51E0\u65F6\u56DE\u3002\n\u65E0\u53EF\u5948\u4F55\u82B1\u843D\u53BB\uFF0C\u4F3C\u66FE\u76F8\u8BC6\u71D5\u5F52\u6765\u3002\u5C0F\u56ED\u9999\u5F84\u72EC\u5F98\u5F8A\u3002",
+        "pinyin": "y\u012B q\u016B x\u012Bn c\xED ji\u01D4 y\u012B b\u0113i\uFF0C q\xF9 ni\xE1n ti\u0101n q\xEC ji\xF9 t\xEDng t\xE1i\u3002 x\u012B y\xE1ng x\u012B xi\xE0 j\u01D0 sh\xED hu\xED\u3002\nw\xFA k\u011B n\xE0i h\xE9 hu\u0101 lu\xF2 q\xF9\uFF0C s\xEC c\xE9ng xi\u0101ng sh\xED y\xE0n gu\u012B l\xE1i\u3002 xi\u01CEo yu\xE1n xi\u0101ng j\xECng d\xFA p\xE1i hu\xE1i\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "\u4E00\u66F2\u65B0\u8BCD\u9152\u4E00\u676F\uFF0C\u53BB\u5E74\u5929\u6C14\u65E7\u4EAD\u53F0\u3002\u5915\u9633\u897F\u4E0B\u51E0\u65F6\u56DE\uFF1F\u65E0\u53EF\u5948\u4F55\u82B1\u843D\u53BB\uFF0C\u4F3C\u66FE\u76F8\u8BC6\u71D5\u5F52\u6765\u3002\u5C0F\u56ED\u9999\u5F84\u72EC\u5F98\u5F8A\u3002",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-50-poem-50",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u91C7\u6851\u5B50",
+        "author": "\u6B27\u9633\u4FEE",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u8F7B\u821F\u77ED\u68F9\u897F\u6E56\u597D\uFF0C\u7EFF\u6C34\u9036\u8FE4\uFF0C\u82B3\u8349\u957F\u5824\uFF0C\u9690\u9690\u7B19\u6B4C\u5904\u5904\u968F\u3002\n\u65E0\u98CE\u6C34\u9762\u7409\u7483\u6ED1\uFF0C\u4E0D\u89C9\u8239\u79FB\uFF0C\u5FAE\u52A8\u6D9F\u6F2A\uFF0C\u60CA\u8D77\u6C99\u79BD\u63A0\u5CB8\u98DE\u3002",
+        "pinyin": "q\u012Bng zh\u014Du du\u01CEn zh\xE0o x\u012B h\xFA h\u01CEo\uFF0C l\u01DC shu\u01D0 w\u0113i y\xED\uFF0C f\u0101ng c\u01CEo zh\u01CEng d\u012B\uFF0C y\u01D0n y\u01D0n sh\u0113ng g\u0113 ch\xF9 ch\xF9 su\xED\u3002\nw\xFA f\u0113ng shu\u01D0 mi\xE0n li\xFA l\xED hu\xE1\uFF0C b\xF9 ju\xE9 chu\xE1n y\xED\uFF0C w\u0113i d\xF2ng li\xE1n y\u012B\uFF0C j\u012Bng q\u01D0 sh\u0101 q\xEDn l\xFC\xE8 \xE0n f\u0113i\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-51-poem-51",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u76F8\u89C1\u6B22",
+        "author": "\u6731\u6566\u5112",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u91D1\u9675\u57CE\u4E0A\u897F\u697C\u3002\u501A\u6E05\u79CB\u3002\u4E07\u91CC\u5915\u9633\u5782\u5730\u3001\u5927\u6C5F\u6D41\u3002\n\u4E2D\u539F\u4E71\u3002\u7C2A\u6A31\u6563\u3002\u51E0\u65F6\u6536\u3002\u8BD5\u5029\u60B2\u98CE\u5439\u6CEA\u3001\u8FC7\u626C\u5DDE\u3002",
+        "pinyin": "j\u012Bn l\xEDng ch\xE9ng sh\xE0ng x\u012B l\xF3u\u3002 y\u01D0 q\u012Bng qi\u016B\u3002 w\xE0n l\u01D0 x\u012B y\xE1ng chu\xED d\xEC\u3001 d\xE0 ji\u0101ng li\xFA\u3002\nzh\u014Dng yu\xE1n lu\xE0n\u3002 z\u0101n y\u012Bng s\xE0n\u3002 j\u01D0 sh\xED sh\u014Du\u3002 sh\xEC qi\xE0n b\u0113i f\u0113ng chu\u012B l\xE8i\u3001 gu\xF2 y\xE1ng zh\u014Du\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-52-poem-52",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5982\u68A6\u4EE4",
+        "author": "\u674E\u6E05\u7167",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5E38\u8BB0\u6EAA\u4EAD\u65E5\u66AE\uFF0C\u6C89\u9189\u4E0D\u77E5\u5F52\u8DEF\u3002\u5174\u5C3D\u665A\u56DE\u821F\uFF0C\u8BEF\u5165\u85D5\u82B1\u6DF1\u5904\u3002\u4E89\u6E21\uFF0C\u4E89\u6E21\uFF0C\u60CA\u8D77\u4E00\u6EE9\u9E25\u9E6D\u3002",
+        "pinyin": "ch\xE1ng j\xEC x\u012B t\xEDng r\xEC m\xF9\uFF0C ch\xE9n zu\xEC b\xF9 zh\u012B gu\u012B l\xF9\u3002 x\u012Bng j\u01D0n w\u01CEn hu\xED zh\u014Du\uFF0C w\xF9 r\xF9 \u01D2u hu\u0101 sh\u0113n ch\xF9\u3002 zh\u0113ng d\xF9\uFF0C zh\u0113ng d\xF9\uFF0C j\u012Bng q\u01D0 y\u012B t\u0101n \u014Du l\xF9\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-53-poem-53",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6843\u82B1\u6E90\u8BB0",
+        "author": "\u6DD8\u6E0A\u660E",
+        "dynasty": "\u4E1C\u664B",
+        "excerpt": "\u664B\u592A\u5143\u4E2D\uFF0C\u6B66\u9675\u4EBA\uFF0C\u6355\u9C7C\u4E3A\u4E1A\uFF0C\u7F18\u6EAA\u884C\uFF0C\u5FD8\u8DEF\u4E4B\u8FDC\u8FD1\uFF0C\u5FFD\u9022\u6843\u82B1\u6797\u3002\u5939\u5CB8\u6570\u767E\u6B65\uFF0C\u4E2D\u65E0\u6742\u6811\uFF0C\u82B3\u8349\u9C9C\u7F8E\uFF0C\u843D\u82F1\u7F24\u7EB7\u3002\u6E14\u4EBA\u751A\u5F02\u4E4B\u3002\u590D\u524D\u884C\uFF0C\u6B32\u7A77\u5176\u6797\u3002\n\u6797\u5C3D\u6C34\u6E90\uFF0C\u4FBF\u5F97\u4E00\u5C71\u3002\u5C71\u6709\u5C0F\u53E3\uFF0C\u5F77\u4F5B\u82E5\u6709\u5149\u3002\u4FBF\u820D\u8239\uFF0C\u4ECE\u53E3\u5165\u3002\u521D\u6781\u72ED\uFF0C\u624D\u901A\u4EBA\uFF1B\u590D\u884C\u6570\u5341\u6B65\uFF0C\u8C41\u7136\u5F00\u6717\u3002\u571F\u5730\u5E73\u65F7\uFF0C\u5C4B\u820D\u4FE8\u7136\u3002\u6709\u826F\u7530\u7F8E\u6C60\u6851\u7AF9\u4E4B\u5C5E\uFF0C\u9621\u964C\u4EA4\u901A\uFF0C\u9E21\u72AC\u76F8\u95FB\u3002\u5176\u4E2D\u5F80\u6765\u79CD\u4F5C\uFF0C\u7537\u5973\u8863\u8457\uFF0C\u6089\u5982\u5916\u4EBA\uFF1B\u9EC4\u53D1\u5782\u9AEB\uFF0C\u5E76\u6021\u7136\u81EA\u4E50\u3002\n\u89C1\u6E14\u4EBA\uFF0C\u4E43\u5927\u60CA\uFF0C\u95EE\u6240\u4ECE\u6765\uFF0C\u5177\u7B54\u4E4B\u3002\u4FBF\u8981\u8FD8\u5BB6\uFF0C\u8BBE\u9152\u6740\u9E21\u4F5C\u98DF\u3002\u6751\u4E2D\u95FB\u6709\u6B64\u4EBA\uFF0C\u54B8\u6765\u95EE\u8BAF\u3002\u81EA\u4E91\u5148\u4E16\u907F\u79E6\u65F6\u4E71\uFF0C\u7387\u59BB\u5B50\u9091\u4EBA\u6765\u6B64\u7EDD\u5883\uFF0C\u4E0D\u590D\u51FA\u7109\uFF1B\u9042\u4E0E\u5916\u4EBA\u95F4\u9694\u3002\u95EE\u4ECA\u662F\u4F55\u4E16\uFF0C\u4E43\u4E0D\u77E5\u6709\u6C49\uFF0C\u65E0\u8BBA\u9B4F\u664B\u3002\u6B64\u4EBA\u4E00\u4E00\u4E3A\u5177\u8A00\u6240\u95FB\uFF0C\u7686\u53F9\u60CB\u3002\u4F59\u4EBA\u5404\u590D\u5EF6\u81F3\u5176\u5BB6\uFF0C\u7686\u51FA\u9152\u98DF\u3002\u505C\u6570\u65E5\uFF0C\u8F9E\u53BB\u3002\u6B64\u4E2D\u4EBA\u8BED\u4E91\uFF1A\u201C\u4E0D\u8DB3\u4E3A\u5916\u4EBA\u9053\u4E5F\u3002\u201D\n\u3000\u3000\u65E2\u51FA\uFF0C\u5F97\u5176\u8239\uFF0C\u4FBF\u6276\u5411\u8DEF\uFF0C\u5904\u5904\u5FD7\u4E4B\u3002\u53CA\u90E1\u4E0B\uFF0C\u8BE3\u592A\u5B88\uFF0C\u8BF4\u5982\u6B64\u3002\u592A\u5B88\u5373\u9063\u4EBA\u968F\u5176\u5F80\uFF0C\u5BFB\u5411\u6240\u5FD7\uFF0C\u9042\u8FF7\uFF0C\u4E0D\u590D\u5F97\u8DEF\u3002\n\u5357\u9633\u5218\u5B50\u9AA5\uFF0C\u9AD8\u5C1A\u58EB\u4E5F\uFF0C\u95FB\u4E4B\uFF0C\u6B23\u7136\u89C4\u5F80\u3002\u672A\u679C\uFF0C\u5BFB\u75C5\u7EC8\u3002\u540E\u9042\u65E0\u95EE\u6D25\u8005\u3002",
+        "pinyin": "j\xECn t\xE0i yu\xE1n zh\u014Dng\uFF0C w\u01D4 l\xEDng r\xE9n\uFF0C b\u01D4 y\xFA w\xE8i y\xE8\uFF0C yu\xE1n x\u012B x\xEDng\uFF0C w\xE0ng l\xF9 zh\u012B yu\u01CEn j\xECn\uFF0C h\u016B f\xE9ng t\xE1o hu\u0101 l\xEDn\u3002 ji\u0101 \xE0n sh\xF9 b\u01CEi b\xF9\uFF0C zh\u014Dng w\xFA z\xE1 sh\xF9\uFF0C f\u0101ng c\u01CEo xi\u0101n m\u011Bi\uFF0C lu\xF2 y\u012Bng b\u012Bn f\u0113n\u3002 y\xFA r\xE9n sh\xE8n y\xEC zh\u012B\u3002 f\xF9 qi\xE1n x\xEDng\uFF0C y\xF9 qi\xF3ng q\xED l\xEDn\u3002\nl\xEDn j\u01D0n shu\u01D0 yu\xE1n\uFF0C bi\xE0n d\xE9 y\u012B sh\u0101n\u3002 sh\u0101n y\u01D2u xi\u01CEo k\u01D2u\uFF0C p\xE1ng f\xF3 ru\xF2 y\u01D2u gu\u0101ng\u3002 bi\xE0n sh\u011B chu\xE1n\uFF0C c\xF3ng k\u01D2u r\xF9\u3002 ch\u016B j\xED xi\xE1\uFF0C c\xE1i t\u014Dng r\xE9n\uFF1B f\xF9 x\xEDng sh\xF9 sh\xED b\xF9\uFF0C hu\xF2 r\xE1n k\u0101i l\u01CEng\u3002 t\u01D4 d\xEC p\xEDng ku\xE0ng\uFF0C w\u016B sh\u011B y\u01CEn r\xE1n\u3002 y\u01D2u li\xE1ng ti\xE1n m\u011Bi ch\xED s\u0101ng zh\xFA zh\u012B sh\u01D4\uFF0C qi\u0101n m\xF2 ji\u0101o t\u014Dng\uFF0C j\u012B qu\u01CEn xi\u0101ng w\xE9n\u3002 q\xED zh\u014Dng w\u01CEng l\xE1i zh\u01D2ng zu\xF2\uFF0C n\xE1n n\u01DA y\u012B zh\xF9\uFF0C x\u012B r\xFA w\xE0i r\xE9n\uFF1B hu\xE1ng f\xE0 chu\xED ti\xE1o\uFF0C b\xECng y\xED r\xE1n z\xEC l\xE8\u3002\nji\xE0n y\xFA r\xE9n\uFF0C n\u01CEi d\xE0 j\u012Bng\uFF0C w\xE8n su\u01D2 c\xF3ng l\xE1i\uFF0C j\xF9 d\xE1 zh\u012B\u3002 bi\xE0n y\xE0o h\xE1i ji\u0101\uFF0C sh\xE8 ji\u01D4 sh\u0101 j\u012B zu\xF2 sh\xED\u3002 c\u016Bn zh\u014Dng w\xE9n y\u01D2u c\u01D0 r\xE9n\uFF0C xi\xE1n l\xE1i w\xE8n x\xF9n\u3002 z\xEC y\xFAn xi\u0101n sh\xEC b\xEC q\xEDn sh\xED lu\xE0n\uFF0C l\u01DC q\u012B z\u01D0 y\xEC r\xE9n l\xE1i c\u01D0 ju\xE9 j\xECng\uFF0C b\xF9 f\xF9 ch\u016B y\u0101n\uFF1B su\xEC y\u01D4 w\xE0i r\xE9n ji\u0101n g\xE9\u3002 w\xE8n j\u012Bn sh\xEC h\xE9 sh\xEC\uFF0C n\u01CEi b\xF9 zh\u012B y\u01D2u h\xE0n\uFF0C w\xFA l\xF9n w\xE8i j\xECn\u3002 c\u01D0 r\xE9n y\u012B y\u012B w\xE8i j\xF9 y\xE1n su\u01D2 w\xE9n\uFF0C ji\u0113 t\xE0n w\u01CEn\u3002 y\xFA r\xE9n g\xE8 f\xF9 y\xE1n zh\xEC q\xED ji\u0101\uFF0C ji\u0113 ch\u016B ji\u01D4 sh\xED\u3002 t\xEDng sh\xF9 r\xEC\uFF0C c\xED q\xF9\u3002 c\u01D0 zh\u014Dng r\xE9n y\u01D4 y\xFAn\uFF1A\u201C b\xF9 z\xFA w\xE9i w\xE0i r\xE9n d\xE0o y\u011B\u3002\u201D\nj\xEC ch\u016B\uFF0C d\xE9 q\xED chu\xE1n\uFF0C bi\xE0n f\xFA xi\xE0ng l\xF9\uFF0C ch\xF9 ch\xF9 zh\xEC zh\u012B\u3002 j\xED j\xF9n xi\xE0\uFF0C y\xEC t\xE0i sh\u01D2u\uFF0C shu\u014D r\xFA c\u01D0\u3002 t\xE0i sh\u01D2u j\xED qi\u01CEn r\xE9n su\xED q\xED w\u01CEng\uFF0C x\xFAn xi\xE0ng su\u01D2 zh\xEC\uFF0C su\xEC m\xED\uFF0C b\xF9 f\xF9 d\xE9 l\xF9\u3002\nn\xE1n y\xE1ng li\xFA zi j\xEC\uFF0C g\u0101o sh\xE0ng sh\xEC y\u011B\uFF0C w\xE9n zh\u012B\uFF0C x\u012Bn r\xE1n gu\u012B w\u01CEng\u3002 w\xE8i gu\u01D2\uFF0C x\xFAn b\xECng zh\u014Dng\u3002 h\xF2u su\xEC w\xFA w\xE8n j\u012Bn zh\u011B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-54-poem-54",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5C0F\u77F3\u6F6D\u8BB0",
+        "author": "\u67F3\u5B97\u5143",
+        "dynasty": "\u5510",
+        "excerpt": "\u4ECE\u5C0F\u4E18\u897F\u884C\u767E\u4E8C\u5341\u6B65\uFF0C\u9694\u7BC1\u7AF9\uFF0C\u95FB\u6C34\u58F0\uFF0C\u5982\u9E23\u73EE\u73AF\uFF0C\u5FC3\u4E50\u4E4B\u3002\u4F10\u7AF9\u53D6\u9053\uFF0C\u4E0B\u89C1\u5C0F\u6F6D\uFF0C\u6C34\u5C24\u6E05\u51BD\u3002\u5168\u77F3\u4EE5\u4E3A\u5E95\uFF0C\u8FD1\u5CB8\uFF0C\u5377\u77F3\u5E95\u4EE5\u51FA\uFF0C\u4E3A\u577B\uFF0C\u4E3A\u5C7F\uFF0C\u4E3A\u5D41\uFF0C\u4E3A\u5CA9\u3002\u9752\u6811\u7FE0\u8513\uFF0C\u8499\u7EDC\u6447\u7F00\uFF0C\u53C2\u5DEE\u62AB\u62C2\u3002\n\u6F6D\u4E2D\u9C7C\u53EF\u767E\u8BB8\u5934\uFF0C\u7686\u82E5\u7A7A\u6E38\u65E0\u6240\u4F9D\uFF0C\u65E5\u5149\u4E0B\u6F88\uFF0C\u5F71\u5E03\u77F3\u4E0A\u3002\u4F41\u7136\u4E0D\u52A8\uFF0C\u4FF6\u5C14\u8FDC\u901D\uFF0C\u5F80\u6765\u7FD5\u5FFD\uFF0C\u4F3C\u4E0E\u6E38\u8005\u76F8\u4E50\u3002\n\u6F6D\u897F\u5357\u800C\u671B\uFF0C\u6597\u6298\u86C7\u884C\uFF0C\u660E\u706D\u53EF\u89C1\u3002\u5176\u5CB8\u52BF\u72AC\u7259\u5DEE\u4E92\uFF0C\u4E0D\u53EF\u77E5\u5176\u6E90\u3002\n\u5750\u6F6D\u4E0A\uFF0C\u56DB\u9762\u7AF9\u6811\u73AF\u5408\uFF0C\u5BC2\u5BE5\u65E0\u4EBA\uFF0C\u51C4\u795E\u5BD2\u9AA8\uFF0C\u6084\u6006\u5E7D\u9083\u3002\u4EE5\u5176\u5883\u8FC7\u6E05\uFF0C\u4E0D\u53EF\u4E45\u5C45\uFF0C\u4E43\u8BB0\u4E4B\u800C\u53BB\u3002\n\u540C\u6E38\u8005\uFF1A\u5434\u6B66\u9675\uFF0C\u9F9A\u53E4\uFF0C\u4F59\u5F1F\u5B97\u7384\u3002\u96B6\u800C\u4ECE\u8005\uFF0C\u5D14\u6C0F\u4E8C\u5C0F\u751F\uFF0C\u66F0\u6055\u5DF1\uFF0C\u66F0\u5949\u58F9\u3002",
+        "pinyin": "c\xF3ng xi\u01CEo qi\u016B x\u012B x\xEDng b\u01CEi \xE8r sh\xED b\xF9\uFF0C g\xE9 hu\xE1ng zh\xFA\uFF0C w\xE9n shu\u01D0 sh\u0113ng\uFF0C r\xFA m\xEDng p\xE8i hu\xE1n\uFF0C x\u012Bn l\xE8 zh\u012B\u3002 f\xE1 zh\xFA q\u01D4 d\xE0o\uFF0C xi\xE0 ji\xE0n xi\u01CEo t\xE1n\uFF0C shu\u01D0 y\xF3u q\u012Bng li\xE8\u3002 qu\xE1n sh\xED y\u01D0 w\xE9i d\u01D0\uFF0C j\xECn \xE0n\uFF0C ju\u01CEn sh\xED d\u01D0 y\u01D0 ch\u016B\uFF0C w\xE8i ch\xED\uFF0C w\xE8i y\u01D4\uFF0C w\xE8i k\u0101n\uFF0C w\xE8i y\xE1n\u3002 q\u012Bng sh\xF9 cu\xEC m\xE0n\uFF0C m\xE9ng lu\xF2 y\xE1o zhu\xEC\uFF0C c\u0113n c\u012B p\u012B f\xFA\u3002\nt\xE1n zh\u014Dng y\xFA k\u011B b\u01CEi x\u01D4 t\xF3u\uFF0C ji\u0113 ru\xF2 k\u014Dng y\xF3u w\xFA su\u01D2 y\u012B\uFF0C r\xEC gu\u0101ng xi\xE0 ch\xE8\uFF0C y\u01D0ng b\xF9 sh\xED sh\xE0ng\u3002 y\u01D0 r\xE1n b\xF9 d\xF2ng\uFF0C ch\xF9 \u011Br yu\u01CEn sh\xEC\uFF0C w\u01CEng l\xE1i x\u012B h\u016B\uFF0C sh\xEC y\u01D4 y\xF3u zh\u011B xi\u0101ng l\xE8\u3002\nt\xE1n x\u012B n\xE1n \xE9r w\xE0ng\uFF0C d\u01D2u zh\xE9 sh\xE9 x\xEDng\uFF0C m\xEDng mi\xE8 k\u011B ji\xE0n\u3002 q\xED \xE0n sh\xEC qu\u01CEn y\xE1 ch\xE0 h\xF9\uFF0C b\xF9 k\u011B zh\u012B q\xED yu\xE1n\u3002\nzu\xF2 t\xE1n sh\xE0ng\uFF0C s\xEC mi\xE0n zh\xFA sh\xF9 hu\xE1n h\xE9\uFF0C j\xEC li\xE1o w\xFA r\xE9n\uFF0C q\u012B sh\xE9n h\xE1n g\u01D4\uFF0C qi\u0101o chu\xE0ng y\u014Du su\xEC\u3002 y\u01D0 q\xED j\xECng gu\xF2 q\u012Bng\uFF0C b\xF9 k\u011B ji\u01D4 j\u016B\uFF0C n\u01CEi j\xEC zh\u012B \xE9r q\xF9\u3002\nt\xF3ng y\xF3u zh\u011B\uFF1A w\xFA w\u01D4 l\xEDng\uFF0C g\u014Dng g\u01D4\uFF0C y\xFA d\xEC z\u014Dng xu\xE1n\u3002 l\xEC \xE9r c\xF3ng zh\u011B\uFF0C cu\u012B sh\xEC \xE8r xi\u01CEo sh\u0113ng\uFF0C yu\u0113 sh\xF9 j\u01D0\uFF0C yu\u0113 f\xE8ng y\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-55-poem-55",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8BD7\u7ECF\u300A\u5173\u96CE\u300B",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5173\u5173\u96CE\u9E20\uFF0C\u5728\u6CB3\u4E4B\u6D32\u3002\u7A88\u7A95\u6DD1\u5973\uFF0C\u541B\u5B50\u597D\u9011\u3002\u53C2\u5DEE\u8347\u83DC\uFF0C\u5DE6\u53F3\u6D41\u4E4B\u3002\n\u7A88\u7A95\u6DD1\u5973\uFF0C\u5BE4\u5BD0\u6C42\u4E4B\u3002\u6C42\u4E4B\u4E0D\u5F97\uFF0C\u5BE4\u5BD0\u601D\u670D\u3002\u60A0\u54C9\u60A0\u54C9\uFF0C\u8F97\u8F6C\u53CD\u4FA7\u3002\n\u53C2\u5DEE\u8347\u83DC\uFF0C\u5DE6\u53F3\u91C7\u4E4B\u3002\u7A88\u7A95\u6DD1\u5973\uFF0C\u7434\u745F\u53CB\u4E4B\u3002\u53C2\u5DEE\u8347\u83DC\uFF0C\u5DE6\u53F3\u82BC\u4E4B\u3002\n\u7A88\u7A95\u6DD1\u5973\uFF0C\u949F\u9F13\u4E50\u4E4B\u3002",
+        "pinyin": "gu\u0101n gu\u0101n j\u016B ji\u016B\uFF0C z\xE0i h\xE9 zh\u012B zh\u014Du\u3002 y\u01CEo ti\u01CEo sh\u016B n\u01DA\uFF0C j\u016Bn z\u01D0 h\u01CEo qi\xFA\u3002 c\u0113n c\u012B x\xECng c\xE0i\uFF0C zu\u01D2 y\xF2u li\xFA zh\u012B\u3002\ny\u01CEo ti\u01CEo sh\u016B n\u01DA\uFF0C w\xF9 m\xE8i qi\xFA zh\u012B\u3002 qi\xFA zh\u012B b\xF9 d\xE9\uFF0C w\xF9 m\xE8i s\u012B f\xFA\u3002 y\u014Du z\u0101i y\u014Du z\u0101i\uFF0C zh\u01CEn zhu\u01CEn f\u01CEn c\xE8\u3002\nc\u0113n c\u012B x\xECng c\xE0i\uFF0C zu\u01D2 y\xF2u c\u01CEi zh\u012B\u3002 y\u01CEo ti\u01CEo sh\u016B n\u01DA\uFF0C q\xEDn s\xE8 y\u01D2u zh\u012B\u3002 c\u0113n c\u012B x\xECng c\xE0i\uFF0C zu\u01D2 y\xF2u m\xE0o zh\u012B\u3002\ny\u01CEo ti\u01CEo sh\u016B n\u01DA\uFF0C zh\u014Dng g\u01D4 yu\xE8 zh\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-56-poem-56",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8BD7\u7ECF\u300A\u84B9\u846D\u300B",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u84B9\u846D\u82CD\u82CD\uFF0C\u767D\u9732\u4E3A\u971C\u3002\u6240\u8C13\u4F0A\u4EBA\uFF0C\u5728\u6C34\u4E00\u65B9\u3002\u6EAF\u6D04\u4ECE\u4E4B\uFF0C\u9053\u963B\u4E14\u957F\u3002\u6EAF\u6E38\u4ECE\u4E4B\uFF0C\u5B9B\u5728\u6C34\u4E2D\u592E\u3002\n\u84B9\u846D\u840B\u840B\uFF0C\u767D\u9732\u672A\u665E\u3002\u6240\u8C13\u4F0A\u4EBA\uFF0C\u5728\u6C34\u4E4B\u6E44\u3002\u6EAF\u6D04\u4ECE\u4E4B\uFF0C\u9053\u963B\u4E14\u8DFB\u3002\u6EAF\u6E38\u4ECE\u4E4B\uFF0C\u5B9B\u5728\u6C34\u4E2D\u577B\u3002\n\u84B9\u846D\u91C7\u91C7\uFF0C\u767D\u9732\u672A\u5DF2\u3002\u6240\u8C13\u4F0A\u4EBA\uFF0C\u5728\u6C34\u4E4B\u6D98\u3002\u6EAF\u6D04\u4ECE\u4E4B\uFF0C\u9053\u963B\u4E14\u53F3\u3002\u6EAF\u6E38\u4ECE\u4E4B\uFF0C\u5B9B\u5728\u6C34\u4E2D\u6C9A\u3002",
+        "pinyin": "ji\u0101n ji\u0101 c\u0101ng c\u0101ng\uFF0C b\xE1i l\xF9 w\xE8i shu\u0101ng\u3002 su\u01D2 w\xE8i y\u012B r\xE9n\uFF0C z\xE0i shu\u01D0 y\u012B f\u0101ng\u3002 s\xF9 hu\xED c\xF3ng zh\u012B\uFF0C d\xE0o z\u01D4 qi\u011B zh\u01CEng\u3002 s\xF9 y\xF3u c\xF3ng zh\u012B\uFF0C w\u01CEn z\xE0i shu\u01D0 zh\u014Dng y\u0101ng\u3002\nji\u0101n ji\u0101 q\u012B q\u012B\uFF0C b\xE1i l\xF9 w\xE8i x\u012B\u3002 su\u01D2 w\xE8i y\u012B r\xE9n\uFF0C z\xE0i shu\u01D0 zh\u012B m\xE9i\u3002 s\xF9 hu\xED c\xF3ng zh\u012B\uFF0C d\xE0o z\u01D4 qi\u011B j\u012B\u3002 s\xF9 y\xF3u c\xF3ng zh\u012B\uFF0C w\u01CEn z\xE0i shu\u01D0 zh\u014Dng ch\xED\u3002\nji\u0101n ji\u0101 c\u01CEi c\u01CEi\uFF0C b\xE1i l\xF9 w\xE8i y\u01D0\u3002 su\u01D2 w\xE8i y\u012B r\xE9n\uFF0C z\xE0i shu\u01D0 zh\u012B s\xEC\u3002 s\xF9 hu\xED c\xF3ng zh\u012B\uFF0C d\xE0o z\u01D4 qi\u011B y\xF2u\u3002 s\xF9 y\xF3u c\xF3ng zh\u012B\uFF0C w\u01CEn z\xE0i shu\u01D0 zh\u014Dng zh\u01D0\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-57-poem-57",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5F0F\u5FAE \u300A\u8BD7\u7ECF \u90B6\u98CE\u300B",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5F0F\u5FAE\uFF0C\u5F0F\u5FAE\uFF0C\u80E1\u4E0D\u5F52\uFF1F\u5FAE\u541B\u4E4B\u6545\uFF0C\u80E1\u4E3A\u4E4E\u4E2D\u9732\uFF1F\n\u5F0F\u5FAE\uFF0C\u5F0F\u5FAE\uFF0C\u80E1\u4E0D\u5F52\uFF1F\u5FAE\u541B\u4E4B\u8EAC\uFF0C\u80E1\u4E3A\u4E4E\u6CE5\u4E2D\uFF1F",
+        "pinyin": "sh\xEC w\u0113i\uFF0C sh\xEC w\u0113i\uFF0C h\xFA b\xF9 gu\u012B\uFF1F w\u0113i j\u016Bn zh\u012B g\xF9\uFF0C h\xFA w\xE8i h\u016B zh\u014Dng l\xF9\uFF1F\nsh\xEC w\u0113i\uFF0C sh\xEC w\u0113i\uFF0C h\xFA b\xF9 gu\u012B\uFF1F w\u0113i j\u016Bn zh\u012B g\u014Dng\uFF0C h\xFA w\xE8i h\u016B n\xED zh\u014Dng\uFF1F",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-58-poem-58",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5B50\u887F \u300A\u8BD7\u7ECF \u90D1\u98CE\u300B",
+        "author": "\u4F5A\u540D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u9752\u9752\u5B50\u887F\uFF0C\u60A0\u60A0\u6211\u5FC3\u3002\u7EB5\u6211\u4E0D\u5F80\uFF0C\u5B50\u5B81\u4E0D\u55E3\u97F3?\n\u9752\u9752\u5B50\u4F69\uFF0C\u60A0\u60A0\u6211\u601D\u3002\u7EB5\u6211\u4E0D\u5F80\uFF0C\u5B50\u5B81\u4E0D\u6765?\n\u6311\u516E\u8FBE\u516E\uFF0C\u5728\u57CE\u9619\u516E\u3002\u4E00\u65E5\u4E0D\u89C1\uFF0C\u5982\u4E09\u6708\u516E\u3002",
+        "pinyin": "q\u012Bng q\u012Bng zi j\u012Bn\uFF0C y\u014Du y\u014Du w\u01D2 x\u012Bn\u3002 z\xF2ng w\u01D2 b\xF9 w\u01CEng\uFF0C zi n\xEDng b\xF9 s\xEC y\u012Bn?\nq\u012Bng q\u012Bng zi p\xE8i\uFF0C y\u014Du y\u014Du w\u01D2 s\u012B\u3002 z\xF2ng w\u01D2 b\xF9 w\u01CEng\uFF0C zi n\xEDng b\xF9 l\xE1i?\nti\u0101o x\u012B d\xE1 x\u012B\uFF0C z\xE0i ch\xE9ng qu\xE8 x\u012B\u3002 y\u012B r\xEC b\xFA ji\xE0n\uFF0C r\xFA s\u0101n yu\xE8 x\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-59-poem-59",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9001\u675C\u5C11\u5E9C\u4E4B\u4EFB\u8700\u5DDE",
+        "author": "\u738B\u52C3",
+        "dynasty": "\u5510",
+        "excerpt": "\u57CE\u9619\u8F85\u4E09\u79E6\uFF0C\u98CE\u70DF\u671B\u4E94\u6D25\uFF0C\u4E0E\u541B\u79BB\u522B\u610F\uFF0C\u540C\u662F\u5BA6\u6E38\u4EBA\u3002\n\u6D77\u5185\u5B58\u77E5\u5DF1\uFF0C\u5929\u6DAF\u82E5\u6BD4\u90BB\u3002\u65E0\u4E3A\u5728\u6B67\u8DEF\uFF0C\u513F\u5973\u5171\u6CBE\u5DFE\u3002",
+        "pinyin": "ch\xE9ng qu\xE8 f\u01D4 s\u0101n q\xEDn\uFF0C f\u0113ng y\u0101n w\xE0ng w\u01D4 j\u012Bn\uFF0C y\u01D4 j\u016Bn l\xED bi\xE9 y\xEC\uFF0C t\xF3ng sh\xEC hu\xE0n y\xF3u r\xE9n\u3002\nh\u01CEi n\xE8i c\xFAn zh\u012B j\u01D0\uFF0C ti\u0101n y\xE1 ru\xF2 b\u01D0 l\xEDn\u3002 w\xFA w\xE9i z\xE0i q\xED l\xF9\uFF0C \xE9r n\u01DA g\xF2ng zh\u0101n j\u012Bn\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E8C\u5B63",
+          "episode": 41,
+          "bvid": "BV1XtHDeGE3v",
+          "url": "https://www.bilibili.com/bangumi/play/ep834740",
+          "title": "\u5199\u51FA\u201C\u6D77\u5185\u5B58\u77E5\u5DF1\u5929\u6DAF\u82E5\u6BD4\u90BB\u201D\u7684\u738B\u52C3\u5C45\u7136\u662F\u8D85\u7EA7\u795E\u7AE5\uFF1F"
+        }
+      },
+      {
+        "id": "extra-60-poem-60",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u671B\u6D1E\u5EAD\u8D60\u5F20\u4E1E\u76F8",
+        "author": "\u5B5F\u6D69\u7136",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u516B\u6708\u6E56\u6C34\u5E73\uFF0C\u6DB5\u865A\u6DF7\u592A\u6E05\u3002\u6C14\u84B8\u4E91\u68A6\u6CFD\uFF0C\u6CE2\u64BC\u5CB3\u9633\u57CE\u3002\n\u6B32\u6D4E\u65E0\u821F\u696B\uFF0C\u7AEF\u5C45\u803B\u5723\u660E\u3002\u5750\u89C2\u5782\u9493\u8005\uFF0C\u5F92\u6709\u7FA1\u9C7C\u60C5\u3002",
+        "pinyin": "b\u0101 yu\xE8 h\xFA shu\u01D0 p\xEDng\uFF0C h\xE1n x\u016B h\xF9n t\xE0i q\u012Bng\u3002 q\xEC zh\u0113ng y\xFAn m\xE8ng z\xE9\uFF0C b\u014D h\xE0n yu\xE8 y\xE1ng ch\xE9ng\u3002\ny\xF9 j\xEC w\xFA zh\u014Du j\xED\uFF0C du\u0101n j\u016B ch\u01D0 sh\xE8ng m\xEDng\u3002 zu\xF2 gu\u0101n chu\xED di\xE0o zh\u011B\uFF0C t\xFA y\u01D2u xi\xE0n y\xFA q\xEDng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-61-poem-61",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5E84\u5B50\u300A\u5317\u51A5\u6709\u9C7C\u300B",
+        "author": "\u5E84\u5B50",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u5317\u51A5\u6709\u9C7C\uFF0C\u5176\u540D\u4E3A\u9CB2\u3002\u9CB2\u4E4B\u5927\uFF0C\u4E0D\u77E5\u5176\u51E0\u5343\u91CC\u4E5F\uFF1B\u5316\u800C\u4E3A\u9E1F\uFF0C\u5176\u540D\u4E3A\u9E4F\u3002\u9E4F\u4E4B\u80CC\uFF0C\u4E0D\u77E5\u5176\u51E0\u5343\u91CC\u4E5F\uFF1B\u6012\u800C\u98DE\uFF0C\u5176\u7FFC\u82E5\u5782\u5929\u4E4B\u4E91\u3002\u662F\u9E1F\u4E5F\uFF0C\u6D77\u8FD0\u5219\u5C06\u5F99\u4E8E\u5357\u51A5\u3002\u5357\u51A5\u8005\uFF0C\u5929\u6C60\u4E5F\u3002\u300A\u9F50\u8C10\u300B\u8005\uFF0C\u5FD7\u602A\u8005\u4E5F\u3002\u300A\u8C10\u300B\u4E4B\u8A00\u66F0\uFF1A\u201C\u9E4F\u4E4B\u5F99\u4E8E\u5357\u51A5\u4E5F\uFF0C\u6C34\u51FB\u4E09\u5343\u91CC\uFF0C\u629F\u6276\u6447\u800C\u4E0A\u8005\u4E5D\u4E07\u91CC\uFF0C\u53BB\u4EE5\u516D\u6708\u606F\u8005\u4E5F\u3002\u201D\u91CE\u9A6C\u4E5F\uFF0C\u5C18\u57C3\u4E5F\uFF0C\u751F\u7269\u4E4B\u4EE5\u606F\u76F8\u5439\u4E5F\u3002\u5929\u4E4B\u82CD\u82CD\uFF0C\u5176\u6B63\u8272\u90AA\uFF1F\u5176\u8FDC\u800C\u65E0\u6240\u81F3\u6781\u90AA\uFF1F\u5176\u89C6\u4E0B\u4E5F\uFF0C\u4EA6\u82E5\u662F\u5219\u5DF2\u77E3\u3002",
+        "pinyin": "b\u011Bi m\xEDng y\u01D2u y\xFA\uFF0C q\xED m\xEDng w\xE8i k\u016Bn\u3002 k\u016Bn zh\u012B d\xE0\uFF0C b\xF9 zh\u012B q\xED j\u01D0 qi\u0101n l\u01D0 y\u011B\uFF1B hu\xE0 \xE9r w\xE8i ni\u01CEo\uFF0C q\xED m\xEDng w\xE8i p\xE9ng\u3002 p\xE9ng zh\u012B b\xE8i\uFF0C b\xF9 zh\u012B q\xED j\u01D0 qi\u0101n l\u01D0 y\u011B\uFF1B n\xF9 \xE9r f\u0113i\uFF0C q\xED y\xEC ru\xF2 chu\xED ti\u0101n zh\u012B y\xFAn\u3002 sh\xEC ni\u01CEo y\u011B\uFF0C h\u01CEi y\xF9n z\xE9 ji\u0101ng x\u01D0 y\xFA n\xE1n m\xEDng\u3002 n\xE1n m\xEDng zh\u011B\uFF0C ti\u0101n ch\xED y\u011B\u3002\u300A q\xED xi\xE9\u300B zh\u011B\uFF0C zh\xEC gu\xE0i zh\u011B y\u011B\u3002\u300A xi\xE9\u300B zh\u012B y\xE1n yu\u0113\uFF1A\u201C p\xE9ng zh\u012B x\u01D0 y\xFA n\xE1n m\xEDng y\u011B\uFF0C shu\u01D0 j\u012B s\u0101n qi\u0101n l\u01D0\uFF0C tu\xE1n f\xFA y\xE1o \xE9r sh\xE0ng zh\u011B ji\u01D4 w\xE0n l\u01D0\uFF0C q\xF9 y\u01D0 li\xF9 yu\xE8 x\u012B zh\u011B y\u011B\u3002\u201D y\u011B m\u01CE y\u011B\uFF0C ch\xE9n \u0101i y\u011B\uFF0C sh\u0113ng w\xF9 zh\u012B y\u01D0 x\u012B xi\u0101ng chu\u012B y\u011B\u3002 ti\u0101n zh\u012B c\u0101ng c\u0101ng\uFF0C q\xED zh\xE8ng s\xE8 xi\xE9\uFF1F q\xED yu\u01CEn \xE9r w\xFA su\u01D2 zh\xEC j\xED xi\xE9\uFF1F q\xED sh\xEC xi\xE0 y\u011B\uFF0C y\xEC ru\xF2 sh\xEC z\xE9 y\u01D0 y\u01D0\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-62-poem-62",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u793C\u8BB0\u300A\u867D\u6709\u5609\u80B4\u300B",
+        "author": "\u300A\u793C\u8BB0\u300B",
+        "dynasty": "\u5148\u79E6",
+        "excerpt": "\u867D\u6709\u5609\u80B4\uFF0C\u5F17\u98DF\uFF0C\u4E0D\u77E5\u5176\u65E8\u4E5F\u3002\u867D\u6709\u81F3\u9053\uFF0C\u5F17\u5B66\uFF0C\u4E0D\u77E5\u5176\u5584\u4E5F\u3002\u662F\u6545\u5B66\u7136\u540E\u77E5\u4E0D\u8DB3\uFF0C\u6559\u7136\u540E\u77E5\u56F0\u3002\u77E5\u4E0D\u8DB3\uFF0C\u7136\u540E\u80FD\u81EA\u53CD\u4E5F;\u77E5\u56F0\uFF0C\u7136\u540E\u80FD\u81EA\u5F3A\u4E5F\u3002\u6545\u66F0:\u6559\u5B66\u76F8\u957F\u4E5F\u3002\u300A\u5151\u547D\u300B\u66F0:\u5B66\u5B66\u534A\u3002\u5176\u6B64\u4E4B\u8C13\u4E4E?",
+        "pinyin": "su\u012B y\u01D2u ji\u0101 y\xE1o\uFF0C f\xFA sh\xED\uFF0C b\xF9 zh\u012B q\xED zh\u01D0 y\u011B\u3002 su\u012B y\u01D2u zh\xEC d\xE0o\uFF0C f\xFA xu\xE9\uFF0C b\xF9 zh\u012B q\xED sh\xE0n y\u011B\u3002 sh\xEC g\xF9 xu\xE9 r\xE1n h\xF2u zh\u012B b\xF9 z\xFA\uFF0C ji\xE0o r\xE1n h\xF2u zh\u012B k\xF9n\u3002 zh\u012B b\xF9 z\xFA\uFF0C r\xE1n h\xF2u n\xE9ng z\xEC f\u01CEn y\u011B; zh\u012B k\xF9n\uFF0C r\xE1n h\xF2u n\xE9ng z\xEC qi\xE1ng y\u011B\u3002 g\xF9 yu\u0113 : ji\xE0o xu\xE9 xi\u0101ng zh\u01CEng y\u011B\u3002\u300A du\xEC m\xECng\u300B yu\u0113 : xu\xE9 xu\xE9 b\xE0n\u3002 q\xED c\u01D0 zh\u012B w\xE8i h\u016B?",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-63-poem-63",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u793C\u8BB0\u300A\u5927\u9053\u4E4B\u884C\u4E5F\u300B",
+        "author": "\u300A\u793C\u8BB0\u300B",
+        "dynasty": "\u5148\u79E6",
+        "excerpt": "\u5927\u9053\u4E4B\u884C\u4E5F\uFF0C\u5929\u4E0B\u4E3A\u516C\uFF0C\u9009\u8D24\u4E0E\u80FD\uFF0C\u8BB2\u4FE1\u4FEE\u7766\u3002\u6545\u4EBA\u4E0D\u72EC\u4EB2\u5176\u4EB2\uFF0C\u4E0D\u72EC\u5B50\u5176\u5B50\uFF0C\u4F7F\u8001\u6709\u6240\u7EC8\uFF0C\u58EE\u6709\u6240\u7528\uFF0C\u5E7C\u6709\u6240\u957F\uFF0C\u77DC\u3001\u5BE1\u3001\u5B64 \u3001\u72EC\u3001\u5E9F\u75BE\u8005\u7686\u6709\u6240\u517B\uFF0C\u7537\u6709\u5206\uFF0C\u5973\u6709\u5F52\u3002\u8D27\u6076\u5176\u5F03\u4E8E\u5730\u4E5F\uFF0C\u4E0D\u5FC5\u85CF\u4E8E\u5DF1;\u529B\u6076\u5176\u4E0D\u51FA\u4E8E\u8EAB\u4E5F\uFF0C\u4E0D\u5FC5\u4E3A\u5DF1\u3002\u662F\u6545\u8C0B\u95ED\u800C\u4E0D\u5174\uFF0C\u76D7\u7A83\u4E71\u8D3C\u800C\u4E0D\u4F5C\uFF0C\u6545\u5916\u6237\u800C\u4E0D\u95ED\u3002\u662F\u8C13\u5927\u540C\u3002",
+        "pinyin": "d\xE0 d\xE0o zh\u012B x\xEDng y\u011B\uFF0C ti\u0101n xi\xE0 w\xE9i g\u014Dng\uFF0C xu\u01CEn xi\xE1n y\u01D4 n\xE9ng\uFF0C ji\u01CEng x\xECn xi\u016B m\xF9\u3002 g\xF9 r\xE9n b\xF9 d\xFA q\u012Bn q\xED q\u012Bn\uFF0C b\xF9 d\xFA zi q\xED zi\uFF0C sh\u01D0 l\u01CEo y\u01D2u su\u01D2 zh\u014Dng\uFF0C zhu\xE0ng y\u01D2u su\u01D2 y\xF2ng\uFF0C y\xF2u y\u01D2u su\u01D2 zh\u01CEng\uFF0C j\u012Bn\u3001 gu\u01CE\u3001 g\u016B  \u3001 d\xFA\u3001 f\xE8i j\xED zh\u011B ji\u0113 y\u01D2u su\u01D2 y\u01CEng\uFF0C n\xE1n y\u01D2u f\u0113n\uFF0C n\u01DA y\u01D2u gu\u012B\u3002 hu\xF2 \xE8 q\xED q\xEC y\xFA d\xEC y\u011B\uFF0C b\xF9 b\xEC c\xE1ng y\xFA j\u01D0; l\xEC \xE8 q\xED b\xF9 ch\u016B y\xFA sh\u0113n y\u011B\uFF0C b\xF9 b\xEC w\xE8i j\u01D0\u3002 sh\xEC g\xF9 m\xF3u b\xEC \xE9r b\xF9 x\u012Bng\uFF0C d\xE0o qi\xE8 lu\xE0n z\xE9i \xE9r b\xF9 zu\xF2\uFF0C g\xF9 w\xE0i h\xF9 \xE9r b\xF9 b\xEC\u3002 sh\xEC w\xE8i d\xE0 t\xF3ng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-64-poem-64",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9A6C\u8BF4",
+        "author": "\u97E9\u6108",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4E16\u6709\u4F2F\u4E50\uFF0C\u7136\u540E\u6709\u5343\u91CC\u9A6C\u3002\u5343\u91CC\u9A6C\u5E38\u6709\uFF0C\u800C\u4F2F\u4E50\u4E0D\u5E38\u6709\u3002\u6545\u867D\u6709\u540D\u9A6C\uFF0C\u7947\u8FB1\u4E8E\u5974\u96B6\u4EBA\u4E4B\u624B\uFF0C\u9A88\u6B7B\u4E8E\u69FD\u67A5\u4E4B\u95F4\uFF0C\u4E0D\u4EE5\u5343\u91CC\u79F0\u4E5F\u3002\n\u9A6C\u4E4B\u5343\u91CC\u8005\uFF0C\u4E00\u98DF\u6216\u5C3D\u7C9F\u4E00\u77F3\u3002\u98DF\u9A6C\u8005\u4E0D\u77E5\u5176\u80FD\u5343\u91CC\u800C\u98DF\u4E5F\u3002\u662F\u9A6C\u4E5F\uFF0C\u867D\u6709\u5343\u91CC\u4E4B\u80FD\uFF0C\u98DF\u4E0D\u9971\uFF0C\u529B\u4E0D\u8DB3\uFF0C\u624D\u7F8E\u4E0D\u5916\u89C1\uFF0C\u4E14\u6B32\u4E0E\u5E38\u9A6C\u7B49\u4E0D\u53EF\u5F97\uFF0C\u5B89\u6C42\u5176\u80FD\u5343\u91CC\u4E5F?\n\u7B56\u4E4B\u4E0D\u4EE5\u5176\u9053\uFF0C\u98DF\u4E4B\u4E0D\u80FD\u5C3D\u5176\u6750\uFF0C\u9E23\u4E4B\u800C\u4E0D\u80FD\u901A\u5176\u610F\uFF0C\u6267\u7B56\u800C\u4E34\u4E4B\uFF0C\u66F0:\u201C\u5929\u4E0B\u65E0\u9A6C!\u201D\u545C\u547C!\u5176\u771F\u65E0\u9A6C\u90AA?\u5176\u771F\u4E0D\u77E5\u9A6C\u4E5F\u3002",
+        "pinyin": "sh\xEC y\u01D2u b\xF3 l\xE8\uFF0C r\xE1n h\xF2u y\u01D2u qi\u0101n l\u01D0 m\u01CE\u3002 qi\u0101n l\u01D0 m\u01CE ch\xE1ng y\u01D2u\uFF0C \xE9r b\xF3 l\xE8 b\xF9 ch\xE1ng y\u01D2u\u3002 g\xF9 su\u012B y\u01D2u m\xEDng m\u01CE\uFF0C q\xED r\u01D4 y\xFA n\xFA l\xEC r\xE9n zh\u012B sh\u01D2u\uFF0C pi\xE1n s\u01D0 y\xFA c\xE1o l\xEC zh\u012B ji\u0101n\uFF0C b\xF9 y\u01D0 qi\u0101n l\u01D0 ch\u0113ng y\u011B\u3002\nm\u01CE zh\u012B qi\u0101n l\u01D0 zh\u011B\uFF0C y\u012B sh\xED hu\xF2 j\u01D0n s\xF9 y\u012B sh\xED\u3002 sh\xED m\u01CE zh\u011B b\xF9 zh\u012B q\xED n\xE9ng qi\u0101n l\u01D0 \xE9r sh\xED y\u011B\u3002 sh\xEC m\u01CE y\u011B\uFF0C su\u012B y\u01D2u qi\u0101n l\u01D0 zh\u012B n\xE9ng\uFF0C sh\xED b\xF9 b\u01CEo\uFF0C l\xEC b\xF9 z\xFA\uFF0C c\xE1i m\u011Bi b\xF9 w\xE0i ji\xE0n\uFF0C qi\u011B y\xF9 y\u01D4 ch\xE1ng m\u01CE d\u011Bng b\xF9 k\u011B d\xE9\uFF0C \u0101n qi\xFA q\xED n\xE9ng qi\u0101n l\u01D0 y\u011B?\nc\xE8 zh\u012B b\xF9 y\u01D0 q\xED d\xE0o\uFF0C sh\xED zh\u012B b\xF9 n\xE9ng j\u01D0n q\xED c\xE1i\uFF0C m\xEDng zh\u012B \xE9r b\xF9 n\xE9ng t\u014Dng q\xED y\xEC\uFF0C zh\xED c\xE8 \xE9r l\xEDn zh\u012B\uFF0C yu\u0113 :\u201C ti\u0101n xi\xE0 w\xFA m\u01CE!\u201D w\u016B h\u016B! q\xED zh\u0113n w\xFA m\u01CE xi\xE9? q\xED zh\u0113n b\xF9 zh\u012B m\u01CE y\u011B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-65-poem-65",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8305\u5C4B\u4E3A\u79CB\u98CE\u6240\u7834\u6B4C",
+        "author": "\u675C\u752B",
+        "dynasty": "\u5510",
+        "excerpt": "\u516B\u6708\u79CB\u9AD8\u98CE\u6012\u53F7\uFF0C\u5377\u6211\u5C4B\u4E0A\u4E09\u91CD\u8305\u3002\u8305\u98DE\u6E21\u6C5F\u6D12\u6C5F\u90CA\uFF0C\u9AD8\u8005\u6302\u7F65\u957F\u6797\u68A2\uFF0C\u4E0B\u8005\u98D8\u8F6C\u6C89\u5858\u5773\u3002\n \u5357\u6751\u7FA4\u7AE5\u6B3A\u6211\u8001\u65E0\u529B\uFF0C\u5FCD\u80FD\u5BF9\u9762\u4E3A\u76D7\u8D3C\u3002\u516C\u7136\u62B1\u8305\u5165\u7AF9\u53BB\uFF0C\u5507\u7126\u53E3\u71E5\u547C\u4E0D\u5F97\uFF0C\u5F52\u6765\u501A\u6756\u81EA\u53F9\u606F\u3002\n \u4FC4\u9877\u98CE\u5B9A\u4E91\u58A8\u8272\uFF0C\u79CB\u5929\u6F20\u6F20\u5411\u660F\u9ED1\u3002\u5E03\u887E\u591A\u5E74\u51B7\u4F3C\u94C1\uFF0C\u5A07\u513F\u6076\u5367\u8E0F\u91CC\u88C2\u3002\u5E8A\u5934\u5C4B\u6F0F\u65E0\u5E72\u5904\uFF0C\u96E8\u811A\u5982\u9EBB\u672A\u65AD\u7EDD\u3002\u81EA\u7ECF\u4E27\u4E71\u5C11\u7761\u7720\uFF0C\u957F\u591C\u6CBE\u6E7F\u4F55\u7531\u5F7B\uFF01\n \u5B89\u5F97\u5E7F\u53A6\u5343\u4E07\u95F4\uFF0C\u5927\u5E87\u5929\u4E0B\u5BD2\u58EB\u4FF1\u6B22\u989C\uFF01\u98CE\u96E8\u4E0D\u52A8\u5B89\u5982\u5C71\u3002\u545C\u547C\uFF01\u4F55\u65F6\u773C\u524D\u7A81\u5140\u89C1\u6B64\u5C4B\uFF0C\u543E\u5E90\u72EC\u7834\u53D7\u51BB\u6B7B\u4EA6\u8DB3\uFF01",
+        "pinyin": "b\u0101 yu\xE8 qi\u016B g\u0101o f\u0113ng n\xF9 h\xE1o\uFF0C ju\u01CEn w\u01D2 w\u016B sh\xE0ng s\u0101n ch\xF3ng m\xE1o\u3002 m\xE1o f\u0113i d\xF9 ji\u0101ng s\u01CE ji\u0101ng ji\u0101o\uFF0C g\u0101o zh\u011B gu\xE0 ju\xE0n zh\u01CEng l\xEDn sh\u0101o\uFF0C xi\xE0 zh\u011B pi\u0101o zhu\u01CEn ch\xE9n t\xE1ng \xE0o\u3002\nn\xE1n c\u016Bn q\xFAn t\xF3ng q\u012B w\u01D2 l\u01CEo w\xFA l\xEC\uFF0C r\u011Bn n\xE9ng du\xEC mi\xE0n w\xE8i d\xE0o z\xE9i\u3002 g\u014Dng r\xE1n b\xE0o m\xE1o r\xF9 zh\xFA q\xF9\uFF0C ch\xFAn ji\u0101o k\u01D2u z\xE0o h\u016B b\xF9 d\xE9\uFF0C gu\u012B l\xE1i y\u01D0 zh\xE0ng z\xEC t\xE0n x\u012B\u3002\n\xE9 q\u01D0ng f\u0113ng d\xECng y\xFAn m\xF2 s\xE8\uFF0C qi\u016B ti\u0101n m\xF2 m\xF2 xi\xE0ng h\u016Bn h\u0113i\u3002 b\xF9 q\u012Bn du\u014D ni\xE1n l\u011Bng sh\xEC ti\u011B\uFF0C ji\u0101o \xE9r \xE8 w\xF2 t\xE0 l\u01D0 li\xE8\u3002 chu\xE1ng t\xF3u w\u016B l\xF2u w\xFA g\u0101n ch\xF9\uFF0C y\u01D4 ji\u01CEo r\xFA m\xE1 w\xE8i du\xE0n ju\xE9\u3002 z\xEC j\u012Bng s\u0101ng lu\xE0n sh\u01CEo shu\xEC mi\xE1n\uFF0C ch\xE1ng y\xE8 zh\u0101n sh\u012B h\xE9 y\xF3u ch\xE8\uFF01\n\u0101n d\xE9 gu\u01CEng sh\xE0 qi\u0101n w\xE0n ji\u0101n\uFF0C d\xE0 b\xEC ti\u0101n xi\xE0 h\xE1n sh\xEC j\xF9 hu\u0101n y\xE1n\uFF01 f\u0113ng y\u01D4 b\xF9 d\xF2ng \u0101n r\xFA sh\u0101n\u3002 w\u016B h\u016B\uFF01 h\xE9 sh\xED y\u01CEn qi\xE1n t\u016B w\xF9 ji\xE0n c\u01D0 w\u016B\uFF0C w\xFA l\xFA d\xFA p\xF2 sh\xF2u d\xF2ng s\u01D0 y\xEC z\xFA\uFF01",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-66-poem-66",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5356\u70AD\u7FC1",
+        "author": "\u767D\u5C45\u6613",
+        "dynasty": "\u5510",
+        "excerpt": "\u5356\u70AD\u7FC1\uFF0C\u4F10\u85AA\u70E7\u70AD\u5357\u5C71\u4E2D\u3002\u6EE1\u9762\u5C18\u7070\u70DF\u706B\u8272\uFF0C\u4E24\u9B13\u82CD\u82CD\u5341\u6307\u9ED1\u3002\u5356\u70AD\u5F97\u94B1\u4F55\u6240\u8425?\u8EAB\u4E0A\u8863\u88F3\u53E3\u4E2D\u98DF\u3002\u53EF\u601C\u8EAB\u4E0A\u8863\u6B63\u5355\uFF0C\u5FC3\u5FE7\u70AD\u8D31\u613F\u5929\u5BD2\u3002\u591C\u6765\u57CE\u5916\u4E00\u5C3A\u96EA\uFF0C\u6653\u9A7E\u70AD\u8F66\u8F97\u51B0\u8F99\u3002\u725B\u56F0\u4EBA\u9965\u65E5\u5DF2\u9AD8\uFF0C\u5E02\u5357\u95E8\u5916\u6CE5\u4E2D\u6B47\u3002\n\u7FE9\u7FE9\u4E24\u9A91\u6765\u662F\u8C01?\u9EC4\u8863\u4F7F\u8005\u767D\u886B\u513F\u3002\u624B\u628A\u6587\u4E66\u53E3\u79F0\u6555\uFF0C\u56DE\u8F66\u53F1\u725B\u7275\u5411\u5317\u3002\u4E00\u8F66\u70AD\uFF0C\u5343\u4F59\u65A4\uFF0C\u5BAB\u4F7F\u9A71\u5C06\u60DC\u4E0D\u5F97\u3002\u534A\u5339\u7EA2\u7EE1\u4E00\u4E08\u7EEB\uFF0C\u7CFB\u5411\u725B\u5934\u5145\u70AD\u76F4\u3002",
+        "pinyin": "m\xE0i t\xE0n w\u0113ng\uFF0C f\xE1 x\u012Bn sh\u0101o t\xE0n n\xE1n sh\u0101n zh\u014Dng\u3002 m\u01CEn mi\xE0n ch\xE9n hu\u012B y\u0101n hu\u01D2 s\xE8\uFF0C li\u01CEng b\xECn c\u0101ng c\u0101ng sh\xED zh\u01D0 h\u0113i\u3002 m\xE0i t\xE0n d\xE9 qi\xE1n h\xE9 su\u01D2 y\xEDng? sh\u0113n sh\xE0ng y\u012B shang k\u01D2u zh\u014Dng sh\xED\u3002 k\u011B li\xE1n sh\u0113n sh\xE0ng y\u012B zh\xE8ng d\u0101n\uFF0C x\u012Bn y\u014Du t\xE0n ji\xE0n yu\xE0n ti\u0101n h\xE1n\u3002 y\xE8 l\xE1i ch\xE9ng w\xE0i y\u012B ch\u01D0 xu\u011B\uFF0C xi\u01CEo ji\xE0 t\xE0n ch\u0113 ni\u01CEn b\u012Bng zh\xE9\u3002 ni\xFA k\xF9n r\xE9n j\u012B r\xEC y\u01D0 g\u0101o\uFF0C sh\xEC n\xE1n m\xE9n w\xE0i n\xED zh\u014Dng xi\u0113\u3002\npi\u0101n pi\u0101n li\u01CEng q\xED l\xE1i sh\xEC shu\xED? hu\xE1ng y\u012B sh\u01D0 zh\u011B b\xE1i sh\u0101n \xE9r\u3002 sh\u01D2u b\u01CE w\xE9n sh\u016B k\u01D2u ch\u0113ng ch\xEC\uFF0C hu\xED ch\u0113 ch\xEC ni\xFA qi\u0101n xi\xE0ng b\u011Bi\u3002 y\u012B ch\u0113 t\xE0n\uFF0C qi\u0101n y\xFA j\u012Bn\uFF0C g\u014Dng sh\u01D0 q\u016B ji\u0101ng x\u012B b\xF9 d\xE9\u3002 b\xE0n p\u01D0 h\xF3ng xi\u0101o y\u012B zh\xE0ng l\xEDng\uFF0C x\xEC xi\xE0ng ni\xFA t\xF3u ch\u014Dng t\xE0n zh\xED\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-67-poem-67",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9898\u7834\u5C71\u5BFA\u540E\u7985\u9662",
+        "author": "\u5E38\u5EFA",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u6E05\u6668\u5165\u53E4\u5BFA\uFF0C\u521D\u65E5\u7167\u9AD8\u6797\u3002\u66F2\u5F84\u901A\u5E7D\u5904\uFF0C\u7985\u623F\u82B1\u6728\u6DF1\u3002\n\u5C71\u5149\u60A6\u9E1F\u6027\uFF0C\u6F6D\u5F71\u7A7A\u4EBA\u5FC3\u3002\u4E07\u7C41\u6B64\u90FD\u5BC2\uFF0C\u4F46\u4F59\u949F\u78EC\u97F3\u3002",
+        "pinyin": "q\u012Bng ch\xE9n r\xF9 g\u01D4 s\xEC\uFF0C ch\u016B r\xEC zh\xE0o g\u0101o l\xEDn\u3002 q\u016B j\xECng t\u014Dng y\u014Du ch\xF9\uFF0C ch\xE1n f\xE1ng hu\u0101 m\xF9 sh\u0113n\u3002\nsh\u0101n gu\u0101ng yu\xE8 ni\u01CEo x\xECng\uFF0C t\xE1n y\u01D0ng k\u014Dng r\xE9n x\u012Bn\u3002 w\xE0n l\xE0i c\u01D0 d\u014Du j\xEC\uFF0C d\xE0n y\xFA zh\u014Dng q\xECng y\u012Bn\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-68-poem-68",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9001\u53CB\u4EBA",
+        "author": "\u674E\u767D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u9752\u5C71\u6A2A\u5317\u90ED\uFF0C\u767D\u6C34\u7ED5\u4E1C\u57CE\u3002\u6B64\u5730\u4E00\u4E3A\u522B\uFF0C\u5B64\u84EC\u4E07\u91CC\u5F81\u3002\n\u6D6E\u4E91\u6E38\u5B50\u610F\uFF0C\u843D\u65E5\u6545\u4EBA\u60C5\u3002\u6325\u624B\u81EA\u5179\u53BB\uFF0C\u8427\u8427\u73ED\u9A6C\u9E23\u3002",
+        "pinyin": "q\u012Bng sh\u0101n h\xE9ng b\u011Bi gu\u014D\uFF0C b\xE1i shu\u01D0 r\xE0o d\u014Dng ch\xE9ng\u3002 c\u01D0 d\xEC y\u012B w\xE8i bi\xE9\uFF0C g\u016B p\xE9ng w\xE0n l\u01D0 zh\u0113ng\u3002\nf\xFA y\xFAn y\xF3u zi y\xEC\uFF0C lu\xF2 r\xEC g\xF9 r\xE9n q\xEDng\u3002 hu\u012B sh\u01D2u z\xEC z\u012B q\xF9\uFF0C xi\u0101o xi\u0101o b\u0101n m\u01CE m\xEDng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-69-poem-69",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u535C\u7B97\u5B50 \u9EC4\u5DDE\u5B9A\u6167\u9662\u5BD3\u5C45\u4F5C",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u7F3A\u6708\u6302\u758F\u6850\uFF0C\u6F0F\u65AD\u4EBA\u521D\u9759\u3002\u8C01\u89C1\u5E7D\u4EBA\u72EC\u5F80\u6765\uFF0C\u7F25\u7F08\u5B64\u9E3F\u5F71\u3002\n\u60CA\u8D77\u5374\u56DE\u5934\uFF0C\u6709\u6068\u65E0\u4EBA\u7701\u3002\u62E3\u5C3D\u5BD2\u679D\u4E0D\u80AF\u6816\uFF0C\u5BC2\u5BDE\u6C99\u6D32\u51B7\u3002",
+        "pinyin": "qu\u0113 yu\xE8 gu\xE0 sh\u016B t\xF3ng\uFF0C l\xF2u du\xE0n r\xE9n ch\u016B j\xECng\u3002 shu\xED ji\xE0n y\u014Du r\xE9n d\xFA w\u01CEng l\xE1i\uFF0C pi\u0101o mi\u01CEo g\u016B h\xF3ng y\u01D0ng\u3002\nj\u012Bng q\u01D0 qu\xE8 hu\xED t\xF3u\uFF0C y\u01D2u h\xE8n w\xFA r\xE9n sh\u011Bng\u3002 ji\u01CEn j\u01D0n h\xE1n zh\u012B b\xF9 k\u011Bn q\u012B\uFF0C j\xEC m\xF2 sh\u0101 zh\u014Du l\u011Bng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-70-poem-70",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5CB3\u9633\u697C\u8BB0",
+        "author": "\u8303\u4EF2\u6DF9",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u5E86\u5386\u56DB\u5E74\u6625\uFF0C\u6ED5\u5B50\u4EAC\u8C2A\u5B88\u5DF4\u9675\u90E1\u3002\u8D8A\u660E\u5E74\uFF0C\u653F\u901A\u4EBA\u548C\uFF0C\u767E\u5E9F\u5177\u5174\u3002\u4E43\u91CD\u4FEE\u5CB3\u9633\u697C\uFF0C\u589E\u5176\u65E7\u5236\uFF0C\u523B\u5510\u8D24\u4ECA\u4EBA\u8BD7\u8D4B\u4E8E\u5176\u4E0A\u3002\u5C5E\u4E88\u4F5C\u6587\u4EE5\u8BB0\u4E4B\u3002\n\u4E88\u89C2\u592B\u5DF4\u9675\u80DC\u72B6\uFF0C\u5728\u6D1E\u5EAD\u4E00\u6E56\u3002\u8854\u8FDC\u5C71\uFF0C\u541E\u957F\u6C5F\uFF0C\u6D69\u6D69\u6C64\u6C64\uFF0C\u6A2A\u65E0\u9645\u6DAF\uFF1B\u671D\u6656\u5915\u9634\uFF0C\u6C14\u8C61\u4E07\u5343\u3002\u6B64\u5219\u5CB3\u9633\u697C\u4E4B\u5927\u89C2\u4E5F\uFF0C\u524D\u4EBA\u4E4B\u8FF0\u5907\u77E3\u3002\u7136\u5219\u5317\u901A\u5DEB\u5CE1\uFF0C\u5357\u6781\u6F47\u6E58\uFF0C\u8FC1\u5BA2\u9A9A\u4EBA\uFF0C\u591A\u4F1A\u4E8E\u6B64\uFF0C\u89C8\u7269\u4E4B\u60C5\uFF0C\u5F97\u65E0\u5F02\u4E4E\uFF1F\n\u82E5\u592B\u6DEB\u96E8\u970F\u970F\uFF0C\u8FDE\u6708\u4E0D\u5F00\uFF0C\u9634\u98CE\u6012\u53F7\uFF0C\u6D4A\u6D6A\u6392\u7A7A\uFF1B\u65E5\u661F\u9690\u66DC\uFF0C\u5C71\u5CB3\u6F5C\u5F62\uFF1B\u5546\u65C5\u4E0D\u884C\uFF0C\u6A2F\u503E\u696B\u6467\uFF1B\u8584\u66AE\u51A5\u51A5\uFF0C\u864E\u5578\u733F\u557C\u3002\u767B\u65AF\u697C\u4E5F\uFF0C\u5219\u6709\u53BB\u56FD\u6000\u4E61\uFF0C\u5FE7\u8C17\u754F\u8BA5\uFF0C\u6EE1\u76EE\u8427\u7136\uFF0C\u611F\u6781\u800C\u60B2\u8005\u77E3\u3002\n\u81F3\u82E5\u6625\u548C\u666F\u660E\uFF0C\u6CE2\u6F9C\u4E0D\u60CA\uFF0C\u4E0A\u4E0B\u5929\u5149\uFF0C\u4E00\u78A7\u4E07\u9877\uFF1B\u6C99\u9E25\u7FD4\u96C6\uFF0C\u9526\u9CDE\u6E38\u6CF3\uFF1B\u5CB8\u82B7\u6C40\u5170\uFF0C\u90C1\u90C1\u9752\u9752\u3002\u800C\u6216\u957F\u70DF\u4E00\u7A7A\uFF0C\u7693\u6708\u5343\u91CC\uFF0C\u6D6E\u5149\u8DC3\u91D1\uFF0C\u9759\u5F71\u6C89\u74A7\uFF0C\u6E14\u6B4C\u4E92\u7B54\uFF0C\u6B64\u4E50\u4F55\u6781\uFF01\u767B\u65AF\u697C\u4E5F\uFF0C\u5219\u6709\u5FC3\u65F7\u795E\u6021\uFF0C\u5BA0\u8FB1\u5055\u5FD8\uFF0C\u628A\u9152\u4E34\u98CE\uFF0C\u5176\u559C\u6D0B\u6D0B\u8005\u77E3\u3002\n\u55DF\u592B\uFF01\u4E88\u5C1D\u6C42\u53E4\u4EC1\u4EBA\u4E4B\u5FC3\uFF0C\u6216\u5F02\u4E8C\u8005\u4E4B\u4E3A\uFF0C\u4F55\u54C9\uFF1F\u4E0D\u4EE5\u7269\u559C\uFF0C\u4E0D\u4EE5\u5DF1\u60B2\uFF1B\u5C45\u5E99\u5802\u4E4B\u9AD8\u5219\u5FE7\u5176\u6C11\uFF1B\u5904\u6C5F\u6E56\u4E4B\u8FDC\u5219\u5FE7\u5176\u541B\u3002\u662F\u8FDB\u4EA6\u5FE7\uFF0C\u9000\u4EA6\u5FE7\u3002\u7136\u5219\u4F55\u65F6\u800C\u4E50\u8036\uFF1F\u5176\u5FC5\u66F0\u201C\u5148\u5929\u4E0B\u4E4B\u5FE7\u800C\u5FE7\uFF0C\u540E\u5929\u4E0B\u4E4B\u4E50\u800C\u4E50\u201D\u4E4E\u3002\u566B\uFF01\u5FAE\u65AF\u4EBA\uFF0C\u543E\u8C01\u4E0E\u5F52\uFF1F\u65F6\u516D\u5E74\u4E5D\u6708\u5341\u4E94\u65E5\u3002",
+        "pinyin": "q\xECng l\xEC s\xEC ni\xE1n ch\u016Bn\uFF0C t\xE9ng zi j\u012Bng zh\xE9 sh\u01D2u b\u0101 l\xEDng j\xF9n\u3002 yu\xE8 m\xEDng ni\xE1n\uFF0C zh\xE8ng t\u014Dng r\xE9n h\xE9\uFF0C b\u01CEi f\xE8i j\xF9 x\u012Bng\u3002 n\u01CEi ch\xF3ng xi\u016B yu\xE8 y\xE1ng l\xF3u\uFF0C z\u0113ng q\xED ji\xF9 zh\xEC\uFF0C k\xE8 t\xE1ng xi\xE1n j\u012Bn r\xE9n sh\u012B f\xF9 y\xFA q\xED sh\xE0ng\u3002 sh\u01D4 y\u01D4 zu\xF2 w\xE9n y\u01D0 j\xEC zh\u012B\u3002\ny\u01D4 gu\u0101n f\u016B b\u0101 l\xEDng sh\xE8ng zhu\xE0ng\uFF0C z\xE0i d\xF2ng t\xEDng y\u012B h\xFA\u3002 xi\xE1n yu\u01CEn sh\u0101n\uFF0C t\u016Bn ch\xE1ng ji\u0101ng\uFF0C h\xE0o h\xE0o sh\u0101ng sh\u0101ng\uFF0C h\xE9ng w\xFA j\xEC y\xE1\uFF1B zh\u0101o hu\u012B x\u012B y\u012Bn\uFF0C q\xEC xi\xE0ng w\xE0n qi\u0101n\u3002 c\u01D0 z\xE9 yu\xE8 y\xE1ng l\xF3u zh\u012B d\xE0 gu\u0101n y\u011B\uFF0C qi\xE1n r\xE9n zh\u012B sh\xF9 b\xE8i y\u01D0\u3002 r\xE1n z\xE9 b\u011Bi t\u014Dng w\u016B xi\xE1\uFF0C n\xE1n j\xED xi\u0101o xi\u0101ng\uFF0C qi\u0101n k\xE8 s\u0101o r\xE9n\uFF0C du\u014D hu\xEC y\xFA c\u01D0\uFF0C l\u01CEn w\xF9 zh\u012B q\xEDng\uFF0C d\xE9 w\xFA y\xEC h\u016B\uFF1F\nru\xF2 f\xFA y\xEDn y\u01D4 f\u0113i f\u0113i\uFF0C li\xE1n yu\xE8 b\xF9 k\u0101i\uFF0C y\u012Bn f\u0113ng n\xF9 h\xE1o\uFF0C zhu\xF3 l\xE0ng p\xE1i k\u014Dng\uFF1B r\xEC x\u012Bng y\u01D0n y\xE0o\uFF0C sh\u0101n yu\xE8 qi\xE1n x\xEDng\uFF1B sh\u0101ng l\u01DA b\xF9 x\xEDng\uFF0C qi\xE1ng q\u012Bng j\xED cu\u012B\uFF1B b\xF3 m\xF9 m\xEDng m\xEDng\uFF0C h\u01D4 xi\xE0o yu\xE1n t\xED\u3002 d\u0113ng s\u012B l\xF3u y\u011B\uFF0C z\xE9 y\u01D2u q\xF9 gu\xF3 hu\xE1i xi\u0101ng\uFF0C y\u014Du ch\xE1n w\xE8i j\u012B\uFF0C m\u01CEn m\xF9 xi\u0101o r\xE1n\uFF0C g\u01CEn j\xED \xE9r b\u0113i zh\u011B y\u01D0\u3002\nzh\xEC ru\xF2 ch\u016Bn h\xE9 j\u01D0ng m\xEDng\uFF0C b\u014D l\xE1n b\xF9 j\u012Bng\uFF0C sh\xE0ng xi\xE0 ti\u0101n gu\u0101ng\uFF0C y\u012B b\xEC w\xE0n q\u01D0ng\uFF1B sh\u0101 \u014Du xi\xE1ng j\xED\uFF0C j\u01D0n l\xEDn y\xF3u y\u01D2ng\uFF1B \xE0n zh\u01D0 t\u012Bng l\xE1n\uFF0C y\xF9 y\xF9 q\u012Bng q\u012Bng\u3002 \xE9r hu\xF2 zh\u01CEng y\u0101n y\u012B k\u014Dng\uFF0C h\xE0o yu\xE8 qi\u0101n l\u01D0\uFF0C f\xFA gu\u0101ng yu\xE8 j\u012Bn\uFF0C j\xECng y\u01D0ng ch\xE9n b\xEC\uFF0C y\xFA g\u0113 h\xF9 d\xE1\uFF0C c\u01D0 l\xE8 h\xE9 j\xED\uFF01 d\u0113ng s\u012B l\xF3u y\u011B\uFF0C z\xE9 y\u01D2u x\u012Bn ku\xE0ng sh\xE9n y\xED\uFF0C ch\u01D2ng r\u01D4 xi\xE9 w\xE0ng\uFF0C b\u01CE ji\u01D4 l\xEDn f\u0113ng\uFF0C q\xED x\u01D0 y\xE1ng y\xE1ng zh\u011B y\u01D0\u3002\nji\u0113 f\u016B\uFF01 y\u01D4 ch\xE1ng qi\xFA g\u01D4 r\xE9n r\xE9n zh\u012B x\u012Bn\uFF0C hu\xF2 y\xEC \xE8r zh\u011B zh\u012B w\xE8i\uFF0C h\xE9 z\u0101i\uFF1F b\xF9 y\u01D0 w\xF9 x\u01D0\uFF0C b\xF9 y\u01D0 j\u01D0 b\u0113i\uFF1B j\u016B mi\xE0o t\xE1ng zh\u012B g\u0101o z\xE9 y\u014Du q\xED m\xEDn\uFF1B ch\xF9 ji\u0101ng h\xFA zh\u012B yu\u01CEn z\xE9 y\u014Du q\xED j\u016Bn\u3002 sh\xEC j\xECn y\xEC y\u014Du\uFF0C tu\xEC y\xEC y\u014Du\u3002 r\xE1n z\xE9 h\xE9 sh\xED \xE9r l\xE8 y\xE9\uFF1F q\xED b\xEC yu\u0113\u201C xi\u0101n ti\u0101n xi\xE0 zh\u012B y\u014Du \xE9r y\u014Du\uFF0C h\xF2u ti\u0101n xi\xE0 zh\u012B l\xE8 \xE9r l\xE8\u201D h\u016B\u3002 y\u012B\uFF01 w\u0113i s\u012B r\xE9n\uFF0C w\xFA shu\xED y\u01D4 gu\u012B\uFF1F sh\xED li\xF9 ni\xE1n ji\u01D4 yu\xE8 sh\xED w\u01D4 r\xEC\u3002\n\u300A zu\xEC w\u0113ng t\xEDng j\xEC\u300B s\xF2ng \xB7 \u014Du y\xE1ng xi\u016B\nhu\xE1n ch\xFA ji\u0113 sh\u0101n y\u011B\u3002 q\xED x\u012B n\xE1n zh\u016B f\u0113ng\uFF0C l\xEDn h\xE8 y\xF3u m\u011Bi\uFF0C w\xE0ng zh\u012B w\xE8i r\xE1n \xE9r sh\u0113n xi\xF9 zh\u011B\uFF0C l\xE1ng y\xE1 y\u011B\u3002 sh\u0101n x\xEDng li\xF9 q\u012B l\u01D0\uFF0C ji\xE0n w\xE9n shu\u01D0 sh\u0113ng ch\xE1n ch\xE1n\uFF0C \xE9r xi\xE8 ch\u016B y\xFA li\u01CEng f\u0113ng zh\u012B ji\u0101n zh\u011B\uFF0C ni\xE0ng qu\xE1n y\u011B\u3002 f\u0113ng hu\xED l\xF9 zhu\u01CEn\uFF0C y\u01D2u t\xEDng y\xEC r\xE1n l\xEDn y\xFA qu\xE1n sh\xE0ng zh\u011B\uFF0C zu\xEC w\u0113ng t\xEDng y\u011B\u3002 zu\xF2 t\xEDng zh\u011B shu\xED\uFF1F sh\u0101n zh\u012B s\u0113ng zh\xEC xi\u0101n y\u011B\u3002 m\xEDng zh\u012B zh\u011B shu\xED\uFF1F t\xE0i sh\u01D2u z\xEC w\xE8i y\u011B\u3002 t\xE0i sh\u01D2u y\u01D4 k\xE8 l\xE1i y\u01D0n y\xFA c\u01D0\uFF0C y\u01D0n sh\u01CEo zh\xE9 zu\xEC\uFF0C \xE9r ni\xE1n y\xF2u zu\xEC g\u0101o\uFF0C g\xF9 z\xEC h\xE0o yu\u0113 zu\xEC w\u0113ng y\u011B\u3002 zu\xEC w\u0113ng zh\u012B y\xEC b\xF9 z\xE0i ji\u01D4\uFF0C z\xE0i h\u016B sh\u0101n shu\u01D0 zh\u012B ji\u0101n y\u011B\u3002 sh\u0101n shu\u01D0 zh\u012B l\xE8\uFF0C d\xE9 zh\u012B x\u012Bn \xE9r y\xF9 zh\u012B ji\u01D4 y\u011B\u3002\nru\xF2 f\xFA r\xEC ch\u016B \xE9r l\xEDn f\u0113i k\u0101i\uFF0C y\xFAn gu\u012B \xE9r y\xE1n xu\xE9 m\xEDng\uFF0C hu\xEC m\xEDng bi\xE0n hu\xE0 zh\u011B\uFF0C sh\u0101n ji\u0101n zh\u012B zh\u0101o m\xF9 y\u011B\u3002 y\u011B f\u0101ng f\u0101 \xE9r y\u014Du xi\u0101ng\uFF0C ji\u0101 m\xF9 xi\xF9 \xE9r f\xE1n y\u012Bn\uFF0C f\u0113ng shu\u0101ng g\u0101o ji\xE9\uFF0C shu\u01D0 lu\xF2 \xE9r sh\xED ch\u016B zh\u011B\uFF0C sh\u0101n ji\u0101n zh\u012B s\xEC sh\xED y\u011B\u3002 ch\xE1o \xE9r w\u01CEng\uFF0C m\xF9 \xE9r gu\u012B\uFF0C s\xEC sh\xED zh\u012B j\u01D0ng b\xF9 t\xF3ng\uFF0C \xE9r l\xE8 y\xEC w\xFA qi\xF3ng y\u011B\u3002\nzh\xEC y\xFA f\xF9 zh\u011B g\u0113 y\xFA t\xFA\uFF0C x\xEDng zh\u011B xi\u016B y\xFA sh\xF9\uFF0C qi\xE1n zh\u011B h\u016B\uFF0C h\xF2u zh\u011B y\u012Bng\uFF0C y\u01D4 l\u01DA t\xED xi\xE9\uFF0C w\u01CEng l\xE1i \xE9r b\xF9 ju\xE9 zh\u011B\uFF0C ch\xFA r\xE9n y\xF3u y\u011B\u3002 l\xEDn x\u012B \xE9r y\xFA\uFF0C x\u012B sh\u0113n \xE9r y\xFA f\xE9i\uFF0C ni\xE0ng qu\xE1n w\xE8i ji\u01D4\uFF0C qu\xE1n xi\u0101ng \xE9r ji\u01D4 li\xE8\uFF0C sh\u0101n y\xE1o y\u011B s\xF9\uFF0C z\xE1 r\xE1n \xE9r qi\xE1n ch\xE9n zh\u011B\uFF0C t\xE0i sh\u01D2u y\xE0n y\u011B\u3002 y\xE0n h\u0101n zh\u012B l\xE8\uFF0C f\u0113i s\u012B f\u0113i zh\xFA\uFF0C sh\xE8 zh\u011B zh\u014Dng\uFF0C y\xEC zh\u011B sh\xE8ng\uFF0C g\u014Dng ch\xF3u ji\u0101o cu\xF2\uFF0C q\u01D0 zu\xF2 \xE9r xu\u0101n hu\xE1 zh\u011B\uFF0C zh\xF2ng b\u012Bn hu\u0101n y\u011B\u3002 c\u0101ng y\xE1n b\xE1i f\xE0\uFF0C tu\xED r\xE1n h\u016B q\xED ji\u0101n zh\u011B\uFF0C t\xE0i sh\u01D2u zu\xEC y\u011B\u3002\ny\u01D0 \xE9r x\u012B y\xE1ng z\xE0i sh\u0101n\uFF0C r\xE9n y\u01D0ng s\u01CEn lu\xE0n\uFF0C t\xE0i sh\u01D2u gu\u012B \xE9r b\u012Bn k\xE8 c\xF3ng y\u011B\u3002 sh\xF9 l\xEDn y\u012Bn y\xEC\uFF0C m\xEDng sh\u0113ng sh\xE0ng xi\xE0\uFF0C y\xF3u r\xE9n q\xF9 \xE9r q\xEDn ni\u01CEo l\xE8 y\u011B\u3002 r\xE1n \xE9r q\xEDn ni\u01CEo zh\u012B sh\u0101n l\xEDn zh\u012B l\xE8\uFF0C \xE9r b\xF9 zh\u012B r\xE9n zh\u012B l\xE8\uFF1B r\xE9n zh\u012B c\xF3ng t\xE0i sh\u01D2u y\xF3u \xE9r l\xE8\uFF0C \xE9r b\xF9 zh\u012B t\xE0i sh\u01D2u zh\u012B l\xE8 q\xED l\xE8 y\u011B\u3002 zu\xEC n\xE9ng t\xF3ng q\xED l\xE8\uFF0C x\u01D0ng n\xE9ng sh\xF9 y\u01D0 w\xE9n zh\u011B\uFF0C t\xE0i sh\u01D2u y\u011B\u3002 t\xE0i sh\u01D2u w\xE8i shu\xED\uFF1F l\xFA l\xEDng \u014Du y\xE1ng xi\u016B y\u011B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-106-poem-106",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9189\u7FC1\u4EAD\u8BB0",
+        "author": "\u6B27\u9633\u4FEE",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u73AF\u6EC1\u7686\u5C71\u4E5F\u3002\u5176\u897F\u5357\u8BF8\u5CF0\uFF0C\u6797\u58D1\u5C24\u7F8E\uFF0C\u671B\u4E4B\u851A\u7136\u800C\u6DF1\u79C0\u8005\uFF0C\u7405\u740A\u4E5F\u3002\u5C71\u884C\u516D\u4E03\u91CC\uFF0C\u6E10\u95FB\u6C34\u58F0\u6F7A\u6F7A\uFF0C\u800C\u6CFB\u51FA\u4E8E\u4E24\u5CF0\u4E4B\u95F4\u8005\uFF0C\u917F\u6CC9\u4E5F\u3002\u5CF0\u56DE\u8DEF\u8F6C\uFF0C\u6709\u4EAD\u7FFC\u7136\u4E34\u4E8E\u6CC9\u4E0A\u8005\uFF0C\u9189\u7FC1\u4EAD\u4E5F\u3002\u4F5C\u4EAD\u8005\u8C01\uFF1F\u5C71\u4E4B\u50E7\u667A\u4ED9\u4E5F\u3002\u540D\u4E4B\u8005\u8C01\uFF1F\u592A\u5B88\u81EA\u8C13\u4E5F\u3002\u592A\u5B88\u4E0E\u5BA2\u6765\u996E\u4E8E\u6B64\uFF0C\u996E\u5C11\u8F84\u9189\uFF0C\u800C\u5E74\u53C8\u6700\u9AD8\uFF0C\u6545\u81EA\u53F7\u66F0\u9189\u7FC1\u4E5F\u3002\u9189\u7FC1\u4E4B\u610F\u4E0D\u5728\u9152\uFF0C\u5728\u4E4E\u5C71\u6C34\u4E4B\u95F4\u4E5F\u3002\u5C71\u6C34\u4E4B\u4E50\uFF0C\u5F97\u4E4B\u5FC3\u800C\u5BD3\u4E4B\u9152\u4E5F\u3002\n\u82E5\u592B\u65E5\u51FA\u800C\u6797\u970F\u5F00\uFF0C\u4E91\u5F52\u800C\u5CA9\u7A74\u669D\uFF0C\u6666\u660E\u53D8\u5316\u8005\uFF0C\u5C71\u95F4\u4E4B\u671D\u66AE\u4E5F\u3002\u91CE\u82B3\u53D1\u800C\u5E7D\u9999\uFF0C\u4F73\u6728\u79C0\u800C\u7E41\u9634\uFF0C\u98CE\u971C\u9AD8\u6D01\uFF0C\u6C34\u843D\u800C\u77F3\u51FA\u8005\uFF0C\u5C71\u95F4\u4E4B\u56DB\u65F6\u4E5F\u3002\u671D\u800C\u5F80\uFF0C\u66AE\u800C\u5F52\uFF0C\u56DB\u65F6\u4E4B\u666F\u4E0D\u540C\uFF0C\u800C\u4E50\u4EA6\u65E0\u7A77\u4E5F\u3002\n\u81F3\u4E8E\u8D1F\u8005\u6B4C\u4E8E\u9014\uFF0C\u884C\u8005\u4F11\u4E8E\u6811\uFF0C\u524D\u8005\u547C\uFF0C\u540E\u8005\u5E94\uFF0C\u4F1B\u507B\u63D0\u643A\uFF0C\u5F80\u6765\u800C\u4E0D\u7EDD\u8005\uFF0C\u6EC1\u4EBA\u6E38\u4E5F\u3002\u4E34\u6EAA\u800C\u6E14\uFF0C\u6EAA\u6DF1\u800C\u9C7C\u80A5\uFF0C\u917F\u6CC9\u4E3A\u9152\uFF0C\u6CC9\u9999\u800C\u9152\u6D0C\uFF0C\u5C71\u80B4\u91CE\u850C\uFF0C\u6742\u7136\u800C\u524D\u9648\u8005\uFF0C\u592A\u5B88\u5BB4\u4E5F\u3002\u5BB4\u9163\u4E4B\u4E50\uFF0C\u975E\u4E1D\u975E\u7AF9\uFF0C\u5C04\u8005\u4E2D\uFF0C\u5F08\u8005\u80DC\uFF0C\u89E5\u7B79\u4EA4\u9519\uFF0C\u8D77\u5750\u800C\u55A7\u54D7\u8005\uFF0C\u4F17\u5BBE\u6B22\u4E5F\u3002\u82CD\u989C\u767D\u53D1\uFF0C\u9893\u7136\u4E4E\u5176\u95F4\u8005\uFF0C\u592A\u5B88\u9189\u4E5F\u3002\n\u5DF2\u800C\u5915\u9633\u5728\u5C71\uFF0C\u4EBA\u5F71\u6563\u4E71\uFF0C\u592A\u5B88\u5F52\u800C\u5BBE\u5BA2\u4ECE\u4E5F\u3002\u6811\u6797\u9634\u7FF3\uFF0C\u9E23\u58F0\u4E0A\u4E0B\uFF0C\u6E38\u4EBA\u53BB\u800C\u79BD\u9E1F\u4E50\u4E5F\u3002\u7136\u800C\u79BD\u9E1F\u77E5\u5C71\u6797\u4E4B\u4E50\uFF0C\u800C\u4E0D\u77E5\u4EBA\u4E4B\u4E50\uFF1B\u4EBA\u77E5\u4ECE\u592A\u5B88\u6E38\u800C\u4E50\uFF0C\u800C\u4E0D\u77E5\u592A\u5B88\u4E4B\u4E50\u5176\u4E50\u4E5F\u3002\u9189\u80FD\u540C\u5176\u4E50\uFF0C\u9192\u80FD\u8FF0\u4EE5\u6587\u8005\uFF0C\u592A\u5B88\u4E5F\u3002\u592A\u5B88\u8C13\u8C01\uFF1F\u5E90\u9675\u6B27\u9633\u4FEE\u4E5F\u3002",
+        "pinyin": "hu\xE1n ch\xFA ji\u0113 sh\u0101n y\u011B\u3002 q\xED x\u012B n\xE1n zh\u016B f\u0113ng\uFF0C l\xEDn h\xE8 y\xF3u m\u011Bi\uFF0C w\xE0ng zh\u012B w\xE8i r\xE1n \xE9r sh\u0113n xi\xF9 zh\u011B\uFF0C l\xE1ng y\xE1 y\u011B\u3002 sh\u0101n x\xEDng li\xF9 q\u012B l\u01D0\uFF0C ji\xE0n w\xE9n shu\u01D0 sh\u0113ng ch\xE1n ch\xE1n\uFF0C \xE9r xi\xE8 ch\u016B y\xFA li\u01CEng f\u0113ng zh\u012B ji\u0101n zh\u011B\uFF0C ni\xE0ng qu\xE1n y\u011B\u3002 f\u0113ng hu\xED l\xF9 zhu\u01CEn\uFF0C y\u01D2u t\xEDng y\xEC r\xE1n l\xEDn y\xFA qu\xE1n sh\xE0ng zh\u011B\uFF0C zu\xEC w\u0113ng t\xEDng y\u011B\u3002 zu\xF2 t\xEDng zh\u011B shu\xED\uFF1F sh\u0101n zh\u012B s\u0113ng zh\xEC xi\u0101n y\u011B\u3002 m\xEDng zh\u012B zh\u011B shu\xED\uFF1F t\xE0i sh\u01D2u z\xEC w\xE8i y\u011B\u3002 t\xE0i sh\u01D2u y\u01D4 k\xE8 l\xE1i y\u01D0n y\xFA c\u01D0\uFF0C y\u01D0n sh\u01CEo zh\xE9 zu\xEC\uFF0C \xE9r ni\xE1n y\xF2u zu\xEC g\u0101o\uFF0C g\xF9 z\xEC h\xE0o yu\u0113 zu\xEC w\u0113ng y\u011B\u3002 zu\xEC w\u0113ng zh\u012B y\xEC b\xF9 z\xE0i ji\u01D4\uFF0C z\xE0i h\u016B sh\u0101n shu\u01D0 zh\u012B ji\u0101n y\u011B\u3002 sh\u0101n shu\u01D0 zh\u012B l\xE8\uFF0C d\xE9 zh\u012B x\u012Bn \xE9r y\xF9 zh\u012B ji\u01D4 y\u011B\u3002\nru\xF2 f\xFA r\xEC ch\u016B \xE9r l\xEDn f\u0113i k\u0101i\uFF0C y\xFAn gu\u012B \xE9r y\xE1n xu\xE9 m\xEDng\uFF0C hu\xEC m\xEDng bi\xE0n hu\xE0 zh\u011B\uFF0C sh\u0101n ji\u0101n zh\u012B zh\u0101o m\xF9 y\u011B\u3002 y\u011B f\u0101ng f\u0101 \xE9r y\u014Du xi\u0101ng\uFF0C ji\u0101 m\xF9 xi\xF9 \xE9r f\xE1n y\u012Bn\uFF0C f\u0113ng shu\u0101ng g\u0101o ji\xE9\uFF0C shu\u01D0 lu\xF2 \xE9r sh\xED ch\u016B zh\u011B\uFF0C sh\u0101n ji\u0101n zh\u012B s\xEC sh\xED y\u011B\u3002 ch\xE1o \xE9r w\u01CEng\uFF0C m\xF9 \xE9r gu\u012B\uFF0C s\xEC sh\xED zh\u012B j\u01D0ng b\xF9 t\xF3ng\uFF0C \xE9r l\xE8 y\xEC w\xFA qi\xF3ng y\u011B\u3002\nzh\xEC y\xFA f\xF9 zh\u011B g\u0113 y\xFA t\xFA\uFF0C x\xEDng zh\u011B xi\u016B y\xFA sh\xF9\uFF0C qi\xE1n zh\u011B h\u016B\uFF0C h\xF2u zh\u011B y\u012Bng\uFF0C y\u01D4 l\u01DA t\xED xi\xE9\uFF0C w\u01CEng l\xE1i \xE9r b\xF9 ju\xE9 zh\u011B\uFF0C ch\xFA r\xE9n y\xF3u y\u011B\u3002 l\xEDn x\u012B \xE9r y\xFA\uFF0C x\u012B sh\u0113n \xE9r y\xFA f\xE9i\uFF0C ni\xE0ng qu\xE1n w\xE8i ji\u01D4\uFF0C qu\xE1n xi\u0101ng \xE9r ji\u01D4 li\xE8\uFF0C sh\u0101n y\xE1o y\u011B s\xF9\uFF0C z\xE1 r\xE1n \xE9r qi\xE1n ch\xE9n zh\u011B\uFF0C t\xE0i sh\u01D2u y\xE0n y\u011B\u3002 y\xE0n h\u0101n zh\u012B l\xE8\uFF0C f\u0113i s\u012B f\u0113i zh\xFA\uFF0C sh\xE8 zh\u011B zh\u014Dng\uFF0C y\xEC zh\u011B sh\xE8ng\uFF0C g\u014Dng ch\xF3u ji\u0101o cu\xF2\uFF0C q\u01D0 zu\xF2 \xE9r xu\u0101n hu\xE1 zh\u011B\uFF0C zh\xF2ng b\u012Bn hu\u0101n y\u011B\u3002 c\u0101ng y\xE1n b\xE1i f\xE0\uFF0C tu\xED r\xE1n h\u016B q\xED ji\u0101n zh\u011B\uFF0C t\xE0i sh\u01D2u zu\xEC y\u011B\u3002\ny\u01D0 \xE9r x\u012B y\xE1ng z\xE0i sh\u0101n\uFF0C r\xE9n y\u01D0ng s\u01CEn lu\xE0n\uFF0C t\xE0i sh\u01D2u gu\u012B \xE9r b\u012Bn k\xE8 c\xF3ng y\u011B\u3002 sh\xF9 l\xEDn y\u012Bn y\xEC\uFF0C m\xEDng sh\u0113ng sh\xE0ng xi\xE0\uFF0C y\xF3u r\xE9n q\xF9 \xE9r q\xEDn ni\u01CEo l\xE8 y\u011B\u3002 r\xE1n \xE9r q\xEDn ni\u01CEo zh\u012B sh\u0101n l\xEDn zh\u012B l\xE8\uFF0C \xE9r b\xF9 zh\u012B r\xE9n zh\u012B l\xE8\uFF1B r\xE9n zh\u012B c\xF3ng t\xE0i sh\u01D2u y\xF3u \xE9r l\xE8\uFF0C \xE9r b\xF9 zh\u012B t\xE0i sh\u01D2u zh\u012B l\xE8 q\xED l\xE8 y\u011B\u3002 zu\xEC n\xE9ng t\xF3ng q\xED l\xE8\uFF0C x\u01D0ng n\xE9ng sh\xF9 y\u01D0 w\xE9n zh\u011B\uFF0C t\xE0i sh\u01D2u y\u011B\u3002 t\xE0i sh\u01D2u w\xE8i shu\xED\uFF1F l\xFA l\xEDng \u014Du y\xE1ng xi\u016B y\u011B\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-71-poem-71",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6E56\u5FC3\u4EAD\u770B\u96EA",
+        "author": "\u5F20\u5CB1",
+        "dynasty": "\u660E",
+        "excerpt": "\u5D07\u796F\u4E94\u5E74\u5341\u4E8C\u6708\uFF0C\u4F59\u4F4F\u897F\u6E56\u3002\u5927\u96EA\u4E09\u65E5\uFF0C\u6E56\u4E2D\u4EBA\u9E1F\u58F0\u4FF1\u7EDD\u3002\u662F\u65E5\u66F4\u5B9A\u77E3\uFF0C\u4F59\u62CF\u4E00\u5C0F\u821F\uFF0C\u62E5\u6BF3\u8863\u7089\u706B\uFF0C\u72EC\u5F80\u6E56\u5FC3\u4EAD\u770B\u96EA\u3002\u96FE\u51C7\u6C86\u7800\uFF0C\u5929\u4E0E\u4E91\u4E0E\u5C71\u4E0E\u6C34\uFF0C\u4E0A\u4E0B\u4E00\u767D\uFF0C\u6E56\u4E0A\u5F71\u5B50\uFF0C\u60DF\u957F\u5824\u4E00\u75D5\u3001\u6E56\u5FC3\u4EAD\u4E00\u70B9\u3001\u4E0E\u4F59\u821F\u4E00\u82A5\u3001\u821F\u4E2D\u4EBA\u4E24\u4E09\u7C92\u800C\u5DF2\u3002\n\u5230\u4EAD\u4E0A\uFF0C\u6709\u4E24\u4EBA\u94FA\u6BE1\u5BF9\u5750\uFF0C\u4E00\u7AE5\u5B50\u70E7\u9152\u7089\u6B63\u6CB8\u3002\u89C1\u4F59\u5927\u559C\u66F0\uFF1A\u201C\u6E56\u4E2D\u7109\u5F97\u66F4\u6709\u6B64\u4EBA\uFF01\u201D\u62C9\u4F59\u540C\u996E\u3002\u4F59\u5F3A\u996E\u4E09\u5927\u767D\u800C\u522B\u3002\u95EE\u5176\u59D3\u6C0F\uFF0C\u662F\u91D1\u9675\u4EBA\uFF0C\u5BA2\u6B64\u3002\u53CA\u4E0B\u8239\uFF0C\u821F\u5B50\u5583\u5583\u66F0\uFF1A\u201C\u83AB\u8BF4\u76F8\u516C\u75F4\uFF0C\u66F4\u6709\u75F4\u4F3C\u76F8\u516C\u8005\u3002\u201D",
+        "pinyin": "ch\xF3ng zh\u0113n w\u01D4 ni\xE1n sh\xED \xE8r yu\xE8\uFF0C y\xFA zh\xF9 x\u012B h\xFA\u3002 d\xE0 xu\u011B s\u0101n r\xEC\uFF0C h\xFA zh\u014Dng r\xE9n ni\u01CEo sh\u0113ng j\xF9 ju\xE9\u3002 sh\xEC r\xEC g\u0113ng d\xECng y\u01D0\uFF0C y\xFA n\xE1 y\u012B xi\u01CEo zh\u014Du\uFF0C y\u014Dng cu\xEC y\u012B l\xFA hu\u01D2\uFF0C d\xFA w\u01CEng h\xFA x\u012Bn t\xEDng k\xE0n xu\u011B\u3002 w\xF9 s\u014Dng h\xE0ng d\xE0ng\uFF0C ti\u0101n y\u01D4 y\xFAn y\u01D4 sh\u0101n y\u01D4 shu\u01D0\uFF0C sh\xE0ng xi\xE0 y\u012B b\xE1i\uFF0C h\xFA sh\xE0ng y\u01D0ng zi\uFF0C w\xE9i zh\u01CEng d\u012B y\u012B h\xE9n\u3001 h\xFA x\u012Bn t\xEDng y\xEC di\u01CEn\u3001 y\u01D4 y\xFA zh\u014Du y\u012B ji\xE8\u3001 zh\u014Du zh\u014Dng r\xE9n li\u01CEng s\u0101n l\xEC \xE9r y\u01D0\u3002\nd\xE0o t\xEDng sh\xE0ng\uFF0C y\u01D2u li\u01CEng r\xE9n p\xF9 zh\u0101n du\xEC zu\xF2\uFF0C y\u012B t\xF3ng zi sh\u0101o ji\u01D4 l\xFA zh\xE8ng f\xE8i\u3002 ji\xE0n y\xFA d\xE0 x\u01D0 yu\u0113\uFF1A\u201C h\xFA zh\u014Dng y\u0101n d\xE9 g\xE8ng y\u01D2u c\u01D0 r\xE9n\uFF01\u201D l\u0101 y\xFA t\xF3ng y\u01D0n\u3002 y\xFA qi\xE1ng y\u01D0n s\u0101n d\xE0 b\xE1i \xE9r bi\xE9\u3002 w\xE8n q\xED x\xECng sh\xEC\uFF0C sh\xEC j\u012Bn l\xEDng r\xE9n\uFF0C k\xE8 c\u01D0\u3002 j\xED xi\xE0 chu\xE1n\uFF0C zh\u014Du zi n\xE1n n\xE1n yu\u0113\uFF1A\u201C m\xF2 shu\u014D xi\xE0ng g\u014Dng ch\u012B\uFF0C g\xE8ng y\u01D2u ch\u012B sh\xEC xi\xE0ng g\u014Dng zh\u011B\u3002\u201D",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-72-poem-72",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u884C\u8DEF\u96BE",
+        "author": "\u5176\u4E00 \u674E\u767D",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u91D1\u6A3D\u6E05\u9152\u6597\u5341\u5343\uFF0C\u7389\u76D8\u73CD\u7F9E\u76F4\u4E07\u94B1\u3002\u505C\u676F\u6295\u7BB8\u4E0D\u80FD\u98DF\uFF0C\u62D4\u5251\u56DB\u987E\u5FC3\u832B\u7136\u3002\n\u6B32\u6E21\u9EC4\u6CB3\u51B0\u585E\u5DDD\uFF0C\u5C06\u767B\u592A\u884C\u96EA\u6EE1\u5C71\u3002\u95F2\u6765\u5782\u9493\u78A7\u6EAA\u4E0A\uFF0C\u5FFD\u590D\u4E58\u821F\u68A6\u65E5\u8FB9\u3002\u884C\u8DEF\u96BE\uFF0C\u884C\u8DEF\u96BE\uFF0C\u591A\u6B67\u8DEF\uFF0C\u4ECA\u5B89\u5728\uFF1F\u957F\u98CE\u7834\u6D6A\u4F1A\u6709\u65F6\uFF0C\u76F4\u6302\u4E91\u5E06\u6D4E\u6CA7\u6D77\u3002",
+        "pinyin": "j\u012Bn z\u016Bn q\u012Bng ji\u01D4 d\xF2u sh\xED qi\u0101n\uFF0C y\xF9 p\xE1n zh\u0113n xi\u016B zh\xED w\xE0n qi\xE1n\u3002 t\xEDng b\u0113i t\xF3u zh\xF9 b\xF9 n\xE9ng sh\xED\uFF0C b\xE1 ji\xE0n s\xEC g\xF9 x\u012Bn m\xE1ng r\xE1n\u3002\ny\xF9 d\xF9 hu\xE1ng h\xE9 b\u012Bng s\u0101i chu\u0101n\uFF0C ji\u0101ng d\u0113ng t\xE0i x\xEDng xu\u011B m\u01CEn sh\u0101n\u3002 xi\xE1n l\xE1i chu\xED di\xE0o b\xEC x\u012B sh\xE0ng\uFF0C h\u016B f\xF9 ch\xE9ng zh\u014Du m\xE8ng r\xEC bi\u0101n\u3002 x\xEDng l\xF9 n\xE1n\uFF0C x\xEDng l\xF9 n\xE1n\uFF0C du\u014D q\xED l\xF9\uFF0C j\u012Bn \u0101n z\xE0i\uFF1F ch\xE1ng f\u0113ng p\xF2 l\xE0ng hu\xEC y\u01D2u sh\xED\uFF0C zh\xED gu\xE0 y\xFAn f\u0101n j\xEC c\u0101ng h\u01CEi\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-73-poem-73",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u916C\u4E50\u5929\u626C\u5DDE\u521D\u9022\u5E2D\u4E0A\u89C1\u8D60",
+        "author": "\u5218\u79B9\u9521",
+        "dynasty": "\u5510",
+        "excerpt": "\u5DF4\u5C71\u695A\u6C34\u51C4\u51C9\u5730\uFF0C\u4E8C\u5341\u4E09\u5E74\u5F03\u7F6E\u8EAB\u3002\u6000\u65E7\u7A7A\u541F\u95FB\u7B1B\u8D4B\uFF0C\u5230\u4E61\u7FFB\u4F3C\u70C2\u67EF\u4EBA\u3002\n\u6C89\u821F\u4FA7\u7554\u5343\u5E06\u8FC7\uFF0C\u75C5\u6811\u524D\u5934\u4E07\u6728\u6625\u3002\u4ECA\u65E5\u542C\u541B\u6B4C\u4E00\u66F2\uFF0C\u6682\u51ED\u676F\u9152\u957F\u7CBE\u795E\u3002",
+        "pinyin": "b\u0101 sh\u0101n ch\u01D4 shu\u01D0 q\u012B li\xE1ng d\xEC\uFF0C \xE8r sh\xED s\u0101n ni\xE1n q\xEC zh\xEC sh\u0113n\u3002 hu\xE1i ji\xF9 k\u014Dng y\xEDn w\xE9n d\xED f\xF9\uFF0C d\xE0o xi\u0101ng f\u0101n sh\xEC l\xE0n k\u0113 r\xE9n\u3002\nch\xE9n zh\u014Du c\xE8 p\xE0n qi\u0101n f\u0101n gu\xF2\uFF0C b\xECng sh\xF9 qi\xE1n tou w\xE0n m\xF9 ch\u016Bn\u3002 j\u012Bn r\xEC t\u012Bng j\u016Bn g\u0113 y\u012B q\u016B\uFF0C z\xE0n p\xEDng b\u0113i ji\u01D4 zh\u01CEng j\u012Bng sh\xE9n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-74-poem-74",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6C34\u8C03\u6B4C\u5934",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u660E\u6708\u51E0\u65F6\u6709?\u628A\u9152\u95EE\u9752\u5929\u3002\u4E0D\u77E5\u5929\u4E0A\u5BAB\u9619\uFF0C\u4ECA\u5915\u662F\u4F55\u5E74\u3002\u6211\u6B32\u4E58\u98CE\u5F52\u53BB\uFF0C\u53C8\u6050\u743C\u697C\u7389\u5B87\uFF0C\u9AD8\u5904\u4E0D\u80DC\u5BD2\u3002\u8D77\u821E\u5F04\u6E05\u5F71\uFF0C\u4F55\u4F3C\u5728\u4EBA\u95F4\u3002\n\u8F6C\u6731\u9601\uFF0C\u4F4E\u7EEE\u6237\uFF0C\u7167\u65E0\u7720\u3002\u4E0D\u5E94\u6709\u6068\uFF0C\u4F55\u4E8B\u957F\u5411\u522B\u65F6\u5706?\u4EBA\u6709\u60B2\u6B22\u79BB\u5408\uFF0C\u6708\u6709\u9634\u6674\u5706\u7F3A\uFF0C\u6B64\u4E8B\u53E4\u96BE\u5168\u3002\u4F46\u613F\u4EBA\u957F\u4E45\uFF0C\u5343\u91CC\u5171\u5A75\u5A1F\u3002",
+        "pinyin": "m\xEDng yu\xE8 j\u01D0 sh\xED y\u01D2u? b\u01CE ji\u01D4 w\xE8n q\u012Bng ti\u0101n\u3002 b\xF9 zh\u012B ti\u0101n sh\xE0ng g\u014Dng qu\xE8\uFF0C j\u012Bn x\u012B sh\xEC h\xE9 ni\xE1n\u3002 w\u01D2 y\xF9 ch\xE9ng f\u0113ng gu\u012B q\xF9\uFF0C y\xF2u k\u01D2ng qi\xF3ng l\xF3u y\xF9 y\u01D4\uFF0C g\u0101o ch\xF9 b\xF9 sh\xE8ng h\xE1n\u3002 q\u01D0 w\u01D4 n\xF2ng q\u012Bng y\u01D0ng\uFF0C h\xE9 sh\xEC z\xE0i r\xE9n ji\u0101n\u3002\nzhu\u01CEn zh\u016B g\xE9\uFF0C d\u012B q\u01D0 h\xF9\uFF0C zh\xE0o w\xFA mi\xE1n\u3002 b\xF9 y\u012Bng y\u01D2u h\xE8n\uFF0C h\xE9 sh\xEC zh\u01CEng xi\xE0ng bi\xE9 sh\xED yu\xE1n? r\xE9n y\u01D2u b\u0113i hu\u0101n l\xED h\xE9\uFF0C yu\xE8 y\u01D2u y\u012Bn q\xEDng yu\xE1n qu\u0113\uFF0C c\u01D0 sh\xEC g\u01D4 n\xE1n qu\xE1n\u3002 d\xE0n yu\xE0n r\xE9n ch\xE1ng ji\u01D4\uFF0C qi\u0101n l\u01D0 g\xF2ng ch\xE1n ju\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-75-poem-75",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6708\u591C\u5FC6\u820D\u5F1F",
+        "author": "\u675C\u752B",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u620D\u9F13\u65AD\u4EBA\u884C\uFF0C\u8FB9\u79CB\u4E00\u96C1\u58F0\u3002\u9732\u4ECE\u4ECA\u591C\u767D\uFF0C\u6708\u662F\u6545\u4E61\u660E\u3002\n\u6709\u5F1F\u7686\u5206\u6563\uFF0C\u65E0\u5BB6\u95EE\u6B7B\u751F\u3002\u5BC4\u4E66\u957F\u4E0D\u8FBE\uFF0C\u51B5\u4E43\u672A\u4F11\u5175\u3002",
+        "pinyin": "sh\xF9 g\u01D4 du\xE0n r\xE9n x\xEDng\uFF0C bi\u0101n qi\u016B y\u012B y\xE0n sh\u0113ng\u3002 l\xF9 c\xF3ng j\u012Bn y\xE8 b\xE1i\uFF0C yu\xE8 sh\xEC g\xF9 xi\u0101ng m\xEDng\u3002\ny\u01D2u d\xEC ji\u0113 f\u0113n s\xE0n\uFF0C w\xFA ji\u0101 w\xE8n s\u01D0 sh\u0113ng\u3002 j\xEC sh\u016B zh\u01CEng b\xF9 d\xE1\uFF0C ku\xE0ng n\u01CEi w\xE8i xi\u016B b\u012Bng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-76-poem-76",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u957F\u6C99\u8FC7\u8D3E\u8C0A\u5B85",
+        "author": "\u5218\u957F\u537F",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4E09\u5E74\u8C2A\u5BA6\u6B64\u6816\u8FDF\uFF0C\u4E07\u53E4\u60DF\u7559\u695A\u5BA2\u60B2\u3002\u79CB\u8349\u72EC\u5BFB\u4EBA\u53BB\u540E\uFF0C\u5BD2\u6797\u7A7A\u89C1\u65E5\u659C\u65F6\u3002\u6C49\u6587\u6709\u9053\u6069\u72B9\u8584\uFF0C\u6E58\u6C34\u65E0\u60C5\u540A\u5C82\u77E5\u3002\u5BC2\u5BC2\u6C5F\u5C71\u6447\u843D\u5904\uFF0C\u601C\u541B\u4F55\u4E8B\u5230\u5929\u6DAF\u3002",
+        "pinyin": "s\u0101n ni\xE1n zh\xE9 hu\xE0n c\u01D0 q\u012B ch\xED\uFF0C w\xE0n g\u01D4 w\xE9i li\xFA ch\u01D4 k\xE8 b\u0113i\u3002 qi\u016B c\u01CEo d\xFA x\xFAn r\xE9n q\xF9 h\xF2u\uFF0C h\xE1n l\xEDn k\u014Dng ji\xE0n r\xEC xi\xE9 sh\xED\u3002 h\xE0n w\xE9n y\u01D2u d\xE0o \u0113n y\xF3u b\xE1o\uFF0C xi\u0101ng shu\u01D0 w\xFA q\xEDng di\xE0o q\u01D0 zh\u012B\u3002 j\xEC j\xEC ji\u0101ng sh\u0101n y\xE1o lu\xF2 ch\xF9\uFF0C li\xE1n j\u016Bn h\xE9 sh\xEC d\xE0o ti\u0101n y\xE1\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-77-poem-77",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5DE6\u8FC1\u81F3\u84DD\u5173\u793A\u4F84\u5B59\u6E58",
+        "author": "\u97E9\u6108",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4E00\u5C01\u671D\u594F\u4E5D\u91CD\u5929\uFF0C\u5915\u8D2C\u6F6E\u5DDE\u8DEF\u516B\u5343\u3002\u6B32\u4E3A\u5723\u660E\u9664\u5F0A\u4E8B\uFF0C\u80AF\u5C06\u8870\u673D\u60DC\u6B8B\u5E74\uFF01\n\u4E91\u6A2A\u79E6\u5CAD\u5BB6\u4F55\u5728\uFF1F\u96EA\u62E5\u84DD\u5173\u9A6C\u4E0D\u524D\u3002\u77E5\u6C5D\u8FDC\u6765\u5E94\u6709\u610F\uFF0C\u597D\u6536\u543E\u9AA8\u7634\u6C5F\u8FB9\u3002",
+        "pinyin": "y\u012B f\u0113ng ch\xE1o z\xF2u ji\u01D4 ch\xF3ng ti\u0101n\uFF0C x\u012B bi\u01CEn ch\xE1o zh\u014Du l\xF9 b\u0101 qi\u0101n\u3002 y\xF9 w\xE8i sh\xE8ng m\xEDng ch\xFA b\xEC sh\xEC\uFF0C k\u011Bn ji\u0101ng shu\u0101i xi\u01D4 x\u012B c\xE1n ni\xE1n\uFF01\ny\xFAn h\xE9ng q\xEDn l\u01D0ng ji\u0101 h\xE9 z\xE0i\uFF1F xu\u011B y\u014Dng l\xE1n gu\u0101n m\u01CE b\xF9 qi\xE1n\u3002 zh\u012B r\u01D4 yu\u01CEn l\xE1i y\u012Bng y\u01D2u y\xEC\uFF0C h\u01CEo sh\u014Du w\xFA g\u01D4 zh\xE0ng ji\u0101ng bi\u0101n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-78-poem-78",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5546\u5C71\u65E9\u884C",
+        "author": "\u6E29\u5EAD\u7B60",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u6668\u8D77\u52A8\u5F81\u94CE\uFF0C\u5BA2\u884C\u60B2\u6545\u4E61\u3002\u9E21\u58F0\u8305\u5E97\u6708\uFF0C\u4EBA\u8FF9\u677F\u6865\u971C\u3002\n\u69F2\u53F6\u843D\u5C71\u8DEF\uFF0C\u67B3\u82B1\u660E\u9A7F\u5899\u3002\u56E0\u601D\u675C\u9675\u68A6\uFF0C\u51EB\u96C1\u6EE1\u56DE\u5858\u3002",
+        "pinyin": "ch\xE9n q\u01D0 d\xF2ng zh\u0113ng du\xF3\uFF0C k\xE8 x\xEDng b\u0113i g\xF9 xi\u0101ng\u3002 j\u012B sh\u0113ng m\xE1o di\xE0n yu\xE8\uFF0C r\xE9n j\xEC b\u01CEn qi\xE1o shu\u0101ng\u3002\nh\xFA y\xE8 lu\xF2 sh\u0101n l\xF9\uFF0C zh\u01D0 hu\u0101 m\xEDng y\xEC qi\xE1ng\u3002 y\u012Bn s\u012B d\xF9 l\xEDng m\xE8ng\uFF0C f\xFA y\xE0n m\u01CEn hu\xED t\xE1ng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-79-poem-79",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u54B8\u9633\u57CE\u4E1C\u697C",
+        "author": "\u8BB8\u6D51",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4E00\u4E0A\u9AD8\u57CE\u4E07\u91CC\u6101\uFF0C\u84B9\u846D\u6768\u67F3\u4F3C\u6C40\u6D32\u3002\u6EAA\u4E91\u521D\u8D77\u65E5\u6C89\u9601\uFF0C\u5C71\u96E8\u6B32\u6765\u98CE\u6EE1\u697C\u3002\n\u9E1F\u4E0B\u7EFF\u829C\u79E6\u82D1\u5915\uFF0C\u8749\u9E23\u9EC4\u53F6\u6C49\u5BAB\u79CB\u3002\u884C\u4EBA\u83AB\u95EE\u5F53\u5E74\u4E8B\uFF0C\u6545\u56FD\u4E1C\u6765\u6E2D\u6C34\u6D41\u3002",
+        "pinyin": "y\u012B sh\xE0ng g\u0101o ch\xE9ng w\xE0n l\u01D0 ch\xF3u\uFF0C ji\u0101n ji\u0101 y\xE1ng li\u01D4 sh\xEC t\u012Bng zh\u014Du\u3002 x\u012B y\xFAn ch\u016B q\u01D0 r\xEC ch\xE9n g\xE9\uFF0C sh\u0101n y\u01D4 y\xF9 l\xE1i f\u0113ng m\u01CEn l\xF3u\u3002\nni\u01CEo xi\xE0 l\u01DC w\xFA q\xEDn yu\xE0n x\u012B\uFF0C ch\xE1n m\xEDng hu\xE1ng y\xE8 h\xE0n g\u014Dng qi\u016B\u3002 x\xEDng r\xE9n m\xF2 w\xE8n d\u0101ng ni\xE1n sh\xEC\uFF0C g\xF9 gu\xF3 d\u014Dng l\xE1i w\xE8i shu\u01D0 li\xFA\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-80-poem-80",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u65E0\u9898",
+        "author": "\u674E\u5546\u9690",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u76F8\u89C1\u65F6\u96BE\u522B\u4EA6\u96BE\uFF0C\u4E1C\u98CE\u65E0\u529B\u767E\u82B1\u6B8B\u3002\u6625\u8695\u5230\u6B7B\u4E1D\u65B9\u5C3D\uFF0C\u8721\u70AC\u6210\u7070\u6CEA\u59CB\u5E72\u3002\n\u6653\u955C\u4F46\u6101\u4E91\u9B13\u6539\uFF0C\u591C\u541F\u5E94\u89C9\u6708\u5149\u5BD2\u3002\u84EC\u5C71\u6B64\u53BB\u65E0\u591A\u8DEF\uFF0C\u9752\u9E1F\u6BB7\u52E4\u4E3A\u63A2\u770B\u3002",
+        "pinyin": "xi\u0101ng ji\xE0n sh\xED n\xE1n bi\xE9 y\xEC n\xE1n\uFF0C d\u014Dng f\u0113ng w\xFA l\xEC b\u01CEi hu\u0101 c\xE1n\u3002 ch\u016Bn c\xE1n d\xE0o s\u01D0 s\u012B f\u0101ng j\xECn\uFF0C l\xE0 j\xF9 ch\xE9ng hu\u012B l\xE8i sh\u01D0 g\xE0n\u3002\nxi\u01CEo j\xECng d\xE0n ch\xF3u y\xFAn b\xECn g\u01CEi\uFF0C y\xE8 y\xEDn y\u012Bng ju\xE9 yu\xE8 gu\u0101ng h\xE1n\u3002 p\xE9ng sh\u0101n c\u01D0 q\xF9 w\xFA du\u014D l\xF9\uFF0C q\u012Bng ni\u01CEo y\u012Bn q\xEDn w\xE8i t\xE0n k\xE0n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-81-poem-81",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u884C\u9999\u5B50",
+        "author": "\u6811\u7ED5\u6751\u5E84 \u79E6\u89C2",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u6811\u7ED5\u6751\u5E84\uFF0C\u6C34\u6EE1\u9642\u5858\u3002\u501A\u4E1C\u98CE\uFF0C\u8C6A\u5174\u5F9C\u5F89\u3002\u5C0F\u56ED\u51E0\u8BB8\uFF0C\u6536\u5C3D\u6625\u5149\u3002\u6709\u6843\u82B1\u7EA2\uFF0C\u674E\u82B1\u767D\uFF0C\u83DC\u82B1\u9EC4\u3002\n\u8FDC\u8FDC\u56F4\u5899\uFF0C\u9690\u9690\u8305\u5802\u3002\u98CF\u9752\u65D7\uFF0C\u6D41\u6C34\u6865\u65C1\u3002\u5076\u7136\u4E58\u5174\uFF0C\u6B65\u8FC7\u4E1C\u5188\u3002\u6B63\u83BA\u513F\u557C\uFF0C\u71D5\u513F\u821E\uFF0C\u8776\u513F\u5FD9\u3002",
+        "pinyin": "sh\xF9 r\xE0o c\u016Bn zhu\u0101ng\uFF0C shu\u01D0 m\u01CEn b\u0113i t\xE1ng\u3002 y\u01D0 d\u014Dng f\u0113ng\uFF0C h\xE1o x\xECng ch\xE1ng y\xE1ng\u3002 xi\u01CEo yu\xE1n j\u01D0 x\u01D4\uFF0C sh\u014Du j\u01D0n ch\u016Bn gu\u0101ng\u3002 y\u01D2u t\xE1o hu\u0101 h\xF3ng\uFF0C l\u01D0 hu\u0101 b\xE1i\uFF0C c\xE0i hu\u0101 hu\xE1ng\u3002\nyu\u01CEn yu\u01CEn w\xE9i qi\xE1ng\uFF0C y\u01D0n y\u01D0n m\xE1o t\xE1ng\u3002 y\xE1ng q\u012Bng q\xED\uFF0C li\xFA shu\u01D0 qi\xE1o p\xE1ng\u3002 \u01D2u r\xE1n ch\xE9ng x\xECng\uFF0C b\xF9 gu\xF2 d\u014Dng g\u0101ng\u3002 zh\xE8ng y\u012Bng \xE9r t\xED\uFF0C y\xE0n \xE9r w\u01D4\uFF0C di\xE9 \xE9r m\xE1ng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-82-poem-82",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u4E11\u513F\u5974 \u4E66\u535A\u5C71\u9053\u4E2D\u58C1",
+        "author": "\u8F9B\u5F03\u75BE",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5C11\u5E74\u4E0D\u8BC6\u6101\u6ECB\u5473\uFF0C\u7231\u4E0A\u5C42\u697C\u3002\u7231\u4E0A\u5C42\u697C\u3002\u4E3A\u8D4B\u65B0\u8BCD\u5F3A\u8BF4\u6101\u3002\n\u800C\u4ECA\u8BC6\u5C3D\u6101\u6ECB\u5473\uFF0C\u6B32\u8BF4\u8FD8\u4F11\u3002\u6B32\u8BF4\u8FD8\u4F11\u3002\u5374\u9053\u5929\u51C9\u597D\u4E2A\u79CB\u3002",
+        "pinyin": "sh\xE0o ni\xE1n b\xF9 sh\xED ch\xF3u z\u012B w\xE8i\uFF0C \xE0i sh\xE0ng c\xE9ng l\xF3u\u3002 \xE0i sh\xE0ng c\xE9ng l\xF3u\u3002 w\xE8i f\xF9 x\u012Bn c\xED qi\xE1ng shu\u014D ch\xF3u\u3002\n\xE9r j\u012Bn sh\xED j\u01D0n ch\xF3u z\u012B w\xE8i\uFF0C y\xF9 shu\u014D h\xE1i xi\u016B\u3002 y\xF9 shu\u014D h\xE1i xi\u016B\u3002 qu\xE8 d\xE0o ti\u0101n li\xE1ng h\u01CEo g\xE8 qi\u016B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-83-poem-83",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5B5F\u5B50\u300A\u9C7C\u6211\u6240\u6B32\u4E5F\u300B",
+        "author": "\u5B5F\u5B50",
+        "dynasty": "\u6218\u56FD",
+        "excerpt": "\u9C7C\uFF0C\u6211\u6240\u6B32\u4E5F\uFF1B\u718A\u638C\uFF0C\u4EA6\u6211\u6240\u6B32\u4E5F\u3002\u4E8C\u8005\u4E0D\u53EF\u5F97\u517C\uFF0C\u820D\u9C7C\u800C\u53D6\u718A\u638C\u8005\u4E5F\u3002\u751F\uFF0C\u4EA6\u6211\u6240\u6B32\u4E5F\uFF1B\u4E49\uFF0C\u4EA6\u6211\u6240\u6B32\u4E5F\u3002\u4E8C\u8005\u4E0D\u53EF\u5F97\u517C\uFF0C\u820D\u751F\u800C\u53D6\u4E49\u8005\u4E5F\u3002\u751F\u4EA6\u6211\u6240\u6B32\uFF0C\u6240\u6B32\u6709\u751A\u4E8E\u751F\u8005\uFF0C\u6545\u4E0D\u4E3A\u82DF\u5F97\u4E5F\uFF1B\u6B7B\u4EA6\u6211\u6240\u6076\uFF0C\u6240\u6076\u6709\u751A\u4E8E\u6B7B\u8005\uFF0C\u6545\u60A3\u6709\u6240\u4E0D\u8F9F\u4E5F\u3002\u5982\u4F7F\u4EBA\u4E4B\u6240\u6B32\u83AB\u751A\u4E8E\u751F\uFF0C\u5219\u51E1\u53EF\u4EE5\u5F97\u751F\u8005\u4F55\u4E0D\u7528\u4E5F\uFF1F\u4F7F\u4EBA\u4E4B\u6240\u6076\u83AB\u751A\u4E8E\u6B7B\u8005\uFF0C\u5219\u51E1\u53EF\u4EE5\u8F9F\u60A3\u8005\u4F55\u4E0D\u4E3A\u4E5F\uFF1F\u7531\u662F\u5219\u751F\u800C\u6709\u4E0D\u7528\u4E5F\uFF0C\u7531\u662F\u5219\u53EF\u4EE5\u8F9F\u60A3\u800C\u6709\u4E0D\u4E3A\u4E5F\u3002\u662F\u6545\u6240\u6B32\u6709\u751A\u4E8E\u751F\u8005\uFF0C\u6240\u6076\u6709\u751A\u4E8E\u6B7B\u8005\u3002\u975E\u72EC\u8D24\u8005\u6709\u662F\u5FC3\u4E5F\uFF0C\u4EBA\u7686\u6709\u4E4B\uFF0C\u8D24\u8005\u80FD\u52FF\u4E27\u8033\u3002\n\u4E00\u7BAA\u98DF\uFF0C\u4E00\u8C46\u7FB9\uFF0C\u5F97\u4E4B\u5219\u751F\uFF0C\u5F17\u5F97\u5219\u6B7B\u3002\u547C\u5C14\u800C\u4E0E\u4E4B\uFF0C\u884C\u9053\u4E4B\u4EBA\u5F17\u53D7\uFF1B\u8E74\u5C14\u800C\u4E0E\u4E4B\uFF0C\u4E5E\u4EBA\u4E0D\u5C51\u4E5F\u3002\u4E07\u949F\u5219\u4E0D\u8FA9\u793C\u4E49\u800C\u53D7\u4E4B\uFF0C\u4E07\u949F\u4E8E\u6211\u4F55\u52A0\u7109\uFF01\u4E3A\u5BAB\u5BA4\u4E4B\u7F8E\u3001\u59BB\u59BE\u4E4B\u5949\u3001\u6240\u8BC6\u7A77\u4E4F\u8005\u5F97\u6211\u4E0E\uFF1F\u4E61\u4E3A\u8EAB\u6B7B\u800C\u4E0D\u53D7\uFF0C\u4ECA\u4E3A\u5BAB\u5BA4\u4E4B\u7F8E\u4E3A\u4E4B\uFF1B\u4E61\u4E3A\u8EAB\u6B7B\u800C\u4E0D\u53D7\uFF0C\u4ECA\u4E3A\u59BB\u59BE\u4E4B\u5949\u4E3A\u4E4B\uFF1B\u4E61\u4E3A\u8EAB\u6B7B\u800C\u4E0D\u53D7\uFF0C\u4ECA\u4E3A\u6240\u8BC6\u7A77\u4E4F\u8005\u5F97\u6211\u800C\u4E3A\u4E4B\uFF1A\u662F\u4EA6\u4E0D\u53EF\u4EE5\u5DF2\u4E4E\uFF1F\u6B64\u4E4B\u8C13\u5931\u5176\u672C\u5FC3\u3002",
+        "pinyin": "y\xFA\uFF0C w\u01D2 su\u01D2 y\xF9 y\u011B\uFF1B xi\xF3ng zh\u01CEng\uFF0C y\xEC w\u01D2 su\u01D2 y\xF9 y\u011B\u3002 \xE8r zh\u011B b\xF9 k\u011B d\xE9 ji\u0101n\uFF0C sh\u011B y\xFA \xE9r q\u01D4 xi\xF3ng zh\u01CEng zh\u011B y\u011B\u3002 sh\u0113ng\uFF0C y\xEC w\u01D2 su\u01D2 y\xF9 y\u011B\uFF1B y\xEC\uFF0C y\xEC w\u01D2 su\u01D2 y\xF9 y\u011B\u3002 \xE8r zh\u011B b\xF9 k\u011B d\xE9 ji\u0101n\uFF0C sh\u011B sh\u0113ng \xE9r q\u01D4 y\xEC zh\u011B y\u011B\u3002 sh\u0113ng y\xEC w\u01D2 su\u01D2 y\xF9\uFF0C su\u01D2 y\xF9 y\u01D2u sh\xE9n y\xFA sh\u0113ng zh\u011B\uFF0C g\xF9 b\xF9 w\xE8i g\u01D2u d\xE9 y\u011B\uFF1B s\u01D0 y\xEC w\u01D2 su\u01D2 \xE8\uFF0C su\u01D2 \xE8 y\u01D2u sh\xE9n y\xFA s\u01D0 zh\u011B\uFF0C g\xF9 hu\xE0n y\u01D2u su\u01D2 b\xF9 p\xEC y\u011B\u3002 r\xFA sh\u01D0 r\xE9n zh\u012B su\u01D2 y\xF9 m\xF2 sh\xE9n y\xFA sh\u0113ng\uFF0C z\xE9 f\xE1n k\u011B y\u01D0 d\xE9 sh\u0113ng zh\u011B h\xE9 b\xF9 y\xF2ng y\u011B\uFF1F sh\u01D0 r\xE9n zh\u012B su\u01D2 \xE8 m\xF2 sh\xE9n y\xFA s\u01D0 zh\u011B\uFF0C z\xE9 f\xE1n k\u011B y\u01D0 p\xEC hu\xE0n zh\u011B h\xE9 b\xF9 w\xE8i y\u011B\uFF1F y\xF3u sh\xEC z\xE9 sh\u0113ng \xE9r y\u01D2u b\xF9 y\xF2ng y\u011B\uFF0C y\xF3u sh\xEC z\xE9 k\u011B y\u01D0 p\xEC hu\xE0n \xE9r y\u01D2u b\xF9 w\xE8i y\u011B\u3002 sh\xEC g\xF9 su\u01D2 y\xF9 y\u01D2u sh\xE9n y\xFA sh\u0113ng zh\u011B\uFF0C su\u01D2 \xE8 y\u01D2u sh\xE9n y\xFA s\u01D0 zh\u011B\u3002 f\u0113i d\xFA xi\xE1n zh\u011B y\u01D2u sh\xEC x\u012Bn y\u011B\uFF0C r\xE9n ji\u0113 y\u01D2u zh\u012B\uFF0C xi\xE1n zh\u011B n\xE9ng w\xF9 s\xE0ng \u011Br\u3002\ny\u012B d\u0101n sh\xED\uFF0C y\u012B d\xF2u g\u0113ng\uFF0C d\xE9 zh\u012B z\xE9 sh\u0113ng\uFF0C f\xFA d\xE9 z\xE9 s\u01D0\u3002 h\u016B \u011Br \xE9r y\u01D4 zh\u012B\uFF0C h\xE1ng d\xE0o zh\u012B r\xE9n f\xFA sh\xF2u\uFF1B c\xF9 \u011Br \xE9r y\u01D4 zh\u012B\uFF0C q\u01D0 r\xE9n b\xF9 xi\xE8 y\u011B\u3002 w\xE0n zh\u014Dng z\xE9 b\xF9 bi\xE0n l\u01D0 y\xEC \xE9r sh\xF2u zh\u012B\uFF0C w\xE0n zh\u014Dng y\xFA w\u01D2 h\xE9 ji\u0101 y\u0101n\uFF01 w\xE8i g\u014Dng sh\xEC zh\u012B m\u011Bi\u3001 q\u012B qi\xE8 zh\u012B f\xE8ng\u3001 su\u01D2 sh\xED qi\xF3ng f\xE1 zh\u011B d\xE9 w\u01D2 y\u01D4\uFF1F xi\u0101ng w\xE8i sh\u0113n s\u01D0 \xE9r b\xF9 sh\xF2u\uFF0C j\u012Bn w\xE8i g\u014Dng sh\xEC zh\u012B m\u011Bi w\xE8i zh\u012B\uFF1B xi\u0101ng w\xE8i sh\u0113n s\u01D0 \xE9r b\xF9 sh\xF2u\uFF0C j\u012Bn w\xE8i q\u012B qi\xE8 zh\u012B f\xE8ng w\xE9i zh\u012B\uFF1B xi\u0101ng w\xE8i sh\u0113n s\u01D0 \xE9r b\xF9 sh\xF2u\uFF0C j\u012Bn w\xE8i su\u01D2 sh\xED qi\xF3ng f\xE1 zh\u011B d\xE9 w\u01D2 \xE9r w\xE8i zh\u012B\uFF1A sh\xEC y\xEC b\xF9 k\u011B y\u01D0 y\u01D0 h\u016B\uFF1F c\u01D0 zh\u012B w\xE8i sh\u012B q\xED b\u011Bn x\u012Bn\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-84-poem-84",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5510\u96CE\u4E0D\u8FB1\u4F7F\u547D",
+        "author": "\u300A\u6218\u56FD\u7B56\u300B",
+        "dynasty": "\u5148\u79E6",
+        "excerpt": "\u79E6\u738B\u4F7F\u4EBA\u8C13\u5B89\u9675\u541B\u66F0\uFF1A\u201C\u5BE1\u4EBA\u6B32\u4EE5\u4E94\u767E\u91CC\u4E4B\u5730\u6613\u5B89\u9675\uFF0C\u5B89\u9675\u541B\u5176\u8BB8\u5BE1\u4EBA\uFF01\u201D\u5B89\u9675\u541B\u66F0\uFF1A\u201C\u5927\u738B\u52A0\u60E0\uFF0C\u4EE5\u5927\u6613\u5C0F\uFF0C\u751A\u5584\uFF1B\u867D\u7136\uFF0C\u53D7\u5730\u4E8E\u5148\u738B\uFF0C\u613F\u7EC8\u5B88\u4E4B\uFF0C\u5F17\u6562\u6613\uFF01\u201D\u79E6\u738B\u4E0D\u8BF4\u3002\u5B89\u9675\u541B\u56E0\u4F7F\u5510\u96CE\u4F7F\u4E8E\u79E6\u3002\n\u79E6\u738B\u8C13\u5510\u96CE\u66F0\uFF1A\u201C\u5BE1\u4EBA\u4EE5\u4E94\u767E\u91CC\u4E4B\u5730\u6613\u5B89\u9675\uFF0C\u5B89\u9675\u541B\u4E0D\u542C\u5BE1\u4EBA\uFF0C\u4F55\u4E5F\uFF1F\u4E14\u79E6\u706D\u97E9\u4EA1\u9B4F\uFF0C\u800C\u541B\u4EE5\u4E94\u5341\u91CC\u4E4B\u5730\u5B58\u8005\uFF0C\u4EE5\u541B\u4E3A\u957F\u8005\uFF0C\u6545\u4E0D\u9519\u610F\u4E5F\u3002\u4ECA\u543E\u4EE5\u5341\u500D\u4E4B\u5730\uFF0C\u8BF7\u5E7F\u4E8E\u541B\uFF0C\u800C\u541B\u9006\u5BE1\u4EBA\u8005\uFF0C\u8F7B\u5BE1\u4EBA\u4E0E\uFF1F\u201D\u5510\u96CE\u5BF9\u66F0\uFF1A\u201C\u5426\uFF0C\u975E\u82E5\u662F\u4E5F\u3002\u5B89\u9675\u541B\u53D7\u5730\u4E8E\u5148\u738B\u800C\u5B88\u4E4B\uFF0C\u867D\u5343\u91CC\u4E0D\u6562\u6613\u4E5F\uFF0C\u5C82\u76F4\u4E94\u767E\u91CC\u54C9\uFF1F\u201D\n\u79E6\u738B\u602B\u7136\u6012\uFF0C\u8C13\u5510\u96CE\u66F0\uFF1A\u201C\u516C\u4EA6\u5C1D\u95FB\u5929\u5B50\u4E4B\u6012\u4E4E\uFF1F\u201D\u5510\u96CE\u5BF9\u66F0\uFF1A\u201C\u81E3\u672A\u5C1D\u95FB\u4E5F\u3002\u201D\u79E6\u738B\u66F0\uFF1A\u201C\u5929\u5B50\u4E4B\u6012\uFF0C\u4F0F\u5C38\u767E\u4E07\uFF0C\u6D41\u8840\u5343\u91CC\u3002\u201D\u5510\u96CE\u66F0\uFF1A\u201C\u5927\u738B\u5C1D\u95FB\u5E03\u8863\u4E4B\u6012\u4E4E\uFF1F\u201D\u79E6\u738B\u66F0\uFF1A\u201C\u5E03\u8863\u4E4B\u6012\uFF0C\u4EA6\u514D\u51A0\u5F92\u8DE3\uFF0C\u4EE5\u5934\u62A2\u5730\u8033\u3002\u201D\u5510\u96CE\u66F0\uFF1A\u201C\u6B64\u5EB8\u592B\u4E4B\u6012\u4E5F\uFF0C\u975E\u58EB\u4E4B\u6012\u4E5F\u3002\u592B\u4E13\u8BF8\u4E4B\u523A\u738B\u50DA\u4E5F\uFF0C\u5F57\u661F\u88AD\u6708\uFF1B\u8042\u653F\u4E4B\u523A\u97E9\u5080\u4E5F\uFF0C\u767D\u8679\u8D2F\u65E5\uFF1B\u8981\u79BB\u4E4B\u523A\u5E86\u5FCC\u4E5F\uFF0C\u4ED3\u9E70\u51FB\u4E8E\u6BBF\u4E0A\u3002\u6B64\u4E09\u5B50\u8005\uFF0C\u7686\u5E03\u8863\u4E4B\u58EB\u4E5F\uFF0C\u6000\u6012\u672A\u53D1\uFF0C\u4F11\u7972\u964D\u4E8E\u5929\uFF0C\u4E0E\u81E3\u800C\u5C06\u56DB\u77E3\u3002\u82E5\u58EB\u5FC5\u6012\uFF0C\u4F0F\u5C38\u4E8C\u4EBA\uFF0C\u6D41\u8840\u4E94\u6B65\uFF0C\u5929\u4E0B\u7F1F\u7D20\uFF0C\u4ECA\u65E5\u662F\u4E5F\u3002\u201D\u633A\u5251\u800C\u8D77\u3002\n\u79E6\u738B\u8272\u6320\uFF0C\u957F\u8DEA\u800C\u8C22\u4E4B\u66F0\uFF1A\u201C\u5148\u751F\u5750\uFF01\u4F55\u81F3\u4E8E\u6B64\uFF01\u5BE1\u4EBA\u8C15\u77E3\uFF1A\u592B\u97E9\u3001\u9B4F\u706D\u4EA1\uFF0C\u800C\u5B89\u9675\u4EE5\u4E94\u5341\u91CC\u4E4B\u5730\u5B58\u8005\uFF0C\u5F92\u4EE5\u6709\u5148\u751F\u4E5F\u3002\u201D",
+        "pinyin": "q\xEDn w\xE1ng sh\u01D0 r\xE9n w\xE8i \u0101n l\xEDng j\u016Bn yu\u0113\uFF1A\u201C gu\u01CE r\xE9n y\xF9 y\u01D0 w\u01D4 b\u01CEi l\u01D0 zh\u012B d\xEC y\xEC \u0101n l\xEDng\uFF0C \u0101n l\xEDng j\u016Bn q\xED x\u01D4 gu\u01CE r\xE9n\uFF01\u201D \u0101n l\xEDng j\u016Bn yu\u0113\uFF1A\u201C d\xE0 w\xE1ng ji\u0101 hu\xEC\uFF0C y\u01D0 d\xE0 y\xEC xi\u01CEo\uFF0C sh\xE8n sh\xE0n\uFF1B su\u012B r\xE1n\uFF0C sh\xF2u d\xEC y\xFA xi\u0101n w\xE1ng\uFF0C yu\xE0n zh\u014Dng sh\u01D2u zh\u012B\uFF0C f\xFA g\u01CEn y\xEC\uFF01\u201D q\xEDn w\xE1ng b\xF9 shu\u014D\u3002 \u0101n l\xEDng j\u016Bn y\u012Bn sh\u01D0 t\xE1ng j\u016B sh\u01D0 y\xFA q\xEDn\u3002\nq\xEDn w\xE1ng w\xE8i t\xE1ng j\u016B yu\u0113\uFF1A\u201C gu\u01CE r\xE9n y\u01D0 w\u01D4 b\u01CEi l\u01D0 zh\u012B d\xEC y\xEC \u0101n l\xEDng\uFF0C \u0101n l\xEDng j\u016Bn b\xF9 t\u012Bng gu\u01CE r\xE9n\uFF0C h\xE9 y\u011B\uFF1F qi\u011B q\xEDn mi\xE8 h\xE1n w\xE1ng w\xE8i\uFF0C \xE9r j\u016Bn y\u01D0 w\u01D4 sh\xED l\u01D0 zh\u012B d\xEC c\xFAn zh\u011B\uFF0C y\u01D0 j\u016Bn w\xE8i zh\u01CEng zh\u011B\uFF0C g\xF9 b\xF9 cu\xF2 y\xEC y\u011B\u3002 j\u012Bn w\xFA y\u01D0 sh\xED b\xE8i zh\u012B d\xEC\uFF0C q\u01D0ng gu\u01CEng y\xFA j\u016Bn\uFF0C \xE9r j\u016Bn n\xEC gu\u01CE r\xE9n zh\u011B\uFF0C q\u012Bng gu\u01CE r\xE9n y\u01D4\uFF1F\u201D t\xE1ng j\u016B du\xEC yu\u0113\uFF1A\u201C f\u01D2u\uFF0C f\u0113i ru\xF2 sh\xEC y\u011B\u3002 \u0101n l\xEDng j\u016Bn sh\xF2u d\xEC y\xFA xi\u0101n w\xE1ng \xE9r sh\u01D2u zh\u012B\uFF0C su\u012B qi\u0101n l\u01D0 b\xF9 g\u01CEn y\xEC y\u011B\uFF0C q\u01D0 zh\xED w\u01D4 b\u01CEi l\u01D0 z\u0101i\uFF1F\u201D\nq\xEDn w\xE1ng f\xFA r\xE1n n\xF9\uFF0C w\xE8i t\xE1ng j\u016B yu\u0113\uFF1A\u201C g\u014Dng y\xEC ch\xE1ng w\xE9n ti\u0101n zi zh\u012B n\xF9 h\u016B\uFF1F\u201D t\xE1ng j\u016B du\xEC yu\u0113\uFF1A\u201C ch\xE9n w\xE8i ch\xE1ng w\xE9n y\u011B\u3002\u201D q\xEDn w\xE1ng yu\u0113\uFF1A\u201C ti\u0101n zi zh\u012B n\xF9\uFF0C f\xFA sh\u012B b\u01CEi w\xE0n\uFF0C li\xFA xu\xE8 qi\u0101n l\u01D0\u3002\u201D t\xE1ng j\u016B yu\u0113\uFF1A\u201C d\xE0 w\xE1ng ch\xE1ng w\xE9n b\xF9 y\u012B zh\u012B n\xF9 h\u016B\uFF1F\u201D q\xEDn w\xE1ng yu\u0113\uFF1A\u201C b\xF9 y\u012B zh\u012B n\xF9\uFF0C y\xEC mi\u01CEn gu\u0101n t\xFA xi\u01CEn\uFF0C y\u01D0 t\xF3u qi\u01CEng d\xEC \u011Br\u3002\u201D t\xE1ng j\u016B yu\u0113\uFF1A\u201C c\u01D0 y\u014Dng f\u016B zh\u012B n\xF9 y\u011B\uFF0C f\u0113i sh\xEC zh\u012B n\xF9 y\u011B\u3002 f\u016B zhu\u0101n zh\u016B zh\u012B c\xEC w\xE1ng li\xE1o y\u011B\uFF0C hu\xEC x\u012Bng x\xED yu\xE8\uFF1B ni\xE8 zh\xE8ng zh\u012B c\xEC h\xE1n gu\u012B y\u011B\uFF0C b\xE1i h\xF3ng gu\xE0n r\xEC\uFF1B y\xE0o l\xED zh\u012B c\xEC q\xECng j\xEC y\u011B\uFF0C c\u0101ng y\u012Bng j\u012B y\xFA di\xE0n sh\xE0ng\u3002 c\u01D0 s\u0101n zi zh\u011B\uFF0C ji\u0113 b\xF9 y\u012B zh\u012B sh\xEC y\u011B\uFF0C hu\xE1i n\xF9 w\xE8i f\u0101\uFF0C xi\u016B j\xECn ji\xE0ng y\xFA ti\u0101n\uFF0C y\u01D4 ch\xE9n \xE9r ji\u0101ng s\xEC y\u01D0\u3002 ru\xF2 sh\xEC b\xEC n\xF9\uFF0C f\xFA sh\u012B \xE8r r\xE9n\uFF0C li\xFA xi\u011B w\u01D4 b\xF9\uFF0C ti\u0101n xi\xE0 g\u01CEo s\xF9\uFF0C j\u012Bn r\xEC sh\xEC y\u011B\u3002\u201D t\u01D0ng ji\xE0n \xE9r q\u01D0\u3002\nq\xEDn w\xE1ng s\xE8 n\xE1o\uFF0C ch\xE1ng gu\xEC \xE9r xi\xE8 zh\u012B yu\u0113\uFF1A\u201C xi\u0101n sh\u0113ng zu\xF2\uFF01 h\xE9 zh\xEC y\xFA c\u01D0\uFF01 gu\u01CE r\xE9n y\xF9 y\u01D0\uFF1A f\u016B h\xE1n\u3001 w\xE8i mi\xE8 w\xE1ng\uFF0C \xE9r \u0101n l\xEDng y\u01D0 w\u01D4 sh\xED l\u01D0 zh\u012B d\xEC c\xFAn zh\u011B\uFF0C t\xFA y\u01D0 y\u01D2u xi\u0101n sh\u0113ng y\u011B\u3002\u201D",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-85-poem-85",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9001\u4E1C\u9633\u9A6C\u751F\u5E8F",
+        "author": "\u5B8B\u6FC2",
+        "dynasty": "\u660E",
+        "excerpt": "\u4F59\u5E7C\u65F6\u5373\u55DC\u5B66\u3002\u5BB6\u8D2B\uFF0C\u65E0\u4ECE\u81F4\u4E66\u4EE5\u89C2\uFF0C\u6BCF\u5047\u501F\u4E8E\u85CF\u4E66\u4E4B\u5BB6\uFF0C\u624B\u81EA\u7B14\u5F55\uFF0C\u8BA1\u65E5\u4EE5\u8FD8\u3002\u5929\u5927\u5BD2\uFF0C\u781A\u51B0\u575A\uFF0C\u624B\u6307\u4E0D\u53EF\u5C48\u4F38\uFF0C\u5F17\u4E4B\u6020\u3002\u5F55\u6BD5\uFF0C\u8D70\u9001\u4E4B\uFF0C\u4E0D\u6562\u7A0D\u903E\u7EA6\u3002\u4EE5\u662F\u4EBA\u591A\u4EE5\u4E66\u5047\u4F59\uFF0C\u4F59\u56E0\u5F97\u904D\u89C2\u7FA4\u4E66\u3002\u65E2\u52A0\u51A0\uFF0C\u76CA\u6155\u5723\u8D24\u4E4B\u9053 \u3002\u53C8\u60A3\u65E0\u7855\u5E08\u540D\u4EBA\u4E0E\u6E38\uFF0C\u5C1D\u8D8B\u767E\u91CC\u5916\uFF0C\u4ECE\u4E61\u4E4B\u5148\u8FBE\u6267\u7ECF\u53E9\u95EE\u3002\u5148\u8FBE\u5FB7\u9686\u671B\u5C0A\uFF0C\u95E8\u4EBA\u5F1F\u5B50\u586B\u5176\u5BA4\uFF0C\u672A\u5C1D\u7A0D\u964D\u8F9E\u8272\u3002\u4F59\u7ACB\u4F8D\u5DE6\u53F3\uFF0C\u63F4\u7591\u8D28\u7406\uFF0C\u4FEF\u8EAB\u503E\u8033\u4EE5\u8BF7\uFF1B\u6216\u9047\u5176\u53F1\u5484\uFF0C\u8272\u6108\u606D\uFF0C\u793C\u6108\u81F3\uFF0C\u4E0D\u6562\u51FA\u4E00\u8A00\u4EE5\u590D\uFF1B\u4FDF\u5176\u6B23\u60A6\uFF0C\u5219\u53C8\u8BF7\u7109\u3002\u6545\u4F59\u867D\u611A\uFF0C\u5352\u83B7\u6709\u6240\u95FB\u3002\n\u5F53\u4F59\u4E4B\u4ECE\u5E08\u4E5F\uFF0C\u8D1F\u7BA7\u66F3\u5C63\u884C\u6DF1\u5C71\u5DE8\u8C37\u4E2D\u3002\u7A77\u51AC\u70C8\u98CE\uFF0C\u5927\u96EA\u6DF1\u6570\u5C3A\uFF0C\u8DB3\u80A4\u76B2\u88C2\u800C\u4E0D\u77E5\u3002\u81F3\u820D\uFF0C\u56DB\u652F\u50F5\u52B2\u4E0D\u80FD\u52A8\uFF0C\u5AB5\u4EBA\u6301\u6C64\u6C83\u704C\uFF0C\u4EE5\u887E\u62E5\u8986\uFF0C\u4E45\u800C\u4E43\u548C\u3002\u5BD3\u9006\u65C5\uFF0C\u4E3B\u4EBA\u65E5\u518D\u98DF\uFF0C\u65E0\u9C9C\u80A5\u6ECB\u5473\u4E4B\u4EAB\u3002\u540C\u820D\u751F\u7686\u88AB\u7EEE\u7EE3\uFF0C\u6234\u6731\u7F28\u5B9D\u9970\u4E4B\u5E3D\uFF0C\u8170\u767D\u7389\u4E4B\u73AF\uFF0C\u5DE6\u4F69\u5200\uFF0C\u53F3\u5907\u5BB9\u81ED\uFF0C\u70E8\u7136\u82E5\u795E\u4EBA\uFF1B\u4F59\u5219\u7F0A\u888D\u655D\u8863\u5904\u5176\u95F4\uFF0C\u7565\u65E0\u6155\u8273\u610F\uFF0C\u4EE5\u4E2D\u6709\u8DB3\u4E50\u8005\uFF0C\u4E0D\u77E5\u53E3\u4F53\u4E4B\u5949\u4E0D\u82E5\u4EBA\u4E5F\u3002\u76D6\u4F59\u4E4B\u52E4\u4E14\u8270\u82E5\u6B64\u3002 \u4ECA\u867D\u8004\u8001\uFF0C\u672A\u6709\u6240\u6210\uFF0C\u72B9\u5E78\u9884\u541B\u5B50\u4E4B\u5217\uFF0C\u800C\u627F\u5929\u5B50\u4E4B\u5BA0\u5149\uFF0C\u7F00\u516C\u537F\u4E4B\u540E\uFF0C\u65E5\u4F8D\u5750\u5907\u987E\u95EE\uFF0C\u56DB\u6D77\u4EA6\u8C2C\u79F0\u5176\u6C0F\u540D\uFF0C\u51B5\u624D\u4E4B\u8FC7\u4E8E\u4F59\u8005\u4E4E\uFF1F\n\u4ECA\u8BF8\u751F\u5B66\u4E8E\u592A\u5B66\uFF0C\u53BF\u5B98\u65E5\u6709\u5EEA\u7A0D\u4E4B\u4F9B\uFF0C\u7236\u6BCD\u5C81\u6709\u88D8\u845B\u4E4B\u9057\uFF0C\u65E0\u51BB\u9981\u4E4B\u60A3\u77E3\uFF1B\u5750\u5927\u53A6\u4E4B\u4E0B\u800C\u8BF5\u8BD7\u4E66\uFF0C\u65E0\u5954\u8D70\u4E4B\u52B3\u77E3\uFF1B\u6709\u53F8\u4E1A\u3001\u535A\u58EB\u4E3A\u4E4B\u5E08\uFF0C\u672A\u6709\u95EE\u800C\u4E0D\u544A\u3001\u6C42\u800C\u4E0D\u5F97\u8005\u4E5F\uFF1B\u51E1\u6240\u5B9C\u6709\u4E4B\u4E66\uFF0C\u7686\u96C6\u4E8E\u6B64\uFF0C\u4E0D\u5FC5\u82E5\u4F59\u4E4B\u624B\u5F55\uFF0C\u5047\u8BF8\u4EBA\u800C\u540E\u89C1\u4E5F\u3002\u5176\u4E1A\u6709\u4E0D\u7CBE\u3001\u5FB7\u6709\u4E0D\u6210\u8005\uFF0C\u975E\u5929\u8D28\u4E4B\u5351\uFF0C\u5219\u5FC3\u4E0D\u82E5\u4F59\u4E4B\u4E13\u8033\uFF0C\u5C82\u4ED6\u4EBA\u4E4B\u8FC7\u54C9\uFF1F\n\u4E1C\u9633\u9A6C\u751F\u541B\u5219\uFF0C\u5728\u592A\u5B66\u5DF2\u4E8C\u5E74\uFF0C\u6D41\u8F88\u751A\u79F0\u5176\u8D24\u3002\u4F59\u671D\u4EAC\u5E08\uFF0C\u751F\u4EE5\u4E61\u4EBA\u5B50\u8C12\u4F59\uFF0C\u64B0\u957F\u4E66\u4EE5\u4E3A\u8D3D\uFF0C\u8F9E\u751A\u7545\u8FBE\u3002\u4E0E\u4E4B\u8BBA\u8FA8\uFF0C\u8A00\u548C\u800C\u8272\u5937\u3002\u81EA\u8C13\u5C11\u65F6\u7528\u5FC3\u4E8E\u5B66\u751A\u52B3\uFF0C\u662F\u53EF\u8C13\u5584\u5B66\u8005\u77E3\u3002\u5176\u5C06\u5F52\u89C1\u5176\u4EB2\u4E5F\uFF0C\u4F59\u6545\u9053\u4E3A\u5B66\u4E4B\u96BE\u4EE5\u544A\u4E4B\u3002\u8C13\u4F59\u52C9\u4E61\u4EBA\u4EE5\u5B66\u8005\uFF0C\u4F59\u4E4B\u5FD7\u4E5F\uFF1B\u8BCB\u6211\u5938\u9645\u9047\u4E4B\u76DB\u800C\u9A84\u4E61\u4EBA\u8005\uFF0C\u5C82\u77E5\u4E88\u8005\u54C9\uFF1F",
+        "pinyin": "y\xFA y\xF2u sh\xED j\xED sh\xEC xu\xE9\u3002 ji\u0101 p\xEDn\uFF0C w\xFA c\xF3ng zh\xEC sh\u016B y\u01D0 gu\u0101n\uFF0C m\u011Bi ji\u01CE ji\xE8 y\xFA c\xE1ng sh\u016B zh\u012B ji\u0101\uFF0C sh\u01D2u z\xEC b\u01D0 l\xF9\uFF0C j\xEC r\xEC y\u01D0 hu\xE1n\u3002 ti\u0101n d\xE0 h\xE1n\uFF0C y\xE0n b\u012Bng ji\u0101n\uFF0C sh\u01D2u zh\u01D0 b\xF9 k\u011B q\u016B sh\u0113n\uFF0C f\xFA zh\u012B d\xE0i\u3002 l\xF9 b\xEC\uFF0C z\u01D2u s\xF2ng zh\u012B\uFF0C b\xF9 g\u01CEn sh\u0101o y\xFA yu\u0113\u3002 y\u01D0 sh\xEC r\xE9n du\u014D y\u01D0 sh\u016B ji\u01CE y\xFA\uFF0C y\xFA y\u012Bn d\xE9 bi\xE0n gu\u0101n q\xFAn sh\u016B\u3002 j\xEC ji\u0101 gu\u0101n\uFF0C y\xEC m\xF9 sh\xE8ng xi\xE1n zh\u012B d\xE0o  \u3002 y\xF2u hu\xE0n w\xFA shu\xF2 sh\u012B m\xEDng r\xE9n y\u01D4 y\xF3u\uFF0C ch\xE1ng q\u016B b\u01CEi l\u01D0 w\xE0i\uFF0C c\xF3ng xi\u0101ng zh\u012B xi\u0101n d\xE1 zh\xED j\u012Bng k\xF2u w\xE8n\u3002 xi\u0101n d\xE1 d\xE9 l\xF3ng w\xE0ng z\u016Bn\uFF0C m\xE9n r\xE9n d\xEC z\u01D0 ti\xE1n q\xED sh\xEC\uFF0C w\xE8i ch\xE1ng sh\u0101o ji\xE0ng c\xED s\xE8\u3002 y\xFA l\xEC sh\xEC zu\u01D2 y\xF2u\uFF0C yu\xE1n y\xED zh\xEC l\u01D0\uFF0C f\u01D4 sh\u0113n q\u012Bng \u011Br y\u01D0 q\u01D0ng\uFF1B hu\xF2 y\xF9 q\xED ch\xEC du\u014D\uFF0C s\xE8 y\xF9 g\u014Dng\uFF0C l\u01D0 y\xF9 zh\xEC\uFF0C b\xF9 g\u01CEn ch\u016B y\u012B y\xE1n y\u01D0 f\xF9\uFF1B q\xED q\xED x\u012Bn yu\xE8\uFF0C z\xE9 y\xF2u q\u01D0ng y\u0101n\u3002 g\xF9 y\xFA su\u012B y\xFA\uFF0C z\xFA hu\xF2 y\u01D2u su\u01D2 w\xE9n\u3002\nd\u0101ng y\xFA zh\u012B c\xF3ng sh\u012B y\u011B\uFF0C f\xF9 qi\xE8 y\xE8 x\u01D0 x\xEDng sh\u0113n sh\u0101n j\xF9 g\u01D4 zh\u014Dng\u3002 qi\xF3ng d\u014Dng li\xE8 f\u0113ng\uFF0C d\xE0 xu\u011B sh\u0113n sh\xF9 ch\u01D0\uFF0C z\xFA f\u016B j\u016Bn li\xE8 \xE9r b\xF9 zh\u012B\u3002 zh\xEC sh\u011B\uFF0C s\xEC zh\u012B ji\u0101ng j\xECn b\xF9 n\xE9ng d\xF2ng\uFF0C y\xECng r\xE9n ch\xED t\u0101ng w\xF2 gu\xE0n\uFF0C y\u01D0 q\u012Bn y\u014Dng f\xF9\uFF0C ji\u01D4 \xE9r n\u01CEi h\xE9\u3002 y\xF9 n\xEC l\u01DA\uFF0C zh\u01D4 r\xE9n r\xEC z\xE0i sh\xED\uFF0C w\xFA xi\u0101n f\xE9i z\u012B w\xE8i zh\u012B xi\u01CEng\u3002 t\xF3ng sh\u011B sh\u0113ng ji\u0113 b\xE8i q\u01D0 xi\xF9\uFF0C d\xE0i zh\u016B y\u012Bng b\u01CEo sh\xEC zh\u012B m\xE0o\uFF0C y\u0101o b\xE1i y\xF9 zh\u012B hu\xE1n\uFF0C zu\u01D2 p\xE8i d\u0101o\uFF0C y\xF2u b\xE8i r\xF3ng ch\xF2u\uFF0C y\xE8 r\xE1n ru\xF2 sh\xE9n r\xE9n\uFF1B y\xFA z\xE9 y\u016Bn p\xE1o b\xEC y\u012B ch\xF9 q\xED ji\u0101n\uFF0C l\xFC\xE8 w\xFA m\xF9 y\xE0n y\xEC\uFF0C y\u01D0 zh\u014Dng y\u01D2u z\xFA l\xE8 zh\u011B\uFF0C b\xF9 zh\u012B k\u01D2u t\u01D0 zh\u012B f\xE8ng b\xF9 ru\xF2 r\xE9n y\u011B\u3002 g\xE0i y\xFA zh\u012B q\xEDn qi\u011B ji\u0101n ru\xF2 c\u01D0\u3002 j\u012Bn su\u012B m\xE0o l\u01CEo\uFF0C w\xE8i y\u01D2u su\u01D2 ch\xE9ng\uFF0C y\xF3u x\xECng y\xF9 j\u016Bn z\u01D0 zh\u012B li\xE8\uFF0C \xE9r ch\xE9ng ti\u0101n zi zh\u012B ch\u01D2ng gu\u0101ng\uFF0C zhu\xEC g\u014Dng q\u012Bng zh\u012B h\xF2u\uFF0C r\xEC sh\xEC zu\xF2 b\xE8i g\xF9 w\xE8n\uFF0C s\xEC h\u01CEi y\xEC mi\xF9 ch\u0113ng q\xED sh\xEC m\xEDng\uFF0C ku\xE0ng c\xE1i zh\u012B gu\xF2 y\xFA y\xFA zh\u011B h\u016B\uFF1F\nj\u012Bn zh\u016B sh\u0113ng xu\xE9 y\xFA t\xE0i xu\xE9\uFF0C xi\xE0n gu\u0101n r\xEC y\u01D2u l\u01D0n sh\u0101o zh\u012B g\u014Dng\uFF0C f\xF9 m\u01D4 su\xEC y\u01D2u qi\xFA g\xE9 zh\u012B y\xED\uFF0C w\xFA d\xF2ng n\u011Bi zh\u012B hu\xE0n y\u01D0\uFF1B zu\xF2 d\xE0 sh\xE0 zh\u012B xi\xE0 \xE9r s\xF2ng sh\u012B sh\u016B\uFF0C w\xFA b\u0113n z\u01D2u zh\u012B l\xE1o y\u01D0\uFF1B y\u01D2u s\u012B y\xE8\u3001 b\xF3 sh\xEC w\xE8i zh\u012B sh\u012B\uFF0C w\xE8i y\u01D2u w\xE8n \xE9r b\xF9 g\xE0o\u3001 qi\xFA \xE9r b\xF9 d\xE9 zh\u011B y\u011B\uFF1B f\xE1n su\u01D2 y\xED y\u01D2u zh\u012B sh\u016B\uFF0C ji\u0113 j\xED y\xFA c\u01D0\uFF0C b\xF9 b\xEC ru\xF2 y\xFA zh\u012B sh\u01D2u l\xF9\uFF0C ji\u01CE zh\u016B r\xE9n \xE9r h\xF2u ji\xE0n y\u011B\u3002 q\xED y\xE8 y\u01D2u b\xF9 j\u012Bng\u3001 d\xE9 y\u01D2u b\xF9 ch\xE9ng zh\u011B\uFF0C f\u0113i ti\u0101n zh\xEC zh\u012B b\u0113i\uFF0C z\xE9 x\u012Bn b\xF9 ru\xF2 y\xFA zh\u012B zhu\u0101n \u011Br\uFF0C q\u01D0 t\u0101 r\xE9n zh\u012B gu\xF2 z\u0101i\uFF1F\nd\u014Dng y\xE1ng m\u01CE sh\u0113ng j\u016Bn z\xE9\uFF0C z\xE0i t\xE0i xu\xE9 y\u01D0 \xE8r ni\xE1n\uFF0C li\xFA b\xE8i sh\xE8n ch\u0113ng q\xED xi\xE1n\u3002 y\xFA ch\xE1o j\u012Bng sh\u012B\uFF0C sh\u0113ng y\u01D0 xi\u0101ng r\xE9n zi y\xE8 y\xFA\uFF0C zhu\xE0n zh\u01CEng sh\u016B y\u01D0 w\xE9i zh\xEC\uFF0C c\xED sh\xE8n ch\xE0ng d\xE1\u3002 y\u01D4 zh\u012B l\xF9n bi\xE0n\uFF0C y\xE1n h\xE9 \xE9r s\xE8 y\xED\u3002 z\xEC w\xE8i sh\u01CEo sh\xED y\xF2ng x\u012Bn y\xFA xu\xE9 sh\xE8n l\xE1o\uFF0C sh\xEC k\u011B w\xE8i sh\xE0n xu\xE9 zh\u011B y\u01D0\u3002 q\xED ji\u0101ng gu\u012B ji\xE0n q\xED q\u012Bn y\u011B\uFF0C y\xFA g\xF9 d\xE0o w\xE8i xu\xE9 zh\u012B n\xE1n y\u01D0 g\xE0o zh\u012B\u3002 w\xE8i y\xFA mi\u01CEn xi\u0101ng r\xE9n y\u01D0 xu\xE9 zh\u011B\uFF0C y\xFA zh\u012B zh\xEC y\u011B\uFF1B d\u01D0 w\u01D2 ku\u0101 j\xEC y\xF9 zh\u012B sh\xE8ng \xE9r ji\u0101o xi\u0101ng r\xE9n zh\u011B\uFF0C q\u01D0 zh\u012B y\u01D4 zh\u011B z\u0101i\uFF1F",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-86-poem-86",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6E14\u5BB6\u50B2\u79CB\u601D",
+        "author": "\u8303\u4EF2\u6DF9",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u585E\u4E0B\u79CB\u6765\u98CE\u666F\u5F02\uFF0C\u8861\u9633\u96C1\u53BB\u65E0\u7559\u610F\u3002\u56DB\u9762\u8FB9\u58F0\u8FDE\u89D2\u8D77\u3002\u5343\u5D82\u91CC\uFF0C\u957F\u70DF\u843D\u65E5\u5B64\u57CE\u95ED\u3002\n\u6D4A\u9152\u4E00\u676F\u5BB6\u4E07\u91CC\uFF0C\u71D5\u7136\u672A\u52D2\u5F52\u65E0\u8BA1\u3002\u7F8C\u7BA1\u60A0\u60A0\u971C\u6EE1\u5730\u3002\u4EBA\u4E0D\u5BD0\uFF0C\u5C06\u519B\u767D\u53D1\u5F81\u592B\u6CEA\u3002",
+        "pinyin": "s\u0101i xi\xE0 qi\u016B l\xE1i f\u0113ng j\u01D0ng y\xEC\uFF0C h\xE9ng y\xE1ng y\xE0n q\xF9 w\xFA li\xFA y\xEC\u3002 s\xEC mi\xE0n bi\u0101n sh\u0113ng li\xE1n ji\u01CEo q\u01D0\u3002 qi\u0101n zh\xE0ng l\u01D0\uFF0C zh\u01CEng y\u0101n lu\xF2 r\xEC g\u016B ch\xE9ng b\xEC\u3002\nzhu\xF3 ji\u01D4 y\u012B b\u0113i ji\u0101 w\xE0n l\u01D0\uFF0C y\xE0n r\xE1n w\xE8i l\u0113i gu\u012B w\xFA j\xEC\u3002 qi\u0101ng gu\u01CEn y\u014Du y\u014Du shu\u0101ng m\u01CEn d\xEC\u3002 r\xE9n b\xFA m\xE8i\uFF0C ji\u0101ng j\u016Bn b\xE1i f\xE0 zh\u0113ng f\u016B l\xE8i\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-87-poem-87",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6C5F\u57CE\u5B50\xB7\u5BC6\u5DDE\u51FA\u730E",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u8001\u592B\u804A\u53D1\u5C11\u5E74\u72C2\uFF0C\u5DE6\u7275\u9EC4\uFF0C\u53F3\u64CE\u82CD\uFF0C\u9526\u5E3D\u8C82\u88D8\uFF0C\u5343\u9A91\u5377\u5E73\u5188\u3002\u4E3A\u62A5\u503E\u57CE\u968F\u592A\u5B88\uFF0C\u4EB2\u5C04\u864E\uFF0C\u770B\u5B59\u90CE\u3002\n\u9152\u9163\u80F8\u80C6\u5C1A\u5F00\u5F20\uFF0C\u9B13\u5FAE\u971C\uFF0C\u53C8\u4F55\u59A8?\u6301\u8282\u4E91\u4E2D\uFF0C\u4F55\u65E5\u9057\u51AF\u5510\u3002\u4F1A\u96D5\u5F13\u5982\u6EE1\u6708\uFF0C\u897F\u5317\u671B\uFF0C\u5C04\u5929\u72FC\u3002",
+        "pinyin": "l\u01CEo f\u016B li\xE1o f\u0101 sh\xE0o ni\xE1n ku\xE1ng\uFF0C zu\u01D2 qi\u0101n hu\xE1ng\uFF0C y\xF2u q\xEDng c\u0101ng\uFF0C j\u01D0n m\xE0o di\u0101o qi\xFA\uFF0C qi\u0101n q\xED ju\u01CEn p\xEDng g\u0101ng\u3002 w\xE8i b\xE0o q\u012Bng ch\xE9ng su\xED t\xE0i sh\u01D2u\uFF0C q\u012Bn sh\xE8 h\u01D4\uFF0C k\xE0n s\u016Bn l\xE1ng\u3002\nji\u01D4 h\u0101n xi\u014Dng d\u01CEn sh\xE0ng k\u0101i zh\u0101ng\uFF0C b\xECn w\u0113i shu\u0101ng\uFF0C y\xF2u h\xE9 f\xE1ng? ch\xED ji\xE9 y\xFAn zh\u014Dng\uFF0C h\xE9 r\xEC y\xED f\xE9ng t\xE1ng\u3002 hu\xEC di\u0101o g\u014Dng r\xFA m\u01CEn yu\xE8\uFF0C x\u012B b\u011Bi w\xE0ng\uFF0C sh\xE8 ti\u0101n l\xE1ng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-88-poem-88",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u7834\u9635\u5B50\u4E3A\u9648\u540C\u752B\u8D4B\u58EE\u8BCD\u4EE5\u5BC4\u4E4B",
+        "author": "\u8F9B\u5F03\u75BE",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u9189\u91CC\u6311\u706F\u770B\u5251\uFF0C\u68A6\u56DE\u5439\u89D2\u8FDE\u8425\u3002\u516B\u767E\u91CC\u5206\u9EBE\u4E0B\u7099\uFF0C\u4E94\u5341\u5F26\u7FFB\u585E\u5916\u58F0\u3002\u6C99\u573A\u79CB\u70B9\u5175\u3002\n\u9A6C\u4F5C\u7684\u5362\u98DE\u5FEB\uFF0C\u5F13\u5982\u9739\u96F3\u5F26\u60CA\u3002\u4E86\u5374\u541B\u738B\u5929\u4E0B\u4E8B\uFF0C\u8D62\u5F97\u751F\u524D\u8EAB\u540E\u540D\u3002\u53EF\u601C\u767D\u53D1\u751F!",
+        "pinyin": "zu\xEC l\u01D0 ti\u01CEo d\u0113ng k\xE0n ji\xE0n\uFF0C m\xE8ng hu\xED chu\u012B ji\u01CEo li\xE1n y\xEDng\u3002 b\u0101 b\u01CEi l\u01D0 f\u0113n hu\u012B xi\xE0 zh\xEC\uFF0C w\u01D4 sh\xED xi\xE1n f\u0101n s\xE0i w\xE0i sh\u0113ng\u3002 sh\u0101 ch\u01CEng qi\u016B di\u01CEn b\u012Bng\u3002\nm\u01CE zu\xF2 de l\xFA f\u0113i ku\xE0i\uFF0C g\u014Dng r\xFA p\u012B l\xEC xi\xE1n j\u012Bng\u3002 li\u01CEo qu\xE8 j\u016Bn w\xE1ng ti\u0101n xi\xE0 sh\xEC\uFF0C y\xEDng d\xE9 sh\u0113ng qi\xE1n sh\u0113n h\xF2u m\xEDng\u3002 k\u011B li\xE1n b\xE1i f\xE0 sh\u0113ng!",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-89-poem-89",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6EE1\u6C5F\u7EA2",
+        "author": "\u79CB\u747E",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5C0F\u4F4F\u4EAC\u534E\uFF0C\u65E9\u53C8\u662F\u4E2D\u79CB\u4F73\u8282\u3002\u4E3A\u7BF1\u4E0B\u9EC4\u82B1\u5F00\u904D\uFF0C\u79CB\u5BB9\u5982\u62ED\u3002\u56DB\u9762\u6B4C\u6B8B\u7EC8\u7834\u695A\uFF0C\u516B\u5E74\u98CE\u5473\u5F92\u601D\u6D59\u3002\u82E6\u5C06\u4FAC\u5F3A\u6D3E\u4F5C\u86FE\u7709\uFF0C\u6B8A\u672A\u5C51\uFF01\n\u8EAB\u4E0D\u5F97\uFF0C\u7537\u513F\u5217\uFF0C\u5FC3\u5374\u6BD4\uFF0C\u7537\u513F\u70C8\u3002\u7B97\u5E73\u751F\u809D\u80C6\uFF0C\u56E0\u4EBA\u5E38\u70ED\u3002\u4FD7\u5B50\u80F8\u895F\u8C01\u8BC6\u6211\uFF1F\u82F1\u96C4\u672B\u8DEF\u5F53\u78E8\u6298\u3002\u83BD\u7EA2\u5C18\u4F55\u5904\u89C5\u77E5\u97F3\uFF1F\u9752\u886B\u6E7F\uFF01",
+        "pinyin": "xi\u01CEo zh\xF9 j\u012Bng hu\xE1\uFF0C z\u01CEo y\xF2u sh\xEC zh\u014Dng qi\u016B ji\u0101 ji\xE9\u3002 w\xE8i l\xED xi\xE0 hu\xE1ng hu\u0101 k\u0101i bi\xE0n\uFF0C qi\u016B r\xF3ng r\xFA sh\xEC\u3002 s\xEC mi\xE0n g\u0113 c\xE1n zh\u014Dng p\xF2 ch\u01D4\uFF0C b\u0101 ni\xE1n f\u0113ng w\xE8i t\xFA s\u012B zh\xE8\u3002 k\u01D4 ji\u0101ng n\xF3ng qi\xE1ng p\xE0i zu\xF2 \xE9 m\xE9i\uFF0C sh\u016B w\xE8i xi\xE8\uFF01\nsh\u0113n b\xF9 d\xE9\uFF0C n\xE1n \xE9r li\xE8\uFF0C x\u012Bn qu\xE8 b\u01D0\uFF0C n\xE1n \xE9r li\xE8\u3002 su\xE0n p\xEDng sh\u0113ng g\u0101n d\u01CEn\uFF0C y\u012Bn r\xE9n ch\xE1ng r\xE8\u3002 s\xFA zi xi\u014Dng j\u012Bn shu\xED sh\xED w\u01D2\uFF1F y\u012Bng xi\xF3ng m\xF2 l\xF9 d\u0101ng m\xF3 zh\xE9\u3002 m\u01CEng h\xF3ng ch\xE9n h\xE9 ch\xF9 m\xEC zh\u012B y\u012Bn\uFF1F q\u012Bng sh\u0101n sh\u012B\uFF01",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-90-poem-90",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5B9A\u98CE\u6CE2",
+        "author": "\u82CF\u8F7C",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4E09\u6708\u4E03\u65E5\uFF0C\u6C99\u6E56\u9053\u4E2D\u9047\u96E8\uFF0C\u96E8\u5177\u5148\u53BB\uFF0C\u540C\u884C\u7686\u72FC\u72C8\uFF0C\u4F59\u72EC\u4E0D\u89C9\u3002\u5DF2\u800C\u9042\u6674\uFF0C\u6545\u4F5C\u6B64\u3002\n\u83AB\u542C\u7A7F\u6797\u6253\u53F6\u58F0\uFF0C\u4F55\u59A8\u541F\u5578\u4E14\u5F90\u884C\u3002\u7AF9\u6756\u8292\u978B\u8F7B\u80DC\u9A6C\uFF0C\u8C01\u6015\uFF1F\u4E00\u84D1\u70DF\u96E8\u4EFB\u5E73\u751F\u3002\n\u6599\u5CED\u6625\u98CE\u5439\u9152\u9192\uFF0C\u5FAE\u51B7\uFF0C\u5C71\u5934\u659C\u7167\u5374\u76F8\u8FCE\u3002\u56DE\u9996\u5411\u6765\u8427\u745F\u5904\uFF0C\u5F52\u53BB\uFF0C\u4E5F\u65E0\u98CE\u96E8\u4E5F\u65E0\u6674\u3002",
+        "pinyin": "s\u0101n yu\xE8 q\u012B r\xEC\uFF0C sh\u0101 h\xFA d\xE0o zh\u014Dng y\xF9 y\u01D4\uFF0C y\u01D4 j\xF9 xi\u0101n q\xF9\uFF0C t\xF3ng h\xE1ng ji\u0113 l\xE1ng b\xE8i\uFF0C y\xFA d\xFA b\xF9 ju\xE9\u3002 y\u01D0 \xE9r su\xEC q\xEDng\uFF0C g\xF9 zu\xF2 c\u01D0\u3002\nm\xF2 t\u012Bng chu\u0101n l\xEDn d\u01CE y\xE8 sh\u0113ng\uFF0C h\xE9 f\xE1ng y\xEDn xi\xE0o qi\u011B x\xFA x\xEDng\u3002 zh\xFA zh\xE0ng m\xE1ng xi\xE9 q\u012Bng sh\xE8ng m\u01CE\uFF0C shu\xED p\xE0\uFF1F y\u012B su\u014D y\u0101n y\u01D4 r\xE8n p\xEDng sh\u0113ng\u3002\nli\xE0o qi\xE0o ch\u016Bn f\u0113ng chu\u012B ji\u01D4 x\u01D0ng\uFF0C w\u0113i l\u011Bng\uFF0C sh\u0101n t\xF3u xi\xE9 zh\xE0o qu\xE8 xi\u0101ng y\xEDng\u3002 hu\xED sh\u01D2u xi\xE0ng l\xE1i xi\u0101o s\xE8 ch\xF9\uFF0C gu\u012B q\xF9\uFF0C y\u011B w\xFA f\u0113ng y\u01D4 y\u011B w\xFA q\xEDng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-91-poem-91",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u4E34\u6C5F\u4ED9\u591C\u767B\u5C0F\u9601\uFF0C\u5FC6\u6D1B\u4E2D\u65E7\u6E38",
+        "author": "\u9648\u4E0E\u4E49",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5FC6\u6614\u5348\u6865\u6865\u4E0A\u996E\uFF0C\u5750\u4E2D\u591A\u662F\u8C6A\u82F1\u3002\u957F\u6C9F\u6D41\u6708\u53BB\u65E0\u58F0\u3002\u674F\u82B1\u758F\u5F71\u91CC\uFF0C\u5439\u7B1B\u5230\u5929\u660E\u3002\n\u4E8C\u5341\u4F59\u5E74\u5982\u4E00\u68A6\uFF0C\u6B64\u8EAB\u867D\u5728\u582A\u60CA\u3002\u95F2\u767B\u5C0F\u9601\u770B\u65B0\u6674\u3002\u53E4\u4ECA\u591A\u5C11\u4E8B\uFF0C\u6E14\u5531\u8D77\u4E09\u66F4\u3002",
+        "pinyin": "y\xEC x\u012B w\u01D4 qi\xE1o qi\xE1o sh\xE0ng y\u01D0n\uFF0C zu\xF2 zh\u014Dng du\u014D sh\xEC h\xE1o y\u012Bng\u3002 zh\u01CEng g\u014Du li\xFA yu\xE8 q\xF9 w\xFA sh\u0113ng\u3002 x\xECng hu\u0101 sh\u016B y\u01D0ng l\u01D0\uFF0C chu\u012B d\xED d\xE0o ti\u0101n m\xEDng\u3002\n\xE8r sh\xED y\xFA ni\xE1n r\xFA y\u012B m\xE8ng\uFF0C c\u01D0 sh\u0113n su\u012B z\xE0i k\u0101n j\u012Bng\u3002 xi\xE1n d\u0113ng xi\u01CEo g\xE9 k\xE0n x\u012Bn q\xEDng\u3002 g\u01D4 j\u012Bn du\u014D sh\u01CEo sh\xEC\uFF0C y\xFA ch\xE0ng q\u01D0 s\u0101n g\u0113ng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-92-poem-92",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u592A\u5E38\u5F15\u5EFA\u5EB7\u4E2D\u79CB\u591C\u4E3A\u5415\u53D4\u6F5C\u8D4B",
+        "author": "\u8F9B\u5F03\u75BE",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4E00\u8F6E\u79CB\u5F71\u8F6C\u91D1\u6CE2\u3002\u98DE\u955C\u53C8\u91CD\u78E8\u3002\u628A\u9152\u95EE\u59EE\u5A25\u3002\u88AB\u767D\u53D1\u3001\u6B3A\u4EBA\u5948\u4F55\u3002\n\u4E58\u98CE\u597D\u53BB\uFF0C\u957F\u7A7A\u4E07\u91CC\uFF0C\u76F4\u4E0B\u770B\u5C71\u6CB3\u3002\u65AB\u53BB\u6842\u5A46\u5A11\u3002\u4EBA\u9053\u662F\u3001\u6E05\u5149\u66F4\u591A\u3002",
+        "pinyin": "y\u012B l\xFAn qi\u016B y\u01D0ng zhu\u01CEn j\u012Bn b\u014D\u3002 f\u0113i j\xECng y\xF2u zh\xF2ng m\xF3\u3002 b\u01CE ji\u01D4 w\xE8n h\xE9ng \xE9\u3002 b\xE8i b\xE1i f\xE0\u3001 q\u012B r\xE9n n\xE0i h\xE9\u3002\nch\xE9ng f\u0113ng h\u01CEo q\xF9\uFF0C ch\xE1ng k\u014Dng w\xE0n l\u01D0\uFF0C zh\xED xi\xE0 k\xE0n sh\u0101n h\xE9\u3002 zhu\xF3 q\xF9 gu\xEC p\xF3 su\u014D\u3002 r\xE9n d\xE0o sh\xEC\u3001 q\u012Bng gu\u0101ng g\xE8ng du\u014D\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-93-poem-93",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6D63\u6EAA\u6C99",
+        "author": "\u7EB3\u5170\u6027\u5FB7",
+        "dynasty": "\u6E05",
+        "excerpt": "\u8EAB\u5411\u4E91\u5C71\u90A3\u7554\u884C\uFF0C\u5317\u98CE\u5439\u65AD\u9A6C\u5636\u58F0\uFF0C\u6DF1\u79CB\u8FDC\u585E\u82E5\u4E3A\u60C5\uFF01\n\u4E00\u62B9\u665A\u70DF\u8352\u620D\u5792\uFF0C\u534A\u7AFF\u659C\u65E5\u65E7\u5173\u57CE\u3002\u53E4\u4ECA\u5E7D\u6068\u51E0\u65F6\u5E73\uFF01",
+        "pinyin": "sh\u0113n xi\xE0ng y\xFAn sh\u0101n n\xE0 p\xE0n x\xEDng\uFF0C b\u011Bi f\u0113ng chu\u012B du\xE0n m\u01CE s\u012B sh\u0113ng\uFF0C sh\u0113n qi\u016B yu\u01CEn s\u0101i ru\xF2 w\xE8i q\xEDng\uFF01\ny\u012B m\u01D2 w\u01CEn y\u0101n hu\u0101ng sh\xF9 l\u011Bi\uFF0C b\xE0n g\u0101n xi\xE9 r\xEC ji\xF9 gu\u0101n ch\xE9ng\u3002 g\u01D4 j\u012Bn y\u014Du h\xE8n j\u01D0 sh\xED p\xEDng\uFF01",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "\u8EAB\u5411\u4E91\u5C71\u90A3\u7554\u884C\uFF0C\u5317\u98CE\u5439\u65AD\u9A6C\u5636\u58F0\uFF0C\u6DF1\u79CB\u8FDC\u585E\u82E5\u4E3A\u60C5\uFF01\u4E00\u62B9\u665A\u70DF\u8352\u620D\u5792\uFF0C\u534A\u7AFF\u659C\u65E5\u65E7\u5173\u57CE\u3002\u53E4\u4ECA\u5E7D\u6068\u51E0\u65F6\u5E73\uFF01",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-94-poem-94",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u66F9\u523F\u8BBA\u6218\xB7\u5DE6\u4F20",
+        "author": "\u5DE6\u4E18\u660E",
+        "dynasty": "\u6625\u79CB",
+        "excerpt": "\u5341\u5E74\u6625\uFF0C\u9F50\u5E08\u4F10\u6211\u3002\u516C\u5C06\u6218\uFF0C\u66F9\u523F\u8BF7\u89C1\u3002\u5176\u4E61\u4EBA\u66F0:\u201C\u8089\u98DF\u8005\u8C0B\u4E4B\uFF0C\u53C8\u4F55\u95F4\u7109?\u201D\u523F\u66F0:\u201C\u8089\u98DF\u8005\u9119\uFF0C\u672A\u80FD\u8FDC\u8C0B\u3002\u201D\u4E43\u5165\u89C1\u3002\u95EE:\u201C\u4F55\u4EE5\u6218?\u201D\u516C\u66F0:\u201C\u8863\u98DF\u6240\u5B89\uFF0C\u5F17\u6562\u4E13\u4E5F\uFF0C\u5FC5\u4EE5\u5206\u4EBA\u3002\u201D\u5BF9\u66F0:\u201C\u5C0F\u60E0\u672A\u5FA7\uFF0C\u6C11\u5F17\u4ECE\u4E5F\u3002\u201D\u516C\u66F0:\u201C\u727A\u7272\u7389\u5E1B\uFF0C\u5F17\u6562\u52A0\u4E5F\uFF0C\u5FC5\u4EE5\u4FE1\u3002\u201D\u5BF9\u66F0:\u201C\u5C0F\u4FE1\u672A\u5B5A\uFF0C\u795E\u5F17\u798F\u4E5F\u3002\u201D\u516C\u66F0:\u201C\u5C0F\u5927\u4E4B\u72F1\uFF0C\u867D\u4E0D\u80FD\u5BDF\uFF0C\u5FC5\u4EE5\u60C5\u3002\u201D\u5BF9\u66F0:\u201C\u5FE0\u4E4B\u5C5E\u4E5F\u3002\u53EF\u4EE5\u4E00\u6218\u3002\u6218\u5219\u8BF7\u4ECE\u3002\u201D\n\u516C\u4E0E\u4E4B\u4E58\uFF0C\u6218\u4E8E\u957F\u52FA\u3002\u516C\u5C06\u9F13\u4E4B\u3002\u523F\u66F0:\u201C\u672A\u53EF\u3002\u201D\u9F50\u4EBA\u4E09\u9F13\u3002\u523F\u66F0:\u201C\u53EF\u77E3\u3002\u201D\u9F50\u5E08\u8D25\u7EE9\u3002\u516C\u5C06\u9A70\u4E4B\u3002\u523F\u66F0:\u201C\u672A\u53EF\u3002\u201D\u4E0B\u89C6\u5176\u8F99\uFF0C\u767B\u8F7C\u800C\u671B\u4E4B\uFF0C\u66F0:\u201D\u53EF\u77E3\u3002\u201D\u9042\u9010\u9F50\u5E08\u3002\n\u65E2\u514B\uFF0C\u516C\u95EE\u5176\u6545\u3002\u5BF9\u66F0:\u201D\u592B\u6218\uFF0C\u52C7\u6C14\u4E5F\u3002\u4E00\u9F13\u4F5C\u6C14\uFF0C\u518D\u800C\u8870\uFF0C\u4E09\u800C\u7AED\u3002\u5F7C\u7AED\u6211\u76C8\uFF0C\u6545\u514B\u4E4B\u3002\u592B\u5927\u56FD\uFF0C\u96BE\u6D4B\u4E5F\uFF0C\u60E7\u6709\u4F0F\u7109\u3002\u543E\u89C6\u5176\u8F99\u4E71\uFF0C\u671B\u5176\u65D7\u9761\uFF0C\u6545\u9010\u4E4B\u3002\u201D",
+        "pinyin": "sh\xED ni\xE1n ch\u016Bn\uFF0C q\xED sh\u012B f\xE1 w\u01D2\u3002 g\u014Dng ji\u0101ng zh\xE0n\uFF0C c\xE1o gu\xEC q\u01D0ng ji\xE0n\u3002 q\xED xi\u0101ng r\xE9n yu\u0113 :\u201C r\xF2u sh\xED zh\u011B m\xF3u zh\u012B\uFF0C y\xF2u h\xE9 ji\u0101n y\u0101n?\u201D gu\xEC yu\u0113 :\u201C r\xF2u sh\xED zh\u011B b\u01D0\uFF0C w\xE8i n\xE9ng yu\u01CEn m\xF3u\u3002\u201D n\u01CEi r\xF9 ji\xE0n\u3002 w\xE8n :\u201C h\xE9 y\u01D0 zh\xE0n?\u201D g\u014Dng yu\u0113 :\u201C y\u012B sh\xED su\u01D2 \u0101n\uFF0C f\xFA g\u01CEn zhu\u0101n y\u011B\uFF0C b\xEC y\u01D0 f\u0113n r\xE9n\u3002\u201D du\xEC yu\u0113 :\u201C xi\u01CEo hu\xEC w\xE8i bi\xE0n\uFF0C m\xEDn f\xFA c\xF3ng y\u011B\u3002\u201D g\u014Dng yu\u0113 :\u201C x\u012B sh\u0113ng y\xF9 b\xF3\uFF0C f\xFA g\u01CEn ji\u0101 y\u011B\uFF0C b\xEC y\u01D0 x\xECn\u3002\u201D du\xEC yu\u0113 :\u201C xi\u01CEo x\xECn w\xE8i f\xFA\uFF0C sh\xE9n f\xFA f\xFA y\u011B\u3002\u201D g\u014Dng yu\u0113 :\u201C xi\u01CEo d\xE0 zh\u012B y\xF9\uFF0C su\u012B b\xF9 n\xE9ng ch\xE1\uFF0C b\xEC y\u01D0 q\xEDng\u3002\u201D du\xEC yu\u0113 :\u201C zh\u014Dng zh\u012B sh\u01D4 y\u011B\u3002 k\u011B y\u01D0 y\u012B zh\xE0n\u3002 zh\xE0n z\xE9 q\u01D0ng c\xF3ng\u3002\u201D\ng\u014Dng y\u01D4 zh\u012B ch\xE9ng\uFF0C zh\xE0n y\xFA zh\u01CEng sh\xE1o\u3002 g\u014Dng ji\u0101ng g\u01D4 zh\u012B\u3002 gu\xEC yu\u0113 :\u201C w\xE8i k\u011B\u3002\u201D q\xED r\xE9n s\u0101n g\u01D4\u3002 gu\xEC yu\u0113 :\u201C k\u011B y\u01D0\u3002\u201D q\xED sh\u012B b\xE0i j\xEC\u3002 g\u014Dng ji\u0101ng ch\xED zh\u012B\u3002 gu\xEC yu\u0113 :\u201C w\xE8i k\u011B\u3002\u201D xi\xE0 sh\xEC q\xED zh\xE9\uFF0C d\u0113ng sh\xEC \xE9r w\xE0ng zh\u012B\uFF0C yu\u0113 :\u201D k\u011B y\u01D0\u3002\u201D su\xEC zh\xFA q\xED sh\u012B\u3002\nj\xEC k\xE8\uFF0C g\u014Dng w\xE8n q\xED g\xF9\u3002 du\xEC yu\u0113 :\u201D f\u016B zh\xE0n\uFF0C y\u01D2ng q\xEC y\u011B\u3002 y\u012B g\u01D4 zu\xF2 q\xEC\uFF0C z\xE0i \xE9r shu\u0101i\uFF0C s\u0101n \xE9r ji\xE9\u3002 b\u01D0 ji\xE9 w\u01D2 y\xEDng\uFF0C g\xF9 k\xE8 zh\u012B\u3002 f\u016B d\xE0 gu\xF3\uFF0C n\xE1n c\xE8 y\u011B\uFF0C j\xF9 y\u01D2u f\xFA y\u0101n\u3002 w\xFA sh\xEC q\xED zh\xE9 lu\xE0n\uFF0C w\xE0ng q\xED q\xED m\xED\uFF0C g\xF9 zh\xFA zh\u012B\u3002\u201D",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-95-poem-95",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u51FA\u5E08\u8868",
+        "author": "\u8BF8\u845B\u4EAE",
+        "dynasty": "\u4E24\u6C49",
+        "excerpt": "\u5148\u5E1D\u521B\u4E1A\u672A\u534A\u800C\u4E2D\u9053\u5D29\u6B82\uFF0C\u4ECA\u5929\u4E0B\u4E09\u5206\uFF0C\u76CA\u5DDE\u75B2\u5F0A\uFF0C\u6B64\u8BDA\u5371\u6025\u5B58\u4EA1\u4E4B\u79CB\u4E5F\u3002\u7136\u4F8D\u536B\u4E4B\u81E3\u4E0D\u61C8\u4E8E\u5185\uFF0C\u5FE0\u5FD7\u4E4B\u58EB\u5FD8\u8EAB\u4E8E\u5916\u8005\uFF0C\u76D6\u8FFD\u5148\u5E1D\u4E4B\u6B8A\u9047\uFF0C\u6B32\u62A5\u4E4B\u4E8E\u965B\u4E0B\u4E5F\u3002\u8BDA\u5B9C\u5F00\u5F20\u5723\u542C\uFF0C\u4EE5\u5149\u5148\u5E1D\u9057\u5FB7\uFF0C\u6062\u5F18\u5FD7\u58EB\u4E4B\u6C14\uFF0C\u4E0D\u5B9C\u5984\u81EA\u83F2\u8584\uFF0C\u5F15\u55BB\u5931\u4E49\uFF0C\u4EE5\u585E\u5FE0\u8C0F\u4E4B\u8DEF\u4E5F\u3002\n\u5BAB\u4E2D\u5E9C\u4E2D\uFF0C\u4FF1\u4E3A\u4E00\u4F53\uFF0C\u965F\u7F5A\u81E7\u5426\uFF0C\u4E0D\u5B9C\u5F02\u540C\u3002\u82E5\u6709\u4F5C\u5978\u72AF\u79D1\u53CA\u4E3A\u5FE0\u5584\u8005\uFF0C\u5B9C\u4ED8\u6709\u53F8\u8BBA\u5176\u5211\u8D4F\uFF0C\u4EE5\u662D\u965B\u4E0B\u5E73\u660E\u4E4B\u7406\uFF0C\u4E0D\u5B9C\u504F\u79C1\uFF0C\u4F7F\u5185\u5916\u5F02\u6CD5\u4E5F\u3002\n\u4F8D\u4E2D\u3001\u4F8D\u90CE\u90ED\u6538\u4E4B\u3001\u8D39\u794E\u3001\u8463\u5141\u7B49\uFF0C\u6B64\u7686\u826F\u5B9E\uFF0C\u5FD7\u8651\u5FE0\u7EAF\uFF0C\u662F\u4EE5\u5148\u5E1D\u7B80\u62D4\u4EE5\u9057\u965B\u4E0B\u3002\u611A\u4EE5\u4E3A\u5BAB\u4E2D\u4E4B\u4E8B\uFF0C\u4E8B\u65E0\u5927\u5C0F\uFF0C\u6089\u4EE5\u54A8\u4E4B\uFF0C\u7136\u540E\u65BD\u884C\uFF0C\u5FC5\u5F97\u88E8\u8865\u9619\u6F0F\uFF0C\u6709\u6240\u5E7F\u76CA\u3002\n\u5C06\u519B\u5411\u5BA0\uFF0C\u6027\u884C\u6DD1\u5747\uFF0C\u6653\u7545\u519B\u4E8B\uFF0C\u8BD5\u7528\u4E4B\u4E8E\u6614\u65E5\uFF0C\u5148\u5E1D\u79F0\u4E4B\u66F0\u80FD\uFF0C\u662F\u4EE5\u4F17\u8BAE\u4E3E\u5BA0\u4E3A\u7763\u3002\u611A\u4EE5\u4E3A\u8425\u4E2D\u4E4B\u4E8B\uFF0C\u6089\u4EE5\u54A8\u4E4B\uFF0C\u5FC5\u80FD\u4F7F\u884C\u9635\u548C\u7766\uFF0C\u4F18\u52A3\u5F97\u6240\u3002\n\u4EB2\u8D24\u81E3\uFF0C\u8FDC\u5C0F\u4EBA\uFF0C\u6B64\u5148\u6C49\u6240\u4EE5\u5174\u9686\u4E5F\uFF1B\u4EB2\u5C0F\u4EBA\uFF0C\u8FDC\u8D24\u81E3\uFF0C\u6B64\u540E\u6C49\u6240\u4EE5\u503E\u9893\u4E5F\u3002\u5148\u5E1D\u5728\u65F6\uFF0C\u6BCF\u4E0E\u81E3\u8BBA\u6B64\u4E8B\uFF0C\u672A\u5C1D\u4E0D\u53F9\u606F\u75DB\u6068\u4E8E\u6853\u3001\u7075\u4E5F\u3002\u4F8D\u4E2D\u3001\u5C1A\u4E66\u3001\u957F\u53F2\u3001\u53C2\u519B\uFF0C\u6B64\u6089\u8D1E\u826F\u6B7B\u8282\u4E4B\u81E3\uFF0C\u613F\u965B\u4E0B\u4EB2\u4E4B\u4FE1\u4E4B\uFF0C\u5219\u6C49\u5BA4\u4E4B\u9686\uFF0C\u53EF\u8BA1\u65E5\u800C\u5F85\u4E5F\u3002\n\u81E3\u672C\u5E03\u8863\uFF0C\u8EAC\u8015\u4E8E\u5357\u9633\uFF0C\u82DF\u5168\u6027\u547D\u4E8E\u4E71\u4E16\uFF0C\u4E0D\u6C42\u95FB\u8FBE\u4E8E\u8BF8\u4FAF\u3002\u5148\u5E1D\u4E0D\u4EE5\u81E3\u5351\u9119\uFF0C\u7325\u81EA\u6789\u5C48\uFF0C\u4E09\u987E\u81E3\u4E8E\u8349\u5E90\u4E4B\u4E2D\uFF0C\u54A8\u81E3\u4EE5\u5F53\u4E16\u4E4B\u4E8B\uFF0C\u7531\u662F\u611F\u6FC0\uFF0C\u9042\u8BB8\u5148\u5E1D\u4EE5\u9A71\u9A70\u3002\u540E\u503C\u503E\u8986\uFF0C\u53D7\u4EFB\u4E8E\u8D25\u519B\u4E4B\u9645\uFF0C\u5949\u547D\u4E8E\u5371\u96BE\u4E4B\u95F4\uFF0C\u5C14\u6765\u4E8C\u5341\u6709\u4E00\u5E74\u77E3\u3002\n\u5148\u5E1D\u77E5\u81E3\u8C28\u614E\uFF0C\u6545\u4E34\u5D29\u5BC4\u81E3\u4EE5\u5927\u4E8B\u4E5F\u3002\u53D7\u547D\u4EE5\u6765\uFF0C\u5919\u591C\u5FE7\u53F9\uFF0C\u6050\u6258\u4ED8\u4E0D\u6548\uFF0C\u4EE5\u4F24\u5148\u5E1D\u4E4B\u660E\uFF0C\u6545\u4E94\u6708\u6E21\u6CF8\uFF0C\u6DF1\u5165\u4E0D\u6BDB\u3002\u4ECA\u5357\u65B9\u5DF2\u5B9A\uFF0C\u5175\u7532\u5DF2\u8DB3\uFF0C\u5F53\u5956\u7387\u4E09\u519B\uFF0C\u5317\u5B9A\u4E2D\u539F\uFF0C\u5EB6\u7AED\u9A7D\u949D\uFF0C\u6518\u9664\u5978\u51F6\uFF0C\u5174\u590D\u6C49\u5BA4\uFF0C\u8FD8\u4E8E\u65E7\u90FD\u3002\u6B64\u81E3\u6240\u4EE5\u62A5\u5148\u5E1D\u800C\u5FE0\u965B\u4E0B\u4E4B\u804C\u5206\u4E5F\u3002\u81F3\u4E8E\u659F\u914C\u635F\u76CA\uFF0C\u8FDB\u5C3D\u5FE0\u8A00\uFF0C\u5219\u6538\u4E4B\u3001\u794E\u3001\u5141\u4E4B\u4EFB\u4E5F\u3002\n\u613F\u965B\u4E0B\u6258\u81E3\u4EE5\u8BA8\u8D3C\u5174\u590D\u4E4B\u6548\uFF0C\u4E0D\u6548\uFF0C\u5219\u6CBB\u81E3\u4E4B\u7F6A\uFF0C\u4EE5\u544A\u5148\u5E1D\u4E4B\u7075\u3002\u82E5\u65E0\u5174\u5FB7\u4E4B\u8A00\uFF0C\u5219\u8D23\u6538\u4E4B\u3001\u794E\u3001\u5141\u7B49\u4E4B\u6162\uFF0C\u4EE5\u5F70\u5176\u548E\uFF1B\u965B\u4E0B\u4EA6\u5B9C\u81EA\u8C0B\uFF0C\u4EE5\u54A8\u8BF9\u5584\u9053\uFF0C\u5BDF\u7EB3\u96C5\u8A00\uFF0C\u6DF1\u8FFD\u5148\u5E1D\u9057\u8BCF\uFF0C\u81E3\u4E0D\u80DC\u53D7\u6069\u611F\u6FC0\u3002\n\u4ECA\u5F53\u8FDC\u79BB\uFF0C\u4E34\u8868\u6D95\u96F6\uFF0C\u4E0D\u77E5\u6240\u8A00\u3002",
+        "pinyin": "xi\u0101n d\xEC chu\xE0ng y\xE8 w\xE8i b\xE0n \xE9r zh\u014Dng d\xE0o b\u0113ng c\xFA\uFF0C j\u012Bn ti\u0101n xi\xE0 s\u0101n f\u0113n\uFF0C y\xEC zh\u014Du p\xED b\xEC\uFF0C c\u01D0 ch\xE9ng w\u0113i j\xED c\xFAn w\xE1ng zh\u012B qi\u016B y\u011B\u3002 r\xE1n sh\xEC w\xE8i zh\u012B ch\xE9n b\xF9 xi\xE8 y\xFA n\xE8i\uFF0C zh\u014Dng zh\xEC zh\u012B sh\xEC w\xE0ng sh\u0113n y\xFA w\xE0i zh\u011B\uFF0C g\xE0i zhu\u012B xi\u0101n d\xEC zh\u012B sh\u016B y\xF9\uFF0C y\xF9 b\xE0o zh\u012B y\xFA b\xEC xi\xE0 y\u011B\u3002 ch\xE9ng y\xED k\u0101i zh\u0101ng sh\xE8ng t\u012Bng\uFF0C y\u01D0 gu\u0101ng xi\u0101n d\xEC y\xED d\xE9\uFF0C hu\u012B h\xF3ng zh\xEC sh\xEC zh\u012B q\xEC\uFF0C b\xF9 y\xED w\xE0ng z\xEC f\u011Bi b\xF3\uFF0C y\u01D0n y\xF9 sh\u012B y\xEC\uFF0C y\u01D0 s\u0101i zh\u014Dng ji\xE0n zh\u012B l\xF9 y\u011B\u3002\ng\u014Dng zh\u014Dng f\u01D4 zh\u014Dng\uFF0C j\xF9 w\xE8i y\u012B t\u01D0\uFF0C zh\xEC f\xE1 z\u0101ng p\u01D0\uFF0C b\xF9 y\xED y\xEC t\xF3ng\u3002 ru\xF2 y\u01D2u zu\xF2 ji\u0101n f\xE0n k\u0113 j\xED w\xE8i zh\u014Dng sh\xE0n zh\u011B\uFF0C y\xED f\xF9 y\u01D2u s\u012B l\xF9n q\xED x\xEDng sh\u01CEng\uFF0C y\u01D0 zh\u0101o b\xEC xi\xE0 p\xEDng m\xEDng zh\u012B l\u01D0\uFF0C b\xF9 y\xED pi\u0101n s\u012B\uFF0C sh\u01D0 n\xE8i w\xE0i y\xEC f\u01CE y\u011B\u3002\nsh\xEC zh\u014Dng\u3001 sh\xEC l\xE1ng gu\u014D y\u014Du zh\u012B\u3001 f\xE8i y\u012B\u3001 d\u01D2ng y\u01D4n d\u011Bng\uFF0C c\u01D0 ji\u0113 li\xE1ng sh\xED\uFF0C zh\xEC l\u01DC zh\u014Dng ch\xFAn\uFF0C sh\xEC y\u01D0 xi\u0101n d\xEC ji\u01CEn b\xE1 y\u01D0 y\xED b\xEC xi\xE0\u3002 y\xFA y\u01D0 w\xE9i g\u014Dng zh\u014Dng zh\u012B sh\xEC\uFF0C sh\xEC w\xFA d\xE0 xi\u01CEo\uFF0C x\u012B y\u01D0 z\u012B zh\u012B\uFF0C r\xE1n h\xF2u sh\u012B x\xEDng\uFF0C b\xEC d\u011Bi b\xEC b\u01D4 qu\u0113 l\xF2u\uFF0C y\u01D2u su\u01D2 gu\u01CEng y\xEC\u3002\nji\u0101ng j\u016Bn xi\xE0ng ch\u01D2ng\uFF0C x\xECng x\xEDng sh\u016B j\u016Bn\uFF0C xi\u01CEo ch\xE0ng j\u016Bn sh\xEC\uFF0C sh\xEC y\xF2ng zh\u012B y\xFA x\u012B r\xEC\uFF0C xi\u0101n d\xEC ch\u0113ng zh\u012B yu\u0113 n\xE9ng\uFF0C sh\xEC y\u01D0 zh\xF2ng y\xEC j\u01D4 ch\u01D2ng w\xE8i d\u016B\u3002 y\xFA y\u01D0 w\xE9i y\xEDng zh\u014Dng zh\u012B sh\xEC\uFF0C x\u012B y\u01D0 z\u012B zh\u012B\uFF0C b\xEC n\xE9ng sh\u01D0 x\xEDng zh\xE8n h\xE9 m\xF9\uFF0C y\u014Du li\xE8 d\xE9 su\u01D2\u3002\nq\u012Bn xi\xE1n ch\xE9n\uFF0C yu\u01CEn xi\u01CEo r\xE9n\uFF0C c\u01D0 xi\u0101n h\xE0n su\u01D2 y\u01D0 x\u012Bng l\xF3ng y\u011B\uFF1B q\u012Bn xi\u01CEo r\xE9n\uFF0C yu\u01CEn xi\xE1n ch\xE9n\uFF0C c\u01D0 h\xF2u h\xE0n su\u01D2 y\u01D0 q\u012Bng tu\xED y\u011B\u3002 xi\u0101n d\xEC z\xE0i sh\xED\uFF0C m\u011Bi y\u01D4 ch\xE9n l\xF9n c\u01D0 sh\xEC\uFF0C w\xE8i ch\xE1ng b\xF9 t\xE0n x\u012B t\xF2ng h\xE8n y\xFA hu\xE1n\u3001 l\xEDng y\u011B\u3002 sh\xEC zh\u014Dng\u3001 sh\xE0ng sh\u016B\u3001 zh\u01CEng sh\u01D0\u3001 c\u0101n j\u016Bn\uFF0C c\u01D0 x\u012B zh\u0113n li\xE1ng s\u01D0 ji\xE9 zh\u012B ch\xE9n\uFF0C yu\xE0n b\xEC xi\xE0 q\u012Bn zh\u012B x\xECn zh\u012B\uFF0C z\xE9 h\xE0n sh\xEC zh\u012B l\xF3ng\uFF0C k\u011B j\xEC r\xEC \xE9r d\xE0i y\u011B\u3002\nch\xE9n b\u011Bn b\xF9 y\u012B\uFF0C g\u014Dng g\u0113ng y\xFA n\xE1n y\xE1ng\uFF0C g\u01D2u qu\xE1n x\xECng m\xECng y\xFA lu\xE0n sh\xEC\uFF0C b\xF9 qi\xFA w\xE9n d\xE1 y\xFA zh\u016B h\xF3u\u3002 xi\u0101n d\xEC b\xF9 y\u01D0 ch\xE9n b\u0113i b\u01D0\uFF0C w\u011Bi z\xEC w\u01CEng q\u016B\uFF0C s\u0101n g\xF9 ch\xE9n y\xFA c\u01CEo l\xFA zh\u012B zh\u014Dng\uFF0C z\u012B ch\xE9n y\u01D0 d\u0101ng sh\xEC zh\u012B sh\xEC\uFF0C y\xF3u sh\xEC g\u01CEn j\u012B\uFF0C su\xEC x\u01D4 xi\u0101n d\xEC y\u01D0 q\u016B ch\xED\u3002 h\xF2u zh\xED q\u012Bng f\xF9\uFF0C sh\xF2u r\xE8n y\xFA b\xE0i j\u016Bn zh\u012B j\xEC\uFF0C f\xE8ng m\xECng y\xFA w\u0113i n\xE0n zh\u012B ji\u0101n\uFF0C \u011Br l\xE1i \xE8r sh\xED y\u01D2u y\u012B ni\xE1n y\u01D0\u3002\nxi\u0101n d\xEC zh\u012B ch\xE9n j\u01D0n sh\xE8n\uFF0C g\xF9 l\xEDn b\u0113ng j\xEC ch\xE9n y\u01D0 d\xE0 sh\xEC y\u011B\u3002 sh\xF2u m\xECng y\u01D0 l\xE1i\uFF0C s\xF9 y\xE8 y\u014Du t\xE0n\uFF0C k\u01D2ng tu\u014D f\xF9 b\xF9 xi\xE0o\uFF0C y\u01D0 sh\u0101ng xi\u0101n d\xEC zh\u012B m\xEDng\uFF0C g\xF9 w\u01D4 yu\xE8 d\xF9 l\xFA\uFF0C sh\u0113n r\xF9 b\xF9 m\xE1o\u3002 j\u012Bn n\xE1n f\u0101ng y\u01D0 d\xECng\uFF0C b\u012Bng ji\u01CE y\u01D0 z\xFA\uFF0C d\u0101ng ji\u01CEng l\u01DC s\u0101n j\u016Bn\uFF0C b\u011Bi d\xECng zh\u014Dng yu\xE1n\uFF0C sh\xF9 ji\xE9 n\xFA d\xF9n\uFF0C r\u01CEng ch\xFA ji\u0101n xi\u014Dng\uFF0C x\u012Bng f\xF9 h\xE0n sh\xEC\uFF0C h\xE1i y\xFA ji\xF9 d\u016B\u3002 c\u01D0 ch\xE9n su\u01D2 y\u01D0 b\xE0o xi\u0101n d\xEC \xE9r zh\u014Dng b\xEC xi\xE0 zh\u012B zh\xED f\u0113n y\u011B\u3002 zh\xEC y\xFA zh\u0113n zhu\xF3 s\u01D4n y\xEC\uFF0C j\xECn j\xECn zh\u014Dng y\xE1n\uFF0C z\xE9 y\u014Du zh\u012B\u3001 y\u012B\u3001 y\u01D4n zh\u012B r\xE8n y\u011B\u3002\nyu\xE0n b\xEC xi\xE0 tu\u014D ch\xE9n y\u01D0 t\u01CEo z\xE9i x\u012Bng f\xF9 zh\u012B xi\xE0o\uFF0C b\xF9 xi\xE0o\uFF0C z\xE9 zh\xEC ch\xE9n zh\u012B zu\xEC\uFF0C y\u01D0 g\xE0o xi\u0101n d\xEC zh\u012B l\xEDng\u3002 ru\xF2 w\xFA x\u012Bng d\xE9 zh\u012B y\xE1n\uFF0C z\xE9 z\xE9 y\u014Du zh\u012B\u3001 y\u012B\u3001 y\u01D4n d\u011Bng zh\u012B m\xE0n\uFF0C y\u01D0 zh\u0101ng q\xED ji\xF9\uFF1B b\xEC xi\xE0 y\xEC y\xED z\xEC m\xF3u\uFF0C y\u01D0 z\u012B z\u014Du sh\xE0n d\xE0o\uFF0C ch\xE1 n\xE0 y\u01CE y\xE1n\uFF0C sh\u0113n zhu\u012B xi\u0101n d\xEC y\xED zh\xE0o\uFF0C ch\xE9n b\xF9 sh\xE8ng sh\xF2u \u0113n g\u01CEn j\u012B\u3002\nj\u012Bn d\u0101ng yu\u01CEn l\xED\uFF0C l\xEDn bi\u01CEo t\xEC l\xEDng\uFF0C b\xF9 zh\u012B su\u01D2 y\xE1n\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-96-poem-96",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u90B9\u5FCC\u8BBD\u9F50\u738B\u7EB3\u8C0F",
+        "author": "\u5218\u5411",
+        "dynasty": "\u4E24\u6C49",
+        "excerpt": "\u90B9\u5FCC\u4FEE\u516B\u5C3A\u6709\u4F59\uFF0C\u800C\u5F62\u8C8C\u6633\u4E3D\u3002\u671D\u670D\u8863\u51A0\uFF0C\u7AA5\u955C\uFF0C\u8C13\u5176\u59BB\u66F0\uFF1A\u201C\u6211\u5B70\u4E0E\u57CE\u5317\u5F90\u516C\u7F8E\uFF1F\u201D\u5176\u59BB\u66F0\uFF1A\u201C\u541B\u7F8E\u751A\uFF0C\u5F90\u516C\u4F55\u80FD\u53CA\u541B\u4E5F\uFF1F\u201D\u57CE\u5317\u5F90\u516C\uFF0C\u9F50\u56FD\u4E4B\u7F8E\u4E3D\u8005\u4E5F\u3002\u5FCC\u4E0D\u81EA\u4FE1\uFF0C\u800C\u590D\u95EE\u5176\u59BE\u66F0\uFF1A\u201C\u543E\u5B70\u4E0E\u5F90\u516C\u7F8E\uFF1F\u201D\u59BE\u66F0\uFF1A\u201C\u5F90\u516C\u4F55\u80FD\u53CA\u541B\u4E5F\uFF1F\u201D\u65E6\u65E5\uFF0C\u5BA2\u4ECE\u5916\u6765\uFF0C\u4E0E\u5750\u8C08\uFF0C\u95EE\u4E4B\u5BA2\u66F0\uFF1A\u201C\u543E\u4E0E\u5F90\u516C\u5B70\u7F8E\uFF1F\u201D\u5BA2\u66F0\uFF1A\u201C\u5F90\u516C\u4E0D\u82E5\u541B\u4E4B\u7F8E\u4E5F\u3002\u201D\u660E\u65E5\uFF0C\u5F90\u516C\u6765\uFF0C\u5B70\u89C6\u4E4B\uFF0C\u81EA\u4EE5\u4E3A\u4E0D\u5982\uFF1B\u7AA5\u955C\u800C\u81EA\u89C6\uFF0C\u53C8\u5F17\u5982\u8FDC\u751A\u3002\u66AE\u5BDD\u800C\u601D\u4E4B\uFF0C\u66F0\uFF1A\u201C\u543E\u59BB\u4E4B\u7F8E\u6211\u8005\uFF0C\u79C1\u6211\u4E5F\uFF1B\u59BE\u4E4B\u7F8E\u6211\u8005\uFF0C\u754F\u6211\u4E5F\uFF1B\u5BA2\u4E4B\u7F8E\u6211\u8005\uFF0C\u6B32\u6709\u6C42\u4E8E\u6211\u4E5F\u3002\u201D\n\u4E8E\u662F\u5165\u671D\u89C1\u5A01\u738B\uFF0C\u66F0\uFF1A\u201C\u81E3\u8BDA\u77E5\u4E0D\u5982\u5F90\u516C\u7F8E\u3002\u81E3\u4E4B\u59BB\u79C1\u81E3\uFF0C\u81E3\u4E4B\u59BE\u754F\u81E3\uFF0C\u81E3\u4E4B\u5BA2\u6B32\u6709\u6C42\u4E8E\u81E3\uFF0C\u7686\u4EE5\u7F8E\u4E8E\u5F90\u516C\u3002\u4ECA\u9F50\u5730\u65B9\u5343\u91CC\uFF0C\u767E\u4E8C\u5341\u57CE\uFF0C\u5BAB\u5987\u5DE6\u53F3\u83AB\u4E0D\u79C1\u738B\uFF0C\u671D\u5EF7\u4E4B\u81E3\u83AB\u4E0D\u754F\u738B\uFF0C\u56DB\u5883\u4E4B\u5185\u83AB\u4E0D\u6709\u6C42\u4E8E\u738B\uFF1A\u7531\u6B64\u89C2\u4E4B\uFF0C\u738B\u4E4B\u853D\u751A\u77E3\u3002\u201D\n\u738B\u66F0\uFF1A\u201C\u5584\u3002\u201D\u4E43\u4E0B\u4EE4\uFF1A\u201C\u7FA4\u81E3\u540F\u6C11\u80FD\u9762\u523A\u5BE1\u4EBA\u4E4B\u8FC7\u8005\uFF0C\u53D7\u4E0A\u8D4F\uFF1B\u4E0A\u4E66\u8C0F\u5BE1\u4EBA\u8005\uFF0C\u53D7\u4E2D\u8D4F\uFF1B\u80FD\u8C24\u8BA5\u4E8E\u5E02\u671D\uFF0C\u95FB\u5BE1\u4EBA\u4E4B\u8033\u8005\uFF0C\u53D7\u4E0B\u8D4F\u3002\u201D\u4EE4\u521D\u4E0B\uFF0C\u7FA4\u81E3\u8FDB\u8C0F\uFF0C\u95E8\u5EAD\u82E5\u5E02\uFF1B\u6570\u6708\u4E4B\u540E\uFF0C\u65F6\u65F6\u800C\u95F4\u8FDB\uFF1B\u671F\u5E74\u4E4B\u540E\uFF0C\u867D\u6B32\u8A00\uFF0C\u65E0\u53EF\u8FDB\u8005\u3002\u71D5\u3001\u8D75\u3001\u97E9\u3001\u9B4F\u95FB\u4E4B\uFF0C\u7686\u671D\u4E8E\u9F50\u3002\u6B64\u6240\u8C13\u6218\u80DC\u4E8E\u671D\u5EF7\u3002",
+        "pinyin": "z\u014Du j\xEC xi\u016B b\u0101 ch\u01D0 y\u01D2u y\xFA\uFF0C \xE9r x\xEDng m\xE0o di\xE9 l\xEC\u3002 ch\xE1o f\xFA y\u012B gu\u0101n\uFF0C ku\u012B j\xECng\uFF0C w\xE8i q\xED q\u012B yu\u0113\uFF1A\u201C w\u01D2 sh\xFA y\u01D4 ch\xE9ng b\u011Bi x\xFA g\u014Dng m\u011Bi\uFF1F\u201D q\xED q\u012B yu\u0113\uFF1A\u201C j\u016Bn m\u011Bi sh\xE8n\uFF0C x\xFA g\u014Dng h\xE9 n\xE9ng j\xED j\u016Bn y\u011B\uFF1F\u201D ch\xE9ng b\u011Bi x\xFA g\u014Dng\uFF0C q\xED gu\xF3 zh\u012B m\u011Bi l\xEC zh\u011B y\u011B\u3002 j\xEC b\xF9 z\xEC x\xECn\uFF0C \xE9r f\xF9 w\xE8n q\xED qi\xE8 yu\u0113\uFF1A\u201C w\xFA sh\xFA y\u01D4 x\xFA g\u014Dng m\u011Bi\uFF1F\u201D qi\xE8 yu\u0113\uFF1A\u201C x\xFA g\u014Dng h\xE9 n\xE9ng j\xED j\u016Bn y\u011B\uFF1F\u201D d\xE0n r\xEC\uFF0C k\xE8 c\xF3ng w\xE0i l\xE1i\uFF0C y\u01D4 zu\xF2 t\xE1n\uFF0C w\xE8n zh\u012B k\xE8 yu\u0113\uFF1A\u201C w\xFA y\u01D4 x\xFA g\u014Dng sh\xFA m\u011Bi\uFF1F\u201D k\xE8 yu\u0113\uFF1A\u201C x\xFA g\u014Dng b\xF9 ru\xF2 j\u016Bn zh\u012B m\u011Bi y\u011B\u3002\u201D m\xEDng r\xEC\uFF0C x\xFA g\u014Dng l\xE1i\uFF0C sh\xFA sh\xEC zh\u012B\uFF0C z\xEC y\u01D0 w\xE9i b\xF9 r\xFA\uFF1B ku\u012B j\xECng \xE9r z\xEC sh\xEC\uFF0C y\xF2u f\xFA r\xFA yu\u01CEn sh\xE8n\u3002 m\xF9 q\u01D0n \xE9r s\u012B zh\u012B\uFF0C yu\u0113\uFF1A\u201C w\xFA q\u012B zh\u012B m\u011Bi w\u01D2 zh\u011B\uFF0C s\u012B w\u01D2 y\u011B\uFF1B qi\xE8 zh\u012B m\u011Bi w\u01D2 zh\u011B\uFF0C w\xE8i w\u01D2 y\u011B\uFF1B k\xE8 zh\u012B m\u011Bi w\u01D2 zh\u011B\uFF0C y\xF9 y\u01D2u qi\xFA y\xFA w\u01D2 y\u011B\u3002\u201D\ny\xFA sh\xEC r\xF9 ch\xE1o ji\xE0n w\u0113i w\xE1ng\uFF0C yu\u0113\uFF1A\u201C ch\xE9n ch\xE9ng zh\u012B b\xF9 r\xFA x\xFA g\u014Dng m\u011Bi\u3002 ch\xE9n zh\u012B q\u012B s\u012B ch\xE9n\uFF0C ch\xE9n zh\u012B qi\xE8 w\xE8i ch\xE9n\uFF0C ch\xE9n zh\u012B k\xE8 y\xF9 y\u01D2u qi\xFA y\xFA ch\xE9n\uFF0C ji\u0113 y\u01D0 m\u011Bi y\xFA x\xFA g\u014Dng\u3002 j\u012Bn q\xED d\xEC f\u0101ng qi\u0101n l\u01D0\uFF0C b\u01CEi \xE8r sh\xED ch\xE9ng\uFF0C g\u014Dng f\xF9 zu\u01D2 y\xF2u m\xF2 b\xF9 s\u012B w\xE1ng\uFF0C ch\xE1o t\xEDng zh\u012B ch\xE9n m\xF2 b\xF9 w\xE8i w\xE1ng\uFF0C s\xEC j\xECng zh\u012B n\xE8i m\xF2 b\xF9 y\u01D2u qi\xFA y\xFA w\xE1ng\uFF1A y\xF3u c\u01D0 gu\u0101n zh\u012B\uFF0C w\xE1ng zh\u012B b\xEC sh\xE8n y\u01D0\u3002\u201D\nw\xE1ng yu\u0113\uFF1A\u201C sh\xE0n\u3002\u201D n\u01CEi xi\xE0 l\xECng\uFF1A\u201C q\xFAn ch\xE9n l\xEC m\xEDn n\xE9ng mi\xE0n c\xEC gu\u01CE r\xE9n zh\u012B gu\xF2 zh\u011B\uFF0C sh\xF2u sh\xE0ng sh\u01CEng\uFF1B sh\xE0ng sh\u016B ji\xE0n gu\u01CE r\xE9n zh\u011B\uFF0C sh\xF2u zh\u014Dng sh\u01CEng\uFF1B n\xE9ng b\xE0ng j\u012B y\xFA sh\xEC ch\xE1o\uFF0C w\xE9n gu\u01CE r\xE9n zh\u012B \u011Br zh\u011B\uFF0C sh\xF2u xi\xE0 sh\u01CEng\u3002\u201D l\xECng ch\u016B xi\xE0\uFF0C q\xFAn ch\xE9n j\xECn ji\xE0n\uFF0C m\xE9n t\xEDng ru\xF2 sh\xEC\uFF1B sh\xF9 yu\xE8 zh\u012B h\xF2u\uFF0C sh\xED sh\xED \xE9r ji\u0101n j\xECn\uFF1B j\u012B ni\xE1n zh\u012B h\xF2u\uFF0C su\u012B y\xF9 y\xE1n\uFF0C w\xFA k\u011B j\xECn zh\u011B\u3002 y\xE0n\u3001 zh\xE0o\u3001 h\xE1n\u3001 w\xE8i w\xE9n zh\u012B\uFF0C ji\u0113 ch\xE1o y\xFA q\xED\u3002 c\u01D0 su\u01D2 w\xE8i zh\xE0n sh\xE8ng y\xFA ch\xE1o t\xEDng\u3002",
+        "category": "classical",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-97-poem-97",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5341\u4E94\u4ECE\u519B\u5F81",
+        "author": "\u6C49\u4E50\u5E9C",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5341\u4E94\u4ECE\u519B\u5F81\uFF0C\u516B\u5341\u59CB\u5F97\u5F52\u3002\u9053\u9022\u4E61\u91CC\u4EBA:\u201C\u5BB6\u4E2D\u6709\u963F\u8C01?\u201D\n\u9065\u770B\u662F\u541B\u5BB6\uFF0C\u677E\u67CF\u51A2\u7D2F\u7D2F\u3002\u5154\u4ECE\u72D7\u7AA6\u5165\uFF0C\u96C9\u4ECE\u67B6\u4E0A\u98DE\u3002\n\u4E2D\u5EAD\u751F\u65C5\u8C37\uFF0C\u4E95\u4E0A\u751F\u65C5\u8475\u3002\u8202\u8C37\u6301\u4F5C\u996D\uFF0C\u91C7\u8475\u6301\u4F5C\u7FB9\u3002\n\u7FB9\u996D\u4E00\u65F6\u719F\uFF0C\u4E0D\u77E5\u8D3B\u963F\u8C01?\u51FA\u95E8\u4E1C\u5411\u770B\uFF0C\u6CEA\u843D\u6CBE\u6211\u8863\u3002",
+        "pinyin": "sh\xED w\u01D4 c\xF3ng j\u016Bn zh\u0113ng\uFF0C b\u0101 sh\xED sh\u01D0 d\xE9 gu\u012B\u3002 d\xE0o f\xE9ng xi\u0101ng l\u01D0 r\xE9n :\u201C ji\u0101 zh\u014Dng y\u01D2u \u0101 shu\xED?\u201D\ny\xE1o k\xE0n sh\xEC j\u016Bn ji\u0101\uFF0C s\u014Dng b\u01CEi zh\u01D2ng l\u011Bi l\u011Bi\u3002 t\xF9 c\xF3ng g\u01D2u d\xF2u r\xF9\uFF0C zh\xEC c\xF3ng ji\xE0 sh\xE0ng f\u0113i\u3002\nzh\u014Dng t\xEDng sh\u0113ng l\u01DA g\u01D4\uFF0C j\u01D0ng sh\xE0ng sh\u0113ng l\u01DA ku\xED\u3002 ch\u014Dng g\u01D4 ch\xED zu\xF2 f\xE0n\uFF0C c\u01CEi ku\xED ch\xED zu\xF2 g\u0113ng\u3002\ng\u0113ng f\xE0n y\u012B sh\xED sh\xFA\uFF0C b\xF9 zh\u012B y\xED \u0101 shu\xED? ch\u016B m\xE9n d\u014Dng xi\xE0ng k\xE0n\uFF0C l\xE8i lu\xF2 zh\u0101n w\u01D2 y\u012B\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-98-poem-98",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u767D\u96EA\u6B4C\u9001\u6B66\u5224\u5B98\u5F52\u4EAC",
+        "author": "\u5C91\u53C2",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5317\u98CE\u5377\u5730\u767D\u8349\u6298\uFF0C\u80E1\u5929\u516B\u6708\u5373\u98DE\u96EA\u3002\u5FFD\u5982\u4E00\u591C\u6625\u98CE\u6765\uFF0C\u5343\u6811\u4E07\u6811\u68A8\u82B1\u5F00\u3002\n\u6563\u5165\u73E0\u5E18\u6E7F\u7F57\u5E55\uFF0C\u72D0\u88D8\u4E0D\u6696\u9526\u887E\u8584\u3002\u5C06\u519B\u89D2\u5F13\u4E0D\u5F97\u63A7\uFF0C\u90FD\u62A4\u94C1\u8863\u51B7\u96BE\u7740\u3002\n\u701A\u6D77\u9611\u5E72\u767E\u4E08\u51B0\uFF0C\u6101\u4E91\u60E8\u6DE1\u4E07\u91CC\u51DD\u3002\u4E2D\u519B\u7F6E\u9152\u996E\u5F52\u5BA2\uFF0C\u80E1\u7434\u7435\u7436\u4E0E\u7F8C\u7B1B\u3002\n\u7EB7\u7EB7\u66AE\u96EA\u4E0B\u8F95\u95E8\uFF0C\u98CE\u63A3\u7EA2\u65D7\u51BB\u4E0D\u7FFB\u3002\u8F6E\u53F0\u4E1C\u95E8\u9001\u541B\u53BB\uFF0C\u53BB\u65F6\u96EA\u6EE1\u5929\u5C71\u8DEF\u3002\n\u5C71\u56DE\u8DEF\u8F6C\u4E0D\u89C1\u541B\uFF0C\u96EA\u4E0A\u7A7A\u7559\u9A6C\u884C\u5904\u3002",
+        "pinyin": "b\u011Bi f\u0113ng ju\u01CEn d\xEC b\xE1i c\u01CEo zh\xE9\uFF0C h\xFA ti\u0101n b\u0101 yu\xE8 j\xED f\u0113i xu\u011B\u3002 h\u016B r\xFA y\u012B y\xE8 ch\u016Bn f\u0113ng l\xE1i\uFF0C qi\u0101n sh\xF9 w\xE0n sh\xF9 l\xED hu\u0101 k\u0101i\u3002\ns\xE0n r\xF9 zh\u016B li\xE1n sh\u012B lu\xF3 m\xF9\uFF0C h\xFA qi\xFA b\xF9 nu\u01CEn j\u01D0n q\u012Bn b\xE1o\u3002 ji\u0101ng j\u016Bn ji\u01CEo g\u014Dng b\xF9 d\xE9 k\xF2ng\uFF0C d\u014Du h\xF9 ti\u011B y\u012B l\u011Bng n\xE1n zhe\u3002\nh\xE0n h\u01CEi l\xE1n g\u0101n b\u01CEi zh\xE0ng b\u012Bng\uFF0C ch\xF3u y\xFAn c\u01CEn d\xE0n w\xE0n l\u01D0 n\xEDng\u3002 zh\u014Dng j\u016Bn zh\xEC ji\u01D4 y\u01D0n gu\u012B k\xE8\uFF0C h\xFA q\xEDn p\xED p\xE1 y\u01D4 qi\u0101ng d\xED\u3002\nf\u0113n f\u0113n m\xF9 xu\u011B xi\xE0 yu\xE1n m\xE9n\uFF0C f\u0113ng ch\xE8 h\xF3ng q\xED d\xF2ng b\xF9 f\u0101n\u3002 l\xFAn t\xE1i d\u014Dng m\xE9n s\xF2ng j\u016Bn q\xF9\uFF0C q\xF9 sh\xED xu\u011B m\u01CEn ti\u0101n sh\u0101n l\xF9\u3002\nsh\u0101n hu\xED l\xF9 zhu\u01CEn b\xFA ji\xE0n j\u016Bn\uFF0C xu\u011B sh\xE0ng k\u014Dng li\xFA m\u01CE x\xEDng ch\xF9\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-99-poem-99",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5357\u4E61\u5B50\u767B\u4EAC\u53E3\u5317\u56FA\u4EAD\u6709\u6000",
+        "author": "\u8F9B\u5F03\u75BE",
+        "dynasty": "\u5B8B",
+        "excerpt": "\u4F55\u5904\u671B\u795E\u5DDE?\u6EE1\u773C\u98CE\u5149\u5317\u56FA\u697C\u3002\u5343\u53E4\u5174\u4EA1\u591A\u5C11\u4E8B?\u60A0\u60A0\u3002\n\u4E0D\u5C3D\u957F\u6C5F\u6EDA\u6EDA\u6D41\u3002\u5929\u4E0B\u82F1\u96C4\u8C01\u654C\u624B?\u66F9\u5218\u3002\u751F\u5B50\u5F53\u5982\u5B59\u4EF2\u8C0B\u3002",
+        "pinyin": "h\xE9 ch\xF9 w\xE0ng sh\xE9n zh\u014Du? m\u01CEn y\u01CEn f\u0113ng gu\u0101ng b\u011Bi g\xF9 l\xF3u\u3002 qi\u0101n g\u01D4 x\u012Bng w\xE1ng du\u014D sh\u01CEo sh\xEC? y\u014Du y\u014Du\u3002\nb\xF9 j\xECn ch\xE1ng ji\u0101ng g\u01D4n g\u01D4n li\xFA\u3002 ti\u0101n xi\xE0 y\u012Bng xi\xF3ng shu\xED d\xED sh\u01D2u? c\xE1o li\xFA\u3002 sh\u0113ng zi d\u0101ng r\xFA s\u016Bn zh\xF2ng m\xF3u\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-100-poem-100",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u8FC7\u96F6\u4E01\u6D0B",
+        "author": "\u6587\u5929\u7965",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u8F9B\u82E6\u906D\u9022\u8D77\u4E00\u7ECF\uFF0C\u5E72\u6208\u5BE5\u843D\u56DB\u5468\u661F\u3002\u5C71\u6CB3\u7834\u788E\u98CE\u98D8\u7D6E\uFF0C\u8EAB\u4E16\u6D6E\u6C89\u96E8\u6253\u840D\u3002\n\u60F6\u6050\u6EE9\u5934\u8BF4\u60F6\u6050\uFF0C\u96F6\u4E01\u6D0B\u91CC\u53F9\u96F6\u4E01\u3002\u4EBA\u751F\u81EA\u53E4\u8C01\u65E0\u6B7B\uFF0C\u7559\u53D6\u4E39\u5FC3\u7167\u6C57\u9752\u3002",
+        "pinyin": "x\u012Bn k\u01D4 z\u0101o f\xE9ng q\u01D0 y\u012B j\u012Bng\uFF0C g\u0101n g\u0113 li\xE1o lu\xF2 s\xEC zh\u014Du x\u012Bng\u3002 sh\u0101n h\xE9 p\xF2 su\xEC f\u0113ng pi\u0101o x\xF9\uFF0C sh\u0113n sh\xEC f\xFA ch\xE9n y\u01D4 d\u01CE p\xEDng\u3002\nhu\xE1ng k\u01D2ng t\u0101n t\xF3u shu\u014D hu\xE1ng k\u01D2ng\uFF0C l\xEDng d\u012Bng y\xE1ng l\u01D0 t\xE0n l\xEDng d\u012Bng\u3002 r\xE9n sh\u0113ng z\xEC g\u01D4 sh\xE9i w\xFA s\u01D0\uFF0C li\xFA q\u01D4 d\u0101n x\u012Bn zh\xE0o h\xE0n q\u012Bng\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": "",
+        "video": {
+          "season": "\u7B2C\u4E00\u5B63",
+          "episode": 39,
+          "bvid": "BV1UT4m1S7Vx",
+          "url": "https://www.bilibili.com/bangumi/play/ep813441",
+          "title": "\u4EBA\u751F\u81EA\u53E4\u8C01\u65E0\u6B7B\u7684\u8BD7\u53E5\u4F60\u80AF\u5B9A\u542C\u8FC7\uFF0C\u77E5\u9053\u662F\u8C01\u5199\u7684\u5417?"
+        }
+      },
+      {
+        "id": "extra-101-poem-101",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5C71\u5761\u7F8A\xB7\u6F7C\u5173\u6000\u53E4",
+        "author": "\u5F20\u517B\u6D69",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5CF0\u5CE6\u5982\u805A\uFF0C\u6CE2\u6D9B\u5982\u6012\uFF0C\u5C71\u6CB3\u8868\u91CC\u6F7C\u5173\u8DEF\u3002\u671B\u897F\u90FD\uFF0C\u610F\u8E0C\u8E87\u3002\n\u4F24\u5FC3\u79E6\u6C49\u7ECF\u884C\u5904\uFF0C\u5BAB\u9619\u4E07\u95F4\u90FD\u505A\u4E86\u571F\u3002\u5174\uFF0C\u767E\u59D3\u82E6;\u4EA1\uFF0C\u767E\u59D3\u82E6\u3002",
+        "pinyin": "f\u0113ng lu\xE1n r\xFA j\xF9\uFF0C b\u014D t\u0101o r\xFA n\xF9\uFF0C sh\u0101n h\xE9 bi\u01CEo l\u01D0 t\xF3ng gu\u0101n l\xF9\u3002 w\xE0ng x\u012B d\u014Du\uFF0C y\xEC ch\xF3u ch\xFA\u3002\nsh\u0101ng x\u012Bn q\xEDn h\xE0n j\u012Bng x\xEDng ch\xF9\uFF0C g\u014Dng qu\xE8 w\xE0n ji\u0101n d\u014Du zu\xF2 le t\u01D4\u3002 x\u012Bng\uFF0C b\u01CEi x\xECng k\u01D4; w\xE1ng\uFF0C b\u01CEi x\xECng k\u01D4\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-102-poem-102",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5357\u5B89\u519B",
+        "author": "\u6587\u5929\u7965",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u6885\u82B1\u5357\u5317\u8DEF\uFF0C\u98CE\u96E8\u6E7F\u5F81\u8863\u3002\u51FA\u5CAD\u540C\u8C01\u51FA\uFF1F\u5F52\u4E61\u5982\u4E0D\u5F52\uFF01\n\u5C71\u6CB3\u5343\u53E4\u5728\uFF0C\u57CE\u90ED\u4E00\u65F6\u975E\u3002\u997F\u6B7B\u771F\u543E\u5FD7\uFF0C\u68A6\u4E2D\u884C\u91C7\u8587\u3002",
+        "pinyin": "m\xE9i hu\u0101 n\xE1n b\u011Bi l\xF9\uFF0C f\u0113ng y\u01D4 sh\u012B zh\u0113ng y\u012B\u3002 ch\u016B l\u01D0ng t\xF3ng shu\xED ch\u016B\uFF1F gu\u012B xi\u0101ng r\xFA b\xF9 gu\u012B\uFF01\nsh\u0101n h\xE9 qi\u0101n g\u01D4 z\xE0i\uFF0C ch\xE9ng gu\u014D y\u012B sh\xED f\u0113i\u3002 \xE8 s\u01D0 zh\u0113n w\xFA zh\xEC\uFF0C m\xE8ng zh\u014Dng h\xE1ng c\u01CEi w\u0113i\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-103-poem-103",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u522B\u4E91\u95F4",
+        "author": "\u590F\u5B8C\u6DF3",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u4E09\u5E74\u7F81\u65C5\u5BA2\uFF0C\u4ECA\u65E5\u53C8\u5357\u51A0\u3002\u65E0\u9650\u6CB3\u5C71\u6CEA\uFF0C\u8C01\u8A00\u5929\u5730\u5BBD\u3002\n\u5DF2\u77E5\u6CC9\u8DEF\u8FD1\uFF0C\u6B32\u522B\u6545\u4E61\u96BE\u3002\u6BC5\u9B44\u5F52\u6765\u65E5\uFF0C\u7075\u65D7\u7A7A\u9645\u770B\u3002",
+        "pinyin": "s\u0101n ni\xE1n j\u012B l\u01DA k\xE8\uFF0C j\u012Bn r\xEC y\xF2u n\xE1n gu\u0101n\u3002 w\xFA xi\xE0n h\xE9 sh\u0101n l\xE8i\uFF0C shu\xED y\xE1n ti\u0101n d\xEC ku\u0101n\u3002\ny\u01D0 zh\u012B qu\xE1n l\xF9 j\xECn\uFF0C y\xF9 bi\xE9 g\xF9 xi\u0101ng n\xE1n\u3002 y\xEC p\xF2 gu\u012B l\xE1i r\xEC\uFF0C l\xEDng q\xED k\u014Dng j\xEC k\xE0n\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-104-poem-104",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5C71\u5761\u7F8A\xB7\u9A8A\u5C71\u6000\u53E4",
+        "author": "\u5F20\u517B\u6D69",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u9A8A\u5C71\u56DB\u987E\uFF0C\u963F\u623F\u4E00\u70AC\uFF0C\u5F53\u65F6\u5962\u4F88\u4ECA\u4F55\u5904\uFF1F\u53EA\u89C1\u8349\u8427\u758F\uFF0C\u6C34\u8426\u7EA1\u3002\u81F3\u4ECA\u9057\u6068\u8FF7\u70DF\u6811\u3002\u5217\u56FD\u5468\u9F50\u79E6\u6C49\u695A\u3002\u8D62\uFF0C\u90FD\u53D8\u505A\u4E86\u571F\uFF1B\u8F93\uFF0C\u90FD\u53D8\u505A\u4E86\u571F\u3002",
+        "pinyin": "l\xED sh\u0101n s\xEC g\xF9\uFF0C \u0101 f\xE1ng y\u012B j\xF9\uFF0C d\u0101ng sh\xED sh\u0113 ch\u01D0 j\u012Bn h\xE9 ch\xF9\uFF1F zh\u01D0 ji\xE0n c\u01CEo xi\u0101o sh\u016B\uFF0C shu\u01D0 y\xEDng y\u016B\u3002 zh\xEC j\u012Bn y\xED h\xE8n m\xED y\u0101n sh\xF9\u3002 li\xE8 gu\xF3 zh\u014Du q\xED q\xEDn h\xE0n ch\u01D4\u3002 y\xEDng\uFF0C d\u014Du bi\xE0n zu\xF2 le t\u01D4\uFF1B sh\u016B\uFF0C d\u014Du bi\xE0n zu\xF2 le t\u01D4\u3002",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "extra-105-poem-105",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u671D\u5929\u5B50\u548F\u5587\u53ED",
+        "author": "\u738B\u78D0",
+        "dynasty": "\u53E4\u4EE3",
+        "excerpt": "\u5587\u53ED\uFF0C\u5522\u5450\uFF0C\u66F2\u513F\u5C0F\u8154\u513F\u5927\u3002\n\u5B98\u8239\u6765\u5F80\u4E71\u5982\u9EBB\uFF0C\u5168\u4ED7\u4F60\u62AC\u58F0\u4EF7\u3002\n\u519B\u542C\u4E86\u519B\u6101\uFF0C\u6C11\u542C\u4E86\u6C11\u6015\u3002\n\u54EA\u91CC\u53BB\u8FA8\u751A\u4E48\u771F\u5171\u5047\uFF1F\n\u773C\u89C1\u7684\u5439\u7FFB\u4E86\u8FD9\u5BB6\uFF0C\u5439\u4F24\u4E86\u90A3\u5BB6\uFF0C\u53EA\u5439\u7684\u6C34\u5C3D\u9E45\u98DE\u7F62\uFF01",
+        "pinyin": "l\u01CE b\u0101\uFF0C su\u01D2 n\xE0\uFF0C q\u016B \xE9r xi\u01CEo qi\u0101ng \xE9r d\xE0\u3002\ngu\u0101n chu\xE1n l\xE1i w\u01CEng lu\xE0n r\xFA m\xE1\uFF0C qu\xE1n zh\xE0ng n\u01D0 t\xE1i sh\u0113ng ji\xE0\u3002\nj\u016Bn t\u012Bng le j\u016Bn ch\xF3u\uFF0C m\xEDn t\u012Bng le m\xEDn p\xE0\u3002\nn\u01CE l\u01D0 q\xF9 bi\xE0n sh\xE9n me zh\u0113n g\xF2ng ji\u01CE\uFF1F\ny\u01CEn ji\xE0n de chu\u012B f\u0101n le zh\xE8 ji\u0101\uFF0C chu\u012B sh\u0101ng le n\xE0 ji\u0101\uFF0C zh\u01D0 chu\u012B de shu\u01D0 j\xECn \xE9 f\u0113i b\xE0\uFF01",
+        "category": "poetry",
+        "sourceType": "extra",
+        "sourceLabel": "\u62D3\u5C55\u8BD7\u8BCD\u5305 \xB7 \u8BFE\u5916",
+        "meaning": "",
+        "appreciation": ""
+      },
+      {
+        "id": "idiom-extra-0",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u80F8\u6709\u6210\u7AF9",
+        "author": "\u5B8B\xB7\u82CF\u8F7C\u300A\u6587\u4E0E\u53EF\u753B\u7B7C\u7B5C\u8C37\u5043\u7AF9\u8BB0\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u753B\u7AF9\u5B50\u4EE5\u524D\uFF0C\u5FC3\u91CC\u5DF2\u7ECF\u6709\u4E86\u7AF9\u5B50\u7684\u5B8C\u6574\u5F62\u8C61\u3002\u6BD4\u55BB\u505A\u4E8B\u4EE5\u524D\u5DF2\u7ECF\u505A\u597D\u5145\u5206\u51C6\u5907\uFF0C\u5FC3\u4E2D\u5F88\u6709\u628A\u63E1\u3002",
+        "pinyin": "hu\xE0 zh\xFA zi y\u01D0 qi\xE1n\uFF0C x\u012Bn l\u01D0 y\u01D0 j\u012Bng y\u01D2u le zh\xFA zi de w\xE1n zh\u011Bng x\xEDng xi\xE0ng\u3002 b\u01D0 y\xF9 zu\xF2 sh\xEC y\u01D0 qi\xE1n y\u01D0 j\u012Bng zu\xF2 h\u01CEo ch\u014Dng f\xE8n zh\u01D4n b\xE8i\uFF0C x\u012Bn zh\u014Dng h\u011Bn y\u01D2u b\u01CE w\xF2\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u6BD4\u8D5B\u524D\uFF0C\u4ED6\u53CD\u590D\u7EC3\u4E60\uFF0C\u65E9\u5DF2\u80F8\u6709\u6210\u7AF9\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u51C6\u5907",
+          "\u4FE1\u5FC3",
+          "\u505A\u4E8B"
+        ],
+        "related": [
+          "\u80F8\u6709\u6210\u7AF9",
+          "\u6210\u7AF9\u5728\u80F8"
+        ]
+      },
+      {
+        "id": "idiom-extra-1",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5168\u795E\u8D2F\u6CE8",
+        "author": "\u300A\u5E84\u5B50\xB7\u8FBE\u751F\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u5168\u90E8\u7CBE\u795E\u96C6\u4E2D\u5728\u4E00\u70B9\u4E0A\u3002\u5F62\u5BB9\u6CE8\u610F\u529B\u9AD8\u5EA6\u96C6\u4E2D\u3002",
+        "pinyin": "qu\xE1n b\xF9 j\u012Bng sh\xE9n j\xED zh\u014Dng z\xE0i y\xEC di\u01CEn sh\xE0ng\u3002 x\xEDng r\xF3ng zh\xF9 y\xEC l\xEC g\u0101o d\xF9 j\xED zh\u014Dng\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u4E0A\u8BFE\u65F6\uFF0C\u5979\u5168\u795E\u8D2F\u6CE8\u5730\u542C\u8BB2\uFF0C\u8FDE\u4E0B\u8BFE\u94C3\u90FD\u6CA1\u542C\u89C1\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u4E13\u6CE8",
+          "\u5B66\u4E60",
+          "\u6CE8\u610F\u529B"
+        ],
+        "related": [
+          "\u5168\u795E\u8D2F\u6CE8",
+          "\u805A\u7CBE\u4F1A\u795E"
+        ]
+      },
+      {
+        "id": "idiom-extra-2",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6301\u4E4B\u4EE5\u6052",
+        "author": "\u6E05\xB7\u66FE\u56FD\u85E9\u5BB6\u4E66",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u957F\u4E45\u5730\u575A\u6301\u4E0B\u53BB\u3002\u5F62\u5BB9\u6709\u6052\u5FC3\uFF0C\u4E0D\u534A\u9014\u800C\u5E9F\u3002",
+        "pinyin": "ch\xE1ng ji\u01D4 d\xEC ji\u0101n ch\xED xi\xE0 q\xF9\u3002 x\xEDng r\xF3ng y\u01D2u h\xE9ng x\u012Bn\uFF0C b\xF9 b\xE0n t\xFA \xE9r f\xE8i\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u6BCF\u5929\u8BFB\u5341\u5206\u949F\u4E66\uFF0C\u6301\u4E4B\u4EE5\u6052\uFF0C\u4E5F\u4F1A\u6709\u5F88\u5927\u7684\u6536\u83B7\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u575A\u6301",
+          "\u6052\u5FC3",
+          "\u5B66\u4E60"
+        ],
+        "related": [
+          "\u6301\u4E4B\u4EE5\u6052",
+          "\u9532\u800C\u4E0D\u820D"
+        ]
+      },
+      {
+        "id": "idiom-extra-3",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u7CBE\u76CA\u6C42\u7CBE",
+        "author": "\u300A\u8BBA\u8BED\u96C6\u6CE8\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u5DF2\u7ECF\u5F88\u597D\u4E86\uFF0C\u8FD8\u8981\u6C42\u66F4\u597D\u3002\u5F62\u5BB9\u5BF9\u5DE5\u4F5C\u3001\u5B66\u4E60\u8BA4\u771F\u8D1F\u8D23\uFF0C\u4E0D\u65AD\u8FFD\u6C42\u8FDB\u6B65\u3002",
+        "pinyin": "y\u01D0 j\u012Bng h\u011Bn h\u01CEo le\uFF0C h\xE1i y\u0101o qi\xFA g\xE8ng h\u01CEo\u3002 x\xEDng r\xF3ng du\xEC g\u014Dng zu\xF2\u3001 xu\xE9 x\xED r\xE8n zh\u0113n f\xF9 z\xE9\uFF0C b\xF9 du\xE0n zhu\u012B qi\xFA j\xECn b\xF9\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u4ED6\u4FEE\u6539\u4F5C\u6587\u65F6\u7CBE\u76CA\u6C42\u7CBE\uFF0C\u8FDE\u4E00\u4E2A\u6807\u70B9\u4E5F\u4E0D\u653E\u8FC7\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u8BA4\u771F",
+          "\u8FDB\u6B65",
+          "\u5DE5\u5320"
+        ],
+        "related": [
+          "\u7CBE\u76CA\u6C42\u7CBE",
+          "\u7CBE\u96D5\u7EC6\u7422"
+        ]
+      },
+      {
+        "id": "idiom-extra-4",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u522B\u51FA\u5FC3\u88C1",
+        "author": "\u6E05\xB7\u674E\u6E14\u300A\u95F2\u60C5\u5076\u5BC4\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u60F3\u51FA\u4E0E\u4F17\u4E0D\u540C\u7684\u65B0\u4E3B\u610F\u3001\u65B0\u529E\u6CD5\u3002",
+        "pinyin": "xi\u01CEng ch\u016B y\u01D4 zh\xF2ng b\xF9 t\xF3ng de x\u012Bn zh\u01D4 y\xEC\u3001 x\u012Bn b\xE0n f\u01CE\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u8FD9\u6B21\u624B\u5DE5\u4F5C\u4E1A\u522B\u51FA\u5FC3\u88C1\uFF0C\u7528\u65E7\u7EB8\u76D2\u505A\u6210\u4E86\u5C0F\u673A\u5668\u4EBA\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u521B\u65B0",
+          "\u65B9\u6CD5",
+          "\u8868\u8FBE"
+        ],
+        "related": [
+          "\u522B\u51FA\u5FC3\u88C1",
+          "\u72EC\u6811\u4E00\u5E1C"
+        ]
+      },
+      {
+        "id": "idiom-extra-5",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6C34\u5230\u6E20\u6210",
+        "author": "\u5B8B\xB7\u82CF\u8F7C\u300A\u7B54\u79E6\u592A\u865A\u4E66\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u6C34\u6D41\u5230\u7684\u5730\u65B9\u81EA\u7136\u5F62\u6210\u6E20\u9053\u3002\u6BD4\u55BB\u6761\u4EF6\u6210\u719F\uFF0C\u4E8B\u60C5\u81EA\u7136\u6210\u529F\u3002",
+        "pinyin": "shu\u01D0 li\xFA d\xE0o de d\xEC f\u0101ng z\xEC r\xE1n x\xEDng ch\xE9ng q\xFA d\xE0o\u3002 b\u01D0 y\xF9 ti\xE1o ji\xE0n ch\xE9ng sh\xFA\uFF0C sh\xEC q\xEDng z\xEC r\xE1n ch\xE9ng g\u014Dng\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u5E73\u65F6\u8BA4\u771F\u79EF\u7D2F\uFF0C\u8003\u8BD5\u65F6\u53D6\u5F97\u597D\u6210\u7EE9\u4FBF\u662F\u6C34\u5230\u6E20\u6210\u7684\u4E8B\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u79EF\u7D2F",
+          "\u6761\u4EF6",
+          "\u6210\u529F"
+        ],
+        "related": [
+          "\u6C34\u5230\u6E20\u6210",
+          "\u987A\u7406\u6210\u7AE0"
+        ]
+      },
+      {
+        "id": "idiom-extra-6",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u6E29\u6545\u77E5\u65B0",
+        "author": "\u300A\u8BBA\u8BED\xB7\u4E3A\u653F\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u6E29\u4E60\u5B66\u8FC7\u7684\u77E5\u8BC6\uFF0C\u4ECE\u800C\u5F97\u5230\u65B0\u7684\u7406\u89E3\u548C\u4F53\u4F1A\u3002",
+        "pinyin": "w\u0113n x\xED xu\xE9 gu\xF2 de zh\u012B sh\xED\uFF0C c\xF3ng \xE9r d\xE9 d\xE0o x\u012Bn de l\u01D0 ji\u011B h\xE9 t\u01D0 hu\xEC\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u590D\u4E60\u65E7\u8BFE\u65F6\uFF0C\u4ED6\u5E38\u80FD\u6E29\u6545\u77E5\u65B0\uFF0C\u53D1\u73B0\u4EE5\u524D\u5FFD\u7565\u7684\u7EC6\u8282\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u590D\u4E60",
+          "\u5B66\u4E60",
+          "\u601D\u8003"
+        ],
+        "related": [
+          "\u6E29\u6545\u77E5\u65B0",
+          "\u5B66\u800C\u65F6\u4E60"
+        ]
+      },
+      {
+        "id": "idiom-extra-7",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u5FAA\u5E8F\u6E10\u8FDB",
+        "author": "\u5B8B\xB7\u6731\u71B9\u300A\u8BFB\u4E66\u4E4B\u8981\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u6309\u7167\u4E00\u5B9A\u7684\u6B21\u5E8F\u3001\u6B65\u9AA4\u9010\u6E10\u6DF1\u5165\u6216\u63D0\u9AD8\u3002",
+        "pinyin": "\xE0n zh\xE0o y\xED d\xECng de c\xEC x\xF9\u3001 b\xF9 zh\xF2u zh\xFA ji\xE0n sh\u0113n r\xF9 hu\xF2 t\xED g\u0101o\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u5B66\u4E60\u53E4\u8BD7\u8981\u5FAA\u5E8F\u6E10\u8FDB\uFF0C\u5148\u8BFB\u51C6\u5B57\u97F3\uFF0C\u518D\u7406\u89E3\u610F\u601D\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u987A\u5E8F",
+          "\u5B66\u4E60",
+          "\u65B9\u6CD5"
+        ],
+        "related": [
+          "\u5FAA\u5E8F\u6E10\u8FDB",
+          "\u6309\u90E8\u5C31\u73ED"
+        ]
+      },
+      {
+        "id": "idiom-extra-8",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u9532\u800C\u4E0D\u820D",
+        "author": "\u300A\u8340\u5B50\xB7\u529D\u5B66\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u4E0D\u505C\u5730\u96D5\u523B\u3002\u6BD4\u55BB\u6709\u6052\u5FC3\u3001\u6709\u6BC5\u529B\uFF0C\u575A\u6301\u4E0D\u61C8\u3002",
+        "pinyin": "b\xF9 t\xEDng d\xEC di\u0101o k\xE8\u3002 b\u01D0 y\xF9 y\u01D2u h\xE9ng x\u012Bn\u3001 y\u01D2u y\xEC l\xEC\uFF0C ji\u0101n ch\xED b\xF9 xi\xE8\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u4ED6\u9532\u800C\u4E0D\u820D\u5730\u7EC3\u4E60\u8DF3\u7EF3\uFF0C\u7EC8\u4E8E\u7A81\u7834\u4E86\u539F\u6765\u7684\u6210\u7EE9\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u575A\u6301",
+          "\u6BC5\u529B",
+          "\u5B66\u4E60"
+        ],
+        "related": [
+          "\u9532\u800C\u4E0D\u820D",
+          "\u575A\u6301\u4E0D\u61C8"
+        ]
+      },
+      {
+        "id": "idiom-extra-9",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u719F\u80FD\u751F\u5DE7",
+        "author": "\u5B8B\xB7\u6B27\u9633\u4FEE\u300A\u5356\u6CB9\u7FC1\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u719F\u7EC3\u4E86\u5C31\u80FD\u4EA7\u751F\u5DE7\u529E\u6CD5\uFF0C\u505A\u5F97\u66F4\u597D\u3002",
+        "pinyin": "sh\xFA li\xE0n le ji\xF9 n\xE9ng ch\u01CEn sh\u0113ng qi\u01CEo b\xE0n f\u01CE\uFF0C zu\xF2 d\xE9 g\xE8ng h\u01CEo\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u6BCF\u5929\u7EC3\u4E60\u53E3\u7B97\uFF0C\u719F\u80FD\u751F\u5DE7\uFF0C\u4ED6\u8BA1\u7B97\u5F97\u53C8\u5FEB\u53C8\u51C6\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u7EC3\u4E60",
+          "\u719F\u7EC3",
+          "\u65B9\u6CD5"
+        ],
+        "related": [
+          "\u719F\u80FD\u751F\u5DE7",
+          "\u52E4\u80FD\u8865\u62D9"
+        ]
+      },
+      {
+        "id": "idiom-extra-10",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u624B\u4E0D\u91CA\u5377",
+        "author": "\u300A\u4E09\u56FD\u5FD7\xB7\u5434\u4E66\xB7\u5415\u8499\u4F20\u300B\u6CE8\u5F15\u300A\u6C5F\u8868\u4F20\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u624B\u91CC\u820D\u4E0D\u5F97\u653E\u4E0B\u4E66\u672C\u3002\u5F62\u5BB9\u52E4\u594B\u597D\u5B66\uFF0C\u8BFB\u4E66\u5165\u8FF7\u3002",
+        "pinyin": "sh\u01D2u l\u01D0 sh\u011B b\xF9 d\xE9 f\xE0ng xi\xE0 sh\u016B b\u011Bn\u3002 x\xEDng r\xF3ng q\xEDn f\xE8n h\xE0o xu\xE9\uFF0C d\xFA sh\u016B r\xF9 m\xED\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u4ED6\u7231\u8BFB\u4E66\uFF0C\u5E38\u5E38\u624B\u4E0D\u91CA\u5377\uFF0C\u4E00\u6709\u7A7A\u5C31\u770B\u51E0\u9875\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u8BFB\u4E66",
+          "\u52E4\u594B",
+          "\u4E60\u60EF"
+        ],
+        "related": [
+          "\u624B\u4E0D\u91CA\u5377",
+          "\u5E9F\u5BDD\u5FD8\u98DF"
+        ]
+      },
+      {
+        "id": "idiom-extra-11",
+        "grade": null,
+        "volume": "\u8BFE\u5916",
+        "title": "\u996E\u6C34\u601D\u6E90",
+        "author": "\u5317\u5468\xB7\u5EBE\u4FE1\u300A\u5FB5\u8C03\u66F2\u300B",
+        "dynasty": "\u5E38\u7528\u6210\u8BED",
+        "excerpt": "\u559D\u6C34\u7684\u65F6\u5019\u60F3\u5230\u6C34\u7684\u6765\u6E90\u3002\u6BD4\u55BB\u4E0D\u5FD8\u672C\uFF0C\u8BB0\u5F97\u522B\u4EBA\u7684\u5E2E\u52A9\u3002",
+        "pinyin": "h\u0113 shu\u01D0 de sh\xED h\xF2u xi\u01CEng d\xE0o shu\u01D0 de l\xE1i yu\xE1n\u3002 b\u01D0 y\xF9 b\xF9 w\xE0ng b\u011Bn\uFF0C j\xEC de bi\xE9 r\xE9n de b\u0101ng zh\xF9\u3002",
+        "category": "idiom",
+        "sourceType": "extra",
+        "sourceLabel": "\u8BFE\u5916\u5E38\u7528\u6210\u8BED",
+        "meaning": "\u957F\u5927\u540E\uFF0C\u6211\u4EEC\u8981\u996E\u6C34\u601D\u6E90\uFF0C\u611F\u8C22\u66FE\u7ECF\u5E2E\u52A9\u8FC7\u81EA\u5DF1\u7684\u4EBA\u3002",
+        "appreciation": "",
+        "tags": [
+          "\u611F\u6069",
+          "\u54C1\u683C",
+          "\u6210\u957F"
+        ],
+        "related": [
+          "\u996E\u6C34\u601D\u6E90",
+          "\u77E5\u6069\u56FE\u62A5"
+        ]
+      }
+    ]
+  };
 
-  // assets/grade2.js
-  var grade2 = [
-    {
-      id: "poetry-g2-chunyexiyu",
-      grade: 2,
-      category: "poetry",
-      title: "\u6625\u591C\u559C\u96E8",
-      author: "\u675C\u752B",
-      dynasty: "\u5510",
-      excerpt: "\u597D\u96E8\u77E5\u65F6\u8282\uFF0C\u5F53\u6625\u4E43\u53D1\u751F\u3002\n\u968F\u98CE\u6F5C\u5165\u591C\uFF0C\u6DA6\u7269\u7EC6\u65E0\u58F0\u3002\n\u91CE\u5F84\u4E91\u4FF1\u9ED1\uFF0C\u6C5F\u8239\u706B\u72EC\u660E\u3002\n\u6653\u770B\u7EA2\u6E7F\u5904\uFF0C\u82B1\u91CD\u9526\u5B98\u57CE\u3002",
-      pinyin: "h\u01CEo y\u01D4 zh\u012B sh\xED ji\xE9\uFF0Cd\u0101ng ch\u016Bn n\u01CEi f\u0101 sh\u0113ng\u3002\nsu\xED f\u0113ng qi\xE1n r\xF9 y\xE8\uFF0Cr\xF9n w\xF9 x\xEC w\xFA sh\u0113ng\u3002\ny\u011B j\xECng y\xFAn j\xF9 h\u0113i\uFF0Cji\u0101ng chu\xE1n hu\u01D2 d\xFA m\xEDng\u3002\nxi\u01CEo k\xE0n h\xF3ng sh\u012B ch\xF9\uFF0Chu\u0101 zh\xF2ng j\u01D0n gu\u0101n ch\xE9ng\u3002",
-      summary: "\u675C\u752B\u5728\u6210\u90FD\u8349\u5802\u5199\u4E0B\u7684\u4E00\u573A\u6625\u96E8\u3002\u96E8\u4EFF\u4F5B\u61C2\u5F97\u65F6\u8282\uFF0C\u4F34\u7740\u6625\u98CE\u6084\u6084\u843D\u4E0B\uFF0C\u65E0\u58F0\u6ECB\u6DA6\u4E07\u7269\uFF0C\u7B2C\u4E8C\u5929\u6E05\u6668\u6EE1\u57CE\u82B1\u6735\u6C89\u7538\u7538\u5730\u76DB\u5F00\u3002",
-      meaning: "\u597D\u96E8\u597D\u50CF\u77E5\u9053\u65F6\u8282\uFF0C\u6B63\u5F53\u6625\u5929\u4E07\u7269\u840C\u53D1\u65F6\u964D\u4E34\u3002\u5B83\u968F\u7740\u6625\u98CE\u5728\u591C\u91CC\u6084\u6084\u843D\u4E0B\uFF0C\u65E0\u58F0\u5730\u6ECB\u6DA6\u4E07\u7269\u3002\u7530\u91CE\u5C0F\u8DEF\u4E0A\u4E4C\u4E91\u4E00\u7247\u6F06\u9ED1\uFF0C\u6C5F\u4E0A\u6E14\u8239\u706F\u706B\u683C\u5916\u660E\u4EAE\u3002\u5929\u4EAE\u540E\u53BB\u770B\u88AB\u96E8\u6253\u6E7F\u7684\u7EA2\u82B1\uFF0C\u9526\u5B98\u57CE\u7684\u82B1\u6735\u4E00\u5B9A\u9971\u542B\u96E8\u6C34\uFF0C\u6C89\u7538\u7538\u7684\u3002",
-      appreciation: "\u201C\u6F5C\u201D\u548C\u201C\u6DA6\u201D\u628A\u6625\u96E8\u5199\u5F97\u4F53\u8D34\u53C8\u5B89\u9759\u3002\u8BD7\u4EBA\u4ECE\u542C\u89C9\u3001\u89C6\u89C9\u548C\u60F3\u8C61\u4E09\u4E2A\u89D2\u5EA6\u5199\u96E8\uFF0C\u559C\u60A6\u4E0D\u76F4\u8BF4\uFF0C\u5374\u85CF\u5728\u6BCF\u4E00\u4E2A\u666F\u7269\u91CC\u3002",
-      keywords: ["\u6625\u96E8", "\u675C\u752B", "\u6210\u90FD", "\u6DA6\u7269"],
-      tags: ["\u675C\u752B", "\u5199\u666F", "\u6625\u5929"],
-      image: "poetry-spring-rain",
-      videoQuery: "\u6625\u591C\u559C\u96E8 \u675C\u752B \u513F\u7AE5 \u53E4\u8BD7 \u8BB2\u89E3"
-    },
-    {
-      id: "poetry-g2-yongliu",
-      grade: 2,
-      category: "poetry",
-      title: "\u548F\u67F3",
-      author: "\u8D3A\u77E5\u7AE0",
-      dynasty: "\u5510",
-      excerpt: "\u78A7\u7389\u5986\u6210\u4E00\u6811\u9AD8\uFF0C\u4E07\u6761\u5782\u4E0B\u7EFF\u4E1D\u7EE6\u3002\n\u4E0D\u77E5\u7EC6\u53F6\u8C01\u88C1\u51FA\uFF0C\u4E8C\u6708\u6625\u98CE\u4F3C\u526A\u5200\u3002",
-      pinyin: "b\xEC y\xF9 zhu\u0101ng ch\xE9ng y\u012B sh\xF9 g\u0101o\uFF0Cw\xE0n ti\xE1o chu\xED xi\xE0 l\u01DC s\u012B t\u0101o\u3002\nb\xF9 zh\u012B x\xEC y\xE8 shu\xED c\xE1i ch\u016B\uFF0C\xE8r yu\xE8 ch\u016Bn f\u0113ng s\xEC ji\u01CEn d\u0101o\u3002",
-      summary: "\u8BD7\u4EBA\u628A\u67F3\u6811\u6BD4\u4F5C\u78A7\u7389\u88C5\u6210\u7684\u7F8E\u4EBA\uFF0C\u628A\u67F3\u6761\u6BD4\u4F5C\u7EFF\u8272\u4E1D\u5E26\uFF0C\u53C8\u628A\u4E8C\u6708\u6625\u98CE\u6BD4\u4F5C\u526A\u5200\uFF0C\u8D5E\u7F8E\u6625\u98CE\u88C1\u51FA\u6EE1\u6811\u65B0\u53F6\u3002",
-      meaning: "\u9AD8\u9AD8\u7684\u67F3\u6811\u50CF\u7528\u78A7\u7389\u88C5\u626E\u800C\u6210\uFF0C\u5343\u4E07\u6761\u67F3\u679D\u5782\u4E0B\u6765\uFF0C\u50CF\u7EFF\u8272\u7684\u4E1D\u5E26\u3002\u4E0D\u77E5\u9053\u8FD9\u7EC6\u7EC6\u7684\u67F3\u53F6\u662F\u8C01\u88C1\u526A\u51FA\u6765\u7684\uFF0C\u539F\u6765\u4E8C\u6708\u7684\u6625\u98CE\u5C31\u50CF\u4E00\u628A\u526A\u5200\u3002",
-      appreciation: "\u201C\u5986\u201D\u201C\u5782\u201D\u201C\u88C1\u201D\u4E09\u4E2A\u52A8\u8BCD\u628A\u67F3\u6811\u5199\u6D3B\u4E86\u3002\u6700\u540E\u7684\u6BD4\u55BB\u5C24\u5176\u5DE7\u5999\uFF0C\u628A\u770B\u4E0D\u89C1\u7684\u6625\u98CE\u53D8\u6210\u7075\u5DE7\u7684\u88C1\u7F1D\u3002",
-      keywords: ["\u67F3\u6811", "\u6625\u98CE", "\u78A7\u7389", "\u526A\u5200"],
-      tags: ["\u8D3A\u77E5\u7AE0", "\u6625\u5929", "\u548F\u7269"],
-      image: "poetry-willow",
-      videoQuery: "\u548F\u67F3 \u8D3A\u77E5\u7AE0 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g2-xiaochi",
-      grade: 2,
-      category: "poetry",
-      title: "\u5C0F\u6C60",
-      author: "\u6768\u4E07\u91CC",
-      dynasty: "\u5B8B",
-      excerpt: "\u6CC9\u773C\u65E0\u58F0\u60DC\u7EC6\u6D41\uFF0C\u6811\u9634\u7167\u6C34\u7231\u6674\u67D4\u3002\n\u5C0F\u8377\u624D\u9732\u5C16\u5C16\u89D2\uFF0C\u65E9\u6709\u873B\u8713\u7ACB\u4E0A\u5934\u3002",
-      pinyin: "qu\xE1n y\u01CEn w\xFA sh\u0113ng x\u012B x\xEC li\xFA\uFF0Csh\xF9 y\u012Bn zh\xE0o shu\u01D0 \xE0i q\xEDng r\xF3u\u3002\nxi\u01CEo h\xE9 c\xE1i l\xF9 ji\u0101n ji\u0101n ji\u01CEo\uFF0Cz\u01CEo y\u01D2u q\u012Bng t\xEDng l\xEC sh\xE0ng t\xF3u\u3002",
-      summary: "\u4E00\u773C\u5C0F\u6CC9\u3001\u4E00\u7247\u6811\u836B\u3001\u4E00\u652F\u521A\u9732\u51FA\u6C34\u9762\u7684\u5C0F\u8377\u548C\u4E00\u53EA\u873B\u8713\uFF0C\u6784\u6210\u521D\u590F\u5C0F\u6C60\u7684\u6E05\u65B0\u753B\u9762\u3002",
-      meaning: "\u6CC9\u773C\u6084\u6084\u6D41\u51FA\u7EC6\u7EC6\u7684\u6C34\u6D41\uFF0C\u597D\u50CF\u820D\u4E0D\u5F97\u5B83\u6D41\u8D70\uFF1B\u6811\u836B\u6620\u5728\u6C34\u9762\u4E0A\uFF0C\u597D\u50CF\u559C\u7231\u6674\u5929\u67D4\u548C\u7684\u98CE\u5149\u3002\u5C0F\u8377\u53F6\u521A\u521A\u9732\u51FA\u5C16\u5C16\u7684\u89D2\uFF0C\u65E9\u5DF2\u6709\u4E00\u53EA\u873B\u8713\u505C\u5728\u4E0A\u9762\u3002",
-      appreciation: "\u201C\u60DC\u201D\u548C\u201C\u7231\u201D\u628A\u6CC9\u773C\u3001\u6811\u836B\u5199\u5F97\u6709\u60C5\u610F\uFF1B\u201C\u624D\u9732\u201D\u4E0E\u201C\u65E9\u6709\u201D\u5F62\u6210\u65F6\u95F4\u4E0A\u7684\u5DE7\u5408\uFF0C\u8BA9\u753B\u9762\u4E00\u4E0B\u5B50\u6D3B\u6CFC\u8D77\u6765\u3002",
-      keywords: ["\u5C0F\u6C60", "\u8377\u82B1", "\u873B\u8713", "\u590F\u5929"],
-      tags: ["\u6768\u4E07\u91CC", "\u590F\u5929", "\u5199\u666F"],
-      image: "poetry-pond",
-      videoQuery: "\u5C0F\u6C60 \u6768\u4E07\u91CC \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g2-jueju",
-      grade: 2,
-      category: "poetry",
-      title: "\u7EDD\u53E5",
-      author: "\u675C\u752B",
-      dynasty: "\u5510",
-      excerpt: "\u4E24\u4E2A\u9EC4\u9E42\u9E23\u7FE0\u67F3\uFF0C\u4E00\u884C\u767D\u9E6D\u4E0A\u9752\u5929\u3002\n\u7A97\u542B\u897F\u5CAD\u5343\u79CB\u96EA\uFF0C\u95E8\u6CCA\u4E1C\u5434\u4E07\u91CC\u8239\u3002",
-      pinyin: "li\u01CEng g\xE8 hu\xE1ng l\xED m\xEDng cu\xEC li\u01D4\uFF0Cy\u012B h\xE1ng b\xE1i l\xF9 sh\xE0ng q\u012Bng ti\u0101n\u3002\nchu\u0101ng h\xE1n x\u012B l\u01D0ng qi\u0101n qi\u016B xu\u011B\uFF0Cm\xE9n b\xF3 d\u014Dng w\xFA w\xE0n l\u01D0 chu\xE1n\u3002",
-      summary: "\u8FD1\u5904\u9EC4\u9E42\u5728\u7FE0\u67F3\u95F4\u9E23\u53EB\uFF0C\u767D\u9E6D\u98DE\u5411\u9752\u5929\uFF1B\u8FDC\u5904\u7A97\u53E3\u6846\u7740\u96EA\u5C71\uFF0C\u95E8\u524D\u505C\u7740\u8FDC\u884C\u8239\u53EA\u3002\u56DB\u53E5\u50CF\u56DB\u5E45\u753B\uFF0C\u989C\u8272\u9C9C\u660E\u3002",
-      meaning: "\u4E24\u53EA\u9EC4\u9E42\u5728\u7FE0\u7EFF\u7684\u67F3\u6811\u4E0A\u9E23\u53EB\uFF0C\u4E00\u884C\u767D\u9E6D\u98DE\u4E0A\u9752\u5929\u3002\u4ECE\u7A97\u53E3\u671B\u53BB\uFF0C\u897F\u5CAD\u4E0A\u79EF\u7740\u5343\u5E74\u4E0D\u5316\u7684\u96EA\uFF1B\u95E8\u524D\u505C\u6CCA\u7740\u4ECE\u4E07\u91CC\u4E4B\u5916\u7684\u4E1C\u5434\u6765\u7684\u8239\u3002",
-      appreciation: "\u9EC4\u3001\u7FE0\u3001\u767D\u3001\u9752\u56DB\u79CD\u989C\u8272\u76F8\u4E92\u6620\u886C\u3002\u201C\u7A97\u542B\u201D\u628A\u7A97\u6846\u53D8\u6210\u753B\u6846\uFF0C\u201C\u95E8\u6CCA\u201D\u628A\u773C\u524D\u5C0F\u666F\u8FDE\u63A5\u5230\u8FBD\u9614\u8FDC\u65B9\u3002",
-      keywords: ["\u9EC4\u9E42", "\u767D\u9E6D", "\u96EA\u5C71", "\u8239"],
-      tags: ["\u675C\u752B", "\u5199\u666F", "\u5BF9\u4ED7"],
-      image: "poetry-egrets",
-      videoQuery: "\u7EDD\u53E5 \u4E24\u4E2A\u9EC4\u9E42 \u675C\u752B \u513F\u7AE5 \u6717\u8BFB"
-    },
-    {
-      id: "idiom-g2-zhaosanmusi",
-      grade: 2,
-      category: "idiom",
-      title: "\u671D\u4E09\u66AE\u56DB",
-      author: "\u300A\u5E84\u5B50\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u72D9\u516C\u8D4B\u82A7\uFF0C\u66F0\uFF1A\u201C\u671D\u4E09\u800C\u66AE\u56DB\u3002\u201D\u4F17\u72D9\u7686\u6012\u3002\u66F0\uFF1A\u201C\u7136\u5219\u671D\u56DB\u800C\u66AE\u4E09\u3002\u201D\u4F17\u72D9\u7686\u60A6\u3002",
-      pinyin: "j\u016B g\u014Dng f\xF9 x\xF9\uFF0Cyu\u0113\uFF1A\u201Czh\u0101o s\u0101n \xE9r m\xF9 s\xEC\u3002\u201Dzh\xF2ng j\u016B ji\u0113 n\xF9\u3002yu\u0113\uFF1A\u201Cr\xE1n z\xE9 zh\u0101o s\xEC \xE9r m\xF9 s\u0101n\u3002\u201Dzh\xF2ng j\u016B ji\u0113 yu\xE8\u3002",
-      summary: "\u517B\u7334\u4EBA\u628A\u65E9\u4E0A\u4E09\u9897\u3001\u665A\u4E0A\u56DB\u9897\u6A61\u5B50\u6539\u4E3A\u65E9\u4E0A\u56DB\u9897\u3001\u665A\u4E0A\u4E09\u9897\uFF0C\u7334\u5B50\u4EEC\u5C31\u9AD8\u5174\u4E86\u3002\u603B\u6570\u6CA1\u53D8\uFF0C\u53EA\u662F\u6362\u4E86\u4E2A\u8BF4\u6CD5\u3002",
-      meaning: "\u517B\u7334\u4EBA\u7ED9\u7334\u5B50\u5206\u6A61\u5B50\uFF0C\u8BF4\uFF1A\u201C\u65E9\u4E0A\u4E09\u9897\uFF0C\u665A\u4E0A\u56DB\u9897\u3002\u201D\u7334\u5B50\u4EEC\u90FD\u751F\u6C14\u4E86\u3002\u4ED6\u8BF4\uFF1A\u201C\u90A3\u4E48\u65E9\u4E0A\u56DB\u9897\uFF0C\u665A\u4E0A\u4E09\u9897\u3002\u201D\u7334\u5B50\u4EEC\u90FD\u5F88\u9AD8\u5174\u3002",
-      appreciation: "\u6545\u4E8B\u63ED\u793A\u4E86\u53EA\u770B\u773C\u524D\u3001\u88AB\u8868\u9762\u53D8\u5316\u8FF7\u60D1\u7684\u601D\u7EF4\u5F31\u70B9\u3002\u8FD9\u4E2A\u6210\u8BED\u540E\u6765\u4E5F\u5E38\u7528\u6765\u5F62\u5BB9\u53CD\u590D\u65E0\u5E38\u3002",
-      keywords: ["\u7334\u5B50", "\u6A61\u5B50", "\u603B\u6570", "\u8868\u9762"],
-      tags: ["\u6210\u8BED", "\u5E84\u5B50", "\u601D\u8FA8"],
-      image: "idiom-monkeys",
-      videoQuery: "\u671D\u4E09\u66AE\u56DB \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "idiom-g2-jinggongzhiniao",
-      grade: 2,
-      category: "idiom",
-      title: "\u60CA\u5F13\u4E4B\u9E1F",
-      author: "\u300A\u6218\u56FD\u7B56\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u66F4\u7FB8\u66F0\uFF1A\u201C\u81E3\u4E3A\u738B\u5F15\u5F13\u865A\u53D1\u800C\u4E0B\u9E1F\u3002\u201D\u2026\u2026\u96C1\u4ECE\u4E1C\u65B9\u6765\uFF0C\u66F4\u7FB8\u4EE5\u865A\u53D1\u800C\u4E0B\u4E4B\u3002",
-      pinyin: "g\u0113ng l\xE9i yu\u0113\uFF1A\u201Cch\xE9n w\xE8i w\xE1ng y\u01D0n g\u014Dng x\u016B f\u0101 \xE9r xi\xE0 ni\u01CEo\u3002\u201D\u2026\u2026y\xE0n c\xF3ng d\u014Dng f\u0101ng l\xE1i\uFF0Cg\u0113ng l\xE9i y\u01D0 x\u016B f\u0101 \xE9r xi\xE0 zh\u012B\u3002",
-      summary: "\u53D7\u8FC7\u7BAD\u4F24\u7684\u5927\u96C1\u542C\u89C1\u5F13\u5F26\u58F0\u5C31\u60CA\u614C\u5760\u843D\u3002\u6545\u4E8B\u544A\u8BC9\u6211\u4EEC\uFF0C\u7ECF\u5386\u8FC7\u521B\u4F24\u7684\u4EBA\u53EF\u80FD\u683C\u5916\u654F\u611F\uFF0C\u4E5F\u53EF\u6307\u53D7\u60CA\u540E\u9047\u4E8B\u8FC7\u5EA6\u7D27\u5F20\u3002",
-      meaning: "\u66F4\u7FB8\u5BF9\u56FD\u738B\u8BF4\u81EA\u5DF1\u4E0D\u7528\u7BAD\uFF0C\u53EA\u62C9\u54CD\u5F13\u5F26\u5C31\u80FD\u8BA9\u9E1F\u6389\u4E0B\u6765\u3002\u5927\u96C1\u4ECE\u4E1C\u65B9\u98DE\u6765\uFF0C\u66F4\u7FB8\u771F\u7684\u53EA\u865A\u62C9\u5F13\u5F26\uFF0C\u5927\u96C1\u4FBF\u5760\u843D\u4E0B\u6765\u3002",
-      appreciation: "\u201C\u60CA\u5F13\u4E4B\u9E1F\u201D\u65E2\u662F\u751F\u52A8\u7684\u89C2\u5BDF\uFF0C\u4E5F\u662F\u5FC3\u7406\u63CF\u5199\u3002\u5B66\u4E60\u6210\u8BED\u65F6\u4E5F\u53EF\u601D\u8003\uFF1A\u771F\u6B63\u7684\u52C7\u6562\uFF0C\u662F\u4E86\u89E3\u539F\u56E0\u540E\u6162\u6162\u6062\u590D\u9547\u5B9A\u3002",
-      keywords: ["\u5927\u96C1", "\u5F13\u5F26", "\u53D7\u60CA", "\u521B\u4F24"],
-      tags: ["\u6210\u8BED", "\u89C2\u5BDF", "\u5FC3\u7406"],
-      image: "idiom-bird",
-      videoQuery: "\u60CA\u5F13\u4E4B\u9E1F \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "fable-g2-yugongyishan",
-      grade: 2,
-      category: "fable",
-      title: "\u611A\u516C\u79FB\u5C71",
-      author: "\u300A\u5217\u5B50\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u592A\u884C\u3001\u738B\u5C4B\u4E8C\u5C71\uFF0C\u65B9\u4E03\u767E\u91CC\uFF0C\u9AD8\u4E07\u4EDE\u3002\u2026\u2026\u5317\u5C71\u611A\u516C\u8005\uFF0C\u5E74\u4E14\u4E5D\u5341\uFF0C\u9762\u5C71\u800C\u5C45\u3002\u60E9\u5C71\u5317\u4E4B\u585E\uFF0C\u51FA\u5165\u4E4B\u8FC2\u4E5F\uFF0C\u805A\u5BA4\u800C\u8C0B\u66F0\uFF1A\u201C\u543E\u4E0E\u6C5D\u6BD5\u529B\u5E73\u9669\u2026\u2026\u201D",
-      pinyin: "t\xE0i h\xE1ng\u3001w\xE1ng w\u016B \xE8r sh\u0101n\uFF0Cf\u0101ng q\u012B b\u01CEi l\u01D0\uFF0Cg\u0101o w\xE0n r\xE8n\u3002\u2026\u2026b\u011Bi sh\u0101n y\xFA g\u014Dng zh\u011B\uFF0Cni\xE1n qi\u011B ji\u01D4 sh\xED\uFF0Cmi\xE0n sh\u0101n \xE9r j\u016B\u3002ch\xE9ng sh\u0101n b\u011Bi zh\u012B s\xE8\uFF0Cch\u016B r\xF9 zh\u012B y\u016B y\u011B\uFF0Cj\xF9 sh\xEC \xE9r m\xF3u yu\u0113\uFF1A\u201Cw\xFA y\u01D4 r\u01D4 b\xEC l\xEC p\xEDng xi\u01CEn\u2026\u2026\u201D",
-      summary: "\u5E74\u8FD1\u4E5D\u5341\u7684\u611A\u516C\u9762\u5BF9\u6321\u5728\u5BB6\u95E8\u524D\u7684\u4E24\u5EA7\u5927\u5C71\uFF0C\u51B3\u5FC3\u5E26\u9886\u5BB6\u4EBA\u4E00\u7B50\u4E00\u7B50\u6316\u5C71\u3002\u6545\u4E8B\u8D5E\u7F8E\u575A\u6301\u4E0D\u61C8\u3001\u52C7\u4E8E\u6539\u53D8\u56F0\u5883\u7684\u7CBE\u795E\u3002",
-      meaning: "\u592A\u884C\u3001\u738B\u5C4B\u4E24\u5EA7\u5C71\u53C8\u9AD8\u53C8\u5927\u3002\u5317\u5C71\u611A\u516C\u5FEB\u4E5D\u5341\u5C81\u4E86\uFF0C\u5BB6\u6B63\u5BF9\u7740\u5C71\uFF0C\u82E6\u4E8E\u5C71\u5317\u9762\u9053\u8DEF\u963B\u585E\u3001\u51FA\u5165\u7ED5\u8FDC\uFF0C\u4E8E\u662F\u53EC\u96C6\u5168\u5BB6\u5546\u91CF\uFF1A\u201C\u6211\u548C\u4F60\u4EEC\u4E00\u8D77\u5C3D\u5168\u529B\u6316\u5E73\u9669\u5CFB\u7684\u5927\u5C71\u2026\u2026\u201D",
-      appreciation: "\u6545\u4E8B\u7528\u201C\u5E74\u4E14\u4E5D\u5341\u201D\u4E0E\u201C\u9AD8\u4E07\u4EDE\u201D\u5F62\u6210\u5F3A\u70C8\u53CD\u5DEE\u3002\u770B\u4F3C\u4E0D\u53EF\u80FD\u7684\u4EFB\u52A1\uFF0C\u56E0\u4E3A\u4E00\u4EE3\u4EE3\u575A\u6301\u800C\u6709\u4E86\u53EF\u80FD\u3002",
-      keywords: ["\u611A\u516C", "\u5927\u5C71", "\u575A\u6301", "\u6539\u53D8"],
-      tags: ["\u5BD3\u8A00", "\u575A\u6301", "\u5217\u5B50"],
-      image: "fable-mountain",
-      videoQuery: "\u611A\u516C\u79FB\u5C71 \u5BD3\u8A00\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "sanzi-g2-xiangjiuling",
-      grade: 2,
-      category: "sanzi",
-      title: "\u9999\u4E5D\u9F84\uFF0C\u80FD\u6E29\u5E2D",
-      author: "\u300A\u4E09\u5B57\u7ECF\u300B",
-      dynasty: "\u5357\u5B8B",
-      excerpt: "\u9999\u4E5D\u9F84\uFF0C\u80FD\u6E29\u5E2D\u3002\u5B5D\u4E8E\u4EB2\uFF0C\u6240\u5F53\u6267\u3002\n\u878D\u56DB\u5C81\uFF0C\u80FD\u8BA9\u68A8\u3002\u5F1F\u4E8E\u957F\uFF0C\u5B9C\u5148\u77E5\u3002",
-      pinyin: "xi\u0101ng ji\u01D4 l\xEDng\uFF0Cn\xE9ng w\u0113n x\xED\u3002xi\xE0o y\xFA q\u012Bn\uFF0Csu\u01D2 d\u0101ng zh\xED\u3002\nr\xF3ng s\xEC su\xEC\uFF0Cn\xE9ng r\xE0ng l\xED\u3002t\xEC y\xFA zh\u01CEng\uFF0Cy\xED xi\u0101n zh\u012B\u3002",
-      summary: "\u9EC4\u9999\u4E5D\u5C81\u4E3A\u7236\u4EB2\u6696\u88AB\u7A9D\uFF0C\u5B54\u878D\u56DB\u5C81\u628A\u5927\u68A8\u8BA9\u7ED9\u54E5\u54E5\u3002\u4E24\u4E2A\u5C0F\u6545\u4E8B\u8BB2\u5B5D\u656C\u957F\u8F88\u3001\u53CB\u7231\u5144\u5F1F\uFF0C\u5E94\u4ECE\u5C0F\u5B66\u8D77\u3002",
-      meaning: "\u9EC4\u9999\u4E5D\u5C81\u7684\u65F6\u5019\uFF0C\u5C31\u80FD\u5728\u51AC\u5929\u4E3A\u7236\u4EB2\u6696\u70ED\u88AB\u8925\u3002\u5B5D\u656C\u7236\u6BCD\uFF0C\u662F\u6BCF\u4E2A\u4EBA\u5E94\u5F53\u505A\u7684\u4E8B\u3002\u5B54\u878D\u56DB\u5C81\u7684\u65F6\u5019\uFF0C\u5C31\u77E5\u9053\u628A\u5927\u68A8\u8BA9\u7ED9\u54E5\u54E5\u3002\u5C0A\u656C\u5144\u957F\uFF0C\u5E94\u5F53\u65E9\u65E9\u61C2\u5F97\u3002",
-      appreciation: "\u4E24\u4E2A\u6545\u4E8B\u90FD\u5F88\u5177\u4F53\uFF0C\u4E00\u4E2A\u201C\u6E29\u5E2D\u201D\uFF0C\u4E00\u4E2A\u201C\u8BA9\u68A8\u201D\uFF0C\u628A\u62BD\u8C61\u7684\u5B5D\u608C\u53D8\u6210\u5B69\u5B50\u80FD\u505A\u5230\u7684\u5C0F\u884C\u52A8\u3002",
-      keywords: ["\u9EC4\u9999", "\u5B54\u878D", "\u8BA9\u68A8", "\u5B5D\u608C"],
-      tags: ["\u4E09\u5B57\u7ECF", "\u5B5D\u4EB2", "\u793C\u8BA9"],
-      image: "classic-family",
-      videoQuery: "\u4E09\u5B57\u7ECF \u9999\u4E5D\u9F84 \u80FD\u6E29\u5E2D \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "lunyu-g2-wenzhiren",
-      grade: 2,
-      category: "lunyu",
-      title: "\u6E29\u6545\u800C\u77E5\u65B0",
-      author: "\u300A\u8BBA\u8BED\u300B",
-      dynasty: "\u6625\u79CB",
-      excerpt: "\u5B50\u66F0\uFF1A\u201C\u6E29\u6545\u800C\u77E5\u65B0\uFF0C\u53EF\u4EE5\u4E3A\u5E08\u77E3\u3002\u201D",
-      pinyin: "z\u01D0 yu\u0113\uFF1A\u201Cw\u0113n g\xF9 \xE9r zh\u012B x\u012Bn\uFF0Ck\u011B y\u01D0 w\xE9i sh\u012B y\u01D0\u3002\u201D",
-      summary: "\u6E29\u4E60\u65E7\u77E5\u8BC6\u65F6\u80FD\u6709\u65B0\u7406\u89E3\u3001\u65B0\u53D1\u73B0\uFF0C\u5C31\u53EF\u4EE5\u5F53\u8001\u5E08\u4E86\u3002\u5B66\u4E60\u4E0D\u662F\u7B80\u5355\u91CD\u590D\uFF0C\u800C\u662F\u5728\u56DE\u987E\u4E2D\u4EA7\u751F\u65B0\u7684\u6536\u83B7\u3002",
-      meaning: "\u5B54\u5B50\u8BF4\uFF1A\u201C\u6E29\u4E60\u5B66\u8FC7\u7684\u77E5\u8BC6\uFF0C\u53C8\u80FD\u4ECE\u4E2D\u83B7\u5F97\u65B0\u7684\u7406\u89E3\u548C\u4F53\u4F1A\uFF0C\u5C31\u53EF\u4EE5\u505A\u8001\u5E08\u4E86\u3002\u201D",
-      appreciation: "\u201C\u6E29\u6545\u201D\u662F\u65B9\u6CD5\uFF0C\u201C\u77E5\u65B0\u201D\u662F\u76EE\u6807\u3002\u590D\u4E60\u65F6\u6362\u4E00\u4E2A\u89D2\u5EA6\u3001\u8054\u7CFB\u65B0\u7684\u4F8B\u5B50\uFF0C\u5C31\u4F1A\u8D8A\u8BFB\u8D8A\u6709\u53D1\u73B0\u3002",
-      keywords: ["\u590D\u4E60", "\u65E7\u77E5\u8BC6", "\u65B0\u7406\u89E3", "\u8001\u5E08"],
-      tags: ["\u8BBA\u8BED", "\u5B66\u4E60\u65B9\u6CD5", "\u6E29\u6545"],
-      image: "classic-lunyu",
-      videoQuery: "\u8BBA\u8BED \u6E29\u6545\u800C\u77E5\u65B0 \u513F\u7AE5 \u8BB2\u89E3"
-    },
-    {
-      id: "dizigui-g2-chenzexing",
-      grade: 2,
-      category: "dizigui",
-      title: "\u6668\u5219\u7701\uFF0C\u660F\u5219\u5B9A",
-      author: "\u300A\u5F1F\u5B50\u89C4\u300B",
-      dynasty: "\u6E05",
-      excerpt: "\u51AC\u5219\u6E29\uFF0C\u590F\u5219\u51CA\u3002\u6668\u5219\u7701\uFF0C\u660F\u5219\u5B9A\u3002\n\u51FA\u5FC5\u544A\uFF0C\u53CD\u5FC5\u9762\u3002\u5C45\u6709\u5E38\uFF0C\u4E1A\u65E0\u53D8\u3002",
-      pinyin: "d\u014Dng z\xE9 w\u0113n\uFF0Cxi\xE0 z\xE9 q\xECng\u3002ch\xE9n z\xE9 x\u01D0ng\uFF0Ch\u016Bn z\xE9 d\xECng\u3002\nch\u016B b\xEC g\xE0o\uFF0Cf\u01CEn b\xEC mi\xE0n\u3002j\u016B y\u01D2u ch\xE1ng\uFF0Cy\xE8 w\xFA bi\xE0n\u3002",
-      summary: "\u5173\u5FC3\u7236\u6BCD\u51B7\u6696\uFF0C\u65E9\u665A\u95EE\u5019\uFF0C\u51FA\u95E8\u544A\u77E5\u3001\u56DE\u5BB6\u89C1\u9762\uFF0C\u751F\u6D3B\u6709\u89C4\u5F8B\u3002\u8FD9\u4E9B\u7EC6\u5C0F\u4E60\u60EF\uFF0C\u90FD\u662F\u628A\u7231\u548C\u5C0A\u91CD\u653E\u8FDB\u65E5\u5E38\u3002",
-      meaning: "\u51AC\u5929\u8981\u8BA9\u7236\u6BCD\u6E29\u6696\uFF0C\u590F\u5929\u8981\u8BA9\u7236\u6BCD\u6E05\u51C9\u3002\u65E9\u6668\u8981\u95EE\u5019\u7236\u6BCD\uFF0C\u665A\u4E0A\u8981\u5B89\u987F\u597D\u4ED6\u4EEC\u3002\u51FA\u95E8\u4E00\u5B9A\u8981\u544A\u8BC9\u7236\u6BCD\uFF0C\u56DE\u5BB6\u4E00\u5B9A\u8981\u89C1\u9762\u6253\u62DB\u547C\u3002\u5C45\u4F4F\u7684\u5730\u65B9\u8981\u7A33\u5B9A\uFF0C\u804C\u4E1A\u4E0D\u8981\u968F\u610F\u6539\u53D8\u3002",
-      appreciation: "\u8FD9\u6BB5\u8BDD\u7684\u6838\u5FC3\u662F\u201C\u8BA9\u5BB6\u4EBA\u653E\u5FC3\u201D\u3002\u4ECA\u5929\u7684\u8868\u8FBE\u4E0D\u5FC5\u7167\u642C\u53E4\u4EE3\u793C\u8282\uFF0C\u4F46\u4E3B\u52A8\u62A5\u5E73\u5B89\u3001\u5173\u5FC3\u51B7\u6696\u4ECD\u7136\u5F88\u91CD\u8981\u3002",
-      keywords: ["\u95EE\u5019", "\u51B7\u6696", "\u51FA\u95E8", "\u56DE\u5BB6"],
-      tags: ["\u5F1F\u5B50\u89C4", "\u5BB6\u5EAD", "\u4E60\u60EF"],
-      image: "classic-family",
-      videoQuery: "\u5F1F\u5B50\u89C4 \u6668\u5219\u7701 \u660F\u5219\u5B9A \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "qianziwen-g2-hanlaishu",
-      grade: 2,
-      category: "qianziwen",
-      title: "\u5BD2\u6765\u6691\u5F80",
-      author: "\u5468\u5174\u55E3",
-      dynasty: "\u5357\u671D\u6881",
-      excerpt: "\u5BD2\u6765\u6691\u5F80\uFF0C\u79CB\u6536\u51AC\u85CF\u3002\n\u95F0\u4F59\u6210\u5C81\uFF0C\u5F8B\u5415\u8C03\u9633\u3002",
-      pinyin: "h\xE1n l\xE1i sh\u01D4 w\u01CEng\uFF0Cqi\u016B sh\u014Du d\u014Dng c\xE1ng\u3002\nr\xF9n y\xFA ch\xE9ng su\xEC\uFF0Cl\u01DC l\u01DA ti\xE1o y\xE1ng\u3002",
-      summary: "\u5BD2\u6691\u4EA4\u66FF\uFF0C\u79CB\u5929\u6536\u83B7\u3001\u51AC\u5929\u50A8\u85CF\u3002\u53E4\u4EBA\u53C8\u7528\u95F0\u6708\u8C03\u6574\u5386\u6CD5\uFF0C\u8BA9\u4E00\u5E74\u7684\u8282\u4EE4\u4E0E\u592A\u9633\u8FD0\u884C\u76F8\u5408\u3002",
-      meaning: "\u5BD2\u51AC\u6765\u4E86\uFF0C\u6691\u590F\u8FC7\u53BB\uFF0C\u56DB\u5B63\u5FAA\u73AF\u3002\u79CB\u5929\u6536\u5272\u5E84\u7A3C\uFF0C\u51AC\u5929\u628A\u7CAE\u98DF\u50A8\u85CF\u8D77\u6765\u3002\u628A\u6BCF\u5E74\u591A\u51FA\u7684\u65E5\u5B50\u7D2F\u79EF\u8D77\u6765\u8BBE\u7F6E\u95F0\u6708\uFF0C\u5C31\u6210\u4E86\u4E00\u5E74\u4E00\u5E74\uFF1B\u7528\u516D\u5F8B\u516D\u5415\u6765\u8C03\u8282\u9634\u9633\u3002",
-      appreciation: "\u4ECE\u5B63\u8282\u53D8\u5316\u5199\u5230\u519C\u4E8B\u4E0E\u5386\u6CD5\uFF0C\u77ED\u77ED\u5341\u516D\u5B57\u8FDE\u63A5\u81EA\u7136\u3001\u751F\u6D3B\u4E0E\u53E4\u4EBA\u7684\u667A\u6167\u3002",
-      keywords: ["\u56DB\u5B63", "\u6536\u83B7", "\u50A8\u85CF", "\u5386\u6CD5"],
-      tags: ["\u5343\u5B57\u6587", "\u81EA\u7136", "\u8282\u6C14"],
-      image: "classic-seasons",
-      videoQuery: "\u5343\u5B57\u6587 \u5BD2\u6765\u6691\u5F80 \u513F\u7AE5 \u8BF5\u8BFB"
-    }
-  ];
-
-  // assets/grade3.js
-  var grade3 = [
-    {
-      id: "poetry-g3-wangtianmenshan",
-      grade: 3,
-      category: "poetry",
-      title: "\u671B\u5929\u95E8\u5C71",
-      author: "\u674E\u767D",
-      dynasty: "\u5510",
-      excerpt: "\u5929\u95E8\u4E2D\u65AD\u695A\u6C5F\u5F00\uFF0C\u78A7\u6C34\u4E1C\u6D41\u81F3\u6B64\u56DE\u3002\n\u4E24\u5CB8\u9752\u5C71\u76F8\u5BF9\u51FA\uFF0C\u5B64\u5E06\u4E00\u7247\u65E5\u8FB9\u6765\u3002",
-      pinyin: "ti\u0101n m\xE9n zh\u014Dng du\xE0n ch\u01D4 ji\u0101ng k\u0101i\uFF0Cb\xEC shu\u01D0 d\u014Dng li\xFA zh\xEC c\u01D0 hu\xED\u3002\nli\u01CEng \xE0n q\u012Bng sh\u0101n xi\u0101ng du\xEC ch\u016B\uFF0Cg\u016B f\u0101n y\u012B pi\xE0n r\xEC bi\u0101n l\xE1i\u3002",
-      summary: "\u674E\u767D\u4E58\u8239\u7ECF\u8FC7\u5929\u95E8\u5C71\uFF0C\u5199\u957F\u6C5F\u51B2\u7834\u5C71\u95E8\u3001\u78A7\u6C34\u56DE\u65CB\uFF0C\u4E24\u5CB8\u9752\u5C71\u8FCE\u9762\u800C\u6765\uFF0C\u4E00\u53F6\u5B64\u5E06\u4ECE\u65E5\u8FB9\u9A76\u6765\u3002",
-      meaning: "\u5929\u95E8\u5C71\u4ECE\u4E2D\u95F4\u65AD\u88C2\uFF0C\u695A\u6C5F\u4ECE\u7F3A\u53E3\u5954\u6D41\u800C\u51FA\uFF1B\u78A7\u7EFF\u7684\u6C5F\u6C34\u5411\u4E1C\u6D41\u5230\u8FD9\u91CC\uFF0C\u6FC0\u8D77\u56DE\u65CB\u3002\u4E24\u5CB8\u9752\u5C71\u76F8\u5BF9\u7740\u51FA\u73B0\u5728\u773C\u524D\uFF0C\u4E00\u53EA\u5C0F\u8239\u4ECE\u592A\u9633\u5347\u8D77\u7684\u5730\u65B9\u9A76\u6765\u3002",
-      appreciation: "\u201C\u65AD\u201D\u201C\u5F00\u201D\u201C\u56DE\u201D\u201C\u51FA\u201D\u56DB\u4E2A\u52A8\u8BCD\u8BA9\u6C5F\u5C71\u6709\u4E86\u529B\u91CF\u3002\u8BD7\u4EBA\u7AD9\u5728\u884C\u8FDB\u4E2D\u7684\u8239\u4E0A\uFF0C\u6240\u4EE5\u9752\u5C71\u50CF\u8FCE\u9762\u800C\u6765\uFF0C\u8BFB\u6765\u6C14\u52BF\u5F00\u9614\u3002",
-      keywords: ["\u5929\u95E8\u5C71", "\u957F\u6C5F", "\u5B64\u5E06", "\u9752\u5C71"],
-      tags: ["\u674E\u767D", "\u5C71\u6C34", "\u58EE\u9614"],
-      image: "poetry-mountain-river",
-      videoQuery: "\u671B\u5929\u95E8\u5C71 \u674E\u767D \u513F\u7AE5 \u53E4\u8BD7 \u8BB2\u89E3"
-    },
-    {
-      id: "poetry-g3-yinhusahang",
-      grade: 3,
-      category: "poetry",
-      title: "\u996E\u6E56\u4E0A\u521D\u6674\u540E\u96E8",
-      author: "\u82CF\u8F7C",
-      dynasty: "\u5B8B",
-      excerpt: "\u6C34\u5149\u6F4B\u6EDF\u6674\u65B9\u597D\uFF0C\u5C71\u8272\u7A7A\u8499\u96E8\u4EA6\u5947\u3002\n\u6B32\u628A\u897F\u6E56\u6BD4\u897F\u5B50\uFF0C\u6DE1\u5986\u6D53\u62B9\u603B\u76F8\u5B9C\u3002",
-      pinyin: "shu\u01D0 gu\u0101ng li\xE0n y\xE0n q\xEDng f\u0101ng h\u01CEo\uFF0Csh\u0101n s\xE8 k\u014Dng m\xE9ng y\u01D4 y\xEC q\xED\u3002\ny\xF9 b\u01CE x\u012B h\xFA b\u01D0 x\u012B z\u01D0\uFF0Cd\xE0n zhu\u0101ng n\xF3ng m\u01D2 z\u01D2ng xi\u0101ng y\xED\u3002",
-      summary: "\u82CF\u8F7C\u5199\u897F\u6E56\u6674\u5929\u6CE2\u5149\u95EA\u52A8\u3001\u96E8\u5929\u5C71\u8272\u8FF7\u8499\uFF0C\u4E24\u79CD\u666F\u81F4\u90FD\u5F88\u7F8E\uFF0C\u5E76\u628A\u897F\u6E56\u6BD4\u4F5C\u65E0\u8BBA\u600E\u6837\u88C5\u626E\u90FD\u7F8E\u4E3D\u7684\u897F\u65BD\u3002",
-      meaning: "\u6674\u5929\u65F6\u897F\u6E56\u6CE2\u5149\u95EA\u52A8\uFF0C\u6B63\u662F\u597D\u98CE\u666F\uFF1B\u4E0B\u96E8\u65F6\u5C71\u8272\u6726\u80E7\uFF0C\u4E5F\u522B\u6709\u5947\u5999\u3002\u82E5\u628A\u897F\u6E56\u6BD4\u4F5C\u7F8E\u4EBA\u897F\u65BD\uFF0C\u65E0\u8BBA\u662F\u6DE1\u96C5\u88C5\u626E\u8FD8\u662F\u6D53\u8273\u6253\u626E\uFF0C\u90FD\u5341\u5206\u5408\u9002\u3002",
-      appreciation: "\u201C\u603B\u76F8\u5B9C\u201D\u662F\u5168\u8BD7\u7684\u5173\u952E\uFF1A\u771F\u6B63\u7684\u7F8E\u4E0D\u4F9D\u8D56\u5355\u4E00\u6761\u4EF6\u3002\u4E00\u4E2A\u6BD4\u55BB\uFF0C\u628A\u897F\u6E56\u7684\u6674\u96E8\u3001\u6D53\u6DE1\u90FD\u6536\u5165\u5176\u4E2D\u3002",
-      keywords: ["\u897F\u6E56", "\u82CF\u8F7C", "\u6674\u5929", "\u96E8\u5929"],
-      tags: ["\u82CF\u8F7C", "\u897F\u6E56", "\u6BD4\u55BB"],
-      image: "poetry-westlake",
-      videoQuery: "\u996E\u6E56\u4E0A\u521D\u6674\u540E\u96E8 \u82CF\u8F7C \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g3-yuanri",
-      grade: 3,
-      category: "poetry",
-      title: "\u5143\u65E5",
-      author: "\u738B\u5B89\u77F3",
-      dynasty: "\u5B8B",
-      excerpt: "\u7206\u7AF9\u58F0\u4E2D\u4E00\u5C81\u9664\uFF0C\u6625\u98CE\u9001\u6696\u5165\u5C60\u82CF\u3002\n\u5343\u95E8\u4E07\u6237\u66C8\u66C8\u65E5\uFF0C\u603B\u628A\u65B0\u6843\u6362\u65E7\u7B26\u3002",
-      pinyin: "b\xE0o zh\xFA sh\u0113ng zh\u014Dng y\u012B su\xEC ch\xFA\uFF0Cch\u016Bn f\u0113ng s\xF2ng nu\u01CEn r\xF9 t\xFA s\u016B\u3002\nqi\u0101n m\xE9n w\xE0n h\xF9 t\xF3ng t\xF3ng r\xEC\uFF0Cz\u01D2ng b\u01CE x\u012Bn t\xE1o hu\xE0n ji\xF9 f\xFA\u3002",
-      summary: "\u7206\u7AF9\u3001\u5C60\u82CF\u9152\u3001\u65ED\u65E5\u548C\u6362\u6843\u7B26\uFF0C\u5199\u51FA\u6625\u8282\u9664\u65E7\u8FCE\u65B0\u7684\u70ED\u95F9\u666F\u8C61\uFF0C\u4E5F\u5BC4\u6258\u5BF9\u65B0\u4E00\u5E74\u7684\u7F8E\u597D\u671F\u5F85\u3002",
-      meaning: "\u5728\u9635\u9635\u7206\u7AF9\u58F0\u4E2D\uFF0C\u65E7\u7684\u4E00\u5E74\u8FC7\u53BB\u4E86\uFF1B\u6625\u98CE\u9001\u6765\u6696\u610F\uFF0C\u4EBA\u4EEC\u559D\u7740\u5C60\u82CF\u9152\u3002\u521D\u5347\u7684\u592A\u9633\u7167\u8000\u7740\u5343\u5BB6\u4E07\u6237\uFF0C\u5BB6\u5BB6\u90FD\u628A\u65E7\u7684\u6843\u7B26\u6362\u6210\u65B0\u7684\u3002",
-      appreciation: "\u56DB\u53E5\u4ECE\u58F0\u97F3\u3001\u6C14\u5473\u3001\u5149\u7EBF\u548C\u52A8\u4F5C\u5199\u6625\u8282\u3002\u201C\u65B0\u6843\u6362\u65E7\u7B26\u201D\u4E0D\u4EC5\u662F\u4E60\u4FD7\uFF0C\u4E5F\u8C61\u5F81\u8F9E\u65E7\u8FCE\u65B0\u3001\u8FFD\u6C42\u53D8\u5316\u3002",
-      keywords: ["\u6625\u8282", "\u7206\u7AF9", "\u5C60\u82CF", "\u6843\u7B26"],
-      tags: ["\u738B\u5B89\u77F3", "\u8282\u65E5", "\u6C11\u4FD7"],
-      image: "poetry-newyear",
-      videoQuery: "\u5143\u65E5 \u738B\u5B89\u77F3 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g3-shanxing",
-      grade: 3,
-      category: "poetry",
-      title: "\u5C71\u884C",
-      author: "\u675C\u7267",
-      dynasty: "\u5510",
-      excerpt: "\u8FDC\u4E0A\u5BD2\u5C71\u77F3\u5F84\u659C\uFF0C\u767D\u4E91\u751F\u5904\u6709\u4EBA\u5BB6\u3002\n\u505C\u8F66\u5750\u7231\u67AB\u6797\u665A\uFF0C\u971C\u53F6\u7EA2\u4E8E\u4E8C\u6708\u82B1\u3002",
-      pinyin: "yu\u01CEn sh\xE0ng h\xE1n sh\u0101n sh\xED j\xECng xi\xE9\uFF0Cb\xE1i y\xFAn sh\u0113ng ch\xF9 y\u01D2u r\xE9n ji\u0101\u3002\nt\xEDng ch\u0113 zu\xF2 \xE0i f\u0113ng l\xEDn w\u01CEn\uFF0Cshu\u0101ng y\xE8 h\xF3ng y\xFA \xE8r yu\xE8 hu\u0101\u3002",
-      summary: "\u6DF1\u79CB\u5C71\u8DEF\u873F\u8712\uFF0C\u767D\u4E91\u6DF1\u5904\u6709\u4EBA\u5BB6\u3002\u8BD7\u4EBA\u505C\u4E0B\u8F66\uFF0C\u53EA\u56E0\u559C\u7231\u508D\u665A\u67AB\u6797\uFF1B\u7ECF\u971C\u7684\u67AB\u53F6\u6BD4\u4E8C\u6708\u6625\u82B1\u66F4\u7EA2\u3002",
-      meaning: "\u4E00\u6761\u77F3\u5F84\u5F2F\u5F2F\u66F2\u66F2\u4F38\u5411\u6DF1\u79CB\u7684\u5C71\u4E0A\uFF0C\u767D\u4E91\u751F\u5904\u9690\u7EA6\u6709\u4EBA\u5BB6\u3002\u505C\u4E0B\u8F66\u6765\uFF0C\u662F\u56E0\u4E3A\u559C\u7231\u508D\u665A\u7684\u67AB\u6797\uFF1B\u7ECF\u971C\u7684\u67AB\u53F6\u7EA2\u5F97\u6BD4\u4E8C\u6708\u7684\u6625\u82B1\u8FD8\u8981\u9C9C\u8273\u3002",
-      appreciation: "\u5168\u8BD7\u7531\u8FDC\u53CA\u8FD1\uFF0C\u7531\u51B7\u8272\u8F6C\u5411\u70ED\u70C8\u7684\u7EA2\u8272\u3002\u6700\u540E\u4E00\u53E5\u628A\u79CB\u53F6\u4E0E\u6625\u82B1\u6BD4\u8F83\uFF0C\u5199\u51FA\u79CB\u5929\u72EC\u6709\u7684\u84EC\u52C3\u751F\u547D\u529B\u3002",
-      keywords: ["\u79CB\u5929", "\u67AB\u53F6", "\u5C71\u8DEF", "\u971C"],
-      tags: ["\u675C\u7267", "\u79CB\u5929", "\u5199\u666F"],
-      image: "poetry-autumn",
-      videoQuery: "\u5C71\u884C \u675C\u7267 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "idiom-g3-huajiaoyidian",
-      grade: 3,
-      category: "idiom",
-      title: "\u753B\u9F99\u70B9\u775B",
-      author: "\u300A\u5386\u4EE3\u540D\u753B\u8BB0\u300B",
-      dynasty: "\u5510",
-      excerpt: "\u5F20\u50E7\u7E47\u4E8E\u91D1\u9675\u5B89\u4E50\u5BFA\u753B\u56DB\u9F99\u4E8E\u58C1\uFF0C\u4E0D\u70B9\u773C\u775B\u3002\u6BCF\u4E91\uFF1A\u201C\u70B9\u4E4B\u5373\u98DE\u53BB\u3002\u201D\u4EBA\u4EE5\u4E3A\u5984\u8BDE\uFF0C\u56FA\u8BF7\u70B9\u4E4B\u3002\u987B\u81FE\uFF0C\u96F7\u7535\u7834\u58C1\uFF0C\u4E8C\u9F99\u4E58\u4E91\u817E\u53BB\u3002",
-      pinyin: "zh\u0101ng s\u0113ng y\xF3u y\xFA j\u012Bn l\xEDng \u0101n l\xE8 s\xEC hu\xE0 s\xEC l\xF3ng y\xFA b\xEC\uFF0Cb\xF9 di\u01CEn y\u01CEn jing\u3002m\u011Bi y\xFAn\uFF1A\u201Cdi\u01CEn zh\u012B j\xED f\u0113i q\xF9\u3002\u201Dr\xE9n y\u01D0 w\xE9i w\xE0ng d\xE0n\uFF0Cg\xF9 q\u01D0ng di\u01CEn zh\u012B\u3002x\u016B y\xFA\uFF0Cl\xE9i di\xE0n p\xF2 b\xEC\uFF0C\xE8r l\xF3ng ch\xE9ng y\xFAn t\xE9ng q\xF9\u3002",
-      summary: "\u5F20\u50E7\u7E47\u753B\u9F99\u4E0D\u70B9\u773C\u775B\uFF0C\u8BF4\u4E00\u70B9\u5C31\u4F1A\u98DE\u8D70\u3002\u4EBA\u4EEC\u4E0D\u76F8\u4FE1\uFF0C\u575A\u6301\u8BF7\u4ED6\u70B9\u4E0A\uFF0C\u7ED3\u679C\u96F7\u7535\u7834\u58C1\uFF0C\u4E24\u6761\u9F99\u817E\u4E91\u800C\u53BB\u3002",
-      meaning: "\u5F20\u50E7\u7E47\u5728\u91D1\u9675\u5B89\u4E50\u5BFA\u5899\u4E0A\u753B\u4E86\u56DB\u6761\u9F99\uFF0C\u5374\u4E0D\u70B9\u773C\u775B\u3002\u4ED6\u5E38\u8BF4\uFF1A\u201C\u70B9\u4E0A\u773C\u775B\uFF0C\u9F99\u5C31\u4F1A\u98DE\u8D70\u3002\u201D\u4EBA\u4EEC\u8BA4\u4E3A\u8FD9\u5F88\u8352\u5510\uFF0C\u575A\u6301\u8BF7\u4ED6\u70B9\u4E0A\u3002\u4E00\u4F1A\u513F\uFF0C\u96F7\u7535\u51FB\u7834\u5899\u58C1\uFF0C\u4E24\u6761\u9F99\u4E58\u7740\u4E91\u817E\u7A7A\u800C\u53BB\u3002",
-      appreciation: "\u6545\u4E8B\u544A\u8BC9\u6211\u4EEC\uFF0C\u5173\u952E\u7684\u4E00\u7B14\u80FD\u8BA9\u6574\u4F53\u7ACB\u523B\u751F\u52A8\u8D77\u6765\u3002\u5199\u4F5C\u548C\u8868\u8FBE\u4E2D\uFF0C\u4E5F\u8981\u627E\u5230\u90A3\u53E5\u6700\u80FD\u4F20\u795E\u7684\u8BDD\u3002",
-      keywords: ["\u753B\u9F99", "\u70B9\u775B", "\u5173\u952E", "\u4F20\u795E"],
-      tags: ["\u6210\u8BED", "\u827A\u672F", "\u5199\u4F5C"],
-      image: "idiom-dragon",
-      videoQuery: "\u753B\u9F99\u70B9\u775B \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "idiom-g3-yanjianbushi",
-      grade: 3,
-      category: "idiom",
-      title: "\u4E00\u53F6\u969C\u76EE",
-      player: "\u300A\u9E56\u51A0\u5B50\u300B",
-      author: "\u300A\u9E56\u51A0\u5B50\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u4E00\u53F6\u853D\u76EE\uFF0C\u4E0D\u89C1\u592A\u5C71\uFF1B\u4E24\u8C46\u585E\u8033\uFF0C\u4E0D\u95FB\u96F7\u9706\u3002",
-      pinyin: "y\u012B y\xE8 b\xEC m\xF9\uFF0Cb\xF9 ji\xE0n t\xE0i sh\u0101n\uFF1Bli\u01CEng d\xF2u s\u0101i \u011Br\uFF0Cb\xF9 w\xE9n l\xE9i t\xEDng\u3002",
-      summary: "\u4E00\u7247\u53F6\u5B50\u6321\u4F4F\u773C\u775B\uFF0C\u5C31\u770B\u4E0D\u89C1\u6CF0\u5C71\uFF1B\u4E24\u7C92\u8C46\u5B50\u585E\u4F4F\u8033\u6735\uFF0C\u5C31\u542C\u4E0D\u89C1\u96F7\u58F0\u3002\u6BD4\u55BB\u88AB\u5C40\u90E8\u6216\u773C\u524D\u7684\u4E8B\u7269\u8499\u853D\uFF0C\u770B\u4E0D\u5230\u6574\u4F53\u3002",
-      meaning: "\u4E00\u7247\u6811\u53F6\u906E\u4F4F\u773C\u775B\uFF0C\u8FDE\u9AD8\u5927\u7684\u6CF0\u5C71\u4E5F\u770B\u4E0D\u89C1\uFF1B\u4E24\u7C92\u8C46\u5B50\u5835\u4F4F\u8033\u6735\uFF0C\u8FDE\u54CD\u4EAE\u7684\u96F7\u58F0\u4E5F\u542C\u4E0D\u5230\u3002",
-      appreciation: "\u8FD9\u53E5\u8BDD\u7528\u5938\u5F20\u4F46\u53EF\u4FE1\u7684\u6BD4\u55BB\u8BB2\u9053\u7406\u3002\u4FE1\u606F\u4E0D\u5B8C\u6574\u65F6\uFF0C\u6211\u4EEC\u66F4\u5BB9\u6613\u505A\u51FA\u9519\u8BEF\u5224\u65AD\uFF1B\u517C\u542C\u3001\u591A\u770B\uFF0C\u624D\u80FD\u63A5\u8FD1\u771F\u76F8\u3002",
-      keywords: ["\u6811\u53F6", "\u6CF0\u5C71", "\u8C46\u5B50", "\u6574\u4F53"],
-      tags: ["\u6210\u8BED", "\u5224\u65AD", "\u601D\u8FA8"],
-      image: "idiom-leaf",
-      videoQuery: "\u4E00\u53F6\u969C\u76EE \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "fable-g3-shouzhu",
-      grade: 3,
-      category: "fable",
-      title: "\u523B\u821F\u6C42\u5251",
-      author: "\u300A\u5415\u6C0F\u6625\u79CB\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u695A\u4EBA\u6709\u6D89\u6C5F\u8005\uFF0C\u5176\u5251\u81EA\u821F\u4E2D\u5760\u4E8E\u6C34\uFF0C\u907D\u5951\u5176\u821F\uFF0C\u66F0\uFF1A\u201C\u662F\u543E\u5251\u4E4B\u6240\u4ECE\u5760\u3002\u201D\u821F\u6B62\uFF0C\u4ECE\u5176\u6240\u5951\u8005\u5165\u6C34\u6C42\u4E4B\u3002\u821F\u5DF2\u884C\u77E3\uFF0C\u800C\u5251\u4E0D\u884C\uFF0C\u6C42\u5251\u82E5\u6B64\uFF0C\u4E0D\u4EA6\u60D1\u4E4E\uFF1F",
-      pinyin: "ch\u01D4 r\xE9n y\u01D2u sh\xE8 ji\u0101ng zh\u011B\uFF0Cq\xED ji\xE0n z\xEC zh\u014Du zh\u014Dng zhu\xEC y\xFA shu\u01D0\uFF0Cj\xF9 q\xEC q\xED zh\u014Du\uFF0Cyu\u0113\uFF1A\u201Csh\xEC w\xFA ji\xE0n zh\u012B su\u01D2 c\xF3ng zhu\xEC\u3002\u201Dzh\u014Du zh\u01D0\uFF0Cc\xF3ng q\xED su\u01D2 q\xEC zh\u011B r\xF9 shu\u01D0 qi\xFA zh\u012B\u3002zh\u014Du y\u01D0 x\xEDng y\u01D0\uFF0C\xE9r ji\xE0n b\xF9 x\xEDng\uFF0Cqi\xFA ji\xE0n ru\xF2 c\u01D0\uFF0Cb\xF9 y\xEC hu\xF2 h\u016B\uFF1F",
-      summary: "\u695A\u4EBA\u6E21\u6C5F\u65F6\u5251\u6389\u8FDB\u6C34\u91CC\uFF0C\u4ED6\u5728\u8239\u8FB9\u523B\u8BB0\u53F7\uFF0C\u7B49\u8239\u9760\u5CB8\u540E\u624D\u4ECE\u8BB0\u53F7\u5904\u4E0B\u6C34\u627E\u5251\u3002\u8239\u5DF2\u79FB\u52A8\uFF0C\u5251\u5374\u6CA1\u6709\uFF0C\u5F53\u7136\u627E\u4E0D\u5230\u3002",
-      meaning: "\u6709\u4E2A\u695A\u56FD\u4EBA\u6E21\u6C5F\uFF0C\u5251\u4ECE\u8239\u4E0A\u6389\u8FDB\u6C34\u91CC\u3002\u4ED6\u6025\u5FD9\u5728\u8239\u908A\u523B\u4E0B\u8BB0\u53F7\uFF0C\u8BF4\uFF1A\u201C\u8FD9\u91CC\u662F\u6211\u7684\u5251\u6389\u4E0B\u53BB\u7684\u5730\u65B9\u3002\u201D\u8239\u505C\u4E0B\u540E\uFF0C\u4ED6\u4ECE\u523B\u8BB0\u53F7\u5904\u4E0B\u6C34\u627E\u5251\u3002\u8239\u5DF2\u7ECF\u8D70\u4E86\uFF0C\u5251\u5374\u6CA1\u6709\u52A8\uFF0C\u8FD9\u6837\u627E\u5251\uFF0C\u96BE\u9053\u4E0D\u662F\u5F88\u7CCA\u6D82\u5417\uFF1F",
-      appreciation: "\u6545\u4E8B\u8BF4\u660E\u4E86\u201C\u60C5\u51B5\u53D8\u4E86\uFF0C\u65B9\u6CD5\u4E5F\u8981\u53D8\u201D\u3002\u53EA\u5B88\u7740\u65E7\u6807\u8BB0\uFF0C\u4E0D\u89C2\u5BDF\u65B0\u7684\u6761\u4EF6\uFF0C\u5C31\u4F1A\u505A\u65E0\u7528\u529F\u3002",
-      keywords: ["\u523B\u821F", "\u5251", "\u53D8\u5316", "\u65B9\u6CD5"],
-      tags: ["\u5BD3\u8A00", "\u65B9\u6CD5", "\u53D8\u5316"],
-      image: "fable-boat",
-      videoQuery: "\u523B\u821F\u6C42\u5251 \u5BD3\u8A00\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "sanzi-g3-zhongbubian",
-      grade: 3,
-      category: "sanzi",
-      title: "\u51E1\u8BAD\u8499\uFF0C\u987B\u8BB2\u7A76",
-      author: "\u300A\u4E09\u5B57\u7ECF\u300B",
-      dynasty: "\u5357\u5B8B",
-      excerpt: "\u51E1\u8BAD\u8499\uFF0C\u987B\u8BB2\u7A76\u3002\u8BE6\u8BAD\u8BC2\uFF0C\u660E\u53E5\u8BFB\u3002\n\u4E3A\u5B66\u8005\uFF0C\u5FC5\u6709\u521D\u3002\u5C0F\u5B66\u7EC8\uFF0C\u81F3\u56DB\u4E66\u3002",
-      pinyin: "f\xE1n x\xF9n m\xE9ng\uFF0Cx\u016B ji\u01CEng ji\u016B\u3002xi\xE1ng x\xF9n g\u01D4\uFF0Cm\xEDng j\xF9 d\xF2u\u3002\nw\xE9i xu\xE9 zh\u011B\uFF0Cb\xEC y\u01D2u ch\u016B\u3002xi\u01CEo xu\xE9 zh\u014Dng\uFF0Czh\xEC s\xEC sh\u016B\u3002",
-      summary: "\u8FD9\u6BB5\u8BB2\u5B66\u4E60\u8981\u6709\u987A\u5E8F\uFF1A\u5148\u89E3\u91CA\u5B57\u8BCD\u3001\u8BFB\u61C2\u53E5\u5B50\uFF0C\u518D\u8FDB\u5165\u7ECF\u5178\uFF1B\u5B66\u4E60\u4E5F\u5FC5\u987B\u6709\u8D77\u59CB\u6B65\u9AA4\uFF0C\u5148\u6253\u57FA\u7840\u518D\u8BFB\u66F4\u6DF1\u7684\u5185\u5BB9\u3002",
-      meaning: "\u51E1\u662F\u6559\u5BFC\u513F\u7AE5\uFF0C\u90FD\u5FC5\u987B\u8BB2\u6C42\u65B9\u6CD5\u3002\u8981\u8BE6\u7EC6\u89E3\u91CA\u5B57\u4E49\uFF0C\u660E\u767D\u53E5\u5B50\u7684\u505C\u987F\u548C\u610F\u601D\u3002\u505A\u5B66\u95EE\u7684\u4EBA\uFF0C\u4E00\u5B9A\u8981\u6709\u826F\u597D\u7684\u5F00\u7AEF\u3002\u5148\u5B66\u5B8C\u57FA\u7840\uFF0C\u518D\u8BFB\u300A\u56DB\u4E66\u300B\u3002",
-      appreciation: "\u8FD9\u6BB5\u8BDD\u5F88\u50CF\u4E00\u4EFD\u5B66\u4E60\u8BA1\u5212\uFF1A\u5148\u7406\u89E3\u5B57\u8BCD\uFF0C\u518D\u8BFB\u6574\u53E5\uFF0C\u518D\u7531\u6D45\u5165\u6DF1\u3002\u4ECA\u5929\u8BFB\u53E4\u8BD7\u6587\u4E5F\u53EF\u4EE5\u8FD9\u6837\u505A\u3002",
-      keywords: ["\u5B57\u8BCD", "\u53E5\u8BFB", "\u57FA\u7840", "\u987A\u5E8F"],
-      tags: ["\u4E09\u5B57\u7ECF", "\u5B66\u4E60\u65B9\u6CD5", "\u8BF5\u8BFB"],
-      image: "classic-books",
-      videoQuery: "\u4E09\u5B57\u7ECF \u51E1\u8BAD\u8499 \u987B\u8BB2\u7A76 \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "lunyu-g3-wenzhishiran",
-      grade: 3,
-      category: "lunyu",
-      title: "\u77E5\u4E4B\u4E3A\u77E5\u4E4B",
-      author: "\u300A\u8BBA\u8BED\u300B",
-      dynasty: "\u6625\u79CB",
-      excerpt: "\u5B50\u66F0\uFF1A\u201C\u77E5\u4E4B\u4E3A\u77E5\u4E4B\uFF0C\u4E0D\u77E5\u4E3A\u4E0D\u77E5\uFF0C\u662F\u77E5\u4E5F\u3002\u201D",
-      pinyin: "z\u01D0 yu\u0113\uFF1A\u201Czh\u012B zh\u012B w\xE9i zh\u012B zh\u012B\uFF0Cb\xF9 zh\u012B w\xE9i b\xF9 zh\u012B\uFF0Csh\xEC zh\xEC y\u011B\u3002\u201D",
-      summary: "\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u771F\u6B63\u7684\u667A\u6167\u3002\u5B54\u5B50\u9F13\u52B1\u6211\u4EEC\u8BDA\u5B9E\u9762\u5BF9\u81EA\u5DF1\u7684\u77E5\u8BC6\u8FB9\u754C\u3002",
-      meaning: "\u5B54\u5B50\u8BF4\uFF1A\u201C\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u806A\u660E\u667A\u6167\u5440\u3002\u201D",
-      appreciation: "\u627F\u8BA4\u201C\u4E0D\u77E5\u9053\u201D\u5E76\u4E0D\u53EF\u6015\uFF0C\u5047\u88C5\u77E5\u9053\u624D\u4F1A\u963B\u788D\u5B66\u4E60\u3002\u8BDA\u5B9E\u7684\u6C42\u77E5\u6001\u5EA6\uFF0C\u6BD4\u4E00\u65F6\u7B54\u5BF9\u66F4\u91CD\u8981\u3002",
-      keywords: ["\u8BDA\u5B9E", "\u6C42\u77E5", "\u4E0D\u77E5\u9053", "\u667A\u6167"],
-      tags: ["\u8BBA\u8BED", "\u6C42\u77E5", "\u8BDA\u5B9E"],
-      image: "classic-lunyu",
-      videoQuery: "\u8BBA\u8BED \u77E5\u4E4B\u4E3A\u77E5\u4E4B \u513F\u7AE5 \u8BB2\u89E3"
-    },
-    {
-      id: "dizigui-g3-fanchu",
-      grade: 3,
-      category: "dizigui",
-      title: "\u51E1\u51FA\u8A00\uFF0C\u4FE1\u4E3A\u5148",
-      author: "\u300A\u5F1F\u5B50\u89C4\u300B",
-      dynasty: "\u6E05",
-      excerpt: "\u51E1\u51FA\u8A00\uFF0C\u4FE1\u4E3A\u5148\u3002\u8BC8\u4E0E\u5984\uFF0C\u595A\u53EF\u7109\u3002\n\u8BDD\u8BF4\u591A\uFF0C\u4E0D\u5982\u5C11\u3002\u60DF\u5176\u662F\uFF0C\u52FF\u4F5E\u5DE7\u3002",
-      pinyin: "f\xE1n ch\u016B y\xE1n\uFF0Cx\xECn w\xE9i xi\u0101n\u3002zh\xE0 y\u01D4 w\xE0ng\uFF0Cx\u012B k\u011B y\u0101n\u3002\nhu\xE0 shu\u014D du\u014D\uFF0Cb\xF9 r\xFA sh\u01CEo\u3002w\xE9i q\xED sh\xEC\uFF0Cw\xF9 n\xECng qi\u01CEo\u3002",
-      summary: "\u8BF4\u8BDD\u4EE5\u8BDA\u4FE1\u4E3A\u5148\uFF0C\u4E0D\u6B3A\u9A97\u3001\u4E0D\u80E1\u8BF4\u3002\u8BDD\u4E0D\u5FC5\u591A\uFF0C\u5173\u952E\u8981\u771F\u5B9E\u3001\u6070\u5F53\uFF0C\u4E0D\u8981\u82B1\u8A00\u5DE7\u8BED\u3002",
-      meaning: "\u51E1\u662F\u8BF4\u8BDD\uFF0C\u8BDA\u4FE1\u6700\u91CD\u8981\u3002\u6B3A\u9A97\u548C\u80E1\u8BF4\u600E\u4E48\u80FD\u884C\u5462\uFF1F\u8BDD\u8BF4\u5F97\u591A\uFF0C\u4E0D\u5982\u8BF4\u5F97\u5C11\u3002\u53EA\u8981\u8BF4\u5F97\u771F\u5B9E\uFF0C\u4E0D\u8981\u82B1\u8A00\u5DE7\u8BED\u3002",
-      appreciation: "\u8FD9\u6BB5\u65E2\u8BB2\u201C\u8BF4\u4EC0\u4E48\u201D\uFF0C\u4E5F\u8BB2\u201C\u8BF4\u591A\u5C11\u201D\u3002\u201C\u4FE1\u4E3A\u5148\u201D\u4E0E\u201C\u52FF\u4F5E\u5DE7\u201D\u63D0\u9192\u6211\u4EEC\uFF0C\u8BED\u8A00\u7684\u529B\u91CF\u6765\u81EA\u771F\u5B9E\uFF0C\u800C\u4E0D\u662F\u5938\u5F20\u3002",
-      keywords: ["\u8BDA\u4FE1", "\u8BF4\u8BDD", "\u771F\u5B9E", "\u6070\u5F53"],
-      tags: ["\u5F1F\u5B50\u89C4", "\u8BDA\u4FE1", "\u8868\u8FBE"],
-      image: "classic-scroll",
-      videoQuery: "\u5F1F\u5B50\u89C4 \u51E1\u51FA\u8A00 \u4FE1\u4E3A\u5148 \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "qianziwen-g3-longshihuoshi",
-      grade: 3,
-      category: "qianziwen",
-      title: "\u9F99\u5E08\u706B\u5E1D",
-      author: "\u5468\u5174\u55E3",
-      dynasty: "\u5357\u671D\u6881",
-      excerpt: "\u9F99\u5E08\u706B\u5E1D\uFF0C\u9E1F\u5B98\u4EBA\u7687\u3002\n\u59CB\u5236\u6587\u5B57\uFF0C\u4E43\u670D\u8863\u88F3\u3002",
-      pinyin: "l\xF3ng sh\u012B hu\u01D2 d\xEC\uFF0Cni\u01CEo gu\u0101n r\xE9n hu\xE1ng\u3002\nsh\u01D0 zh\xEC w\xE9n z\xEC\uFF0Cn\u01CEi f\xFA y\u012B ch\xE1ng\u3002",
-      summary: "\u4F20\u8BF4\u4F0F\u7FB2\u4EE5\u9F99\u7EAA\u5B98\u3001\u795E\u519C\u4EE5\u706B\u7EAA\u5B98\u3001\u5C11\u660A\u4EE5\u9E1F\u7EAA\u5B98\u3002\u53E4\u4EBA\u53D1\u660E\u6587\u5B57\u3001\u5236\u4F5C\u8863\u88F3\uFF0C\u6587\u660E\u7531\u6B64\u9010\u6B65\u53D1\u5C55\u3002",
-      meaning: "\u4F0F\u7FB2\u6C0F\u7528\u9F99\u6765\u547D\u540D\u5B98\u804C\uFF0C\u795E\u519C\u6C0F\u7528\u706B\u6765\u547D\u540D\u5B98\u804C\uFF0C\u5C11\u660A\u6C0F\u7528\u9E1F\u6765\u547D\u540D\u5B98\u804C\uFF0C\u4EBA\u7687\u6CBB\u7406\u5929\u4E0B\u3002\u540E\u6765\u5F00\u59CB\u521B\u5236\u6587\u5B57\uFF0C\u4EBA\u4EEC\u624D\u7A7F\u4E0A\u8863\u88F3\u3002",
-      appreciation: "\u8FD9\u6BB5\u50CF\u4E00\u5E45\u6587\u660E\u8D77\u6E90\u56FE\uFF1A\u4ECE\u5B98\u804C\u547D\u540D\u5230\u6587\u5B57\u3001\u8863\u88F3\uFF0C\u5C55\u73B0\u53E4\u4EBA\u5982\u4F55\u521B\u9020\u5171\u540C\u751F\u6D3B\u7684\u79E9\u5E8F\u3002",
-      keywords: ["\u6587\u5B57", "\u8863\u88F3", "\u6587\u660E", "\u4F20\u8BF4"],
-      tags: ["\u5343\u5B57\u6587", "\u6587\u660E", "\u5386\u53F2"],
-      image: "classic-characters",
-      videoQuery: "\u5343\u5B57\u6587 \u9F99\u5E08\u706B\u5E1D \u513F\u7AE5 \u8BF5\u8BFB"
-    }
-  ];
-
-  // assets/grade4.js
-  var grade4 = [
-    {
-      id: "poetry-g4-tixilinbi",
-      grade: 4,
-      category: "poetry",
-      title: "\u9898\u897F\u6797\u58C1",
-      author: "\u82CF\u8F7C",
-      dynasty: "\u5B8B",
-      excerpt: "\u6A2A\u770B\u6210\u5CAD\u4FA7\u6210\u5CF0\uFF0C\u8FDC\u8FD1\u9AD8\u4F4E\u5404\u4E0D\u540C\u3002\n\u4E0D\u8BC6\u5E90\u5C71\u771F\u9762\u76EE\uFF0C\u53EA\u7F18\u8EAB\u5728\u6B64\u5C71\u4E2D\u3002",
-      pinyin: "h\xE9ng k\xE0n ch\xE9ng l\u01D0ng c\xE8 ch\xE9ng f\u0113ng\uFF0Cyu\u01CEn j\xECn g\u0101o d\u012B g\xE8 b\xF9 t\xF3ng\u3002\nb\xF9 sh\xED l\xFA sh\u0101n zh\u0113n mi\xE0n m\xF9\uFF0Czh\u01D0 yu\xE1n sh\u0113n z\xE0i c\u01D0 sh\u0101n zh\u014Dng\u3002",
-      summary: "\u5E90\u5C71\u4ECE\u4E0D\u540C\u89D2\u5EA6\u5448\u73B0\u4E0D\u540C\u9762\u8C8C\uFF0C\u8EAB\u5904\u5C71\u4E2D\u53CD\u800C\u770B\u4E0D\u6E05\u5168\u8C8C\u3002\u8BD7\u4EBA\u7531\u89C2\u5C71\u60F3\u5230\u8BA4\u8BC6\u4E8B\u7269\u9700\u8981\u8DF3\u51FA\u5C40\u90E8\u3002",
-      meaning: "\u4ECE\u6B63\u9762\u770B\u5E90\u5C71\u662F\u7EF5\u5EF6\u7684\u5C71\u5CAD\uFF0C\u4ECE\u4FA7\u9762\u770B\u53C8\u6210\u4E86\u9AD8\u8038\u7684\u5C71\u5CF0\u3002\u4ECE\u8FDC\u8FD1\u9AD8\u4F4E\u4E0D\u540C\u89D2\u5EA6\u770B\uFF0C\u6837\u5B50\u90FD\u4E0D\u540C\u3002\u4E3A\u4EC0\u4E48\u8BA4\u4E0D\u6E05\u5E90\u5C71\u7684\u771F\u9762\u76EE\uFF1F\u53EA\u56E0\u4E3A\u81EA\u5DF1\u5C31\u5728\u8FD9\u5EA7\u5C71\u4E2D\u3002",
-      appreciation: "\u524D\u4E24\u53E5\u5199\u201C\u770B\u5C71\u201D\uFF0C\u540E\u4E24\u53E5\u5199\u201C\u609F\u7406\u201D\u3002\u89C2\u5BDF\u89D2\u5EA6\u4E0D\u540C\uFF0C\u7ED3\u8BBA\u4E5F\u4E0D\u540C\uFF1B\u8981\u8BA4\u8BC6\u6574\u4F53\uFF0C\u9700\u8981\u8D70\u5230\u66F4\u9AD8\u3001\u66F4\u8FDC\u5904\u3002",
-      keywords: ["\u5E90\u5C71", "\u89D2\u5EA6", "\u6574\u4F53", "\u89C2\u5BDF"],
-      tags: ["\u82CF\u8F7C", "\u54F2\u7406", "\u5C71\u6C34"],
-      image: "poetry-lushan",
-      videoQuery: "\u9898\u897F\u6797\u58C1 \u82CF\u8F7C \u513F\u7AE5 \u53E4\u8BD7 \u8BB2\u89E3"
-    },
-    {
-      id: "poetry-g4-chusai",
-      grade: 4,
-      category: "poetry",
-      title: "\u51FA\u585E",
-      author: "\u738B\u660C\u9F84",
-      dynasty: "\u5510",
-      excerpt: "\u79E6\u65F6\u660E\u6708\u6C49\u65F6\u5173\uFF0C\u4E07\u91CC\u957F\u5F81\u4EBA\u672A\u8FD8\u3002\n\u4F46\u4F7F\u9F99\u57CE\u98DE\u5C06\u5728\uFF0C\u4E0D\u6559\u80E1\u9A6C\u5EA6\u9634\u5C71\u3002",
-      pinyin: "q\xEDn sh\xED m\xEDng yu\xE8 h\xE0n sh\xED gu\u0101n\uFF0Cw\xE0n l\u01D0 ch\xE1ng zh\u0113ng r\xE9n w\xE8i hu\xE1n\u3002\nd\xE0n sh\u01D0 l\xF3ng ch\xE9ng f\u0113i ji\xE0ng z\xE0i\uFF0Cb\xF9 ji\xE0o h\xFA m\u01CE d\xF9 y\u012Bn sh\u0101n\u3002",
-      summary: "\u8BD7\u4ECE\u79E6\u6C49\u660E\u6708\u4E0E\u8FB9\u5173\u5199\u8D77\uFF0C\u60F3\u5230\u8FDC\u620D\u672A\u5F52\u7684\u5C06\u58EB\uFF0C\u8868\u8FBE\u5E0C\u671B\u826F\u5C06\u5B88\u8FB9\u3001\u767E\u59D3\u5B89\u5B81\u7684\u613F\u671B\u3002",
-      meaning: "\u4F9D\u65E7\u662F\u79E6\u6C49\u65F6\u7684\u660E\u6708\uFF0C\u4F9D\u65E7\u662F\u79E6\u6C49\u65F6\u7684\u8FB9\u5173\uFF1B\u4E07\u91CC\u51FA\u5F81\u7684\u5C06\u58EB\u8FD8\u6CA1\u6709\u56DE\u6765\u3002\u53EA\u8981\u6709\u50CF\u674E\u5E7F\u90A3\u6837\u9547\u5B88\u9F99\u57CE\u7684\u98DE\u5C06\u519B\u5728\uFF0C\u5C31\u4E0D\u4F1A\u8BA9\u654C\u4EBA\u7684\u6218\u9A6C\u8D8A\u8FC7\u9634\u5C71\u3002",
-      appreciation: "\u201C\u79E6\u65F6\u660E\u6708\u6C49\u65F6\u5173\u201D\u628A\u773C\u524D\u666F\u8C61\u653E\u8FDB\u6F2B\u957F\u5386\u53F2\u3002\u7ED3\u5C3E\u7684\u613F\u671B\u65E2\u6709\u82F1\u96C4\u8C6A\u60C5\uFF0C\u4E5F\u6709\u5BF9\u548C\u5E73\u7684\u73CD\u60DC\u3002",
-      keywords: ["\u8FB9\u5173", "\u660E\u6708", "\u5C06\u58EB", "\u548C\u5E73"],
-      tags: ["\u738B\u660C\u9F84", "\u8FB9\u585E", "\u5BB6\u56FD"],
-      image: "poetry-border",
-      videoQuery: "\u51FA\u585E \u738B\u660C\u9F84 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g4-liangzhouci",
-      grade: 4,
-      category: "poetry",
-      title: "\u51C9\u5DDE\u8BCD",
-      author: "\u738B\u4E4B\u6DA3",
-      dynasty: "\u5510",
-      excerpt: "\u9EC4\u6CB3\u8FDC\u4E0A\u767D\u4E91\u95F4\uFF0C\u4E00\u7247\u5B64\u57CE\u4E07\u4EDE\u5C71\u3002\n\u7F8C\u7B1B\u4F55\u987B\u6028\u6768\u67F3\uFF0C\u6625\u98CE\u4E0D\u5EA6\u7389\u95E8\u5173\u3002",
-      pinyin: "hu\xE1ng h\xE9 yu\u01CEn sh\xE0ng b\xE1i y\xFAn ji\u0101n\uFF0Cy\u012B pi\xE0n g\u016B ch\xE9ng w\xE0n r\xE8n sh\u0101n\u3002\nqi\u0101ng d\xED h\xE9 x\u016B yu\xE0n y\xE1ng li\u01D4\uFF0Cch\u016Bn f\u0113ng b\xF9 d\xF9 y\xF9 m\xE9n gu\u0101n\u3002",
-      summary: "\u9EC4\u6CB3\u3001\u767D\u4E91\u3001\u5B64\u57CE\u3001\u9AD8\u5C71\u6784\u6210\u82CD\u51C9\u8FB9\u585E\u56FE\u3002\u7F8C\u7B1B\u5439\u8D77\u300A\u6298\u6768\u67F3\u300B\uFF0C\u8BD7\u4EBA\u8BF4\u6625\u5149\u672C\u5C31\u4E0D\u5EA6\u7389\u95E8\u5173\uFF0C\u4F55\u5FC5\u57CB\u6028\u3002",
-      meaning: "\u9EC4\u6CB3\u8FDC\u8FDC\u5730\u4F38\u5411\u767D\u4E91\u4E4B\u95F4\uFF0C\u4E00\u5EA7\u5B64\u57CE\u5750\u843D\u5728\u4E07\u4EDE\u9AD8\u5C71\u4E4B\u4E2D\u3002\u7F8C\u7B1B\u4E0D\u5FC5\u5439\u594F\u54C0\u6028\u7684\u300A\u6298\u6768\u67F3\u300B\uFF0C\u6625\u98CE\u672C\u6765\u5C31\u5439\u4E0D\u5230\u7389\u95E8\u5173\u5916\u3002",
-      appreciation: "\u201C\u4F55\u987B\u6028\u201D\u770B\u4F3C\u529D\u6170\uFF0C\u5B9E\u5219\u66F4\u663E\u8FB9\u585E\u82E6\u5BD2\u4E0E\u79BB\u6101\u3002\u8BD7\u4E2D\u666F\u8C61\u58EE\u9614\uFF0C\u60C5\u611F\u5374\u7EC6\u817B\u6DF1\u6C89\u3002",
-      keywords: ["\u9EC4\u6CB3", "\u7389\u95E8\u5173", "\u7F8C\u7B1B", "\u8FB9\u585E"],
-      tags: ["\u738B\u4E4B\u6DA3", "\u8FB9\u585E", "\u4E61\u6101"],
-      image: "poetry-desert",
-      videoQuery: "\u51C9\u5DDE\u8BCD \u738B\u4E4B\u6DA3 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g4-shiershi",
-      grade: 4,
-      category: "poetry",
-      title: "\u793A\u513F",
-      author: "\u9646\u6E38",
-      dynasty: "\u5B8B",
-      excerpt: "\u6B7B\u53BB\u5143\u77E5\u4E07\u4E8B\u7A7A\uFF0C\u4F46\u60B2\u4E0D\u89C1\u4E5D\u5DDE\u540C\u3002\n\u738B\u5E08\u5317\u5B9A\u4E2D\u539F\u65E5\uFF0C\u5BB6\u796D\u65E0\u5FD8\u544A\u4E43\u7FC1\u3002",
-      pinyin: "s\u01D0 q\xF9 yu\xE1n zh\u012B w\xE0n sh\xEC k\u014Dng\uFF0Cd\xE0n b\u0113i b\xF9 ji\xE0n ji\u01D4 zh\u014Du t\xF3ng\u3002\nw\xE1ng sh\u012B b\u011Bi d\xECng zh\u014Dng yu\xE1n r\xEC\uFF0Cji\u0101 j\xEC w\xFA w\xE0ng g\xE0o n\u01CEi w\u0113ng\u3002",
-      summary: "\u9646\u6E38\u4E34\u7EC8\u5199\u7ED9\u513F\u5B50\uFF1A\u4E2A\u4EBA\u751F\u6B7B\u770B\u6DE1\uFF0C\u552F\u4E00\u9057\u61BE\u7684\u662F\u6CA1\u89C1\u5230\u56FD\u5BB6\u7EDF\u4E00\u3002\u82E5\u6709\u4E00\u5929\u519B\u961F\u5E73\u5B9A\u4E2D\u539F\uFF0C\u796D\u7956\u65F6\u4E0D\u8981\u5FD8\u8BB0\u544A\u8BC9\u4ED6\u3002",
-      meaning: "\u6211\u672C\u6765\u77E5\u9053\u4EBA\u6B7B\u540E\u4E07\u4E8B\u7686\u7A7A\uFF0C\u53EA\u662F\u60B2\u4F24\u6CA1\u80FD\u770B\u5230\u56FD\u5BB6\u7EDF\u4E00\u3002\u7B49\u5230\u671D\u5EF7\u519B\u961F\u5411\u5317\u6536\u590D\u4E2D\u539F\u7684\u90A3\u4E00\u5929\uFF0C\u5BB6\u796D\u65F6\u4E0D\u8981\u5FD8\u8BB0\u628A\u8FD9\u4E2A\u6D88\u606F\u544A\u8BC9\u4F60\u4EEC\u7684\u7236\u4EB2\u3002",
-      appreciation: "\u5F00\u5934\u4E00\u53E5\u201C\u4E07\u4E8B\u7A7A\u201D\u66F4\u886C\u51FA\u201C\u4F46\u60B2\u201D\u7684\u6C89\u91CD\u3002\u4E34\u7EC8\u4E0D\u5FD8\u5BB6\u56FD\uFF0C\u60C5\u611F\u771F\u631A\u800C\u6709\u529B\u3002",
-      keywords: ["\u9646\u6E38", "\u5BB6\u56FD", "\u7EDF\u4E00", "\u4E34\u7EC8"],
-      tags: ["\u9646\u6E38", "\u7231\u56FD", "\u5B8B\u8BD7"],
-      image: "poetry-homeland",
-      videoQuery: "\u793A\u513F \u9646\u6E38 \u513F\u7AE5 \u53E4\u8BD7 \u8BB2\u89E3"
-    },
-    {
-      id: "idiom-g4-ruyudeyu",
-      grade: 4,
-      category: "idiom",
-      title: "\u5982\u9C7C\u5F97\u6C34",
-      author: "\u300A\u4E09\u56FD\u5FD7\u300B",
-      dynasty: "\u897F\u664B",
-      excerpt: "\u5148\u4E3B\u66F0\uFF1A\u201C\u5B64\u4E4B\u6709\u5B54\u660E\uFF0C\u72B9\u9C7C\u4E4B\u6709\u6C34\u4E5F\u3002\u201D",
-      pinyin: "xi\u0101n zh\u01D4 yu\u0113\uFF1A\u201Cg\u016B zh\u012B y\u01D2u k\u01D2ng m\xEDng\uFF0Cy\xF3u y\xFA zh\u012B y\u01D2u shu\u01D0 y\u011B\u3002\u201D",
-      summary: "\u5218\u5907\u8BF4\u81EA\u5DF1\u5F97\u5230\u8BF8\u845B\u4EAE\uFF0C\u5C31\u50CF\u9C7C\u5F97\u5230\u6C34\u3002\u6BD4\u55BB\u9047\u5230\u4E0E\u81EA\u5DF1\u5341\u5206\u6295\u5408\u7684\u4EBA\u6216\u5408\u9002\u7684\u73AF\u5883\uFF0C\u4E5F\u5F62\u5BB9\u5173\u7CFB\u4EB2\u5BC6\u3001\u914D\u5408\u9ED8\u5951\u3002",
-      meaning: "\u5218\u5907\u8BF4\uFF1A\u201C\u6211\u5F97\u5230\u8BF8\u845B\u4EAE\uFF0C\u5C31\u50CF\u9C7C\u5F97\u5230\u4E86\u6C34\u4E00\u6837\u3002\u201D",
-      appreciation: "\u9C7C\u548C\u6C34\u76F8\u4E92\u4F9D\u5B58\uFF0C\u8FD9\u4E2A\u6BD4\u55BB\u8BF4\u660E\u4EBA\u4E0E\u73AF\u5883\u3001\u4F19\u4F34\u4E4B\u95F4\u7684\u5951\u5408\u3002\u4F7F\u7528\u65F6\u591A\u5E26\u6B23\u559C\u3001\u8D5E\u8D4F\u7684\u8BED\u6C14\u3002",
-      keywords: ["\u5218\u5907", "\u8BF8\u845B\u4EAE", "\u4F19\u4F34", "\u73AF\u5883"],
-      tags: ["\u6210\u8BED", "\u4E09\u56FD", "\u4F19\u4F34"],
-      image: "idiom-fish",
-      videoQuery: "\u5982\u9C7C\u5F97\u6C34 \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "idiom-g4-pobujidai",
-      grade: 4,
-      category: "idiom",
-      title: "\u8FEB\u4E0D\u53CA\u5F85",
-      author: "\u300A\u955C\u82B1\u7F18\u300B",
-      dynasty: "\u6E05",
-      excerpt: "\u65E0\u5982\u90A3\u4E9B\u770B\u7684\u4EBA\uFF0C\u8FEB\u4E0D\u53CA\u5F85\uFF0C\u90FD\u6324\u4E0A\u524D\u6765\uFF0C\u628A\u4E2A\u620F\u53F0\u56F4\u5F97\u6C34\u6CC4\u4E0D\u901A\u3002",
-      pinyin: "w\xFA r\xFA n\xE0 xi\u0113 k\xE0n de r\xE9n\uFF0Cp\xF2 b\xF9 j\xED d\xE0i\uFF0Cd\u014Du j\u01D0 sh\xE0ng qi\xE1n l\xE1i\uFF0Cb\u01CE g\xE8 x\xEC t\xE1i w\xE9i d\xE9 shu\u01D0 xi\xE8 b\xF9 t\u014Dng\u3002",
-      summary: "\u770B\u620F\u7684\u4EBA\u6025\u5207\u5F97\u4E00\u523B\u4E5F\u7B49\u4E0D\u4E86\uFF0C\u5168\u90FD\u6324\u5230\u53F0\u524D\u3002 \u6210\u8BED\u5F62\u5BB9\u5FC3\u60C5\u975E\u5E38\u6025\u5207\uFF0C\u4E0D\u80FD\u7B49\u5F85\u3002",
-      meaning: "\u53EF\u662F\u90A3\u4E9B\u770B\u620F\u7684\u4EBA\u6025\u5F97\u4E00\u523B\u4E5F\u4E0D\u80FD\u7B49\u5F85\uFF0C\u90FD\u6324\u4E0A\u524D\u6765\uFF0C\u628A\u620F\u53F0\u56F4\u5F97\u8FDE\u6C34\u90FD\u6D41\u4E0D\u8FC7\u53BB\u3002",
-      appreciation: "\u8FD9\u4E2A\u6210\u8BED\u9002\u5408\u5199\u671F\u5F85\u7684\u5FC3\u60C5\uFF0C\u4F46\u8981\u6CE8\u610F\u8BED\u5883\uFF0C\u5B83\u5E38\u7528\u4E8E\u4E8B\u60C5\u9A6C\u4E0A\u5C31\u8981\u53D1\u751F\u6216\u81EA\u5DF1\u975E\u5E38\u60F3\u53BB\u505A\u7684\u65F6\u5019\u3002",
-      keywords: ["\u7B49\u5F85", "\u6025\u5207", "\u671F\u5F85", "\u770B\u620F"],
-      tags: ["\u6210\u8BED", "\u5FC3\u60C5", "\u8868\u8FBE"],
-      image: "idiom-crowd",
-      videoQuery: "\u8FEB\u4E0D\u53CA\u5F85 \u6210\u8BED\u91CA\u4E49 \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "fable-g4-yanerdaoling",
-      grade: 4,
-      category: "fable",
-      title: "\u63A9\u8033\u76D7\u94C3",
-      author: "\u300A\u5415\u6C0F\u6625\u79CB\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u8303\u6C0F\u4E4B\u4EA1\u4E5F\uFF0C\u767E\u59D3\u6709\u5F97\u949F\u8005\uFF0C\u6B32\u8D1F\u800C\u8D70\uFF0C\u5219\u949F\u5927\u4E0D\u53EF\u8D1F\uFF1B\u4EE5\u9524\u6BC1\u4E4B\uFF0C\u949F\u51B5\u7136\u6709\u97F3\u3002\u6050\u4EBA\u95FB\u4E4B\u800C\u593A\u5DF1\u4E5F\uFF0C\u907D\u63A9\u5176\u8033\u3002",
-      pinyin: "f\xE0n sh\xEC zh\u012B w\xE1ng y\u011B\uFF0Cb\u01CEi x\xECng y\u01D2u d\xE9 zh\u014Dng zh\u011B\uFF0Cy\xF9 f\xF9 \xE9r z\u01D2u\uFF0Cz\xE9 zh\u014Dng d\xE0 b\xF9 k\u011B f\xF9\uFF1By\u01D0 chu\xED hu\u01D0 zh\u012B\uFF0Czh\u014Dng ku\xE0ng r\xE1n y\u01D2u y\u012Bn\u3002k\u01D2ng r\xE9n w\xE9n zh\u012B \xE9r du\xF3 j\u01D0 y\u011B\uFF0Cj\xF9 y\u01CEn q\xED \u011Br\u3002",
-      summary: "\u6709\u4EBA\u5077\u949F\uFF0C\u6015\u522B\u4EBA\u542C\u89C1\u6572\u949F\u58F0\uFF0C\u5C31\u6342\u4F4F\u81EA\u5DF1\u7684\u8033\u6735\u3002\u81EA\u5DF1\u542C\u4E0D\u89C1\uFF0C\u5E76\u4E0D\u4EE3\u8868\u522B\u4EBA\u4E5F\u542C\u4E0D\u89C1\u3002",
-      meaning: "\u8303\u6C0F\u9003\u4EA1\u7684\u65F6\u5019\uFF0C\u6709\u4E2A\u767E\u59D3\u5F97\u5230\u4E00\u53E3\u949F\uFF0C\u60F3\u80CC\u7740\u8DD1\uFF0C\u4F46\u949F\u592A\u5927\u80CC\u4E0D\u52A8\uFF1B\u7528\u9524\u5B50\u7838\u5B83\uFF0C\u949F\u53D1\u51FA\u5F88\u5927\u7684\u54CD\u58F0\u3002\u4ED6\u6015\u522B\u4EBA\u542C\u89C1\u6765\u62A2\uFF0C\u8FDE\u5FD9\u6342\u4F4F\u81EA\u5DF1\u7684\u8033\u6735\u3002",
-      appreciation: "\u6545\u4E8B\u8BBD\u523A\u81EA\u6B3A\u6B3A\u4EBA\u7684\u505A\u6CD5\u3002\u9762\u5BF9\u95EE\u9898\u65F6\uFF0C\u63A9\u4F4F\u81EA\u5DF1\u7684\u8033\u6735\u4E0D\u80FD\u6539\u53D8\u4E8B\u5B9E\uFF0C\u627F\u8BA4\u95EE\u9898\u624D\u662F\u89E3\u51B3\u7684\u7B2C\u4E00\u6B65\u3002",
-      keywords: ["\u949F", "\u8033\u6735", "\u81EA\u6B3A", "\u4E8B\u5B9E"],
-      tags: ["\u5BD3\u8A00", "\u81EA\u6B3A", "\u5415\u6C0F\u6625\u79CB"],
-      image: "fable-bell",
-      videoQuery: "\u63A9\u8033\u76D7\u94C3 \u5BD3\u8A00\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "sanzi-g4-youxue",
-      grade: 4,
-      category: "sanzi",
-      title: "\u5B50\u4E0D\u5B66\uFF0C\u975E\u6240\u5B9C",
-      author: "\u300A\u4E09\u5B57\u7ECF\u300B",
-      dynasty: "\u5357\u5B8B",
-      excerpt: "\u5B50\u4E0D\u5B66\uFF0C\u975E\u6240\u5B9C\u3002\u5E7C\u4E0D\u5B66\uFF0C\u8001\u4F55\u4E3A\u3002\n\u7389\u4E0D\u7422\uFF0C\u4E0D\u6210\u5668\u3002\u4EBA\u4E0D\u5B66\uFF0C\u4E0D\u77E5\u4E49\u3002",
-      pinyin: "z\u01D0 b\xF9 xu\xE9\uFF0Cf\u0113i su\u01D2 y\xED\u3002y\xF2u b\xF9 xu\xE9\uFF0Cl\u01CEo h\xE9 w\xE9i\u3002\ny\xF9 b\xF9 zhu\xF3\uFF0Cb\xF9 ch\xE9ng q\xEC\u3002r\xE9n b\xF9 xu\xE9\uFF0Cb\xF9 zh\u012B y\xEC\u3002",
-      summary: "\u5B69\u5B50\u4E0D\u5B66\u4E60\u662F\u4E0D\u5E94\u8BE5\u7684\uFF1B\u5C0F\u65F6\u5019\u4E0D\u5B66\uFF0C\u957F\u5927\u80FD\u505A\u4EC0\u4E48\uFF1F\u7389\u4E0D\u96D5\u7422\u4E0D\u80FD\u6210\u5668\uFF0C\u4EBA\u4E0D\u5B66\u4E60\u5C31\u4E0D\u61C2\u5F97\u9053\u7406\u3002",
-      meaning: "\u5B69\u5B50\u4E0D\u5B66\u4E60\uFF0C\u662F\u4E0D\u5E94\u8BE5\u7684\u3002\u5C0F\u65F6\u5019\u4E0D\u5B66\u4E60\uFF0C\u8001\u4E86\u80FD\u6709\u4EC0\u4E48\u4F5C\u4E3A\u5462\uFF1F\u7389\u77F3\u4E0D\u7ECF\u8FC7\u96D5\u7422\uFF0C\u5C31\u4E0D\u80FD\u6210\u4E3A\u6709\u7528\u7684\u5668\u7269\uFF1B\u4EBA\u4E0D\u5B66\u4E60\uFF0C\u5C31\u4E0D\u61C2\u5F97\u9053\u7406\u3002",
-      appreciation: "\u201C\u7389\u4E0D\u7422\u201D\u662F\u4E00\u4E2A\u5F88\u6709\u529B\u91CF\u7684\u6BD4\u55BB\uFF1A\u5B66\u4E60\u50CF\u96D5\u523B\uFF0C\u9700\u8981\u65F6\u95F4\u3001\u65B9\u6CD5\uFF0C\u4E5F\u9700\u8981\u8010\u5FC3\u3002",
-      keywords: ["\u5B66\u4E60", "\u96D5\u7422", "\u6210\u957F", "\u9053\u7406"],
-      tags: ["\u4E09\u5B57\u7ECF", "\u5B66\u4E60", "\u6210\u957F"],
-      image: "classic-jade",
-      videoQuery: "\u4E09\u5B57\u7ECF \u7389\u4E0D\u7422 \u4E0D\u6210\u5668 \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "lunyu-g4-sanxing",
-      grade: 4,
-      category: "lunyu",
-      title: "\u4E09\u4EBA\u884C\uFF0C\u5FC5\u6709\u6211\u5E08",
-      author: "\u300A\u8BBA\u8BED\u300B",
-      dynasty: "\u6625\u79CB",
-      excerpt: "\u5B50\u66F0\uFF1A\u201C\u4E09\u4EBA\u884C\uFF0C\u5FC5\u6709\u6211\u5E08\u7109\u3002\u62E9\u5176\u5584\u8005\u800C\u4ECE\u4E4B\uFF0C\u5176\u4E0D\u5584\u8005\u800C\u6539\u4E4B\u3002\u201D",
-      pinyin: "z\u01D0 yu\u0113\uFF1A\u201Cs\u0101n r\xE9n x\xEDng\uFF0Cb\xEC y\u01D2u w\u01D2 sh\u012B y\u0101n\u3002z\xE9 q\xED sh\xE0n zh\u011B \xE9r c\xF3ng zh\u012B\uFF0Cq\xED b\xF9 sh\xE0n zh\u011B \xE9r g\u01CEi zh\u012B\u3002\u201D",
-      summary: "\u51E0\u4E2A\u4EBA\u4E00\u8D77\u8D70\uFF0C\u5176\u4E2D\u4E00\u5B9A\u6709\u53EF\u4EE5\u505A\u6211\u8001\u5E08\u7684\u4EBA\u3002\u5B66\u4E60\u522B\u4EBA\u7684\u4F18\u70B9\uFF0C\u770B\u5230\u522B\u4EBA\u7684\u7F3A\u70B9\u5219\u53CD\u7701\u81EA\u5DF1\u3002",
-      meaning: "\u5B54\u5B50\u8BF4\uFF1A\u201C\u51E0\u4E2A\u4EBA\u4E00\u8D77\u884C\u8D70\uFF0C\u5176\u4E2D\u4E00\u5B9A\u6709\u53EF\u4EE5\u505A\u6211\u8001\u5E08\u7684\u4EBA\u3002\u9009\u62E9\u4ED6\u4EEC\u7684\u4F18\u70B9\u6765\u5B66\u4E60\uFF0C\u770B\u5230\u4ED6\u4EEC\u7684\u7F3A\u70B9\u5C31\u7528\u6765\u63D0\u9192\u81EA\u5DF1\u6539\u6B63\u3002\u201D",
-      appreciation: "\u8FD9\u53E5\u8BDD\u628A\u201C\u8001\u5E08\u201D\u4ECE\u8BFE\u5802\u6269\u5C55\u5230\u751F\u6D3B\u3002\u4F1A\u5B66\u4E60\u7684\u4EBA\uFF0C\u4E0D\u53EA\u5411\u4F18\u79C0\u8005\u5B66\u4E60\uFF0C\u4E5F\u80FD\u4ECE\u53CD\u9762\u4F8B\u5B50\u4E2D\u83B7\u5F97\u63D0\u9192\u3002",
-      keywords: ["\u8001\u5E08", "\u4F18\u70B9", "\u7F3A\u70B9", "\u53CD\u7701"],
-      tags: ["\u8BBA\u8BED", "\u5B66\u4E60", "\u8C26\u865A"],
-      image: "classic-lunyu",
-      videoQuery: "\u8BBA\u8BED \u4E09\u4EBA\u884C\u5FC5\u6709\u6211\u5E08 \u513F\u7AE5 \u8BB2\u89E3"
-    },
-    {
-      id: "dizigui-g4-jianrenshan",
-      grade: 4,
-      category: "dizigui",
-      title: "\u89C1\u4EBA\u5584\uFF0C\u5373\u601D\u9F50",
-      author: "\u300A\u5F1F\u5B50\u89C4\u300B",
-      dynasty: "\u6E05",
-      excerpt: "\u89C1\u4EBA\u5584\uFF0C\u5373\u601D\u9F50\u3002\u7EB5\u53BB\u8FDC\uFF0C\u4EE5\u6E10\u8DFB\u3002\n\u89C1\u4EBA\u6076\uFF0C\u5373\u5185\u7701\u3002\u6709\u5219\u6539\uFF0C\u65E0\u52A0\u8B66\u3002",
-      pinyin: "ji\xE0n r\xE9n sh\xE0n\uFF0Cj\xED s\u012B q\xED\u3002z\xF2ng q\xF9 yu\u01CEn\uFF0Cy\u01D0 ji\xE0n j\u012B\u3002\nji\xE0n r\xE9n \xE8\uFF0Cj\xED n\xE8i x\u01D0ng\u3002y\u01D2u z\xE9 g\u01CEi\uFF0Cw\xFA ji\u0101 j\u01D0ng\u3002",
-      summary: "\u770B\u5230\u522B\u4EBA\u7684\u4F18\u70B9\uFF0C\u5C31\u60F3\u7740\u5411\u4ED6\u770B\u9F50\uFF1B\u770B\u5230\u4E0D\u597D\u7684\u884C\u4E3A\uFF0C\u5C31\u53CD\u7701\u81EA\u5DF1\u3002\u6709\u5219\u6539\u4E4B\uFF0C\u65E0\u5219\u63D0\u9192\u81EA\u5DF1\u4E0D\u8981\u72AF\u3002",
-      meaning: "\u770B\u89C1\u522B\u4EBA\u7684\u4F18\u70B9\uFF0C\u5C31\u8981\u60F3\u7740\u5411\u4ED6\u770B\u9F50\u3002\u5373\u4F7F\u76F8\u5DEE\u5F88\u8FDC\uFF0C\u4E5F\u8981\u9010\u6B65\u8D76\u4E0A\u3002\u770B\u89C1\u522B\u4EBA\u505A\u5F97\u4E0D\u597D\uFF0C\u5C31\u8981\u53CD\u7701\u81EA\u5DF1\u3002\u6709\u540C\u6837\u7684\u7F3A\u70B9\u5C31\u6539\u6B63\uFF0C\u6CA1\u6709\u4E5F\u8981\u63D0\u9192\u81EA\u5DF1\u3002",
-      appreciation: "\u8FD9\u6BB5\u8BDD\u628A\u201C\u5411\u5916\u770B\u201D\u548C\u201C\u5411\u5185\u770B\u201D\u7ED3\u5408\u8D77\u6765\u3002\u6B23\u8D4F\u522B\u4EBA\u3001\u7EA6\u675F\u81EA\u5DF1\uFF0C\u662F\u6210\u719F\u7684\u6210\u957F\u65B9\u5F0F\u3002",
-      keywords: ["\u4F18\u70B9", "\u53CD\u7701", "\u770B\u9F50", "\u6210\u957F"],
-      tags: ["\u5F1F\u5B50\u89C4", "\u81EA\u7701", "\u54C1\u683C"],
-      image: "classic-scroll",
-      videoQuery: "\u5F1F\u5B50\u89C4 \u89C1\u4EBA\u5584 \u5373\u601D\u9F50 \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "qianziwen-g4-zhiyue",
-      grade: 4,
-      category: "qianziwen",
-      title: "\u77E5\u8FC7\u5FC5\u6539",
-      author: "\u5468\u5174\u55E3",
-      dynasty: "\u5357\u671D\u6881",
-      excerpt: "\u77E5\u8FC7\u5FC5\u6539\uFF0C\u5F97\u80FD\u83AB\u5FD8\u3002\n\u7F54\u8C08\u5F7C\u77ED\uFF0C\u9761\u6043\u5DF1\u957F\u3002",
-      pinyin: "zh\u012B gu\xF2 b\xEC g\u01CEi\uFF0Cd\xE9 n\xE9ng m\xF2 w\xE0ng\u3002\nw\u01CEng t\xE1n b\u01D0 du\u01CEn\uFF0Cm\u01D0 sh\xEC j\u01D0 ch\xE1ng\u3002",
-      summary: "\u77E5\u9053\u9519\u8BEF\u4E00\u5B9A\u8981\u6539\uFF0C\u5B66\u5230\u672C\u9886\u4E0D\u8981\u5FD8\u8BB0\uFF1B\u4E0D\u8981\u968F\u610F\u8C08\u8BBA\u522B\u4EBA\u7684\u77ED\u5904\uFF0C\u4E5F\u4E0D\u8981\u4ED7\u7740\u81EA\u5DF1\u7684\u957F\u5904\u9A84\u50B2\u3002",
-      meaning: "\u77E5\u9053\u81EA\u5DF1\u6709\u8FC7\u9519\uFF0C\u4E00\u5B9A\u8981\u6539\u6B63\uFF1B\u5B66\u5230\u597D\u7684\u54C1\u884C\u548C\u80FD\u529B\uFF0C\u4E0D\u8981\u5FD8\u8BB0\u3002\u4E0D\u8981\u968F\u4FBF\u8C08\u8BBA\u522B\u4EBA\u7684\u77ED\u5904\uFF0C\u4E5F\u4E0D\u8981\u4F9D\u4ED7\u81EA\u5DF1\u7684\u957F\u5904\u3002",
-      appreciation: "\u8FD9\u56DB\u53E5\u662F\u4E00\u4EFD\u505A\u4EBA\u63D0\u9192\uFF1A\u5BF9\u9519\u8BEF\u8D1F\u8D23\uFF0C\u5BF9\u80FD\u529B\u8C26\u900A\uFF0C\u5BF9\u4ED6\u4EBA\u5BBD\u539A\u3002\u8BFB\u5B8C\u53EF\u4EE5\u8BD5\u7740\u5199\u4E00\u53E5\u81EA\u5DF1\u7684\u201C\u6539\u8FC7\u8BA1\u5212\u201D\u3002",
-      keywords: ["\u6539\u8FC7", "\u957F\u5904", "\u77ED\u5904", "\u8C26\u865A"],
-      tags: ["\u5343\u5B57\u6587", "\u54C1\u683C", "\u81EA\u7701"],
-      image: "classic-scroll",
-      videoQuery: "\u5343\u5B57\u6587 \u77E5\u8FC7\u5FC5\u6539 \u513F\u7AE5 \u8BF5\u8BFB"
-    }
-  ];
-
-  // assets/grade5.js
-  var grade5 = [
-    {
-      id: "poetry-g5-bohetan",
-      grade: 5,
-      category: "poetry",
-      title: "\u6CCA\u8239\u74DC\u6D32",
-      author: "\u738B\u5B89\u77F3",
-      dynasty: "\u5B8B",
-      excerpt: "\u4EAC\u53E3\u74DC\u6D32\u4E00\u6C34\u95F4\uFF0C\u949F\u5C71\u53EA\u9694\u6570\u91CD\u5C71\u3002\n\u6625\u98CE\u53C8\u7EFF\u6C5F\u5357\u5CB8\uFF0C\u660E\u6708\u4F55\u65F6\u7167\u6211\u8FD8\uFF1F",
-      pinyin: "j\u012Bng k\u01D2u gu\u0101 zh\u014Du y\u012B shu\u01D0 ji\u0101n\uFF0Czh\u014Dng sh\u0101n zh\u01D0 g\xE9 sh\xF9 ch\xF3ng sh\u0101n\u3002\nch\u016Bn f\u0113ng y\xF2u l\u01DC ji\u0101ng n\xE1n \xE0n\uFF0Cm\xEDng yu\xE8 h\xE9 sh\xED zh\xE0o w\u01D2 hu\xE1n\uFF1F",
-      summary: "\u8BD7\u4EBA\u8239\u6CCA\u74DC\u6D32\uFF0C\u671B\u7740\u6C5F\u5357\u6625\u5929\uFF0C\u60F3\u5230\u5BB6\u4E61\u949F\u5C71\u8FD1\u5728\u54AB\u5C3A\uFF0C\u5374\u56E0\u516C\u52A1\u4E0D\u80FD\u56DE\u53BB\uFF0C\u501F\u660E\u6708\u5BC4\u6258\u5F52\u4E61\u4E4B\u60C5\u3002",
-      meaning: "\u4EAC\u53E3\u548C\u74DC\u6D32\u4E4B\u95F4\u53EA\u9694\u7740\u4E00\u6761\u6C5F\uFF0C\u949F\u5C71\u4E5F\u53EA\u9694\u7740\u51E0\u91CD\u5C71\u3002\u6625\u98CE\u53C8\u628A\u6C5F\u5357\u5CB8\u5439\u7EFF\u4E86\uFF0C\u660E\u6708\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u7167\u7740\u6211\u56DE\u5BB6\u5462\uFF1F",
-      appreciation: "\u201C\u7EFF\u201D\u5B57\u628A\u6625\u98CE\u5199\u6210\u4E86\u753B\u5BB6\uFF0C\u4F7F\u6574\u53E5\u6709\u4E86\u8272\u5F69\u548C\u52A8\u6001\u3002\u7ED3\u5C3E\u7684\u95EE\u53E5\u628A\u773C\u524D\u6625\u666F\u4E0E\u5F52\u4E61\u4E4B\u601D\u81EA\u7136\u8FDE\u63A5\u8D77\u6765\u3002",
-      keywords: ["\u74DC\u6D32", "\u6C5F\u5357", "\u6625\u98CE", "\u601D\u4E61"],
-      tags: ["\u738B\u5B89\u77F3", "\u601D\u4E61", "\u6625\u5929"],
-      image: "poetry-river-moon",
-      videoQuery: "\u6CCA\u8239\u74DC\u6D32 \u738B\u5B89\u77F3 \u513F\u7AE5 \u53E4\u8BD7 \u8BB2\u89E3"
-    },
-    {
-      id: "poetry-g5-chunwang",
-      grade: 5,
-      category: "poetry",
-      title: "\u6625\u671B",
-      author: "\u675C\u752B",
-      dynasty: "\u5510",
-      excerpt: "\u56FD\u7834\u5C71\u6CB3\u5728\uFF0C\u57CE\u6625\u8349\u6728\u6DF1\u3002\n\u611F\u65F6\u82B1\u6E85\u6CEA\uFF0C\u6068\u522B\u9E1F\u60CA\u5FC3\u3002\n\u70FD\u706B\u8FDE\u4E09\u6708\uFF0C\u5BB6\u4E66\u62B5\u4E07\u91D1\u3002\n\u767D\u5934\u6414\u66F4\u77ED\uFF0C\u6D51\u6B32\u4E0D\u80DC\u7C2A\u3002",
-      pinyin: "gu\xF3 p\xF2 sh\u0101n h\xE9 z\xE0i\uFF0Cch\xE9ng ch\u016Bn c\u01CEo m\xF9 sh\u0113n\u3002\ng\u01CEn sh\xED hu\u0101 ji\xE0n l\xE8i\uFF0Ch\xE8n bi\xE9 ni\u01CEo j\u012Bng x\u012Bn\u3002\nf\u0113ng hu\u01D2 li\xE1n s\u0101n yu\xE8\uFF0Cji\u0101 sh\u016B d\u01D0 w\xE0n j\u012Bn\u3002\nb\xE1i t\xF3u s\u0101o g\xE8ng du\u01CEn\uFF0Ch\xFAn y\xF9 b\xF9 sh\xE8ng z\u0101n\u3002",
-      summary: "\u5B89\u53F2\u4E4B\u4E71\u4E2D\uFF0C\u675C\u752B\u770B\u89C1\u957F\u5B89\u6CA6\u9677\u3001\u8349\u6728\u8352\u6DF1\uFF0C\u89C1\u82B1\u9E1F\u4E5F\u843D\u6CEA\u60CA\u5FC3\u3002\u6218\u706B\u8FDE\u7EF5\uFF0C\u5BB6\u4E66\u96BE\u5F97\uFF0C\u6101\u601D\u4F7F\u767D\u53D1\u8D8A\u6414\u8D8A\u77ED\u3002",
-      meaning: "\u56FD\u5BB6\u7834\u788E\uFF0C\u5C71\u6CB3\u4F9D\u65E7\uFF1B\u6625\u5929\u6765\u5230\u957F\u5B89\uFF0C\u57CE\u4E2D\u8349\u6728\u6DF1\u6DF1\u3002\u611F\u4F24\u65F6\u5C40\uFF0C\u770B\u89C1\u82B1\u5F00\u4E5F\u843D\u6CEA\uFF1B\u6028\u6068\u79BB\u522B\uFF0C\u542C\u89C1\u9E1F\u9E23\u4E5F\u5FC3\u60CA\u3002\u6218\u706B\u8FDE\u7EED\u51E0\u4E2A\u6708\u4E0D\u65AD\uFF0C\u4E00\u5C01\u5BB6\u4FE1\u62B5\u5F97\u4E0A\u4E07\u4E24\u9EC4\u91D1\u3002\u6EE1\u5934\u767D\u53D1\u8D8A\u6414\u8D8A\u77ED\uFF0C\u7B80\u76F4\u63D2\u4E0D\u4F4F\u7C2A\u5B50\u4E86\u3002",
-      appreciation: "\u8BD7\u4EBA\u628A\u4E2A\u4EBA\u60B2\u6101\u4E0E\u56FD\u5BB6\u547D\u8FD0\u4EA4\u7EC7\u5728\u4E00\u8D77\u3002\u201C\u82B1\u6E85\u6CEA\u201D\u201C\u9E1F\u60CA\u5FC3\u201D\u628A\u666F\u7269\u67D3\u4E0A\u611F\u60C5\uFF0C\u8BFB\u6765\u6C89\u75DB\u3002",
-      keywords: ["\u957F\u5B89", "\u6218\u4E71", "\u5BB6\u4E66", "\u5FE7\u56FD"],
-      tags: ["\u675C\u752B", "\u5BB6\u56FD", "\u5FE7\u601D"],
-      image: "poetry-war-spring",
-      videoQuery: "\u6625\u671B \u675C\u752B \u513F\u7AE5 \u53E4\u8BD7 \u8BB2\u89E3"
-    },
-    {
-      id: "poetry-g5-sishihuajian",
-      grade: 5,
-      category: "poetry",
-      title: "\u793A\u513F",
-      author: "\u9646\u6E38",
-      dynasty: "\u5B8B",
-      duplicateNote: true,
-      excerpt: "\u6B7B\u53BB\u5143\u77E5\u4E07\u4E8B\u7A7A\uFF0C\u4F46\u60B2\u4E0D\u89C1\u4E5D\u5DDE\u540C\u3002\n\u738B\u5E08\u5317\u5B9A\u4E2D\u539F\u65E5\uFF0C\u5BB6\u796D\u65E0\u5FD8\u544A\u4E43\u7FC1\u3002",
-      pinyin: "s\u01D0 q\xF9 yu\xE1n zh\u012B w\xE0n sh\xEC k\u014Dng\uFF0Cd\xE0n b\u0113i b\xF9 ji\xE0n ji\u01D4 zh\u014Du t\xF3ng\u3002\nw\xE1ng sh\u012B b\u011Bi d\xECng zh\u014Dng yu\xE1n r\xEC\uFF0Cji\u0101 j\xEC w\xFA w\xE0ng g\xE0o n\u01CEi w\u0113ng\u3002",
-      summary: "\u9646\u6E38\u4E34\u7EC8\u5199\u7ED9\u513F\u5B50\uFF0C\u8868\u8FBE\u672A\u89C1\u56FD\u5BB6\u7EDF\u4E00\u7684\u9057\u61BE\u548C\u6536\u590D\u4E2D\u539F\u7684\u671F\u76FC\u3002",
-      meaning: "\u6211\u672C\u6765\u77E5\u9053\u4EBA\u6B7B\u540E\u4E07\u4E8B\u7686\u7A7A\uFF0C\u53EA\u662F\u60B2\u4F24\u6CA1\u80FD\u770B\u5230\u56FD\u5BB6\u7EDF\u4E00\u3002\u7B49\u5230\u671D\u5EF7\u519B\u961F\u5411\u5317\u6536\u590D\u4E2D\u539F\u7684\u90A3\u4E00\u5929\uFF0C\u5BB6\u796D\u65F6\u4E0D\u8981\u5FD8\u8BB0\u544A\u8BC9\u4F60\u4EEC\u7684\u7236\u4EB2\u3002",
-      appreciation: "\u9996\u53E5\u770B\u4F3C\u8D85\u8131\uFF0C\u7B2C\u4E8C\u53E5\u7A81\u7136\u8F6C\u6298\uFF0C\u663E\u51FA\u5BF9\u56FD\u5BB6\u547D\u8FD0\u7684\u6DF1\u5207\u7275\u6302\u3002\u8BD7\u77ED\u800C\u60C5\u957F\u3002",
-      keywords: ["\u9646\u6E38", "\u7231\u56FD", "\u4E34\u7EC8", "\u7EDF\u4E00"],
-      tags: ["\u9646\u6E38", "\u7231\u56FD", "\u5B8B\u8BD7"],
-      image: "poetry-homeland",
-      videoQuery: "\u793A\u513F \u9646\u6E38 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "poetry-g5-jihai",
-      grade: 5,
-      category: "poetry",
-      title: "\u5DF1\u4EA5\u6742\u8BD7\uFF08\u5176\u4E94\uFF09",
-      author: "\u9F9A\u81EA\u73CD",
-      dynasty: "\u6E05",
-      excerpt: "\u6D69\u8361\u79BB\u6101\u767D\u65E5\u659C\uFF0C\u541F\u97AD\u4E1C\u6307\u5373\u5929\u6DAF\u3002\n\u843D\u7EA2\u4E0D\u662F\u65E0\u60C5\u7269\uFF0C\u5316\u4F5C\u6625\u6CE5\u66F4\u62A4\u82B1\u3002",
-      pinyin: "h\xE0o d\xE0ng l\xED ch\xF3u b\xE1i r\xEC xi\xE9\uFF0Cy\xEDn bi\u0101n d\u014Dng zh\u01D0 j\xED ti\u0101n y\xE1\u3002\nlu\xF2 h\xF3ng b\xF9 sh\xEC w\xFA q\xEDng w\xF9\uFF0Chu\xE0 zu\xF2 ch\u016Bn n\xED g\xE8ng h\xF9 hu\u0101\u3002",
-      summary: "\u8BD7\u4EBA\u8F9E\u5B98\u79BB\u4EAC\uFF0C\u867D\u6709\u6D69\u8361\u79BB\u6101\uFF0C\u5374\u4EE5\u843D\u82B1\u5316\u4F5C\u6625\u6CE5\u62A4\u82B1\u7684\u610F\u8C61\uFF0C\u8868\u8FBE\u7EE7\u7EED\u5949\u732E\u793E\u4F1A\u7684\u5FC3\u613F\u3002",
-      meaning: "\u5728\u5915\u9633\u897F\u4E0B\u65F6\uFF0C\u6211\u6000\u7740\u6D69\u8361\u7684\u79BB\u6101\u79BB\u5F00\u4EAC\u57CE\uFF0C\u9A6C\u97AD\u5411\u4E1C\u4E00\u6307\uFF0C\u4FBF\u662F\u5929\u6DAF\u3002\u98D8\u843D\u7684\u82B1\u74E3\u5E76\u4E0D\u662F\u65E0\u60C5\u4E4B\u7269\uFF0C\u5316\u4F5C\u6625\u6CE5\u8FD8\u53EF\u4EE5\u6ECB\u517B\u65B0\u7684\u82B1\u6735\u3002",
-      appreciation: "\u201C\u843D\u7EA2\u201D\u65E2\u5199\u66AE\u6625\u666F\u8C61\uFF0C\u4E5F\u8C61\u5F81\u79BB\u5F00\u5C97\u4F4D\u4ECD\u613F\u5949\u732E\u7684\u4EBA\u3002\u4E00\u4E2A\u81EA\u7136\u753B\u9762\uFF0C\u627F\u8F7D\u4E86\u79EF\u6781\u7684\u4EBA\u751F\u6001\u5EA6\u3002",
-      keywords: ["\u843D\u82B1", "\u79BB\u6101", "\u5949\u732E", "\u6625\u6CE5"],
-      tags: ["\u9F9A\u81EA\u73CD", "\u79BB\u6101", "\u5949\u732E"],
-      image: "poetry-petals",
-      videoQuery: "\u5DF1\u4EA5\u6742\u8BD7 \u9F9A\u81EA\u73CD \u513F\u7AE5 \u53E4\u8BD7 \u8BB2\u89E3"
-    },
-    {
-      id: "idiom-g5-xiongyouchengzhu",
-      grade: 5,
-      category: "idiom",
-      title: "\u80F8\u6709\u6210\u7AF9",
-      author: "\u300A\u6587\u4E0E\u53EF\u753B\u7B7C\u7B5C\u8C37\u5043\u7AF9\u8BB0\u300B",
-      dynasty: "\u5B8B",
-      excerpt: "\u6545\u753B\u7AF9\uFF0C\u5FC5\u5148\u5F97\u6210\u7AF9\u4E8E\u80F8\u4E2D\uFF0C\u6267\u7B14\u719F\u89C6\uFF0C\u4E43\u89C1\u5176\u6240\u6B32\u753B\u8005\uFF0C\u6025\u8D77\u4ECE\u4E4B\uFF0C\u632F\u7B14\u76F4\u9042\uFF0C\u4EE5\u8FFD\u5176\u6240\u89C1\u3002",
-      pinyin: "g\xF9 hu\xE0 zh\xFA\uFF0Cb\xEC xi\u0101n d\xE9 ch\xE9ng zh\xFA y\xFA xi\u014Dng zh\u014Dng\uFF0Czh\xED b\u01D0 sh\xFA sh\xEC\uFF0Cn\u01CEi ji\xE0n q\xED su\u01D2 y\xF9 hu\xE0 zh\u011B\uFF0Cj\xED q\u01D0 c\xF3ng zh\u012B\uFF0Czh\xE8n b\u01D0 zh\xED su\xEC\uFF0Cy\u01D0 zhu\u012B q\xED su\u01D2 ji\xE0n\u3002",
-      summary: "\u82CF\u8F7C\u8BF4\u753B\u7AF9\u524D\u8981\u5728\u80F8\u4E2D\u5148\u6709\u5B8C\u6574\u7684\u7AF9\u5F62\u8C61\uFF0C\u52A8\u7B14\u65F6\u624D\u80FD\u679C\u65AD\u8FFD\u968F\u5FC3\u4E2D\u6240\u89C1\u3002\u540E\u6765\u7528\u201C\u80F8\u6709\u6210\u7AF9\u201D\u5F62\u5BB9\u505A\u4E8B\u524D\u5DF2\u6709\u628A\u63E1\u3002",
-      meaning: "\u6240\u4EE5\u753B\u7AF9\u5B50\uFF0C\u4E00\u5B9A\u8981\u5148\u5728\u5FC3\u4E2D\u5F62\u6210\u7AF9\u5B50\u7684\u5B8C\u6574\u5F62\u8C61\u3002\u62FF\u8D77\u7B14\u4ED4\u7D30\u89C2\u5BDF\uFF0C\u773C\u524D\u4EFF\u4F5B\u51FA\u73B0\u8981\u753B\u7684\u7AF9\u5B50\uFF0C\u5C31\u8D76\u5FEB\u6355\u6349\u5B83\uFF0C\u6325\u7B14\u4E00\u76F4\u753B\u4E0B\u53BB\uFF0C\u4EE5\u8FFD\u4E0A\u5FC3\u4E2D\u6240\u89C1\u3002",
-      appreciation: "\u6210\u8BED\u5F3A\u8C03\u7684\u4E0D\u662F\u76F2\u76EE\u81EA\u4FE1\uFF0C\u800C\u662F\u5145\u5206\u51C6\u5907\u540E\u7684\u4ECE\u5BB9\u3002\u5199\u4F5C\u6587\u3001\u505A\u9879\u76EE\u4E4B\u524D\uFF0C\u5148\u60F3\u6E05\u7ED3\u6784\uFF0C\u4E5F\u80FD\u201C\u80F8\u6709\u6210\u7AF9\u201D\u3002",
-      keywords: ["\u753B\u7AF9", "\u51C6\u5907", "\u628A\u63E1", "\u82CF\u8F7C"],
-      tags: ["\u6210\u8BED", "\u827A\u672F", "\u51C6\u5907"],
-      image: "idiom-bamboo",
-      videoQuery: "\u80F8\u6709\u6210\u7AF9 \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "idiom-g5-yiqichenglang",
-      grade: 5,
-      category: "idiom",
-      title: "\u4E00\u9F13\u4F5C\u6C14",
-      author: "\u300A\u5DE6\u4F20\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u592B\u6218\uFF0C\u52C7\u6C14\u4E5F\u3002\u4E00\u9F13\u4F5C\u6C14\uFF0C\u518D\u800C\u8870\uFF0C\u4E09\u800C\u7AED\u3002",
-      pinyin: "f\u016B zh\xE0n\uFF0Cy\u01D2ng q\xEC y\u011B\u3002y\u012B g\u01D4 zu\xF2 q\xEC\uFF0Cz\xE0i \xE9r shu\u0101i\uFF0Cs\u0101n \xE9r ji\xE9\u3002",
-      summary: "\u4F5C\u6218\u9760\u52C7\u6C14\u3002\u7B2C\u4E00\u6B21\u51FB\u9F13\u65F6\u58EB\u6C14\u6700\u76DB\uFF0C\u7B2C\u4E8C\u6B21\u51CF\u5F31\uFF0C\u7B2C\u4E09\u6B21\u5C31\u8017\u5C3D\u4E86\u3002\u6BD4\u55BB\u8D81\u52B2\u5934\u5927\u65F6\u4E00\u53E3\u6C14\u628A\u4E8B\u60C5\u505A\u5B8C\u3002",
-      meaning: "\u4F5C\u6218\uFF0C\u9760\u7684\u662F\u52C7\u6C14\u3002\u7B2C\u4E00\u6B21\u51FB\u9F13\u80FD\u632F\u4F5C\u58EB\u6C14\uFF0C\u7B2C\u4E8C\u6B21\u51FB\u9F13\u58EB\u6C14\u5C31\u8870\u51CF\u4E86\uFF0C\u7B2C\u4E09\u6B21\u51FB\u9F13\u58EB\u6C14\u5C31\u8017\u5C3D\u4E86\u3002",
-      appreciation: "\u8FD9\u6BB5\u8BF4\u660E\u65F6\u673A\u548C\u72B6\u6001\u7684\u91CD\u8981\u6027\u3002\u5B66\u4E60\u548C\u505A\u4E8B\u4E5F\u8981\u6293\u4F4F\u6CE8\u610F\u529B\u6700\u96C6\u4E2D\u7684\u65F6\u5019\uFF0C\u4E00\u9F13\u4F5C\u6C14\u5B8C\u6210\u5173\u952E\u4EFB\u52A1\u3002",
-      keywords: ["\u51FB\u9F13", "\u58EB\u6C14", "\u65F6\u673A", "\u575A\u6301"],
-      tags: ["\u6210\u8BED", "\u5DE6\u4F20", "\u505A\u4E8B"],
-      image: "idiom-drum",
-      videoQuery: "\u4E00\u9F13\u4F5C\u6C14 \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "fable-g5-beigongshicha",
-      grade: 5,
-      category: "fable",
-      title: "\u676F\u5F13\u86C7\u5F71",
-      author: "\u300A\u664B\u4E66\u300B",
-      dynasty: "\u5510",
-      excerpt: "\u5C1D\u6709\u4EB2\u5BA2\uFF0C\u4E45\u9614\u4E0D\u590D\u6765\uFF0C\u5E7F\u95EE\u5176\u6545\u3002\u7B54\u66F0\uFF1A\u201C\u524D\u5728\u5750\uFF0C\u8499\u8D50\u9152\uFF0C\u65B9\u6B32\u996E\uFF0C\u89C1\u676F\u4E2D\u6709\u86C7\uFF0C\u610F\u751A\u6076\u4E4B\uFF0C\u65E2\u996E\u800C\u75BE\u3002\u201D",
-      pinyin: "ch\xE1ng y\u01D2u q\u012Bn k\xE8\uFF0Cji\u01D4 ku\xF2 b\xF9 f\xF9 l\xE1i\uFF0Cgu\u01CEng w\xE8n q\xED g\xF9\u3002d\xE1 yu\u0113\uFF1A\u201Cqi\xE1n z\xE0i zu\xF2\uFF0Cm\xE9ng c\xEC ji\u01D4\uFF0Cf\u0101ng y\xF9 y\u01D0n\uFF0Cji\xE0n b\u0113i zh\u014Dng y\u01D2u sh\xE9\uFF0Cy\xEC sh\xE8n \xE8 zh\u012B\uFF0Cj\xEC y\u01D0n \xE9r j\xED\u3002\u201D",
-      summary: "\u5BA2\u4EBA\u628A\u6620\u5728\u9152\u676F\u91CC\u7684\u5F13\u5F71\u5F53\u6210\u86C7\uFF0C\u559D\u4E0B\u9152\u540E\u603B\u89C9\u5F97\u751F\u75C5\u3002\u540E\u6765\u660E\u767D\u771F\u76F8\uFF0C\u75C5\u5C31\u597D\u4E86\u3002\u6545\u4E8B\u8BBD\u523A\u7591\u795E\u7591\u9B3C\u3001\u56E0\u9519\u89C9\u81EA\u6270\u3002",
-      meaning: "\u66FE\u6709\u4E00\u4F4D\u4EB2\u8FD1\u7684\u5BA2\u4EBA\uFF0C\u5F88\u4E45\u6CA1\u6709\u518D\u6765\uFF0C\u4E50\u5E7F\u95EE\u4ED6\u539F\u56E0\u3002\u5BA2\u4EBA\u56DE\u7B54\uFF1A\u201C\u4E0A\u6B21\u5728\u60A8\u5BB6\u5750\u7740\uFF0C\u8499\u60A8\u8D50\u9152\uFF0C\u6B63\u8981\u559D\u65F6\uFF0C\u770B\u89C1\u676F\u4E2D\u6709\u86C7\uFF0C\u5FC3\u91CC\u975E\u5E38\u538C\u6076\uFF0C\u559D\u4E0B\u53BB\u540E\u5C31\u75C5\u4E86\u3002\u201D",
-      appreciation: "\u6545\u4E8B\u63D0\u9192\u6211\u4EEC\uFF1A\u6050\u60E7\u6709\u65F6\u6765\u81EA\u9519\u8BEF\u4FE1\u606F\u3002\u9047\u5230\u56F0\u60D1\u65F6\uFF0C\u67E5\u660E\u771F\u76F8\uFF0C\u6BD4\u53CD\u590D\u731C\u6D4B\u66F4\u80FD\u6D88\u9664\u7126\u8651\u3002",
-      keywords: ["\u9152\u676F", "\u5F13\u5F71", "\u9519\u89C9", "\u6050\u60E7"],
-      tags: ["\u5BD3\u8A00", "\u5FC3\u7406", "\u771F\u76F8"],
-      image: "fable-cup",
-      videoQuery: "\u676F\u5F13\u86C7\u5F71 \u5BD3\u8A00\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "sanzi-g5-daxue",
-      grade: 5,
-      category: "sanzi",
-      title: "\u5927\u5B66\u4E4B\u9053",
-      author: "\u300A\u4E09\u5B57\u7ECF\u300B",
-      dynasty: "\u5357\u5B8B",
-      excerpt: "\u5927\u5B66\u4E4B\u9053\uFF0C\u5728\u660E\u660E\u5FB7\uFF0C\u5728\u4EB2\u6C11\uFF0C\u5728\u6B62\u4E8E\u81F3\u5584\u3002\n\u77E5\u6B62\u800C\u540E\u6709\u5B9A\uFF0C\u5B9A\u800C\u540E\u80FD\u9759\uFF0C\u9759\u800C\u540E\u80FD\u5B89\uFF0C\u5B89\u800C\u540E\u80FD\u8651\uFF0C\u8651\u800C\u540E\u80FD\u5F97\u3002",
-      pinyin: "d\xE0 xu\xE9 zh\u012B d\xE0o\uFF0Cz\xE0i m\xEDng m\xEDng d\xE9\uFF0Cz\xE0i q\u012Bn m\xEDn\uFF0Cz\xE0i zh\u01D0 y\xFA zh\xEC sh\xE0n\u3002\nzh\u012B zh\u01D0 \xE9r h\xF2u y\u01D2u d\xECng\uFF0Cd\xECng \xE9r h\xF2u n\xE9ng j\xECng\uFF0Cj\xECng \xE9r h\xF2u n\xE9ng \u0101n\uFF0C\u0101n \xE9r h\xF2u n\xE9ng l\u01DC\uFF0Cl\u01DC \xE9r h\xF2u n\xE9ng d\xE9\u3002",
-      summary: "\u5927\u5B66\u4E4B\u9053\u5728\u4E8E\u5F70\u663E\u5149\u660E\u5FB7\u884C\u3001\u4EB2\u8FD1\u6C11\u4F17\u3001\u8FBE\u5230\u81F3\u5584\u3002\u77E5\u9053\u76EE\u6807\u540E\u624D\u80FD\u5B89\u5B9A\uFF0C\u5B89\u5B9A\u540E\u624D\u80FD\u601D\u8003\uFF0C\u601D\u8003\u540E\u624D\u80FD\u6709\u6240\u6536\u83B7\u3002",
-      meaning: "\u5927\u5B66\u7684\u5B97\u65E8\uFF0C\u5728\u4E8E\u5F70\u663E\u5149\u660E\u7684\u54C1\u5FB7\uFF0C\u5728\u4E8E\u4EB2\u8FD1\u6C11\u4F17\uFF0C\u5728\u4E8E\u8FBE\u5230\u6700\u5B8C\u5584\u7684\u5883\u754C\u3002\u77E5\u9053\u5E94\u8BE5\u8FBE\u5230\u7684\u5883\u754C\u624D\u80FD\u5FD7\u5411\u575A\u5B9A\uFF1B\u5FD7\u5411\u575A\u5B9A\u624D\u80FD\u5FC3\u9759\uFF1B\u5FC3\u9759\u624D\u80FD\u5B89\u7A33\uFF1B\u5B89\u7A33\u624D\u80FD\u601D\u8651\u5468\u8BE6\uFF1B\u601D\u8651\u5468\u8BE6\u624D\u80FD\u6709\u6240\u6536\u83B7\u3002",
-      appreciation: "\u8FD9\u6BB5\u50CF\u4E00\u6761\u4ECE\u201C\u77E5\u201D\u5230\u201C\u5F97\u201D\u7684\u9636\u68AF\u3002\u5148\u786E\u5B9A\u65B9\u5411\uFF0C\u518D\u8BA9\u5FC3\u5B89\u5B9A\u4E0B\u6765\uFF0C\u6700\u540E\u624D\u80FD\u6DF1\u5165\u601D\u8003\u5E76\u83B7\u5F97\u6210\u679C\u3002",
-      keywords: ["\u660E\u5FB7", "\u76EE\u6807", "\u5B89\u5B9A", "\u601D\u8003"],
-      tags: ["\u4E09\u5B57\u7ECF", "\u5927\u5B66", "\u4FEE\u8EAB"],
-      image: "classic-books",
-      videoQuery: "\u4E09\u5B57\u7ECF \u5927\u5B66\u4E4B\u9053 \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "lunyu-g5-jianxian",
-      grade: 5,
-      category: "lunyu",
-      title: "\u89C1\u8D24\u601D\u9F50",
-      author: "\u300A\u8BBA\u8BED\u300B",
-      dynasty: "\u6625\u79CB",
-      excerpt: "\u5B50\u66F0\uFF1A\u201C\u89C1\u8D24\u601D\u9F50\u7109\uFF0C\u89C1\u4E0D\u8D24\u800C\u5185\u81EA\u7701\u4E5F\u3002\u201D",
-      pinyin: "z\u01D0 yu\u0113\uFF1A\u201Cji\xE0n xi\xE1n s\u012B q\xED y\u0101n\uFF0Cji\xE0n b\xF9 xi\xE1n \xE9r n\xE8i z\xEC x\u01D0ng y\u011B\u3002\u201D",
-      summary: "\u770B\u5230\u6709\u624D\u5FB7\u7684\u4EBA\uFF0C\u5C31\u60F3\u7740\u5411\u4ED6\u770B\u9F50\uFF1B\u770B\u5230\u6CA1\u6709\u624D\u5FB7\u7684\u4EBA\uFF0C\u5C31\u5728\u5185\u5FC3\u53CD\u7701\u81EA\u5DF1\u6709\u6CA1\u6709\u540C\u6837\u7684\u95EE\u9898\u3002",
-      meaning: "\u5B54\u5B50\u8BF4\uFF1A\u201C\u770B\u89C1\u6709\u5FB7\u884C\u3001\u6709\u624D\u80FD\u7684\u4EBA\uFF0C\u5C31\u60F3\u7740\u5411\u4ED6\u770B\u9F50\uFF1B\u770B\u89C1\u6CA1\u6709\u5FB7\u884C\u7684\u4EBA\uFF0C\u5C31\u5728\u5185\u5FC3\u53CD\u7701\u81EA\u5DF1\u3002\u201D",
-      appreciation: "\u8FD9\u53E5\u8BDD\u7ED9\u51FA\u4E86\u4E00\u4E2A\u5F88\u597D\u7684\u6210\u957F\u65B9\u6CD5\uFF1A\u628A\u4ED6\u4EBA\u7684\u4F18\u70B9\u5F53\u699C\u6837\uFF0C\u628A\u4ED6\u4EBA\u7684\u7F3A\u70B9\u5F53\u955C\u5B50\u3002",
-      keywords: ["\u8D24\u4EBA", "\u699C\u6837", "\u53CD\u7701", "\u6210\u957F"],
-      tags: ["\u8BBA\u8BED", "\u81EA\u7701", "\u699C\u6837"],
-      image: "classic-lunyu",
-      videoQuery: "\u8BBA\u8BED \u89C1\u8D24\u601D\u9F50 \u513F\u7AE5 \u8BB2\u89E3"
-    },
-    {
-      id: "dizigui-g5-fanqu",
-      grade: 5,
-      category: "dizigui",
-      title: "\u51E1\u53D6\u4E0E\uFF0C\u8D35\u5206\u6653",
-      author: "\u300A\u5F1F\u5B50\u89C4\u300B",
-      dynasty: "\u6E05",
-      excerpt: "\u51E1\u53D6\u4E0E\uFF0C\u8D35\u5206\u6653\u3002\u4E0E\u5B9C\u591A\uFF0C\u53D6\u5B9C\u5C11\u3002\n\u5C06\u52A0\u4EBA\uFF0C\u5148\u95EE\u5DF1\u3002\u5DF1\u4E0D\u6B32\uFF0C\u5373\u901F\u5DF2\u3002",
-      pinyin: "f\xE1n q\u01D4 y\u01D4\uFF0Cgu\xEC f\u0113n xi\u01CEo\u3002y\u01D4 y\xED du\u014D\uFF0Cq\u01D4 y\xED sh\u01CEo\u3002\nji\u0101ng ji\u0101 r\xE9n\uFF0Cxi\u0101n w\xE8n j\u01D0\u3002j\u01D0 b\xF9 y\xF9\uFF0Cj\xED s\xF9 y\u01D0\u3002",
-      summary: "\u53D6\u5F97\u548C\u7ED9\u4E88\u8981\u6E05\u695A\u660E\u767D\uFF0C\u5B81\u53EF\u591A\u7ED9\u5C11\u53D6\u3002\u8981\u6C42\u522B\u4EBA\u505A\u67D0\u4E8B\u4E4B\u524D\uFF0C\u5148\u95EE\u81EA\u5DF1\u613F\u4E0D\u613F\u610F\uFF1B\u81EA\u5DF1\u4E0D\u613F\u610F\uFF0C\u5C31\u5E94\u7ACB\u523B\u505C\u6B62\u3002",
-      meaning: "\u51E1\u662F\u62FF\u53D6\u548C\u7ED9\u4E88\uFF0C\u90FD\u8981\u5206\u6E05\u660E\u767D\u3002\u7ED9\u4E88\u522B\u4EBA\u5E94\u8BE5\u591A\u4E00\u4E9B\uFF0C\u81EA\u5DF1\u53D6\u5F97\u5E94\u8BE5\u5C11\u4E00\u4E9B\u3002\u5C06\u8981\u52A0\u5728\u522B\u4EBA\u8EAB\u4E0A\u7684\u4E8B\u60C5\uFF0C\u5148\u95EE\u95EE\u81EA\u5DF1\u3002\u81EA\u5DF1\u4E0D\u613F\u610F\u63A5\u53D7\uFF0C\u5C31\u8D76\u5FEB\u505C\u6B62\u3002",
-      appreciation: "\u201C\u5DF1\u4E0D\u6B32\uFF0C\u5373\u901F\u5DF2\u201D\u662F\u5904\u7406\u4EBA\u9645\u5173\u7CFB\u7684\u91CD\u8981\u539F\u5219\u3002\u5B83\u63D0\u9192\u6211\u4EEC\u6362\u4F4D\u601D\u8003\uFF0C\u4E0D\u4EE5\u81EA\u5DF1\u4E0D\u559C\u6B22\u7684\u65B9\u5F0F\u5BF9\u5F85\u522B\u4EBA\u3002",
-      keywords: ["\u7ED9\u4E88", "\u53D6\u5F97", "\u6362\u4F4D", "\u5C0A\u91CD"],
-      tags: ["\u5F1F\u5B50\u89C4", "\u76F8\u5904", "\u54C1\u683C"],
-      image: "classic-family",
-      videoQuery: "\u5F1F\u5B50\u89C4 \u51E1\u53D6\u4E0E \u8D35\u5206\u6653 \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "qianziwen-g5-chibizhenbao",
-      grade: 5,
-      category: "qianziwen",
-      title: "\u5C3A\u74A7\u975E\u5B9D",
-      author: "\u5468\u5174\u55E3",
-      dynasty: "\u5357\u671D\u6881",
-      excerpt: "\u5C3A\u74A7\u975E\u5B9D\uFF0C\u5BF8\u9634\u662F\u7ADE\u3002\n\u8D44\u7236\u4E8B\u541B\uFF0C\u66F0\u4E25\u4E0E\u656C\u3002",
-      pinyin: "ch\u01D0 b\xEC f\u0113i b\u01CEo\uFF0Cc\xF9n y\u012Bn sh\xEC j\xECng\u3002\nz\u012B f\xF9 sh\xEC j\u016Bn\uFF0Cyu\u0113 y\xE1n y\u01D4 j\xECng\u3002",
-      summary: "\u4E00\u5C3A\u7F8E\u7389\u4E0D\u7B97\u771F\u6B63\u7684\u5B9D\u8D1D\uFF0C\u4E00\u5BF8\u5149\u9634\u624D\u503C\u5F97\u73CD\u60DC\u3002\u5949\u517B\u7236\u6BCD\u3001\u4F8D\u5949\u541B\u4E3B\uFF0C\u8981\u6000\u7740\u4E25\u8083\u548C\u606D\u656C\u3002",
-      meaning: "\u4E00\u5C3A\u957F\u7684\u7F8E\u7389\u4E0D\u80FD\u7B97\u662F\u5B9D\u8D1D\uFF0C\u4E00\u5BF8\u5149\u9634\u624D\u503C\u5F97\u4E89\u53D6\u73CD\u60DC\u3002\u5949\u517B\u7236\u4EB2\u3001\u4F8D\u5949\u541B\u4E3B\uFF0C\u8981\u505A\u5230\u4E25\u8083\u548C\u606D\u656C\u3002",
-      appreciation: "\u201C\u5C3A\u74A7\u201D\u4E0E\u201C\u5BF8\u9634\u201D\u7684\u5BF9\u6BD4\u5F88\u6709\u529B\u5EA6\uFF1A\u8D22\u7269\u53EF\u4EE5\u518D\u5F97\uFF0C\u65F6\u95F4\u5374\u4E0D\u4F1A\u56DE\u5934\u3002\u4ECA\u5929\u7684\u6211\u4EEC\u53EF\u4EE5\u628A\u5B83\u7406\u89E3\u4E3A\u73CD\u60DC\u65F6\u95F4\u3001\u5C0A\u91CD\u4ED6\u4EBA\u3002",
-      keywords: ["\u65F6\u95F4", "\u7F8E\u7389", "\u73CD\u60DC", "\u606D\u656C"],
-      tags: ["\u5343\u5B57\u6587", "\u60DC\u65F6", "\u54C1\u683C"],
-      image: "classic-jade",
-      videoQuery: "\u5343\u5B57\u6587 \u5C3A\u74A7\u975E\u5B9D \u513F\u7AE5 \u8BF5\u8BFB"
-    }
-  ];
-
-  // assets/grade6.js
-  var grade6 = [
-    {
-      id: "poetry-g6-qingpingyue",
-      grade: 6,
-      category: "poetry",
-      title: "\u6E05\u5E73\u4E50\xB7\u6751\u5C45",
-      author: "\u8F9B\u5F03\u75BE",
-      dynasty: "\u5B8B",
-      excerpt: "\u8305\u6A90\u4F4E\u5C0F\uFF0C\u6EAA\u4E0A\u9752\u9752\u8349\u3002\n\u9189\u91CC\u5434\u97F3\u76F8\u5A9A\u597D\uFF0C\u767D\u53D1\u8C01\u5BB6\u7FC1\u5AAA\uFF1F\n\u5927\u513F\u9504\u8C46\u6EAA\u4E1C\uFF0C\u4E2D\u513F\u6B63\u7EC7\u9E21\u7B3C\u3002\n\u6700\u559C\u5C0F\u513F\u4EA1\u8D56\uFF0C\u6EAA\u5934\u5367\u5265\u83B2\u84EC\u3002",
-      pinyin: "m\xE1o y\xE1n d\u012B xi\u01CEo\uFF0Cx\u012B sh\xE0ng q\u012Bng q\u012Bng c\u01CEo\u3002\nzu\xEC l\u01D0 w\xFA y\u012Bn xi\u0101ng m\xE8i h\u01CEo\uFF0Cb\xE1i f\xE0 shu\xED ji\u0101 w\u0113ng \u01CEo\uFF1F\nd\xE0 \xE9r ch\xFA d\xF2u x\u012B d\u014Dng\uFF0Czh\u014Dng \xE9r zh\xE8ng zh\u012B j\u012B l\xF3ng\u3002\nzu\xEC x\u01D0 xi\u01CEo \xE9r w\xFA l\xE0i\uFF0Cx\u012B t\xF3u w\xF2 b\u0101o li\xE1n peng\u3002",
-      summary: "\u8F9B\u5F03\u75BE\u7528\u767D\u63CF\u624B\u6CD5\u5199\u6C5F\u5357\u519C\u5BB6\u751F\u6D3B\uFF1A\u4F4E\u77EE\u8305\u5C4B\u3001\u9752\u9752\u6EAA\u8349\u3001\u767D\u53D1\u592B\u59BB\u3001\u52B3\u52A8\u7684\u513F\u5B50\u548C\u6EAA\u8FB9\u5265\u83B2\u84EC\u7684\u5C0F\u513F\uFF0C\u5B89\u5B81\u53C8\u6D3B\u6CFC\u3002",
-      meaning: "\u8305\u8349\u5C4B\u53C8\u4F4E\u53C8\u5C0F\uFF0C\u6EAA\u8FB9\u957F\u6EE1\u9752\u9752\u7684\u8349\u3002\u542B\u9189\u610F\u7684\u5434\u5730\u65B9\u8A00\u542C\u8D77\u6765\u6E29\u67D4\u4EB2\u5207\uFF0C\u90A3\u6EE1\u5934\u767D\u53D1\u7684\u662F\u8C01\u5BB6\u7684\u8001\u592B\u59BB\uFF1F\u5927\u513F\u5B50\u5728\u6EAA\u4E1C\u8C46\u7530\u9504\u8349\uFF0C\u4E8C\u513F\u5B50\u6B63\u5728\u7F16\u9E21\u7B3C\u3002\u6700\u559C\u6B22\u987D\u76AE\u7684\u5C0F\u513F\u5B50\uFF0C\u8DB4\u5728\u6EAA\u5934\u5265\u83B2\u84EC\u3002",
-      appreciation: "\u8BCD\u4E2D\u4EBA\u7269\u5404\u6709\u52A8\u4F5C\uFF0C\u50CF\u4E00\u5E45\u751F\u6D3B\u957F\u5377\u3002\u6700\u540E\u201C\u5367\u5265\u83B2\u84EC\u201D\u7684\u7EC6\u8282\u6700\u4F20\u795E\uFF0C\u8BA9\u6574\u9996\u8BCD\u5145\u6EE1\u7B11\u58F0\u548C\u70DF\u706B\u6C14\u3002",
-      keywords: ["\u6751\u5C45", "\u519C\u5BB6", "\u6EAA\u6C34", "\u83B2\u84EC"],
-      tags: ["\u8F9B\u5F03\u75BE", "\u5B8B\u8BCD", "\u7530\u56ED"],
-      image: "poetry-village",
-      videoQuery: "\u6E05\u5E73\u4E50\u6751\u5C45 \u8F9B\u5F03\u75BE \u513F\u7AE5 \u5B8B\u8BCD \u8BB2\u89E3"
-    },
-    {
-      id: "poetry-g6-tianjingsha",
-      grade: 6,
-      category: "poetry",
-      title: "\u5929\u51C0\u6C99\xB7\u79CB\u601D",
-      author: "\u9A6C\u81F4\u8FDC",
-      dynasty: "\u5143",
-      excerpt: "\u67AF\u85E4\u8001\u6811\u660F\u9E26\uFF0C\u5C0F\u6865\u6D41\u6C34\u4EBA\u5BB6\uFF0C\u53E4\u9053\u897F\u98CE\u7626\u9A6C\u3002\n\u5915\u9633\u897F\u4E0B\uFF0C\u65AD\u80A0\u4EBA\u5728\u5929\u6DAF\u3002",
-      pinyin: "k\u016B t\xE9ng l\u01CEo sh\xF9 h\u016Bn y\u0101\uFF0Cxi\u01CEo qi\xE1o li\xFA shu\u01D0 r\xE9n ji\u0101\uFF0Cg\u01D4 d\xE0o x\u012B f\u0113ng sh\xF2u m\u01CE\u3002\nx\u012B y\xE1ng x\u012B xi\xE0\uFF0Cdu\xE0n ch\xE1ng r\xE9n z\xE0i ti\u0101n y\xE1\u3002",
-      summary: "\u67AF\u85E4\u3001\u8001\u6811\u3001\u660F\u9E26\u3001\u53E4\u9053\u3001\u7626\u9A6C\u7B49\u610F\u8C61\u5C42\u5C42\u53E0\u52A0\uFF0C\u5199\u51FA\u884C\u65C5\u4E4B\u4EBA\u5728\u5915\u9633\u4E0B\u6F02\u6CCA\u5929\u6DAF\u7684\u5B64\u72EC\u4E0E\u601D\u4E61\u3002",
-      meaning: "\u67AF\u85E4\u7F20\u7ED5\u7740\u8001\u6811\uFF0C\u9EC4\u660F\u7684\u4E4C\u9E26\u5F52\u5DE2\uFF1B\u5C0F\u6865\u4E0B\u6D41\u6C34\u6F7A\u6F7A\uFF0C\u65C1\u8FB9\u6709\u4EBA\u5BB6\uFF1B\u53E4\u8001\u7684\u9053\u8DEF\u4E0A\uFF0C\u897F\u98CE\u9635\u9635\uFF0C\u4E00\u5339\u7626\u9A6C\u7F13\u7F13\u524D\u884C\u3002\u5915\u9633\u5411\u897F\u843D\u4E0B\uFF0C\u6F02\u6CCA\u5929\u6DAF\u7684\u6E38\u5B50\u6101\u80A0\u5BF8\u65AD\u3002",
-      appreciation: "\u524D\u4E09\u53E5\u51E0\u4E4E\u5168\u662F\u540D\u8BCD\u7EC4\u5408\uFF0C\u50CF\u7535\u5F71\u8499\u592A\u5947\u4E00\u6837\u5207\u6362\u753B\u9762\u3002\u51B7\u8272\u8C03\u7684\u666F\u7269\u4E0E\u201C\u4EBA\u5BB6\u201D\u7684\u6E29\u6696\u5F62\u6210\u5BF9\u6BD4\uFF0C\u66F4\u663E\u51FA\u65C5\u4EBA\u7684\u5B64\u5355\u3002",
-      keywords: ["\u79CB\u601D", "\u53E4\u9053", "\u7626\u9A6C", "\u6E38\u5B50"],
-      tags: ["\u9A6C\u81F4\u8FDC", "\u5143\u66F2", "\u601D\u4E61"],
-      image: "poetry-autumn-road",
-      videoQuery: "\u5929\u51C0\u6C99\u79CB\u601D \u9A6C\u81F4\u8FDC \u513F\u7AE5 \u5143\u66F2 \u8BB2\u89E3"
-    },
-    {
-      id: "poetry-g6-qinyuanchun",
-      grade: 6,
-      category: "poetry",
-      title: "\u6C81\u56ED\u6625\xB7\u96EA",
-      author: "\u6BDB\u6CFD\u4E1C",
-      dynasty: "\u8FD1\u73B0\u4EE3",
-      excerpt: "\u5317\u56FD\u98CE\u5149\uFF0C\u5343\u91CC\u51B0\u5C01\uFF0C\u4E07\u91CC\u96EA\u98D8\u3002\n\u671B\u957F\u57CE\u5185\u5916\uFF0C\u60DF\u4F59\u83BD\u83BD\uFF1B\u5927\u6CB3\u4E0A\u4E0B\uFF0C\u987F\u5931\u6ED4\u6ED4\u3002\n\u5C71\u821E\u94F6\u86C7\uFF0C\u539F\u9A70\u8721\u8C61\uFF0C\u6B32\u4E0E\u5929\u516C\u8BD5\u6BD4\u9AD8\u3002",
-      pinyin: "b\u011Bi gu\xF3 f\u0113ng gu\u0101ng\uFF0Cqi\u0101n l\u01D0 b\u012Bng f\u0113ng\uFF0Cw\xE0n l\u01D0 xu\u011B pi\u0101o\u3002\nw\xE0ng ch\xE1ng ch\xE9ng n\xE8i w\xE0i\uFF0Cw\xE9i y\xFA m\u01CEng m\u01CEng\uFF1Bd\xE0 h\xE9 sh\xE0ng xi\xE0\uFF0Cd\xF9n sh\u012B t\u0101o t\u0101o\u3002\nsh\u0101n w\u01D4 y\xEDn sh\xE9\uFF0Cyu\xE1n ch\xED l\xE0 xi\xE0ng\uFF0Cy\xF9 y\u01D4 ti\u0101n g\u014Dng sh\xEC b\u01D0 g\u0101o\u3002",
-      summary: "\u8BCD\u4F5C\u4EE5\u5B8F\u5927\u89C6\u91CE\u63CF\u5199\u5317\u56FD\u96EA\u666F\uFF0C\u957F\u57CE\u3001\u5927\u6CB3\u3001\u7FA4\u5C71\u3001\u9AD8\u539F\u90FD\u6210\u4E3A\u58EE\u4E3D\u753B\u9762\uFF0C\u5C55\u73B0\u5F00\u9614\u7684\u80F8\u895F\u548C\u8C6A\u8FC8\u6C14\u9B44\u3002",
-      meaning: "\u5317\u65B9\u7684\u98CE\u5149\uFF0C\u5343\u91CC\u5927\u5730\u51B0\u5C01\uFF0C\u4E07\u91CC\u5929\u7A7A\u96EA\u82B1\u98D8\u821E\u3002\u8FDC\u671B\u957F\u57CE\u5185\u5916\uFF0C\u53EA\u5269\u4E0B\u767D\u832B\u832B\u4E00\u7247\uFF1B\u9EC4\u6CB3\u4E0A\u4E0B\uFF0C\u987F\u65F6\u5931\u53BB\u4E86\u6CE2\u6D9B\u6EDA\u6EDA\u7684\u6C14\u52BF\u3002\u7FA4\u5C71\u50CF\u94F6\u86C7\u98DE\u821E\uFF0C\u9AD8\u539F\u50CF\u767D\u8C61\u5954\u8DD1\uFF0C\u4F3C\u4E4E\u60F3\u548C\u5929\u516C\u6BD4\u9AD8\u4F4E\u3002",
-      appreciation: "\u201C\u821E\u201D\u201C\u9A70\u201D\u628A\u9759\u6001\u96EA\u5C71\u5199\u6210\u52A8\u6001\u751F\u547D\u3002\u8BFB\u8FD9\u9996\u8BCD\u53EF\u4EE5\u5B66\u4E60\u5982\u4F55\u7528\u5927\u89C6\u91CE\u5199\u666F\uFF0C\u4E5F\u53EF\u4F53\u4F1A\u666F\u4E0E\u60C5\u5982\u4F55\u76F8\u4E92\u6620\u7167\u3002",
-      keywords: ["\u5317\u56FD", "\u96EA\u666F", "\u957F\u57CE", "\u8C6A\u8FC8"],
-      tags: ["\u6BDB\u6CFD\u4E1C", "\u73B0\u4EE3\u8BD7", "\u5199\u666F"],
-      image: "poetry-snow",
-      videoQuery: "\u6C81\u56ED\u6625\u96EA \u513F\u7AE5 \u6717\u8BFB \u8D4F\u6790"
-    },
-    {
-      id: "poetry-g6-songyuaner",
-      grade: 6,
-      category: "poetry",
-      title: "\u9001\u5143\u4E8C\u4F7F\u5B89\u897F",
-      author: "\u738B\u7EF4",
-      dynasty: "\u5510",
-      excerpt: "\u6E2D\u57CE\u671D\u96E8\u6D65\u8F7B\u5C18\uFF0C\u5BA2\u820D\u9752\u9752\u67F3\u8272\u65B0\u3002\n\u529D\u541B\u66F4\u5C3D\u4E00\u676F\u9152\uFF0C\u897F\u51FA\u9633\u5173\u65E0\u6545\u4EBA\u3002",
-      pinyin: "w\xE8i ch\xE9ng zh\u0101o y\u01D4 y\xEC q\u012Bng ch\xE9n\uFF0Ck\xE8 sh\xE8 q\u012Bng q\u012Bng li\u01D4 s\xE8 x\u012Bn\u3002\nqu\xE0n j\u016Bn g\xE8ng j\xECn y\u012B b\u0113i ji\u01D4\uFF0Cx\u012B ch\u016B y\xE1ng gu\u0101n w\xFA g\xF9 r\xE9n\u3002",
-      summary: "\u6E05\u6668\u7EC6\u96E8\u6D17\u51C0\u6E2D\u57CE\u5C18\u571F\uFF0C\u67F3\u8272\u6E05\u65B0\u3002\u8BD7\u4EBA\u529D\u670B\u53CB\u518D\u996E\u4E00\u676F\u9152\uFF0C\u56E0\u4E3A\u5411\u897F\u51FA\u4E86\u9633\u5173\u5C31\u96BE\u9047\u6545\u4EBA\u3002",
-      meaning: "\u6E2D\u57CE\u6E05\u6668\u7684\u7EC6\u96E8\u6DA6\u6E7F\u4E86\u5730\u4E0A\u7684\u8F7B\u5C18\uFF0C\u65C5\u820D\u65C1\u7684\u67F3\u6811\u663E\u5F97\u683C\u5916\u9752\u7FE0\u3002\u529D\u4F60\u518D\u559D\u4E00\u676F\u9152\u5427\uFF0C\u5411\u897F\u51FA\u4E86\u9633\u5173\uFF0C\u5C31\u518D\u4E5F\u6CA1\u6709\u8001\u670B\u53CB\u4E86\u3002",
-      appreciation: "\u524D\u4E24\u53E5\u6E05\u65B0\u660E\u6717\uFF0C\u540E\u4E24\u53E5\u6DF1\u60C5\u4F9D\u4F9D\u3002\u8BF7\u9152\u7684\u52A8\u4F5C\u6734\u7D20\uFF0C\u5374\u628A\u60DC\u522B\u4E4B\u60C5\u5199\u5230\u6781\u5904\u3002",
-      keywords: ["\u9001\u522B", "\u6E2D\u57CE", "\u9633\u5173", "\u670B\u53CB"],
-      tags: ["\u738B\u7EF4", "\u9001\u522B", "\u53CB\u60C5"],
-      image: "poetry-farewell",
-      videoQuery: "\u9001\u5143\u4E8C\u4F7F\u5B89\u897F \u738B\u7EF4 \u513F\u7AE5 \u53E4\u8BD7 \u6717\u8BFB"
-    },
-    {
-      id: "idiom-g6-jiaotashidi",
-      grade: 6,
-      category: "idiom",
-      title: "\u811A\u8E0F\u5B9E\u5730",
-      author: "\u300A\u6731\u5B50\u8BED\u7C7B\u300B",
-      dynasty: "\u5B8B",
-      excerpt: "\u95EE\uFF1A\u201C\u5B66\u4EE5\u4F55\u4E3A\u5148\uFF1F\u201D\u66F0\uFF1A\u201C\u5B66\u4EE5\u7ACB\u5FD7\u4E3A\u5148\u3002\u201D\u2026\u2026\u53C8\u95EE\uFF1A\u201C\u5982\u4F55\u7ACB\u5FD7\uFF1F\u201D\u66F0\uFF1A\u201C\u987B\u662F\u811A\u8E0F\u5B9E\u5730\u3002\u201D",
-      pinyin: "w\xE8n\uFF1A\u201Cxu\xE9 y\u01D0 h\xE9 w\xE9i xi\u0101n\uFF1F\u201Dyu\u0113\uFF1A\u201Cxu\xE9 y\u01D0 l\xEC zh\xEC w\xE9i xi\u0101n\u3002\u201D\u2026\u2026y\xF2u w\xE8n\uFF1A\u201Cr\xFA h\xE9 l\xEC zh\xEC\uFF1F\u201Dyu\u0113\uFF1A\u201Cx\u016B sh\xEC ji\u01CEo t\xE0 sh\xED d\xEC\u3002\u201D",
-      summary: "\u5B66\u4E60\u8981\u5148\u7ACB\u5FD7\uFF0C\u800C\u7ACB\u5FD7\u8981\u843D\u5230\u5B9E\u5904\u3002\u6210\u8BED\u5F62\u5BB9\u505A\u4E8B\u8BA4\u771F\u8E0F\u5B9E\uFF0C\u4E0D\u6D6E\u5938\u3001\u4E0D\u7A7A\u60F3\u3002",
-      meaning: "\u6709\u4EBA\u95EE\uFF1A\u201C\u5B66\u4E60\u5E94\u8BE5\u628A\u4EC0\u4E48\u653E\u5728\u7B2C\u4E00\u4F4D\uFF1F\u201D\u56DE\u7B54\u8BF4\uFF1A\u201C\u5B66\u4E60\u5E94\u8BE5\u5148\u7ACB\u5FD7\u3002\u201D\u2026\u2026\u53C8\u95EE\uFF1A\u201C\u600E\u6837\u7ACB\u5FD7\uFF1F\u201D\u56DE\u7B54\u8BF4\uFF1A\u201C\u5FC5\u987B\u811A\u8E0F\u5B9E\u5730\u3002\u201D",
-      appreciation: "\u201C\u811A\u8E0F\u5B9E\u5730\u201D\u628A\u62BD\u8C61\u7684\u7406\u60F3\u53D8\u6210\u53EF\u4EE5\u6267\u884C\u7684\u4E00\u6B65\u6B65\u884C\u52A8\u3002\u76EE\u6807\u518D\u5927\uFF0C\u4E5F\u8981\u4ECE\u4ECA\u5929\u80FD\u505A\u7684\u4E8B\u5F00\u59CB\u3002",
-      keywords: ["\u5B66\u4E60", "\u7ACB\u5FD7", "\u8E0F\u5B9E", "\u884C\u52A8"],
-      tags: ["\u6210\u8BED", "\u5B66\u4E60", "\u884C\u52A8"],
-      image: "idiom-mountain",
-      videoQuery: "\u811A\u8E0F\u5B9E\u5730 \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "idiom-g6-jingyijingren",
-      grade: 6,
-      category: "idiom",
-      title: "\u7CBE\u76CA\u6C42\u7CBE",
-      author: "\u300A\u8BBA\u8BED\u96C6\u6CE8\u300B",
-      dynasty: "\u5B8B",
-      excerpt: "\u8A00\u6CBB\u9AA8\u89D2\u8005\uFF0C\u65E2\u5207\u4E4B\u800C\u590D\u78CB\u4E4B\uFF1B\u6CBB\u7389\u77F3\u8005\uFF0C\u65E2\u7422\u4E4B\u800C\u590D\u78E8\u4E4B\uFF0C\u7686\u8A00\u5176\u6CBB\u4E4B\u5DF2\u7CBE\uFF0C\u800C\u76CA\u6C42\u5176\u7CBE\u4E5F\u3002",
-      pinyin: "y\xE1n zh\xEC g\u01D4 ji\u01CEo zh\u011B\uFF0Cj\xEC qi\u0113 zh\u012B \xE9r f\xF9 cu\u014D zh\u012B\uFF1Bzh\xEC y\xF9 sh\xED zh\u011B\uFF0Cj\xEC zhu\xF3 zh\u012B \xE9r f\xF9 m\xF3 zh\u012B\uFF0Cji\u0113 y\xE1n q\xED zh\xEC zh\u012B y\u01D0 j\u012Bng\uFF0C\xE9r y\xEC qi\xFA q\xED j\u012Bng y\u011B\u3002",
-      summary: "\u52A0\u5DE5\u9AA8\u89D2\u3001\u7389\u77F3\uFF0C\u5207\u4E86\u8FD8\u8981\u78CB\uFF0C\u7422\u4E86\u8FD8\u8981\u78E8\u3002\u6BD4\u55BB\u5DF2\u7ECF\u5F88\u597D\u4E86\uFF0C\u8FD8\u8981\u6C42\u66F4\u597D\u3002",
-      meaning: "\u8BF4\u7684\u662F\u52A0\u5DE5\u9AA8\u89D2\uFF0C\u5207\u5F00\u4E86\u8FD8\u8981\u78CB\u6CBB\uFF1B\u52A0\u5DE5\u7389\u77F3\uFF0C\u96D5\u7422\u4E86\u8FD8\u8981\u6253\u78E8\u3002\u90FD\u662F\u8BF4\u5B83\u4EEC\u5DF2\u7ECF\u505A\u5F97\u5F88\u7CBE\u7EC6\uFF0C\u5374\u8FD8\u8981\u8FFD\u6C42\u66F4\u52A0\u7CBE\u7EC6\u3002",
-      appreciation: "\u5B83\u548C\u201C\u5B8C\u7F8E\u4E3B\u4E49\u201D\u4E0D\u540C\uFF1A\u4E0D\u662F\u56E0\u4E3A\u5BB3\u6015\u4E0D\u5B8C\u7F8E\u800C\u505C\u6EDE\uFF0C\u800C\u662F\u5B8C\u6210\u4EE5\u540E\u7EE7\u7EED\u6539\u8FDB\u3002\u5199\u6587\u7AE0\u3001\u505A\u4F5C\u54C1\u90FD\u53EF\u4EE5\u8FD9\u6837\u3002",
-      keywords: ["\u5207\u78CB", "\u7422\u78E8", "\u6539\u8FDB", "\u7CBE\u7EC6"],
-      tags: ["\u6210\u8BED", "\u5B66\u4E60", "\u5DE5\u5320"],
-      image: "idiom-jade",
-      videoQuery: "\u7CBE\u76CA\u6C42\u7CBE \u6210\u8BED\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "fable-g6-yegonghao",
-      grade: 6,
-      category: "fable",
-      title: "\u53F6\u516C\u597D\u9F99",
-      author: "\u5218\u5411",
-      dynasty: "\u6C49",
-      excerpt: "\u53F6\u516C\u5B50\u9AD8\u597D\u9F99\uFF0C\u94A9\u4EE5\u5199\u9F99\uFF0C\u51FF\u4EE5\u5199\u9F99\uFF0C\u5C4B\u5BA4\u96D5\u6587\u4EE5\u5199\u9F99\u3002\u4E8E\u662F\u5929\u9F99\u95FB\u800C\u4E0B\u4E4B\uFF0C\u7AA5\u5934\u4E8E\u7256\uFF0C\u65BD\u5C3E\u4E8E\u5802\u3002\u53F6\u516C\u89C1\u4E4B\uFF0C\u5F03\u800C\u8FD8\u8D70\uFF0C\u5931\u5176\u9B42\u9B44\uFF0C\u4E94\u8272\u65E0\u4E3B\u3002",
-      pinyin: "y\xE8 g\u014Dng z\u01D0 g\u0101o h\xE0o l\xF3ng\uFF0Cg\u014Du y\u01D0 xi\u011B l\xF3ng\uFF0Cz\xE1o y\u01D0 xi\u011B l\xF3ng\uFF0Cw\u016B sh\xEC di\u0101o w\xE9n y\u01D0 xi\u011B l\xF3ng\u3002y\xFA sh\xEC ti\u0101n l\xF3ng w\xE9n \xE9r xi\xE0 zh\u012B\uFF0Cku\u012B t\xF3u y\xFA y\u01D2u\uFF0Csh\u012B w\u011Bi y\xFA t\xE1ng\u3002y\xE8 g\u014Dng ji\xE0n zh\u012B\uFF0Cq\xEC \xE9r hu\xE1n z\u01D2u\uFF0Csh\u012B q\xED h\xFAn p\xF2\uFF0Cw\u01D4 s\xE8 w\xFA zh\u01D4\u3002",
-      summary: "\u53F6\u516C\u5230\u5904\u753B\u9F99\u3001\u523B\u9F99\uFF0C\u58F0\u79F0\u559C\u6B22\u9F99\u3002\u771F\u9F99\u6765\u5230\u4ED6\u5BB6\uFF0C\u4ED6\u5374\u5413\u5F97\u9003\u8DD1\u3002\u6545\u4E8B\u8BBD\u523A\u8868\u9762\u7231\u597D\u3001\u5B9E\u9645\u5BB3\u6015\u6216\u5E76\u4E0D\u4E86\u89E3\u7684\u4E8B\u7269\u3002",
-      meaning: "\u53F6\u516C\u5B50\u9AD8\u559C\u6B22\u9F99\uFF0C\u8863\u5E26\u94A9\u4E0A\u753B\u9F99\uFF0C\u9152\u5668\u4E0A\u523B\u9F99\uFF0C\u623F\u5C4B\u96D5\u9970\u4E5F\u523B\u9F99\u3002\u5929\u4E0A\u7684\u771F\u9F99\u542C\u8BF4\u540E\u4E0B\u6765\uFF0C\u628A\u5934\u63A2\u8FDB\u7A97\u6237\uFF0C\u5C3E\u5DF4\u62D6\u5728\u5385\u5802\u91CC\u3002\u53F6\u516C\u770B\u89C1\u540E\u8F6C\u8EAB\u9003\u8DD1\uFF0C\u5413\u5F97\u5931\u9B42\u843D\u9B44\uFF0C\u8138\u8272\u90FD\u53D8\u4E86\u3002",
-      appreciation: "\u201C\u597D\u9F99\u201D\u4E0E\u201C\u89C1\u9F99\u800C\u9003\u201D\u7684\u53CD\u5DEE\u6784\u6210\u7B11\u70B9\uFF0C\u4E5F\u63ED\u793A\u4E86\u4E00\u4E2A\u95EE\u9898\uFF1A\u771F\u6B63\u7684\u559C\u7231\uFF0C\u5E94\u8BE5\u7ECF\u5F97\u8D77\u771F\u5B9E\u63A5\u89E6\u3002",
-      keywords: ["\u53F6\u516C", "\u9F99", "\u8868\u9762", "\u771F\u5B9E"],
-      tags: ["\u5BD3\u8A00", "\u8BBD\u523A", "\u771F\u76F8"],
-      image: "fable-dragon",
-      videoQuery: "\u53F6\u516C\u597D\u9F99 \u5BD3\u8A00\u6545\u4E8B \u513F\u7AE5 \u52A8\u753B"
-    },
-    {
-      id: "sanzi-g6-kao",
-      grade: 6,
-      category: "sanzi",
-      title: "\u8003\u4E16\u7CFB\uFF0C\u77E5\u7EC8\u59CB",
-      author: "\u300A\u4E09\u5B57\u7ECF\u300B",
-      dynasty: "\u5357\u5B8B",
-      excerpt: "\u8003\u4E16\u7CFB\uFF0C\u77E5\u7EC8\u59CB\u3002\n\u81EA\u7FB2\u519C\uFF0C\u81F3\u9EC4\u5E1D\uFF0C\u53F7\u4E09\u7687\uFF0C\u5C45\u4E0A\u4E16\u3002\n\u5510\u6709\u865E\uFF0C\u53F7\u4E8C\u5E1D\uFF0C\u76F8\u63D6\u900A\uFF0C\u79F0\u76DB\u4E16\u3002",
-      pinyin: "k\u01CEo sh\xEC x\xEC\uFF0Czh\u012B zh\u014Dng sh\u01D0\u3002\nz\xEC x\u012B n\xF3ng\uFF0Czh\xEC hu\xE1ng d\xEC\uFF0Ch\xE0o s\u0101n hu\xE1ng\uFF0Cj\u016B sh\xE0ng sh\xEC\u3002\nt\xE1ng y\u01D2u y\xFA\uFF0Ch\xE0o \xE8r d\xEC\uFF0Cxi\u0101ng y\u012B x\xF9n\uFF0Cch\u0113ng sh\xE8ng sh\xEC\u3002",
-      summary: "\u5B66\u4E60\u5386\u53F2\u8981\u8003\u5BDF\u4E16\u4EE3\u4F20\u627F\uFF0C\u77E5\u9053\u5174\u8870\u59CB\u672B\u3002\u4ECE\u4F0F\u7FB2\u3001\u795E\u519C\u3001\u9EC4\u5E1D\u5230\u5C27\u821C\uFF0C\u4F20\u8BF4\u65F6\u4EE3\u7684\u8D24\u541B\u6545\u4E8B\u7531\u6B64\u5C55\u5F00\u3002",
-      meaning: "\u8003\u5BDF\u4E16\u4EE3\u76F8\u4F20\u7684\u8C31\u7CFB\uFF0C\u624D\u80FD\u77E5\u9053\u4E8B\u60C5\u7684\u59CB\u672B\u3002\u4ECE\u4F0F\u7FB2\u3001\u795E\u519C\u5230\u9EC4\u5E1D\uFF0C\u53F7\u79F0\u4E09\u7687\uFF0C\u751F\u6D3B\u5728\u8FDC\u53E4\u65F6\u4EE3\u3002\u5510\u5C27\u3001\u865E\u821C\u53F7\u79F0\u4E8C\u5E1D\uFF0C\u4ED6\u4EEC\u4E92\u76F8\u7985\u8BA9\uFF0C\u88AB\u79F0\u4E3A\u76DB\u4E16\u3002",
-      appreciation: "\u8FD9\u6BB5\u628A\u5386\u53F2\u5F53\u6210\u4E00\u6761\u65F6\u95F4\u7EBF\uFF0C\u63D0\u9192\u6211\u4EEC\u8BFB\u53F2\u8981\u5173\u6CE8\u56E0\u679C\u5173\u7CFB\u3002\u53EF\u4EE5\u501F\u6B64\u7EC3\u4E60\u5236\u4F5C\u201C\u65F6\u95F4\u8F74\u201D\u7B14\u8BB0\u3002",
-      keywords: ["\u5386\u53F2", "\u4E09\u7687", "\u5C27\u821C", "\u7985\u8BA9"],
-      tags: ["\u4E09\u5B57\u7ECF", "\u5386\u53F2", "\u65F6\u95F4\u7EBF"],
-      image: "classic-history",
-      videoQuery: "\u4E09\u5B57\u7ECF \u8003\u4E16\u7CFB \u77E5\u7EC8\u59CB \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "lunyu-g6-ren",
-      grade: 6,
-      category: "lunyu",
-      title: "\u5DF1\u6240\u4E0D\u6B32\uFF0C\u52FF\u65BD\u4E8E\u4EBA",
-      author: "\u300A\u8BBA\u8BED\u300B",
-      dynasty: "\u6625\u79CB",
-      excerpt: "\u5B50\u8D21\u95EE\u66F0\uFF1A\u201C\u6709\u4E00\u8A00\u800C\u53EF\u4EE5\u7EC8\u8EAB\u884C\u4E4B\u8005\u4E4E\uFF1F\u201D\u5B50\u66F0\uFF1A\u201C\u5176\u6055\u4E4E\uFF01\u5DF1\u6240\u4E0D\u6B32\uFF0C\u52FF\u65BD\u4E8E\u4EBA\u3002\u201D",
-      pinyin: "z\u01D0 g\xF2ng w\xE8n yu\u0113\uFF1A\u201Cy\u01D2u y\u012B y\xE1n \xE9r k\u011B y\u01D0 zh\u014Dng sh\u0113n x\xEDng zh\u012B zh\u011B h\u016B\uFF1F\u201Dz\u01D0 yu\u0113\uFF1A\u201Cq\xED sh\xF9 h\u016B\uFF01j\u01D0 su\u01D2 b\xF9 y\xF9\uFF0Cw\xF9 sh\u012B y\xFA r\xE9n\u3002\u201D",
-      summary: "\u5B50\u8D21\u95EE\u6709\u6CA1\u6709\u4E00\u4E2A\u5B57\u53EF\u4EE5\u7EC8\u8EAB\u5949\u884C\uFF0C\u5B54\u5B50\u8BF4\u662F\u201C\u6055\u201D\uFF1A\u81EA\u5DF1\u4E0D\u613F\u610F\u627F\u53D7\u7684\uFF0C\u4E0D\u8981\u65BD\u52A0\u7ED9\u522B\u4EBA\u3002",
-      meaning: "\u5B50\u8D21\u95EE\u9053\uFF1A\u201C\u6709\u6CA1\u6709\u4E00\u4E2A\u5B57\u53EF\u4EE5\u7EC8\u8EAB\u5949\u884C\u7684\u5462\uFF1F\u201D\u5B54\u5B50\u8BF4\uFF1A\u201C\u5927\u6982\u662F\u2018\u6055\u2019\u5427\uFF01\u81EA\u5DF1\u4E0D\u613F\u610F\u7684\uFF0C\u4E0D\u8981\u65BD\u52A0\u7ED9\u522B\u4EBA\u3002\u201D",
-      appreciation: "\u201C\u6055\u201D\u662F\u7406\u89E3\u4ED6\u4EBA\u3001\u8BBE\u8EAB\u5904\u5730\u3002\u8FD9\u4E2A\u539F\u5219\u8DE8\u8D8A\u65F6\u4EE3\uFF0C\u5728\u4ECA\u5929\u7684\u4EBA\u9645\u6C9F\u901A\u4E2D\u4ECD\u7136\u91CD\u8981\u3002",
-      keywords: ["\u6055", "\u6362\u4F4D", "\u5C0A\u91CD", "\u7EC8\u8EAB"],
-      tags: ["\u8BBA\u8BED", "\u4EC1\u6055", "\u5904\u4E16"],
-      image: "classic-lunyu",
-      videoQuery: "\u8BBA\u8BED \u5DF1\u6240\u4E0D\u6B32\u52FF\u65BD\u4E8E\u4EBA \u513F\u7AE5 \u8BB2\u89E3"
-    },
-    {
-      id: "dizigui-g6-dushu",
-      grade: 6,
-      category: "dizigui",
-      title: "\u8BFB\u4E66\u6CD5\uFF0C\u6709\u4E09\u5230",
-      author: "\u300A\u5F1F\u5B50\u89C4\u300B",
-      dynasty: "\u6E05",
-      excerpt: "\u8BFB\u4E66\u6CD5\uFF0C\u6709\u4E09\u5230\u3002\u5FC3\u773C\u53E3\uFF0C\u4FE1\u7686\u8981\u3002\n\u65B9\u8BFB\u6B64\uFF0C\u52FF\u6155\u5F7C\u3002\u6B64\u672A\u7EC8\uFF0C\u5F7C\u52FF\u8D77\u3002",
-      pinyin: "d\xFA sh\u016B f\u01CE\uFF0Cy\u01D2u s\u0101n d\xE0o\u3002x\u012Bn y\u01CEn k\u01D2u\uFF0Cx\xECn ji\u0113 y\xE0o\u3002\nf\u0101ng d\xFA c\u01D0\uFF0Cw\xF9 m\xF9 b\u01D0\u3002c\u01D0 w\xE8i zh\u014Dng\uFF0Cb\u01D0 w\xF9 q\u01D0\u3002",
-      summary: "\u8BFB\u4E66\u8981\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\uFF0C\u4E09\u8005\u90FD\u8981\u505A\u5230\u3002\u6B63\u5728\u8BFB\u8FD9\u672C\u4E66\uFF0C\u4E0D\u8981\u60F3\u7740\u53E6\u4E00\u672C\uFF1B\u8FD9\u672C\u8FD8\u6CA1\u8BFB\u5B8C\uFF0C\u4E0D\u8981\u5F00\u59CB\u53E6\u4E00\u672C\u3002",
-      meaning: "\u8BFB\u4E66\u7684\u65B9\u6CD5\uFF0C\u8981\u505A\u5230\u4E09\u5230\uFF1A\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\uFF0C\u786E\u5B9E\u90FD\u5F88\u91CD\u8981\u3002\u6B63\u5728\u8BFB\u8FD9\u672C\u4E66\uFF0C\u4E0D\u8981\u7FA1\u6155\u522B\u7684\u4E66\uFF1B\u8FD9\u672C\u8FD8\u6CA1\u6709\u8BFB\u5B8C\uFF0C\u4E0D\u8981\u5F00\u59CB\u8BFB\u53E6\u4E00\u672C\u3002",
-      appreciation: "\u201C\u4E09\u5230\u201D\u662F\u8BF4\u6CE8\u610F\u529B\u8981\u96C6\u4E2D\uFF0C\u201C\u52FF\u6155\u5F7C\u201D\u662F\u8BF4\u9605\u8BFB\u8981\u6709\u6B21\u5E8F\u3002\u5BF9\u4ECA\u5929\u788E\u7247\u5316\u9605\u8BFB\u5C24\u5176\u6709\u542F\u53D1\u3002",
-      keywords: ["\u8BFB\u4E66", "\u5FC3\u5230", "\u4E13\u6CE8", "\u6B21\u5E8F"],
-      tags: ["\u5F1F\u5B50\u89C4", "\u9605\u8BFB", "\u4E13\u6CE8"],
-      image: "classic-books",
-      videoQuery: "\u5F1F\u5B50\u89C4 \u8BFB\u4E66\u6CD5 \u6709\u4E09\u5230 \u513F\u7AE5 \u8BF5\u8BFB"
-    },
-    {
-      id: "qianziwen-g6-maodun",
-      grade: 6,
-      category: "qianziwen",
-      title: "\u6027\u9759\u60C5\u9038",
-      author: "\u5468\u5174\u55E3",
-      dynasty: "\u5357\u671D\u6881",
-      excerpt: "\u6027\u9759\u60C5\u9038\uFF0C\u5FC3\u52A8\u795E\u75B2\u3002\n\u5B88\u771F\u5FD7\u6EE1\uFF0C\u9010\u7269\u610F\u79FB\u3002",
-      pinyin: "x\xECng j\xECng q\xEDng y\xEC\uFF0Cx\u012Bn d\xF2ng sh\xE9n p\xED\u3002\nsh\u01D2u zh\u0113n zh\xEC m\u01CEn\uFF0Czh\xFA w\xF9 y\xEC y\xED\u3002",
-      summary: "\u5185\u5FC3\u5B89\u9759\uFF0C\u60C5\u7EEA\u5C31\u4F1A\u8212\u9002\uFF1B\u5FC3\u7EEA\u8E81\u52A8\uFF0C\u7CBE\u795E\u5C31\u4F1A\u75B2\u60EB\u3002\u5B88\u4F4F\u672C\u771F\uFF0C\u5FD7\u5411\u5C31\u4F1A\u5145\u5B9E\uFF1B\u8FFD\u9010\u5916\u7269\uFF0C\u610F\u5FD7\u5C31\u4F1A\u6E38\u79FB\u3002",
-      meaning: "\u6027\u60C5\u5B89\u9759\uFF0C\u60C5\u7EEA\u5C31\u4F1A\u5B89\u9038\uFF1B\u5FC3\u601D\u8E81\u52A8\uFF0C\u7CBE\u795E\u5C31\u4F1A\u75B2\u60EB\u3002\u4FDD\u6301\u7EAF\u771F\u7684\u672C\u6027\uFF0C\u5FD7\u5411\u5C31\u4F1A\u5145\u5B9E\uFF1B\u8FFD\u9010\u5916\u7269\uFF0C\u610F\u5FD7\u5C31\u4F1A\u8F6C\u79FB\u3002",
-      appreciation: "\u8FD9\u6BB5\u8BA8\u8BBA\u5185\u5FC3\u4E0E\u5916\u7269\u7684\u5173\u7CFB\u3002\u4ECA\u5929\u4FE1\u606F\u5F88\u591A\u3001\u8BF1\u60D1\u5F88\u591A\uFF0C\u8BFB\u5B83\u53EF\u4EE5\u63D0\u9192\u6211\u4EEC\u7559\u51FA\u5B89\u9759\u7684\u65F6\u95F4\uFF0C\u5B88\u4F4F\u771F\u6B63\u91CD\u8981\u7684\u76EE\u6807\u3002",
-      keywords: ["\u5B89\u9759", "\u4E13\u6CE8", "\u672C\u771F", "\u5916\u7269"],
-      tags: ["\u5343\u5B57\u6587", "\u4FEE\u5FC3", "\u4E13\u6CE8"],
-      image: "classic-mind",
-      videoQuery: "\u5343\u5B57\u6587 \u6027\u9759\u60C5\u9038 \u513F\u7AE5 \u8BF5\u8BFB"
-    }
-  ];
-
-  // assets/supplemental.js
-  var poem = (id, grade, volume, title, author, dynasty, excerpt, pinyin, summary, meaning, appreciation, keywords, tags, image) => ({
-    id,
-    grade,
-    volume,
-    category: "poetry",
-    title,
-    author,
-    dynasty,
-    excerpt,
-    pinyin,
-    summary,
-    meaning,
-    appreciation,
-    keywords,
-    tags,
-    image,
-    videoQuery: `${title} ${author} \u513F\u7AE5 \u6717\u8BFB \u8BB2\u89E3`,
-    scopeType: "textbook",
-    scopeLabel: "\u7EDF\u7F16\u6559\u6750",
-    sourceNote: `\u7EDF\u7F16\u7248\u8BED\u6587${grade}\u5E74\u7EA7${volume}\u518C`
-  });
-  var supplemental = [
-    poem(
-      "poetry-g6-qingpingyue",
-      6,
-      "\u4E0B",
-      "\u6E05\u5E73\u4E50\xB7\u6751\u5C45",
-      "\u8F9B\u5F03\u75BE",
-      "\u5B8B",
-      "\u8305\u6A90\u4F4E\u5C0F\uFF0C\u6EAA\u4E0A\u9752\u9752\u8349\u3002\n\u9189\u91CC\u5434\u97F3\u76F8\u5A9A\u597D\uFF0C\u767D\u53D1\u8C01\u5BB6\u7FC1\u5AAA\uFF1F\n\u5927\u513F\u9504\u8C46\u6EAA\u4E1C\uFF0C\u4E2D\u513F\u6B63\u7EC7\u9E21\u7B3C\u3002\n\u6700\u559C\u5C0F\u513F\u4EA1\u8D56\uFF0C\u6EAA\u5934\u5367\u5265\u83B2\u84EC\u3002",
-      "m\xE1o y\xE1n d\u012B xi\u01CEo\uFF0Cx\u012B sh\xE0ng q\u012Bng q\u012Bng c\u01CEo\u3002\nzu\xEC l\u01D0 w\xFA y\u012Bn xi\u0101ng m\xE8i h\u01CEo\uFF0Cb\xE1i f\xE0 shu\xED ji\u0101 w\u0113ng \u01CEo\uFF1F\nd\xE0 \xE9r ch\xFA d\xF2u x\u012B d\u014Dng\uFF0Czh\u014Dng \xE9r zh\xE8ng zh\u012B j\u012B l\xF3ng\u3002\nzu\xEC x\u01D0 xi\u01CEo \xE9r w\xFA l\xE0i\uFF0Cx\u012B t\xF3u w\xF2 b\u0101o li\xE1n peng\u3002",
-      "\u8F9B\u5F03\u75BE\u7528\u767D\u63CF\u624B\u6CD5\u5199\u6C5F\u5357\u519C\u5BB6\u751F\u6D3B\uFF1A\u4F4E\u77EE\u8305\u5C4B\u3001\u9752\u9752\u6EAA\u8349\u3001\u767D\u53D1\u592B\u59BB\u3001\u52B3\u52A8\u7684\u513F\u5B50\u548C\u6EAA\u8FB9\u5265\u83B2\u84EC\u7684\u5C0F\u513F\uFF0C\u5B89\u5B81\u53C8\u6D3B\u6CFC\u3002",
-      "\u8305\u8349\u5C4B\u53C8\u4F4E\u53C8\u5C0F\uFF0C\u6EAA\u8FB9\u957F\u6EE1\u9752\u9752\u7684\u8349\u3002\u542B\u9189\u610F\u7684\u5434\u5730\u65B9\u8A00\u542C\u8D77\u6765\u6E29\u67D4\u4EB2\u5207\uFF0C\u90A3\u6EE1\u5934\u767D\u53D1\u7684\u662F\u8C01\u5BB6\u7684\u8001\u592B\u59BB\uFF1F\u5927\u513F\u5B50\u5728\u6EAA\u4E1C\u8C46\u7530\u9504\u8349\uFF0C\u4E8C\u513F\u5B50\u6B63\u5728\u7F16\u9E21\u7B3C\u3002\u6700\u559C\u6B22\u987D\u76AE\u7684\u5C0F\u513F\u5B50\uFF0C\u8DB4\u5728\u6EAA\u5934\u5265\u83B2\u84EC\u3002",
-      "\u8BCD\u4E2D\u4EBA\u7269\u5404\u6709\u52A8\u4F5C\uFF0C\u50CF\u4E00\u5E45\u751F\u6D3B\u957F\u5377\u3002\u6700\u540E\u201C\u5367\u5265\u83B2\u84EC\u201D\u7684\u7EC6\u8282\u6700\u4F20\u795E\uFF0C\u8BA9\u6574\u9996\u8BCD\u5145\u6EE1\u7B11\u58F0\u548C\u70DF\u706B\u6C14\u3002",
-      ["\u6751\u5C45", "\u519C\u5BB6", "\u6EAA\u6C34", "\u83B2\u84EC"],
-      ["\u8F9B\u5F03\u75BE", "\u5B8B\u8BCD", "\u7530\u56ED"],
-      "poetry-village"
-    ),
-    poem(
-      "poetry-g1-hua",
-      1,
-      "\u4E0A",
-      "\u753B",
-      "\u4F5A\u540D",
-      "\u5B8B",
-      "\u8FDC\u770B\u5C71\u6709\u8272\uFF0C\u8FD1\u542C\u6C34\u65E0\u58F0\u3002\n\u6625\u53BB\u82B1\u8FD8\u5728\uFF0C\u4EBA\u6765\u9E1F\u4E0D\u60CA\u3002",
-      "yu\u01CEn k\xE0n sh\u0101n y\u01D2u s\xE8\uFF0Cj\xECn t\u012Bng shu\u01D0 w\xFA sh\u0113ng\u3002\nch\u016Bn q\xF9 hu\u0101 h\xE1i z\xE0i\uFF0Cr\xE9n l\xE1i ni\u01CEo b\xF9 j\u012Bng\u3002",
-      "\u4E00\u9996\u5199\u753B\u7684\u8C1C\u8BED\u8BD7\u3002\u8FDC\u770B\u6709\u5C71\u8272\uFF0C\u8FD1\u542C\u5374\u65E0\u58F0\uFF1B\u6625\u53BB\u82B1\u4E0D\u8C22\uFF0C\u4EBA\u6765\u9E1F\u4E0D\u98DE\u3002\u56DB\u53E5\u90FD\u85CF\u7740\u201C\u8FD9\u662F\u753B\u201D\u7684\u7EBF\u7D22\u3002",
-      "\u8FDC\u8FDC\u770B\u53BB\uFF0C\u5C71\u6709\u9C9C\u660E\u7684\u989C\u8272\uFF1B\u8D70\u8FD1\u7EC6\u542C\uFF0C\u6D41\u6C34\u5374\u6CA1\u6709\u58F0\u97F3\u3002\u6625\u5929\u8FC7\u53BB\u4E86\uFF0C\u82B1\u513F\u4ECD\u7136\u76DB\u5F00\uFF1B\u4EBA\u8D70\u8FD1\u4E86\uFF0C\u9E1F\u513F\u4E5F\u4E0D\u60CA\u98DE\u3002",
-      "\u5168\u8BD7\u6CA1\u6709\u51FA\u73B0\u201C\u753B\u201D\u5B57\uFF0C\u5374\u7528\u770B\u3001\u542C\u3001\u6625\u53BB\u3001\u4EBA\u6765\u56DB\u4E2A\u89D2\u5EA6\u5199\u51FA\u753B\u4E2D\u666F\u7269\u3002\u53EF\u4EE5\u8BA9\u5B69\u5B50\u8FB9\u8BFB\u8FB9\u731C\uFF0C\u611F\u53D7\u8BD7\u4E2D\u7684\u89C2\u5BDF\u987A\u5E8F\u3002",
-      ["\u5C71\u6C34", "\u82B1\u9E1F", "\u89C2\u5BDF", "\u8C1C\u8BED"],
-      ["\u5199\u666F", "\u8C1C\u8BED\u8BD7", "\u4E00\u5E74\u7EA7"],
-      "poetry-mountain-river"
-    ),
-    poem(
-      "poetry-g1-chunxiao",
-      1,
-      "\u4E0B",
-      "\u6625\u6653",
-      "\u5B5F\u6D69\u7136",
-      "\u5510",
-      "\u6625\u7720\u4E0D\u89C9\u6653\uFF0C\u5904\u5904\u95FB\u557C\u9E1F\u3002\n\u591C\u6765\u98CE\u96E8\u58F0\uFF0C\u82B1\u843D\u77E5\u591A\u5C11\u3002",
-      "ch\u016Bn mi\xE1n b\xF9 ju\xE9 xi\u01CEo\uFF0Cch\xF9 ch\xF9 w\xE9n t\xED ni\u01CEo\u3002\ny\xE8 l\xE1i f\u0113ng y\u01D4 sh\u0113ng\uFF0Chu\u0101 lu\xF2 zh\u012B du\u014D sh\u01CEo\u3002",
-      "\u6625\u591C\u7761\u5F97\u9999\u751C\uFF0C\u4E0D\u77E5\u4E0D\u89C9\u5929\u5DF2\u4EAE\uFF0C\u9192\u6765\u542C\u89C1\u5904\u5904\u9E1F\u9E23\u3002\u8BD7\u4EBA\u60F3\u8D77\u591C\u91CC\u7684\u98CE\u96E8\uFF0C\u5173\u5FC3\u6709\u591A\u5C11\u82B1\u88AB\u6253\u843D\u3002",
-      "\u6625\u5929\u7684\u591C\u91CC\u7761\u5F97\u9999\u751C\uFF0C\u4E0D\u77E5\u4E0D\u89C9\u5929\u5DF2\u7ECF\u4EAE\u4E86\uFF0C\u5230\u5904\u90FD\u80FD\u542C\u89C1\u9E1F\u513F\u7684\u53EB\u58F0\u3002\u56DE\u60F3\u8D77\u591C\u91CC\u4F20\u6765\u7684\u98CE\u96E8\u58F0\uFF0C\u4E0D\u77E5\u9053\u6709\u591A\u5C11\u82B1\u88AB\u6253\u843D\u4E86\u3002",
-      "\u524D\u4E24\u53E5\u5199\u9192\u6765\u7684\u542C\u89C9\uFF0C\u540E\u4E24\u53E5\u7531\u9E1F\u9E23\u60F3\u5230\u98CE\u96E8\u843D\u82B1\u3002\u8BED\u8A00\u6D45\u767D\uFF0C\u5374\u628A\u6625\u5929\u7684\u751F\u673A\u548C\u60DC\u82B1\u4E4B\u60C5\u5199\u5F97\u5F88\u6709\u4F59\u5473\u3002",
-      ["\u6625\u5929", "\u9E1F\u9E23", "\u98CE\u96E8", "\u843D\u82B1"],
-      ["\u5B5F\u6D69\u7136", "\u6625\u5929", "\u60DC\u6625"],
-      "poetry-spring-rain"
-    ),
-    poem(
-      "poetry-g1-jingyesi",
-      1,
-      "\u4E0B",
-      "\u9759\u591C\u601D",
-      "\u674E\u767D",
-      "\u5510",
-      "\u5E8A\u524D\u660E\u6708\u5149\uFF0C\u7591\u662F\u5730\u4E0A\u971C\u3002\n\u4E3E\u5934\u671B\u660E\u6708\uFF0C\u4F4E\u5934\u601D\u6545\u4E61\u3002",
-      "chu\xE1ng qi\xE1n m\xEDng yu\xE8 gu\u0101ng\uFF0Cy\xED sh\xEC d\xEC sh\xE0ng shu\u0101ng\u3002\nj\u01D4 t\xF3u w\xE0ng m\xEDng yu\xE8\uFF0Cd\u012B t\xF3u s\u012B g\xF9 xi\u0101ng\u3002",
-      "\u6708\u5149\u6D12\u5728\u5E8A\u524D\uFF0C\u50CF\u5730\u4E0A\u7684\u767D\u971C\u3002\u8BD7\u4EBA\u62AC\u5934\u671B\u6708\uFF0C\u53C8\u4F4E\u5934\u601D\u5FF5\u6545\u4E61\u3002\u52A8\u4F5C\u7B80\u5355\uFF0C\u601D\u4E61\u4E4B\u60C5\u5374\u5F88\u6DF1\u3002",
-      "\u660E\u4EAE\u7684\u6708\u5149\u6D12\u5728\u5E8A\u524D\uFF0C\u597D\u50CF\u5730\u4E0A\u94FA\u4E86\u4E00\u5C42\u767D\u971C\u3002\u62AC\u8D77\u5934\u671B\u7740\u5929\u4E0A\u7684\u660E\u6708\uFF0C\u4F4E\u4E0B\u5934\u4FBF\u601D\u5FF5\u8D77\u6545\u4E61\u3002",
-      "\u201C\u4E3E\u5934\u201D\u4E0E\u201C\u4F4E\u5934\u201D\u4E24\u4E2A\u52A8\u4F5C\u5F62\u6210\u547C\u5E94\uFF0C\u6708\u5149\u628A\u8FDC\u65B9\u548C\u6545\u4E61\u8FDE\u5728\u4E00\u8D77\u3002\u5168\u8BD7\u660E\u767D\u5982\u8BDD\uFF0C\u662F\u4F4E\u5E74\u7EA7\u4F53\u4F1A\u601D\u4E61\u8BD7\u7684\u5165\u53E3\u3002",
-      ["\u6708\u5149", "\u767D\u971C", "\u6545\u4E61", "\u601D\u5FF5"],
-      ["\u674E\u767D", "\u601D\u4E61", "\u6708\u4EAE"],
-      "poetry-moon"
-    ),
-    poem(
-      "poetry-g1-chishang",
-      1,
-      "\u4E0B",
-      "\u6C60\u4E0A",
-      "\u767D\u5C45\u6613",
-      "\u5510",
-      "\u5C0F\u5A03\u6491\u5C0F\u8247\uFF0C\u5077\u91C7\u767D\u83B2\u56DE\u3002\n\u4E0D\u89E3\u85CF\u8E2A\u8FF9\uFF0C\u6D6E\u840D\u4E00\u9053\u5F00\u3002",
-      "xi\u01CEo w\xE1 ch\u0113ng xi\u01CEo t\u01D0ng\uFF0Ct\u014Du c\u01CEi b\xE1i li\xE1n hu\xED\u3002\nb\xF9 ji\u011B c\xE1ng z\u014Dng j\xEC\uFF0Cf\xFA p\xEDng y\u012B d\xE0o k\u0101i\u3002",
-      "\u5C0F\u5B69\u6491\u7740\u5C0F\u8239\u5077\u5077\u91C7\u83B2\u56DE\u6765\uFF0C\u81EA\u4EE5\u4E3A\u6CA1\u4EBA\u77E5\u9053\uFF0C\u5374\u628A\u6C34\u9762\u6D6E\u840D\u5206\u5F00\uFF0C\u7559\u4E0B\u4E86\u4E00\u6761\u6E05\u695A\u7684\u8E2A\u8FF9\u3002",
-      "\u4E00\u4E2A\u5C0F\u5B69\u6491\u7740\u5C0F\u8239\uFF0C\u5077\u5077\u91C7\u4E86\u767D\u83B2\u56DE\u6765\u3002\u4ED6\u4E0D\u61C2\u5F97\u9690\u85CF\u81EA\u5DF1\u7684\u884C\u8E2A\uFF0C\u6C34\u9762\u7684\u6D6E\u840D\u88AB\u8239\u5206\u5F00\uFF0C\u7559\u4E0B\u4E86\u4E00\u9053\u957F\u957F\u7684\u75D5\u8FF9\u3002",
-      "\u201C\u5077\u201D\u4E0D\u662F\u5077\u7A83\uFF0C\u800C\u662F\u5B69\u5B50\u987D\u76AE\u53EF\u7231\u7684\u52A8\u4F5C\u3002\u6700\u540E\u4E00\u53E5\u7528\u6D6E\u840D\u5206\u5F00\u7684\u7EC6\u8282\u63ED\u7A7F\u5B69\u5B50\uFF0C\u753B\u9762\u6709\u8DA3\uFF0C\u5145\u6EE1\u7AE5\u771F\u3002",
-      ["\u5C0F\u5A03", "\u5C0F\u8239", "\u767D\u83B2", "\u6D6E\u840D"],
-      ["\u767D\u5C45\u6613", "\u7AE5\u8DA3", "\u590F\u5929"],
-      "poetry-lotus"
-    ),
-    poem(
-      "poetry-g2-meihua",
-      2,
-      "\u4E0A",
-      "\u6885\u82B1",
-      "\u738B\u5B89\u77F3",
-      "\u5B8B",
-      "\u5899\u89D2\u6570\u679D\u6885\uFF0C\u51CC\u5BD2\u72EC\u81EA\u5F00\u3002\n\u9065\u77E5\u4E0D\u662F\u96EA\uFF0C\u4E3A\u6709\u6697\u9999\u6765\u3002",
-      "qi\xE1ng ji\u01CEo sh\xF9 zh\u012B m\xE9i\uFF0Cl\xEDng h\xE1n d\xFA z\xEC k\u0101i\u3002\ny\xE1o zh\u012B b\xF9 sh\xEC xu\u011B\uFF0Cw\xE8i y\u01D2u \xE0n xi\u0101ng l\xE1i\u3002",
-      "\u5899\u89D2\u51E0\u679D\u6885\u82B1\u5728\u4E25\u5BD2\u4E2D\u72EC\u81EA\u5F00\u653E\u3002\u8FDC\u770B\u4EE5\u4E3A\u662F\u96EA\uFF0C\u95FB\u5230\u6DE1\u6DE1\u6E05\u9999\uFF0C\u624D\u77E5\u9053\u90A3\u662F\u6885\u82B1\u3002",
-      "\u5899\u89D2\u6709\u51E0\u679D\u6885\u82B1\uFF0C\u5192\u7740\u4E25\u5BD2\u72EC\u81EA\u76DB\u5F00\u3002\u8FDC\u8FDC\u5C31\u77E5\u9053\u90A3\u4E0D\u662F\u767D\u96EA\uFF0C\u56E0\u4E3A\u6709\u6DE1\u6DE1\u7684\u6E05\u9999\u98D8\u6765\u3002",
-      "\u8BD7\u4ECE\u89C6\u89C9\u5199\u5230\u55C5\u89C9\uFF0C\u201C\u4E0D\u662F\u96EA\u201D\u5148\u5236\u9020\u7591\u95EE\uFF0C\u201C\u6697\u9999\u6765\u201D\u518D\u7ED9\u51FA\u7B54\u6848\u3002\u6885\u82B1\u7684\u575A\u5F3A\u4E0E\u9AD8\u6D01\u4E5F\u85CF\u5728\u5176\u4E2D\u3002",
-      ["\u6885\u82B1", "\u4E25\u5BD2", "\u767D\u96EA", "\u6E05\u9999"],
-      ["\u738B\u5B89\u77F3", "\u548F\u7269", "\u51AC\u5929"],
-      "poetry-snow"
-    ),
-    poem(
-      "poetry-g2-dengguanque",
-      2,
-      "\u4E0A",
-      "\u767B\u9E73\u96C0\u697C",
-      "\u738B\u4E4B\u6DA3",
-      "\u5510",
-      "\u767D\u65E5\u4F9D\u5C71\u5C3D\uFF0C\u9EC4\u6CB3\u5165\u6D77\u6D41\u3002\n\u6B32\u7A77\u5343\u91CC\u76EE\uFF0C\u66F4\u4E0A\u4E00\u5C42\u697C\u3002",
-      "b\xE1i r\xEC y\u012B sh\u0101n j\xECn\uFF0Chu\xE1ng h\xE9 r\xF9 h\u01CEi li\xFA\u3002\ny\xF9 qi\xF3ng qi\u0101n l\u01D0 m\xF9\uFF0Cg\xE8ng sh\xE0ng y\u012B c\xE9ng l\xF3u\u3002",
-      "\u5915\u9633\u4F9D\u7740\u7FA4\u5C71\u843D\u4E0B\uFF0C\u9EC4\u6CB3\u5411\u5927\u6D77\u5954\u6D41\u3002\u60F3\u770B\u5230\u66F4\u8FDC\u7684\u98CE\u666F\uFF0C\u5C31\u8981\u518D\u767B\u4E0A\u4E00\u5C42\u697C\u3002",
-      "\u5915\u9633\u6328\u7740\u7FA4\u5C71\u6162\u6162\u843D\u4E0B\uFF0C\u9EC4\u6CB3\u5954\u817E\u7740\u6D41\u5411\u5927\u6D77\u3002\u60F3\u8981\u770B\u5230\u5343\u91CC\u4E4B\u5916\u7684\u666F\u8272\uFF0C\u5C31\u8981\u518D\u767B\u4E0A\u4E00\u5C42\u9AD8\u697C\u3002",
-      "\u524D\u4E24\u53E5\u5199\u58EE\u9614\u666F\u8272\uFF0C\u540E\u4E24\u53E5\u7531\u767B\u697C\u60F3\u5230\u8FDB\u53D6\u3002\u5B83\u65E2\u662F\u5199\u666F\u8BD7\uFF0C\u4E5F\u662F\u9F13\u52B1\u4EBA\u4E0D\u65AD\u52AA\u529B\u7684\u540D\u53E5\u3002",
-      ["\u5915\u9633", "\u9EC4\u6CB3", "\u767B\u697C", "\u8FDB\u53D6"],
-      ["\u738B\u4E4B\u6DA3", "\u54F2\u7406", "\u767B\u9AD8"],
-      "poetry-mountain-river"
-    ),
-    poem(
-      "poetry-g2-wanglushan",
-      2,
-      "\u4E0A",
-      "\u671B\u5E90\u5C71\u7011\u5E03",
-      "\u674E\u767D",
-      "\u5510",
-      "\u65E5\u7167\u9999\u7089\u751F\u7D2B\u70DF\uFF0C\u9065\u770B\u7011\u5E03\u6302\u524D\u5DDD\u3002\n\u98DE\u6D41\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u7591\u662F\u94F6\u6CB3\u843D\u4E5D\u5929\u3002",
-      "r\xEC zh\xE0o l\xFA sh\u0101n sh\u0113ng z\u01D0 y\u0101n\uFF0Cy\xE1o k\xE0n p\xF9 b\xF9 gu\xE0 qi\xE1n chu\u0101n\u3002\nf\u0113i li\xFA zh\xED xi\xE0 s\u0101n qi\u0101n ch\u01D0\uFF0Cy\xED sh\xEC y\xEDn h\xE9 lu\xF2 ji\u01D4 ti\u0101n\u3002",
-      "\u9633\u5149\u7167\u9999\u7089\u5CF0\u5347\u8D77\u7D2B\u8272\u70DF\u96FE\uFF0C\u8FDC\u770B\u7011\u5E03\u50CF\u6302\u5728\u5C71\u524D\u3002\u6C34\u6D41\u98DE\u6CFB\u800C\u4E0B\uFF0C\u8BA9\u4EBA\u6000\u7591\u94F6\u6CB3\u4ECE\u5929\u4E0A\u843D\u4E86\u4E0B\u6765\u3002",
-      "\u9633\u5149\u7167\u7740\u9999\u7089\u5CF0\uFF0C\u5347\u8D77\u7D2B\u8272\u7684\u4E91\u70DF\uFF0C\u8FDC\u8FDC\u671B\u53BB\uFF0C\u7011\u5E03\u50CF\u4E00\u6761\u767D\u7EC3\u6302\u5728\u5C71\u524D\u3002\u6C34\u6D41\u98DE\u6CFB\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u8BA9\u4EBA\u6000\u7591\u662F\u94F6\u6CB3\u4ECE\u4E5D\u5929\u4E0A\u843D\u4E86\u4E0B\u6765\u3002",
-      "\u201C\u6302\u201D\u628A\u6D41\u52A8\u7684\u7011\u5E03\u5199\u6210\u9759\u6B62\u7684\u753B\uFF0C\u201C\u98DE\u6D41\u76F4\u4E0B\u201D\u53C8\u6062\u590D\u4E86\u5B83\u7684\u6C14\u52BF\u3002\u5938\u5F20\u548C\u60F3\u8C61\u628A\u5E90\u5C71\u7011\u5E03\u5199\u5F97\u96C4\u5947\u58EE\u4E3D\u3002",
-      ["\u5E90\u5C71", "\u7011\u5E03", "\u94F6\u6CB3", "\u60F3\u8C61"],
-      ["\u674E\u767D", "\u5938\u5F20", "\u5C71\u6C34"],
-      "poetry-lushan"
-    ),
-    poem(
-      "poetry-g2-jiangxue",
-      2,
-      "\u4E0A",
-      "\u6C5F\u96EA",
-      "\u67F3\u5B97\u5143",
-      "\u5510",
-      "\u5343\u5C71\u9E1F\u98DE\u7EDD\uFF0C\u4E07\u5F84\u4EBA\u8E2A\u706D\u3002\n\u5B64\u821F\u84D1\u7B20\u7FC1\uFF0C\u72EC\u9493\u5BD2\u6C5F\u96EA\u3002",
-      "qi\u0101n sh\u0101n ni\u01CEo f\u0113i ju\xE9\uFF0Cw\xE0n j\xECng r\xE9n z\u014Dng mi\xE8\u3002\ng\u016B zh\u014Du su\u014D l\xEC w\u0113ng\uFF0Cd\xFA di\xE0o h\xE1n ji\u0101ng xu\u011B\u3002",
-      "\u7FA4\u5C71\u4E2D\u6CA1\u6709\u9E1F\u98DE\uFF0C\u6240\u6709\u9053\u8DEF\u4E0D\u89C1\u4EBA\u5F71\u3002\u53EA\u6709\u4E00\u4F4D\u62AB\u84D1\u8863\u6234\u6597\u7B20\u7684\u8001\u7FC1\uFF0C\u72EC\u81EA\u5728\u5BD2\u6C5F\u96EA\u4E2D\u5782\u9493\u3002",
-      "\u5343\u5C71\u4E07\u5CAD\u770B\u4E0D\u5230\u98DE\u9E1F\uFF0C\u6240\u6709\u5C0F\u8DEF\u4E0A\u90FD\u6CA1\u6709\u4EBA\u7684\u8E2A\u8FF9\u3002\u6C5F\u9762\u4E0A\u53EA\u6709\u4E00\u6761\u5C0F\u8239\uFF0C\u4E00\u4F4D\u62AB\u7740\u84D1\u8863\u3001\u6234\u7740\u6597\u7B20\u7684\u8001\u4EBA\uFF0C\u72EC\u81EA\u5728\u5BD2\u51B7\u7684\u96EA\u6C5F\u4E2D\u9493\u9C7C\u3002",
-      "\u201C\u5343\u5C71\u201D\u201C\u4E07\u5F84\u201D\u7684\u5E7F\u9614\u4E0E\u201C\u5B64\u821F\u201D\u201C\u72EC\u9493\u201D\u7684\u6E3A\u5C0F\u5F62\u6210\u5BF9\u6BD4\u3002\u5BD2\u6C5F\u72EC\u9493\u7684\u753B\u9762\uFF0C\u8868\u73B0\u51FA\u5B64\u72EC\u800C\u575A\u5B9A\u7684\u7CBE\u795E\u3002",
-      ["\u96EA\u5C71", "\u6C5F\u9762", "\u6E14\u7FC1", "\u5B64\u72EC"],
-      ["\u67F3\u5B97\u5143", "\u51AC\u5929", "\u5199\u666F"],
-      "poetry-snow"
-    ),
-    poem(
-      "poetry-g2-cunju",
-      2,
-      "\u4E0B",
-      "\u6751\u5C45",
-      "\u9AD8\u9F0E",
-      "\u6E05",
-      "\u8349\u957F\u83BA\u98DE\u4E8C\u6708\u5929\uFF0C\u62C2\u5824\u6768\u67F3\u9189\u6625\u70DF\u3002\n\u513F\u7AE5\u6563\u5B66\u5F52\u6765\u65E9\uFF0C\u5FD9\u8D81\u4E1C\u98CE\u653E\u7EB8\u9E22\u3002",
-      "c\u01CEo zh\u01CEng y\u012Bng f\u0113i \xE8r yu\xE8 ti\u0101n\uFF0Cf\xFA d\u012B y\xE1ng li\u01D4 zu\xEC ch\u016Bn y\u0101n\u3002\n\xE9r t\xF3ng s\xE0n xu\xE9 gu\u012B l\xE1i z\u01CEo\uFF0Cm\xE1ng ch\xE8n d\u014Dng f\u0113ng f\xE0ng zh\u01D0 yu\u0101n\u3002",
-      "\u4E8C\u6708\u8349\u6728\u751F\u957F\u3001\u9EC4\u83BA\u98DE\u821E\uFF0C\u6768\u67F3\u8F7B\u62C2\u5824\u5CB8\u3002\u5B69\u5B50\u4EEC\u653E\u5B66\u56DE\u6765\u5F97\u65E9\uFF0C\u8D76\u5FD9\u8FCE\u7740\u4E1C\u98CE\u653E\u98CE\u7B5D\u3002",
-      "\u519C\u5386\u4E8C\u6708\uFF0C\u8349\u6728\u751F\u957F\uFF0C\u9EC4\u83BA\u98DE\u821E\uFF0C\u6768\u67F3\u8F7B\u8F7B\u62C2\u7740\u5824\u5CB8\uFF0C\u597D\u50CF\u9676\u9189\u5728\u6625\u5929\u7684\u70DF\u96FE\u91CC\u3002\u5B69\u5B50\u4EEC\u653E\u5B66\u56DE\u6765\u5F97\u65E9\uFF0C\u6025\u5FD9\u8D81\u7740\u4E1C\u98CE\u653E\u8D77\u4E86\u98CE\u7B5D\u3002",
-      "\u524D\u4E24\u53E5\u5199\u6625\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u513F\u7AE5\u653E\u98CE\u7B5D\uFF0C\u52A8\u9759\u7ED3\u5408\u3002\u4E00\u4E2A\u201C\u5FD9\u201D\u5B57\u628A\u5B69\u5B50\u7684\u5174\u594B\u5199\u5F97\u6D3B\u7075\u6D3B\u73B0\u3002",
-      ["\u4E8C\u6708", "\u6768\u67F3", "\u513F\u7AE5", "\u98CE\u7B5D"],
-      ["\u9AD8\u9F0E", "\u6625\u5929", "\u7AE5\u8DA3"],
-      "poetry-village"
-    ),
-    poem(
-      "poetry-g2-xiaochu",
-      2,
-      "\u4E0B",
-      "\u6653\u51FA\u51C0\u6148\u5BFA\u9001\u6797\u5B50\u65B9",
-      "\u6768\u4E07\u91CC",
-      "\u5B8B",
-      "\u6BD5\u7ADF\u897F\u6E56\u516D\u6708\u4E2D\uFF0C\u98CE\u5149\u4E0D\u4E0E\u56DB\u65F6\u540C\u3002\n\u63A5\u5929\u83B2\u53F6\u65E0\u7A77\u78A7\uFF0C\u6620\u65E5\u8377\u82B1\u522B\u6837\u7EA2\u3002",
-      "b\xEC j\xECng x\u012B h\xFA li\xF9 yu\xE8 zh\u014Dng\uFF0Cf\u0113ng gu\u0101ng b\xF9 y\u01D4 s\xEC sh\xED t\xF3ng\u3002\nji\u0113 ti\u0101n li\xE1n y\xE8 w\xFA qi\xF3ng b\xEC\uFF0Cy\xECng r\xEC h\xE9 hu\u0101 bi\xE9 y\xE0ng h\xF3ng\u3002",
-      "\u516D\u6708\u7684\u897F\u6E56\u98CE\u5149\u4E0E\u5176\u4ED6\u5B63\u8282\u4E0D\u540C\uFF1A\u8377\u53F6\u4E00\u76F4\u94FA\u5230\u5929\u8FB9\uFF0C\u8377\u82B1\u5728\u9633\u5149\u6620\u7167\u4E0B\u683C\u5916\u7EA2\u8273\u3002",
-      "\u5230\u5E95\u662F\u516D\u6708\u7684\u897F\u6E56\uFF0C\u98CE\u5149\u548C\u5176\u4ED6\u5B63\u8282\u4E0D\u4E00\u6837\u3002\u78A7\u7EFF\u7684\u83B2\u53F6\u4E00\u76F4\u94FA\u5230\u5929\u8FB9\uFF0C\u671B\u4E0D\u5230\u5934\uFF1B\u8377\u82B1\u5728\u9633\u5149\u7684\u6620\u7167\u4E0B\uFF0C\u663E\u5F97\u683C\u5916\u9C9C\u7EA2\u3002",
-      "\u201C\u65E0\u7A77\u78A7\u201D\u548C\u201C\u522B\u6837\u7EA2\u201D\u7528\u5927\u9762\u79EF\u7684\u8272\u5F69\u8868\u73B0\u76DB\u590F\u8377\u5858\u3002\u8BD7\u4EBA\u9001\u522B\u670B\u53CB\uFF0C\u5374\u628A\u6700\u660E\u4E3D\u7684\u897F\u6E56\u7559\u7ED9\u8BFB\u8005\u3002",
-      ["\u897F\u6E56", "\u516D\u6708", "\u83B2\u53F6", "\u8377\u82B1"],
-      ["\u6768\u4E07\u91CC", "\u590F\u5929", "\u9001\u522B"],
-      "poetry-westlake"
-    ),
-    poem(
-      "poetry-g2-minnongyi",
-      2,
-      "\u4E0B",
-      "\u60AF\u519C\uFF08\u5176\u4E00\uFF09",
-      "\u674E\u7EC5",
-      "\u5510",
-      "\u6625\u79CD\u4E00\u7C92\u7C9F\uFF0C\u79CB\u6536\u4E07\u9897\u5B50\u3002\n\u56DB\u6D77\u65E0\u95F2\u7530\uFF0C\u519C\u592B\u72B9\u997F\u6B7B\u3002",
-      "ch\u016Bn zh\xF2ng y\u012B l\xEC s\xF9\uFF0Cqi\u016B sh\u014Du w\xE0n k\u0113 z\u01D0\u3002\ns\xEC h\u01CEi w\xFA xi\xE1n ti\xE1n\uFF0Cn\xF3ng f\u016B y\xF3u \xE8 s\u01D0\u3002",
-      "\u6625\u5929\u79CD\u4E0B\u4E00\u7C92\u79CD\u5B50\uFF0C\u79CB\u5929\u6536\u83B7\u5F88\u591A\u7CAE\u98DF\uFF0C\u5929\u4E0B\u6CA1\u6709\u8352\u5E9F\u7684\u7530\u5730\uFF0C\u519C\u6C11\u5374\u4ECD\u7136\u4F1A\u997F\u6B7B\u3002",
-      "\u6625\u5929\u79CD\u4E0B\u4E00\u7C92\u7C9F\u7C73\uFF0C\u79CB\u5929\u80FD\u6536\u83B7\u5343\u4E07\u9897\u7CAE\u98DF\u3002\u5929\u4E0B\u6CA1\u6709\u7A7A\u95F2\u8352\u5E9F\u7684\u7530\u5730\uFF0C\u53EF\u662F\u8F9B\u52E4\u8015\u79CD\u7684\u519C\u6C11\u4ECD\u7136\u4F1A\u997F\u6B7B\u3002",
-      "\u524D\u4E24\u53E5\u5199\u4E30\u6536\uFF0C\u7B2C\u4E09\u53E5\u5199\u7530\u5730\u5C3D\u7528\uFF0C\u6700\u540E\u4E00\u53E5\u7A81\u7136\u8F6C\u5411\u519C\u6C11\u7684\u547D\u8FD0\u3002\u5F3A\u70C8\u53CD\u5DEE\u8BA9\u4EBA\u601D\u8003\u52B3\u52A8\u4E0E\u6536\u83B7\u7684\u5173\u7CFB\u3002",
-      ["\u6625\u79CD", "\u79CB\u6536", "\u519C\u6C11", "\u7CAE\u98DF"],
-      ["\u674E\u7EC5", "\u60AF\u519C", "\u52B3\u52A8"],
-      "poetry-farmer"
-    ),
-    poem(
-      "poetry-g3-wangdongting",
-      3,
-      "\u4E0A",
-      "\u671B\u6D1E\u5EAD",
-      "\u5218\u79B9\u9521",
-      "\u5510",
-      "\u6E56\u5149\u79CB\u6708\u4E24\u76F8\u548C\uFF0C\u6F6D\u9762\u65E0\u98CE\u955C\u672A\u78E8\u3002\n\u9065\u671B\u6D1E\u5EAD\u5C71\u6C34\u7FE0\uFF0C\u767D\u94F6\u76D8\u91CC\u4E00\u9752\u87BA\u3002",
-      "h\xFA gu\u0101ng qi\u016B yu\xE8 li\u01CEng xi\u0101ng h\xE9\uFF0Ct\xE1n mi\xE0n w\xFA f\u0113ng j\xECng w\xE8i m\xF3\u3002\ny\xE1o w\xE0ng d\xF2ng t\xEDng sh\u0101n shu\u01D0 cu\xEC\uFF0Cb\xE1i y\xEDn p\xE1n l\u01D0 y\u012B q\u012Bng lu\xF3\u3002",
-      "\u79CB\u591C\u6D1E\u5EAD\u6E56\u7684\u6708\u5149\u4E0E\u6C34\u8272\u878D\u5728\u4E00\u8D77\uFF0C\u6E56\u9762\u5E73\u9759\u5F97\u50CF\u672A\u78E8\u7684\u94DC\u955C\u3002\u8FDC\u671B\u9752\u5C71\u7EFF\u6C34\uFF0C\u50CF\u767D\u94F6\u76D8\u4E2D\u653E\u7740\u4E00\u53EA\u9752\u87BA\u3002",
-      "\u6D1E\u5EAD\u6E56\u7684\u6E56\u5149\u4E0E\u79CB\u6708\u4E92\u76F8\u6620\u886C\uFF0C\u6E56\u9762\u6CA1\u6709\u98CE\uFF0C\u5E73\u9759\u5F97\u50CF\u4E00\u9762\u6CA1\u6709\u6253\u78E8\u7684\u94DC\u955C\u3002\u8FDC\u8FDC\u671B\u53BB\uFF0C\u6D1E\u5EAD\u6E56\u5C71\u6C34\u9752\u7FE0\uFF0C\u5C31\u50CF\u767D\u94F6\u76D8\u91CC\u653E\u7740\u4E00\u53EA\u9752\u87BA\u3002",
-      "\u8BD7\u4EBA\u4ECE\u8FD1\u5904\u6E56\u9762\u5199\u5230\u8FDC\u5904\u541B\u5C71\uFF0C\u7528\u201C\u955C\u201D\u201C\u94F6\u76D8\u201D\u201C\u9752\u87BA\u201D\u4E09\u4E2A\u6BD4\u55BB\uFF0C\u628A\u6D1E\u5EAD\u6E56\u5199\u5F97\u6E05\u4EAE\u53C8\u79C0\u7F8E\u3002",
-      ["\u6D1E\u5EAD\u6E56", "\u79CB\u6708", "\u6E56\u9762", "\u541B\u5C71"],
-      ["\u5218\u79B9\u9521", "\u79CB\u5929", "\u6BD4\u55BB"],
-      "poetry-lake"
-    ),
-    poem(
-      "poetry-g3-zaifadbaidi",
-      3,
-      "\u4E0A",
-      "\u65E9\u53D1\u767D\u5E1D\u57CE",
-      "\u674E\u767D",
-      "\u5510",
-      "\u671D\u8F9E\u767D\u5E1D\u5F69\u4E91\u95F4\uFF0C\u5343\u91CC\u6C5F\u9675\u4E00\u65E5\u8FD8\u3002\n\u4E24\u5CB8\u733F\u58F0\u557C\u4E0D\u4F4F\uFF0C\u8F7B\u821F\u5DF2\u8FC7\u4E07\u91CD\u5C71\u3002",
-      "zh\u0101o c\xED b\xE1i d\xEC c\u01CEi y\xFAn ji\u0101n\uFF0Cqi\u0101n l\u01D0 ji\u0101ng l\xEDng y\u012B r\xEC hu\xE1n\u3002\nli\u01CEng \xE0n yu\xE1n sh\u0113ng t\xED b\xF9 zh\xF9\uFF0Cq\u012Bng zh\u014Du y\u01D0 gu\xF2 w\xE0n ch\xF3ng sh\u0101n\u3002",
-      "\u6E05\u6668\u4ECE\u5F69\u4E91\u95F4\u7684\u767D\u5E1D\u57CE\u51FA\u53D1\uFF0C\u4E00\u5929\u5C31\u80FD\u56DE\u5230\u5343\u91CC\u4E4B\u5916\u7684\u6C5F\u9675\u3002\u4E24\u5CB8\u733F\u58F0\u8FD8\u5728\u56DE\u8361\uFF0C\u8F7B\u5FEB\u7684\u5C0F\u8239\u5DF2\u7A7F\u8FC7\u4E07\u91CD\u5C71\u3002",
-      "\u6E05\u6668\u544A\u522B\u9AD8\u5165\u5F69\u4E91\u7684\u767D\u5E1D\u57CE\uFF0C\u5343\u91CC\u4E4B\u5916\u7684\u6C5F\u9675\u4E00\u5929\u5C31\u53EF\u4EE5\u5230\u8FBE\u3002\u4E24\u5CB8\u733F\u7334\u7684\u53EB\u58F0\u8FD8\u5728\u8033\u8FB9\u56DE\u8361\uFF0C\u8F7B\u5FEB\u7684\u5C0F\u8239\u5DF2\u7ECF\u7A7F\u8FC7\u91CD\u91CD\u53E0\u53E0\u7684\u9AD8\u5C71\u3002",
-      "\u201C\u5343\u91CC\u201D\u4E0E\u201C\u4E00\u65E5\u201D\u3001\u201C\u733F\u58F0\u201D\u4E0E\u201C\u8F7B\u821F\u201D\u5F62\u6210\u901F\u5EA6\u4E0A\u7684\u5BF9\u6BD4\u3002\u8BD7\u53E5\u8282\u594F\u8F7B\u5FEB\uFF0C\u8868\u73B0\u51FA\u8BD7\u4EBA\u987A\u6D41\u884C\u821F\u7684\u559C\u60A6\u3002",
-      ["\u767D\u5E1D\u57CE", "\u6C5F\u9675", "\u733F\u58F0", "\u8F7B\u821F"],
-      ["\u674E\u767D", "\u5C71\u6C34", "\u884C\u821F"],
-      "poetry-mountain-river"
-    ),
-    poem(
-      "poetry-g3-qingming",
-      3,
-      "\u4E0B",
-      "\u6E05\u660E",
-      "\u675C\u7267",
-      "\u5510",
-      "\u6E05\u660E\u65F6\u8282\u96E8\u7EB7\u7EB7\uFF0C\u8DEF\u4E0A\u884C\u4EBA\u6B32\u65AD\u9B42\u3002\n\u501F\u95EE\u9152\u5BB6\u4F55\u5904\u6709\uFF0C\u7267\u7AE5\u9065\u6307\u674F\u82B1\u6751\u3002",
-      "q\u012Bng m\xEDng sh\xED ji\xE9 y\u01D4 f\u0113n f\u0113n\uFF0Cl\xF9 sh\xE0ng x\xEDng r\xE9n y\xF9 du\xE0n h\xFAn\u3002\nji\xE8 w\xE8n ji\u01D4 ji\u0101 h\xE9 ch\xF9 y\u01D2u\uFF0Cm\xF9 t\xF3ng y\xE1o zh\u01D0 x\xECng hu\u0101 c\u016Bn\u3002",
-      "\u6E05\u660E\u65F6\u8282\u7EC6\u96E8\u7EB7\u7EB7\uFF0C\u8DEF\u4E0A\u884C\u4EBA\u5FC3\u60C5\u4F4E\u843D\u3002\u8BD7\u4EBA\u8BE2\u95EE\u9152\u5BB6\u5728\u54EA\u91CC\uFF0C\u7267\u7AE5\u6307\u5411\u8FDC\u5904\u7684\u674F\u82B1\u6751\u3002",
-      "\u6E05\u660E\u8282\u7684\u65F6\u5019\uFF0C\u7EC6\u96E8\u7EB7\u7EB7\u98D8\u843D\uFF0C\u8DEF\u4E0A\u7684\u884C\u4EBA\u5FC3\u60C5\u6101\u95F7\uFF0C\u597D\u50CF\u4E22\u4E86\u9B42\u4E00\u6837\u3002\u5411\u4EBA\u6253\u542C\u54EA\u91CC\u6709\u9152\u5BB6\uFF0C\u7267\u7AE5\u6307\u4E86\u6307\u8FDC\u5904\u5F00\u6EE1\u674F\u82B1\u7684\u6751\u5B50\u3002",
-      "\u524D\u4E24\u53E5\u5199\u96E8\u548C\u884C\u4EBA\u7684\u6101\u7EEA\uFF0C\u540E\u4E24\u53E5\u4E00\u95EE\u4E00\u6307\uFF0C\u753B\u9762\u987F\u65F6\u6709\u4E86\u65B9\u5411\u3002\u674F\u82B1\u6751\u7684\u660E\u4E3D\u4E5F\u51B2\u6DE1\u4E86\u6E05\u660E\u7684\u4F24\u611F\u3002",
-      ["\u6E05\u660E", "\u7EC6\u96E8", "\u884C\u4EBA", "\u674F\u82B1\u6751"],
-      ["\u675C\u7267", "\u8282\u65E5", "\u95EE\u7B54"],
-      "poetry-spring-rain"
-    ),
-    poem(
-      "poetry-g3-jiuyuejiu",
-      3,
-      "\u4E0B",
-      "\u4E5D\u6708\u4E5D\u65E5\u5FC6\u5C71\u4E1C\u5144\u5F1F",
-      "\u738B\u7EF4",
-      "\u5510",
-      "\u72EC\u5728\u5F02\u4E61\u4E3A\u5F02\u5BA2\uFF0C\u6BCF\u9022\u4F73\u8282\u500D\u601D\u4EB2\u3002\n\u9065\u77E5\u5144\u5F1F\u767B\u9AD8\u5904\uFF0C\u904D\u63D2\u8331\u8438\u5C11\u4E00\u4EBA\u3002",
-      "d\xFA z\xE0i y\xEC xi\u0101ng w\xE9i y\xEC k\xE8\uFF0Cm\u011Bi f\xE9ng ji\u0101 ji\xE9 b\xE8i s\u012B q\u012Bn\u3002\ny\xE1o zh\u012B xi\u014Dng d\xEC d\u0113ng g\u0101o ch\xF9\uFF0Cbi\xE0n ch\u0101 zh\u016B y\xFA sh\u01CEo y\u012B r\xE9n\u3002",
-      "\u91CD\u9633\u8282\u72EC\u81EA\u5728\u4ED6\u4E61\u4F5C\u5BA2\uFF0C\u683C\u5916\u601D\u5FF5\u4EB2\u4EBA\u3002\u60F3\u8C61\u5144\u5F1F\u4EEC\u767B\u9AD8\u63D2\u8331\u8438\u65F6\uFF0C\u4F1A\u53D1\u73B0\u5C11\u4E86\u81EA\u5DF1\u4E00\u4E2A\u4EBA\u3002",
-      "\u72EC\u81EA\u5728\u4ED6\u4E61\u505A\u5F02\u4E61\u7684\u5BA2\u4EBA\uFF0C\u6BCF\u9022\u4F73\u8282\u5C31\u66F4\u52A0\u601D\u5FF5\u4EB2\u4EBA\u3002\u8FDC\u8FDC\u60F3\u5230\u5144\u5F1F\u4EEC\u767B\u9AD8\u7684\u65F6\u5019\uFF0C\u4EBA\u4EBA\u63D2\u4E0A\u8331\u8438\uFF0C\u5374\u5C11\u4E86\u6211\u4E00\u4E2A\u4EBA\u3002",
-      "\u8BD7\u4EBA\u6CA1\u6709\u53EA\u5199\u81EA\u5DF1\u7684\u601D\u5FF5\uFF0C\u800C\u662F\u60F3\u8C61\u5144\u5F1F\u4EEC\u7684\u573A\u666F\u3002\u201C\u5C11\u4E00\u4EBA\u201D\u4ECE\u5BF9\u65B9\u5199\u56DE\u81EA\u5DF1\uFF0C\u60C5\u610F\u66F4\u6DF1\u3002",
-      ["\u91CD\u9633", "\u5F02\u4E61", "\u5144\u5F1F", "\u8331\u8438"],
-      ["\u738B\u7EF4", "\u601D\u4E61", "\u8282\u65E5"],
-      "poetry-farewell"
-    ),
-    poem(
-      "poetry-g3-huichong",
-      3,
-      "\u4E0B",
-      "\u60E0\u5D07\u6625\u6C5F\u665A\u666F",
-      "\u82CF\u8F7C",
-      "\u5B8B",
-      "\u7AF9\u5916\u6843\u82B1\u4E09\u4E24\u679D\uFF0C\u6625\u6C5F\u6C34\u6696\u9E2D\u5148\u77E5\u3002\n\u848C\u84BF\u6EE1\u5730\u82A6\u82BD\u77ED\uFF0C\u6B63\u662F\u6CB3\u8C5A\u6B32\u4E0A\u65F6\u3002",
-      "zh\xFA w\xE0i t\xE1o hu\u0101 s\u0101n li\u01CEng zh\u012B\uFF0Cch\u016Bn ji\u0101ng shu\u01D0 nu\u01CEn y\u0101 xi\u0101n zh\u012B\u3002\nl\xF3u h\u0101o m\u01CEn d\xEC l\xFA y\xE1 du\u01CEn\uFF0Czh\xE8ng sh\xEC h\xE9 t\xFAn y\xF9 sh\xE0ng sh\xED\u3002",
-      "\u7AF9\u6797\u5916\u6843\u82B1\u521D\u5F00\uFF0C\u6C5F\u6C34\u53D8\u6696\u9E2D\u5B50\u6700\u5148\u77E5\u9053\u3002\u6EE1\u5730\u848C\u84BF\u3001\u77ED\u77ED\u82A6\u82BD\uFF0C\u6B63\u662F\u6CB3\u8C5A\u5C06\u8981\u4E0A\u6EAF\u7684\u65F6\u8282\u3002",
-      "\u7AF9\u6797\u5916\u5F00\u7740\u4E24\u4E09\u679D\u6843\u82B1\uFF0C\u6625\u5929\u7684\u6C5F\u6C34\u53D8\u6696\u4E86\uFF0C\u9E2D\u5B50\u6700\u5148\u611F\u89C9\u5230\u3002\u5CB8\u4E0A\u957F\u6EE1\u848C\u84BF\uFF0C\u82A6\u82BD\u8FD8\u5F88\u77ED\uFF0C\u8FD9\u6B63\u662F\u6CB3\u8C5A\u5C06\u8981\u9006\u6D41\u800C\u4E0A\u7684\u65F6\u5019\u3002",
-      "\u201C\u6C34\u6696\u9E2D\u5148\u77E5\u201D\u628A\u770B\u4E0D\u89C1\u7684\u6E29\u5EA6\u5199\u6210\u9E2D\u5B50\u7684\u611F\u53D7\uFF0C\u89C2\u5BDF\u7EC6\u81F4\u3002\u540E\u4E24\u53E5\u4ECE\u690D\u7269\u5199\u5230\u6CB3\u8C5A\uFF0C\u5145\u6EE1\u6625\u5929\u7684\u751F\u6D3B\u6C14\u606F\u3002",
-      ["\u6843\u82B1", "\u6625\u6C5F", "\u9E2D\u5B50", "\u6CB3\u8C5A"],
-      ["\u82CF\u8F7C", "\u6625\u5929", "\u9898\u753B\u8BD7"],
-      "poetry-spring-rain"
-    ),
-    poem(
-      "poetry-g4-suxinshi",
-      4,
-      "\u4E0B",
-      "\u5BBF\u65B0\u5E02\u5F90\u516C\u5E97",
-      "\u6768\u4E07\u91CC",
-      "\u5B8B",
-      "\u7BF1\u843D\u758F\u758F\u4E00\u5F84\u6DF1\uFF0C\u6811\u5934\u65B0\u7EFF\u672A\u6210\u9634\u3002\n\u513F\u7AE5\u6025\u8D70\u8FFD\u9EC4\u8776\uFF0C\u98DE\u5165\u83DC\u82B1\u65E0\u5904\u5BFB\u3002",
-      "l\xED lu\xF2 sh\u016B sh\u016B y\u012B j\xECng sh\u0113n\uFF0Csh\xF9 t\xF3u x\u012Bn l\u01DC w\xE8i ch\xE9ng y\u012Bn\u3002\n\xE9r t\xF3ng j\xED z\u01D2u zhu\u012B hu\xE1ng di\xE9\uFF0Cf\u0113i r\xF9 c\xE0i hu\u0101 w\xFA ch\xF9 x\xFAn\u3002",
-      "\u7A00\u758F\u7684\u7BF1\u7B06\u65C1\u6709\u4E00\u6761\u5C0F\u8DEF\uFF0C\u6811\u68A2\u521A\u957F\u51FA\u65B0\u53F6\u3002\u5B69\u5B50\u8FFD\u7740\u9EC4\u8774\u8776\u8DD1\uFF0C\u8774\u8776\u98DE\u8FDB\u83DC\u82B1\u4E1B\u5C31\u627E\u4E0D\u5230\u4E86\u3002",
-      "\u7A00\u7A00\u758F\u758F\u7684\u7BF1\u7B06\u65C1\uFF0C\u4E00\u6761\u5C0F\u8DEF\u4F38\u5411\u8FDC\u65B9\uFF0C\u6811\u68A2\u521A\u957F\u51FA\u5AE9\u7EFF\u7684\u65B0\u53F6\uFF0C\u8FD8\u6CA1\u6709\u5F62\u6210\u6D53\u5BC6\u7684\u6811\u836B\u3002\u5B69\u5B50\u6025\u5FD9\u5954\u8DD1\u7740\u8FFD\u9EC4\u8774\u8776\uFF0C\u8774\u8776\u98DE\u8FDB\u91D1\u9EC4\u7684\u83DC\u82B1\u4E1B\u91CC\uFF0C\u518D\u4E5F\u627E\u4E0D\u5230\u4E86\u3002",
-      "\u201C\u6025\u8D70\u201D\u201C\u8FFD\u201D\u5199\u51FA\u5B69\u5B50\u7684\u52A8\u4F5C\uFF0C\u9EC4\u8776\u4E0E\u83DC\u82B1\u540C\u8272\u53C8\u9020\u6210\u6709\u8DA3\u7684\u201C\u65E0\u5904\u5BFB\u201D\u3002\u753B\u9762\u8F7B\u5FEB\uFF0C\u5BCC\u6709\u751F\u6D3B\u8DA3\u5473\u3002",
-      ["\u7BF1\u7B06", "\u513F\u7AE5", "\u9EC4\u8776", "\u83DC\u82B1"],
-      ["\u6768\u4E07\u91CC", "\u6625\u5929", "\u7AE5\u8DA3"],
-      "poetry-village"
-    ),
-    poem(
-      "poetry-g4-sishitianyuan25",
-      4,
-      "\u4E0B",
-      "\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E8C\u5341\u4E94\uFF09",
-      "\u8303\u6210\u5927",
-      "\u5B8B",
-      "\u6885\u5B50\u91D1\u9EC4\u674F\u5B50\u80A5\uFF0C\u9EA6\u82B1\u96EA\u767D\u83DC\u82B1\u7A00\u3002\n\u65E5\u957F\u7BF1\u843D\u65E0\u4EBA\u8FC7\uFF0C\u60DF\u6709\u873B\u8713\u86F1\u8776\u98DE\u3002",
-      "m\xE9i z\u01D0 j\u012Bn hu\xE1ng x\xECng z\u01D0 f\xE9i\uFF0Cm\xE0i hu\u0101 xu\u011B b\xE1i c\xE0i hu\u0101 x\u012B\u3002\nr\xEC ch\xE1ng l\xED lu\xF2 w\xFA r\xE9n gu\xF2\uFF0Cw\xE9i y\u01D2u q\u012Bng t\xEDng ji\xE1 di\xE9 f\u0113i\u3002",
-      "\u6885\u5B50\u91D1\u9EC4\u3001\u674F\u5B50\u80A5\u7855\uFF0C\u9EA6\u82B1\u96EA\u767D\u3001\u83DC\u82B1\u7A00\u758F\u3002\u767D\u5929\u53D8\u957F\uFF0C\u7BF1\u7B06\u8FB9\u6CA1\u4EBA\u7ECF\u8FC7\uFF0C\u53EA\u6709\u873B\u8713\u548C\u8774\u8776\u98DE\u821E\u3002",
-      "\u6885\u5B50\u53D8\u5F97\u91D1\u9EC4\uFF0C\u674F\u5B50\u957F\u5F97\u9971\u6EE1\uFF1B\u9EA6\u82B1\u96EA\u767D\uFF0C\u83DC\u82B1\u5374\u6E10\u6E10\u7A00\u5C11\u3002\u767D\u5929\u8D8A\u6765\u8D8A\u957F\uFF0C\u7BF1\u7B06\u65C1\u6CA1\u6709\u4EBA\u7ECF\u8FC7\uFF0C\u53EA\u6709\u873B\u8713\u548C\u8774\u8776\u5728\u98DE\u6765\u98DE\u53BB\u3002",
-      "\u524D\u4E24\u53E5\u7528\u989C\u8272\u548C\u679C\u5B9E\u5199\u521D\u590F\uFF0C\u540E\u4E24\u53E5\u5199\u5B89\u9759\u4E2D\u7684\u6606\u866B\u6D3B\u52A8\u3002\u770B\u4F3C\u65E0\u4EBA\uFF0C\u5B9E\u9645\u5145\u6EE1\u751F\u547D\u7684\u52A8\u9759\u3002",
-      ["\u6885\u5B50", "\u674F\u5B50", "\u9EA6\u82B1", "\u873B\u8713"],
-      ["\u8303\u6210\u5927", "\u521D\u590F", "\u7530\u56ED"],
-      "poetry-farmer"
-    ),
-    poem(
-      "poetry-g4-furonglou",
-      4,
-      "\u4E0B",
-      "\u8299\u84C9\u697C\u9001\u8F9B\u6E10",
-      "\u738B\u660C\u9F84",
-      "\u5510",
-      "\u5BD2\u96E8\u8FDE\u6C5F\u591C\u5165\u5434\uFF0C\u5E73\u660E\u9001\u5BA2\u695A\u5C71\u5B64\u3002\n\u6D1B\u9633\u4EB2\u53CB\u5982\u76F8\u95EE\uFF0C\u4E00\u7247\u51B0\u5FC3\u5728\u7389\u58F6\u3002",
-      "h\xE1n y\u01D4 li\xE1n ji\u0101ng y\xE8 r\xF9 w\xFA\uFF0Cp\xEDng m\xEDng s\xF2ng k\xE8 ch\u01D4 sh\u0101n g\u016B\u3002\nlu\xF2 y\xE1ng q\u012Bn y\u01D2u r\xFA xi\u0101ng w\xE8n\uFF0Cy\u012B pi\xE0n b\u012Bng x\u012Bn z\xE0i y\xF9 h\xFA\u3002",
-      "\u5BD2\u96E8\u8FDE\u591C\u6D12\u6EE1\u6C5F\u9762\uFF0C\u6E05\u6668\u9001\u522B\u670B\u53CB\uFF0C\u8FDC\u5C71\u663E\u5F97\u5B64\u72EC\u3002\u8BD7\u4EBA\u6258\u670B\u53CB\u8F6C\u544A\u6D1B\u9633\u4EB2\u53CB\uFF1A\u81EA\u5DF1\u4F9D\u7136\u51B0\u6E05\u7389\u6D01\u3002",
-      "\u5BD2\u51B7\u7684\u96E8\u8FDE\u7740\u6C5F\u9762\uFF0C\u591C\u91CC\u6765\u5230\u5434\u5730\uFF1B\u5929\u4EAE\u65F6\u9001\u522B\u670B\u53CB\uFF0C\u695A\u5C71\u663E\u5F97\u683C\u5916\u5B64\u5355\u3002\u6D1B\u9633\u7684\u4EB2\u53CB\u5982\u679C\u95EE\u8D77\u6211\uFF0C\u8BF7\u544A\u8BC9\u4ED6\u4EEC\uFF0C\u6211\u7684\u4E00\u7247\u7EAF\u6D01\u4E4B\u5FC3\u4ECD\u50CF\u7389\u58F6\u4E2D\u7684\u51B0\u4E00\u6837\u3002",
-      "\u201C\u5B64\u201D\u65E2\u662F\u5C71\uFF0C\u4E5F\u662F\u9001\u522B\u4EBA\u7684\u5FC3\u60C5\u3002\u6700\u540E\u4E00\u53E5\u7528\u201C\u51B0\u5FC3\u7389\u58F6\u201D\u8868\u660E\u6E05\u767D\u575A\u5B88\uFF0C\u9001\u522B\u8BD7\u56E0\u6B64\u6709\u4E86\u54C1\u683C\u529B\u91CF\u3002",
-      ["\u5BD2\u96E8", "\u9001\u522B", "\u6D1B\u9633", "\u7389\u58F6"],
-      ["\u738B\u660C\u9F84", "\u9001\u522B", "\u54C1\u683C"],
-      "poetry-farewell"
-    ),
-    poem(
-      "poetry-g5-shanju",
-      5,
-      "\u4E0A",
-      "\u5C71\u5C45\u79CB\u669D",
-      "\u738B\u7EF4",
-      "\u5510",
-      "\u7A7A\u5C71\u65B0\u96E8\u540E\uFF0C\u5929\u6C14\u665A\u6765\u79CB\u3002\n\u660E\u6708\u677E\u95F4\u7167\uFF0C\u6E05\u6CC9\u77F3\u4E0A\u6D41\u3002\n\u7AF9\u55A7\u5F52\u6D63\u5973\uFF0C\u83B2\u52A8\u4E0B\u6E14\u821F\u3002\n\u968F\u610F\u6625\u82B3\u6B47\uFF0C\u738B\u5B59\u81EA\u53EF\u7559\u3002",
-      "k\u014Dng sh\u0101n x\u012Bn y\u01D4 h\xF2u\uFF0Cti\u0101n q\xEC w\u01CEn l\xE1i qi\u016B\u3002\nm\xEDng yu\xE8 s\u014Dng ji\u0101n zh\xE0o\uFF0Cq\u012Bng qu\xE1n sh\xED sh\xE0ng li\xFA\u3002\nzh\xFA xu\u0101n gu\u012B hu\xE0n n\u01DA\uFF0Cli\xE1n d\xF2ng xi\xE0 y\xFA zh\u014Du\u3002\nsu\xED y\xEC ch\u016Bn f\u0101ng xi\u0113\uFF0Cw\xE1ng s\u016Bn z\xEC k\u011B li\xFA\u3002",
-      "\u96E8\u540E\u7A7A\u5C71\u79CB\u610F\u6E05\u723D\uFF0C\u660E\u6708\u7167\u677E\u6797\u3001\u6E05\u6CC9\u6D41\u77F3\u4E0A\u3002\u7AF9\u6797\u55A7\u54CD\u662F\u6D17\u8863\u5973\u5F52\u6765\uFF0C\u83B2\u53F6\u6447\u52A8\u662F\u6E14\u821F\u987A\u6D41\u800C\u4E0B\u3002\u8BD7\u4EBA\u613F\u610F\u7559\u5728\u8FD9\u6E05\u5E7D\u7684\u5C71\u4E2D\u3002",
-      "\u7A7A\u65F7\u7684\u5C71\u4E2D\u521A\u4E0B\u8FC7\u4E00\u573A\u65B0\u96E8\uFF0C\u508D\u665A\u7684\u5929\u6C14\u5E26\u6765\u4E86\u79CB\u610F\u3002\u660E\u6708\u4ECE\u677E\u6797\u95F4\u7167\u4E0B\u6765\uFF0C\u6E05\u6CC9\u5728\u5C71\u77F3\u4E0A\u6D41\u6DCC\u3002\u7AF9\u6797\u91CC\u4F20\u6765\u55A7\u95F9\u58F0\uFF0C\u662F\u6D17\u8863\u7684\u5973\u5B50\u5F52\u6765\uFF1B\u83B2\u53F6\u6447\u52A8\uFF0C\u662F\u6E14\u821F\u987A\u6D41\u800C\u4E0B\u3002\u4EFB\u51ED\u6625\u5929\u7684\u82B1\u8349\u51CB\u8C22\uFF0C\u6211\u4E5F\u53EF\u4EE5\u7559\u5728\u8FD9\u5C71\u4E2D\u3002",
-      "\u8BD7\u4E2D\u6709\u6708\u5149\u3001\u6E05\u6CC9\u3001\u7AF9\u6797\u3001\u83B2\u53F6\uFF0C\u4E5F\u6709\u4EBA\u7684\u58F0\u97F3\u548C\u52A8\u4F5C\u3002\u9759\u666F\u4E0E\u52A8\u6001\u76F8\u886C\uFF0C\u6784\u6210\u4E00\u5E45\u6E05\u5E7D\u7684\u79CB\u5C71\u665A\u666F\u3002",
-      ["\u7A7A\u5C71", "\u65B0\u96E8", "\u660E\u6708", "\u6E05\u6CC9"],
-      ["\u738B\u7EF4", "\u79CB\u5929", "\u5C71\u6C34"],
-      "poetry-autumn"
-    ),
-    poem(
-      "poetry-g5-fengqiao",
-      5,
-      "\u4E0A",
-      "\u67AB\u6865\u591C\u6CCA",
-      "\u5F20\u7EE7",
-      "\u5510",
-      "\u6708\u843D\u4E4C\u557C\u971C\u6EE1\u5929\uFF0C\u6C5F\u67AB\u6E14\u706B\u5BF9\u6101\u7720\u3002\n\u59D1\u82CF\u57CE\u5916\u5BD2\u5C71\u5BFA\uFF0C\u591C\u534A\u949F\u58F0\u5230\u5BA2\u8239\u3002",
-      "yu\xE8 lu\xF2 w\u016B t\xED shu\u0101ng m\u01CEn ti\u0101n\uFF0Cji\u0101ng f\u0113ng y\xFA hu\u01D2 du\xEC ch\xF3u mi\xE1n\u3002\ng\u016B s\u016B ch\xE9ng w\xE0i h\xE1n sh\u0101n s\xEC\uFF0Cy\xE8 b\xE0n zh\u014Dng sh\u0113ng d\xE0o k\xE8 chu\xE1n\u3002",
-      "\u6708\u843D\u3001\u4E4C\u557C\u3001\u971C\u5929\u3001\u6C5F\u67AB\u3001\u6E14\u706B\uFF0C\u6784\u6210\u65C5\u591C\u6101\u7720\u7684\u753B\u9762\u3002\u534A\u591C\u5BD2\u5C71\u5BFA\u7684\u949F\u58F0\u4F20\u5230\u5BA2\u8239\uFF0C\u66F4\u6DFB\u7F81\u65C5\u4E4B\u6101\u3002",
-      "\u6708\u4EAE\u843D\u4E0B\uFF0C\u4E4C\u9E26\u557C\u53EB\uFF0C\u5BD2\u971C\u6EE1\u5929\uFF1B\u6C5F\u8FB9\u7684\u67AB\u6811\u4E0E\u6E14\u706B\u76F8\u5BF9\uFF0C\u966A\u4F34\u7740\u6EE1\u6000\u6101\u7EEA\u3001\u96BE\u4EE5\u5165\u7761\u7684\u65C5\u4EBA\u3002\u59D1\u82CF\u57CE\u5916\u7684\u5BD2\u5C71\u5BFA\uFF0C\u534A\u591C\u7684\u949F\u58F0\u4F20\u5230\u4E86\u5BA2\u8239\u4E0A\u3002",
-      "\u8BD7\u4EBA\u628A\u770B\u5230\u7684\u3001\u542C\u5230\u7684\u548C\u5FC3\u4E2D\u7684\u6101\u7EEA\u4EA4\u7EC7\u5728\u4E00\u8D77\u3002\u6700\u540E\u7684\u949F\u58F0\u4EE5\u52A8\u886C\u9759\uFF0C\u8BA9\u591C\u665A\u66F4\u52A0\u7A7A\u65F7\u6DF1\u8FDC\u3002",
-      ["\u6708\u843D", "\u4E4C\u557C", "\u6E14\u706B", "\u949F\u58F0"],
-      ["\u5F20\u7EE7", "\u7F81\u65C5", "\u79CB\u5929"],
-      "poetry-river-moon"
-    ),
-    poem(
-      "poetry-g5-zhizinongbing",
-      5,
-      "\u4E0B",
-      "\u7A1A\u5B50\u5F04\u51B0",
-      "\u6768\u4E07\u91CC",
-      "\u5B8B",
-      "\u7A1A\u5B50\u91D1\u76C6\u8131\u6653\u51B0\uFF0C\u5F69\u4E1D\u7A7F\u53D6\u5F53\u94F6\u94B2\u3002\n\u6572\u6210\u7389\u78EC\u7A7F\u6797\u54CD\uFF0C\u5FFD\u4F5C\u73BB\u7483\u788E\u5730\u58F0\u3002",
-      "zh\xEC z\u01D0 j\u012Bn p\xE9n tu\u014D xi\u01CEo b\u012Bng\uFF0Cc\u01CEi s\u012B chu\u0101n q\u01D4 d\u0101ng y\xEDn zh\u0113ng\u3002\nqi\u0101o ch\xE9ng y\xF9 q\xECng chu\u0101n l\xEDn xi\u01CEng\uFF0Ch\u016B zu\xF2 b\u014D l\xED su\xEC d\xEC sh\u0113ng\u3002",
-      "\u5B69\u5B50\u4ECE\u94DC\u76C6\u91CC\u525C\u51FA\u6E05\u6668\u7684\u51B0\uFF0C\u7528\u5F69\u7EBF\u7A7F\u8D77\u6765\u5F53\u94F6\u94B2\u6572\u3002\u6E05\u8106\u58F0\u97F3\u7A7F\u8FC7\u6811\u6797\uFF0C\u5FFD\u7136\u51B0\u5757\u843D\u5730\u6454\u788E\u4E86\u3002",
-      "\u5C0F\u5B69\u5B50\u4ECE\u91D1\u5C5E\u76C6\u91CC\u628A\u65E9\u6668\u7ED3\u7684\u51B0\u525C\u51FA\u6765\uFF0C\u7528\u5F69\u8272\u4E1D\u7EBF\u7A7F\u8D77\u6765\u5F53\u4F5C\u94F6\u94B2\u6572\u6253\u3002\u6572\u51FA\u7684\u58F0\u97F3\u50CF\u7389\u78EC\u4E00\u6837\u7A7F\u8FC7\u6811\u6797\uFF0C\u5FFD\u7136\u51B0\u6389\u5728\u5730\u4E0A\uFF0C\u53D1\u51FA\u50CF\u73BB\u7483\u7834\u788E\u4E00\u6837\u7684\u58F0\u97F3\u3002",
-      "\u4ECE\u201C\u8131\u51B0\u201D\u5230\u201C\u7A7F\u7EBF\u201D\u201C\u6572\u54CD\u201D\u518D\u5230\u201C\u788E\u88C2\u201D\uFF0C\u628A\u5B69\u5B50\u7684\u6E38\u620F\u8FC7\u7A0B\u5199\u5F97\u751F\u52A8\u5B8C\u6574\uFF0C\u58F0\u97F3\u53D8\u5316\u5C24\u5176\u4F20\u795E\u3002",
-      ["\u5B69\u5B50", "\u51B0\u5757", "\u5F69\u7EBF", "\u58F0\u97F3"],
-      ["\u6768\u4E07\u91CC", "\u51AC\u5929", "\u7AE5\u8DA3"],
-      "poetry-pond"
-    ),
-    poem(
-      "poetry-g5-cunwan",
-      5,
-      "\u4E0B",
-      "\u6751\u665A",
-      "\u96F7\u9707",
-      "\u5B8B",
-      "\u8349\u6EE1\u6C60\u5858\u6C34\u6EE1\u9642\uFF0C\u5C71\u8854\u843D\u65E5\u6D78\u5BD2\u6F2A\u3002\n\u7267\u7AE5\u5F52\u53BB\u6A2A\u725B\u80CC\uFF0C\u77ED\u7B1B\u65E0\u8154\u4FE1\u53E3\u5439\u3002",
-      "c\u01CEo m\u01CEn ch\xED t\xE1ng shu\u01D0 m\u01CEn b\u0113i\uFF0Csh\u0101n xi\xE1n lu\xF2 r\xEC j\xECn h\xE1n y\u012B\u3002\nm\xF9 t\xF3ng gu\u012B q\xF9 h\xE9ng ni\xFA b\xE8i\uFF0Cdu\u01CEn d\xED w\xFA qi\u0101ng x\xECn k\u01D2u chu\u012B\u3002",
-      "\u6C60\u5858\u957F\u6EE1\u9752\u8349\uFF0C\u6C34\u9762\u6F2B\u4E0A\u6C60\u5CB8\uFF0C\u8FDC\u5C71\u8854\u7740\u843D\u65E5\u5012\u6620\u6C34\u4E2D\u3002\u7267\u7AE5\u6A2A\u5750\u725B\u80CC\u56DE\u5BB6\uFF0C\u968F\u624B\u5439\u7740\u6CA1\u6709\u56FA\u5B9A\u66F2\u8C03\u7684\u5C0F\u7B1B\u3002",
-      "\u6C60\u5858\u8FB9\u957F\u6EE1\u9752\u8349\uFF0C\u6C60\u6C34\u6F2B\u4E0A\u4E86\u5CB8\uFF1B\u8FDC\u5C71\u597D\u50CF\u8854\u7740\u843D\u65E5\uFF0C\u5012\u6620\u5728\u6E05\u51C9\u7684\u6C34\u6CE2\u4E2D\u3002\u7267\u7AE5\u6A2A\u5750\u5728\u725B\u80CC\u4E0A\u56DE\u5BB6\uFF0C\u77ED\u7B1B\u6CA1\u6709\u56FA\u5B9A\u66F2\u8C03\uFF0C\u53EA\u662F\u968F\u53E3\u5439\u7740\u3002",
-      "\u524D\u4E24\u53E5\u5199\u4E61\u6751\u665A\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u7267\u7AE5\u3002\u4E00\u4E2A\u201C\u4FE1\u53E3\u5439\u201D\u628A\u65E0\u62D8\u65E0\u675F\u7684\u7AE5\u8DA3\u548C\u60A0\u95F2\u7684\u4E61\u6751\u751F\u6D3B\u8868\u73B0\u51FA\u6765\u3002",
-      ["\u6C60\u5858", "\u843D\u65E5", "\u7267\u7AE5", "\u77ED\u7B1B"],
-      ["\u96F7\u9707", "\u4E61\u6751", "\u7AE5\u8DA3"],
-      "poetry-village"
-    ),
-    poem(
-      "poetry-g5-congjunxing",
-      5,
-      "\u4E0B",
-      "\u4ECE\u519B\u884C",
-      "\u738B\u660C\u9F84",
-      "\u5510",
-      "\u9752\u6D77\u957F\u4E91\u6697\u96EA\u5C71\uFF0C\u5B64\u57CE\u9065\u671B\u7389\u95E8\u5173\u3002\n\u9EC4\u6C99\u767E\u6218\u7A7F\u91D1\u7532\uFF0C\u4E0D\u7834\u697C\u5170\u7EC8\u4E0D\u8FD8\u3002",
-      "q\u012Bng h\u01CEi ch\xE1ng y\xFAn \xE0n xu\u011B sh\u0101n\uFF0Cg\u016B ch\xE9ng y\xE1o w\xE0ng y\xF9 m\xE9n gu\u0101n\u3002\nhu\xE1ng sh\u0101 b\u01CEi zh\xE0n chu\u0101n j\u012Bn ji\u01CE\uFF0Cb\xF9 p\xF2 l\xF3u l\xE1n zh\u014Dng b\xF9 hu\xE1n\u3002",
-      "\u9752\u6D77\u6E56\u4E0A\u957F\u4E91\u906E\u6697\u96EA\u5C71\uFF0C\u5B64\u57CE\u9065\u671B\u7389\u95E8\u5173\u3002\u5C06\u58EB\u5728\u9EC4\u6C99\u4E2D\u8EAB\u7ECF\u767E\u6218\u3001\u94E0\u7532\u78E8\u7A7F\uFF0C\u4E0D\u6253\u8D25\u654C\u4EBA\u7EDD\u4E0D\u56DE\u8FD8\u3002",
-      "\u9752\u6D77\u6E56\u4E0A\u4E4C\u4E91\u5BC6\u5E03\uFF0C\u906E\u6697\u4E86\u96EA\u5C71\uFF1B\u4E00\u5EA7\u5B64\u57CE\u9065\u9065\u671B\u7740\u7389\u95E8\u5173\u3002\u5728\u9EC4\u6C99\u4E2D\u8EAB\u7ECF\u767E\u6218\uFF0C\u8FDE\u94E0\u7532\u90FD\u78E8\u7A7F\u4E86\uFF1B\u4E0D\u653B\u7834\u697C\u5170\uFF0C\u7EDD\u4E0D\u8FD4\u56DE\u5BB6\u4E61\u3002",
-      "\u524D\u4E24\u53E5\u5199\u8FBD\u9614\u82CD\u51C9\u7684\u8FB9\u585E\uFF0C\u540E\u4E24\u53E5\u5199\u5C06\u58EB\u7684\u51B3\u5FC3\u3002\u73AF\u5883\u8D8A\u8270\u82E6\uFF0C\u8D8A\u663E\u51FA\u5B88\u8FB9\u536B\u56FD\u7684\u610F\u5FD7\u3002",
-      ["\u9752\u6D77", "\u96EA\u5C71", "\u7389\u95E8\u5173", "\u5C06\u58EB"],
-      ["\u738B\u660C\u9F84", "\u8FB9\u585E", "\u5BB6\u56FD"],
-      "poetry-border"
-    ),
-    poem(
-      "poetry-g6-sujiande",
-      6,
-      "\u4E0A",
-      "\u5BBF\u5EFA\u5FB7\u6C5F",
-      "\u5B5F\u6D69\u7136",
-      "\u5510",
-      "\u79FB\u821F\u6CCA\u70DF\u6E1A\uFF0C\u65E5\u66AE\u5BA2\u6101\u65B0\u3002\n\u91CE\u65F7\u5929\u4F4E\u6811\uFF0C\u6C5F\u6E05\u6708\u8FD1\u4EBA\u3002",
-      "y\xED zh\u014Du b\xF3 y\u0101n zh\u01D4\uFF0Cr\xEC m\xF9 k\xE8 ch\xF3u x\u012Bn\u3002\ny\u011B ku\xE0ng ti\u0101n d\u012B sh\xF9\uFF0Cji\u0101ng q\u012Bng yu\xE8 j\xECn r\xE9n\u3002",
-      "\u5C0F\u8239\u505C\u6CCA\u5728\u70DF\u96FE\u7B3C\u7F69\u7684\u5C0F\u6D32\u65C1\uFF0C\u65E5\u66AE\u65F6\u65C5\u4EBA\u7684\u6101\u7EEA\u53C8\u6DFB\u4E00\u5C42\u3002\u539F\u91CE\u7A7A\u65F7\uFF0C\u5929\u8FB9\u597D\u50CF\u4F4E\u8FC7\u6811\u68A2\uFF1B\u6C5F\u6C34\u6E05\u6F88\uFF0C\u6708\u5F71\u4EFF\u4F5B\u9760\u8FD1\u4E86\u4EBA\u3002",
-      "\u628A\u8239\u79FB\u8FD1\u70DF\u96FE\u7B3C\u7F69\u7684\u5C0F\u6D32\u505C\u6CCA\uFF0C\u592A\u9633\u843D\u5C71\u65F6\uFF0C\u65C5\u4EBA\u7684\u6101\u7EEA\u53C8\u6DFB\u4E86\u4E00\u5C42\u3002\u539F\u91CE\u7A7A\u65F7\u8FBD\u9614\uFF0C\u8FDC\u5904\u7684\u5929\u4F3C\u4E4E\u6BD4\u6811\u8FD8\u4F4E\uFF1B\u6C5F\u6C34\u6E05\u6F88\uFF0C\u6C34\u4E2D\u7684\u6708\u5F71\u597D\u50CF\u79BB\u4EBA\u5F88\u8FD1\u3002",
-      "\u201C\u5929\u4F4E\u6811\u201D\u201C\u6708\u8FD1\u4EBA\u201D\u5199\u51FA\u4EBA\u5728\u7A7A\u65F7\u5929\u5730\u95F4\u7684\u5B64\u72EC\uFF0C\u4E5F\u5199\u51FA\u6708\u5F71\u76F8\u4F34\u7684\u5B89\u6170\u3002\u666F\u4E2D\u542B\u60C5\uFF0C\u542B\u84C4\u8010\u8BFB\u3002",
-      ["\u5EFA\u5FB7\u6C5F", "\u65E5\u66AE", "\u539F\u91CE", "\u6708\u5F71"],
-      ["\u5B5F\u6D69\u7136", "\u7F81\u65C5", "\u601D\u4E61"],
-      "poetry-river-moon"
-    ),
-    poem(
-      "poetry-g6-wanghulou",
-      6,
-      "\u4E0A",
-      "\u516D\u6708\u4E8C\u5341\u4E03\u65E5\u671B\u6E56\u697C\u9189\u4E66",
-      "\u82CF\u8F7C",
-      "\u5B8B",
-      "\u9ED1\u4E91\u7FFB\u58A8\u672A\u906E\u5C71\uFF0C\u767D\u96E8\u8DF3\u73E0\u4E71\u5165\u8239\u3002\n\u5377\u5730\u98CE\u6765\u5FFD\u5439\u6563\uFF0C\u671B\u6E56\u697C\u4E0B\u6C34\u5982\u5929\u3002",
-      "h\u0113i y\xFAn f\u0101n m\xF2 w\xE8i zh\u0113 sh\u0101n\uFF0Cb\xE1i y\u01D4 ti\xE0o zh\u016B lu\xE0n r\xF9 chu\xE1n\u3002\nju\u01CEn d\xEC f\u0113ng l\xE1i h\u016B chu\u012B s\xE0n\uFF0Cw\xE0ng h\xFA l\xF3u xi\xE0 shu\u01D0 r\xFA ti\u0101n\u3002",
-      "\u4E4C\u4E91\u7FFB\u6EDA\u50CF\u6253\u7FFB\u7684\u58A8\u6C41\uFF0C\u8FD8\u672A\u906E\u4F4F\u5C71\uFF1B\u767D\u96E8\u50CF\u8DF3\u52A8\u7684\u73CD\u73E0\u843D\u8FDB\u8239\u91CC\u3002\u5FFD\u7136\u72C2\u98CE\u5377\u5730\u5439\u6563\u4E91\u96E8\uFF0C\u671B\u6E56\u697C\u4E0B\u6C34\u9762\u50CF\u5929\u7A7A\u4E00\u6837\u660E\u51C0\u3002",
-      "\u9ED1\u4E91\u7FFB\u6EDA\uFF0C\u50CF\u6253\u7FFB\u7684\u58A8\u6C41\uFF0C\u8FD8\u6CA1\u6709\u906E\u4F4F\u5C71\uFF1B\u767D\u4EAE\u7684\u96E8\u70B9\u50CF\u8DF3\u52A8\u7684\u73CD\u73E0\uFF0C\u4E71\u7EB7\u7EB7\u5730\u843D\u8FDB\u8239\u91CC\u3002\u5FFD\u7136\u4E00\u9635\u5377\u5730\u5927\u98CE\u628A\u4E91\u96E8\u5439\u6563\uFF0C\u671B\u6E56\u697C\u4E0B\u6C34\u9762\u5E73\u9759\u660E\u51C0\uFF0C\u597D\u50CF\u548C\u5929\u7A7A\u8FDE\u6210\u4E00\u7247\u3002",
-      "\u56DB\u53E5\u5199\u4E91\u3001\u96E8\u3001\u98CE\u3001\u6C34\uFF0C\u53D8\u5316\u6781\u5FEB\u3002\u201C\u7FFB\u58A8\u201D\u201C\u8DF3\u73E0\u201D\u4E24\u4E2A\u6BD4\u55BB\u6709\u58F0\u6709\u8272\uFF0C\u5448\u73B0\u590F\u5929\u66B4\u96E8\u6765\u53BB\u5306\u5306\u7684\u7279\u70B9\u3002",
-      ["\u4E4C\u4E91", "\u767D\u96E8", "\u72C2\u98CE", "\u6E56\u6C34"],
-      ["\u82CF\u8F7C", "\u590F\u5929", "\u66B4\u96E8"],
-      "poetry-westlake"
-    ),
-    poem(
-      "poetry-g6-xijiangyue",
-      6,
-      "\u4E0A",
-      "\u897F\u6C5F\u6708\xB7\u591C\u884C\u9EC4\u6C99\u9053\u4E2D",
-      "\u8F9B\u5F03\u75BE",
-      "\u5B8B",
-      "\u660E\u6708\u522B\u679D\u60CA\u9E4A\uFF0C\u6E05\u98CE\u534A\u591C\u9E23\u8749\u3002\n\u7A3B\u82B1\u9999\u91CC\u8BF4\u4E30\u5E74\uFF0C\u542C\u53D6\u86D9\u58F0\u4E00\u7247\u3002\n\u4E03\u516B\u4E2A\u661F\u5929\u5916\uFF0C\u4E24\u4E09\u70B9\u96E8\u5C71\u524D\u3002\n\u65E7\u65F6\u8305\u5E97\u793E\u6797\u8FB9\uFF0C\u8DEF\u8F6C\u6EAA\u6865\u5FFD\u89C1\u3002",
-      "m\xEDng yu\xE8 bi\xE9 zh\u012B j\u012Bng qu\xE8\uFF0Cq\u012Bng f\u0113ng b\xE0n y\xE8 m\xEDng ch\xE1n\u3002\nd\xE0o hu\u0101 xi\u0101ng l\u01D0 shu\u014D f\u0113ng ni\xE1n\uFF0Ct\u012Bng q\u01D4 w\u0101 sh\u0113ng y\u012B pi\xE0n\u3002\nq\u012B b\u0101 g\xE8 x\u012Bng ti\u0101n w\xE0i\uFF0Cli\u01CEng s\u0101n di\u01CEn y\u01D4 sh\u0101n qi\xE1n\u3002\nji\xF9 sh\xED m\xE1o di\xE0n sh\xE8 l\xEDn bi\u0101n\uFF0Cl\xF9 zhu\u01CEn x\u012B qi\xE1o h\u016B xi\xE0n\u3002",
-      "\u660E\u6708\u5347\u8D77\u60CA\u52A8\u559C\u9E4A\uFF0C\u6E05\u98CE\u9001\u6765\u8749\u9E23\u3002\u7A3B\u82B1\u9999\u4E2D\u4EBA\u4EEC\u8C08\u8BBA\u4E30\u6536\uFF0C\u9752\u86D9\u53EB\u58F0\u8FDE\u6210\u4E00\u7247\u3002\u5929\u8FB9\u758F\u661F\u70B9\u70B9\uFF0C\u5C71\u524D\u843D\u4E0B\u5C0F\u96E8\uFF0C\u8F6C\u8FC7\u6EAA\u6865\u5FFD\u7136\u770B\u89C1\u719F\u6089\u7684\u8305\u5E97\u3002",
-      "\u660E\u4EAE\u7684\u6708\u5149\u79FB\u52A8\uFF0C\u60CA\u52A8\u4E86\u6811\u679D\u4E0A\u7684\u559C\u9E4A\uFF1B\u6E05\u98CE\u5439\u6765\uFF0C\u534A\u591C\u7684\u8749\u9E23\u9635\u9635\u3002\u7A3B\u82B1\u9999\u91CC\uFF0C\u4EBA\u4EEC\u8C08\u8BBA\u7740\u4E30\u6536\u7684\u5E74\u666F\uFF0C\u8033\u8FB9\u4F20\u6765\u4E00\u7247\u9752\u86D9\u7684\u53EB\u58F0\u3002\u5929\u8FB9\u53EA\u6709\u4E03\u516B\u9897\u661F\u661F\uFF0C\u5C71\u524D\u843D\u4E0B\u4E24\u4E09\u70B9\u96E8\u3002\u4ECE\u524D\u793E\u6797\u8FB9\u7684\u90A3\u5BB6\u8305\u5E97\uFF0C\u8F6C\u8FC7\u6EAA\u6865\u5FFD\u7136\u51FA\u73B0\u5728\u773C\u524D\u3002",
-      "\u8BCD\u4E2D\u5145\u6EE1\u58F0\u97F3\u3001\u6C14\u5473\u548C\u5149\u5F71\u3002\u86D9\u58F0\u3001\u7A3B\u9999\u3001\u661F\u96E8\u548C\u5FFD\u89C1\u7684\u8305\u5E97\uFF0C\u6784\u6210\u590F\u591C\u4E61\u6751\u884C\u8D70\u7684\u9C9C\u6D3B\u4F53\u9A8C\u3002",
-      ["\u660E\u6708", "\u7A3B\u82B1", "\u86D9\u58F0", "\u8305\u5E97"],
-      ["\u8F9B\u5F03\u75BE", "\u590F\u591C", "\u4E61\u6751"],
-      "poetry-village"
-    ),
-    poem(
-      "poetry-g6-shihuiyin",
-      6,
-      "\u4E0B",
-      "\u77F3\u7070\u541F",
-      "\u4E8E\u8C26",
-      "\u660E",
-      "\u5343\u9524\u4E07\u51FF\u51FA\u6DF1\u5C71\uFF0C\u70C8\u706B\u711A\u70E7\u82E5\u7B49\u95F2\u3002\n\u7C89\u9AA8\u788E\u8EAB\u6D51\u4E0D\u6015\uFF0C\u8981\u7559\u6E05\u767D\u5728\u4EBA\u95F4\u3002",
-      "qi\u0101n chu\xED w\xE0n z\xE1o ch\u016B sh\u0113n sh\u0101n\uFF0Cli\xE8 hu\u01D2 f\xE9n sh\u0101o ru\xF2 d\u011Bng xi\xE1n\u3002\nf\u011Bn g\u01D4 su\xEC sh\u0113n h\xFAn b\xF9 p\xE0\uFF0Cy\xE0o li\xFA q\u012Bng b\xE1i z\xE0i r\xE9n ji\u0101n\u3002",
-      "\u77F3\u7070\u7ECF\u8FC7\u5343\u9524\u4E07\u51FF\u4ECE\u6DF1\u5C71\u5F00\u91C7\uFF0C\u53C8\u7ECF\u70C8\u706B\u711A\u70E7\u3002\u5373\u4F7F\u7C89\u8EAB\u788E\u9AA8\u4E5F\u4E0D\u6015\uFF0C\u53EA\u613F\u628A\u6E05\u767D\u7559\u5728\u4EBA\u95F4\u3002",
-      "\u77F3\u7070\u77F3\u7ECF\u8FC7\u5343\u4E07\u6B21\u9524\u6253\u3001\u5F00\u51FF\uFF0C\u4ECE\u6DF1\u5C71\u91CC\u5F00\u91C7\u51FA\u6765\uFF0C\u53C8\u628A\u70C8\u706B\u711A\u70E7\u770B\u4F5C\u5E73\u5E38\u7684\u4E8B\u3002\u5373\u4F7F\u8EAB\u4F53\u7C89\u788E\u4E5F\u5168\u7136\u4E0D\u6015\uFF0C\u53EA\u5E0C\u671B\u628A\u6E05\u767D\u7559\u5728\u4EBA\u4E16\u95F4\u3002",
-      "\u8BD7\u4EBA\u501F\u77F3\u7070\u5199\u81EA\u5DF1\uFF0C\u5F00\u91C7\u3001\u711A\u70E7\u3001\u7C89\u788E\u90FD\u662F\u78E8\u70BC\uFF0C\u201C\u6E05\u767D\u201D\u65E2\u662F\u77F3\u7070\u989C\u8272\uFF0C\u4E5F\u662F\u4EBA\u7684\u54C1\u683C\u3002",
-      ["\u77F3\u7070", "\u70C8\u706B", "\u6E05\u767D", "\u54C1\u683C"],
-      ["\u4E8E\u8C26", "\u548F\u7269", "\u660E\u8BD7"],
-      "poetry-snow"
-    ),
-    poem(
-      "poetry-g6-zhushi",
-      6,
-      "\u4E0B",
-      "\u7AF9\u77F3",
-      "\u90D1\u71EE",
-      "\u6E05",
-      "\u54AC\u5B9A\u9752\u5C71\u4E0D\u653E\u677E\uFF0C\u7ACB\u6839\u539F\u5728\u7834\u5CA9\u4E2D\u3002\n\u5343\u78E8\u4E07\u51FB\u8FD8\u575A\u52B2\uFF0C\u4EFB\u5C14\u4E1C\u897F\u5357\u5317\u98CE\u3002",
-      "y\u01CEo d\xECng q\u012Bng sh\u0101n b\xF9 f\xE0ng s\u014Dng\uFF0Cl\xEC g\u0113n yu\xE1n z\xE0i p\xF2 y\xE1n zh\u014Dng\u3002\nqi\u0101n m\xF3 w\xE0n j\u012B h\xE1i ji\u0101n j\xECng\uFF0Cr\xE8n \u011Br d\u014Dng x\u012B n\xE1n b\u011Bi f\u0113ng\u3002",
-      "\u7AF9\u5B50\u7D27\u7D27\u54AC\u4F4F\u9752\u5C71\u4E0D\u653E\u677E\uFF0C\u6839\u6DF1\u6DF1\u624E\u5728\u5CA9\u77F3\u7F1D\u4E2D\u3002\u7ECF\u5386\u65E0\u6570\u78E8\u6298\u4ECD\u7136\u575A\u97E7\uFF0C\u4EFB\u51ED\u56DB\u9762\u6765\u98CE\u4E5F\u4E0D\u52A8\u6447\u3002",
-      "\u7AF9\u5B50\u7D27\u7D27\u54AC\u4F4F\u9752\u5C71\uFF0C\u4E00\u70B9\u4E5F\u4E0D\u653E\u677E\uFF0C\u5B83\u7684\u6839\u539F\u672C\u5C31\u624E\u5728\u7834\u88C2\u7684\u5CA9\u77F3\u4E2D\u3002\u7ECF\u5386\u5343\u4E07\u6B21\u78E8\u96BE\u548C\u6253\u51FB\uFF0C\u4ECD\u7136\u575A\u5F3A\u633A\u62D4\uFF0C\u4EFB\u51ED\u4E1C\u897F\u5357\u5317\u7684\u98CE\u600E\u6837\u5439\u3002",
-      "\u201C\u54AC\u5B9A\u201D\u201C\u7ACB\u6839\u201D\u628A\u7AF9\u5B50\u5199\u6210\u6709\u610F\u5FD7\u7684\u4EBA\u3002\u7AF9\u5B50\u7684\u575A\u97E7\u8C61\u5F81\u7740\u5728\u56F0\u96BE\u4E2D\u4E0D\u6539\u521D\u5FC3\u7684\u54C1\u683C\u3002",
-      ["\u7AF9\u5B50", "\u9752\u5C71", "\u5CA9\u77F3", "\u575A\u97E7"],
-      ["\u90D1\u71EE", "\u548F\u7269", "\u54C1\u683C"],
-      "idiom-bamboo"
-    ),
-    poem(
-      "poetry-g6-mashi",
-      6,
-      "\u4E0B",
-      "\u9A6C\u8BD7",
-      "\u674E\u8D3A",
-      "\u5510",
-      "\u5927\u6F20\u6C99\u5982\u96EA\uFF0C\u71D5\u5C71\u6708\u4F3C\u94A9\u3002\n\u4F55\u5F53\u91D1\u7EDC\u8111\uFF0C\u5FEB\u8D70\u8E0F\u6E05\u79CB\u3002",
-      "d\xE0 m\xF2 sh\u0101 r\xFA xu\u011B\uFF0Cy\u0101n sh\u0101n yu\xE8 s\xEC g\u014Du\u3002\nh\xE9 d\u0101ng j\u012Bn lu\xF2 n\u01CEo\uFF0Cku\xE0i z\u01D2u t\xE0 q\u012Bng qi\u016B\u3002",
-      "\u5927\u6F20\u6C99\u767D\u5982\u96EA\uFF0C\u71D5\u5C71\u65B0\u6708\u50CF\u5F2F\u94A9\u3002\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u6234\u4E0A\u91D1\u7EDC\u5934\uFF0C\u5728\u6E05\u79CB\u7684\u539F\u91CE\u4E0A\u98DE\u5FEB\u5954\u9A70\u3002",
-      "\u5E7F\u9614\u7684\u5927\u6F20\u4E0A\uFF0C\u6C99\u5B50\u5728\u6708\u5149\u4E0B\u50CF\u96EA\u4E00\u6837\u767D\uFF1B\u71D5\u5C71\u4E0A\u7684\u65B0\u6708\u50CF\u5F2F\u94A9\u3002\u4EC0\u4E48\u65F6\u5019\u624D\u80FD\u7ED9\u9A6C\u6234\u4E0A\u91D1\u8272\u7684\u7B3C\u5934\uFF0C\u8BA9\u5B83\u5728\u6E05\u79CB\u7684\u539F\u91CE\u4E0A\u5C3D\u60C5\u5954\u9A70\uFF1F",
-      "\u524D\u4E24\u53E5\u5199\u8FB9\u585E\u6708\u591C\u7684\u6E05\u51B7\uFF0C\u540E\u4E24\u53E5\u501F\u9A6C\u8868\u8FBE\u5E0C\u671B\u88AB\u91CD\u7528\u3001\u65BD\u5C55\u624D\u80FD\u7684\u613F\u671B\u3002\u7269\u4E0E\u6211\u5408\u5728\u4E00\u8D77\u3002",
-      ["\u5927\u6F20", "\u71D5\u5C71", "\u9A8F\u9A6C", "\u5FD7\u5411"],
-      ["\u674E\u8D3A", "\u548F\u7269", "\u8FB9\u585E"],
-      "poetry-desert"
-    )
-  ];
-
-  // assets/textbook-extras.js
-  var textbookExtras = [
-    {
-      id: "poetry-g1-xiaochi",
-      grade: 1,
-      category: "poetry",
-      title: "\u5C0F\u6C60",
-      author: "\u6768\u4E07\u91CC",
-      dynasty: "\u5B8B",
-      excerpt: "\u6CC9\u773C\u65E0\u58F0\u60DC\u7EC6\u6D41\uFF0C\u6811\u9634\u7167\u6C34\u7231\u6674\u67D4\u3002\n\u5C0F\u8377\u624D\u9732\u5C16\u5C16\u89D2\uFF0C\u65E9\u6709\u873B\u8713\u7ACB\u4E0A\u5934\u3002",
-      pinyin: "qu\xE1n y\u01CEn w\xFA sh\u0113ng x\u012B x\xEC li\xFA\uFF0Csh\xF9 y\u012Bn zh\xE0o shu\u01D0 \xE0i q\xEDng r\xF3u\u3002\nxi\u01CEo h\xE9 c\xE1i l\xF9 ji\u0101n ji\u0101n ji\u01CEo\uFF0Cz\u01CEo y\u01D2u q\u012Bng t\xEDng l\xEC sh\xE0ng t\xF3u\u3002",
-      summary: "\u6CC9\u773C\u3001\u6811\u836B\u3001\u5C0F\u8377\u3001\u873B\u8713\uFF0C\u5199\u521D\u590F\u5C0F\u6C60\u7684\u6E05\u65B0\u666F\u8C61\u3002",
-      meaning: "\u6CC9\u773C\u6084\u6084\u6D41\u51FA\u7EC6\u6D41\uFF0C\u6811\u836B\u6620\u5728\u6C34\u9762\uFF1B\u5C0F\u8377\u521A\u9732\u51FA\u5C16\u89D2\uFF0C\u873B\u8713\u5DF2\u505C\u5728\u4E0A\u5934\u3002",
-      appreciation: "\u201C\u624D\u9732\u201D\u4E0E\u201C\u65E9\u6709\u201D\u524D\u540E\u76F8\u5E94\uFF0C\u5199\u51FA\u521D\u590F\u7684\u751F\u673A\u3002",
-      keywords: ["\u5C0F\u6C60", "\u8377\u82B1", "\u873B\u8713", "\u521D\u590F"],
-      tags: ["\u6768\u4E07\u91CC", "\u5199\u666F"],
-      image: "poetry-pond"
-    },
-    {
-      id: "poetry-g3-yeshujiansuo",
-      grade: 3,
-      category: "poetry",
-      title: "\u591C\u4E66\u6240\u89C1",
-      author: "\u53F6\u7ECD\u7FC1",
-      dynasty: "\u5B8B",
-      excerpt: "\u8427\u8427\u68A7\u53F6\u9001\u5BD2\u58F0\uFF0C\u6C5F\u4E0A\u79CB\u98CE\u52A8\u5BA2\u60C5\u3002\n\u77E5\u6709\u513F\u7AE5\u6311\u4FC3\u7EC7\uFF0C\u591C\u6DF1\u7BF1\u843D\u4E00\u706F\u660E\u3002",
-      pinyin: "xi\u0101o xi\u0101o w\xFA y\xE8 s\xF2ng h\xE1n sh\u0113ng\uFF0Cji\u0101ng sh\xE0ng qi\u016B f\u0113ng d\xF2ng k\xE8 q\xEDng\u3002\nzh\u012B y\u01D2u \xE9r t\xF3ng ti\u01CEo c\xF9 zh\u012B\uFF0Cy\xE8 sh\u0113n l\xED lu\xF2 y\u012B d\u0113ng m\xEDng\u3002",
-      summary: "\u79CB\u591C\u68A7\u53F6\u3001\u6C5F\u98CE\u3001\u706F\u706B\u548C\u513F\u7AE5\u6349\u87CB\u87C0\u7684\u58F0\u97F3\uFF0C\u52FE\u8D77\u65C5\u4EBA\u601D\u4E61\u4E4B\u60C5\u3002",
-      meaning: "\u79CB\u98CE\u5439\u52A8\u68A7\u6850\u53F6\uFF0C\u9001\u6765\u5BD2\u610F\uFF1B\u6C5F\u4E0A\u79CB\u98CE\u89E6\u52A8\u65C5\u4EBA\u7684\u4E61\u60C5\u3002\u77E5\u9053\u6709\u513F\u7AE5\u5728\u6349\u87CB\u87C0\uFF0C\u591C\u6DF1\u4E86\u7BF1\u7B06\u8FB9\u8FD8\u6709\u4E00\u76CF\u706F\u4EAE\u7740\u3002",
-      appreciation: "\u524D\u4E24\u53E5\u5199\u79CB\u58F0\u4E0E\u5BA2\u6101\uFF0C\u540E\u4E24\u53E5\u7528\u513F\u7AE5\u591C\u6349\u87CB\u87C0\u7684\u753B\u9762\u53CD\u886C\u601D\u4E61\u3002",
-      keywords: ["\u79CB\u98CE", "\u68A7\u53F6", "\u513F\u7AE5", "\u601D\u4E61"],
-      tags: ["\u53F6\u7ECD\u7FC1", "\u79CB\u5929"],
-      image: "poetry-autumn"
-    },
-    {
-      id: "poetry-g3-luzhai",
-      grade: 3,
-      category: "poetry",
-      title: "\u9E7F\u67F4",
-      author: "\u738B\u7EF4",
-      dynasty: "\u5510",
-      excerpt: "\u7A7A\u5C71\u4E0D\u89C1\u4EBA\uFF0C\u4F46\u95FB\u4EBA\u8BED\u54CD\u3002\n\u8FD4\u666F\u5165\u6DF1\u6797\uFF0C\u590D\u7167\u9752\u82D4\u4E0A\u3002",
-      pinyin: "k\u014Dng sh\u0101n b\xF9 ji\xE0n r\xE9n\uFF0Cd\xE0n w\xE9n r\xE9n y\u01D4 xi\u01CEng\u3002\nf\u01CEn j\u01D0ng r\xF9 sh\u0113n l\xEDn\uFF0Cf\xF9 zh\xE0o q\u012Bng t\xE1i sh\xE0ng\u3002",
-      summary: "\u7A7A\u5C71\u95FB\u4EBA\u8BED\uFF0C\u5915\u9633\u8FD4\u7167\u6DF1\u6797\u9752\u82D4\uFF0C\u5199\u51FA\u5E7D\u9759\u7A7A\u7075\u7684\u5883\u754C\u3002",
-      meaning: "\u7A7A\u65F7\u7684\u5C71\u4E2D\u770B\u4E0D\u89C1\u4EBA\uFF0C\u53EA\u542C\u89C1\u8BF4\u8BDD\u58F0\u3002\u5915\u9633\u8FD4\u7167\u8FDB\u5165\u6DF1\u6797\uFF0C\u53C8\u7167\u5728\u9752\u82D4\u4E0A\u3002",
-      appreciation: "\u4EE5\u58F0\u97F3\u5199\u9759\uFF0C\u4EE5\u5915\u7167\u5199\u5E7D\uFF0C\u753B\u9762\u6E05\u5BC2\u7A7A\u7075\u3002",
-      keywords: ["\u7A7A\u5C71", "\u4EBA\u8BED", "\u6DF1\u6797", "\u9752\u82D4"],
-      tags: ["\u738B\u7EF4", "\u5C71\u6C34"],
-      image: "poetry-lushan"
-    },
-    {
-      id: "poetry-g3-jueju",
-      grade: 3,
-      category: "poetry",
-      title: "\u7EDD\u53E5",
-      author: "\u675C\u752B",
-      dynasty: "\u5510",
-      excerpt: "\u8FDF\u65E5\u6C5F\u5C71\u4E3D\uFF0C\u6625\u98CE\u82B1\u8349\u9999\u3002\n\u6CE5\u878D\u98DE\u71D5\u5B50\uFF0C\u6C99\u6696\u7761\u9E33\u9E2F\u3002",
-      pinyin: "ch\xED r\xEC ji\u0101ng sh\u0101n l\xEC\uFF0Cch\u016Bn f\u0113ng hu\u0101 c\u01CEo xi\u0101ng\u3002\nn\xED r\xF3ng f\u0113i y\xE0n zi\uFF0Csh\u0101 nu\u01CEn shu\xEC yu\u0101n y\u0101ng\u3002",
-      summary: "\u6625\u65E5\u6C5F\u5C71\u660E\u4E3D\uFF0C\u82B1\u8349\u98D8\u9999\uFF0C\u71D5\u5B50\u5728\u6E7F\u6CE5\u4E0A\u98DE\uFF0C\u9E33\u9E2F\u5728\u6696\u6C99\u4E0A\u7761\u3002",
-      meaning: "\u6625\u65E5\u9633\u5149\u7167\u8000\uFF0C\u6C5F\u5C71\u660E\u4E3D\uFF1B\u6625\u98CE\u9001\u6765\u82B1\u8349\u7684\u9999\u6C14\u3002\u6CE5\u571F\u6E7F\u6DA6\uFF0C\u71D5\u5B50\u98DE\u6765\u98DE\u53BB\uFF1B\u6C99\u5730\u6E29\u6696\uFF0C\u9E33\u9E2F\u5B89\u7761\u3002",
-      appreciation: "\u524D\u4E24\u53E5\u5199\u5927\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u98DE\u71D5\u4E0E\u9E33\u9E2F\uFF0C\u52A8\u9759\u76F8\u886C\u3002",
-      keywords: ["\u6625\u5929", "\u71D5\u5B50", "\u9E33\u9E2F", "\u82B1\u8349"],
-      tags: ["\u675C\u752B", "\u6625\u5929"],
-      image: "poetry-spring-rain"
-    },
-    {
-      id: "poetry-g3-sanqu",
-      grade: 3,
-      category: "poetry",
-      title: "\u4E09\u8862\u9053\u4E2D",
-      author: "\u66FE\u51E0",
-      dynasty: "\u5B8B",
-      excerpt: "\u6885\u5B50\u9EC4\u65F6\u65E5\u65E5\u6674\uFF0C\u5C0F\u6EAA\u6CDB\u5C3D\u5374\u5C71\u884C\u3002\n\u7EFF\u9634\u4E0D\u51CF\u6765\u65F6\u8DEF\uFF0C\u6DFB\u5F97\u9EC4\u9E42\u56DB\u4E94\u58F0\u3002",
-      pinyin: "m\xE9i z\u01D0 hu\xE1ng sh\xED r\xEC r\xEC q\xEDng\uFF0Cxi\u01CEo x\u012B f\xE0n j\xECn qu\xE8 sh\u0101n x\xEDng\u3002\nl\u01DC y\u012Bn b\xF9 ji\u01CEn l\xE1i sh\xED l\xF9\uFF0Cti\u0101n d\xE9 hu\xE1ng l\xED s\xEC w\u01D4 sh\u0113ng\u3002",
-      summary: "\u6885\u5B50\u9EC4\u65F6\u5929\u6C14\u6674\u597D\uFF0C\u8BD7\u4EBA\u6E38\u5C71\uFF0C\u7EFF\u836B\u4F9D\u65E7\uFF0C\u9EC4\u9E42\u9E23\u58F0\u66F4\u6DFB\u6E38\u5174\u3002",
-      meaning: "\u6885\u5B50\u9EC4\u65F6\u5929\u5929\u6674\u6717\uFF0C\u4E58\u8239\u5230\u5C0F\u6EAA\u5C3D\u5934\u518D\u8D70\u5C71\u8DEF\u3002\u7EFF\u836B\u4E0D\u6BD4\u6765\u65F6\u5C11\uFF0C\u8FD8\u6DFB\u4E86\u56DB\u4E94\u58F0\u9EC4\u9E42\u9E23\u53EB\u3002",
-      appreciation: "\u8BD7\u4E2D\u5199\u6674\u65E5\u3001\u7EFF\u836B\u3001\u9EC4\u9E42\uFF0C\u8F7B\u5FEB\u660E\u4E3D\uFF0C\u5BCC\u6709\u6E38\u5C71\u4E50\u8DA3\u3002",
-      keywords: ["\u6885\u5B50", "\u6674\u5929", "\u9EC4\u9E42", "\u5C71\u884C"],
-      tags: ["\u66FE\u51E0", "\u590F\u5929"],
-      image: "poetry-mountain-river"
-    },
-    {
-      id: "poetry-g4-muyin",
-      grade: 4,
-      category: "poetry",
-      title: "\u66AE\u6C5F\u541F",
-      author: "\u767D\u5C45\u6613",
-      dynasty: "\u5510",
-      excerpt: "\u4E00\u9053\u6B8B\u9633\u94FA\u6C34\u4E2D\uFF0C\u534A\u6C5F\u745F\u745F\u534A\u6C5F\u7EA2\u3002\n\u53EF\u601C\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\u9732\u4F3C\u771F\u73E0\u6708\u4F3C\u5F13\u3002",
-      pinyin: "y\u012B d\xE0o c\xE1n y\xE1ng p\u016B shu\u01D0 zh\u014Dng\uFF0Cb\xE0n ji\u0101ng s\xE8 s\xE8 b\xE0n ji\u0101ng h\xF3ng\u3002\nk\u011B li\xE1n ji\u01D4 yu\xE8 ch\u016B s\u0101n y\xE8\uFF0Cl\xF9 s\xEC zh\u0113n zh\u016B yu\xE8 s\xEC g\u014Dng\u3002",
-      summary: "\u5915\u9633\u94FA\u6C34\uFF0C\u6C5F\u9762\u534A\u78A7\u534A\u7EA2\uFF1B\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\u9732\u73E0\u50CF\u73CD\u73E0\u3001\u65B0\u6708\u50CF\u5F2F\u5F13\u3002",
-      meaning: "\u4E00\u9053\u6B8B\u9633\u94FA\u5728\u6C34\u4E2D\uFF0C\u534A\u8FB9\u6C5F\u9762\u78A7\u7EFF\uFF0C\u534A\u8FB9\u6C5F\u9762\u901A\u7EA2\u3002\u53EF\u7231\u7684\u4E5D\u6708\u521D\u4E09\u591C\uFF0C\u9732\u73E0\u50CF\u73CD\u73E0\uFF0C\u6708\u4EAE\u50CF\u5F2F\u5F13\u3002",
-      appreciation: "\u4E00\u9053\u6B8B\u9633\u4E0E\u591C\u9732\u65B0\u6708\u5F62\u6210\u4ECE\u508D\u665A\u5230\u5165\u591C\u7684\u8FDE\u7EED\u753B\u9762\u3002",
-      keywords: ["\u5915\u9633", "\u6C5F\u6C34", "\u9732\u73E0", "\u65B0\u6708"],
-      tags: ["\u767D\u5C45\u6613", "\u5199\u666F"],
-      image: "poetry-river-moon"
-    },
-    {
-      id: "poetry-g4-xuemei",
-      grade: 4,
-      category: "poetry",
-      title: "\u96EA\u6885",
-      author: "\u5362\u94BA",
-      dynasty: "\u5B8B",
-      excerpt: "\u6885\u96EA\u4E89\u6625\u672A\u80AF\u964D\uFF0C\u9A9A\u4EBA\u9601\u7B14\u8D39\u8BC4\u7AE0\u3002\n\u6885\u987B\u900A\u96EA\u4E09\u5206\u767D\uFF0C\u96EA\u5374\u8F93\u6885\u4E00\u6BB5\u9999\u3002",
-      pinyin: "m\xE9i xu\u011B zh\u0113ng ch\u016Bn w\xE8i k\u011Bn xi\xE1ng\uFF0Cs\u0101o r\xE9n g\u0113 b\u01D0 f\xE8i p\xEDng zh\u0101ng\u3002\nm\xE9i x\u016B x\xF9n xu\u011B s\u0101n f\u0113n b\xE1i\uFF0Cxu\u011B qu\xE8 sh\u016B m\xE9i y\u012B du\xE0n xi\u0101ng\u3002",
-      summary: "\u6885\u4E0E\u96EA\u4E89\u6625\uFF0C\u5404\u6709\u957F\u77ED\uFF1A\u96EA\u6BD4\u6885\u767D\uFF0C\u6885\u6BD4\u96EA\u9999\u3002",
-      meaning: "\u6885\u82B1\u548C\u96EA\u82B1\u4E89\u6625\uFF0C\u8C01\u4E5F\u4E0D\u80AF\u8BA4\u8F93\uFF0C\u8BD7\u4EBA\u653E\u4E0B\u7B14\u96BE\u4EE5\u8BC4\u65AD\u3002\u6885\u82B1\u6BD4\u96EA\u5C11\u4E09\u5206\u6D01\u767D\uFF0C\u96EA\u5374\u4E0D\u5982\u6885\u82B1\u6709\u4E00\u6BB5\u6E05\u9999\u3002",
-      appreciation: "\u6885\u96EA\u5BF9\u7167\uFF0C\u8BF4\u660E\u5404\u6709\u957F\u5904\uFF0C\u4E5F\u5404\u6709\u4E0D\u8DB3\u3002",
-      keywords: ["\u6885\u82B1", "\u96EA", "\u9999\u6C14", "\u957F\u5904"],
-      tags: ["\u5362\u94BA", "\u548F\u7269"],
-      image: "poetry-snow"
-    },
-    {
-      id: "poetry-g4-saixiaqu",
-      grade: 4,
-      category: "poetry",
-      title: "\u585E\u4E0B\u66F2",
-      author: "\u5362\u7EB6",
-      dynasty: "\u5510",
-      excerpt: "\u6708\u9ED1\u96C1\u98DE\u9AD8\uFF0C\u5355\u4E8E\u591C\u9041\u9003\u3002\n\u6B32\u5C06\u8F7B\u9A91\u9010\uFF0C\u5927\u96EA\u6EE1\u5F13\u5200\u3002",
-      pinyin: "yu\xE8 h\u0113i y\xE0n f\u0113i g\u0101o\uFF0Cch\xE1n y\xFA y\xE8 d\xF9n t\xE1o\u3002\ny\xF9 ji\u0101ng q\u012Bng q\xED zh\xFA\uFF0Cd\xE0 xu\u011B m\u01CEn g\u014Dng d\u0101o\u3002",
-      summary: "\u6708\u9ED1\u96C1\u98DE\uFF0C\u654C\u519B\u591C\u9003\uFF1B\u5C06\u58EB\u51C6\u5907\u8F7B\u9A91\u8FFD\u51FB\uFF0C\u5927\u96EA\u843D\u6EE1\u5F13\u5200\u3002",
-      meaning: "\u591C\u8272\u6F06\u9ED1\uFF0C\u5927\u96C1\u9AD8\u98DE\uFF0C\u5355\u4E8E\u8D81\u591C\u9003\u8DD1\u3002\u5C06\u519B\u51C6\u5907\u7387\u8F7B\u9A91\u8FFD\u51FB\uFF0C\u5927\u96EA\u843D\u6EE1\u5F13\u5200\u3002",
-      appreciation: "\u73AF\u5883\u8D8A\u5BD2\u51B7\uFF0C\u8D8A\u663E\u51FA\u5C06\u58EB\u7684\u52C7\u6B66\u4E0E\u8FB9\u585E\u7684\u7D27\u5F20\u3002",
-      keywords: ["\u8FB9\u585E", "\u5927\u96EA", "\u5C06\u58EB", "\u8FFD\u51FB"],
-      tags: ["\u5362\u7EB6", "\u8FB9\u585E"],
-      image: "poetry-border"
-    },
-    {
-      id: "poetry-g4-momei",
-      grade: 4,
-      category: "poetry",
-      title: "\u58A8\u6885",
-      author: "\u738B\u5195",
-      dynasty: "\u5143",
-      excerpt: "\u6211\u5BB6\u6D17\u781A\u6C60\u5934\u6811\uFF0C\u6735\u6735\u82B1\u5F00\u6DE1\u58A8\u75D5\u3002\n\u4E0D\u8981\u4EBA\u5938\u597D\u989C\u8272\uFF0C\u53EA\u7559\u6E05\u6C14\u6EE1\u4E7E\u5764\u3002",
-      pinyin: "w\u01D2 ji\u0101 x\u01D0 y\xE0n ch\xED t\xF3u sh\xF9\uFF0Cdu\u01D2 du\u01D2 hu\u0101 k\u0101i d\xE0n m\xF2 h\xE9n\u3002\nb\xF9 y\xE0o r\xE9n ku\u0101 h\u01CEo y\xE1n s\xE8\uFF0Czh\u01D0 li\xFA q\u012Bng q\xEC m\u01CEn qi\xE1n k\u016Bn\u3002",
-      summary: "\u58A8\u6885\u4E0D\u6C42\u8273\u4E3D\u989C\u8272\uFF0C\u53EA\u613F\u628A\u6E05\u9999\u7559\u5728\u5929\u5730\u95F4\u3002",
-      meaning: "\u6211\u5BB6\u6D17\u781A\u6C60\u8FB9\u7684\u6885\u6811\uFF0C\u6735\u6735\u82B1\u5F00\u5E26\u7740\u6DE1\u6DE1\u58A8\u75D5\u3002\u4E0D\u6C42\u522B\u4EBA\u5938\u989C\u8272\u597D\uFF0C\u53EA\u613F\u628A\u6E05\u9999\u7559\u5728\u5929\u5730\u95F4\u3002",
-      appreciation: "\u501F\u6885\u5199\u4EBA\uFF0C\u8868\u8FBE\u4E0D\u6155\u865A\u8363\u3001\u575A\u5B88\u6E05\u767D\u54C1\u683C\u7684\u5FD7\u5411\u3002",
-      keywords: ["\u58A8\u6885", "\u6E05\u9999", "\u54C1\u683C", "\u6E05\u767D"],
-      tags: ["\u738B\u5195", "\u548F\u7269"],
-      image: "poetry-plum"
-    },
-    {
-      id: "poetry-g5-shiershi",
-      grade: 5,
-      category: "poetry",
-      title: "\u793A\u513F",
-      author: "\u9646\u6E38",
-      dynasty: "\u5B8B",
-      excerpt: "\u6B7B\u53BB\u5143\u77E5\u4E07\u4E8B\u7A7A\uFF0C\u4F46\u60B2\u4E0D\u89C1\u4E5D\u5DDE\u540C\u3002\n\u738B\u5E08\u5317\u5B9A\u4E2D\u539F\u65E5\uFF0C\u5BB6\u796D\u65E0\u5FD8\u544A\u4E43\u7FC1\u3002",
-      pinyin: "s\u01D0 q\xF9 yu\xE1n zh\u012B w\xE0n sh\xEC k\u014Dng\uFF0Cd\xE0n b\u0113i b\xF9 ji\xE0n ji\u01D4 zh\u014Du t\xF3ng\u3002\nw\xE1ng sh\u012B b\u011Bi d\xECng zh\u014Dng yu\xE1n r\xEC\uFF0Cji\u0101 j\xEC w\xFA w\xE0ng g\xE0o n\u01CEi w\u0113ng\u3002",
-      summary: "\u9646\u6E38\u4E34\u7EC8\u4ECD\u7275\u6302\u56FD\u5BB6\u7EDF\u4E00\uFF0C\u53EE\u5631\u513F\u5B50\u6536\u590D\u4E2D\u539F\u540E\u796D\u544A\u81EA\u5DF1\u3002",
-      meaning: "\u6211\u672C\u77E5\u6B7B\u540E\u4E07\u4E8B\u7686\u7A7A\uFF0C\u53EA\u60B2\u4F24\u6CA1\u80FD\u770B\u5230\u56FD\u5BB6\u7EDF\u4E00\u3002\u671D\u5EF7\u519B\u961F\u6536\u590D\u4E2D\u539F\u65F6\uFF0C\u5BB6\u796D\u4E0D\u8981\u5FD8\u8BB0\u544A\u8BC9\u6211\u3002",
-      appreciation: "\u201C\u4E07\u4E8B\u7A7A\u201D\u4E0E\u201C\u4F46\u60B2\u201D\u5F62\u6210\u8F6C\u6298\uFF0C\u7A81\u51FA\u6DF1\u6C89\u7684\u5BB6\u56FD\u60C5\u6000\u3002",
-      keywords: ["\u9646\u6E38", "\u5BB6\u56FD", "\u7EDF\u4E00", "\u4E34\u7EC8"],
-      tags: ["\u9646\u6E38", "\u7231\u56FD"],
-      image: "poetry-homeland"
-    },
-    {
-      id: "poetry-g5-tilinandi",
-      grade: 5,
-      category: "poetry",
-      title: "\u9898\u4E34\u5B89\u90B8",
-      author: "\u6797\u5347",
-      dynasty: "\u5B8B",
-      excerpt: "\u5C71\u5916\u9752\u5C71\u697C\u5916\u697C\uFF0C\u897F\u6E56\u6B4C\u821E\u51E0\u65F6\u4F11\uFF1F\n\u6696\u98CE\u718F\u5F97\u6E38\u4EBA\u9189\uFF0C\u76F4\u628A\u676D\u5DDE\u4F5C\u6C74\u5DDE\u3002",
-      pinyin: "sh\u0101n w\xE0i q\u012Bng sh\u0101n l\xF3u w\xE0i l\xF3u\uFF0Cx\u012B h\xFA g\u0113 w\u01D4 j\u01D0 sh\xED xi\u016B\uFF1F\nnu\u01CEn f\u0113ng x\u016Bn d\xE9 y\xF3u r\xE9n zu\xEC\uFF0Czh\xED b\u01CE h\xE1ng zh\u014Du zu\xF2 bi\xE0n zh\u014Du\u3002",
-      summary: "\u897F\u6E56\u6B4C\u821E\u4E0D\u6B62\uFF0C\u6E38\u4EBA\u6C89\u8FF7\u4EAB\u4E50\uFF0C\u628A\u676D\u5DDE\u5F53\u6210\u4E86\u6545\u90FD\u6C74\u5DDE\u3002",
-      meaning: "\u9752\u5C71\u4E4B\u5916\u8FD8\u6709\u9752\u5C71\uFF0C\u697C\u9601\u4E4B\u5916\u8FD8\u6709\u697C\u9601\uFF0C\u897F\u6E56\u6B4C\u821E\u4EC0\u4E48\u65F6\u5019\u505C\u6B62\uFF1F\u6696\u98CE\u628A\u6E38\u4EBA\u5439\u9189\uFF0C\u7ADF\u628A\u676D\u5DDE\u5F53\u4F5C\u6C74\u5DDE\u3002",
-      appreciation: "\u8868\u9762\u5199\u6B4C\u821E\u7E41\u534E\uFF0C\u5B9E\u5219\u8BBD\u523A\u504F\u5B89\u4EAB\u4E50\u3001\u5FD8\u8BB0\u56FD\u803B\u3002",
-      keywords: ["\u897F\u6E56", "\u6B4C\u821E", "\u4E34\u5B89", "\u5FE7\u56FD"],
-      tags: ["\u6797\u5347", "\u7231\u56FD"],
-      image: "poetry-westlake"
-    },
-    {
-      id: "poetry-g5-changxiangsi",
-      grade: 5,
-      category: "poetry",
-      title: "\u957F\u76F8\u601D",
-      author: "\u7EB3\u5170\u6027\u5FB7",
-      dynasty: "\u6E05",
-      excerpt: "\u5C71\u4E00\u7A0B\uFF0C\u6C34\u4E00\u7A0B\uFF0C\u8EAB\u5411\u6986\u5173\u90A3\u7554\u884C\uFF0C\u591C\u6DF1\u5343\u5E10\u706F\u3002\n\u98CE\u4E00\u66F4\uFF0C\u96EA\u4E00\u66F4\uFF0C\u8052\u788E\u4E61\u5FC3\u68A6\u4E0D\u6210\uFF0C\u6545\u56ED\u65E0\u6B64\u58F0\u3002",
-      pinyin: "sh\u0101n y\u012B ch\xE9ng\uFF0Cshu\u01D0 y\u012B ch\xE9ng\uFF0Csh\u0113n xi\xE0ng y\xFA gu\u0101n n\xE0 p\xE0n x\xEDng\uFF0Cy\xE8 sh\u0113n qi\u0101n zh\xE0ng d\u0113ng\u3002\nf\u0113ng y\u012B g\u0113ng\uFF0Cxu\u011B y\u012B g\u0113ng\uFF0Cgu\u0101 su\xEC xi\u0101ng x\u012Bn m\xE8ng b\xF9 ch\xE9ng\uFF0Cg\xF9 yu\xE1n w\xFA c\u01D0 sh\u0113ng\u3002",
-      summary: "\u884C\u519B\u9014\u4E2D\u5C71\u957F\u6C34\u8FDC\uFF0C\u591C\u91CC\u8425\u5E10\u706F\u5343\u76CF\uFF1B\u98CE\u96EA\u4EA4\u52A0\uFF0C\u601D\u4E61\u96BE\u7720\u3002",
-      meaning: "\u5C71\u4E00\u7A0B\uFF0C\u6C34\u4E00\u7A0B\uFF0C\u5411\u7740\u6986\u5173\u90A3\u8FB9\u884C\u8FDB\uFF0C\u591C\u6DF1\u65F6\u5343\u5E10\u706F\u706B\u3002\u98CE\u4E00\u66F4\uFF0C\u96EA\u4E00\u66F4\uFF0C\u98CE\u96EA\u58F0\u6405\u788E\u601D\u4E61\u68A6\uFF0C\u6545\u4E61\u6CA1\u6709\u8FD9\u6837\u7684\u58F0\u97F3\u3002",
-      appreciation: "\u53CD\u590D\u7684\u201C\u4E00\u7A0B\u201D\u201C\u4E00\u66F4\u201D\u5199\u51FA\u884C\u7A0B\u6F2B\u957F\u548C\u98CE\u96EA\u4E0D\u65AD\uFF0C\u4E61\u6101\u5C42\u5C42\u52A0\u6DF1\u3002",
-      keywords: ["\u884C\u519B", "\u98CE\u96EA", "\u4E61\u6101", "\u8425\u5E10"],
-      tags: ["\u7EB3\u5170\u6027\u5FB7", "\u601D\u4E61"],
-      image: "poetry-snow"
-    },
-    {
-      id: "poetry-g5-sishitianyuan31",
-      grade: 5,
-      category: "poetry",
-      title: "\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E09\u5341\u4E00\uFF09",
-      author: "\u8303\u6210\u5927",
-      dynasty: "\u5B8B",
-      excerpt: "\u663C\u51FA\u8018\u7530\u591C\u7EE9\u9EBB\uFF0C\u6751\u5E84\u513F\u5973\u5404\u5F53\u5BB6\u3002\n\u7AE5\u5B59\u672A\u89E3\u4F9B\u8015\u7EC7\uFF0C\u4E5F\u508D\u6851\u9634\u5B66\u79CD\u74DC\u3002",
-      pinyin: "zh\xF2u ch\u016B y\xFAn ti\xE1n y\xE8 j\xEC m\xE1\uFF0Cc\u016Bn zhu\u0101ng \xE9r n\u01DA g\xE8 d\u0101ng ji\u0101\u3002\nt\xF3ng s\u016Bn w\xE8i ji\u011B g\u014Dng g\u0113ng zh\u012B\uFF0Cy\u011B b\xE0ng s\u0101ng y\u012Bn xu\xE9 zh\xF2ng gu\u0101\u3002",
-      summary: "\u4E61\u6751\u7537\u5973\u767D\u5929\u8015\u7530\u3001\u591C\u91CC\u7EE9\u9EBB\uFF0C\u5B69\u5B50\u4E5F\u5728\u6851\u6811\u4E0B\u5B66\u79CD\u74DC\u3002",
-      meaning: "\u767D\u5929\u51FA\u53BB\u9504\u8349\uFF0C\u591C\u91CC\u6413\u9EBB\u7EBF\uFF0C\u6751\u91CC\u7537\u5973\u5404\u62C5\u5BB6\u52A1\u3002\u5C0F\u5B69\u4E0D\u4F1A\u8015\u7EC7\uFF0C\u4E5F\u5728\u6851\u6811\u836B\u4E0B\u5B66\u79CD\u74DC\u3002",
-      appreciation: "\u5199\u51FA\u519C\u5BB6\u52B3\u52A8\u7684\u5FD9\u788C\u548C\u513F\u7AE5\u6A21\u4EFF\u52B3\u52A8\u7684\u53EF\u7231\u3002",
-      keywords: ["\u7530\u56ED", "\u52B3\u52A8", "\u513F\u7AE5", "\u79CD\u74DC"],
-      tags: ["\u8303\u6210\u5927", "\u7530\u56ED"],
-      image: "poetry-farmer"
-    },
-    {
-      id: "poetry-g5-qiuye",
-      grade: 5,
-      category: "poetry",
-      title: "\u79CB\u591C\u5C06\u6653\u51FA\u7BF1\u95E8\u8FCE\u51C9\u6709\u611F",
-      author: "\u9646\u6E38",
-      dynasty: "\u5B8B",
-      excerpt: "\u4E09\u4E07\u91CC\u6CB3\u4E1C\u5165\u6D77\uFF0C\u4E94\u5343\u4EDE\u5CB3\u4E0A\u6469\u5929\u3002\n\u9057\u6C11\u6CEA\u5C3D\u80E1\u5C18\u91CC\uFF0C\u5357\u671B\u738B\u5E08\u53C8\u4E00\u5E74\u3002",
-      pinyin: "s\u0101n w\xE0n l\u01D0 h\xE9 d\u014Dng r\xF9 h\u01CEi\uFF0Cw\u01D4 qi\u0101n r\xE8n yu\xE8 sh\xE0ng m\xF3 ti\u0101n\u3002\ny\xED m\xEDn l\xE8i j\xECn h\xFA ch\xE9n l\u01D0\uFF0Cn\xE1n w\xE0ng w\xE1ng sh\u012B y\xF2u y\u012B ni\xE1n\u3002",
-      summary: "\u9EC4\u6CB3\u4E1C\u6D41\u5165\u6D77\uFF0C\u534E\u5C71\u9AD8\u8038\u6469\u5929\uFF1B\u6CA6\u9677\u533A\u767E\u59D3\u76FC\u671B\u671D\u5EF7\u519B\u961F\u53C8\u4E00\u5E74\u3002",
-      meaning: "\u4E09\u4E07\u91CC\u9EC4\u6CB3\u5411\u4E1C\u6D41\u5165\u5927\u6D77\uFF0C\u4E94\u5343\u4EDE\u534E\u5C71\u9AD8\u8038\u5165\u4E91\u3002\u6CA6\u9677\u533A\u767E\u59D3\u5728\u6218\u4E71\u4E2D\u6D41\u5C3D\u773C\u6CEA\uFF0C\u5411\u5357\u76FC\u671B\u671D\u5EF7\u519B\u961F\u53C8\u8FC7\u4E86\u4E00\u5E74\u3002",
-      appreciation: "\u524D\u4E24\u53E5\u5199\u58EE\u4E3D\u5C71\u6CB3\uFF0C\u540E\u4E24\u53E5\u5199\u767E\u59D3\u82E6\u96BE\u4E0E\u671F\u76FC\uFF0C\u60C5\u611F\u6C89\u75DB\u3002",
-      keywords: ["\u9EC4\u6CB3", "\u534E\u5C71", "\u9057\u6C11", "\u5BB6\u56FD"],
-      tags: ["\u9646\u6E38", "\u7231\u56FD"],
-      image: "poetry-homeland"
-    },
-    {
-      id: "poetry-g5-wenguanjun",
-      grade: 5,
-      category: "poetry",
-      title: "\u95FB\u5B98\u519B\u6536\u6CB3\u5357\u6CB3\u5317",
-      author: "\u675C\u752B",
-      dynasty: "\u5510",
-      excerpt: "\u5251\u5916\u5FFD\u4F20\u6536\u84DF\u5317\uFF0C\u521D\u95FB\u6D95\u6CEA\u6EE1\u8863\u88F3\u3002\n\u5374\u770B\u59BB\u5B50\u6101\u4F55\u5728\uFF0C\u6F2B\u5377\u8BD7\u4E66\u559C\u6B32\u72C2\u3002",
-      pinyin: "ji\xE0n w\xE0i h\u016B chu\xE1n sh\u014Du j\xEC b\u011Bi\uFF0Cch\u016B w\xE9n t\xEC l\xE8i m\u01CEn y\u012B ch\xE1ng\u3002\nqu\xE8 k\xE0n q\u012B z\u01D0 ch\xF3u h\xE9 z\xE0i\uFF0Cm\xE0n ju\u01CEn sh\u012B sh\u016B x\u01D0 y\xF9 ku\xE1ng\u3002",
-      summary: "\u542C\u5230\u5B98\u519B\u6536\u590D\u5931\u5730\uFF0C\u675C\u752B\u60CA\u559C\u843D\u6CEA\uFF0C\u59BB\u513F\u6101\u5BB9\u6D88\u5931\uFF0C\u5377\u8D77\u8BD7\u4E66\u51C6\u5907\u56DE\u4E61\u3002",
-      meaning: "\u5251\u5916\u5FFD\u7136\u4F20\u6765\u6536\u590D\u84DF\u5317\u7684\u6D88\u606F\uFF0C\u521A\u542C\u5230\u5C31\u6CEA\u6EE1\u8863\u88F3\u3002\u56DE\u5934\u770B\u59BB\u513F\uFF0C\u6101\u5BB9\u5DF2\u4E0D\u89C1\uFF1B\u968F\u624B\u5377\u8D77\u8BD7\u4E66\uFF0C\u9AD8\u5174\u5F97\u5FEB\u8981\u53D1\u72C2\u3002",
-      appreciation: "\u8BD7\u4EBA\u628A\u7A81\u5982\u5176\u6765\u7684\u559C\u60A6\u5199\u5F97\u771F\u5207\uFF0C\u5BB6\u56FD\u4E4B\u559C\u4E0E\u5F52\u4E61\u4E4B\u60C5\u4EA4\u7EC7\u3002",
-      keywords: ["\u5B98\u519B", "\u6536\u590D", "\u559C\u60A6", "\u56DE\u4E61"],
-      tags: ["\u675C\u752B", "\u7231\u56FD"],
-      image: "poetry-homeland"
-    },
-    {
-      id: "poetry-g6-langtaosha",
-      grade: 6,
-      category: "poetry",
-      title: "\u6D6A\u6DD8\u6C99\uFF08\u5176\u4E00\uFF09",
-      author: "\u5218\u79B9\u9521",
-      dynasty: "\u5510",
-      excerpt: "\u4E5D\u66F2\u9EC4\u6CB3\u4E07\u91CC\u6C99\uFF0C\u6D6A\u6DD8\u98CE\u7C38\u81EA\u5929\u6DAF\u3002\n\u5982\u4ECA\u76F4\u4E0A\u94F6\u6CB3\u53BB\uFF0C\u540C\u5230\u7275\u725B\u7EC7\u5973\u5BB6\u3002",
-      pinyin: "ji\u01D4 q\u016B hu\xE1ng h\xE9 w\xE0n l\u01D0 sh\u0101\uFF0Cl\xE0ng t\xE1o f\u0113ng b\u01D2 z\xEC ti\u0101n y\xE1\u3002\nr\xFA j\u012Bn zh\xED sh\xE0ng y\xEDn h\xE9 q\xF9\uFF0Ct\xF3ng d\xE0o qi\u0101n ni\xFA zh\u012B n\u01DA ji\u0101\u3002",
-      summary: "\u9EC4\u6CB3\u5F2F\u5F2F\u66F2\u66F2\u3001\u631F\u6C99\u4E07\u91CC\uFF0C\u8BD7\u4EBA\u60F3\u8C61\u6CBF\u6CB3\u76F4\u4E0A\u94F6\u6CB3\uFF0C\u5230\u725B\u90CE\u7EC7\u5973\u5BB6\u3002",
-      meaning: "\u4E5D\u66F2\u9EC4\u6CB3\u631F\u7740\u4E07\u91CC\u6CE5\u6C99\uFF0C\u98CE\u6D6A\u4ECE\u5929\u6DAF\u6EDA\u6EDA\u800C\u6765\u3002\u5982\u4ECA\u6211\u8981\u76F4\u4E0A\u94F6\u6CB3\uFF0C\u4E00\u540C\u5230\u725B\u90CE\u7EC7\u5973\u5BB6\u53BB\u3002",
-      appreciation: "\u8BD7\u4E2D\u6709\u9EC4\u6CB3\u7684\u96C4\u6D51\uFF0C\u4E5F\u6709\u98DE\u4E0A\u94F6\u6CB3\u7684\u6D6A\u6F2B\u60F3\u8C61\u3002",
-      keywords: ["\u9EC4\u6CB3", "\u94F6\u6CB3", "\u725B\u90CE\u7EC7\u5973", "\u60F3\u8C61"],
-      tags: ["\u5218\u79B9\u9521", "\u9EC4\u6CB3"],
-      image: "poetry-river-moon"
-    },
-    {
-      id: "poetry-g6-hanshi",
-      grade: 6,
-      category: "poetry",
-      title: "\u5BD2\u98DF",
-      author: "\u97E9\u7FC3",
-      dynasty: "\u5510",
-      excerpt: "\u6625\u57CE\u65E0\u5904\u4E0D\u98DE\u82B1\uFF0C\u5BD2\u98DF\u4E1C\u98CE\u5FA1\u67F3\u659C\u3002\n\u65E5\u66AE\u6C49\u5BAB\u4F20\u8721\u70DB\uFF0C\u8F7B\u70DF\u6563\u5165\u4E94\u4FAF\u5BB6\u3002",
-      pinyin: "ch\u016Bn ch\xE9ng w\xFA ch\xF9 b\xF9 f\u0113i hu\u0101\uFF0Ch\xE1n sh\xED d\u014Dng f\u0113ng y\xF9 li\u01D4 xi\xE9\u3002\nr\xEC m\xF9 h\xE0n g\u014Dng chu\xE1n l\xE0 zh\xFA\uFF0Cq\u012Bng y\u0101n s\xE0n r\xF9 w\u01D4 h\xF3u ji\u0101\u3002",
-      summary: "\u5BD2\u98DF\u8282\u6625\u57CE\u98DE\u82B1\u3001\u5FA1\u67F3\u659C\u98CE\uFF0C\u508D\u665A\u5BAB\u5EF7\u4F20\u70DB\uFF0C\u8F7B\u70DF\u6563\u5165\u6743\u8D35\u4E4B\u5BB6\u3002",
-      meaning: "\u6625\u5929\u7684\u957F\u5B89\u57CE\u5904\u5904\u98DE\u82B1\uFF0C\u5BD2\u98DF\u8282\u4E1C\u98CE\u5439\u659C\u5FA1\u67F3\u3002\u508D\u665A\u5BAB\u4E2D\u4F20\u9001\u8721\u70DB\uFF0C\u8F7B\u70DF\u6563\u5165\u4E94\u4FAF\u4E4B\u5BB6\u3002",
-      appreciation: "\u8BD7\u5199\u5BD2\u98DF\u98CE\u4FD7\uFF0C\u4E5F\u542B\u84C4\u5199\u51FA\u6743\u8D35\u5F97\u5230\u7684\u7279\u6B8A\u5F85\u9047\u3002",
-      keywords: ["\u5BD2\u98DF", "\u98DE\u82B1", "\u5FA1\u67F3", "\u8721\u70DB"],
-      tags: ["\u97E9\u7FC3", "\u8282\u65E5"],
-      image: "poetry-petals"
-    },
-    {
-      id: "poetry-g6-tiaotiao",
-      grade: 6,
-      category: "poetry",
-      title: "\u8FE2\u8FE2\u7275\u725B\u661F",
-      author: "\u300A\u53E4\u8BD7\u5341\u4E5D\u9996\u300B",
-      dynasty: "\u6C49",
-      excerpt: "\u8FE2\u8FE2\u7275\u725B\u661F\uFF0C\u768E\u768E\u6CB3\u6C49\u5973\u3002\n\u7EA4\u7EA4\u64E2\u7D20\u624B\uFF0C\u672D\u672D\u5F04\u673A\u677C\u3002\n\u7EC8\u65E5\u4E0D\u6210\u7AE0\uFF0C\u6CE3\u6D95\u96F6\u5982\u96E8\u3002",
-      pinyin: "ti\xE1o ti\xE1o qi\u0101n ni\xFA x\u012Bng\uFF0Cji\u01CEo ji\u01CEo h\xE9 h\xE0n n\u01DA\u3002\nxi\u0101n xi\u0101n zhu\xF3 s\xF9 sh\u01D2u\uFF0Czh\xE1 zh\xE1 n\xF2ng j\u012B zh\xF9\u3002\nzh\u014Dng r\xEC b\xF9 ch\xE9ng zh\u0101ng\uFF0Cq\xEC t\xEC l\xEDng r\xFA y\u01D4\u3002",
-      summary: "\u7EC7\u5973\u9694\u7740\u94F6\u6CB3\u601D\u5FF5\u725B\u90CE\uFF0C\u7EC8\u65E5\u7EC7\u4E0D\u6210\u5E03\uFF0C\u6CEA\u843D\u5982\u96E8\u3002",
-      meaning: "\u9065\u8FDC\u7684\u7275\u725B\u661F\u548C\u660E\u4EAE\u7684\u7EC7\u5973\u661F\u9694\u6CB3\u76F8\u671B\u3002\u7EC7\u5973\u4E3E\u8D77\u7EA4\u7EC6\u6D01\u767D\u7684\u624B\uFF0C\u7EC7\u673A\u672D\u672D\u4F5C\u54CD\u3002\u4E00\u6574\u5929\u7EC7\u4E0D\u6210\u4E00\u5339\u5E03\uFF0C\u773C\u6CEA\u50CF\u96E8\u4E00\u6837\u843D\u4E0B\u3002",
-      appreciation: "\u501F\u7EC7\u5973\u6545\u4E8B\u5199\u76F8\u601D\uFF0C\u52A8\u4F5C\u548C\u795E\u60C5\u7EC6\u81F4\u52A8\u4EBA\u3002",
-      keywords: ["\u7275\u725B", "\u7EC7\u5973", "\u94F6\u6CB3", "\u76F8\u601D"],
-      tags: ["\u53E4\u8BD7\u5341\u4E5D\u9996", "\u795E\u8BDD"],
-      image: "poetry-river-moon"
-    },
-    {
-      id: "poetry-g6-shiwuye",
-      grade: 6,
-      category: "poetry",
-      title: "\u5341\u4E94\u591C\u671B\u6708",
-      author: "\u738B\u5EFA",
-      dynasty: "\u5510",
-      excerpt: "\u4E2D\u5EAD\u5730\u767D\u6811\u6816\u9E26\uFF0C\u51B7\u9732\u65E0\u58F0\u6E7F\u6842\u82B1\u3002\n\u4ECA\u591C\u6708\u660E\u4EBA\u5C3D\u671B\uFF0C\u4E0D\u77E5\u79CB\u601D\u843D\u8C01\u5BB6\u3002",
-      pinyin: "zh\u014Dng t\xEDng d\xEC b\xE1i sh\xF9 q\u012B y\u0101\uFF0Cl\u011Bng l\xF9 w\xFA sh\u0113ng sh\u012B gu\xEC hu\u0101\u3002\nj\u012Bn y\xE8 yu\xE8 m\xEDng r\xE9n j\xECn w\xE0ng\uFF0Cb\xF9 zh\u012B qi\u016B s\u012B lu\xF2 shu\xED ji\u0101\u3002",
-      summary: "\u4E2D\u79CB\u6708\u5149\u7167\u767D\u5EAD\u9662\uFF0C\u9732\u6C34\u6253\u6E7F\u6842\u82B1\uFF0C\u8BD7\u4EBA\u95EE\u4ECA\u591C\u79CB\u601D\u843D\u5728\u54EA\u5BB6\u3002",
-      meaning: "\u5EAD\u9662\u4E2D\u6708\u5149\u6D12\u5730\uFF0C\u6D01\u767D\u5982\u971C\uFF0C\u6811\u4E0A\u6816\u7740\u4E4C\u9E26\uFF1B\u51B7\u9732\u65E0\u58F0\u6253\u6E7F\u6842\u82B1\u3002\u4ECA\u591C\u660E\u6708\u5F53\u7A7A\uFF0C\u4EBA\u4EBA\u90FD\u5728\u671B\u6708\uFF0C\u4E0D\u77E5\u79CB\u601D\u843D\u5728\u8C01\u5BB6\u3002",
-      appreciation: "\u4EE5\u6708\u591C\u6E05\u666F\u5199\u4E2D\u79CB\u601D\u5FF5\uFF0C\u7ED3\u5C3E\u4E00\u95EE\u4F59\u5473\u60A0\u957F\u3002",
-      keywords: ["\u4E2D\u79CB", "\u660E\u6708", "\u6842\u82B1", "\u79CB\u601D"],
-      tags: ["\u738B\u5EFA", "\u601D\u4E61"],
-      image: "poetry-moon"
-    }
-  ];
-
-  // assets/textbook-classics.js
-  var classicalTexts = [
-    {
-      id: "classical-g3-simaguang",
-      grade: 3,
-      category: "classical",
-      title: "\u53F8\u9A6C\u5149",
-      author: "\u300A\u5B8B\u53F2\u300B",
-      dynasty: "\u5B8B",
-      excerpt: "\u7FA4\u513F\u620F\u4E8E\u5EAD\uFF0C\u4E00\u513F\u767B\u74EE\uFF0C\u8DB3\u8DCC\u6CA1\u6C34\u4E2D\u3002\u4F17\u7686\u5F03\u53BB\uFF0C\u5149\u6301\u77F3\u51FB\u74EE\u7834\u4E4B\uFF0C\u6C34\u8FF8\uFF0C\u513F\u5F97\u6D3B\u3002",
-      pinyin: "q\xFAn \xE9r x\xEC y\xFA t\xEDng\uFF0Cy\u012B \xE9r d\u0113ng w\xE8ng\uFF0Cz\xFA di\u0113 m\xF2 shu\u01D0 zh\u014Dng\u3002zh\xF2ng ji\u0113 q\xEC q\xF9\uFF0Cgu\u0101ng ch\xED sh\xED j\u012B w\xE8ng p\xF2 zh\u012B\uFF0Cshu\u01D0 b\xE8ng\uFF0C\xE9r d\xE9 hu\xF3\u3002",
-      summary: "\u53F8\u9A6C\u5149\u5C0F\u65F6\u5019\u548C\u4F19\u4F34\u5728\u5EAD\u9662\u73A9\u800D\uFF0C\u4E00\u4E2A\u5B69\u5B50\u6389\u8FDB\u5927\u6C34\u7F38\uFF0C\u522B\u7684\u5B69\u5B50\u90FD\u8DD1\u4E86\uFF0C\u4ED6\u642C\u77F3\u5934\u7838\u7834\u6C34\u7F38\u6551\u51FA\u4F19\u4F34\u3002",
-      meaning: "\u4E00\u7FA4\u5B69\u5B50\u5728\u5EAD\u9662\u91CC\u73A9\u800D\uFF0C\u4E00\u4E2A\u5B69\u5B50\u722C\u4E0A\u6C34\u7F38\uFF0C\u811A\u4E0B\u4E00\u6ED1\u6389\u8FDB\u6C34\u91CC\u3002\u5176\u4ED6\u5B69\u5B50\u90FD\u8DD1\u4E86\uFF0C\u53F8\u9A6C\u5149\u62FF\u77F3\u5934\u7838\u7834\u6C34\u7F38\uFF0C\u6C34\u6D8C\u51FA\u6765\uFF0C\u5B69\u5B50\u5F97\u6551\u4E86\u3002",
-      appreciation: "\u6545\u4E8B\u7528\u5371\u6025\u573A\u9762\u8868\u73B0\u53F8\u9A6C\u5149\u7684\u6C89\u7740\u3001\u673A\u667A\u548C\u52C7\u6562\u3002",
-      keywords: ["\u53F8\u9A6C\u5149", "\u6C34\u7F38", "\u6551\u4EBA", "\u673A\u667A"],
-      tags: ["\u6587\u8A00\u6587", "\u667A\u6167"],
-      image: "classic-lunyu"
-    },
-    {
-      id: "myth-g4-jingwei",
-      grade: 4,
-      category: "myth",
-      title: "\u7CBE\u536B\u586B\u6D77",
-      author: "\u300A\u5C71\u6D77\u7ECF\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u708E\u5E1D\u4E4B\u5C11\u5973\uFF0C\u540D\u66F0\u5973\u5A03\u3002\u5973\u5A03\u6E38\u4E8E\u4E1C\u6D77\uFF0C\u6EBA\u800C\u4E0D\u8FD4\uFF0C\u6545\u4E3A\u7CBE\u536B\uFF0C\u5E38\u8854\u897F\u5C71\u4E4B\u6728\u77F3\uFF0C\u4EE5\u5819\u4E8E\u4E1C\u6D77\u3002",
-      pinyin: "y\xE1n d\xEC zh\u012B sh\xE0o n\u01DA\uFF0Cm\xEDng yu\u0113 n\u01DA w\xE1\u3002n\u01DA w\xE1 y\xF3u y\xFA d\u014Dng h\u01CEi\uFF0Cn\xEC \xE9r b\xF9 f\u01CEn\uFF0Cg\xF9 w\xE9i j\u012Bng w\xE8i\uFF0Cch\xE1ng xi\xE1n x\u012B sh\u0101n zh\u012B m\xF9 sh\xED\uFF0Cy\u01D0 y\u012Bn y\xFA d\u014Dng h\u01CEi\u3002",
-      summary: "\u708E\u5E1D\u7684\u5C0F\u5973\u513F\u5973\u5A03\u5728\u4E1C\u6D77\u6EBA\u6C34\uFF0C\u5316\u4E3A\u7CBE\u536B\u9E1F\uFF0C\u5E38\u8854\u897F\u5C71\u6728\u77F3\u586B\u4E1C\u6D77\u3002",
-      meaning: "\u708E\u5E1D\u7684\u5C0F\u5973\u513F\u540D\u53EB\u5973\u5A03\u3002\u5973\u5A03\u5230\u4E1C\u6D77\u6E38\u73A9\uFF0C\u6EBA\u6C34\u6CA1\u6709\u56DE\u6765\uFF0C\u56E0\u6B64\u5316\u4E3A\u7CBE\u536B\u9E1F\uFF0C\u5E38\u5E38\u8854\u897F\u5C71\u7684\u6811\u679D\u548C\u77F3\u5934\uFF0C\u7528\u6765\u586B\u585E\u4E1C\u6D77\u3002",
-      appreciation: "\u7CBE\u536B\u660E\u77E5\u8270\u96BE\u4ECD\u4E0D\u65AD\u586B\u6D77\uFF0C\u8868\u73B0\u51FA\u4E0D\u754F\u8270\u96BE\u3001\u575A\u6301\u5230\u5E95\u7684\u7CBE\u795E\u3002",
-      keywords: ["\u7CBE\u536B", "\u5973\u5A03", "\u4E1C\u6D77", "\u575A\u6301"],
-      tags: ["\u795E\u8BDD", "\u5C71\u6D77\u7ECF"],
-      image: "classic-cosmos"
-    },
-    {
-      id: "classical-g4-wangrong",
-      grade: 4,
-      category: "classical",
-      title: "\u738B\u620E\u4E0D\u53D6\u9053\u65C1\u674E",
-      author: "\u300A\u4E16\u8BF4\u65B0\u8BED\u300B",
-      dynasty: "\u5357\u671D\u5B8B",
-      excerpt: "\u738B\u620E\u4E03\u5C81\uFF0C\u5C1D\u4E0E\u8BF8\u5C0F\u513F\u6E38\u3002\u770B\u9053\u8FB9\u674E\u6811\u591A\u5B50\u6298\u679D\uFF0C\u8BF8\u513F\u7ADE\u8D70\u53D6\u4E4B\uFF0C\u552F\u620E\u4E0D\u52A8\u3002\u4EBA\u95EE\u4E4B\uFF0C\u7B54\u66F0\uFF1A\u201C\u6811\u5728\u9053\u8FB9\u800C\u591A\u5B50\uFF0C\u6B64\u5FC5\u82E6\u674E\u3002\u201D\u53D6\u4E4B\uFF0C\u4FE1\u7136\u3002",
-      pinyin: "w\xE1ng r\xF3ng q\u012B su\xEC\uFF0Cch\xE1ng y\u01D4 zh\u016B xi\u01CEo \xE9r y\xF3u\u3002k\xE0n d\xE0o bi\u0101n l\u01D0 sh\xF9 du\u014D z\u01D0 zh\xE9 zh\u012B\uFF0Czh\u016B \xE9r j\xECng z\u01D2u q\u01D4 zh\u012B\uFF0Cw\xE9i r\xF3ng b\xF9 d\xF2ng\u3002r\xE9n w\xE8n zh\u012B\uFF0Cd\xE1 yu\u0113\uFF1A\u201Csh\xF9 z\xE0i d\xE0o bi\u0101n \xE9r du\u014D z\u01D0\uFF0Cc\u01D0 b\xEC k\u01D4 l\u01D0\u3002\u201Dq\u01D4 zh\u012B\uFF0Cx\xECn r\xE1n\u3002",
-      summary: "\u738B\u620E\u4E03\u5C81\u65F6\u4E0D\u968F\u5927\u5BB6\u6458\u8DEF\u8FB9\u674E\u5B50\uFF0C\u56E0\u4E3A\u5224\u65AD\u8DEF\u8FB9\u591A\u679C\u5374\u6CA1\u4EBA\u6458\uFF0C\u5FC5\u5B9A\u662F\u82E6\u674E\u3002",
-      meaning: "\u738B\u620E\u4E03\u5C81\u65F6\u548C\u5B69\u5B50\u4EEC\u6E38\u73A9\uFF0C\u770B\u89C1\u8DEF\u8FB9\u674E\u6811\u679C\u5B9E\u5F88\u591A\u538B\u5F2F\u6811\u679D\uFF0C\u5B69\u5B50\u4EEC\u4E89\u7740\u53BB\u6458\uFF0C\u53EA\u6709\u738B\u620E\u4E0D\u52A8\u3002\u6709\u4EBA\u95EE\u539F\u56E0\uFF0C\u4ED6\u8BF4\uFF1A\u201C\u6811\u5728\u8DEF\u8FB9\u5374\u8FD8\u6709\u5F88\u591A\u679C\u5B50\uFF0C\u8FD9\u4E00\u5B9A\u662F\u82E6\u674E\u3002\u201D\u6458\u6765\u4E00\u5C1D\uFF0C\u679C\u7136\u5982\u6B64\u3002",
-      appreciation: "\u6545\u4E8B\u8BF4\u660E\u738B\u620E\u5584\u4E8E\u89C2\u5BDF\u548C\u63A8\u7406\uFF0C\u4E0D\u76F2\u76EE\u8DDF\u4ECE\u522B\u4EBA\u3002",
-      keywords: ["\u738B\u620E", "\u674E\u5B50", "\u89C2\u5BDF", "\u63A8\u7406"],
-      tags: ["\u6587\u8A00\u6587", "\u667A\u6167"],
-      image: "classic-scroll"
-    },
-    {
-      id: "classical-g4-nangying",
-      grade: 4,
-      category: "classical",
-      title: "\u56CA\u8424\u591C\u8BFB",
-      author: "\u300A\u664B\u4E66\u300B",
-      dynasty: "\u5510",
-      excerpt: "\u80E4\u606D\u52E4\u4E0D\u5026\uFF0C\u535A\u5B66\u591A\u901A\u3002\u5BB6\u8D2B\u4E0D\u5E38\u5F97\u6CB9\uFF0C\u590F\u6708\u5219\u7EC3\u56CA\u76DB\u6570\u5341\u8424\u706B\u4EE5\u7167\u4E66\uFF0C\u4EE5\u591C\u7EE7\u65E5\u7109\u3002",
-      pinyin: "y\xECn g\u014Dng q\xEDn b\xF9 ju\xE0n\uFF0Cb\xF3 xu\xE9 du\u014D t\u014Dng\u3002ji\u0101 p\xEDn b\xF9 ch\xE1ng d\xE9 y\xF3u\uFF0Cxi\xE0 yu\xE8 z\xE9 li\xE0n n\xE1ng ch\xE9ng sh\xF9 sh\xED y\xEDng hu\u01D2 y\u01D0 zh\xE0o sh\u016B\uFF0Cy\u01D0 y\xE8 j\xEC r\xEC y\u0101n\u3002",
-      summary: "\u8F66\u80E4\u52E4\u5B66\uFF0C\u5BB6\u5883\u8D2B\u56F0\u4E70\u4E0D\u8D77\u706F\u6CB9\uFF0C\u590F\u5929\u7528\u767D\u7EE2\u888B\u88C5\u8424\u706B\u866B\u7167\u660E\u8BFB\u4E66\u3002",
-      meaning: "\u8F66\u80E4\u8C28\u614E\u52E4\u52C9\uFF0C\u4E0D\u77E5\u75B2\u5026\uFF0C\u5B66\u8BC6\u5E7F\u535A\u3002\u5BB6\u91CC\u8D2B\u7A77\uFF0C\u4E0D\u5E38\u6709\u706F\u6CB9\uFF0C\u590F\u5929\u5C31\u7528\u767D\u7EE2\u888B\u88C5\u51E0\u5341\u53EA\u8424\u706B\u866B\u7167\u660E\u8BFB\u4E66\uFF0C\u591C\u4EE5\u7EE7\u65E5\u3002",
-      appreciation: "\u6545\u4E8B\u5199\u6C42\u5B66\u4E4B\u5FD7\u4E0D\u56E0\u6761\u4EF6\u8270\u82E6\u800C\u51CF\u9000\u3002",
-      keywords: ["\u8F66\u80E4", "\u8424\u706B\u866B", "\u8BFB\u4E66", "\u52E4\u5B66"],
-      tags: ["\u6587\u8A00\u6587", "\u52E4\u5B66"],
-      image: "classic-books"
-    },
-    {
-      id: "classical-g4-tiechu",
-      grade: 4,
-      category: "classical",
-      title: "\u94C1\u6775\u6210\u9488",
-      author: "\u300A\u65B9\u8206\u80DC\u89C8\u300B",
-      dynasty: "\u5B8B",
-      excerpt: "\u78E8\u9488\u6EAA\uFF0C\u5728\u8C61\u8033\u5C71\u4E0B\u3002\u4E16\u4F20\u674E\u592A\u767D\u8BFB\u4E66\u5C71\u4E2D\uFF0C\u672A\u6210\uFF0C\u5F03\u53BB\u3002\u8FC7\u662F\u6EAA\uFF0C\u9022\u8001\u5AAA\u65B9\u78E8\u94C1\u6775\u3002\u95EE\u4E4B\uFF0C\u66F0\uFF1A\u201C\u6B32\u4F5C\u9488\u3002\u201D\u592A\u767D\u611F\u5176\u610F\uFF0C\u8FD8\u5352\u4E1A\u3002",
-      pinyin: "m\xF3 zh\u0113n x\u012B\uFF0Cz\xE0i xi\xE0ng \u011Br sh\u0101n xi\xE0\u3002sh\xEC chu\xE1n l\u01D0 t\xE0i b\xE1i d\xFA sh\u016B sh\u0101n zh\u014Dng\uFF0Cw\xE8i ch\xE9ng\uFF0Cq\xEC q\xF9\u3002gu\xF2 sh\xEC x\u012B\uFF0Cf\xE9ng l\u01CEo \u01CEo f\u0101ng m\xF3 ti\u011B ch\u01D4\u3002w\xE8n zh\u012B\uFF0Cyu\u0113\uFF1A\u201Cy\xF9 zu\xF2 zh\u0113n\u3002\u201Dt\xE0i b\xE1i g\u01CEn q\xED y\xEC\uFF0Chu\xE1n z\xFA y\xE8\u3002",
-      summary: "\u674E\u767D\u5C11\u5E74\u65F6\u60F3\u653E\u5F03\u8BFB\u4E66\uFF0C\u89C1\u8001\u5987\u4EBA\u78E8\u94C1\u6775\u505A\u9488\uFF0C\u53D7\u5230\u89E6\u52A8\uFF0C\u56DE\u53BB\u5B8C\u6210\u5B66\u4E1A\u3002",
-      meaning: "\u78E8\u9488\u6EAA\u5728\u8C61\u8033\u5C71\u4E0B\u3002\u4F20\u8BF4\u674E\u767D\u5728\u5C71\u4E2D\u8BFB\u4E66\uFF0C\u6CA1\u6709\u5B8C\u6210\u5C31\u79BB\u5F00\u4E86\u3002\u7ECF\u8FC7\u8FD9\u6761\u6EAA\uFF0C\u9047\u5230\u4E00\u4F4D\u8001\u5987\u4EBA\u6B63\u5728\u78E8\u94C1\u6775\u3002\u95EE\u5979\u505A\u4EC0\u4E48\uFF0C\u5979\u8BF4\uFF1A\u201C\u60F3\u505A\u9488\u3002\u201D\u674E\u767D\u88AB\u5979\u7684\u610F\u5FD7\u611F\u52A8\uFF0C\u56DE\u53BB\u5B8C\u6210\u4E86\u5B66\u4E1A\u3002",
-      appreciation: "\u6545\u4E8B\u8BF4\u660E\u53EA\u8981\u575A\u6301\u4E0D\u61C8\uFF0C\u518D\u96BE\u7684\u4E8B\u4E5F\u80FD\u505A\u6210\u3002",
-      keywords: ["\u674E\u767D", "\u94C1\u6775", "\u8001\u5987\u4EBA", "\u575A\u6301"],
-      tags: ["\u6587\u8A00\u6587", "\u52E4\u5B66"],
-      image: "classic-jade"
-    },
-    {
-      id: "classical-g5-zixiangmaodun",
-      grade: 5,
-      category: "classical",
-      title: "\u81EA\u76F8\u77DB\u76FE",
-      author: "\u300A\u97E9\u975E\u5B50\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u695A\u4EBA\u6709\u9B3B\u76FE\u4E0E\u77DB\u8005\uFF0C\u8A89\u4E4B\u66F0\uFF1A\u201C\u543E\u76FE\u4E4B\u575A\uFF0C\u7269\u83AB\u80FD\u9677\u4E5F\u3002\u201D\u53C8\u8A89\u5176\u77DB\u66F0\uFF1A\u201C\u543E\u77DB\u4E4B\u5229\uFF0C\u4E8E\u7269\u65E0\u4E0D\u9677\u4E5F\u3002\u201D\u6216\u66F0\uFF1A\u201C\u4EE5\u5B50\u4E4B\u77DB\u9677\u5B50\u4E4B\u76FE\uFF0C\u4F55\u5982\uFF1F\u201D\u5176\u4EBA\u5F17\u80FD\u5E94\u4E5F\u3002",
-      pinyin: "ch\u01D4 r\xE9n y\u01D2u y\xF9 d\xF9n y\u01D4 m\xE1o zh\u011B\uFF0Cy\xF9 zh\u012B yu\u0113\uFF1A\u201Cw\xFA d\xF9n zh\u012B ji\u0101n\uFF0Cw\xF9 m\xF2 n\xE9ng xi\xE0n y\u011B\u3002\u201Dy\xF2u y\xF9 q\xED m\xE1o yu\u0113\uFF1A\u201Cw\xFA m\xE1o zh\u012B l\xEC\uFF0Cy\xFA w\xF9 w\xFA b\xF9 xi\xE0n y\u011B\u3002\u201Dhu\xF2 yu\u0113\uFF1A\u201Cy\u01D0 z\u01D0 zh\u012B m\xE1o xi\xE0n z\u01D0 zh\u012B d\xF9n\uFF0Ch\xE9 r\xFA\uFF1F\u201Dq\xED r\xE9n f\xFA n\xE9ng y\xECng y\u011B\u3002",
-      summary: "\u695A\u56FD\u4EBA\u540C\u65F6\u5938\u76FE\u6700\u575A\u56FA\u3001\u77DB\u6700\u950B\u5229\uFF0C\u522B\u4EBA\u95EE\u7528\u4ED6\u7684\u77DB\u523A\u4ED6\u7684\u76FE\u4F1A\u600E\u6837\uFF0C\u4ED6\u65E0\u6CD5\u56DE\u7B54\u3002",
-      meaning: "\u695A\u56FD\u6709\u4E00\u4E2A\u5356\u76FE\u548C\u77DB\u7684\u4EBA\uFF0C\u5938\u4ED6\u7684\u76FE\u8BF4\uFF1A\u201C\u6211\u7684\u76FE\u6700\u575A\u56FA\uFF0C\u6CA1\u6709\u4EC0\u4E48\u80FD\u523A\u7A7F\u5B83\u3002\u201D\u53C8\u5938\u4ED6\u7684\u77DB\u8BF4\uFF1A\u201C\u6211\u7684\u77DB\u6700\u950B\u5229\uFF0C\u6CA1\u6709\u4EC0\u4E48\u523A\u4E0D\u7A7F\u3002\u201D\u6709\u4EBA\u95EE\uFF1A\u201C\u7528\u4F60\u7684\u77DB\u523A\u4F60\u7684\u76FE\uFF0C\u4F1A\u600E\u6837\uFF1F\u201D\u90A3\u4EBA\u4E0D\u80FD\u56DE\u7B54\u3002",
-      appreciation: "\u6545\u4E8B\u8BF4\u660E\u8BF4\u8BDD\u505A\u4E8B\u8981\u524D\u540E\u4E00\u81F4\uFF0C\u4E0D\u80FD\u4E92\u76F8\u62B5\u89E6\u3002",
-      keywords: ["\u77DB", "\u76FE", "\u695A\u56FD", "\u903B\u8F91"],
-      tags: ["\u5BD3\u8A00", "\u601D\u8FA8"],
-      image: "classic-scroll"
-    },
-    {
-      id: "classical-g5-yangshi",
-      grade: 5,
-      category: "classical",
-      title: "\u6768\u6C0F\u4E4B\u5B50",
-      author: "\u300A\u4E16\u8BF4\u65B0\u8BED\u300B",
-      dynasty: "\u5357\u671D\u5B8B",
-      excerpt: "\u6881\u56FD\u6768\u6C0F\u5B50\u4E5D\u5C81\uFF0C\u751A\u806A\u60E0\u3002\u5B54\u541B\u5E73\u8BE3\u5176\u7236\uFF0C\u7236\u4E0D\u5728\uFF0C\u4E43\u547C\u513F\u51FA\u3002\u4E3A\u8BBE\u679C\uFF0C\u679C\u6709\u6768\u6885\u3002\u5B54\u6307\u4EE5\u793A\u513F\u66F0\uFF1A\u201C\u6B64\u662F\u541B\u5BB6\u679C\u3002\u201D\u513F\u5E94\u58F0\u7B54\u66F0\uFF1A\u201C\u672A\u95FB\u5B54\u96C0\u662F\u592B\u5B50\u5BB6\u79BD\u3002\u201D",
-      pinyin: "li\xE1ng gu\xF3 y\xE1ng sh\xEC z\u01D0 ji\u01D4 su\xEC\uFF0Csh\xE8n c\u014Dng hu\xEC\u3002k\u01D2ng j\u016Bn p\xEDng y\xEC q\xED f\xF9\uFF0Cf\xF9 b\xF9 z\xE0i\uFF0Cn\u01CEi h\u016B \xE9r ch\u016B\u3002w\xE8i sh\xE8 gu\u01D2\uFF0Cgu\u01D2 y\u01D2u y\xE1ng m\xE9i\u3002k\u01D2ng zh\u01D0 y\u01D0 sh\xEC \xE9r yu\u0113\uFF1A\u201Cc\u01D0 sh\xEC j\u016Bn ji\u0101 gu\u01D2\u3002\u201D\xE9r y\xECng sh\u0113ng d\xE1 yu\u0113\uFF1A\u201Cw\xE8i w\xE9n k\u01D2ng qu\xE8 sh\xEC f\u016B z\u01D0 ji\u0101 q\xEDn\u3002\u201D",
-      summary: "\u4E5D\u5C81\u7684\u6768\u6C0F\u5B50\u7528\u201C\u672A\u95FB\u5B54\u96C0\u662F\u592B\u5B50\u5BB6\u79BD\u201D\u56DE\u5E94\u5B54\u541B\u5E73\u7684\u73A9\u7B11\uFF0C\u8868\u73B0\u673A\u667A\u548C\u793C\u8C8C\u3002",
-      meaning: "\u6881\u56FD\u6768\u5BB6\u7684\u513F\u5B50\u4E5D\u5C81\uFF0C\u975E\u5E38\u806A\u660E\u3002\u5B54\u541B\u5E73\u6765\u62DC\u8BBF\u4ED6\u7684\u7236\u4EB2\uFF0C\u7236\u4EB2\u4E0D\u5728\uFF0C\u5C31\u53EB\u5B69\u5B50\u51FA\u6765\u3002\u5B69\u5B50\u4E3A\u4ED6\u6446\u4E0A\u6C34\u679C\uFF0C\u6C34\u679C\u4E2D\u6709\u6768\u6885\u3002\u5B54\u541B\u5E73\u6307\u7740\u6768\u6885\u7ED9\u5B69\u5B50\u770B\uFF0C\u8BF4\uFF1A\u201C\u8FD9\u662F\u4F60\u5BB6\u7684\u679C\u5B50\u3002\u201D\u5B69\u5B50\u9A6C\u4E0A\u56DE\u7B54\uFF1A\u201C\u6CA1\u6709\u542C\u8BF4\u5B54\u96C0\u662F\u60A8\u5BB6\u7684\u9E1F\u3002\u201D",
-      appreciation: "\u5B69\u5B50\u987A\u7740\u5BF9\u65B9\u7684\u8BF4\u6CD5\u5DE7\u5999\u56DE\u5E94\uFF0C\u65E2\u4E0D\u5931\u793C\uFF0C\u53C8\u663E\u51FA\u673A\u667A\u3002",
-      keywords: ["\u6768\u6C0F\u5B50", "\u5B54\u541B\u5E73", "\u6768\u6885", "\u673A\u667A"],
-      tags: ["\u6587\u8A00\u6587", "\u667A\u6167"],
-      image: "classic-lunyu"
-    },
-    {
-      id: "classical-g6-boya",
-      grade: 6,
-      category: "classical",
-      title: "\u4F2F\u7259\u9F13\u7434",
-      author: "\u300A\u5415\u6C0F\u6625\u79CB\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u4F2F\u7259\u9F13\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4E4B\u3002\u65B9\u9F13\u7434\u800C\u5FD7\u5728\u592A\u5C71\uFF0C\u953A\u5B50\u671F\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u5DCD\u5DCD\u4E4E\u82E5\u592A\u5C71\u3002\u201D\u5C11\u9009\u4E4B\u95F4\u800C\u5FD7\u5728\u6D41\u6C34\uFF0C\u953A\u5B50\u671F\u53C8\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u6C64\u6C64\u4E4E\u82E5\u6D41\u6C34\u3002\u201D",
-      pinyin: "b\xF3 y\xE1 g\u01D4 q\xEDn\uFF0Czh\u014Dng z\u01D0 q\u012B t\u012Bng zh\u012B\u3002f\u0101ng g\u01D4 q\xEDn \xE9r zh\xEC z\xE0i t\xE0i sh\u0101n\uFF0Czh\u014Dng z\u01D0 q\u012B yu\u0113\uFF1A\u201Csh\xE0n z\u0101i h\u016B g\u01D4 q\xEDn\uFF0Cw\u0113i w\u0113i h\u016B ru\xF2 t\xE0i sh\u0101n\u3002\u201Dsh\u01CEo xu\u01CEn zh\u012B ji\u0101n \xE9r zh\xEC z\xE0i li\xFA shu\u01D0\uFF0Czh\u014Dng z\u01D0 q\u012B y\xF2u yu\u0113\uFF1A\u201Csh\xE0n z\u0101i h\u016B g\u01D4 q\xEDn\uFF0Csh\u0101ng sh\u0101ng h\u016B ru\xF2 li\xFA shu\u01D0\u3002\u201D",
-      summary: "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u80FD\u4ECE\u7434\u58F0\u4E2D\u542C\u51FA\u9AD8\u5C71\u548C\u6D41\u6C34\uFF0C\u4E8C\u4EBA\u5FC3\u610F\u76F8\u901A\u3002",
-      meaning: "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4ED6\u5F39\u3002\u4F2F\u7259\u5F39\u7434\u65F6\u5FC3\u91CC\u60F3\u7740\u9AD8\u5C71\uFF0C\u953A\u5B50\u671F\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u5DCD\u5CE8\u7684\u6CF0\u5C71\u3002\u201D\u8FC7\u4E86\u4E00\u4F1A\u513F\uFF0C\u4F2F\u7259\u5FC3\u91CC\u60F3\u7740\u6D41\u6C34\uFF0C\u953A\u5B50\u671F\u53C8\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u6D69\u6D69\u8361\u8361\u7684\u6D41\u6C34\u3002\u201D",
-      appreciation: "\u6545\u4E8B\u5199\u77E5\u97F3\u96BE\u9047\uFF0C\u4E5F\u8BF4\u660E\u771F\u6B63\u7406\u89E3\u4E00\u4E2A\u4EBA\uFF0C\u9700\u8981\u7528\u5FC3\u503E\u542C\u3002",
-      keywords: ["\u4F2F\u7259", "\u953A\u5B50\u671F", "\u7434\u58F0", "\u77E5\u97F3"],
-      tags: ["\u6587\u8A00\u6587", "\u53CB\u60C5"],
-      image: "classic-lunyu"
-    },
-    {
-      id: "classical-g6-xueyi",
-      grade: 6,
-      category: "classical",
-      title: "\u5B66\u5F08",
-      author: "\u300A\u5B5F\u5B50\u300B",
-      dynasty: "\u5148\u79E6",
-      excerpt: "\u5F08\u79CB\uFF0C\u901A\u56FD\u4E4B\u5584\u5F08\u8005\u4E5F\u3002\u4F7F\u5F08\u79CB\u8BF2\u4E8C\u4EBA\u5F08\uFF0C\u5176\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u60DF\u5F08\u79CB\u4E4B\u4E3A\u542C\uFF1B\u4E00\u4EBA\u867D\u542C\u4E4B\uFF0C\u4E00\u5FC3\u4EE5\u4E3A\u6709\u9E3F\u9E44\u5C06\u81F3\uFF0C\u601D\u63F4\u5F13\u7F34\u800C\u5C04\u4E4B\u3002",
-      pinyin: "y\xEC qi\u016B\uFF0Ct\u014Dng gu\xF3 zh\u012B sh\xE0n y\xEC zh\u011B y\u011B\u3002sh\u01D0 y\xEC qi\u016B hu\xEC \xE8r r\xE9n y\xEC\uFF0Cq\xED y\u012B r\xE9n zhu\u0101n x\u012Bn zh\xEC zh\xEC\uFF0Cw\xE9i y\xEC qi\u016B zh\u012B w\xE8i t\u012Bng\uFF1By\u012B r\xE9n su\u012B t\u012Bng zh\u012B\uFF0Cy\u012B x\u012Bn y\u01D0 w\xE9i y\u01D2u h\xF3ng h\xFA ji\u0101ng zh\xEC\uFF0Cs\u012B yu\xE1n g\u014Dng zhu\xF3 \xE9r sh\xE8 zh\u012B\u3002",
-      summary: "\u5F08\u79CB\u6559\u4E24\u4EBA\u4E0B\u68CB\uFF0C\u4E00\u4EBA\u4E13\u5FC3\uFF0C\u4E00\u4EBA\u60F3\u7740\u5C04\u5929\u9E45\uFF0C\u8BF4\u660E\u5B66\u4E60\u8981\u4E13\u5FC3\u81F4\u5FD7\u3002",
-      meaning: "\u5F08\u79CB\u662F\u5168\u56FD\u6700\u64C5\u957F\u4E0B\u68CB\u7684\u4EBA\u3002\u8BA9\u4ED6\u6559\u4E24\u4E2A\u4EBA\u4E0B\u68CB\uFF0C\u5176\u4E2D\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u53EA\u542C\u5F08\u79CB\u7684\u8BDD\uFF1B\u53E6\u4E00\u4EBA\u867D\u7136\u4E5F\u5728\u542C\uFF0C\u5374\u4E00\u5FC3\u60F3\u7740\u6709\u5929\u9E45\u8981\u6765\uFF0C\u60F3\u62FF\u5F13\u7BAD\u53BB\u5C04\u5B83\u3002",
-      appreciation: "\u540C\u6837\u7684\u8001\u5E08\u3001\u540C\u6837\u7684\u5B66\u4E60\u6761\u4EF6\uFF0C\u4E13\u6CE8\u4E0E\u5426\u4F1A\u5E26\u6765\u4E0D\u540C\u7ED3\u679C\u3002",
-      keywords: ["\u5F08\u79CB", "\u4E0B\u68CB", "\u4E13\u5FC3", "\u5B66\u4E60"],
-      tags: ["\u6587\u8A00\u6587", "\u52E4\u5B66"],
-      image: "classic-books"
-    }
-  ];
-
-  // assets/lesson-extra.js
-  var lessonExtra = [
-    {
-      "id": "poetry-g2-chilege",
-      "grade": 2,
-      "category": "poetry",
-      "title": "\u6555\u52D2\u6B4C",
-      "author": "\u5317\u671D\u6C11\u6B4C",
-      "dynasty": "\u5357\u5317\u671D",
-      "excerpt": "\u6555\u52D2\u5DDD\uFF0C\u9634\u5C71\u4E0B\u3002\u5929\u4F3C\u7A79\u5E90\uFF0C\u7B3C\u76D6\u56DB\u91CE\u3002\u5929\u82CD\u82CD\uFF0C\u91CE\u832B\u832B\uFF0C\u98CE\u5439\u8349\u4F4E\u89C1\u725B\u7F8A\u3002",
-      "pinyin": "ch\xEC l\xE8 chu\u0101n\uFF0Cy\u012Bn sh\u0101n xi\xE0\u3002ti\u0101n s\xEC qi\xF3ng l\xFA\uFF0Cl\xF3ng g\xE0i s\xEC y\u011B\u3002ti\u0101n c\u0101ng c\u0101ng\uFF0Cy\u011B m\xE1ng m\xE1ng\uFF0Cf\u0113ng chu\u012B c\u01CEo d\u012B xi\xE0n ni\xFA y\xE1ng\u3002",
-      "summary": "\u6555\u52D2\u5DDD\u5728\u9634\u5C71\u4E0B\uFF0C\u5929\u50CF\u5927\u5E10\u7BF7\u7B3C\u7F69\u56DB\u91CE\uFF1B\u98CE\u5439\u8349\u4F4E\uFF0C\u9732\u51FA\u6210\u7FA4\u725B\u7F8A\u3002",
-      "meaning": "\u6555\u52D2\u5DDD\u4F4D\u4E8E\u9634\u5C71\u811A\u4E0B\u3002\u5929\u7A7A\u50CF\u5DE8\u5927\u7684\u5E10\u7BF7\uFF0C\u7B3C\u7F69\u7740\u56DB\u9762\u516B\u65B9\u3002\u5929\u82CD\u82CD\uFF0C\u91CE\u832B\u832B\uFF0C\u98CE\u5439\u8349\u4F4E\uFF0C\u9732\u51FA\u6210\u7FA4\u7684\u725B\u7F8A\u3002",
-      "appreciation": "\u8BD7\u53E5\u5F00\u9614\u660E\u6717\uFF0C\u5C55\u73B0\u5317\u65B9\u8349\u539F\u7684\u8FBD\u9614\u548C\u7267\u6C11\u751F\u6D3B\u3002",
-      "keywords": [
-        "\u8349\u539F",
-        "\u725B\u7F8A",
-        "\u9634\u5C71"
-      ],
+  // assets/classic-data.js
+  var classicData = [
+    {
+      "id": "classics-g1-sanzi-0",
+      "grade": 1,
+      "volume": "\u56FD\u5B66",
+      "title": "\u4EBA\u4E4B\u521D",
+      "author": "\u300A\u4E09\u5B57\u7ECF\u300B",
+      "dynasty": "\u5357\u5B8B",
+      "excerpt": "\u4EBA\u4E4B\u521D\uFF0C\u6027\u672C\u5584\u3002\u6027\u76F8\u8FD1\uFF0C\u4E60\u76F8\u8FDC\u3002\n\u82DF\u4E0D\u6559\uFF0C\u6027\u4E43\u8FC1\u3002\u6559\u4E4B\u9053\uFF0C\u8D35\u4EE5\u4E13\u3002",
+      "pinyin": "r\xE9n zh\u012B ch\u016B\uFF0Cx\xECng b\u011Bn sh\xE0n\u3002x\xECng xi\u0101ng j\xECn\uFF0Cx\xED xi\u0101ng yu\u01CEn\u3002\ng\u01D2u b\xF9 ji\xE0o\uFF0Cx\xECng n\u01CEi qi\u0101n\u3002ji\xE0o zh\u012B d\xE0o\uFF0Cgu\xEC y\u01D0 zhu\u0101n\u3002",
+      "category": "sanzi",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u4E09\u5B57\u7ECF\u300B",
+      "meaning": "\u4EBA\u521A\u51FA\u751F\u7684\u65F6\u5019\uFF0C\u672C\u6027\u662F\u5584\u826F\u7684\u3002\u5929\u6027\u672C\u6765\u76F8\u5DEE\u4E0D\u8FDC\uFF0C\u540E\u6765\u56E0\u4E3A\u5B66\u4E60\u548C\u73AF\u5883\u4E0D\u540C\uFF0C\u624D\u6E10\u6E10\u6709\u4E86\u5F88\u5927\u5DEE\u522B\u3002\u5982\u679C\u4E0D\u597D\u597D\u6559\u80B2\uFF0C\u5584\u826F\u7684\u672C\u6027\u5C31\u4F1A\u6539\u53D8\u3002\u6559\u80B2\u7684\u65B9\u6CD5\uFF0C\u6700\u91CD\u8981\u7684\u662F\u4E13\u5FC3\u4E00\u81F4\u3002",
+      "appreciation": "\u6587\u5B57\u91C7\u7528\u4E09\u5B57\u4E00\u987F\u7684\u8282\u594F\uFF0C\u4FBF\u4E8E\u8BF5\u8BFB\u3002\u5B83\u5F3A\u8C03\u540E\u5929\u6559\u80B2\u548C\u4E60\u60EF\u7684\u91CD\u8981\uFF0C\u4E5F\u63D0\u9192\u5B66\u4E60\u8005\u8981\u4E13\u6CE8\u3001\u6709\u6052\u5FC3\u3002",
       "tags": [
-        "\u5317\u671D\u6C11\u6B4C",
-        "\u8349\u539F"
-      ],
-      "image": "poetry-mountain-river"
+        "\u4E09\u5B57\u7ECF",
+        "\u542F\u8499",
+        "\u6559\u80B2"
+      ]
     },
     {
-      "id": "fable-g2-wangyangbudao",
-      "grade": 2,
-      "category": "fable",
-      "title": "\u4EA1\u7F8A\u8865\u7262",
-      "author": "\u300A\u6218\u56FD\u7B56\u300B",
-      "dynasty": "\u5148\u79E6",
-      "excerpt": "\u89C1\u5154\u800C\u987E\u72AC\uFF0C\u672A\u4E3A\u665A\u4E5F\uFF1B\u4EA1\u7F8A\u800C\u8865\u7262\uFF0C\u672A\u4E3A\u8FDF\u4E5F\u3002",
-      "pinyin": "ji\xE0n t\xF9 \xE9r g\xF9 qu\u01CEn\uFF0Cw\xE8i w\xE9i w\u01CEn y\u011B\uFF1Bw\xE1ng y\xE1ng \xE9r b\u01D4 l\xE1o\uFF0Cw\xE8i w\xE9i ch\xED y\u011B\u3002",
-      "summary": "\u7F8A\u4E22\u4E86\u518D\u4FEE\u7F8A\u5708\uFF0C\u8FD8\u4E0D\u7B97\u665A\uFF1B\u53D1\u73B0\u95EE\u9898\u53CA\u65F6\u8865\u6551\uFF0C\u4ECD\u80FD\u907F\u514D\u66F4\u5927\u635F\u5931\u3002",
-      "meaning": "\u770B\u89C1\u5154\u5B50\u518D\u56DE\u5934\u5524\u730E\u72D7\uFF0C\u8FD8\u4E0D\u7B97\u665A\uFF1B\u7F8A\u4E22\u5931\u540E\u518D\u4FEE\u8865\u7F8A\u5708\uFF0C\u4E5F\u8FD8\u4E0D\u7B97\u8FDF\u3002",
-      "appreciation": "\u6545\u4E8B\u5F3A\u8C03\u53CA\u65F6\u6539\u9519\uFF0C\u627F\u8BA4\u95EE\u9898\u5E76\u9A6C\u4E0A\u884C\u52A8\u3002",
-      "keywords": [
-        "\u7F8A\u5708",
-        "\u8865\u6551",
-        "\u6539\u9519"
-      ],
+      "id": "classics-g1-lunyu-1",
+      "grade": 1,
+      "volume": "\u56FD\u5B66",
+      "title": "\u5B66\u800C\u65F6\u4E60\u4E4B",
+      "author": "\u300A\u8BBA\u8BED\u300B",
+      "dynasty": "\u6625\u79CB",
+      "excerpt": "\u5B50\u66F0\uFF1A\u201C\u5B66\u800C\u65F6\u4E60\u4E4B\uFF0C\u4E0D\u4EA6\u8BF4\u4E4E\uFF1F\u6709\u670B\u81EA\u8FDC\u65B9\u6765\uFF0C\u4E0D\u4EA6\u4E50\u4E4E\uFF1F\u4EBA\u4E0D\u77E5\u800C\u4E0D\u6120\uFF0C\u4E0D\u4EA6\u541B\u5B50\u4E4E\uFF1F\u201D",
+      "pinyin": "z\u01D0 yu\u0113\uFF1A\u201Cxu\xE9 \xE9r sh\xED x\xED zh\u012B\uFF0Cb\xF9 y\xEC yu\xE8 h\u016B\uFF1Fy\u01D2u p\xE9ng z\xEC yu\u01CEn f\u0101ng l\xE1i\uFF0Cb\xF9 y\xEC l\xE8 h\u016B\uFF1Fr\xE9n b\xF9 zh\u012B \xE9r b\xF9 y\xF9n\uFF0Cb\xF9 y\xEC j\u016Bn z\u01D0 h\u016B\uFF1F\u201D",
+      "category": "lunyu",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u8BBA\u8BED\u300B",
+      "meaning": "\u5B54\u5B50\u8BF4\uFF1A\u201C\u5B66\u4E60\u4E86\u77E5\u8BC6\u5E76\u6309\u65F6\u6E29\u4E60\u3001\u5B9E\u8DF5\uFF0C\u4E0D\u4E5F\u5F88\u6109\u5FEB\u5417\uFF1F\u6709\u5FD7\u540C\u9053\u5408\u7684\u670B\u53CB\u4ECE\u8FDC\u65B9\u6765\uFF0C\u4E0D\u4E5F\u5F88\u5FEB\u4E50\u5417\uFF1F\u522B\u4EBA\u4E0D\u4E86\u89E3\u6211\uFF0C\u6211\u5374\u4E0D\u607C\u6012\uFF0C\u4E0D\u4E5F\u662F\u541B\u5B50\u5417\uFF1F\u201D",
+      "appreciation": "\u4E09\u53E5\u8BDD\u4ECE\u201C\u5B66\u201D\u5230\u201C\u53CB\u201D\u518D\u5230\u201C\u4FEE\u8EAB\u201D\uFF0C\u5C42\u5C42\u5C55\u5F00\u3002\u5B83\u544A\u8BC9\u6211\u4EEC\uFF0C\u5B66\u4E60\u7684\u5FEB\u4E50\u6765\u81EA\u53CD\u590D\u5B9E\u8DF5\uFF0C\u771F\u6B63\u7684\u4FEE\u517B\u4E5F\u4F53\u73B0\u5728\u88AB\u8BEF\u89E3\u65F6\u7684\u4ECE\u5BB9\u3002",
       "tags": [
-        "\u5BD3\u8A00",
-        "\u5904\u4E8B"
-      ],
-      "image": "idiom-sheep"
-    },
-    {
-      "id": "fable-g2-yamiaozhuzhang",
-      "grade": 2,
-      "category": "fable",
-      "title": "\u63E0\u82D7\u52A9\u957F",
-      "author": "\u300A\u5B5F\u5B50\u300B",
-      "dynasty": "\u5148\u79E6",
-      "excerpt": "\u5B8B\u4EBA\u6709\u95F5\u5176\u82D7\u4E4B\u4E0D\u957F\u800C\u63E0\u4E4B\u8005\uFF0C\u8292\u8292\u7136\u5F52\uFF0C\u8C13\u5176\u4EBA\u66F0\uFF1A\u201C\u4ECA\u65E5\u75C5\u77E3\uFF01\u4E88\u52A9\u82D7\u957F\u77E3\uFF01\u201D\u5176\u5B50\u8D8B\u800C\u5F80\u89C6\u4E4B\uFF0C\u82D7\u5219\u69C1\u77E3\u3002",
-      "pinyin": "s\xF2ng r\xE9n y\u01D2u m\u01D0n q\xED mi\xE1o zh\u012B b\xF9 zh\u01CEng \xE9r y\xE0 zh\u012B zh\u011B\uFF0Cm\xE1ng m\xE1ng r\xE1n gu\u012B\uFF0Cw\xE8i q\xED r\xE9n yu\u0113\uFF1A\u201Cj\u012Bn r\xEC b\xECng y\u01D0\uFF01y\u01D4 zh\xF9 mi\xE1o zh\u01CEng y\u01D0\uFF01\u201Dq\xED z\u01D0 q\u016B \xE9r w\u01CEng sh\xEC zh\u012B\uFF0Cmi\xE1o z\xE9 g\u01CEo y\u01D0\u3002",
-      "summary": "\u5B8B\u56FD\u4EBA\u5ACC\u79BE\u82D7\u957F\u5F97\u6162\uFF0C\u628A\u82D7\u62D4\u9AD8\uFF0C\u7ED3\u679C\u79BE\u82D7\u67AF\u840E\uFF0C\u8BF4\u660E\u505A\u4E8B\u4E0D\u80FD\u8FDD\u80CC\u89C4\u5F8B\u3002",
-      "meaning": "\u5B8B\u56FD\u6709\u4E2A\u4EBA\u62C5\u5FC3\u79BE\u82D7\u4E0D\u957F\u800C\u628A\u82D7\u62D4\u9AD8\uFF0C\u75B2\u60EB\u5730\u56DE\u5BB6\u8BF4\uFF1A\u201C\u4ECA\u5929\u7D2F\u574F\u4E86\uFF01\u6211\u5E2E\u52A9\u79BE\u82D7\u957F\u9AD8\u4E86\uFF01\u201D\u4ED6\u513F\u5B50\u8DD1\u53BB\u770B\uFF0C\u79BE\u82D7\u5DF2\u7ECF\u67AF\u840E\u4E86\u3002",
-      "appreciation": "\u6545\u4E8B\u8BF4\u660E\u6025\u4E8E\u6C42\u6210\u3001\u8FDD\u80CC\u89C4\u5F8B\uFF0C\u53CD\u800C\u4F1A\u628A\u4E8B\u60C5\u5F04\u574F\u3002",
-      "keywords": [
-        "\u79BE\u82D7",
-        "\u62D4\u9AD8",
-        "\u89C4\u5F8B"
-      ],
-      "tags": [
-        "\u5BD3\u8A00",
-        "\u6210\u957F"
-      ],
-      "image": "poetry-farmer"
-    },
-    {
-      "id": "fable-g3-shouzhudaitu",
-      "grade": 3,
-      "category": "fable",
-      "title": "\u5B88\u682A\u5F85\u5154",
-      "author": "\u300A\u97E9\u975E\u5B50\u300B",
-      "dynasty": "\u5148\u79E6",
-      "excerpt": "\u5B8B\u4EBA\u6709\u8015\u8005\uFF0C\u7530\u4E2D\u6709\u682A\u3002\u5154\u8D70\u89E6\u682A\uFF0C\u6298\u9888\u800C\u6B7B\u3002\u56E0\u91CA\u5176\u8012\u800C\u5B88\u682A\uFF0C\u5180\u590D\u5F97\u5154\u3002\u5154\u4E0D\u53EF\u590D\u5F97\uFF0C\u800C\u8EAB\u4E3A\u5B8B\u56FD\u7B11\u3002",
-      "pinyin": "s\xF2ng r\xE9n y\u01D2u g\u0113ng zh\u011B\uFF0Cti\xE1n zh\u014Dng y\u01D2u zh\u016B\u3002t\xF9 z\u01D2u ch\xF9 zh\u016B\uFF0Czh\xE9 j\u01D0ng \xE9r s\u01D0\u3002y\u012Bn sh\xEC q\xED l\u011Bi \xE9r sh\u01D2u zh\u016B\uFF0Cj\xEC f\xF9 d\xE9 t\xF9\u3002t\xF9 b\xF9 k\u011B f\xF9 d\xE9\uFF0C\xE9r sh\u0113n w\xE9i s\xF2ng gu\xF3 xi\xE0o\u3002",
-      "summary": "\u519C\u592B\u5076\u7136\u6361\u5230\u649E\u6811\u6869\u7684\u5154\u5B50\uFF0C\u5C31\u653E\u4E0B\u519C\u5177\u5B88\u7740\u6811\u6869\uFF0C\u7ED3\u679C\u518D\u4E5F\u6CA1\u5F97\u5230\u5154\u5B50\u3002",
-      "meaning": "\u5B8B\u56FD\u6709\u4E2A\u519C\u592B\uFF0C\u7530\u91CC\u6709\u4E00\u622A\u6811\u6869\u3002\u4E00\u53EA\u5154\u5B50\u5954\u8DD1\u65F6\u649E\u4E0A\u6811\u6869\uFF0C\u6298\u65AD\u8116\u5B50\u6B7B\u4E86\u3002\u519C\u592B\u4FBF\u653E\u4E0B\u519C\u5177\u5B88\u7740\u6811\u6869\uFF0C\u5E0C\u671B\u518D\u6361\u5230\u5154\u5B50\u3002\u5154\u5B50\u6CA1\u6709\u518D\u5F97\u5230\uFF0C\u4ED6\u81EA\u5DF1\u5374\u6210\u4E86\u5B8B\u56FD\u4EBA\u7684\u7B11\u67C4\u3002",
-      "appreciation": "\u628A\u5076\u7136\u5F53\u5FC5\u7136\u3001\u4E0D\u80AF\u4ED8\u51FA\u52AA\u529B\uFF0C\u6700\u7EC8\u53EA\u4F1A\u4E00\u65E0\u6240\u83B7\u3002",
-      "keywords": [
-        "\u6811\u6869",
-        "\u5154\u5B50",
-        "\u5076\u7136",
-        "\u4FA5\u5E78"
-      ],
-      "tags": [
-        "\u5BD3\u8A00",
-        "\u52E4\u52C9"
-      ],
-      "image": "idiom-rabbit"
-    },
-    {
-      "id": "myth-g4-pangu",
-      "grade": 4,
-      "category": "myth",
-      "title": "\u76D8\u53E4\u5F00\u5929\u5730",
-      "author": "\u4E2D\u56FD\u53E4\u4EE3\u795E\u8BDD",
-      "dynasty": "\u4E0A\u53E4",
-      "excerpt": "\u5929\u5730\u6DF7\u6C8C\u5982\u9E21\u5B50\uFF0C\u76D8\u53E4\u751F\u5176\u4E2D\u3002\u4E07\u516B\u5343\u5C81\uFF0C\u5929\u5730\u5F00\u8F9F\uFF0C\u9633\u6E05\u4E3A\u5929\uFF0C\u9634\u6D4A\u4E3A\u5730\u3002",
-      "pinyin": "ti\u0101n d\xEC h\xF9n d\xF9n r\xFA j\u012B z\u01D0\uFF0Cp\xE1n g\u01D4 sh\u0113ng q\xED zh\u014Dng\u3002w\xE0n b\u0101 qi\u0101n su\xEC\uFF0Cti\u0101n d\xEC k\u0101i p\xEC\uFF0Cy\xE1ng q\u012Bng w\xE9i ti\u0101n\uFF0Cy\u012Bn zhu\xF3 w\xE9i d\xEC\u3002",
-      "summary": "\u4F20\u8BF4\u5929\u5730\u6700\u521D\u50CF\u4E00\u4E2A\u9E21\u86CB\uFF0C\u76D8\u53E4\u5B55\u80B2\u5176\u4E2D\uFF0C\u6700\u7EC8\u5F00\u8F9F\u5929\u5730\uFF0C\u6E05\u8F7B\u8005\u4E0A\u5347\u4E3A\u5929\uFF0C\u91CD\u6D4A\u8005\u4E0B\u6C89\u4E3A\u5730\u3002",
-      "meaning": "\u5929\u5730\u6700\u521D\u6DF7\u6C8C\u4E00\u7247\uFF0C\u50CF\u9E21\u86CB\u4E00\u6837\uFF0C\u76D8\u53E4\u5B55\u80B2\u5176\u4E2D\u3002\u7ECF\u8FC7\u4E00\u4E07\u516B\u5343\u5E74\uFF0C\u5929\u5730\u5F00\u8F9F\uFF0C\u6E05\u8F7B\u7684\u90E8\u5206\u4E0A\u5347\u6210\u4E3A\u5929\uFF0C\u91CD\u6D4A\u7684\u90E8\u5206\u4E0B\u6C89\u6210\u4E3A\u5730\u3002",
-      "appreciation": "\u795E\u8BDD\u4EE5\u5B8F\u5927\u7684\u60F3\u8C61\u89E3\u91CA\u5929\u5730\u5F62\u6210\uFF0C\u5851\u9020\u4E86\u5F00\u5929\u8F9F\u5730\u7684\u82F1\u96C4\u5F62\u8C61\u3002",
-      "keywords": [
-        "\u76D8\u53E4",
-        "\u5929\u5730",
-        "\u5F00\u5929\u8F9F\u5730"
-      ],
-      "tags": [
-        "\u795E\u8BDD",
-        "\u521B\u4E16"
-      ],
-      "image": "classic-cosmos"
-    },
-    {
-      "id": "myth-g4-nvwa",
-      "grade": 4,
-      "category": "myth",
-      "title": "\u5973\u5A32\u8865\u5929",
-      "author": "\u300A\u6DEE\u5357\u5B50\u300B",
-      "dynasty": "\u6C49",
-      "excerpt": "\u5F80\u53E4\u4E4B\u65F6\uFF0C\u56DB\u6781\u5E9F\uFF0C\u4E5D\u5DDE\u88C2\uFF0C\u5929\u4E0D\u517C\u8986\uFF0C\u5730\u4E0D\u5468\u8F7D\u2026\u2026\u5973\u5A32\u70BC\u4E94\u8272\u77F3\u4EE5\u8865\u82CD\u5929\u3002",
-      "pinyin": "w\u01CEng g\u01D4 zh\u012B sh\xED\uFF0Cs\xEC j\xED f\xE8i\uFF0Cji\u01D4 zh\u014Du li\xE8\uFF0Cti\u0101n b\xF9 ji\u0101n f\xF9\uFF0Cd\xEC b\xF9 zh\u014Du z\xE0i\u2026\u2026n\u01DA w\u0101 li\xE0n w\u01D4 s\xE8 sh\xED y\u01D0 b\u01D4 c\u0101ng ti\u0101n\u3002",
-      "summary": "\u8FDC\u53E4\u5929\u584C\u5730\u88C2\uFF0C\u5973\u5A32\u70BC\u4E94\u8272\u77F3\u8865\u5929\uFF0C\u62EF\u6551\u767E\u59D3\uFF0C\u8868\u73B0\u65E0\u754F\u548C\u5949\u732E\u3002",
-      "meaning": "\u8FDC\u53E4\u65F6\u5019\uFF0C\u5929\u67F1\u6298\u65AD\uFF0C\u5927\u5730\u88C2\u5F00\uFF0C\u5929\u4E0D\u80FD\u5B8C\u5168\u8986\u76D6\u5927\u5730\uFF0C\u5730\u4E0D\u80FD\u5B8C\u5168\u627F\u8F7D\u4E07\u7269\u2026\u2026\u5973\u5A32\u70BC\u4E94\u8272\u77F3\u4FEE\u8865\u82CD\u5929\u3002",
-      "appreciation": "\u5973\u5A32\u8865\u5929\u5C55\u73B0\u9762\u5BF9\u707E\u96BE\u633A\u8EAB\u800C\u51FA\u7684\u52C7\u6C14\u548C\u5949\u732E\u7CBE\u795E\u3002",
-      "keywords": [
-        "\u5973\u5A32",
-        "\u4E94\u8272\u77F3",
-        "\u8865\u5929"
-      ],
-      "tags": [
-        "\u795E\u8BDD",
-        "\u5949\u732E"
-      ],
-      "image": "classic-cosmos"
-    },
-    {
-      "id": "poetry-g4-qingpingyue",
-      "grade": 4,
-      "category": "poetry",
-      "title": "\u6E05\u5E73\u4E50\xB7\u6751\u5C45",
-      "author": "\u8F9B\u5F03\u75BE",
-      "dynasty": "\u5B8B",
-      "excerpt": "\u8305\u6A90\u4F4E\u5C0F\uFF0C\u6EAA\u4E0A\u9752\u9752\u8349\u3002\u9189\u91CC\u5434\u97F3\u76F8\u5A9A\u597D\uFF0C\u767D\u53D1\u8C01\u5BB6\u7FC1\u5AAA\uFF1F\u5927\u513F\u9504\u8C46\u6EAA\u4E1C\uFF0C\u4E2D\u513F\u6B63\u7EC7\u9E21\u7B3C\u3002\u6700\u559C\u5C0F\u513F\u4EA1\u8D56\uFF0C\u6EAA\u5934\u5367\u5265\u83B2\u84EC\u3002",
-      "pinyin": "m\xE1o y\xE1n d\u012B xi\u01CEo\uFF0Cx\u012B sh\xE0ng q\u012Bng q\u012Bng c\u01CEo\u3002zu\xEC l\u01D0 w\xFA y\u012Bn xi\u0101ng m\xE8i h\u01CEo\uFF0Cb\xE1i f\xE0 shu\xED ji\u0101 w\u0113ng \u01CEo\uFF1Fd\xE0 \xE9r ch\xFA d\xF2u x\u012B d\u014Dng\uFF0Czh\u014Dng \xE9r zh\xE8ng zh\u012B j\u012B l\xF3ng\u3002zu\xEC x\u01D0 xi\u01CEo \xE9r w\xFA l\xE0i\uFF0Cx\u012B t\xF3u w\xF2 b\u0101o li\xE1n peng\u3002",
-      "summary": "\u4F4E\u77EE\u8305\u5C4B\u3001\u9752\u9752\u6EAA\u8349\u3001\u767D\u53D1\u592B\u59BB\u548C\u4E09\u4E2A\u5B69\u5B50\uFF0C\u6784\u6210\u5B89\u5B81\u6D3B\u6CFC\u7684\u4E61\u6751\u751F\u6D3B\u753B\u9762\u3002",
-      "meaning": "\u8305\u8349\u5C4B\u4F4E\u77EE\uFF0C\u6EAA\u8FB9\u957F\u6EE1\u9752\u8349\u3002\u542B\u9189\u610F\u7684\u5434\u5730\u65B9\u8A00\u6E29\u67D4\u4EB2\u5207\uFF0C\u90A3\u767D\u53D1\u7684\u662F\u8C01\u5BB6\u7684\u8001\u592B\u59BB\uFF1F\u5927\u513F\u5B50\u5728\u6EAA\u4E1C\u9504\u8C46\uFF0C\u4E8C\u513F\u5B50\u5728\u7F16\u9E21\u7B3C\u3002\u6700\u559C\u987D\u76AE\u7684\u5C0F\u513F\u5B50\uFF0C\u8DB4\u5728\u6EAA\u5934\u5265\u83B2\u84EC\u3002",
-      "appreciation": "\u8BCD\u4E2D\u4EBA\u7269\u5404\u6709\u52A8\u4F5C\uFF0C\u6700\u540E\u201C\u5367\u5265\u83B2\u84EC\u201D\u7684\u7EC6\u8282\u6700\u4F20\u795E\u3002",
-      "keywords": [
-        "\u6751\u5C45",
-        "\u519C\u5BB6",
-        "\u6EAA\u6C34",
-        "\u83B2\u84EC"
-      ],
-      "tags": [
-        "\u8F9B\u5F03\u75BE",
-        "\u7530\u56ED"
-      ],
-      "image": "poetry-village"
-    },
-    {
-      "id": "classical-g5-gurentandushu",
-      "grade": 5,
-      "category": "classical",
-      "title": "\u53E4\u4EBA\u8C08\u8BFB\u4E66",
-      "author": "\u300A\u8BBA\u8BED\u300B\u7B49",
-      "dynasty": "\u5148\u79E6",
-      "excerpt": "\u654F\u800C\u597D\u5B66\uFF0C\u4E0D\u803B\u4E0B\u95EE\u3002\u77E5\u4E4B\u4E3A\u77E5\u4E4B\uFF0C\u4E0D\u77E5\u4E3A\u4E0D\u77E5\uFF0C\u662F\u77E5\u4E5F\u3002\u9ED8\u800C\u8BC6\u4E4B\uFF0C\u5B66\u800C\u4E0D\u538C\uFF0C\u8BF2\u4EBA\u4E0D\u5026\u3002",
-      "pinyin": "m\u01D0n \xE9r h\xE0o xu\xE9\uFF0Cb\xF9 ch\u01D0 xi\xE0 w\xE8n\u3002zh\u012B zh\u012B w\xE9i zh\u012B zh\u012B\uFF0Cb\xF9 zh\u012B w\xE9i b\xF9 zh\u012B\uFF0Csh\xEC zh\xEC y\u011B\u3002m\xF2 \xE9r zh\xEC zh\u012B\uFF0Cxu\xE9 \xE9r b\xF9 y\xE0n\uFF0Chu\xEC r\xE9n b\xF9 ju\xE0n\u3002",
-      "summary": "\u6458\u5F55\u53E4\u4EBA\u8C08\u8BFB\u4E66\u7684\u540D\u53E5\uFF0C\u5F3A\u8C03\u52E4\u5B66\u3001\u597D\u95EE\u3001\u8BDA\u5B9E\u6C42\u77E5\u548C\u5B66\u800C\u4E0D\u538C\u3002",
-      "meaning": "\u806A\u660E\u53C8\u7231\u597D\u5B66\u4E60\uFF0C\u4E0D\u4EE5\u5411\u5730\u4F4D\u4F4E\u7684\u4EBA\u8BF7\u6559\u4E3A\u803B\u3002\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u667A\u6167\u3002\u9ED8\u9ED8\u8BB0\u4F4F\u6240\u5B66\uFF0C\u5B66\u4E60\u4E0D\u6EE1\u8DB3\uFF0C\u6559\u5BFC\u522B\u4EBA\u4E0D\u75B2\u5026\u3002",
-      "appreciation": "\u51E0\u53E5\u8BDD\u5206\u522B\u8C08\u597D\u95EE\u3001\u8BDA\u5B9E\u548C\u575A\u6301\uFF0C\u90FD\u662F\u4ECA\u5929\u4ECD\u7136\u9002\u7528\u7684\u5B66\u4E60\u6001\u5EA6\u3002",
-      "keywords": [
-        "\u8BFB\u4E66",
-        "\u597D\u95EE",
-        "\u8BDA\u5B9E",
-        "\u575A\u6301"
-      ],
-      "tags": [
-        "\u6587\u8A00\u6587",
-        "\u5B66\u4E60"
-      ],
-      "image": "classic-books"
-    },
-    {
-      "id": "poetry-g6-jiangnanchun",
-      "grade": 6,
-      "category": "poetry",
-      "title": "\u6C5F\u5357\u6625",
-      "author": "\u675C\u7267",
-      "dynasty": "\u5510",
-      "excerpt": "\u5343\u91CC\u83BA\u557C\u7EFF\u6620\u7EA2\uFF0C\u6C34\u6751\u5C71\u90ED\u9152\u65D7\u98CE\u3002\u5357\u671D\u56DB\u767E\u516B\u5341\u5BFA\uFF0C\u591A\u5C11\u697C\u53F0\u70DF\u96E8\u4E2D\u3002",
-      "pinyin": "qi\u0101n l\u01D0 y\u012Bng t\xED l\u01DC y\xECng h\xF3ng\uFF0Cshu\u01D0 c\u016Bn sh\u0101n gu\u014D ji\u01D4 q\xED f\u0113ng\u3002n\xE1n ch\xE1o s\xEC b\u01CEi b\u0101 sh\xED s\xEC\uFF0Cdu\u014D sh\u01CEo l\xF3u t\xE1i y\u0101n y\u01D4 zh\u014Dng\u3002",
-      "summary": "\u6C5F\u5357\u6625\u5929\u83BA\u557C\u82B1\u5F00\uFF0C\u6C34\u6751\u5C71\u90ED\u9152\u65D7\u98D8\u626C\uFF0C\u5357\u671D\u53E4\u5BFA\u697C\u53F0\u9690\u5728\u70DF\u96E8\u4E2D\u3002",
-      "meaning": "\u5343\u91CC\u6C5F\u5357\uFF0C\u9EC4\u83BA\u557C\u53EB\uFF0C\u7EFF\u6811\u6620\u7740\u7EA2\u82B1\uFF1B\u6C34\u8FB9\u6751\u5E84\u3001\u5C71\u8FB9\u57CE\u90ED\uFF0C\u9152\u65D7\u8FCE\u98CE\u98D8\u52A8\u3002\u5357\u671D\u7559\u4E0B\u7684\u4F17\u591A\u5BFA\u5E99\uFF0C\u591A\u5C11\u697C\u53F0\u7B3C\u7F69\u5728\u70DF\u96E8\u4E2D\u3002",
-      "appreciation": "\u524D\u4E24\u53E5\u5199\u660E\u6717\u6625\u666F\uFF0C\u540E\u4E24\u53E5\u5199\u70DF\u96E8\u53E4\u5BFA\uFF0C\u7A7A\u95F4\u4E0E\u65F6\u95F4\u4EA4\u9519\u3002",
-      "keywords": [
-        "\u6C5F\u5357",
-        "\u6625\u5929",
-        "\u53E4\u5BFA",
-        "\u70DF\u96E8"
-      ],
-      "tags": [
-        "\u675C\u7267",
-        "\u6625\u5929"
-      ],
-      "image": "poetry-lake"
-    },
-    {
-      "id": "poetry-g6-shuhuyin",
-      "grade": 6,
-      "category": "poetry",
-      "title": "\u4E66\u6E56\u9634\u5148\u751F\u58C1",
-      "author": "\u738B\u5B89\u77F3",
-      "dynasty": "\u5B8B",
-      "excerpt": "\u8305\u6A90\u957F\u626B\u51C0\u65E0\u82D4\uFF0C\u82B1\u6728\u6210\u7566\u624B\u81EA\u683D\u3002\u4E00\u6C34\u62A4\u7530\u5C06\u7EFF\u7ED5\uFF0C\u4E24\u5C71\u6392\u95FC\u9001\u9752\u6765\u3002",
-      "pinyin": "m\xE1o y\xE1n ch\xE1ng s\u01CEo j\xECng w\xFA t\xE1i\uFF0Chu\u0101 m\xF9 ch\xE9ng q\xED sh\u01D2u z\xEC z\u0101i\u3002y\u012B shu\u01D0 h\xF9 ti\xE1n ji\u0101ng l\u01DC r\xE0o\uFF0Cli\u01CEng sh\u0101n p\xE1i t\xE0 s\xF2ng q\u012Bng l\xE1i\u3002",
-      "summary": "\u8305\u5C4B\u5E72\u51C0\uFF0C\u82B1\u6728\u6210\u7566\uFF0C\u6EAA\u6C34\u62A4\u7530\uFF0C\u9752\u5C71\u63A8\u95E8\u9001\u7EFF\uFF0C\u5199\u51FA\u6E05\u5E7D\u7684\u7530\u56ED\u73AF\u5883\u3002",
-      "meaning": "\u8305\u5C4B\u6A90\u4E0B\u5E38\u6253\u626B\uFF0C\u5E72\u51C0\u5F97\u6CA1\u6709\u9752\u82D4\uFF1B\u82B1\u6728\u6210\u7566\uFF0C\u90FD\u662F\u4E3B\u4EBA\u4EB2\u624B\u683D\u79CD\u3002\u4E00\u6761\u6EAA\u6C34\u62A4\u7740\u7530\u5730\uFF0C\u628A\u7EFF\u8272\u73AF\u7ED5\u8D77\u6765\uFF1B\u4E24\u5EA7\u9752\u5C71\u63A8\u95E8\u9001\u6765\u9752\u7FE0\u3002",
-      "appreciation": "\u201C\u62A4\u7530\u201D\u201C\u6392\u95FC\u201D\u628A\u6C34\u548C\u5C71\u5199\u5F97\u50CF\u4E3B\u4EBA\u4E00\u6837\u4EB2\u5207\u3002",
-      "keywords": [
-        "\u8305\u5C4B",
-        "\u82B1\u6728",
-        "\u6EAA\u6C34",
-        "\u9752\u5C71"
-      ],
-      "tags": [
-        "\u738B\u5B89\u77F3",
-        "\u7530\u56ED"
-      ],
-      "image": "poetry-village"
-    }
-  ];
-
-  // assets/corrections.js
-  var corrections = [
-    {
-      "id": "sanzi-g1-renzhichu",
-      "category": "mengxue"
-    },
-    {
-      "id": "myth-g2-yishejiuri",
-      "title": "\u7FBF\u5C04\u4E5D\u65E5",
-      "author": "\u4E2D\u56FD\u53E4\u4EE3\u795E\u8BDD",
-      "dynasty": "\u4E0A\u53E4",
-      "excerpt": "\u5F88\u4E45\u5F88\u4E45\u4EE5\u524D\uFF0C\u5929\u4E0A\u540C\u65F6\u51FA\u73B0\u4E86\u5341\u4E2A\u592A\u9633\u3002\u5341\u4E2A\u592A\u9633\u50CF\u5341\u4E2A\u5927\u706B\u7403\uFF0C\u7099\u70E4\u7740\u5927\u5730\u3002\u6C5F\u6CB3\u91CC\u7684\u6C34\u88AB\u84B8\u5E72\u4E86\uFF0C\u79BE\u82D7\u88AB\u6652\u67AF\u4E86\uFF0C\u571F\u5730\u88AB\u70E4\u7126\u4E86\uFF0C\u8FDE\u5730\u4E0A\u7684\u6C99\u77F3\u597D\u50CF\u90FD\u8981\u7194\u5316\u4E86\u3002\u4EBA\u4EEC\u70ED\u5F97\u5598\u4E0D\u8FC7\u6C14\u6765\uFF0C\u751F\u6D3B\u975E\u5E38\u8270\u96BE\u3002\n\u795E\u7BAD\u624B\u7FBF\u51B3\u5FC3\u5E2E\u52A9\u4EBA\u4EEC\u8131\u79BB\u82E6\u6D77\u3002\u4ED6\u7FFB\u8FC7\u4E5D\u5341\u4E5D\u5EA7\u9AD8\u5C71\uFF0C\u8E5A\u8FC7\u4E5D\u5341\u4E5D\u6761\u5927\u6CB3\uFF0C\u6765\u5230\u4E1C\u6D77\u8FB9\u3002\u4ED6\u767B\u4E0A\u4E00\u5EA7\u5927\u5C71\uFF0C\u642D\u4E0A\u795E\u7BAD\uFF0C\u62C9\u5F00\u795E\u5F13\uFF0C\u5BF9\u51C6\u5929\u4E0A\u7684\u4E00\u4E2A\u592A\u9633\uFF0C\u55D6\u5730\u5C31\u662F\u4E00\u7BAD\u3002\u90A3\u4E2A\u592A\u9633\u4E00\u4E0B\u5B50\u7206\u88C2\u5F00\uFF0C\u4E00\u56E2\u56E2\u706B\u7403\u5230\u5904\u4E71\u7A9C\uFF0C\u63A5\u7740\uFF0C\u5657\u5657\u5730\u6389\u5728\u5730\u4E0A\u3002\n\u7FBF\u4E00\u53E3\u6C14\u5C04\u4E0B\u4E86\u4E5D\u4E2A\u592A\u9633\uFF0C\u7559\u4E0B\u6700\u540E\u4E00\u4E2A\u3002\u8FD9\u4E2A\u592A\u9633\u5BB3\u6015\u6781\u4E86\uFF0C\u8EB2\u8FDB\u4E86\u5927\u6D77\u91CC\u3002\u5929\u4E0A\u6CA1\u6709\u4E86\u592A\u9633\uFF0C\u6574\u4E2A\u4E16\u754C\u4E00\u7247\u9ED1\u6697\u3002\u4EBA\u4EEC\u8BF7\u6C42\u592A\u9633\u51FA\u6765\uFF0C\u592A\u9633\u624D\u4ECE\u4E1C\u6D77\u8FB9\u6162\u6162\u5347\u8D77\u3002\n\u4ECE\u6B64\uFF0C\u592A\u9633\u6BCF\u5929\u4ECE\u4E1C\u65B9\u5347\u8D77\uFF0C\u5230\u897F\u65B9\u843D\u4E0B\u3002\u571F\u5730\u6E10\u6E10\u6ECB\u6DA6\u8D77\u6765\uFF0C\u82B1\u8349\u6811\u6728\u6E10\u6E10\u7E41\u8302\u8D77\u6765\uFF0C\u6C5F\u6CB3\u5954\u817E\u6B22\u5531\uFF0C\u5927\u5730\u4E0A\u91CD\u65B0\u73B0\u51FA\u4E86\u52C3\u52C3\u751F\u673A\u3002",
-      "pinyin": "h\u011Bn ji\u01D4 h\u011Bn ji\u01D4 y\u01D0 qi\xE1n\uFF0C ti\u0101n sh\xE0ng t\xF3ng sh\xED ch\u016B xi\xE0n le sh\xED g\xE8 t\xE0i y\xE1ng\u3002 sh\xED g\xE8 t\xE0i y\xE1ng xi\xE0ng sh\xED g\xE8 d\xE0 hu\u01D2 qi\xFA\uFF0C zh\xEC k\u01CEo zhe d\xE0 d\xEC\u3002 ji\u0101ng h\xE9 l\u01D0 de shu\u01D0 b\xE8i zh\u0113ng g\xE0n le\uFF0C h\xE9 mi\xE1o b\xE8i sh\xE0i k\u016B le\uFF0C t\u01D4 d\xEC b\xE8i k\u01CEo ji\u0101o le\uFF0C li\xE1n d\xEC sh\xE0ng de sh\u0101 sh\xED h\u01CEo xi\xE0ng d\u014Du y\xE0o r\xF3ng hu\xE0 le\u3002 r\xE9n men r\xE8 d\xE9 chu\u01CEn b\xF9 gu\xF2 q\xEC l\xE1i\uFF0C sh\u0113ng hu\xF3 f\u0113i ch\xE1ng ji\u0101n n\xE1n\u3002\nsh\xE9n ji\xE0n sh\u01D2u y\xEC ju\xE9 x\u012Bn b\u0101ng zh\xF9 r\xE9n men tu\u014D l\xED k\u01D4 h\u01CEi\u3002 t\u0101 f\u0101n gu\xF2 ji\u01D4 sh\xED ji\u01D4 zu\xF2 g\u0101o sh\u0101n\uFF0C t\u0101ng gu\xF2 ji\u01D4 sh\xED ji\u01D4 ti\xE1o d\xE0 h\xE9\uFF0C l\xE1i d\xE0o d\u014Dng h\u01CEi bi\u0101n\u3002 t\u0101 d\u0113ng sh\xE0ng y\u012B zu\xF2 d\xE0 sh\u0101n\uFF0C d\u0101 sh\xE0ng sh\xE9n ji\xE0n\uFF0C l\u0101 k\u0101i sh\xE9n g\u014Dng\uFF0C du\xEC zh\u01D4n ti\u0101n sh\xE0ng de y\xED g\xE8 t\xE0i y\xE1ng\uFF0C s\u014Du d\xEC ji\xF9 sh\xEC y\u012B ji\xE0n\u3002 n\xE0 ge t\xE0i y\xE1ng y\u012B xi\xE0 zi b\xE0o li\xE8 k\u0101i\uFF0C y\u012B tu\xE1n tu\xE1n hu\u01D2 qi\xFA d\xE0o ch\xF9 lu\xE0n cu\xE0n\uFF0C ji\u0113 zhe\uFF0C p\u016B p\u016B d\xEC di\xE0o z\xE0i d\xEC sh\xE0ng\u3002\ny\xEC y\xEC k\u01D2u q\xEC sh\xE8 xi\xE0 le ji\u01D4 g\xE8 t\xE0i y\xE1ng\uFF0C li\xFA xi\xE0 zu\xEC h\xF2u y\xED g\xE8\u3002 zh\xE8 ge t\xE0i y\xE1ng h\xE0i p\xE0 j\xED le\uFF0C du\u01D2 j\xECn le d\xE0 h\u01CEi l\u01D0\u3002 ti\u0101n sh\xE0ng m\xE9i y\u01D2u le t\xE0i y\xE1ng\uFF0C zh\u011Bng g\xE8 sh\xEC ji\xE8 y\u012B pi\xE0n h\u0113i \xE0n\u3002 r\xE9n men q\u01D0ng qi\xFA t\xE0i y\xE1ng ch\u016B l\xE1i\uFF0C t\xE0i y\xE1ng c\xE1i c\xF3ng d\u014Dng h\u01CEi bi\u0101n m\xE0n m\xE0n sh\u0113ng q\u01D0\u3002\nc\xF3ng c\u01D0\uFF0C t\xE0i y\xE1ng m\u011Bi ti\u0101n c\xF3ng d\u014Dng f\u0101ng sh\u0113ng q\u01D0\uFF0C d\xE0o x\u012B f\u0101ng l\xE0 xi\xE0\u3002 t\u01D4 d\xEC ji\xE0n ji\xE0n z\u012B r\xF9n q\u01D0 l\xE1i\uFF0C hu\u0101 c\u01CEo sh\xF9 m\xF9 ji\xE0n ji\xE0n f\xE1n m\xE0o q\u01D0 l\xE1i\uFF0C ji\u0101ng h\xE9 b\u0113n t\xE9ng hu\u0101n ch\xE0ng\uFF0C d\xE0 d\xEC sh\xE0ng ch\xF3ng x\u012Bn xi\xE0n ch\u016B le b\xF3 b\xF3 sh\u0113ng j\u012B\u3002",
-      "summary": "\u8FDC\u53E4\u65F6\u5341\u4E2A\u592A\u9633\u7099\u70E4\u5927\u5730\uFF0C\u795E\u7BAD\u624B\u7FBF\u5C04\u4E0B\u4E5D\u4E2A\u592A\u9633\uFF0C\u5E2E\u52A9\u4EBA\u4EEC\u6062\u590D\u5B89\u5B81\uFF0C\u8868\u73B0\u4E86\u6218\u80DC\u81EA\u7136\u707E\u5BB3\u7684\u613F\u671B\u3002",
-      "meaning": "\u5929\u4E0A\u51FA\u73B0\u5341\u4E2A\u592A\u9633\uFF0C\u5E84\u7A3C\u548C\u6CB3\u6C34\u90FD\u88AB\u70E4\u5E72\uFF0C\u767E\u59D3\u751F\u6D3B\u8270\u96BE\u3002\u7FBF\u7FFB\u5C71\u8D8A\u6CB3\uFF0C\u5C04\u4E0B\u4E5D\u4E2A\u592A\u9633\uFF0C\u53EA\u7559\u4E0B\u4E00\u4E2A\u3002\u4ECE\u6B64\u592A\u9633\u6BCF\u5929\u4E1C\u5347\u897F\u843D\uFF0C\u5927\u5730\u91CD\u65B0\u6062\u590D\u751F\u673A\u3002",
-      "appreciation": "\u6545\u4E8B\u7528\u5938\u5F20\u7684\u60F3\u8C61\u5199\u51FA\u5341\u65E5\u7099\u70E4\u7684\u707E\u96BE\uFF0C\u4E5F\u628A\u7FBF\u7684\u52C7\u6562\u3001\u575A\u6BC5\u548C\u4E3A\u767E\u59D3\u9664\u5BB3\u7684\u5F62\u8C61\u5199\u5F97\u9C9C\u660E\u3002",
-      "keywords": [
-        "\u7FBF",
-        "\u592A\u9633",
-        "\u5C04\u65E5",
-        "\u795E\u8BDD"
-      ],
-      "tags": [
-        "\u795E\u8BDD",
-        "\u82F1\u96C4",
-        "\u60F3\u8C61"
-      ],
-      "image": "classic-cosmos"
-    },
-    {
-      "id": "fable-g2-wangyangbudao",
-      "excerpt": "\u4ECE\u524D\uFF0C\u6709\u4E2A\u4EBA\u517B\u4E86\u51E0\u53EA\u7F8A\u3002\u4E00\u5929\u65E9\u4E0A\uFF0C\u4ED6\u53BB\u653E\u7F8A\uFF0C\u53D1\u73B0\u7F8A\u5C11\u4E86\u4E00\u53EA\u3002\u539F\u6765\u7F8A\u5708\u7834\u4E86\u4E2A\u7A9F\u7ABF\uFF0C\u591C\u91CC\u72FC\u4ECE\u7A9F\u7ABF\u94BB\u8FDB\u53BB\uFF0C\u628A\u7F8A\u53FC\u8D70\u4E86\u3002\n\u8857\u574A\u529D\u4ED6\u8BF4\uFF1A\u201C\u8D76\u7D27\u628A\u7F8A\u5708\u4FEE\u4E00\u4FEE\uFF0C\u5835\u4E0A\u90A3\u4E2A\u7A9F\u7ABF\u5427\uFF01\u201D\n\u4ED6\u8BF4\uFF1A\u201C\u7F8A\u5DF2\u7ECF\u4E22\u4E86\uFF0C\u8FD8\u4FEE\u7F8A\u5708\u5E72\u4EC0\u4E48\uFF1F\u201D\n\u7B2C\u4E8C\u5929\u65E9\u4E0A\uFF0C\u4ED6\u53BB\u653E\u7F8A\uFF0C\u53D1\u73B0\u7F8A\u53C8\u5C11\u4E86\u4E00\u53EA\u3002\u539F\u6765\u72FC\u53C8\u4ECE\u7A9F\u7ABF\u94BB\u8FDB\u53BB\uFF0C\u628A\u7F8A\u53FC\u8D70\u4E86\u3002\n\u4ED6\u5F88\u540E\u6094\uFF0C\u4E0D\u8BE5\u4E0D\u63A5\u53D7\u8857\u574A\u7684\u529D\u544A\uFF0C\u5FC3\u60F3\uFF0C\u73B0\u5728\u4FEE\u8FD8\u4E0D\u665A\u3002\u4ED6\u8D76\u7D27\u5835\u4E0A\u90A3\u4E2A\u7A9F\u7ABF\uFF0C\u628A\u7F8A\u5708\u4FEE\u5F97\u7ED3\u7ED3\u5B9E\u5B9E\u7684\u3002\u4ECE\u6B64\uFF0C\u4ED6\u7684\u7F8A\u518D\u4E5F\u6CA1\u4E22\u8FC7\u3002",
-      "pinyin": "c\xF3ng qi\xE1n\uFF0C y\u01D2u g\xE8 r\xE9n y\u01CEng le j\u01D0 zh\u012B y\xE1ng\u3002 y\u012B ti\u0101n z\u01CEo sh\xE0ng\uFF0C t\u0101 q\xF9 f\xE0ng y\xE1ng\uFF0C f\u0101 xi\xE0n y\xE1ng sh\u01CEo le y\u012B zh\u012B\u3002 yu\xE1n l\xE1i y\xE1ng ju\xE0n p\xF2 le g\xE8 k\u016B l\xF3ng\uFF0C y\xE8 l\u01D0 l\xE1ng c\xF3ng k\u016B l\xF3ng zu\u0101n j\xECn q\xF9\uFF0C b\u01CE y\xE1ng di\u0101o z\u01D2u le\u3002\nji\u0113 f\u0101ng qu\xE0n t\u0101 shu\u014D\uFF1A\u201C g\u01CEn j\u01D0n b\u01CE y\xE1ng ju\xE0n xi\u016B y\u012B xi\u016B\uFF0C d\u01D4 sh\xE0ng n\xE0 ge k\u016B l\xF3ng ba\uFF01\u201D\nt\u0101 shu\u014D\uFF1A\u201C y\xE1ng y\u01D0 j\u012Bng di\u016B le\uFF0C h\xE1i xi\u016B y\xE1ng ju\xE0n g\xE0n sh\xE9n me\uFF1F\u201D\nd\xEC \xE8r ti\u0101n z\u01CEo sh\xE0ng\uFF0C t\u0101 q\xF9 f\xE0ng y\xE1ng\uFF0C f\u0101 xi\xE0n y\xE1ng y\xF2u sh\u01CEo le y\u012B zh\u012B\u3002 yu\xE1n l\xE1i l\xE1ng y\xF2u c\xF3ng k\u016B l\xF3ng zu\u0101n j\xECn q\xF9\uFF0C b\u01CE y\xE1ng di\u0101o z\u01D2u le\u3002\nt\u0101 h\u011Bn h\xF2u hu\u01D0\uFF0C b\xF9 g\u0101i b\xF9 ji\u0113 sh\xF2u ji\u0113 f\u0101ng de qu\xE0n g\xE0o\uFF0C x\u012Bn xi\u01CEng\uFF0C xi\xE0n z\xE0i xi\u016B h\xE1i b\xF9 w\u01CEn\u3002 t\u0101 g\u01CEn j\u01D0n d\u01D4 sh\xE0ng n\xE0 ge k\u016B l\xF3ng\uFF0C b\u01CE y\xE1ng ju\xE0n xi\u016B d\xE9 ji\xE9 ji\u0113 sh\xED sh\xED de\u3002 c\xF3ng c\u01D0\uFF0C t\u0101 de y\xE1ng z\xE0i y\u011B m\xE9i di\u016B gu\xF2\u3002",
-      "summary": "\u517B\u7F8A\u4EBA\u7B2C\u4E00\u6B21\u4E22\u7F8A\u540E\u6CA1\u6709\u542C\u529D\uFF0C\u7B2C\u4E8C\u6B21\u4E22\u7F8A\u624D\u4FEE\u8865\u7F8A\u5708\u3002\u6545\u4E8B\u544A\u8BC9\u6211\u4EEC\uFF0C\u53D1\u73B0\u95EE\u9898\u540E\u53CA\u65F6\u8865\u6551\u8FD8\u4E0D\u7B97\u665A\u3002",
-      "meaning": "\u517B\u7F8A\u4EBA\u7684\u7F8A\u5708\u7834\u4E86\uFF0C\u72FC\u53FC\u8D70\u4E86\u4E00\u53EA\u7F8A\u3002\u8857\u574A\u529D\u4ED6\u4FEE\u7F8A\u5708\uFF0C\u4ED6\u5374\u4E0D\u542C\u3002\u7B2C\u4E8C\u5929\u53C8\u4E22\u4E86\u4E00\u53EA\u7F8A\uFF0C\u4ED6\u624D\u540E\u6094\u5E76\u9A6C\u4E0A\u628A\u7F8A\u5708\u4FEE\u597D\u3002\u4ECE\u6B64\u7F8A\u518D\u4E5F\u6CA1\u6709\u4E22\u8FC7\u3002",
-      "appreciation": "\u6545\u4E8B\u7528\u524D\u540E\u4E24\u6B21\u4E22\u7F8A\u7684\u7ED3\u679C\u8BF4\u660E\u4E00\u4E2A\u9053\u7406\uFF1A\u72AF\u4E86\u9519\u5E76\u4E0D\u53EF\u6015\uFF0C\u5173\u952E\u662F\u63A5\u53D7\u529D\u544A\u3001\u7ACB\u5373\u6539\u6B63\u3002",
-      "keywords": [
-        "\u7F8A\u5708",
-        "\u8865\u6551",
-        "\u53CA\u65F6",
-        "\u6539\u9519"
-      ],
-      "tags": [
-        "\u5BD3\u8A00",
-        "\u6539\u9519",
-        "\u5904\u4E8B"
-      ],
-      "image": "idiom-sheep"
-    },
-    {
-      "id": "fable-g2-yamiaozhuzhang",
-      "excerpt": "\u53E4\u65F6\u5019\u6709\u4E2A\u4EBA\uFF0C\u4ED6\u5DF4\u671B\u81EA\u5DF1\u7530\u91CC\u7684\u79BE\u82D7\u957F\u5F97\u5FEB\u4E9B\uFF0C\u5929\u5929\u5230\u7530\u8FB9\u53BB\u770B\u3002\u53EF\u662F\uFF0C\u4E00\u5929\uFF0C\u4E24\u5929\uFF0C\u4E09\u5929\uFF0C\u79BE\u82D7\u597D\u50CF\u4E00\u70B9\u513F\u4E5F\u6CA1\u6709\u957F\u9AD8\u3002\u4ED6\u5728\u7530\u8FB9\u7126\u6025\u5730\u8F6C\u6765\u8F6C\u53BB\uFF0C\u81EA\u8A00\u81EA\u8BED\u5730\u8BF4\uFF1A\u201C\u6211\u5F97\u60F3\u4E2A\u529E\u6CD5\u5E2E\u5B83\u4EEC\u957F\u3002\u201D\n\u4E00\u5929\uFF0C\u4ED6\u7EC8\u4E8E\u60F3\u51FA\u4E86\u529E\u6CD5\uFF0C\u5C31\u6025\u5FD9\u8DD1\u5230\u7530\u91CC\uFF0C\u628A\u79BE\u82D7\u4E00\u68F5\u4E00\u68F5\u5F80\u9AD8\u91CC\u62D4\u3002\u4ECE\u4E2D\u5348\u4E00\u76F4\u5FD9\u5230\u592A\u9633\u843D\u5C71\uFF0C\u5F04\u5F97\u7B4B\u75B2\u529B\u5C3D\u3002\n\u4ED6\u56DE\u5230\u5BB6\u91CC\uFF0C\u4E00\u8FB9\u5598\u6C14\u4E00\u8FB9\u8BF4\uFF1A\u201C\u4ECA\u5929\u53EF\u628A\u6211\u7D2F\u574F\u4E86\uFF01\u529B\u6C14\u603B\u7B97\u6CA1\u767D\u8D39\uFF0C\u79BE\u82D7\u90FD\u957F\u9AD8\u4E86\u4E00\u5927\u622A\u3002\u201D\n\u4ED6\u7684\u513F\u5B50\u4E0D\u660E\u767D\u662F\u600E\u4E48\u56DE\u4E8B\uFF0C\u7B2C\u4E8C\u5929\u8DD1\u5230\u7530\u91CC\u4E00\u770B\uFF0C\u79BE\u82D7\u90FD\u67AF\u6B7B\u4E86\u3002",
-      "pinyin": "g\u01D4 sh\xED h\xF2u y\u01D2u g\xE8 r\xE9n\uFF0C t\u0101 b\u0101 w\xE0ng z\xEC j\u01D0 ti\xE1n l\u01D0 de h\xE9 mi\xE1o zh\u01CEng d\xE9 ku\xE0i xi\u0113\uFF0C ti\u0101n ti\u0101n d\xE0o ti\xE1n bi\u0101n q\xF9 k\xE0n\u3002 k\u011B sh\xEC\uFF0C y\u012B ti\u0101n\uFF0C li\u01CEng ti\u0101n\uFF0C s\u0101n ti\u0101n\uFF0C h\xE9 mi\xE1o h\u01CEo xi\xE0ng y\xEC di\u01CEn \xE9r y\u011B m\xE9i y\u01D2u zh\u01CEng g\u0101o\u3002 t\u0101 z\xE0i ti\xE1n bi\u0101n ji\u0101o j\xED d\xEC zhu\xE0n l\xE1i zhu\xE0n q\xF9\uFF0C z\xEC y\xE1n z\xEC y\u01D4 d\xEC shu\u014D\uFF1A\u201C w\u01D2 d\xE9 xi\u01CEng g\xE8 b\xE0n f\u01CE b\u0101ng t\u0101 men zh\u01CEng\u3002\u201D\ny\u012B ti\u0101n\uFF0C t\u0101 zh\u014Dng y\xFA xi\u01CEng ch\u016B le b\xE0n f\u01CE\uFF0C ji\xF9 j\xED m\xE1ng p\u01CEo d\xE0o ti\xE1n l\u01D0\uFF0C b\u01CE h\xE9 mi\xE1o y\u012B k\u0113 y\u012B k\u0113 w\u01CEng g\u0101o l\u01D0 b\xE1\u3002 c\xF3ng zh\u014Dng w\u01D4 y\xEC zh\xED m\xE1ng d\xE0o t\xE0i y\xE1ng lu\xF2 sh\u0101n\uFF0C n\xF2ng d\xE9 j\u012Bn p\xED l\xEC j\xECn\u3002\nt\u0101 hu\xED d\xE0o ji\u0101 l\u01D0\uFF0C y\u012B bi\u0101n chu\u01CEn q\xEC y\u012B bi\u0101n shu\u014D\uFF1A\u201C j\u012Bn ti\u0101n k\u011B b\u01CE w\u01D2 l\xE8i hu\xE0i le\uFF01 l\xEC q\xEC z\u01D2ng su\xE0n m\xE9i b\xE1i f\xE8i\uFF0C h\xE9 mi\xE1o d\u014Du zh\u01CEng g\u0101o le y\u012B d\xE0 ji\xE9\u3002\u201D\nt\u0101 de \xE9r zi b\xF9 m\xEDng b\xE1i sh\xEC z\u011Bn me hu\xED sh\xEC\uFF0C d\xEC \xE8r ti\u0101n p\u01CEo d\xE0o ti\xE1n l\u01D0 y\u012B k\xE0n\uFF0C h\xE9 mi\xE1o d\u014Du k\u016B s\u01D0 le\u3002",
-      "summary": "\u79CD\u7530\u4EBA\u5ACC\u79BE\u82D7\u957F\u5F97\u6162\uFF0C\u628A\u79BE\u82D7\u4E00\u68F5\u68F5\u62D4\u9AD8\uFF0C\u7ED3\u679C\u79BE\u82D7\u90FD\u67AF\u6B7B\u4E86\u3002\u6545\u4E8B\u8BF4\u660E\u505A\u4E8B\u4E0D\u80FD\u8FDD\u53CD\u4E8B\u7269\u751F\u957F\u7684\u89C4\u5F8B\u3002",
-      "meaning": "\u4E00\u4E2A\u4EBA\u76FC\u671B\u79BE\u82D7\u5FEB\u957F\uFF0C\u5C31\u8DD1\u5230\u7530\u91CC\u628A\u79BE\u82D7\u5F80\u4E0A\u62D4\u3002\u4ED6\u7D2F\u5F97\u7B4B\u75B2\u529B\u5C3D\uFF0C\u56DE\u5BB6\u8FD8\u5F97\u610F\u5730\u8BF4\u79BE\u82D7\u957F\u9AD8\u4E86\u3002\u7B2C\u4E8C\u5929\uFF0C\u4ED6\u7684\u513F\u5B50\u5230\u7530\u91CC\u4E00\u770B\uFF0C\u79BE\u82D7\u5168\u90FD\u67AF\u6B7B\u4E86\u3002",
-      "appreciation": "\u201C\u5DF4\u671B\u201D\u201C\u7126\u6025\u201D\u201C\u4E00\u68F5\u4E00\u68F5\u5F80\u9AD8\u91CC\u62D4\u201D\u628A\u4EBA\u7269\u6025\u529F\u8FD1\u5229\u7684\u5FC3\u7406\u5199\u5F97\u5177\u4F53\u3002\u6545\u4E8B\u63D0\u9192\u6211\u4EEC\uFF0C\u5E2E\u52A9\u6210\u957F\u4E5F\u8981\u9075\u5FAA\u89C4\u5F8B\u3002",
-      "keywords": [
-        "\u79BE\u82D7",
-        "\u62D4\u9AD8",
-        "\u89C4\u5F8B",
-        "\u6210\u957F"
-      ],
-      "tags": [
-        "\u5BD3\u8A00",
-        "\u89C4\u5F8B",
-        "\u505A\u4E8B"
-      ],
-      "image": "poetry-farmer"
-    },
-    {
-      "id": "myth-g4-pangu",
-      "excerpt": "\u5F88\u4E45\u5F88\u4E45\u4EE5\u524D\uFF0C\u5929\u548C\u5730\u8FD8\u6CA1\u6709\u5206\u5F00\uFF0C\u5B87\u5B99\u6DF7\u6C8C\u4E00\u7247\uFF0C\u50CF\u4E2A\u5927\u9E21\u86CB\u3002\u6709\u4E2A\u53EB\u76D8\u53E4\u7684\u5DE8\u4EBA\uFF0C\u5728\u6DF7\u6C8C\u4E4B\u4E2D\u7761\u4E86\u4E00\u4E07\u516B\u5343\u5E74\u3002\n\u6709\u4E00\u5929\uFF0C\u76D8\u53E4\u9192\u6765\u4E86\uFF0C\u7741\u773C\u4E00\u770B\uFF0C\u5468\u56F4\u9ED1\u4E4E\u4E4E\u4E00\u7247\uFF0C\u4EC0\u4E48\u4E5F\u770B\u4E0D\u89C1\u3002\u4ED6\u4E00\u4F7F\u52B2\u7FFB\u8EAB\u5750\u4E86\u8D77\u6765\uFF0C\u53EA\u542C\u5494\u5693\u4E00\u58F0\uFF0C\u201C\u5927\u9E21\u86CB\u201D\u88C2\u5F00\u4E86\u4E00\u6761\u7F1D\uFF0C\u4E00\u4E1D\u5FAE\u5149\u900F\u4E86\u8FDB\u6765\u3002\u5DE8\u4EBA\u89C1\u8EAB\u8FB9\u6709\u4E00\u628A\u65A7\u5934\uFF0C\u5C31\u62FF\u8D77\u65A7\u5934\uFF0C\u5BF9\u7740\u773C\u524D\u7684\u9ED1\u6697\u5288\u8FC7\u53BB\u3002\u53EA\u542C\u89C1\u4E00\u58F0\u5DE8\u54CD\uFF0C\u201C\u5927\u9E21\u86CB\u201D\u788E\u4E86\u3002\u8F7B\u800C\u6E05\u7684\u4E1C\u897F\uFF0C\u7F13\u7F13\u4E0A\u5347\uFF0C\u53D8\u6210\u4E86\u5929\uFF1B\u91CD\u800C\u6D4A\u7684\u4E1C\u897F\uFF0C\u6162\u6162\u4E0B\u964D\uFF0C\u53D8\u6210\u4E86\u5730\u3002\n\u5929\u548C\u5730\u5206\u5F00\u540E\uFF0C\u76D8\u53E4\u6015\u5B83\u4EEC\u8FD8\u4F1A\u5408\u5728\u4E00\u8D77\uFF0C\u5C31\u5934\u9876\u5929\uFF0C\u811A\u8E0F\u5730\uFF0C\u7AD9\u5728\u5929\u5730\u5F53\u4E2D\uFF0C\u968F\u7740\u5B83\u4EEC\u7684\u53D8\u5316\u800C\u53D8\u5316\u3002\u5929\u6BCF\u5929\u5347\u9AD8\u4E00\u4E08\uFF0C\u5730\u6BCF\u5929\u52A0\u539A\u4E00\u4E08\uFF0C\u76D8\u53E4\u7684\u8EAB\u4F53\u4E5F\u8DDF\u7740\u957F\u9AD8\u3002\n\u8FD9\u6837\u8FC7\u4E86\u4E00\u4E07\u516B\u5343\u5E74\uFF0C\u5929\u5347\u5F97\u9AD8\u6781\u4E86\uFF0C\u5730\u53D8\u5F97\u539A\u6781\u4E86\u3002\u76D8\u53E4\u8FD9\u4E2A\u5DCD\u5CE8\u7684\u5DE8\u4EBA\u5C31\u50CF\u4E00\u6839\u67F1\u5B50\uFF0C\u6491\u5728\u5929\u548C\u5730\u4E4B\u95F4\uFF0C\u4E0D\u8BA9\u5B83\u4EEC\u91CD\u65B0\u5408\u62E2\u3002\n\u53C8\u4E0D\u77E5\u8FC7\u4E86\u591A\u5C11\u5E74\uFF0C\u5929\u548C\u5730\u7EC8\u4E8E\u6210\u5F62\u4E86\uFF0C\u76D8\u53E4\u4E5F\u7CBE\u75B2\u529B\u7AED\uFF0C\u7D2F\u5F97\u5012\u4E0B\u4E86\u3002\n\u76D8\u53E4\u5012\u4E0B\u4EE5\u540E\uFF0C\u4ED6\u7684\u8EAB\u4F53\u53D1\u751F\u4E86\u5DE8\u5927\u7684\u53D8\u5316\u3002\u4ED6\u547C\u51FA\u7684\u6C14\u606F\u53D8\u6210\u4E86\u56DB\u5B63\u7684\u98CE\u548C\u98D8\u52A8\u7684\u4E91\uFF1B\u4ED6\u53D1\u51FA\u7684\u58F0\u97F3\u5316\u4F5C\u4E86\u9686\u9686\u7684\u96F7\u58F0\uFF1B\u4ED6\u7684\u5DE6\u773C\u53D8\u6210\u4E86\u592A\u9633\uFF0C\u7167\u8000\u5927\u5730\uFF1B\u4ED6\u7684\u53F3\u773C\u53D8\u6210\u4E86\u6708\u4EAE\uFF0C\u7ED9\u591C\u665A\u5E26\u6765\u5149\u660E\uFF1B\u4ED6\u7684\u56DB\u80A2\u548C\u8EAF\u5E72\u53D8\u6210\u4E86\u5927\u5730\u7684\u56DB\u6781\u548C\u4E94\u65B9\u7684\u540D\u5C71\uFF1B\u4ED6\u7684\u8840\u6DB2\u53D8\u6210\u4E86\u5954\u6D41\u4E0D\u606F\u7684\u6C5F\u6CB3\uFF1B\u4ED6\u7684\u6C57\u6BDB\u53D8\u6210\u4E86\u8302\u76DB\u7684\u82B1\u8349\u6811\u6728\uFF1B\u4ED6\u7684\u6C57\u6C34\u53D8\u6210\u4E86\u6ECB\u6DA6\u4E07\u7269\u7684\u96E8\u9732\u2026\u2026\n\u4F1F\u5927\u7684\u5DE8\u4EBA\u76D8\u53E4\uFF0C\u7528\u4ED6\u7684\u6574\u4E2A\u8EAB\u4F53\u521B\u9020\u4E86\u7F8E\u4E3D\u7684\u4E16\u754C\u3002",
-      "pinyin": "h\u011Bn ji\u01D4 h\u011Bn ji\u01D4 y\u01D0 qi\xE1n\uFF0C ti\u0101n h\xE9 d\xEC h\xE1i m\xE9i y\u01D2u f\u0113n k\u0101i\uFF0C y\u01D4 zh\xF2u h\xF9n d\xF9n y\u012B pi\xE0n\uFF0C xi\xE0ng g\xE8 d\xE0 j\u012B d\xE0n\u3002 y\u01D2u g\xE8 ji\xE0o p\xE1n g\u01D4 de j\xF9 r\xE9n\uFF0C z\xE0i h\xF9n d\xF9n zh\u012B zh\u014Dng shu\xEC le y\u012B w\xE0n b\u0101 qi\u0101n ni\xE1n\u3002\ny\u01D2u y\u012B ti\u0101n\uFF0C p\xE1n g\u01D4 x\u01D0ng l\xE1i le\uFF0C zh\u0113ng y\u01CEn y\u012B k\xE0n\uFF0C zh\u014Du w\xE9i h\u0113i h\u016B h\u016B y\u012B pi\xE0n\uFF0C sh\xE9n me y\u011B k\xE0n b\xFA ji\xE0n\u3002 t\u0101 y\u012B sh\u01D0 j\xECn f\u0101n sh\u0113n zu\xF2 le q\u01D0 l\xE1i\uFF0C zh\u01D0 t\u012Bng k\u0101 ch\u0101 y\u012B sh\u0113ng\uFF0C\u201C d\xE0 j\u012B d\xE0n\u201D li\xE8 k\u0101i le y\u012B ti\xE1o f\xE8ng\uFF0C y\u012B s\u012B w\u0113i gu\u0101ng t\xF2u le j\xECn l\xE1i\u3002 j\xF9 r\xE9n ji\xE0n sh\u0113n bi\u0101n y\u01D2u y\u012B b\u01CE f\u01D4 t\xF3u\uFF0C ji\xF9 n\xE1 q\u01D0 f\u01D4 t\xF3u\uFF0C du\xEC zhu\xF3 y\u01CEn qi\xE1n de h\u0113i \xE0n p\u012B gu\xF2 q\xF9\u3002 zh\u01D0 t\u012Bng ji\xE0n y\u012B sh\u0113ng j\xF9 xi\u01CEng\uFF0C\u201C d\xE0 j\u012B d\xE0n\u201D su\xEC le\u3002 q\u012Bng \xE9r q\u012Bng de d\u014Dng x\u012B\uFF0C hu\u01CEn hu\u01CEn sh\xE0ng sh\u0113ng\uFF0C bi\xE0n ch\xE9ng le ti\u0101n\uFF1B zh\xF2ng \xE9r zhu\xF3 de d\u014Dng x\u012B\uFF0C m\xE0n m\xE0n xi\xE0 ji\xE0ng\uFF0C bi\xE0n ch\xE9ng le d\xEC\u3002\nti\u0101n h\xE9 d\xEC f\u0113n k\u0101i h\xF2u\uFF0C p\xE1n g\u01D4 p\xE0 t\u0101 men h\xE1i hu\xEC h\xE9 z\xE0i y\xEC q\u01D0\uFF0C ji\xF9 t\xF3u d\u01D0ng ti\u0101n\uFF0C ji\u01CEo t\xE0 d\xEC\uFF0C zh\xE0n z\xE0i ti\u0101n d\xEC d\u0101ng zh\u014Dng\uFF0C su\xED zhe t\u0101 men de bi\xE0n hu\xE0 \xE9r bi\xE0n hu\xE0\u3002 ti\u0101n m\u011Bi ti\u0101n sh\u0113ng g\u0101o y\u012B zh\xE0ng\uFF0C d\xEC m\u011Bi ti\u0101n ji\u0101 h\xF2u y\u012B zh\xE0ng\uFF0C p\xE1n g\u01D4 de sh\u0113n t\u01D0 y\u011B g\u0113n zhe zh\u01CEng g\u0101o\u3002\nzh\xE8 y\xE0ng gu\xF2 le y\u012B w\xE0n b\u0101 qi\u0101n ni\xE1n\uFF0C ti\u0101n sh\u0113ng d\xE9 g\u0101o j\xED le\uFF0C d\xEC bi\xE0n d\xE9 h\xF2u j\xED le\u3002 p\xE1n g\u01D4 zh\xE8 ge w\u0113i \xE9 de j\xF9 r\xE9n ji\xF9 xi\xE0ng y\u012B g\u0113n zh\xF9 zi\uFF0C ch\u0113ng z\xE0i ti\u0101n h\xE9 d\xEC zh\u012B ji\u0101n\uFF0C b\xF9 r\xE0ng t\u0101 men ch\xF3ng x\u012Bn h\xE9 l\u01D2ng\u3002\ny\xF2u b\xF9 zh\u012B gu\xF2 le du\u014D sh\u01CEo ni\xE1n\uFF0C ti\u0101n h\xE9 d\xEC zh\u014Dng y\xFA ch\xE9ng x\xEDng le\uFF0C p\xE1n g\u01D4 y\u011B j\u012Bng p\xED l\xEC ji\xE9\uFF0C l\xE8i d\xE9 d\u01CEo xi\xE0 le\u3002\np\xE1n g\u01D4 d\u01CEo xi\xE0 y\u01D0 h\xF2u\uFF0C t\u0101 de sh\u0113n t\u01D0 f\u0101 sh\u0113ng le j\xF9 d\xE0 de bi\xE0n hu\xE0\u3002 t\u0101 h\u016B ch\u016B de q\xEC x\u012B bi\xE0n ch\xE9ng le s\xEC j\xEC de f\u0113ng h\xE9 pi\u0101o d\xF2ng de y\xFAn\uFF1B t\u0101 f\u0101 ch\u016B de sh\u0113ng y\u012Bn hu\xE0 zu\xF2 le l\xF3ng l\xF3ng de l\xE9i sh\u0113ng\uFF1B t\u0101 de zu\u01D2 y\u01CEn bi\xE0n ch\xE9ng le t\xE0i y\xE1ng\uFF0C zh\xE0o y\xE0o d\xE0 d\xEC\uFF1B t\u0101 de y\xF2u y\u01CEn bi\xE0n ch\xE9ng le yu\xE8 li\xE0ng\uFF0C g\u011Bi y\xE8 w\u01CEn d\xE0i l\xE1i gu\u0101ng m\xEDng\uFF1B t\u0101 de s\xEC zh\u012B h\xE9 q\u016B g\xE0n bi\xE0n ch\xE9ng le d\xE0 d\xEC de s\xEC j\xED h\xE9 w\u01D4 f\u0101ng de m\xEDng sh\u0101n\uFF1B t\u0101 de xu\xE8 y\xE8 bi\xE0n ch\xE9ng le b\u0113n li\xFA b\xF9 x\u012B de ji\u0101ng h\xE9\uFF1B t\u0101 de h\xE0n m\xE1o bi\xE0n ch\xE9ng le m\xE0o sh\xE8ng de hu\u0101 c\u01CEo sh\xF9 m\xF9\uFF1B t\u0101 de h\xE0n shu\u01D0 bi\xE0n ch\xE9ng le z\u012B r\xF9n w\xE0n w\xF9 de y\u01D4 l\xF9\u2026\u2026\nw\u011Bi d\xE0 de j\xF9 r\xE9n p\xE1n g\u01D4\uFF0C y\xF2ng t\u0101 de zh\u011Bng g\xE8 sh\u0113n t\u01D0 chu\xE0ng z\xE0o le m\u011Bi l\xEC de sh\xEC ji\xE8\u3002",
-      "summary": "\u76D8\u53E4\u5728\u6DF7\u6C8C\u4E2D\u9192\u6765\uFF0C\u5288\u5F00\u5929\u5730\uFF0C\u53C8\u7528\u6574\u4E2A\u8EAB\u4F53\u5316\u6210\u81EA\u7136\u4E07\u7269\uFF0C\u5C55\u73B0\u4E86\u53E4\u4EE3\u4EBA\u6C11\u5BF9\u5B87\u5B99\u8D77\u6E90\u7684\u4E30\u5BCC\u60F3\u8C61\u3002",
-      "meaning": "\u5929\u5730\u6700\u521D\u6DF7\u5728\u4E00\u8D77\uFF0C\u50CF\u4E00\u4E2A\u5927\u9E21\u86CB\u3002\u76D8\u53E4\u9192\u6765\u540E\u5288\u5F00\u6DF7\u6C8C\uFF0C\u8F7B\u6E05\u7684\u4E1C\u897F\u4E0A\u5347\u4E3A\u5929\uFF0C\u91CD\u6D4A\u7684\u4E1C\u897F\u4E0B\u964D\u4E3A\u5730\u3002\u4ED6\u6491\u5728\u5929\u5730\u4E4B\u95F4\uFF0C\u76F4\u5230\u5929\u5730\u6210\u5F62\u3002\u76D8\u53E4\u5012\u4E0B\u540E\uFF0C\u8EAB\u4F53\u5316\u6210\u4E86\u98CE\u4E91\u3001\u96F7\u58F0\u3001\u65E5\u6708\u3001\u5C71\u5DDD\u3001\u6C5F\u6CB3\u548C\u82B1\u8349\u6811\u6728\uFF0C\u521B\u9020\u4E86\u7F8E\u4E3D\u7684\u4E16\u754C\u3002",
-      "appreciation": "\u8BFE\u6587\u628A\u5929\u5730\u5F62\u6210\u548C\u81EA\u7136\u4E07\u7269\u90FD\u5F52\u5230\u76D8\u53E4\u7684\u8EAB\u4F53\u53D8\u5316\u4E2D\uFF0C\u60F3\u8C61\u96C4\u4F1F\u800C\u5BCC\u6709\u753B\u9762\u611F\uFF0C\u5851\u9020\u4E86\u52C7\u4E8E\u732E\u8EAB\u7684\u5DE8\u4EBA\u5F62\u8C61\u3002",
-      "keywords": [
-        "\u76D8\u53E4",
-        "\u5929\u5730",
-        "\u521B\u4E16",
-        "\u732E\u8EAB"
-      ],
-      "tags": [
-        "\u795E\u8BDD",
-        "\u521B\u4E16",
-        "\u60F3\u8C61"
-      ],
-      "image": "classic-cosmos"
-    },
-    {
-      "id": "myth-g4-nvwa",
-      "excerpt": "\u81EA\u4ECE\u5973\u5A32\u521B\u9020\u4E86\u4EBA\u7C7B\uFF0C\u5927\u5730\u4E0A\u5230\u5904\u662F\u6B22\u6B4C\u7B11\u8BED\uFF0C\u4EBA\u4EEC\u4E00\u76F4\u8FC7\u7740\u5FEB\u4E50\u5E78\u798F\u7684\u751F\u6D3B\u3002\u4E0D\u77E5\u8FC7\u4E86\u591A\u5C11\u5E74\uFF0C\u4E00\u5929\u591C\u91CC\uFF0C\u5973\u5A32\u7A81\u7136\u88AB\u4E00\u9635\u8F70\u9686\u9686\u7684\u5DE8\u5927\u54CD\u58F0\u9707\u9192\u4E86\u3002\u5979\u6025\u5FD9\u8D77\u5E8A\uFF0C\u8DD1\u5230\u5916\u9762\u4E00\u770B\uFF0C\u5929\u54EA\uFF0C\u592A\u53EF\u6015\u4E86\uFF01\u8FDC\u8FDC\u7684\u5929\u7A7A\u584C\u4E0B\u4E00\u5927\u5757\uFF0C\u9732\u51FA\u4E00\u4E2A\u9ED1\u9ED1\u7684\u5927\u7A9F\u7ABF\u3002\u5730\u88AB\u9707\u88C2\u4E86\uFF0C\u51FA\u73B0\u4E86\u4E00\u9053\u9053\u6DF1\u6C9F\u3002\u5C71\u5188\u4E0A\u71C3\u70E7\u7740\u718A\u718A\u5927\u706B\uFF0C\u7530\u91CE\u91CC\u5230\u5904\u662F\u6D2A\u6C34\u3002\u8BB8\u591A\u4EBA\u88AB\u706B\u56F4\u56F0\u5728\u5C71\u9876\u4E0A\uFF0C\u8FD8\u6709\u8BB8\u591A\u4EBA\u5728\u6C34\u91CC\u6323\u624E\u3002\n\u5973\u5A32\u96BE\u8FC7\u6781\u4E86\u3002\u5979\u7ACB\u523B\u53BB\u627E\u96E8\u795E\uFF0C\u6C42\u4ED6\u4E0B\u4E00\u573A\u96E8\uFF0C\u628A\u5929\u706B\u7184\u706D\u3002\u53C8\u9020\u4E86\u8239\uFF0C\u597D\u6551\u51FA\u6323\u624E\u5728\u6D2A\u6C34\u4E2D\u7684\u4EBA\u4EEC\u3002\n\u4E0D\u4E45\uFF0C\u5929\u706B\u7184\u706D\u4E86\uFF0C\u6D2A\u6C34\u4E2D\u7684\u4EBA\u4EEC\u88AB\u6551\u4E0A\u6765\u4E86\u3002\u53EF\u662F\uFF0C\u5929\u4E0A\u7684\u5927\u7A9F\u7ABF\u8FD8\u5728\u55B7\u706B\u3002\u5973\u5A32\u51B3\u5B9A\u5192\u7740\u751F\u547D\u5371\u9669\uFF0C\u628A\u5929\u8865\u4E0A\u3002\n\u5979\u8DD1\u5230\u5C71\u4E0A\uFF0C\u5BFB\u627E\u8865\u5929\u7528\u7684\u4E94\u5F69\u77F3\u3002\u5979\u539F\u4EE5\u4E3A\u8FD9\u79CD\u77F3\u5934\u5F88\u591A\uFF0C\u7528\u4E0D\u7740\u8D39\u591A\u5927\u529B\u6C14\u3002\u5230\u5C71\u4E0A\u4E00\u770B\uFF0C\u5168\u662F\u4E00\u4E9B\u96F6\u96F6\u661F\u661F\u7684\u788E\u5757\u3002\u5979\u5FD9\u4E86\u51E0\u5929\u51E0\u591C\uFF0C\u627E\u5230\u4E86\u7EA2\u3001\u9EC4\u3001\u84DD\u3001\u767D\u3001\u9752\u4E94\u79CD\u989C\u8272\u7684\u77F3\u5934\u3002\n\u4E94\u5F69\u77F3\u627E\u9F50\u4E86\uFF0C\u5973\u5A32\u5728\u5730\u4E0A\u6316\u4E2A\u5706\u5751\uFF0C\u628A\u4E94\u5F69\u77F3\u653E\u5728\u91CC\u9762\uFF0C\u7528\u795E\u706B\u8FDB\u884C\u51B6\u70BC\u3002\u70BC\u4E86\u4E94\u5929\u4E94\u591C\uFF0C\u4E94\u5F69\u77F3\u5316\u6210\u4E86\u5F88\u7A20\u7684\u6DB2\u4F53\u3002\u5973\u5A32\u628A\u5B83\u88C5\u5728\u4E00\u4E2A\u5927\u76C6\u91CC\uFF0C\u7AEF\u5230\u5929\u8FB9\uFF0C\u5BF9\u51C6\u90A3\u4E2A\u5927\u7A9F\u7ABF\uFF0C\u5F80\u4E0A\u4E00\u6CFC\uFF0C\u53EA\u89C1\u91D1\u5149\u56DB\u5C04\uFF0C\u5927\u7A9F\u7ABF\u7ACB\u523B\u88AB\u8865\u597D\u4E86\u3002\n\u73B0\u5728\uFF0C\u4EBA\u4EEC\u5E38\u5E38\u770B\u89C1\u5929\u8FB9\u4E94\u5F69\u7684\u4E91\u971E\uFF0C\u4F20\u8BF4\u90A3\u5C31\u662F\u5973\u5A32\u8865\u5929\u7684\u5730\u65B9\u3002",
-      "pinyin": "z\xEC c\xF3ng n\u01DA w\u0101 chu\xE0ng z\xE0o le r\xE9n l\xE8i\uFF0C d\xE0 d\xEC sh\xE0ng d\xE0o ch\xF9 sh\xEC hu\u0101n g\u0113 xi\xE0o y\u01D4\uFF0C r\xE9n men y\xEC zh\xED gu\xF2 zhe ku\xE0i l\xE8 x\xECng f\xFA de sh\u0113ng hu\xF3\u3002 b\xF9 zh\u012B gu\xF2 le du\u014D sh\u01CEo ni\xE1n\uFF0C y\u012B ti\u0101n y\xE8 l\u01D0\uFF0C n\u01DA w\u0101 t\u016B r\xE1n b\xE8i y\u012B zh\xE8n h\u014Dng l\u014Dng l\xF3ng de j\xF9 d\xE0 xi\u01CEng sh\u0113ng zh\xE8n x\u01D0ng le\u3002 t\u0101 j\xED m\xE1ng q\u01D0 chu\xE1ng\uFF0C p\u01CEo d\xE0o w\xE0i mi\xE0n y\u012B k\xE0n\uFF0C ti\u0101n n\u01CE\uFF0C t\xE0i k\u011B p\xE0 le\uFF01 yu\u01CEn yu\u01CEn de ti\u0101n k\u014Dng t\u0101 xi\xE0 y\u012B d\xE0 ku\xE0i\uFF0C l\xF9 ch\u016B y\xED g\xE8 h\u0113i h\u0113i de d\xE0 k\u016B l\xF3ng\u3002 d\xEC b\xE8i zh\xE8n li\xE8 le\uFF0C ch\u016B xi\xE0n le y\u012B d\xE0o d\xE0o sh\u0113n g\u014Du\u3002 sh\u0101n g\u0101ng sh\xE0ng r\xE1n sh\u0101o zhe xi\xF3ng xi\xF3ng d\xE0 hu\u01D2\uFF0C ti\xE1n y\u011B l\u01D0 d\xE0o ch\xF9 sh\xEC h\xF3ng shu\u01D0\u3002 x\u01D4 du\u014D r\xE9n b\xE8i hu\u01D2 w\xE9i k\xF9n z\xE0i sh\u0101n d\u01D0ng sh\xE0ng\uFF0C h\xE1i y\u01D2u x\u01D4 du\u014D r\xE9n z\xE0i shu\u01D0 l\u01D0 zh\u0113ng zh\xE1\u3002\nn\u01DA w\u0101 n\xE1n gu\xF2 j\xED le\u3002 t\u0101 l\xEC k\xE8 q\xF9 zh\u01CEo y\u01D4 sh\xE9n\uFF0C qi\xFA t\u0101 xi\xE0 y\u012B ch\xE1ng y\u01D4\uFF0C b\u01CE ti\u0101n hu\u01D2 x\u012B mi\xE8\u3002 y\xF2u z\xE0o le chu\xE1n\uFF0C h\u01CEo ji\xF9 ch\u016B zh\u0113ng zh\xE1 z\xE0i h\xF3ng shu\u01D0 zh\u014Dng de r\xE9n men\u3002\nb\xF9 ji\u01D4\uFF0C ti\u0101n hu\u01D2 x\u012B mi\xE8 le\uFF0C h\xF3ng shu\u01D0 zh\u014Dng de r\xE9n men b\xE8i ji\xF9 sh\xE0ng l\xE1i le\u3002 k\u011B sh\xEC\uFF0C ti\u0101n sh\xE0ng de d\xE0 k\u016B l\xF3ng h\xE1i z\xE0i p\u0113n hu\u01D2\u3002 n\u01DA w\u0101 ju\xE9 d\xECng m\xE0o zhe sh\u0113ng m\xECng w\u0113i xi\u01CEn\uFF0C b\u01CE ti\u0101n b\u01D4 sh\xE0ng\u3002\nt\u0101 p\u01CEo d\xE0o sh\u0101n sh\xE0ng\uFF0C x\xFAn zh\u01CEo b\u01D4 ti\u0101n y\xF2ng de w\u01D4 c\u01CEi sh\xED\u3002 t\u0101 yu\xE1n y\u01D0 w\xE9i zh\xE8 zh\u01D2ng sh\xED tou h\u011Bn du\u014D\uFF0C y\xF2ng b\xF9 zhe f\xE8i du\u014D d\xE0 l\xEC q\xEC\u3002 d\xE0o sh\u0101n sh\xE0ng y\u012B k\xE0n\uFF0C qu\xE1n sh\xEC y\u012B xi\u0113 l\xEDng l\xEDng x\u012Bng x\u012Bng de su\xEC ku\xE0i\u3002 t\u0101 m\xE1ng le j\u01D0 ti\u0101n j\u01D0 y\xE8\uFF0C zh\u01CEo d\xE0o le h\xF3ng\u3001 hu\xE1ng\u3001 l\xE1n\u3001 b\xE1i\u3001 q\u012Bng w\u01D4 zh\u01D2ng y\xE1n s\xE8 de sh\xED tou\u3002\nw\u01D4 c\u01CEi sh\xED zh\u01CEo q\xED le\uFF0C n\u01DA w\u0101 z\xE0i d\xEC sh\xE0ng w\u0101 g\xE8 yu\xE1n k\u0113ng\uFF0C b\u01CE w\u01D4 c\u01CEi sh\xED f\xE0ng z\xE0i l\u01D0 mi\xE0n\uFF0C y\xF2ng sh\xE9n hu\u01D2 j\xECn x\xEDng y\u011B li\xE0n\u3002 li\xE0n le w\u01D4 ti\u0101n w\u01D4 y\xE8\uFF0C w\u01D4 c\u01CEi sh\xED hu\xE0 ch\xE9ng le h\u011Bn ch\xF3u de y\xE8 t\u01D0\u3002 n\u01DA w\u0101 b\u01CE t\u0101 zhu\u0101ng z\xE0i y\xED g\xE8 d\xE0 p\xE9n l\u01D0\uFF0C du\u0101n d\xE0o ti\u0101n bi\u0101n\uFF0C du\xEC zh\u01D4n n\xE0 ge d\xE0 k\u016B l\xF3ng\uFF0C w\u01CEng sh\xE0ng y\u012B p\u014D\uFF0C zh\u01D0 ji\xE0n j\u012Bn gu\u0101ng s\xEC sh\xE8\uFF0C d\xE0 k\u016B l\xF3ng l\xEC k\xE8 b\xE8i b\u01D4 h\u01CEo le\u3002\nxi\xE0n z\xE0i\uFF0C r\xE9n men ch\xE1ng ch\xE1ng k\xE0n ji\xE0n ti\u0101n bi\u0101n w\u01D4 c\u01CEi de y\xFAn xi\xE1\uFF0C chu\xE1n shu\u014D n\xE0 ji\xF9 sh\xEC n\u01DA w\u0101 b\u01D4 ti\u0101n de d\xEC f\u0101ng\u3002",
-      "summary": "\u5929\u584C\u5730\u88C2\u540E\uFF0C\u5973\u5A32\u5BFB\u627E\u4E94\u5F69\u77F3\u8865\u597D\u5929\u7A7A\uFF0C\u53C8\u6551\u51FA\u53D7\u707E\u7684\u4EBA\u4EEC\uFF0C\u8868\u73B0\u4E86\u5979\u52C7\u6562\u3001\u5584\u826F\u548C\u7518\u4E8E\u5949\u732E\u7684\u7CBE\u795E\u3002",
-      "meaning": "\u5929\u5730\u53D1\u751F\u707E\u53D8\uFF0C\u5929\u7A7A\u7834\u4E86\u4E00\u4E2A\u5927\u7A9F\u7ABF\uFF0C\u6D2A\u6C34\u548C\u5927\u706B\u5A01\u80C1\u7740\u4EBA\u4EEC\u3002\u5973\u5A32\u5148\u6C42\u96E8\u706D\u706B\u3001\u9020\u8239\u6551\u4EBA\uFF0C\u53C8\u5386\u7ECF\u8F9B\u82E6\u627E\u6765\u4E94\u5F69\u77F3\uFF0C\u70BC\u6210\u77F3\u6D46\u8865\u597D\u5929\u7A7A\uFF0C\u8BA9\u4EBA\u4EEC\u91CD\u65B0\u8FC7\u4E0A\u5B89\u5B9A\u7684\u751F\u6D3B\u3002",
-      "appreciation": "\u8BFE\u6587\u5148\u5199\u707E\u96BE\u7684\u53EF\u6015\uFF0C\u518D\u5199\u5973\u5A32\u5BFB\u627E\u548C\u51B6\u70BC\u4E94\u5F69\u77F3\u7684\u8270\u96BE\uFF0C\u5C42\u5C42\u8868\u73B0\u5979\u7684\u52C7\u6562\u4E0E\u5949\u732E\u3002\u7ED3\u5C3E\u7684\u4E91\u971E\u8BA9\u795E\u8BDD\u6709\u4E86\u7F8E\u4E3D\u7684\u4F59\u97F5\u3002",
-      "keywords": [
-        "\u5973\u5A32",
-        "\u4E94\u5F69\u77F3",
-        "\u8865\u5929",
-        "\u5949\u732E"
-      ],
-      "tags": [
-        "\u795E\u8BDD",
-        "\u5949\u732E",
-        "\u60F3\u8C61"
-      ],
-      "image": "classic-cosmos"
-    },
-    {
-      "id": "poetry-g4-xiarijueju",
-      "title": "\u590F\u65E5\u7EDD\u53E5",
-      "author": "\u674E\u6E05\u7167",
-      "dynasty": "\u5B8B",
-      "excerpt": "\u751F\u5F53\u4F5C\u4EBA\u6770\uFF0C\u6B7B\u4EA6\u4E3A\u9B3C\u96C4\u3002\n\u81F3\u4ECA\u601D\u9879\u7FBD\uFF0C\u4E0D\u80AF\u8FC7\u6C5F\u4E1C\u3002",
-      "pinyin": "sh\u0113ng d\u0101ng zu\xF2 r\xE9n ji\xE9\uFF0Cs\u01D0 y\xEC w\xE9i gu\u01D0 xi\xF3ng\u3002\nzh\xEC j\u012Bn s\u012B xi\xE0ng y\u01D4\uFF0Cb\xF9 k\u011Bn gu\xF2 ji\u0101ng d\u014Dng\u3002",
-      "summary": "\u8BD7\u4EBA\u501F\u9879\u7FBD\u5B81\u6B7B\u4E0D\u80AF\u6E21\u6C5F\u7684\u6545\u4E8B\uFF0C\u8D5E\u9882\u521A\u6BC5\u4E0D\u5C48\u7684\u82F1\u96C4\u6C14\u6982\uFF0C\u4E5F\u8868\u8FBE\u5BF9\u5BB6\u56FD\u547D\u8FD0\u7684\u611F\u6168\u3002",
-      "meaning": "\u6D3B\u7740\u5C31\u5E94\u5F53\u505A\u4EBA\u4E2D\u7684\u8C6A\u6770\uFF0C\u6B7B\u4E86\u4E5F\u8981\u6210\u4E3A\u9B3C\u4E2D\u7684\u82F1\u96C4\u3002\u76F4\u5230\u4ECA\u5929\uFF0C\u4EBA\u4EEC\u8FD8\u601D\u5FF5\u9879\u7FBD\uFF0C\u56E0\u4E3A\u4ED6\u5175\u8D25\u540E\u4E0D\u80AF\u9003\u8FC7\u6C5F\u4E1C\u82DF\u4E14\u5077\u751F\u3002",
-      "appreciation": "\u5168\u8BD7\u77ED\u4FC3\u6709\u529B\u3002\u201C\u751F\u201D\u4E0E\u201C\u6B7B\u201D\u3001\u201C\u4EBA\u6770\u201D\u4E0E\u201C\u9B3C\u96C4\u201D\u5F62\u6210\u5BF9\u4E3E\uFF0C\u501F\u53E4\u4EBA\u7684\u9009\u62E9\u8868\u73B0\u9C9C\u660E\u7684\u4EBA\u751F\u6001\u5EA6\u3002",
-      "keywords": [
-        "\u9879\u7FBD",
-        "\u82F1\u96C4",
-        "\u6C14\u8282",
-        "\u5BB6\u56FD"
-      ],
-      "tags": [
-        "\u674E\u6E05\u7167",
-        "\u548F\u53F2",
-        "\u7231\u56FD"
-      ],
-      "image": "poetry-homeland"
-    },
-    {
-      "id": "poetry-g5-jihai",
-      "title": "\u5DF1\u4EA5\u6742\u8BD7",
-      "excerpt": "\u4E5D\u5DDE\u751F\u6C14\u6043\u98CE\u96F7\uFF0C\u4E07\u9A6C\u9F50\u5591\u7A76\u53EF\u54C0\u3002\n\u6211\u529D\u5929\u516C\u91CD\u6296\u64DE\uFF0C\u4E0D\u62D8\u4E00\u683C\u964D\u4EBA\u6750\u3002",
-      "pinyin": "ji\u01D4 zh\u014Du sh\u0113ng q\xEC sh\xEC f\u0113ng l\xE9i\uFF0Cw\xE0n m\u01CE q\xED y\u012Bn ji\u016B k\u011B \u0101i\u3002\nw\u01D2 qu\xE0n ti\u0101n g\u014Dng ch\xF3ng d\u01D2u s\u01D2u\uFF0Cb\xF9 j\u016B y\u012B g\xE9 ji\xE0ng r\xE9n c\xE1i\u3002",
-      "summary": "\u8BD7\u4EBA\u5E0C\u671B\u793E\u4F1A\u51FA\u73B0\u98CE\u96F7\u822C\u7684\u53D8\u9769\uFF0C\u6253\u7834\u6C89\u95F7\u5C40\u9762\uFF0C\u8BA9\u5404\u79CD\u4EBA\u624D\u8131\u9896\u800C\u51FA\uFF0C\u8868\u8FBE\u4E86\u5BF9\u56FD\u5BB6\u632F\u5174\u7684\u6E34\u671B\u3002",
-      "meaning": "\u53EA\u6709\u4F9D\u9760\u98CE\u96F7\u822C\u7684\u5DE8\u5927\u529B\u91CF\uFF0C\u624D\u80FD\u4F7F\u4E2D\u56FD\u5927\u5730\u7115\u53D1\u751F\u673A\uFF1B\u4EBA\u4EEC\u90FD\u4E0D\u6562\u8BF4\u8BDD\u3001\u6BEB\u65E0\u751F\u6C14\u7684\u5C40\u9762\u7EC8\u7A76\u4EE4\u4EBA\u60B2\u54C0\u3002\u6211\u529D\u8001\u5929\u7237\u91CD\u65B0\u632F\u4F5C\u7CBE\u795E\uFF0C\u4E0D\u8981\u62D8\u5B88\u4E00\u79CD\u89C4\u683C\uFF0C\u8BA9\u5404\u79CD\u4EBA\u624D\u964D\u751F\u3002",
-      "appreciation": "\u201C\u98CE\u96F7\u201D\u8C61\u5F81\u793E\u4F1A\u53D8\u9769\uFF0C\u201C\u4E07\u9A6C\u9F50\u5591\u201D\u5199\u51FA\u6C89\u95F7\u73B0\u5B9E\u3002\u6700\u540E\u4E00\u53E5\u76F4\u6292\u80F8\u81C6\uFF0C\u8868\u8FBE\u4E0D\u62D8\u4E00\u683C\u9009\u62D4\u4EBA\u624D\u7684\u613F\u671B\u3002",
-      "keywords": [
-        "\u98CE\u96F7",
-        "\u4EBA\u624D",
-        "\u53D8\u9769",
-        "\u632F\u5174"
-      ],
-      "tags": [
-        "\u9F9A\u81EA\u73CD",
-        "\u7231\u56FD",
-        "\u54F2\u7406"
-      ],
-      "image": "poetry-homeland"
-    },
-    {
-      "id": "poetry-g5-wenguanjun",
-      "excerpt": "\u5251\u5916\u5FFD\u4F20\u6536\u84DF\u5317\uFF0C\u521D\u95FB\u6D95\u6CEA\u6EE1\u8863\u88F3\u3002\n\u5374\u770B\u59BB\u5B50\u6101\u4F55\u5728\uFF0C\u6F2B\u5377\u8BD7\u4E66\u559C\u6B32\u72C2\u3002\n\u767D\u65E5\u653E\u6B4C\u987B\u7EB5\u9152\uFF0C\u9752\u6625\u4F5C\u4F34\u597D\u8FD8\u4E61\u3002\n\u5373\u4ECE\u5DF4\u5CE1\u7A7F\u5DEB\u5CE1\uFF0C\u4FBF\u4E0B\u8944\u9633\u5411\u6D1B\u9633\u3002",
-      "pinyin": "ji\xE0n w\xE0i h\u016B chu\xE1n sh\u014Du j\xEC b\u011Bi\uFF0Cch\u016B w\xE9n t\xEC l\xE8i m\u01CEn y\u012B shang\u3002\nqu\xE8 k\xE0n q\u012B z\u01D0 ch\xF3u h\xE9 z\xE0i\uFF0Cm\xE0n ju\u01CEn sh\u012B sh\u016B x\u01D0 y\xF9 ku\xE1ng\u3002\nb\xE1i r\xEC f\xE0ng g\u0113 x\u016B z\xF2ng ji\u01D4\uFF0Cq\u012Bng ch\u016Bn zu\xF2 b\xE0n h\u01CEo hu\xE1n xi\u0101ng\u3002\nj\xED c\xF3ng b\u0101 xi\xE1 chu\u0101n w\u016B xi\xE1\uFF0Cbi\xE0n xi\xE0 xi\u0101ng y\xE1ng xi\xE0ng lu\xF2 y\xE1ng\u3002",
-      "summary": "\u542C\u5230\u5B98\u519B\u6536\u590D\u5931\u5730\u7684\u6D88\u606F\uFF0C\u675C\u752B\u60CA\u559C\u843D\u6CEA\uFF0C\u60F3\u5230\u7EC8\u4E8E\u53EF\u4EE5\u8FD4\u56DE\u6545\u4E61\uFF0C\u559C\u60A6\u4E4B\u60C5\u5954\u6D8C\u800C\u51FA\u3002",
-      "meaning": "\u5251\u95E8\u5173\u5916\u5FFD\u7136\u4F20\u6765\u5B98\u519B\u6536\u590D\u84DF\u5317\u7684\u6D88\u606F\uFF0C\u521A\u542C\u5230\u65F6\u6211\u6FC0\u52A8\u5F97\u6CEA\u6C34\u6CBE\u6EE1\u8863\u88F3\u3002\u56DE\u5934\u770B\u59BB\u5B50\u513F\u5973\uFF0C\u54EA\u91CC\u8FD8\u6709\u5FE7\u6101\uFF1F\u6211\u968F\u624B\u5377\u8D77\u8BD7\u4E66\uFF0C\u9AD8\u5174\u5F97\u5FEB\u8981\u53D1\u72C2\u3002\u767D\u5929\u653E\u58F0\u9AD8\u6B4C\uFF0C\u8FD8\u8981\u7EB5\u60C5\u996E\u9152\uFF1B\u6709\u660E\u5A9A\u6625\u5149\u4F5C\u4F34\uFF0C\u6B63\u597D\u8FD4\u56DE\u6545\u4E61\u3002\u6211\u8981\u7ACB\u5373\u4ECE\u5DF4\u5CE1\u7A7F\u8FC7\u5DEB\u5CE1\uFF0C\u518D\u987A\u6D41\u800C\u4E0B\u5230\u8944\u9633\uFF0C\u8F6C\u5411\u6D1B\u9633\u3002",
-      "appreciation": "\u5168\u8BD7\u56F4\u7ED5\u201C\u559C\u201D\u5C55\u5F00\uFF0C\u4ECE\u843D\u6CEA\u3001\u5377\u4E66\u3001\u653E\u6B4C\u5230\u89C4\u5212\u5F52\u7A0B\uFF0C\u52A8\u4F5C\u4E00\u4E2A\u63A5\u4E00\u4E2A\uFF0C\u628A\u538B\u6291\u5DF2\u4E45\u540E\u7A81\u7136\u91CA\u653E\u7684\u559C\u60A6\u5199\u5F97\u771F\u5207\u3002",
-      "keywords": [
-        "\u5B98\u519B",
-        "\u6536\u590D",
-        "\u8FD8\u4E61",
-        "\u559C\u60A6"
-      ],
-      "tags": [
-        "\u675C\u752B",
-        "\u7231\u56FD",
-        "\u601D\u4E61"
-      ],
-      "image": "poetry-homeland"
-    },
-    {
-      "id": "poetry-g6-tiaotiao",
-      "excerpt": "\u8FE2\u8FE2\u7275\u725B\u661F\uFF0C\u768E\u768E\u6CB3\u6C49\u5973\u3002\n\u7EA4\u7EA4\u64E2\u7D20\u624B\uFF0C\u672D\u672D\u5F04\u673A\u677C\u3002\n\u7EC8\u65E5\u4E0D\u6210\u7AE0\uFF0C\u6CE3\u6D95\u96F6\u5982\u96E8\u3002\n\u6CB3\u6C49\u6E05\u4E14\u6D45\uFF0C\u76F8\u53BB\u590D\u51E0\u8BB8\uFF1F\n\u76C8\u76C8\u4E00\u6C34\u95F4\uFF0C\u8109\u8109\u4E0D\u5F97\u8BED\u3002",
-      "pinyin": "ti\xE1o ti\xE1o qi\u0101n ni\xFA x\u012Bng\uFF0Cji\u01CEo ji\u01CEo h\xE9 h\xE0n n\u01DA\u3002\nxi\u0101n xi\u0101n zhu\xF3 s\xF9 sh\u01D2u\uFF0Czh\xE1 zh\xE1 n\xF2ng j\u012B zh\xF9\u3002\nzh\u014Dng r\xEC b\xF9 ch\xE9ng zh\u0101ng\uFF0Cq\xEC t\xEC l\xEDng r\xFA y\u01D4\u3002\nh\xE9 h\xE0n q\u012Bng qi\u011B qi\u01CEn\uFF0Cxi\u0101ng q\xF9 f\xF9 j\u01D0 x\u01D4\uFF1F\ny\xEDng y\xEDng y\u012B shu\u01D0 ji\u0101n\uFF0Cm\xF2 m\xF2 b\xF9 d\xE9 y\u01D4\u3002",
-      "summary": "\u7EC7\u5973\u9694\u7740\u94F6\u6CB3\u601D\u5FF5\u725B\u90CE\uFF0C\u7EC8\u65E5\u7EC7\u4E0D\u6210\u5E03\uFF0C\u6CEA\u5982\u96E8\u4E0B\u3002\u8BD7\u7528\u6D45\u663E\u7684\u94F6\u6CB3\u5199\u51FA\u6DF1\u957F\u7684\u76F8\u601D\u3002",
-      "meaning": "\u9065\u8FDC\u7684\u7275\u725B\u661F\u548C\u660E\u4EAE\u7684\u7EC7\u5973\u661F\u9694\u6CB3\u76F8\u671B\u3002\u7EC7\u5973\u4F38\u51FA\u767D\u7699\u7684\u624B\uFF0C\u7EC7\u673A\u672D\u672D\u4F5C\u54CD\uFF0C\u53EF\u4E00\u6574\u5929\u4E5F\u7EC7\u4E0D\u6210\u4E00\u5339\u5E03\uFF0C\u773C\u6CEA\u50CF\u96E8\u4E00\u6837\u843D\u4E0B\u3002\u94F6\u6CB3\u53C8\u6E05\u53C8\u6D45\uFF0C\u76F8\u9694\u53C8\u80FD\u6709\u591A\u8FDC\uFF1F\u4E24\u4EBA\u53EA\u9694\u7740\u4E00\u6761\u6E05\u6D45\u7684\u6C34\uFF0C\u5374\u53EA\u80FD\u542B\u60C5\u76F8\u671B\uFF0C\u4E0D\u80FD\u8BF4\u8BDD\u3002",
-      "appreciation": "\u8BD7\u4ECE\u661F\u7A7A\u5199\u5230\u7EC7\u5973\u7684\u52A8\u4F5C\u548C\u773C\u6CEA\uFF0C\u201C\u76C8\u76C8\u4E00\u6C34\u95F4\uFF0C\u8109\u8109\u4E0D\u5F97\u8BED\u201D\u628A\u8FD1\u5728\u54AB\u5C3A\u5374\u4E0D\u80FD\u76F8\u89C1\u7684\u65E0\u5948\u5199\u5F97\u542B\u84C4\u52A8\u4EBA\u3002",
-      "keywords": [
-        "\u7275\u725B\u661F",
-        "\u7EC7\u5973",
-        "\u94F6\u6CB3",
-        "\u76F8\u601D"
-      ],
-      "tags": [
-        "\u53E4\u8BD7\u5341\u4E5D\u9996",
-        "\u76F8\u601D",
-        "\u795E\u8BDD"
-      ],
-      "image": "poetry-river-moon"
-    },
-    {
-      "id": "classical-g5-gurentandushu",
-      "excerpt": "\u654F\u800C\u597D\u5B66\uFF0C\u4E0D\u803B\u4E0B\u95EE\u3002\u77E5\u4E4B\u4E3A\u77E5\u4E4B\uFF0C\u4E0D\u77E5\u4E3A\u4E0D\u77E5\uFF0C\u662F\u77E5\u4E5F\u3002\u9ED8\u800C\u8BC6\u4E4B\uFF0C\u5B66\u800C\u4E0D\u538C\uFF0C\u8BF2\u4EBA\u4E0D\u5026\u3002\n\u4F59\u5C1D\u8C13\u8BFB\u4E66\u6709\u4E09\u5230\uFF0C\u8C13\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\u3002\u5FC3\u4E0D\u5728\u6B64\uFF0C\u5219\u773C\u4E0D\u770B\u4ED4\u7EC6\uFF0C\u5FC3\u773C\u65E2\u4E0D\u4E13\u4E00\uFF0C\u5374\u53EA\u6F2B\u6D6A\u8BF5\u8BFB\uFF0C\u51B3\u4E0D\u80FD\u8BB0\uFF0C\u8BB0\u4EA6\u4E0D\u80FD\u4E45\u4E5F\u3002\u4E09\u5230\u4E4B\u4E2D\uFF0C\u5FC3\u5230\u6700\u6025\u3002\u5FC3\u65E2\u5230\u77E3\uFF0C\u773C\u53E3\u5C82\u4E0D\u5230\u4E4E\uFF1F\n\u76D6\u58EB\u4EBA\u8BFB\u4E66\uFF0C\u7B2C\u4E00\u8981\u6709\u5FD7\uFF0C\u7B2C\u4E8C\u8981\u6709\u8BC6\uFF0C\u7B2C\u4E09\u8981\u6709\u6052\u3002\u6709\u5FD7\u5219\u65AD\u4E0D\u7518\u4E3A\u4E0B\u6D41\uFF1B\u6709\u8BC6\u5219\u77E5\u5B66\u95EE\u65E0\u5C3D\uFF0C\u4E0D\u6562\u4EE5\u4E00\u5F97\u81EA\u8DB3\uFF0C\u5982\u6CB3\u4F2F\u4E4B\u89C2\u6D77\uFF0C\u5982\u4E95\u86D9\u4E4B\u7AA5\u5929\uFF0C\u7686\u65E0\u8BC6\u8005\u4E5F\uFF1B\u6709\u6052\u5219\u65AD\u65E0\u4E0D\u6210\u4E4B\u4E8B\u3002\u6B64\u4E09\u8005\u7F3A\u4E00\u4E0D\u53EF\u3002",
-      "pinyin": "m\u01D0n \xE9r h\xE0o xu\xE9\uFF0C b\xF9 ch\u01D0 xi\xE0 w\xE8n\u3002 zh\u012B zh\u012B w\xE9i zh\u012B zh\u012B\uFF0C b\xF9 zh\u012B w\xE8i b\xF9 zh\u012B\uFF0C sh\xEC zh\u012B y\u011B\u3002 m\xF2 \xE9r sh\xED zh\u012B\uFF0C xu\xE9 \xE9r b\xF9 y\xE0n\uFF0C hu\xEC r\xE9n b\xF9 ju\xE0n\u3002\ny\xFA ch\xE1ng w\xE8i d\xFA sh\u016B y\u01D2u s\u0101n d\xE0o\uFF0C w\xE8i x\u012Bn d\xE0o\u3001 y\u01CEn d\xE0o\u3001 k\u01D2u d\xE0o\u3002 x\u012Bn b\xF9 z\xE0i c\u01D0\uFF0C z\xE9 y\u01CEn b\xF9 k\xE0n z\u01D0 x\xEC\uFF0C x\u012Bn y\u01CEn j\xEC b\xF9 zhu\u0101n y\u012B\uFF0C qu\xE8 zh\u01D0 m\xE0n l\xE0ng s\xF2ng d\xFA\uFF0C ju\xE9 b\xF9 n\xE9ng j\xEC\uFF0C j\xEC y\xEC b\xF9 n\xE9ng ji\u01D4 y\u011B\u3002 s\u0101n d\xE0o zh\u012B zh\u014Dng\uFF0C x\u012Bn d\xE0o zu\xEC j\xED\u3002 x\u012Bn j\xEC d\xE0o y\u01D0\uFF0C y\u01CEn k\u01D2u q\u01D0 b\xF9 d\xE0o h\u016B\uFF1F\ng\xE0i sh\xEC r\xE9n d\xFA sh\u016B\uFF0C d\xEC y\u012B y\xE0o y\u01D2u zh\xEC\uFF0C d\xEC \xE8r y\xE0o y\u01D2u sh\xED\uFF0C d\xEC s\u0101n y\xE0o y\u01D2u h\xE9ng\u3002 y\u01D2u zh\xEC z\xE9 du\xE0n b\xF9 g\u0101n w\xE8i xi\xE0 li\xFA\uFF1B y\u01D2u sh\xED z\xE9 zh\u012B xu\xE9 w\xE8n w\xFA j\xECn\uFF0C b\xF9 g\u01CEn y\u01D0 y\u012B de z\xEC z\xFA\uFF0C r\xFA h\xE9 b\xF3 zh\u012B gu\u0101n h\u01CEi\uFF0C r\xFA j\u01D0ng w\u0101 zh\u012B ku\u012B ti\u0101n\uFF0C ji\u0113 w\xFA sh\xED zh\u011B y\u011B\uFF1B y\u01D2u h\xE9ng z\xE9 du\xE0n w\xFA b\xF9 ch\xE9ng zh\u012B sh\xEC\u3002 c\u01D0 s\u0101n zh\u011B qu\u0113 y\u012B b\xF9 k\u011B\u3002",
-      "summary": "\u8BFE\u6587\u9009\u53D6\u53E4\u4EBA\u7684\u8BFB\u4E66\u540D\u8A00\uFF0C\u5F3A\u8C03\u865A\u5FC3\u597D\u95EE\u3001\u8BDA\u5B9E\u6C42\u77E5\uFF0C\u8BFB\u4E66\u8981\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\uFF0C\u5E76\u8981\u6709\u5FD7\u3001\u6709\u8BC6\u3001\u6709\u6052\u3002",
-      "meaning": "\u806A\u654F\u53C8\u7231\u597D\u5B66\u4E60\uFF0C\u4E0D\u628A\u5411\u5730\u4F4D\u6BD4\u81EA\u5DF1\u4F4E\u7684\u4EBA\u8BF7\u6559\u5F53\u4F5C\u7F9E\u803B\u3002\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u771F\u6B63\u7684\u667A\u6167\u3002\u9ED8\u9ED8\u8BB0\u4F4F\u6240\u5B66\uFF0C\u5B66\u4E60\u4E0D\u6EE1\u8DB3\uFF0C\u6559\u5BFC\u522B\u4EBA\u4E0D\u75B2\u5026\u3002\u6211\u66FE\u7ECF\u8BF4\u8FC7\u8BFB\u4E66\u8981\u505A\u5230\u4E09\u5230\uFF1A\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\u3002\u5FC3\u601D\u4E0D\u5728\u4E66\u4E0A\uFF0C\u773C\u775B\u5C31\u770B\u4E0D\u4ED4\u7EC6\uFF1B\u5FC3\u548C\u773C\u4E0D\u4E13\u4E00\uFF0C\u53EA\u662F\u968F\u610F\u8BF5\u8BFB\uFF0C\u4E00\u5B9A\u8BB0\u4E0D\u4F4F\uFF0C\u8BB0\u4F4F\u4E86\u4E5F\u4E0D\u80FD\u957F\u4E45\u3002\u4E09\u5230\u4E4B\u4E2D\uFF0C\u5FC3\u5230\u6700\u91CD\u8981\u3002 \u8BFB\u4E66\u4EBA\u8FD8\u8981\u6709\u5FD7\u5411\u3001\u6709\u89C1\u8BC6\u3001\u6709\u6052\u5FC3\u3002\u6709\u5FD7\u5411\u5C31\u4E0D\u4F1A\u7518\u5C45\u4E0B\u6D41\uFF1B\u6709\u89C1\u8BC6\u5C31\u77E5\u9053\u5B66\u95EE\u6CA1\u6709\u7A77\u5C3D\uFF0C\u4E0D\u4F1A\u56E0\u4E00\u70B9\u6536\u83B7\u800C\u6EE1\u8DB3\uFF1B\u6709\u6052\u5FC3\u5C31\u6CA1\u6709\u505A\u4E0D\u6210\u7684\u4E8B\u3002\u8FD9\u4E09\u8005\u7F3A\u4E00\u4E0D\u53EF\u3002",
-      "appreciation": "\u9009\u6587\u4ECE\u5B66\u4E60\u6001\u5EA6\u3001\u8BFB\u4E66\u65B9\u6CD5\u548C\u6CBB\u5B66\u54C1\u683C\u4E09\u65B9\u9762\u5C55\u5F00\uFF0C\u5C42\u6B21\u6E05\u695A\u3002\u201C\u5FC3\u5230\u6700\u6025\u201D\u548C\u201C\u6709\u5FD7\u3001\u6709\u8BC6\u3001\u6709\u6052\u201D\u90FD\u70B9\u660E\u4E86\u8BFB\u4E66\u7684\u5173\u952E\u3002",
-      "keywords": [
-        "\u8BFB\u4E66",
-        "\u597D\u95EE",
-        "\u4E09\u5230",
-        "\u4E13\u6CE8"
-      ],
-      "tags": [
-        "\u6587\u8A00\u6587",
-        "\u8BFB\u4E66",
-        "\u65B9\u6CD5"
-      ],
-      "image": "classic-books"
-    },
-    {
-      "id": "classical-g5-zixiangmaodun",
-      "excerpt": "\u695A\u4EBA\u6709\u9B3B\u76FE\u4E0E\u77DB\u8005\uFF0C\u8A89\u4E4B\u66F0\uFF1A\u201C\u543E\u76FE\u4E4B\u575A\uFF0C\u7269\u83AB\u80FD\u9677\u4E5F\u3002\u201D\u53C8\u8A89\u5176\u77DB\u66F0\uFF1A\u201C\u543E\u77DB\u4E4B\u5229\uFF0C\u4E8E\u7269\u65E0\u4E0D\u9677\u4E5F\u3002\u201D\u6216\u66F0\uFF1A\u201C\u4EE5\u5B50\u4E4B\u77DB\u9677\u5B50\u4E4B\u76FE\uFF0C\u4F55\u5982\uFF1F\u201D\u5176\u4EBA\u5F17\u80FD\u5E94\u4E5F\u3002\u592B\u4E0D\u53EF\u9677\u4E4B\u76FE\u4E0E\u65E0\u4E0D\u9677\u4E4B\u77DB\uFF0C\u4E0D\u53EF\u540C\u4E16\u800C\u7ACB\u3002",
-      "pinyin": "ch\u01D4 r\xE9n y\u01D2u y\xF9 d\xF9n y\u01D4 m\xE1o zh\u011B\uFF0C y\xF9 zh\u012B yu\u0113\uFF1A\u201C w\xFA d\xF9n zh\u012B ji\u0101n\uFF0C w\xF9 m\xF2 n\xE9ng xi\xE0n y\u011B\u3002\u201D y\xF2u y\xF9 q\xED m\xE1o yu\u0113\uFF1A\u201C w\xFA m\xE1o zh\u012B l\xEC\uFF0C y\xFA w\xF9 w\xFA b\xF9 xi\xE0n y\u011B\u3002\u201D hu\xF2 yu\u0113\uFF1A\u201C y\u01D0 zi zh\u012B m\xE1o xi\xE0n zi zh\u012B d\xF9n\uFF0C h\xE9 r\xFA\uFF1F\u201D q\xED r\xE9n f\xFA n\xE9ng y\u012Bng y\u011B\u3002 f\u016B b\xF9 k\u011B xi\xE0n zh\u012B d\xF9n y\u01D4 w\xFA b\xF9 xi\xE0n zh\u012B m\xE1o\uFF0C b\xF9 k\u011B t\xF3ng sh\xEC \xE9r l\xEC\u3002",
-      "summary": "\u5356\u77DB\u548C\u76FE\u7684\u4EBA\u540C\u65F6\u5938\u8000\u81EA\u5DF1\u7684\u77DB\u65E0\u575A\u4E0D\u6467\u3001\u76FE\u65E0\u7269\u80FD\u7834\uFF0C\u88AB\u95EE\u201C\u7528\u4F60\u7684\u77DB\u523A\u4F60\u7684\u76FE\u201D\u65F6\u65E0\u6CD5\u56DE\u7B54\u3002",
-      "meaning": "\u695A\u56FD\u6709\u4E2A\u5356\u76FE\u548C\u77DB\u7684\u4EBA\uFF0C\u5938\u8D5E\u81EA\u5DF1\u7684\u76FE\u8BF4\uFF1A\u201C\u6211\u7684\u76FE\u5F88\u575A\u56FA\uFF0C\u6CA1\u6709\u4EC0\u4E48\u80FD\u523A\u7A7F\u5B83\u3002\u201D\u53C8\u5938\u8D5E\u81EA\u5DF1\u7684\u77DB\u8BF4\uFF1A\u201C\u6211\u7684\u77DB\u5F88\u950B\u5229\uFF0C\u6CA1\u6709\u4EC0\u4E48\u523A\u4E0D\u7A7F\u3002\u201D\u6709\u4EBA\u95EE\uFF1A\u201C\u7528\u4F60\u7684\u77DB\u523A\u4F60\u7684\u76FE\uFF0C\u4F1A\u600E\u4E48\u6837\uFF1F\u201D\u90A3\u4E2A\u4EBA\u65E0\u6CD5\u56DE\u7B54\u3002\u4E0D\u80FD\u88AB\u523A\u7A7F\u7684\u76FE\u548C\u4EC0\u4E48\u90FD\u80FD\u523A\u7A7F\u7684\u77DB\uFF0C\u4E0D\u53EF\u80FD\u540C\u65F6\u5B58\u5728\u3002",
-      "appreciation": "\u6545\u4E8B\u7528\u7B80\u6D01\u7684\u5BF9\u8BDD\u63ED\u793A\u903B\u8F91\u77DB\u76FE\uFF0C\u63D0\u9192\u6211\u4EEC\u8BF4\u8BDD\u505A\u4E8B\u8981\u524D\u540E\u4E00\u81F4\uFF0C\u4E0D\u80FD\u628A\u4E92\u76F8\u6392\u65A5\u7684\u8BF4\u6CD5\u540C\u65F6\u5F53\u4F5C\u771F\u7406\u3002",
-      "keywords": [
-        "\u77DB",
-        "\u76FE",
-        "\u903B\u8F91",
-        "\u4E00\u81F4"
-      ],
-      "tags": [
-        "\u6587\u8A00\u6587",
-        "\u601D\u8FA8",
-        "\u5BD3\u8A00"
-      ],
-      "image": "classic-scroll"
-    },
-    {
-      "id": "classical-g6-boya",
-      "excerpt": "\u4F2F\u7259\u9F13\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4E4B\u3002\u65B9\u9F13\u7434\u800C\u5FD7\u5728\u592A\u5C71\uFF0C\u953A\u5B50\u671F\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u5DCD\u5DCD\u4E4E\u82E5\u592A\u5C71\u3002\u201D\u5C11\u9009\u4E4B\u95F4\u800C\u5FD7\u5728\u6D41\u6C34\uFF0C\u953A\u5B50\u671F\u53C8\u66F0\uFF1A\u201C\u5584\u54C9\u4E4E\u9F13\u7434\uFF0C\u6C64\u6C64\u4E4E\u82E5\u6D41\u6C34\u3002\u201D\u953A\u5B50\u671F\u6B7B\uFF0C\u4F2F\u7259\u7834\u7434\u7EDD\u5F26\uFF0C\u7EC8\u8EAB\u4E0D\u590D\u9F13\u7434\uFF0C\u4EE5\u4E3A\u4E16\u65E0\u8DB3\u590D\u4E3A\u9F13\u7434\u8005\u3002",
-      "pinyin": "b\xF3 y\xE1 g\u01D4 q\xEDn\uFF0C zh\u014Dng zi q\u012B t\u012Bng zh\u012B\u3002 f\u0101ng g\u01D4 q\xEDn \xE9r zh\xEC z\xE0i t\xE0i sh\u0101n\uFF0C zh\u014Dng zi q\u012B yu\u0113\uFF1A\u201C sh\xE0n z\u0101i h\u016B g\u01D4 q\xEDn\uFF0C w\u0113i w\u0113i h\u016B ru\xF2 t\xE0i sh\u0101n\u3002\u201D sh\u01CEo xu\u01CEn zh\u012B ji\u0101n \xE9r zh\xEC z\xE0i li\xFA shu\u01D0\uFF0C zh\u014Dng zi q\u012B y\xF2u yu\u0113\uFF1A\u201C sh\xE0n z\u0101i h\u016B g\u01D4 q\xEDn\uFF0C t\u0101ng t\u0101ng h\u016B ru\xF2 li\xFA shu\u01D0\u3002\u201D zh\u014Dng zi q\u012B s\u01D0\uFF0C b\xF3 y\xE1 p\xF2 q\xEDn ju\xE9 xi\xE1n\uFF0C zh\u014Dng sh\u0113n b\xF9 f\xF9 g\u01D4 q\xEDn\uFF0C y\u01D0 w\xE9i sh\xEC w\xFA z\xFA f\xF9 w\xE8i g\u01D4 q\xEDn zh\u011B\u3002",
-      "summary": "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u80FD\u542C\u61C2\u7434\u58F0\u4E2D\u7684\u9AD8\u5C71\u6D41\u6C34\uFF1B\u5B50\u671F\u6B7B\u540E\uFF0C\u4F2F\u7259\u7834\u7434\u7EDD\u5F26\uFF0C\u8868\u73B0\u77E5\u97F3\u96BE\u89C5\u7684\u6DF1\u60C5\u3002",
-      "meaning": "\u4F2F\u7259\u5F39\u7434\uFF0C\u953A\u5B50\u671F\u542C\u4ED6\u5F39\u594F\u3002\u4F2F\u7259\u5FC3\u91CC\u60F3\u7740\u9AD8\u5C71\uFF0C\u5B50\u671F\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u5DCD\u5CE8\u7684\u9AD8\u5C71\u3002\u201D\u8FC7\u4E86\u4E00\u4F1A\u513F\uFF0C\u4F2F\u7259\u5FC3\u91CC\u60F3\u7740\u6D41\u6C34\uFF0C\u5B50\u671F\u53C8\u8BF4\uFF1A\u201C\u5F39\u5F97\u771F\u597D\u554A\uFF0C\u50CF\u6D69\u8361\u7684\u6D41\u6C34\u3002\u201D\u953A\u5B50\u671F\u6B7B\u540E\uFF0C\u4F2F\u7259\u6454\u7834\u7434\u3001\u5272\u65AD\u5F26\uFF0C\u7EC8\u8EAB\u4E0D\u518D\u5F39\u7434\uFF0C\u8BA4\u4E3A\u4E16\u4E0A\u518D\u6CA1\u6709\u503C\u5F97\u4E3A\u4ED6\u5F39\u7434\u7684\u4EBA\u3002",
-      "appreciation": "\u8BFE\u6587\u5148\u5199\u201C\u77E5\u97F3\u201D\u7684\u9ED8\u5951\uFF0C\u518D\u5199\u201C\u7EDD\u5F26\u201D\u7684\u51B3\u7EDD\uFF0C\u524D\u540E\u5F62\u6210\u5F3A\u70C8\u5BF9\u7167\uFF0C\u8868\u73B0\u771F\u631A\u6DF1\u539A\u7684\u53CB\u60C5\u3002",
-      "keywords": [
-        "\u4F2F\u7259",
-        "\u953A\u5B50\u671F",
-        "\u77E5\u97F3",
-        "\u53CB\u60C5"
-      ],
-      "tags": [
-        "\u6587\u8A00\u6587",
-        "\u53CB\u60C5",
-        "\u827A\u672F"
-      ],
-      "image": "classic-lunyu"
-    },
-    {
-      "id": "classical-g6-shudaizonghua",
-      "title": "\u4E66\u6234\u5D69\u753B\u725B",
-      "excerpt": "\u8700\u4E2D\u6709\u675C\u5904\u58EB\uFF0C\u597D\u4E66\u753B\uFF0C\u6240\u5B9D\u4EE5\u767E\u6570\u3002\u6709\u6234\u5D69\u300A\u725B\u300B\u4E00\u8F74\uFF0C\u5C24\u6240\u7231\uFF0C\u9526\u56CA\u7389\u8F74\uFF0C\u5E38\u4EE5\u81EA\u968F\u3002\n\u4E00\u65E5\u66DD\u4E66\u753B\uFF0C\u6709\u4E00\u7267\u7AE5\u89C1\u4E4B\uFF0C\u62CA\u638C\u5927\u7B11\uFF0C\u66F0\uFF1A\u201C\u6B64\u753B\u6597\u725B\u4E5F\u3002\u725B\u6597\uFF0C\u529B\u5728\u89D2\uFF0C\u5C3E\u6410\u5165\u4E24\u80A1\u95F4\u3002\u4ECA\u4E43\u6389\u5C3E\u800C\u6597\uFF0C\u8C2C\u77E3\u3002\u201D\u5904\u58EB\u7B11\u800C\u7136\u4E4B\u3002\u53E4\u8BED\u6709\u4E91\uFF1A\u201C\u8015\u5F53\u95EE\u5974\uFF0C\u7EC7\u5F53\u95EE\u5A62\u3002\u201D\u4E0D\u53EF\u6539\u4E5F\u3002",
-      "pinyin": "sh\u01D4 zh\u014Dng y\u01D2u d\xF9 ch\u01D4 sh\xEC\uFF0C h\u01CEo sh\u016B hu\xE0\uFF0C su\u01D2 b\u01CEo y\u01D0 b\u01CEi sh\xF9\u3002 y\u01D2u d\xE0i s\u014Dng\u300A ni\xFA\u300B y\u012B zh\xF3u\uFF0C y\xF3u su\u01D2 \xE0i\uFF0C j\u01D0n n\xE1ng y\xF9 zh\xF3u\uFF0C ch\xE1ng y\u01D0 z\xEC su\xED\u3002\ny\u012B r\xEC p\xF9 sh\u016B hu\xE0\uFF0C y\u01D2u y\u012B m\xF9 t\xF3ng ji\xE0n zh\u012B\uFF0C f\u01D4 zh\u01CEng d\xE0 xi\xE0o\uFF0C yu\u0113\uFF1A\u201C c\u01D0 hu\xE0 d\xF2u ni\xFA y\u011B\u3002 ni\xFA d\xF2u\uFF0C l\xEC z\xE0i ji\u01CEo\uFF0C w\u011Bi ch\xF9 r\xF9 li\u01CEng g\u01D4 ji\u0101n\u3002 j\u012Bn n\u01CEi di\xE0o w\u011Bi \xE9r d\xF2u\uFF0C mi\xF9 y\u01D0\u3002\u201D ch\u01D4 sh\xEC xi\xE0o \xE9r r\xE1n zh\u012B\u3002 g\u01D4 y\u01D4 y\u01D2u y\xFAn\uFF1A\u201C g\u0113ng d\u0101ng w\xE8n n\xFA\uFF0C zh\u012B d\u0101ng w\xE8n b\xEC\u3002\u201D b\xF9 k\u011B g\u01CEi y\u011B\u3002",
-      "summary": "\u675C\u5904\u58EB\u73CD\u85CF\u6234\u5D69\u7684\u6597\u725B\u56FE\uFF0C\u7267\u7AE5\u5374\u6307\u51FA\u753B\u4E2D\u6597\u725B\u7684\u5C3E\u5DF4\u753B\u9519\u4E86\u3002\u6545\u4E8B\u8BF4\u660E\u8981\u8BA4\u771F\u89C2\u5BDF\u751F\u6D3B\uFF0C\u4E5F\u5E94\u5411\u6709\u5B9E\u8DF5\u7ECF\u9A8C\u7684\u4EBA\u8BF7\u6559\u3002",
-      "meaning": "\u56DB\u5DDD\u6709\u4E2A\u675C\u5904\u58EB\uFF0C\u559C\u7231\u4E66\u753B\uFF0C\u73CD\u85CF\u7684\u4F5C\u54C1\u6709\u4E0A\u767E\u4EF6\u3002\u4ED6\u7279\u522B\u559C\u7231\u6234\u5D69\u7684\u4E00\u5E45\u300A\u725B\u300B\uFF0C\u7528\u9526\u56CA\u88C5\u3001\u7389\u8F74\u5377\uFF0C\u5E38\u5E38\u5E26\u5728\u8EAB\u8FB9\u3002\u4E00\u5929\u6652\u4E66\u753B\u65F6\uFF0C\u4E00\u4E2A\u7267\u7AE5\u770B\u89C1\u540E\u62CD\u624B\u5927\u7B11\uFF0C\u8BF4\uFF1A\u201C\u8FD9\u753B\u7684\u662F\u6597\u725B\u3002\u725B\u76F8\u6597\u65F6\u529B\u91CF\u7528\u5728\u89D2\u4E0A\uFF0C\u5C3E\u5DF4\u5939\u5728\u4E24\u6761\u5927\u817F\u4E4B\u95F4\uFF1B\u73B0\u5728\u5374\u753B\u6210\u6447\u7740\u5C3E\u5DF4\u4E89\u6597\uFF0C\u9519\u4E86\u3002\u201D\u675C\u5904\u58EB\u7B11\u7740\u8BA4\u4E3A\u4ED6\u8BF4\u5F97\u5BF9\u3002\u53E4\u8BED\u8BF4\uFF1A\u201C\u8015\u79CD\u5E94\u5F53\u95EE\u519C\u592B\uFF0C\u7EC7\u5E03\u5E94\u5F53\u95EE\u7EC7\u5973\u3002\u201D\u8FD9\u4E2A\u9053\u7406\u4E0D\u80FD\u66F4\u6539\u3002",
-      "appreciation": "\u7267\u7AE5\u4E00\u53E5\u8BDD\u70B9\u51FA\u753B\u4F5C\u7684\u7EC6\u8282\u9519\u8BEF\uFF0C\u8BF4\u660E\u771F\u6B63\u7684\u77E5\u8BC6\u4E0D\u53EA\u6765\u81EA\u4E66\u672C\u548C\u540D\u5BB6\uFF0C\u4E5F\u6765\u81EA\u5BF9\u751F\u6D3B\u7684\u7EC6\u81F4\u89C2\u5BDF\u3002",
-      "keywords": [
-        "\u6234\u5D69",
-        "\u7267\u7AE5",
-        "\u89C2\u5BDF",
-        "\u5B9E\u8DF5"
-      ],
-      "tags": [
-        "\u6587\u8A00\u6587",
-        "\u827A\u672F",
-        "\u89C2\u5BDF"
-      ],
-      "image": "classic-scroll"
-    },
-    {
-      "id": "classical-g6-xueyi",
-      "excerpt": "\u5F08\u79CB\uFF0C\u901A\u56FD\u4E4B\u5584\u5F08\u8005\u4E5F\u3002\u4F7F\u5F08\u79CB\u8BF2\u4E8C\u4EBA\u5F08\uFF0C\u5176\u4E00\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u60DF\u5F08\u79CB\u4E4B\u4E3A\u542C\uFF1B\u4E00\u4EBA\u867D\u542C\u4E4B\uFF0C\u4E00\u5FC3\u4EE5\u4E3A\u6709\u9E3F\u9E44\u5C06\u81F3\uFF0C\u601D\u63F4\u5F13\u7F34\u800C\u5C04\u4E4B\u3002\u867D\u4E0E\u4E4B\u4FF1\u5B66\uFF0C\u5F17\u82E5\u4E4B\u77E3\u3002\u4E3A\u662F\u5176\u667A\u5F17\u82E5\u4E0E\uFF1F\u66F0\uFF1A\u975E\u7136\u4E5F\u3002",
-      "pinyin": "y\xEC qi\u016B\uFF0C t\u014Dng gu\xF3 zh\u012B sh\xE0n y\xEC zh\u011B y\u011B\u3002 sh\u01D0 y\xEC qi\u016B hu\xEC \xE8r r\xE9n y\xEC\uFF0C q\xED y\u012B r\xE9n zhu\u0101n x\u012Bn zh\xEC zh\xEC\uFF0C w\xE9i y\xEC qi\u016B zh\u012B w\xE8i t\u012Bng\uFF1B y\u012B r\xE9n su\u012B t\u012Bng zh\u012B\uFF0C y\u012B x\u012Bn y\u01D0 w\xE9i y\u01D2u h\xF3ng h\xFA ji\u0101ng zh\xEC\uFF0C s\u012B yu\xE1n g\u014Dng ji\u01CEo \xE9r sh\xE8 zh\u012B\u3002 su\u012B y\u01D4 zh\u012B j\xF9 xu\xE9\uFF0C f\xFA ru\xF2 zh\u012B y\u01D0\u3002 w\xE8i sh\xEC q\xED zh\xEC f\xFA ru\xF2 y\u01D4\uFF1F yu\u0113\uFF1A f\u0113i r\xE1n y\u011B\u3002",
-      "summary": "\u4E24\u4E2A\u5B66\u751F\u8DDF\u5F08\u79CB\u5B66\u4E0B\u68CB\uFF0C\u4E00\u4E2A\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u4E00\u4E2A\u60F3\u7740\u5C04\u5929\u9E45\uFF0C\u5B66\u4E60\u7ED3\u679C\u4E0D\u540C\uFF0C\u8BF4\u660E\u5B66\u4E60\u5FC5\u987B\u4E13\u5FC3\u3002",
-      "meaning": "\u5F08\u79CB\u662F\u5168\u56FD\u6700\u64C5\u957F\u4E0B\u68CB\u7684\u4EBA\u3002\u8BA9\u4ED6\u6559\u4E24\u4E2A\u4EBA\u4E0B\u68CB\uFF0C\u5176\u4E2D\u4E00\u4E2A\u4EBA\u4E13\u5FC3\u81F4\u5FD7\uFF0C\u53EA\u542C\u5F08\u79CB\u7684\u6559\u5BFC\uFF1B\u53E6\u4E00\u4E2A\u4EBA\u867D\u7136\u4E5F\u5728\u542C\uFF0C\u5374\u4E00\u5FC3\u60F3\u7740\u6709\u5929\u9E45\u5C06\u8981\u98DE\u6765\uFF0C\u60F3\u62C9\u5F13\u642D\u7BAD\u53BB\u5C04\u5B83\u3002\u8FD9\u4E2A\u4EBA\u867D\u7136\u548C\u524D\u4E00\u4E2A\u4EBA\u4E00\u8D77\u5B66\u4E60\uFF0C\u6210\u7EE9\u5374\u4E0D\u5982\u524D\u4E00\u4E2A\u4EBA\u3002\u662F\u56E0\u4E3A\u4ED6\u7684\u667A\u529B\u4E0D\u5982\u524D\u4E00\u4E2A\u4EBA\u5417\uFF1F\u56DE\u7B54\u8BF4\uFF1A\u4E0D\u662F\u8FD9\u6837\u7684\u3002",
-      "appreciation": "\u8BFE\u6587\u7528\u540C\u4E00\u4E2A\u8001\u5E08\u3001\u540C\u6837\u7684\u5B66\u4E60\u6761\u4EF6\u4F5C\u5BF9\u6BD4\uFF0C\u7A81\u51FA\u4E13\u5FC3\u4E0E\u5426\u624D\u662F\u7ED3\u679C\u4E0D\u540C\u7684\u5173\u952E\u3002",
-      "keywords": [
-        "\u5F08\u79CB",
-        "\u4E0B\u68CB",
-        "\u4E13\u5FC3",
-        "\u5B66\u4E60"
-      ],
-      "tags": [
-        "\u6587\u8A00\u6587",
-        "\u5B66\u4E60",
-        "\u601D\u8FA8"
-      ],
-      "image": "classic-books"
-    },
-    {
-      "id": "classical-g6-lianger",
-      "title": "\u4E24\u5C0F\u513F\u8FA9\u65E5",
-      "excerpt": "\u5B54\u5B50\u4E1C\u6E38\uFF0C\u89C1\u4E24\u5C0F\u513F\u8FA9\u6597\uFF0C\u95EE\u5176\u6545\u3002\n\u4E00\u513F\u66F0\uFF1A\u201C\u6211\u4EE5\u65E5\u59CB\u51FA\u65F6\u53BB\u4EBA\u8FD1\uFF0C\u800C\u65E5\u4E2D\u65F6\u8FDC\u4E5F\u3002\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u6211\u4EE5\u65E5\u521D\u51FA\u8FDC\uFF0C\u800C\u65E5\u4E2D\u65F6\u8FD1\u4E5F\u3002\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u65E5\u521D\u51FA\u5927\u5982\u8F66\u76D6\uFF0C\u53CA\u65E5\u4E2D\u5219\u5982\u76D8\u76C2\uFF0C\u6B64\u4E0D\u4E3A\u8FDC\u8005\u5C0F\u800C\u8FD1\u8005\u5927\u4E4E\uFF1F\u201D\n\u4E00\u513F\u66F0\uFF1A\u201C\u65E5\u521D\u51FA\u6CA7\u6CA7\u51C9\u51C9\uFF0C\u53CA\u5176\u65E5\u4E2D\u5982\u63A2\u6C64\uFF0C\u6B64\u4E0D\u4E3A\u8FD1\u8005\u70ED\u800C\u8FDC\u8005\u51C9\u4E4E\uFF1F\u201D\n\u5B54\u5B50\u4E0D\u80FD\u51B3\u4E5F\u3002\n\u4E24\u5C0F\u513F\u7B11\u66F0\uFF1A\u201C\u5B70\u4E3A\u6C5D\u591A\u77E5\u4E4E\uFF1F\u201D",
-      "pinyin": "k\u01D2ng zi d\u014Dng y\xF3u\uFF0C ji\xE0n li\u01CEng xi\u01CEo \xE9r bi\xE0n d\xF2u\uFF0C w\xE8n q\xED g\xF9\u3002\ny\u012B \xE9r yu\u0113\uFF1A\u201C w\u01D2 y\u01D0 r\xEC sh\u01D0 ch\u016B sh\xED q\xF9 r\xE9n j\xECn\uFF0C \xE9r r\xEC zh\u014Dng sh\xED yu\u01CEn y\u011B\u3002\u201D\ny\u012B \xE9r yu\u0113\uFF1A\u201C w\u01D2 y\u01D0 r\xEC ch\u016B ch\u016B yu\u01CEn\uFF0C \xE9r r\xEC zh\u014Dng sh\xED j\xECn y\u011B\u3002\u201D\ny\u012B \xE9r yu\u0113\uFF1A\u201C r\xEC ch\u016B ch\u016B d\xE0 r\xFA ch\u0113 g\xE0i\uFF0C j\xED r\xEC zh\u014Dng z\xE9 r\xFA p\xE1n y\xFA\uFF0C c\u01D0 b\xF9 w\xE8i yu\u01CEn zh\u011B xi\u01CEo \xE9r j\xECn zh\u011B d\xE0 h\u016B\uFF1F\u201D\ny\u012B \xE9r yu\u0113\uFF1A\u201C r\xEC ch\u016B ch\u016B c\u0101ng c\u0101ng li\xE1ng li\xE1ng\uFF0C j\xED q\xED r\xEC zh\u014Dng r\xFA t\xE0n t\u0101ng\uFF0C c\u01D0 b\xF9 w\xE8i j\xECn zh\u011B r\xE8 \xE9r yu\u01CEn zh\u011B li\xE1ng h\u016B\uFF1F\u201D\nk\u01D2ng zi b\xF9 n\xE9ng ju\xE9 y\u011B\u3002\nli\u01CEng xi\u01CEo \xE9r xi\xE0o yu\u0113\uFF1A\u201C sh\xFA w\xE8i r\u01D4 du\u014D zh\u012B h\u016B\uFF1F\u201D",
-      "summary": "\u4E24\u4E2A\u5C0F\u5B69\u4ECE\u592A\u9633\u7684\u5927\u5C0F\u548C\u51B7\u70ED\u4E24\u4E2A\u89D2\u5EA6\u4E89\u8BBA\u592A\u9633\u8FDC\u8FD1\uFF0C\u5B54\u5B50\u4E0D\u80FD\u5224\u65AD\u3002\u6545\u4E8B\u8BF4\u660E\u8981\u5584\u4E8E\u89C2\u5BDF\u3001\u72EC\u7ACB\u601D\u8003\uFF0C\u4E5F\u8BF4\u660E\u77E5\u8BC6\u6CA1\u6709\u6B62\u5883\u3002",
-      "meaning": "\u5B54\u5B50\u5230\u4E1C\u65B9\u6E38\u5386\u65F6\uFF0C\u770B\u89C1\u4E24\u4E2A\u5C0F\u5B69\u5728\u4E89\u8BBA\uFF0C\u4FBF\u95EE\u539F\u56E0\u3002\u4E00\u4E2A\u5C0F\u5B69\u8BA4\u4E3A\u592A\u9633\u521A\u5347\u8D77\u65F6\u79BB\u4EBA\u8FD1\uFF0C\u4E2D\u5348\u79BB\u4EBA\u8FDC\uFF1B\u53E6\u4E00\u4E2A\u8BA4\u4E3A\u521A\u5347\u8D77\u65F6\u8FDC\uFF0C\u4E2D\u5348\u8FD1\u3002\u4E00\u4E2A\u8BF4\u592A\u9633\u521A\u5347\u8D77\u65F6\u5927\u5F97\u50CF\u8F66\u76D6\uFF0C\u4E2D\u5348\u5C0F\u5F97\u50CF\u76D8\u76C2\uFF0C\u8FD9\u4E0D\u662F\u8FDC\u5C0F\u8FD1\u5927\u5417\uFF1F\u53E6\u4E00\u4E2A\u8BF4\u592A\u9633\u521A\u5347\u8D77\u65F6\u6E05\u51C9\uFF0C\u4E2D\u5348\u70ED\u5F97\u50CF\u628A\u624B\u4F38\u8FDB\u70ED\u6C34\u91CC\uFF0C\u8FD9\u4E0D\u662F\u8FD1\u70ED\u8FDC\u51C9\u5417\uFF1F\u5B54\u5B50\u65E0\u6CD5\u5224\u65AD\u3002\u4E24\u4E2A\u5C0F\u5B69\u7B11\u7740\u8BF4\uFF1A\u201C\u8C01\u8BF4\u4F60\u77E5\u8BC6\u6E0A\u535A\u5462\uFF1F\u201D",
-      "appreciation": "\u4E24\u4E2A\u5C0F\u5B69\u90FD\u4ECE\u89C2\u5BDF\u51FA\u53D1\uFF0C\u5374\u5F97\u51FA\u76F8\u53CD\u7ED3\u8BBA\u3002\u6545\u4E8B\u65E2\u8D5E\u8D4F\u6562\u4E8E\u8D28\u7591\u3001\u72EC\u7ACB\u601D\u8003\uFF0C\u4E5F\u544A\u8BC9\u6211\u4EEC\u8BA4\u8BC6\u81EA\u7136\u9700\u8981\u66F4\u79D1\u5B66\u7684\u65B9\u6CD5\u3002",
-      "keywords": [
+        "\u8BBA\u8BED",
         "\u5B54\u5B50",
-        "\u592A\u9633",
-        "\u4E89\u8BBA",
-        "\u89C2\u5BDF"
-      ],
+        "\u5B66\u4E60"
+      ]
+    },
+    {
+      "id": "classics-g1-dizigui-2",
+      "grade": 1,
+      "volume": "\u56FD\u5B66",
+      "title": "\u7236\u6BCD\u547C",
+      "author": "\u300A\u5F1F\u5B50\u89C4\u300B",
+      "dynasty": "\u6E05",
+      "excerpt": "\u7236\u6BCD\u547C\uFF0C\u5E94\u52FF\u7F13\u3002\u7236\u6BCD\u547D\uFF0C\u884C\u52FF\u61D2\u3002\n\u7236\u6BCD\u6559\uFF0C\u987B\u656C\u542C\u3002\u7236\u6BCD\u8D23\uFF0C\u987B\u987A\u627F\u3002",
+      "pinyin": "f\xF9 m\u01D4 h\u016B\uFF0Cy\xECng w\xF9 hu\u01CEn\u3002f\xF9 m\u01D4 m\xECng\uFF0Cx\xEDng w\xF9 l\u01CEn\u3002\nf\xF9 m\u01D4 ji\xE0o\uFF0Cx\u016B j\xECng t\u012Bng\u3002f\xF9 m\u01D4 z\xE9\uFF0Cx\u016B sh\xF9n ch\xE9ng\u3002",
+      "category": "dizigui",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u5F1F\u5B50\u89C4\u300B",
+      "meaning": "\u7236\u6BCD\u53EB\u4F60\u7684\u65F6\u5019\uFF0C\u8981\u8D76\u5FEB\u7B54\u5E94\uFF0C\u4E0D\u8981\u6162\u6162\u541E\u541E\u3002\u7236\u6BCD\u8BA9\u4F60\u505A\u4E8B\uFF0C\u8981\u7ACB\u523B\u884C\u52A8\uFF0C\u4E0D\u8981\u5077\u61D2\u3002\u7236\u6BCD\u6559\u5BFC\u4F60\u65F6\uFF0C\u8981\u606D\u656C\u5730\u542C\uFF1B\u7236\u6BCD\u8D23\u5907\u4F60\u65F6\uFF0C\u8981\u865A\u5FC3\u63A5\u53D7\u3002",
+      "appreciation": "\u53E5\u5B50\u7B80\u77ED\u6574\u9F50\uFF0C\u50CF\u4E00\u9996\u884C\u4E3A\u6B4C\u3002\u5B83\u5F3A\u8C03\u7684\u4E0D\u4EC5\u662F\u6709\u793C\u8C8C\uFF0C\u66F4\u662F\u628A\u5C0A\u91CD\u843D\u5B9E\u5728\u53CA\u65F6\u56DE\u5E94\u3001\u8BA4\u771F\u884C\u52A8\u8FD9\u4E9B\u5C0F\u4E8B\u4E0A\u3002",
       "tags": [
-        "\u6587\u8A00\u6587",
-        "\u601D\u8FA8",
-        "\u79D1\u5B66"
-      ],
-      "image": "classic-lunyu"
+        "\u5F1F\u5B50\u89C4",
+        "\u5B5D\u4EB2",
+        "\u4E60\u60EF"
+      ]
+    },
+    {
+      "id": "classics-g1-qianziwen-3",
+      "grade": 1,
+      "volume": "\u56FD\u5B66",
+      "title": "\u5929\u5730\u7384\u9EC4",
+      "author": "\u5468\u5174\u55E3",
+      "dynasty": "\u5357\u671D\u6881",
+      "excerpt": "\u5929\u5730\u7384\u9EC4\uFF0C\u5B87\u5B99\u6D2A\u8352\u3002\n\u65E5\u6708\u76C8\u6603\uFF0C\u8FB0\u5BBF\u5217\u5F20\u3002",
+      "pinyin": "ti\u0101n d\xEC xu\xE1n hu\xE1ng\uFF0Cy\u01D4 zh\xF2u h\xF3ng hu\u0101ng\u3002\nr\xEC yu\xE8 y\xEDng z\xE8\uFF0Cch\xE9n xi\xF9 li\xE8 zh\u0101ng\u3002",
+      "category": "qianziwen",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u5468\u5174\u55E3",
+      "meaning": "\u5929\u7A7A\u662F\u9752\u9ED1\u8272\u7684\uFF0C\u5927\u5730\u662F\u9EC4\u8272\u7684\u3002\u5B87\u5B99\u8FBD\u9614\u65E0\u8FB9\uFF0C\u8FDC\u53E4\u65F6\u4EE3\u4E00\u7247\u82CD\u832B\u3002\u592A\u9633\u6709\u6B63\u6709\u659C\uFF0C\u6708\u4EAE\u6709\u5706\u6709\u7F3A\uFF0C\u661F\u8FB0\u6574\u9F50\u5730\u6392\u5217\u5728\u5929\u7A7A\u4E2D\u3002",
+      "appreciation": "\u56DB\u5B57\u4E00\u53E5\uFF0C\u5BF9\u4ED7\u5DE5\u6574\uFF0C\u628A\u5929\u5730\u3001\u5B87\u5B99\u3001\u65E5\u6708\u3001\u661F\u8FB0\u6536\u5165\u4E00\u5E45\u5927\u753B\u9762\u3002\u8BFB\u7684\u65F6\u5019\u53EF\u60F3\u8C61\u62AC\u5934\u671B\u5929\uFF0C\u611F\u53D7\u53E4\u4EBA\u5BF9\u81EA\u7136\u7684\u89C2\u5BDF\u3002",
+      "tags": [
+        "\u5343\u5B57\u6587",
+        "\u81EA\u7136",
+        "\u542F\u8499"
+      ]
+    },
+    {
+      "id": "classics-g2-sanzi-4",
+      "grade": 2,
+      "volume": "\u56FD\u5B66",
+      "title": "\u9999\u4E5D\u9F84\uFF0C\u80FD\u6E29\u5E2D",
+      "author": "\u300A\u4E09\u5B57\u7ECF\u300B",
+      "dynasty": "\u5357\u5B8B",
+      "excerpt": "\u9999\u4E5D\u9F84\uFF0C\u80FD\u6E29\u5E2D\u3002\u5B5D\u4E8E\u4EB2\uFF0C\u6240\u5F53\u6267\u3002\n\u878D\u56DB\u5C81\uFF0C\u80FD\u8BA9\u68A8\u3002\u5F1F\u4E8E\u957F\uFF0C\u5B9C\u5148\u77E5\u3002",
+      "pinyin": "xi\u0101ng ji\u01D4 l\xEDng\uFF0Cn\xE9ng w\u0113n x\xED\u3002xi\xE0o y\xFA q\u012Bn\uFF0Csu\u01D2 d\u0101ng zh\xED\u3002\nr\xF3ng s\xEC su\xEC\uFF0Cn\xE9ng r\xE0ng l\xED\u3002t\xEC y\xFA zh\u01CEng\uFF0Cy\xED xi\u0101n zh\u012B\u3002",
+      "category": "sanzi",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u4E09\u5B57\u7ECF\u300B",
+      "meaning": "\u9EC4\u9999\u4E5D\u5C81\u7684\u65F6\u5019\uFF0C\u5C31\u80FD\u5728\u51AC\u5929\u4E3A\u7236\u4EB2\u6696\u70ED\u88AB\u8925\u3002\u5B5D\u656C\u7236\u6BCD\uFF0C\u662F\u6BCF\u4E2A\u4EBA\u5E94\u5F53\u505A\u7684\u4E8B\u3002\u5B54\u878D\u56DB\u5C81\u7684\u65F6\u5019\uFF0C\u5C31\u77E5\u9053\u628A\u5927\u68A8\u8BA9\u7ED9\u54E5\u54E5\u3002\u5C0A\u656C\u5144\u957F\uFF0C\u5E94\u5F53\u65E9\u65E9\u61C2\u5F97\u3002",
+      "appreciation": "\u4E24\u4E2A\u6545\u4E8B\u90FD\u5F88\u5177\u4F53\uFF0C\u4E00\u4E2A\u201C\u6E29\u5E2D\u201D\uFF0C\u4E00\u4E2A\u201C\u8BA9\u68A8\u201D\uFF0C\u628A\u62BD\u8C61\u7684\u5B5D\u608C\u53D8\u6210\u5B69\u5B50\u80FD\u505A\u5230\u7684\u5C0F\u884C\u52A8\u3002",
+      "tags": [
+        "\u4E09\u5B57\u7ECF",
+        "\u5B5D\u4EB2",
+        "\u793C\u8BA9"
+      ]
+    },
+    {
+      "id": "classics-g2-lunyu-5",
+      "grade": 2,
+      "volume": "\u56FD\u5B66",
+      "title": "\u6E29\u6545\u800C\u77E5\u65B0",
+      "author": "\u300A\u8BBA\u8BED\u300B",
+      "dynasty": "\u6625\u79CB",
+      "excerpt": "\u5B50\u66F0\uFF1A\u201C\u6E29\u6545\u800C\u77E5\u65B0\uFF0C\u53EF\u4EE5\u4E3A\u5E08\u77E3\u3002\u201D",
+      "pinyin": "z\u01D0 yu\u0113\uFF1A\u201Cw\u0113n g\xF9 \xE9r zh\u012B x\u012Bn\uFF0Ck\u011B y\u01D0 w\xE9i sh\u012B y\u01D0\u3002\u201D",
+      "category": "lunyu",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u8BBA\u8BED\u300B",
+      "meaning": "\u5B54\u5B50\u8BF4\uFF1A\u201C\u6E29\u4E60\u5B66\u8FC7\u7684\u77E5\u8BC6\uFF0C\u53C8\u80FD\u4ECE\u4E2D\u83B7\u5F97\u65B0\u7684\u7406\u89E3\u548C\u4F53\u4F1A\uFF0C\u5C31\u53EF\u4EE5\u505A\u8001\u5E08\u4E86\u3002\u201D",
+      "appreciation": "\u201C\u6E29\u6545\u201D\u662F\u65B9\u6CD5\uFF0C\u201C\u77E5\u65B0\u201D\u662F\u76EE\u6807\u3002\u590D\u4E60\u65F6\u6362\u4E00\u4E2A\u89D2\u5EA6\u3001\u8054\u7CFB\u65B0\u7684\u4F8B\u5B50\uFF0C\u5C31\u4F1A\u8D8A\u8BFB\u8D8A\u6709\u53D1\u73B0\u3002",
+      "tags": [
+        "\u8BBA\u8BED",
+        "\u5B66\u4E60\u65B9\u6CD5",
+        "\u6E29\u6545"
+      ]
+    },
+    {
+      "id": "classics-g2-dizigui-6",
+      "grade": 2,
+      "volume": "\u56FD\u5B66",
+      "title": "\u6668\u5219\u7701\uFF0C\u660F\u5219\u5B9A",
+      "author": "\u300A\u5F1F\u5B50\u89C4\u300B",
+      "dynasty": "\u6E05",
+      "excerpt": "\u51AC\u5219\u6E29\uFF0C\u590F\u5219\u51CA\u3002\u6668\u5219\u7701\uFF0C\u660F\u5219\u5B9A\u3002\n\u51FA\u5FC5\u544A\uFF0C\u53CD\u5FC5\u9762\u3002\u5C45\u6709\u5E38\uFF0C\u4E1A\u65E0\u53D8\u3002",
+      "pinyin": "d\u014Dng z\xE9 w\u0113n\uFF0Cxi\xE0 z\xE9 q\xECng\u3002ch\xE9n z\xE9 x\u01D0ng\uFF0Ch\u016Bn z\xE9 d\xECng\u3002\nch\u016B b\xEC g\xE0o\uFF0Cf\u01CEn b\xEC mi\xE0n\u3002j\u016B y\u01D2u ch\xE1ng\uFF0Cy\xE8 w\xFA bi\xE0n\u3002",
+      "category": "dizigui",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u5F1F\u5B50\u89C4\u300B",
+      "meaning": "\u51AC\u5929\u8981\u8BA9\u7236\u6BCD\u6E29\u6696\uFF0C\u590F\u5929\u8981\u8BA9\u7236\u6BCD\u6E05\u51C9\u3002\u65E9\u6668\u8981\u95EE\u5019\u7236\u6BCD\uFF0C\u665A\u4E0A\u8981\u5B89\u987F\u597D\u4ED6\u4EEC\u3002\u51FA\u95E8\u4E00\u5B9A\u8981\u544A\u8BC9\u7236\u6BCD\uFF0C\u56DE\u5BB6\u4E00\u5B9A\u8981\u89C1\u9762\u6253\u62DB\u547C\u3002\u5C45\u4F4F\u7684\u5730\u65B9\u8981\u7A33\u5B9A\uFF0C\u804C\u4E1A\u4E0D\u8981\u968F\u610F\u6539\u53D8\u3002",
+      "appreciation": "\u8FD9\u6BB5\u8BDD\u7684\u6838\u5FC3\u662F\u201C\u8BA9\u5BB6\u4EBA\u653E\u5FC3\u201D\u3002\u4ECA\u5929\u7684\u8868\u8FBE\u4E0D\u5FC5\u7167\u642C\u53E4\u4EE3\u793C\u8282\uFF0C\u4F46\u4E3B\u52A8\u62A5\u5E73\u5B89\u3001\u5173\u5FC3\u51B7\u6696\u4ECD\u7136\u5F88\u91CD\u8981\u3002",
+      "tags": [
+        "\u5F1F\u5B50\u89C4",
+        "\u5BB6\u5EAD",
+        "\u4E60\u60EF"
+      ]
+    },
+    {
+      "id": "classics-g2-qianziwen-7",
+      "grade": 2,
+      "volume": "\u56FD\u5B66",
+      "title": "\u5BD2\u6765\u6691\u5F80",
+      "author": "\u5468\u5174\u55E3",
+      "dynasty": "\u5357\u671D\u6881",
+      "excerpt": "\u5BD2\u6765\u6691\u5F80\uFF0C\u79CB\u6536\u51AC\u85CF\u3002\n\u95F0\u4F59\u6210\u5C81\uFF0C\u5F8B\u5415\u8C03\u9633\u3002",
+      "pinyin": "h\xE1n l\xE1i sh\u01D4 w\u01CEng\uFF0Cqi\u016B sh\u014Du d\u014Dng c\xE1ng\u3002\nr\xF9n y\xFA ch\xE9ng su\xEC\uFF0Cl\u01DC l\u01DA ti\xE1o y\xE1ng\u3002",
+      "category": "qianziwen",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u5468\u5174\u55E3",
+      "meaning": "\u5BD2\u51AC\u6765\u4E86\uFF0C\u6691\u590F\u8FC7\u53BB\uFF0C\u56DB\u5B63\u5FAA\u73AF\u3002\u79CB\u5929\u6536\u5272\u5E84\u7A3C\uFF0C\u51AC\u5929\u628A\u7CAE\u98DF\u50A8\u85CF\u8D77\u6765\u3002\u628A\u6BCF\u5E74\u591A\u51FA\u7684\u65E5\u5B50\u7D2F\u79EF\u8D77\u6765\u8BBE\u7F6E\u95F0\u6708\uFF0C\u5C31\u6210\u4E86\u4E00\u5E74\u4E00\u5E74\uFF1B\u7528\u516D\u5F8B\u516D\u5415\u6765\u8C03\u8282\u9634\u9633\u3002",
+      "appreciation": "\u4ECE\u5B63\u8282\u53D8\u5316\u5199\u5230\u519C\u4E8B\u4E0E\u5386\u6CD5\uFF0C\u77ED\u77ED\u5341\u516D\u5B57\u8FDE\u63A5\u81EA\u7136\u3001\u751F\u6D3B\u4E0E\u53E4\u4EBA\u7684\u667A\u6167\u3002",
+      "tags": [
+        "\u5343\u5B57\u6587",
+        "\u81EA\u7136",
+        "\u8282\u6C14"
+      ]
+    },
+    {
+      "id": "classics-g3-sanzi-8",
+      "grade": 3,
+      "volume": "\u56FD\u5B66",
+      "title": "\u51E1\u8BAD\u8499\uFF0C\u987B\u8BB2\u7A76",
+      "author": "\u300A\u4E09\u5B57\u7ECF\u300B",
+      "dynasty": "\u5357\u5B8B",
+      "excerpt": "\u51E1\u8BAD\u8499\uFF0C\u987B\u8BB2\u7A76\u3002\u8BE6\u8BAD\u8BC2\uFF0C\u660E\u53E5\u8BFB\u3002\n\u4E3A\u5B66\u8005\uFF0C\u5FC5\u6709\u521D\u3002\u5C0F\u5B66\u7EC8\uFF0C\u81F3\u56DB\u4E66\u3002",
+      "pinyin": "f\xE1n x\xF9n m\xE9ng\uFF0Cx\u016B ji\u01CEng ji\u016B\u3002xi\xE1ng x\xF9n g\u01D4\uFF0Cm\xEDng j\xF9 d\xF2u\u3002\nw\xE9i xu\xE9 zh\u011B\uFF0Cb\xEC y\u01D2u ch\u016B\u3002xi\u01CEo xu\xE9 zh\u014Dng\uFF0Czh\xEC s\xEC sh\u016B\u3002",
+      "category": "sanzi",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u4E09\u5B57\u7ECF\u300B",
+      "meaning": "\u51E1\u662F\u6559\u5BFC\u513F\u7AE5\uFF0C\u90FD\u5FC5\u987B\u8BB2\u6C42\u65B9\u6CD5\u3002\u8981\u8BE6\u7EC6\u89E3\u91CA\u5B57\u4E49\uFF0C\u660E\u767D\u53E5\u5B50\u7684\u505C\u987F\u548C\u610F\u601D\u3002\u505A\u5B66\u95EE\u7684\u4EBA\uFF0C\u4E00\u5B9A\u8981\u6709\u826F\u597D\u7684\u5F00\u7AEF\u3002\u5148\u5B66\u5B8C\u57FA\u7840\uFF0C\u518D\u8BFB\u300A\u56DB\u4E66\u300B\u3002",
+      "appreciation": "\u8FD9\u6BB5\u8BDD\u5F88\u50CF\u4E00\u4EFD\u5B66\u4E60\u8BA1\u5212\uFF1A\u5148\u7406\u89E3\u5B57\u8BCD\uFF0C\u518D\u8BFB\u6574\u53E5\uFF0C\u518D\u7531\u6D45\u5165\u6DF1\u3002\u4ECA\u5929\u8BFB\u53E4\u8BD7\u6587\u4E5F\u53EF\u4EE5\u8FD9\u6837\u505A\u3002",
+      "tags": [
+        "\u4E09\u5B57\u7ECF",
+        "\u5B66\u4E60\u65B9\u6CD5",
+        "\u8BF5\u8BFB"
+      ]
+    },
+    {
+      "id": "classics-g3-lunyu-9",
+      "grade": 3,
+      "volume": "\u56FD\u5B66",
+      "title": "\u77E5\u4E4B\u4E3A\u77E5\u4E4B",
+      "author": "\u300A\u8BBA\u8BED\u300B",
+      "dynasty": "\u6625\u79CB",
+      "excerpt": "\u5B50\u66F0\uFF1A\u201C\u77E5\u4E4B\u4E3A\u77E5\u4E4B\uFF0C\u4E0D\u77E5\u4E3A\u4E0D\u77E5\uFF0C\u662F\u77E5\u4E5F\u3002\u201D",
+      "pinyin": "z\u01D0 yu\u0113\uFF1A\u201Czh\u012B zh\u012B w\xE9i zh\u012B zh\u012B\uFF0Cb\xF9 zh\u012B w\xE9i b\xF9 zh\u012B\uFF0Csh\xEC zh\xEC y\u011B\u3002\u201D",
+      "category": "lunyu",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u8BBA\u8BED\u300B",
+      "meaning": "\u5B54\u5B50\u8BF4\uFF1A\u201C\u77E5\u9053\u5C31\u662F\u77E5\u9053\uFF0C\u4E0D\u77E5\u9053\u5C31\u662F\u4E0D\u77E5\u9053\uFF0C\u8FD9\u624D\u662F\u806A\u660E\u667A\u6167\u5440\u3002\u201D",
+      "appreciation": "\u627F\u8BA4\u201C\u4E0D\u77E5\u9053\u201D\u5E76\u4E0D\u53EF\u6015\uFF0C\u5047\u88C5\u77E5\u9053\u624D\u4F1A\u963B\u788D\u5B66\u4E60\u3002\u8BDA\u5B9E\u7684\u6C42\u77E5\u6001\u5EA6\uFF0C\u6BD4\u4E00\u65F6\u7B54\u5BF9\u66F4\u91CD\u8981\u3002",
+      "tags": [
+        "\u8BBA\u8BED",
+        "\u6C42\u77E5",
+        "\u8BDA\u5B9E"
+      ]
+    },
+    {
+      "id": "classics-g3-dizigui-10",
+      "grade": 3,
+      "volume": "\u56FD\u5B66",
+      "title": "\u51E1\u51FA\u8A00\uFF0C\u4FE1\u4E3A\u5148",
+      "author": "\u300A\u5F1F\u5B50\u89C4\u300B",
+      "dynasty": "\u6E05",
+      "excerpt": "\u51E1\u51FA\u8A00\uFF0C\u4FE1\u4E3A\u5148\u3002\u8BC8\u4E0E\u5984\uFF0C\u595A\u53EF\u7109\u3002\n\u8BDD\u8BF4\u591A\uFF0C\u4E0D\u5982\u5C11\u3002\u60DF\u5176\u662F\uFF0C\u52FF\u4F5E\u5DE7\u3002",
+      "pinyin": "f\xE1n ch\u016B y\xE1n\uFF0Cx\xECn w\xE9i xi\u0101n\u3002zh\xE0 y\u01D4 w\xE0ng\uFF0Cx\u012B k\u011B y\u0101n\u3002\nhu\xE0 shu\u014D du\u014D\uFF0Cb\xF9 r\xFA sh\u01CEo\u3002w\xE9i q\xED sh\xEC\uFF0Cw\xF9 n\xECng qi\u01CEo\u3002",
+      "category": "dizigui",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u5F1F\u5B50\u89C4\u300B",
+      "meaning": "\u51E1\u662F\u8BF4\u8BDD\uFF0C\u8BDA\u4FE1\u6700\u91CD\u8981\u3002\u6B3A\u9A97\u548C\u80E1\u8BF4\u600E\u4E48\u80FD\u884C\u5462\uFF1F\u8BDD\u8BF4\u5F97\u591A\uFF0C\u4E0D\u5982\u8BF4\u5F97\u5C11\u3002\u53EA\u8981\u8BF4\u5F97\u771F\u5B9E\uFF0C\u4E0D\u8981\u82B1\u8A00\u5DE7\u8BED\u3002",
+      "appreciation": "\u8FD9\u6BB5\u65E2\u8BB2\u201C\u8BF4\u4EC0\u4E48\u201D\uFF0C\u4E5F\u8BB2\u201C\u8BF4\u591A\u5C11\u201D\u3002\u201C\u4FE1\u4E3A\u5148\u201D\u4E0E\u201C\u52FF\u4F5E\u5DE7\u201D\u63D0\u9192\u6211\u4EEC\uFF0C\u8BED\u8A00\u7684\u529B\u91CF\u6765\u81EA\u771F\u5B9E\uFF0C\u800C\u4E0D\u662F\u5938\u5F20\u3002",
+      "tags": [
+        "\u5F1F\u5B50\u89C4",
+        "\u8BDA\u4FE1",
+        "\u8868\u8FBE"
+      ]
+    },
+    {
+      "id": "classics-g3-qianziwen-11",
+      "grade": 3,
+      "volume": "\u56FD\u5B66",
+      "title": "\u9F99\u5E08\u706B\u5E1D",
+      "author": "\u5468\u5174\u55E3",
+      "dynasty": "\u5357\u671D\u6881",
+      "excerpt": "\u9F99\u5E08\u706B\u5E1D\uFF0C\u9E1F\u5B98\u4EBA\u7687\u3002\n\u59CB\u5236\u6587\u5B57\uFF0C\u4E43\u670D\u8863\u88F3\u3002",
+      "pinyin": "l\xF3ng sh\u012B hu\u01D2 d\xEC\uFF0Cni\u01CEo gu\u0101n r\xE9n hu\xE1ng\u3002\nsh\u01D0 zh\xEC w\xE9n z\xEC\uFF0Cn\u01CEi f\xFA y\u012B ch\xE1ng\u3002",
+      "category": "qianziwen",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u5468\u5174\u55E3",
+      "meaning": "\u4F0F\u7FB2\u6C0F\u7528\u9F99\u6765\u547D\u540D\u5B98\u804C\uFF0C\u795E\u519C\u6C0F\u7528\u706B\u6765\u547D\u540D\u5B98\u804C\uFF0C\u5C11\u660A\u6C0F\u7528\u9E1F\u6765\u547D\u540D\u5B98\u804C\uFF0C\u4EBA\u7687\u6CBB\u7406\u5929\u4E0B\u3002\u540E\u6765\u5F00\u59CB\u521B\u5236\u6587\u5B57\uFF0C\u4EBA\u4EEC\u624D\u7A7F\u4E0A\u8863\u88F3\u3002",
+      "appreciation": "\u8FD9\u6BB5\u50CF\u4E00\u5E45\u6587\u660E\u8D77\u6E90\u56FE\uFF1A\u4ECE\u5B98\u804C\u547D\u540D\u5230\u6587\u5B57\u3001\u8863\u88F3\uFF0C\u5C55\u73B0\u53E4\u4EBA\u5982\u4F55\u521B\u9020\u5171\u540C\u751F\u6D3B\u7684\u79E9\u5E8F\u3002",
+      "tags": [
+        "\u5343\u5B57\u6587",
+        "\u6587\u660E",
+        "\u5386\u53F2"
+      ]
+    },
+    {
+      "id": "classics-g4-sanzi-12",
+      "grade": 4,
+      "volume": "\u56FD\u5B66",
+      "title": "\u5B50\u4E0D\u5B66\uFF0C\u975E\u6240\u5B9C",
+      "author": "\u300A\u4E09\u5B57\u7ECF\u300B",
+      "dynasty": "\u5357\u5B8B",
+      "excerpt": "\u5B50\u4E0D\u5B66\uFF0C\u975E\u6240\u5B9C\u3002\u5E7C\u4E0D\u5B66\uFF0C\u8001\u4F55\u4E3A\u3002\n\u7389\u4E0D\u7422\uFF0C\u4E0D\u6210\u5668\u3002\u4EBA\u4E0D\u5B66\uFF0C\u4E0D\u77E5\u4E49\u3002",
+      "pinyin": "z\u01D0 b\xF9 xu\xE9\uFF0Cf\u0113i su\u01D2 y\xED\u3002y\xF2u b\xF9 xu\xE9\uFF0Cl\u01CEo h\xE9 w\xE9i\u3002\ny\xF9 b\xF9 zhu\xF3\uFF0Cb\xF9 ch\xE9ng q\xEC\u3002r\xE9n b\xF9 xu\xE9\uFF0Cb\xF9 zh\u012B y\xEC\u3002",
+      "category": "sanzi",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u4E09\u5B57\u7ECF\u300B",
+      "meaning": "\u5B69\u5B50\u4E0D\u5B66\u4E60\uFF0C\u662F\u4E0D\u5E94\u8BE5\u7684\u3002\u5C0F\u65F6\u5019\u4E0D\u5B66\u4E60\uFF0C\u8001\u4E86\u80FD\u6709\u4EC0\u4E48\u4F5C\u4E3A\u5462\uFF1F\u7389\u77F3\u4E0D\u7ECF\u8FC7\u96D5\u7422\uFF0C\u5C31\u4E0D\u80FD\u6210\u4E3A\u6709\u7528\u7684\u5668\u7269\uFF1B\u4EBA\u4E0D\u5B66\u4E60\uFF0C\u5C31\u4E0D\u61C2\u5F97\u9053\u7406\u3002",
+      "appreciation": "\u201C\u7389\u4E0D\u7422\u201D\u662F\u4E00\u4E2A\u5F88\u6709\u529B\u91CF\u7684\u6BD4\u55BB\uFF1A\u5B66\u4E60\u50CF\u96D5\u523B\uFF0C\u9700\u8981\u65F6\u95F4\u3001\u65B9\u6CD5\uFF0C\u4E5F\u9700\u8981\u8010\u5FC3\u3002",
+      "tags": [
+        "\u4E09\u5B57\u7ECF",
+        "\u5B66\u4E60",
+        "\u6210\u957F"
+      ]
+    },
+    {
+      "id": "classics-g4-lunyu-13",
+      "grade": 4,
+      "volume": "\u56FD\u5B66",
+      "title": "\u4E09\u4EBA\u884C\uFF0C\u5FC5\u6709\u6211\u5E08",
+      "author": "\u300A\u8BBA\u8BED\u300B",
+      "dynasty": "\u6625\u79CB",
+      "excerpt": "\u5B50\u66F0\uFF1A\u201C\u4E09\u4EBA\u884C\uFF0C\u5FC5\u6709\u6211\u5E08\u7109\u3002\u62E9\u5176\u5584\u8005\u800C\u4ECE\u4E4B\uFF0C\u5176\u4E0D\u5584\u8005\u800C\u6539\u4E4B\u3002\u201D",
+      "pinyin": "z\u01D0 yu\u0113\uFF1A\u201Cs\u0101n r\xE9n x\xEDng\uFF0Cb\xEC y\u01D2u w\u01D2 sh\u012B y\u0101n\u3002z\xE9 q\xED sh\xE0n zh\u011B \xE9r c\xF3ng zh\u012B\uFF0Cq\xED b\xF9 sh\xE0n zh\u011B \xE9r g\u01CEi zh\u012B\u3002\u201D",
+      "category": "lunyu",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u8BBA\u8BED\u300B",
+      "meaning": "\u5B54\u5B50\u8BF4\uFF1A\u201C\u51E0\u4E2A\u4EBA\u4E00\u8D77\u884C\u8D70\uFF0C\u5176\u4E2D\u4E00\u5B9A\u6709\u53EF\u4EE5\u505A\u6211\u8001\u5E08\u7684\u4EBA\u3002\u9009\u62E9\u4ED6\u4EEC\u7684\u4F18\u70B9\u6765\u5B66\u4E60\uFF0C\u770B\u5230\u4ED6\u4EEC\u7684\u7F3A\u70B9\u5C31\u7528\u6765\u63D0\u9192\u81EA\u5DF1\u6539\u6B63\u3002\u201D",
+      "appreciation": "\u8FD9\u53E5\u8BDD\u628A\u201C\u8001\u5E08\u201D\u4ECE\u8BFE\u5802\u6269\u5C55\u5230\u751F\u6D3B\u3002\u4F1A\u5B66\u4E60\u7684\u4EBA\uFF0C\u4E0D\u53EA\u5411\u4F18\u79C0\u8005\u5B66\u4E60\uFF0C\u4E5F\u80FD\u4ECE\u53CD\u9762\u4F8B\u5B50\u4E2D\u83B7\u5F97\u63D0\u9192\u3002",
+      "tags": [
+        "\u8BBA\u8BED",
+        "\u5B66\u4E60",
+        "\u8C26\u865A"
+      ]
+    },
+    {
+      "id": "classics-g4-dizigui-14",
+      "grade": 4,
+      "volume": "\u56FD\u5B66",
+      "title": "\u89C1\u4EBA\u5584\uFF0C\u5373\u601D\u9F50",
+      "author": "\u300A\u5F1F\u5B50\u89C4\u300B",
+      "dynasty": "\u6E05",
+      "excerpt": "\u89C1\u4EBA\u5584\uFF0C\u5373\u601D\u9F50\u3002\u7EB5\u53BB\u8FDC\uFF0C\u4EE5\u6E10\u8DFB\u3002\n\u89C1\u4EBA\u6076\uFF0C\u5373\u5185\u7701\u3002\u6709\u5219\u6539\uFF0C\u65E0\u52A0\u8B66\u3002",
+      "pinyin": "ji\xE0n r\xE9n sh\xE0n\uFF0Cj\xED s\u012B q\xED\u3002z\xF2ng q\xF9 yu\u01CEn\uFF0Cy\u01D0 ji\xE0n j\u012B\u3002\nji\xE0n r\xE9n \xE8\uFF0Cj\xED n\xE8i x\u01D0ng\u3002y\u01D2u z\xE9 g\u01CEi\uFF0Cw\xFA ji\u0101 j\u01D0ng\u3002",
+      "category": "dizigui",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u5F1F\u5B50\u89C4\u300B",
+      "meaning": "\u770B\u89C1\u522B\u4EBA\u7684\u4F18\u70B9\uFF0C\u5C31\u8981\u60F3\u7740\u5411\u4ED6\u770B\u9F50\u3002\u5373\u4F7F\u76F8\u5DEE\u5F88\u8FDC\uFF0C\u4E5F\u8981\u9010\u6B65\u8D76\u4E0A\u3002\u770B\u89C1\u522B\u4EBA\u505A\u5F97\u4E0D\u597D\uFF0C\u5C31\u8981\u53CD\u7701\u81EA\u5DF1\u3002\u6709\u540C\u6837\u7684\u7F3A\u70B9\u5C31\u6539\u6B63\uFF0C\u6CA1\u6709\u4E5F\u8981\u63D0\u9192\u81EA\u5DF1\u3002",
+      "appreciation": "\u8FD9\u6BB5\u8BDD\u628A\u201C\u5411\u5916\u770B\u201D\u548C\u201C\u5411\u5185\u770B\u201D\u7ED3\u5408\u8D77\u6765\u3002\u6B23\u8D4F\u522B\u4EBA\u3001\u7EA6\u675F\u81EA\u5DF1\uFF0C\u662F\u6210\u719F\u7684\u6210\u957F\u65B9\u5F0F\u3002",
+      "tags": [
+        "\u5F1F\u5B50\u89C4",
+        "\u81EA\u7701",
+        "\u54C1\u683C"
+      ]
+    },
+    {
+      "id": "classics-g4-qianziwen-15",
+      "grade": 4,
+      "volume": "\u56FD\u5B66",
+      "title": "\u77E5\u8FC7\u5FC5\u6539",
+      "author": "\u5468\u5174\u55E3",
+      "dynasty": "\u5357\u671D\u6881",
+      "excerpt": "\u77E5\u8FC7\u5FC5\u6539\uFF0C\u5F97\u80FD\u83AB\u5FD8\u3002\n\u7F54\u8C08\u5F7C\u77ED\uFF0C\u9761\u6043\u5DF1\u957F\u3002",
+      "pinyin": "zh\u012B gu\xF2 b\xEC g\u01CEi\uFF0Cd\xE9 n\xE9ng m\xF2 w\xE0ng\u3002\nw\u01CEng t\xE1n b\u01D0 du\u01CEn\uFF0Cm\u01D0 sh\xEC j\u01D0 ch\xE1ng\u3002",
+      "category": "qianziwen",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u5468\u5174\u55E3",
+      "meaning": "\u77E5\u9053\u81EA\u5DF1\u6709\u8FC7\u9519\uFF0C\u4E00\u5B9A\u8981\u6539\u6B63\uFF1B\u5B66\u5230\u597D\u7684\u54C1\u884C\u548C\u80FD\u529B\uFF0C\u4E0D\u8981\u5FD8\u8BB0\u3002\u4E0D\u8981\u968F\u4FBF\u8C08\u8BBA\u522B\u4EBA\u7684\u77ED\u5904\uFF0C\u4E5F\u4E0D\u8981\u4F9D\u4ED7\u81EA\u5DF1\u7684\u957F\u5904\u3002",
+      "appreciation": "\u8FD9\u56DB\u53E5\u662F\u4E00\u4EFD\u505A\u4EBA\u63D0\u9192\uFF1A\u5BF9\u9519\u8BEF\u8D1F\u8D23\uFF0C\u5BF9\u80FD\u529B\u8C26\u900A\uFF0C\u5BF9\u4ED6\u4EBA\u5BBD\u539A\u3002\u8BFB\u5B8C\u53EF\u4EE5\u8BD5\u7740\u5199\u4E00\u53E5\u81EA\u5DF1\u7684\u201C\u6539\u8FC7\u8BA1\u5212\u201D\u3002",
+      "tags": [
+        "\u5343\u5B57\u6587",
+        "\u54C1\u683C",
+        "\u81EA\u7701"
+      ]
+    },
+    {
+      "id": "classics-g5-sanzi-16",
+      "grade": 5,
+      "volume": "\u56FD\u5B66",
+      "title": "\u5927\u5B66\u4E4B\u9053",
+      "author": "\u300A\u4E09\u5B57\u7ECF\u300B",
+      "dynasty": "\u5357\u5B8B",
+      "excerpt": "\u5927\u5B66\u4E4B\u9053\uFF0C\u5728\u660E\u660E\u5FB7\uFF0C\u5728\u4EB2\u6C11\uFF0C\u5728\u6B62\u4E8E\u81F3\u5584\u3002\n\u77E5\u6B62\u800C\u540E\u6709\u5B9A\uFF0C\u5B9A\u800C\u540E\u80FD\u9759\uFF0C\u9759\u800C\u540E\u80FD\u5B89\uFF0C\u5B89\u800C\u540E\u80FD\u8651\uFF0C\u8651\u800C\u540E\u80FD\u5F97\u3002",
+      "pinyin": "d\xE0 xu\xE9 zh\u012B d\xE0o\uFF0Cz\xE0i m\xEDng m\xEDng d\xE9\uFF0Cz\xE0i q\u012Bn m\xEDn\uFF0Cz\xE0i zh\u01D0 y\xFA zh\xEC sh\xE0n\u3002\nzh\u012B zh\u01D0 \xE9r h\xF2u y\u01D2u d\xECng\uFF0Cd\xECng \xE9r h\xF2u n\xE9ng j\xECng\uFF0Cj\xECng \xE9r h\xF2u n\xE9ng \u0101n\uFF0C\u0101n \xE9r h\xF2u n\xE9ng l\u01DC\uFF0Cl\u01DC \xE9r h\xF2u n\xE9ng d\xE9\u3002",
+      "category": "sanzi",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u4E09\u5B57\u7ECF\u300B",
+      "meaning": "\u5927\u5B66\u7684\u5B97\u65E8\uFF0C\u5728\u4E8E\u5F70\u663E\u5149\u660E\u7684\u54C1\u5FB7\uFF0C\u5728\u4E8E\u4EB2\u8FD1\u6C11\u4F17\uFF0C\u5728\u4E8E\u8FBE\u5230\u6700\u5B8C\u5584\u7684\u5883\u754C\u3002\u77E5\u9053\u5E94\u8BE5\u8FBE\u5230\u7684\u5883\u754C\u624D\u80FD\u5FD7\u5411\u575A\u5B9A\uFF1B\u5FD7\u5411\u575A\u5B9A\u624D\u80FD\u5FC3\u9759\uFF1B\u5FC3\u9759\u624D\u80FD\u5B89\u7A33\uFF1B\u5B89\u7A33\u624D\u80FD\u601D\u8651\u5468\u8BE6\uFF1B\u601D\u8651\u5468\u8BE6\u624D\u80FD\u6709\u6240\u6536\u83B7\u3002",
+      "appreciation": "\u8FD9\u6BB5\u50CF\u4E00\u6761\u4ECE\u201C\u77E5\u201D\u5230\u201C\u5F97\u201D\u7684\u9636\u68AF\u3002\u5148\u786E\u5B9A\u65B9\u5411\uFF0C\u518D\u8BA9\u5FC3\u5B89\u5B9A\u4E0B\u6765\uFF0C\u6700\u540E\u624D\u80FD\u6DF1\u5165\u601D\u8003\u5E76\u83B7\u5F97\u6210\u679C\u3002",
+      "tags": [
+        "\u4E09\u5B57\u7ECF",
+        "\u5927\u5B66",
+        "\u4FEE\u8EAB"
+      ]
+    },
+    {
+      "id": "classics-g5-lunyu-17",
+      "grade": 5,
+      "volume": "\u56FD\u5B66",
+      "title": "\u89C1\u8D24\u601D\u9F50",
+      "author": "\u300A\u8BBA\u8BED\u300B",
+      "dynasty": "\u6625\u79CB",
+      "excerpt": "\u5B50\u66F0\uFF1A\u201C\u89C1\u8D24\u601D\u9F50\u7109\uFF0C\u89C1\u4E0D\u8D24\u800C\u5185\u81EA\u7701\u4E5F\u3002\u201D",
+      "pinyin": "z\u01D0 yu\u0113\uFF1A\u201Cji\xE0n xi\xE1n s\u012B q\xED y\u0101n\uFF0Cji\xE0n b\xF9 xi\xE1n \xE9r n\xE8i z\xEC x\u01D0ng y\u011B\u3002\u201D",
+      "category": "lunyu",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u8BBA\u8BED\u300B",
+      "meaning": "\u5B54\u5B50\u8BF4\uFF1A\u201C\u770B\u89C1\u6709\u5FB7\u884C\u3001\u6709\u624D\u80FD\u7684\u4EBA\uFF0C\u5C31\u60F3\u7740\u5411\u4ED6\u770B\u9F50\uFF1B\u770B\u89C1\u6CA1\u6709\u5FB7\u884C\u7684\u4EBA\uFF0C\u5C31\u5728\u5185\u5FC3\u53CD\u7701\u81EA\u5DF1\u3002\u201D",
+      "appreciation": "\u8FD9\u53E5\u8BDD\u7ED9\u51FA\u4E86\u4E00\u4E2A\u5F88\u597D\u7684\u6210\u957F\u65B9\u6CD5\uFF1A\u628A\u4ED6\u4EBA\u7684\u4F18\u70B9\u5F53\u699C\u6837\uFF0C\u628A\u4ED6\u4EBA\u7684\u7F3A\u70B9\u5F53\u955C\u5B50\u3002",
+      "tags": [
+        "\u8BBA\u8BED",
+        "\u81EA\u7701",
+        "\u699C\u6837"
+      ]
+    },
+    {
+      "id": "classics-g5-dizigui-18",
+      "grade": 5,
+      "volume": "\u56FD\u5B66",
+      "title": "\u51E1\u53D6\u4E0E\uFF0C\u8D35\u5206\u6653",
+      "author": "\u300A\u5F1F\u5B50\u89C4\u300B",
+      "dynasty": "\u6E05",
+      "excerpt": "\u51E1\u53D6\u4E0E\uFF0C\u8D35\u5206\u6653\u3002\u4E0E\u5B9C\u591A\uFF0C\u53D6\u5B9C\u5C11\u3002\n\u5C06\u52A0\u4EBA\uFF0C\u5148\u95EE\u5DF1\u3002\u5DF1\u4E0D\u6B32\uFF0C\u5373\u901F\u5DF2\u3002",
+      "pinyin": "f\xE1n q\u01D4 y\u01D4\uFF0Cgu\xEC f\u0113n xi\u01CEo\u3002y\u01D4 y\xED du\u014D\uFF0Cq\u01D4 y\xED sh\u01CEo\u3002\nji\u0101ng ji\u0101 r\xE9n\uFF0Cxi\u0101n w\xE8n j\u01D0\u3002j\u01D0 b\xF9 y\xF9\uFF0Cj\xED s\xF9 y\u01D0\u3002",
+      "category": "dizigui",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u5F1F\u5B50\u89C4\u300B",
+      "meaning": "\u51E1\u662F\u62FF\u53D6\u548C\u7ED9\u4E88\uFF0C\u90FD\u8981\u5206\u6E05\u660E\u767D\u3002\u7ED9\u4E88\u522B\u4EBA\u5E94\u8BE5\u591A\u4E00\u4E9B\uFF0C\u81EA\u5DF1\u53D6\u5F97\u5E94\u8BE5\u5C11\u4E00\u4E9B\u3002\u5C06\u8981\u52A0\u5728\u522B\u4EBA\u8EAB\u4E0A\u7684\u4E8B\u60C5\uFF0C\u5148\u95EE\u95EE\u81EA\u5DF1\u3002\u81EA\u5DF1\u4E0D\u613F\u610F\u63A5\u53D7\uFF0C\u5C31\u8D76\u5FEB\u505C\u6B62\u3002",
+      "appreciation": "\u201C\u5DF1\u4E0D\u6B32\uFF0C\u5373\u901F\u5DF2\u201D\u662F\u5904\u7406\u4EBA\u9645\u5173\u7CFB\u7684\u91CD\u8981\u539F\u5219\u3002\u5B83\u63D0\u9192\u6211\u4EEC\u6362\u4F4D\u601D\u8003\uFF0C\u4E0D\u4EE5\u81EA\u5DF1\u4E0D\u559C\u6B22\u7684\u65B9\u5F0F\u5BF9\u5F85\u522B\u4EBA\u3002",
+      "tags": [
+        "\u5F1F\u5B50\u89C4",
+        "\u76F8\u5904",
+        "\u54C1\u683C"
+      ]
+    },
+    {
+      "id": "classics-g5-qianziwen-19",
+      "grade": 5,
+      "volume": "\u56FD\u5B66",
+      "title": "\u5C3A\u74A7\u975E\u5B9D",
+      "author": "\u5468\u5174\u55E3",
+      "dynasty": "\u5357\u671D\u6881",
+      "excerpt": "\u5C3A\u74A7\u975E\u5B9D\uFF0C\u5BF8\u9634\u662F\u7ADE\u3002\n\u8D44\u7236\u4E8B\u541B\uFF0C\u66F0\u4E25\u4E0E\u656C\u3002",
+      "pinyin": "ch\u01D0 b\xEC f\u0113i b\u01CEo\uFF0Cc\xF9n y\u012Bn sh\xEC j\xECng\u3002\nz\u012B f\xF9 sh\xEC j\u016Bn\uFF0Cyu\u0113 y\xE1n y\u01D4 j\xECng\u3002",
+      "category": "qianziwen",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u5468\u5174\u55E3",
+      "meaning": "\u4E00\u5C3A\u957F\u7684\u7F8E\u7389\u4E0D\u80FD\u7B97\u662F\u5B9D\u8D1D\uFF0C\u4E00\u5BF8\u5149\u9634\u624D\u503C\u5F97\u4E89\u53D6\u73CD\u60DC\u3002\u5949\u517B\u7236\u4EB2\u3001\u4F8D\u5949\u541B\u4E3B\uFF0C\u8981\u505A\u5230\u4E25\u8083\u548C\u606D\u656C\u3002",
+      "appreciation": "\u201C\u5C3A\u74A7\u201D\u4E0E\u201C\u5BF8\u9634\u201D\u7684\u5BF9\u6BD4\u5F88\u6709\u529B\u5EA6\uFF1A\u8D22\u7269\u53EF\u4EE5\u518D\u5F97\uFF0C\u65F6\u95F4\u5374\u4E0D\u4F1A\u56DE\u5934\u3002\u4ECA\u5929\u7684\u6211\u4EEC\u53EF\u4EE5\u628A\u5B83\u7406\u89E3\u4E3A\u73CD\u60DC\u65F6\u95F4\u3001\u5C0A\u91CD\u4ED6\u4EBA\u3002",
+      "tags": [
+        "\u5343\u5B57\u6587",
+        "\u60DC\u65F6",
+        "\u54C1\u683C"
+      ]
+    },
+    {
+      "id": "classics-g6-sanzi-20",
+      "grade": 6,
+      "volume": "\u56FD\u5B66",
+      "title": "\u8003\u4E16\u7CFB\uFF0C\u77E5\u7EC8\u59CB",
+      "author": "\u300A\u4E09\u5B57\u7ECF\u300B",
+      "dynasty": "\u5357\u5B8B",
+      "excerpt": "\u8003\u4E16\u7CFB\uFF0C\u77E5\u7EC8\u59CB\u3002\n\u81EA\u7FB2\u519C\uFF0C\u81F3\u9EC4\u5E1D\uFF0C\u53F7\u4E09\u7687\uFF0C\u5C45\u4E0A\u4E16\u3002\n\u5510\u6709\u865E\uFF0C\u53F7\u4E8C\u5E1D\uFF0C\u76F8\u63D6\u900A\uFF0C\u79F0\u76DB\u4E16\u3002",
+      "pinyin": "k\u01CEo sh\xEC x\xEC\uFF0Czh\u012B zh\u014Dng sh\u01D0\u3002\nz\xEC x\u012B n\xF3ng\uFF0Czh\xEC hu\xE1ng d\xEC\uFF0Ch\xE0o s\u0101n hu\xE1ng\uFF0Cj\u016B sh\xE0ng sh\xEC\u3002\nt\xE1ng y\u01D2u y\xFA\uFF0Ch\xE0o \xE8r d\xEC\uFF0Cxi\u0101ng y\u012B x\xF9n\uFF0Cch\u0113ng sh\xE8ng sh\xEC\u3002",
+      "category": "sanzi",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u4E09\u5B57\u7ECF\u300B",
+      "meaning": "\u8003\u5BDF\u4E16\u4EE3\u76F8\u4F20\u7684\u8C31\u7CFB\uFF0C\u624D\u80FD\u77E5\u9053\u4E8B\u60C5\u7684\u59CB\u672B\u3002\u4ECE\u4F0F\u7FB2\u3001\u795E\u519C\u5230\u9EC4\u5E1D\uFF0C\u53F7\u79F0\u4E09\u7687\uFF0C\u751F\u6D3B\u5728\u8FDC\u53E4\u65F6\u4EE3\u3002\u5510\u5C27\u3001\u865E\u821C\u53F7\u79F0\u4E8C\u5E1D\uFF0C\u4ED6\u4EEC\u4E92\u76F8\u7985\u8BA9\uFF0C\u88AB\u79F0\u4E3A\u76DB\u4E16\u3002",
+      "appreciation": "\u8FD9\u6BB5\u628A\u5386\u53F2\u5F53\u6210\u4E00\u6761\u65F6\u95F4\u7EBF\uFF0C\u63D0\u9192\u6211\u4EEC\u8BFB\u53F2\u8981\u5173\u6CE8\u56E0\u679C\u5173\u7CFB\u3002\u53EF\u4EE5\u501F\u6B64\u7EC3\u4E60\u5236\u4F5C\u201C\u65F6\u95F4\u8F74\u201D\u7B14\u8BB0\u3002",
+      "tags": [
+        "\u4E09\u5B57\u7ECF",
+        "\u5386\u53F2",
+        "\u65F6\u95F4\u7EBF"
+      ]
+    },
+    {
+      "id": "classics-g6-lunyu-21",
+      "grade": 6,
+      "volume": "\u56FD\u5B66",
+      "title": "\u5DF1\u6240\u4E0D\u6B32\uFF0C\u52FF\u65BD\u4E8E\u4EBA",
+      "author": "\u300A\u8BBA\u8BED\u300B",
+      "dynasty": "\u6625\u79CB",
+      "excerpt": "\u5B50\u8D21\u95EE\u66F0\uFF1A\u201C\u6709\u4E00\u8A00\u800C\u53EF\u4EE5\u7EC8\u8EAB\u884C\u4E4B\u8005\u4E4E\uFF1F\u201D\u5B50\u66F0\uFF1A\u201C\u5176\u6055\u4E4E\uFF01\u5DF1\u6240\u4E0D\u6B32\uFF0C\u52FF\u65BD\u4E8E\u4EBA\u3002\u201D",
+      "pinyin": "z\u01D0 g\xF2ng w\xE8n yu\u0113\uFF1A\u201Cy\u01D2u y\u012B y\xE1n \xE9r k\u011B y\u01D0 zh\u014Dng sh\u0113n x\xEDng zh\u012B zh\u011B h\u016B\uFF1F\u201Dz\u01D0 yu\u0113\uFF1A\u201Cq\xED sh\xF9 h\u016B\uFF01j\u01D0 su\u01D2 b\xF9 y\xF9\uFF0Cw\xF9 sh\u012B y\xFA r\xE9n\u3002\u201D",
+      "category": "lunyu",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u8BBA\u8BED\u300B",
+      "meaning": "\u5B50\u8D21\u95EE\u9053\uFF1A\u201C\u6709\u6CA1\u6709\u4E00\u4E2A\u5B57\u53EF\u4EE5\u7EC8\u8EAB\u5949\u884C\u7684\u5462\uFF1F\u201D\u5B54\u5B50\u8BF4\uFF1A\u201C\u5927\u6982\u662F\u2018\u6055\u2019\u5427\uFF01\u81EA\u5DF1\u4E0D\u613F\u610F\u7684\uFF0C\u4E0D\u8981\u65BD\u52A0\u7ED9\u522B\u4EBA\u3002\u201D",
+      "appreciation": "\u201C\u6055\u201D\u662F\u7406\u89E3\u4ED6\u4EBA\u3001\u8BBE\u8EAB\u5904\u5730\u3002\u8FD9\u4E2A\u539F\u5219\u8DE8\u8D8A\u65F6\u4EE3\uFF0C\u5728\u4ECA\u5929\u7684\u4EBA\u9645\u6C9F\u901A\u4E2D\u4ECD\u7136\u91CD\u8981\u3002",
+      "tags": [
+        "\u8BBA\u8BED",
+        "\u4EC1\u6055",
+        "\u5904\u4E16"
+      ]
+    },
+    {
+      "id": "classics-g6-dizigui-22",
+      "grade": 6,
+      "volume": "\u56FD\u5B66",
+      "title": "\u8BFB\u4E66\u6CD5\uFF0C\u6709\u4E09\u5230",
+      "author": "\u300A\u5F1F\u5B50\u89C4\u300B",
+      "dynasty": "\u6E05",
+      "excerpt": "\u8BFB\u4E66\u6CD5\uFF0C\u6709\u4E09\u5230\u3002\u5FC3\u773C\u53E3\uFF0C\u4FE1\u7686\u8981\u3002\n\u65B9\u8BFB\u6B64\uFF0C\u52FF\u6155\u5F7C\u3002\u6B64\u672A\u7EC8\uFF0C\u5F7C\u52FF\u8D77\u3002",
+      "pinyin": "d\xFA sh\u016B f\u01CE\uFF0Cy\u01D2u s\u0101n d\xE0o\u3002x\u012Bn y\u01CEn k\u01D2u\uFF0Cx\xECn ji\u0113 y\xE0o\u3002\nf\u0101ng d\xFA c\u01D0\uFF0Cw\xF9 m\xF9 b\u01D0\u3002c\u01D0 w\xE8i zh\u014Dng\uFF0Cb\u01D0 w\xF9 q\u01D0\u3002",
+      "category": "dizigui",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u300A\u5F1F\u5B50\u89C4\u300B",
+      "meaning": "\u8BFB\u4E66\u7684\u65B9\u6CD5\uFF0C\u8981\u505A\u5230\u4E09\u5230\uFF1A\u5FC3\u5230\u3001\u773C\u5230\u3001\u53E3\u5230\uFF0C\u786E\u5B9E\u90FD\u5F88\u91CD\u8981\u3002\u6B63\u5728\u8BFB\u8FD9\u672C\u4E66\uFF0C\u4E0D\u8981\u7FA1\u6155\u522B\u7684\u4E66\uFF1B\u8FD9\u672C\u8FD8\u6CA1\u6709\u8BFB\u5B8C\uFF0C\u4E0D\u8981\u5F00\u59CB\u8BFB\u53E6\u4E00\u672C\u3002",
+      "appreciation": "\u201C\u4E09\u5230\u201D\u662F\u8BF4\u6CE8\u610F\u529B\u8981\u96C6\u4E2D\uFF0C\u201C\u52FF\u6155\u5F7C\u201D\u662F\u8BF4\u9605\u8BFB\u8981\u6709\u6B21\u5E8F\u3002\u5BF9\u4ECA\u5929\u788E\u7247\u5316\u9605\u8BFB\u5C24\u5176\u6709\u542F\u53D1\u3002",
+      "tags": [
+        "\u5F1F\u5B50\u89C4",
+        "\u9605\u8BFB",
+        "\u4E13\u6CE8"
+      ]
+    },
+    {
+      "id": "classics-g6-qianziwen-23",
+      "grade": 6,
+      "volume": "\u56FD\u5B66",
+      "title": "\u6027\u9759\u60C5\u9038",
+      "author": "\u5468\u5174\u55E3",
+      "dynasty": "\u5357\u671D\u6881",
+      "excerpt": "\u6027\u9759\u60C5\u9038\uFF0C\u5FC3\u52A8\u795E\u75B2\u3002\n\u5B88\u771F\u5FD7\u6EE1\uFF0C\u9010\u7269\u610F\u79FB\u3002",
+      "pinyin": "x\xECng j\xECng q\xEDng y\xEC\uFF0Cx\u012Bn d\xF2ng sh\xE9n p\xED\u3002\nsh\u01D2u zh\u0113n zh\xEC m\u01CEn\uFF0Czh\xFA w\xF9 y\xEC y\xED\u3002",
+      "category": "qianziwen",
+      "sourceType": "classics",
+      "sourceLabel": "\u56FD\u5B66\u7ECF\u5178 \xB7 \u5468\u5174\u55E3",
+      "meaning": "\u6027\u60C5\u5B89\u9759\uFF0C\u60C5\u7EEA\u5C31\u4F1A\u5B89\u9038\uFF1B\u5FC3\u601D\u8E81\u52A8\uFF0C\u7CBE\u795E\u5C31\u4F1A\u75B2\u60EB\u3002\u4FDD\u6301\u7EAF\u771F\u7684\u672C\u6027\uFF0C\u5FD7\u5411\u5C31\u4F1A\u5145\u5B9E\uFF1B\u8FFD\u9010\u5916\u7269\uFF0C\u610F\u5FD7\u5C31\u4F1A\u8F6C\u79FB\u3002",
+      "appreciation": "\u8FD9\u6BB5\u8BA8\u8BBA\u5185\u5FC3\u4E0E\u5916\u7269\u7684\u5173\u7CFB\u3002\u4ECA\u5929\u4FE1\u606F\u5F88\u591A\u3001\u8BF1\u60D1\u5F88\u591A\uFF0C\u8BFB\u5B83\u53EF\u4EE5\u63D0\u9192\u6211\u4EEC\u7559\u51FA\u5B89\u9759\u7684\u65F6\u95F4\uFF0C\u5B88\u4F4F\u771F\u6B63\u91CD\u8981\u7684\u76EE\u6807\u3002",
+      "tags": [
+        "\u5343\u5B57\u6587",
+        "\u4FEE\u5FC3",
+        "\u4E13\u6CE8"
+      ]
     }
   ];
-
-  // assets/textbook-order.js
-  var TEXTBOOKS = [
-    { grade: 1, volume: "\u4E0A", entries: [
-      ["poetry-g1-jiangnan", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u65872 \u6C5F\u5357"]
-    ] },
-    { grade: 1, volume: "\u4E0B", entries: [
-      ["poetry-g1-jingyesi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65877 \u9759\u591C\u601D"],
-      ["sanzi-g1-renzhichu", "\u7B2C\u4E94\u5355\u5143 \u8BC6\u5B578 \u4EBA\u4E4B\u521D"],
-      ["poetry-g1-chishang", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E8C\u9996\xB7\u6C60\u4E0A"],
-      ["poetry-g1-xiaochi", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E8C\u9996\xB7\u5C0F\u6C60"]
-    ] },
-    { grade: 2, volume: "\u4E0A", entries: [
-      ["poetry-g2-dengguanque", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65878 \u53E4\u8BD7\u4E8C\u9996\xB7\u767B\u9E73\u96C0\u697C"],
-      ["poetry-g2-wanglushan", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65878 \u53E4\u8BD7\u4E8C\u9996\xB7\u671B\u5E90\u5C71\u7011\u5E03"],
-      ["poetry-g2-jiangxue", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E8C\u9996\xB7\u6C5F\u96EA"],
-      ["poetry-g2-chilege", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E8C\u9996\xB7\u6555\u52D2\u6B4C"]
-    ] },
-    { grade: 2, volume: "\u4E0B", entries: [
-      ["poetry-g2-cunju", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E8C\u9996\xB7\u6751\u5C45"],
-      ["poetry-g2-yongliu", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E8C\u9996\xB7\u548F\u67F3"],
-      ["fable-g2-wangyangbudao", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u5BD3\u8A00\u4E8C\u5219\xB7\u4EA1\u7F8A\u8865\u7262"],
-      ["fable-g2-yamiaozhuzhang", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u5BD3\u8A00\u4E8C\u5219\xB7\u63E0\u82D7\u52A9\u957F"],
-      ["poetry-g2-xiaochu", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658715 \u53E4\u8BD7\u4E8C\u9996\xB7\u6653\u51FA\u51C0\u6148\u5BFA\u9001\u6797\u5B50\u65B9"],
-      ["poetry-g2-jueju", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658715 \u53E4\u8BD7\u4E8C\u9996\xB7\u7EDD\u53E5"],
-      ["myth-g2-yishejiuri", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658724 \u7FBF\u5C04\u4E5D\u65E5"]
-    ] },
-    { grade: 3, volume: "\u4E0A", entries: [
-      ["poetry-g3-wangdongting", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65874 \u53E4\u8BD7\u4E09\u9996\xB7\u671B\u6D1E\u5EAD"],
-      ["poetry-g3-shanxing", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65874 \u53E4\u8BD7\u4E09\u9996\xB7\u5C71\u884C"],
-      ["poetry-g3-yeshujiansuo", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65874 \u53E4\u8BD7\u4E09\u9996\xB7\u591C\u4E66\u6240\u89C1"],
-      ["poetry-g3-luzhai", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658720 \u53E4\u8BD7\u4E09\u9996\xB7\u9E7F\u67F4"],
-      ["poetry-g3-wangtianmenshan", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658720 \u53E4\u8BD7\u4E09\u9996\xB7\u671B\u5929\u95E8\u5C71"],
-      ["poetry-g3-yinhusahang", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658720 \u53E4\u8BD7\u4E09\u9996\xB7\u996E\u6E56\u4E0A\u521D\u6674\u540E\u96E8"],
-      ["classical-g3-simaguang", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658723 \u53F8\u9A6C\u5149"]
-    ] },
-    { grade: 3, volume: "\u4E0B", entries: [
-      ["poetry-g3-jueju", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u7EDD\u53E5"],
-      ["poetry-g3-huichong", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u60E0\u5D07\u6625\u6C5F\u665A\u666F"],
-      ["poetry-g3-sanqu", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u4E09\u8862\u9053\u4E2D"],
-      ["fable-g3-shouzhudaitu", "\u7B2C\u4E8C\u5355\u5143 \u8BFE\u65875 \u5B88\u682A\u5F85\u5154"],
-      ["poetry-g3-yuanri", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u5143\u65E5"],
-      ["poetry-g3-qingming", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u6E05\u660E"],
-      ["poetry-g3-jiuyuejiu", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u4E5D\u6708\u4E5D\u65E5\u5FC6\u5C71\u4E1C\u5144\u5F1F"]
-    ] },
-    { grade: 4, volume: "\u4E0A", entries: [
-      ["poetry-g4-muyin", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u66AE\u6C5F\u541F"],
-      ["poetry-g4-tixilinbi", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u9898\u897F\u6797\u58C1"],
-      ["poetry-g4-xuemei", "\u7B2C\u4E09\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u96EA\u6885"],
-      ["myth-g4-pangu", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u76D8\u53E4\u5F00\u5929\u5730"],
-      ["myth-g4-jingwei", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658713 \u7CBE\u536B\u586B\u6D77"],
-      ["myth-g4-nvwa", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658715 \u5973\u5A32\u8865\u5929"],
-      ["poetry-g4-chusai", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u4E09\u9996\xB7\u51FA\u585E"],
-      ["poetry-g4-liangzhouci", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u4E09\u9996\xB7\u51C9\u5DDE\u8BCD"],
-      ["poetry-g4-xiarijueju", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u4E09\u9996\xB7\u590F\u65E5\u7EDD\u53E5"],
-      ["classical-g4-wangrong", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658725 \u738B\u620E\u4E0D\u53D6\u9053\u65C1\u674E"]
-    ] },
-    { grade: 4, volume: "\u4E0B", entries: [
-      ["poetry-g4-sishitianyuan25", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E8C\u5341\u4E94\uFF09"],
-      ["poetry-g4-suxinshi", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u5BBF\u65B0\u5E02\u5F90\u516C\u5E97"],
-      ["poetry-g4-qingpingyue", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u6E05\u5E73\u4E50\xB7\u6751\u5C45"],
-      ["classical-g4-nangying", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u56CA\u8424\u591C\u8BFB"],
-      ["classical-g4-tiechu", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u94C1\u6775\u6210\u9488"],
-      ["poetry-g4-furonglou", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u53E4\u8BD7\u4E09\u9996\xB7\u8299\u84C9\u697C\u9001\u8F9B\u6E10"],
-      ["poetry-g4-saixiaqu", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u53E4\u8BD7\u4E09\u9996\xB7\u585E\u4E0B\u66F2"],
-      ["poetry-g4-momei", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u53E4\u8BD7\u4E09\u9996\xB7\u58A8\u6885"]
-    ] },
-    { grade: 5, volume: "\u4E0A", entries: [
-      ["poetry-g5-shiershi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u53E4\u8BD7\u4E09\u9996\xB7\u793A\u513F"],
-      ["poetry-g5-tilinandi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u53E4\u8BD7\u4E09\u9996\xB7\u9898\u4E34\u5B89\u90B8"],
-      ["poetry-g5-jihai", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658712 \u53E4\u8BD7\u4E09\u9996\xB7\u5DF1\u4EA5\u6742\u8BD7"],
-      ["poetry-g5-shanju", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u5C71\u5C45\u79CB\u669D"],
-      ["poetry-g5-fengqiao", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u67AB\u6865\u591C\u6CCA"],
-      ["poetry-g5-changxiangsi", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658721 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u957F\u76F8\u601D"],
-      ["classical-g5-gurentandushu", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658725 \u53E4\u4EBA\u8C08\u8BFB\u4E66"]
-    ] },
-    { grade: 5, volume: "\u4E0B", entries: [
-      ["poetry-g5-sishitianyuan31", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u56DB\u65F6\u7530\u56ED\u6742\u5174\uFF08\u5176\u4E09\u5341\u4E00\uFF09"],
-      ["poetry-g5-zhizinongbing", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u7A1A\u5B50\u5F04\u51B0"],
-      ["poetry-g5-cunwan", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65871 \u53E4\u8BD7\u4E09\u9996\xB7\u6751\u665A"],
-      ["poetry-g5-congjunxing", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u4ECE\u519B\u884C"],
-      ["poetry-g5-qiuye", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u79CB\u591C\u5C06\u6653\u51FA\u7BF1\u95E8\u8FCE\u51C9\u6709\u611F"],
-      ["poetry-g5-wenguanjun", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u65879 \u53E4\u8BD7\u4E09\u9996\xB7\u95FB\u5B98\u519B\u6536\u6CB3\u5357\u6CB3\u5317"],
-      ["classical-g5-zixiangmaodun", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658715 \u81EA\u76F8\u77DB\u76FE"],
-      ["classical-g5-yangshi", "\u7B2C\u516B\u5355\u5143 \u8BFE\u658721 \u6768\u6C0F\u4E4B\u5B50"]
-    ] },
-    { grade: 6, volume: "\u4E0A", entries: [
-      ["poetry-g6-sujiande", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u5BBF\u5EFA\u5FB7\u6C5F"],
-      ["poetry-g6-wanghulou", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u516D\u6708\u4E8C\u5341\u4E03\u65E5\u671B\u6E56\u697C\u9189\u4E66"],
-      ["poetry-g6-xijiangyue", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u8BCD\u4E09\u9996\xB7\u897F\u6C5F\u6708\xB7\u591C\u884C\u9EC4\u6C99\u9053\u4E2D"],
-      ["poetry-g6-langtaosha", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E09\u9996\xB7\u6D6A\u6DD8\u6C99\uFF08\u5176\u4E00\uFF09"],
-      ["poetry-g6-jiangnanchun", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E09\u9996\xB7\u6C5F\u5357\u6625"],
-      ["poetry-g6-shuhuyin", "\u7B2C\u516D\u5355\u5143 \u8BFE\u658718 \u53E4\u8BD7\u4E09\u9996\xB7\u4E66\u6E56\u9634\u5148\u751F\u58C1"],
-      ["classical-g6-boya", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u4F2F\u7259\u9F13\u7434"],
-      ["classical-g6-shudaizonghua", "\u7B2C\u4E03\u5355\u5143 \u8BFE\u658722 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u4E66\u6234\u5D69\u753B\u725B"]
-    ] },
-    { grade: 6, volume: "\u4E0B", entries: [
-      ["poetry-g6-hanshi", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u4E09\u9996\xB7\u5BD2\u98DF"],
-      ["poetry-g6-tiaotiao", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u4E09\u9996\xB7\u8FE2\u8FE2\u7275\u725B\u661F"],
-      ["poetry-g6-shiwuye", "\u7B2C\u4E00\u5355\u5143 \u8BFE\u65873 \u53E4\u8BD7\u4E09\u9996\xB7\u5341\u4E94\u591C\u671B\u6708"],
-      ["poetry-g6-mashi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E09\u9996\xB7\u9A6C\u8BD7"],
-      ["poetry-g6-shihuiyin", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E09\u9996\xB7\u77F3\u7070\u541F"],
-      ["poetry-g6-zhushi", "\u7B2C\u56DB\u5355\u5143 \u8BFE\u658710 \u53E4\u8BD7\u4E09\u9996\xB7\u7AF9\u77F3"],
-      ["classical-g6-xueyi", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658714 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u5B66\u5F08"],
-      ["classical-g6-lianger", "\u7B2C\u4E94\u5355\u5143 \u8BFE\u658714 \u6587\u8A00\u6587\u4E8C\u5219\xB7\u4E24\u5C0F\u513F\u8FA9\u65E5"]
-    ] }
-  ];
-  var TEXTBOOK_ENTRIES = Object.fromEntries(TEXTBOOKS.flatMap((book, bookIndex) => book.entries.map(([id, unit], index) => [id, { grade: book.grade, volume: book.volume, unit, order: bookIndex * 100 + index }])));
-  var TEXTBOOK_IDS = new Set(Object.keys(TEXTBOOK_ENTRIES));
-
-  // assets/curriculum.js
-  var gradeOptions = [1, 2, 3, 4, 5, 6].map((grade) => ({ grade, label: grade + "\u5E74\u7EA7" }));
-  var gradeThemes = [
-    { grade: 1, title: "\u8499\u4EE5\u517B\u6B63", subtitle: "\u8BC6\u5B57 \xB7 \u8BF5\u8BFB \xB7 \u7AE5\u8DA3" },
-    { grade: 2, title: "\u7AE5\u58F0\u8BF5\u96C5", subtitle: "\u97F5\u5F8B \xB7 \u60F3\u8C61 \xB7 \u79EF\u7D2F" },
-    { grade: 3, title: "\u6587\u4EE5\u8F7D\u9053", subtitle: "\u7BC7\u7AE0 \xB7 \u610F\u8C61 \xB7 \u8868\u8FBE" },
-    { grade: 4, title: "\u601D\u8FA8\u660E\u7406", subtitle: "\u53E4\u6587 \xB7 \u54F2\u7406 \xB7 \u8FC1\u79FB" },
-    { grade: 5, title: "\u535A\u89C2\u7EA6\u53D6", subtitle: "\u5BB6\u56FD \xB7 \u7FA4\u4E66 \xB7 \u601D\u8FA8" },
-    { grade: 6, title: "\u878D\u4F1A\u8D2F\u901A", subtitle: "\u7EFC\u5408 \xB7 \u8D4F\u6790 \xB7 \u521B\u4F5C" }
-  ];
-  var volumeLabel = (volume) => volume === "\u4E0A" ? "\u4E0A\u518C" : volume === "\u4E0B" ? "\u4E0B\u518C" : "\u8BFE\u5916";
-  var volumeOptions = [{ id: "all", label: "\u5168\u518C" }, { id: "\u4E0A", label: "\u4E0A\u518C" }, { id: "\u4E0B", label: "\u4E0B\u518C" }];
 
   // assets/data.js
   var categories = [
     { id: "poetry", name: "\u53E4\u8BD7\u8BCD", short: "\u8BD7", color: "#A94B3C", soft: "#F4E5E0", icon: "poem", description: "\u8BD7\u3001\u8BCD\u3001\u66F2" },
-    { id: "classical", name: "\u6587\u8A00\u6587", short: "\u6587", color: "#4A657D", soft: "#E2EAF0", icon: "three", description: "\u8BFE\u5185\u53E4\u6587" },
+    { id: "idiom", name: "\u6210\u8BED", short: "\u6210", color: "#8A5B36", soft: "#F3E7D8", icon: "fable", description: "\u91CA\u4E49\u4E0E\u4F8B\u53E5" },
+    { id: "classical", name: "\u6587\u8A00\u6587", short: "\u6587", color: "#4A657D", soft: "#E2EAF0", icon: "three", description: "\u53E4\u6587\u540D\u7BC7" },
     { id: "fable", name: "\u5BD3\u8A00", short: "\u5BD3", color: "#9A6A2F", soft: "#F2E8D5", icon: "fable", description: "\u5BD3\u8A00\u6545\u4E8B" },
     { id: "myth", name: "\u795E\u8BDD\u4F20\u8BF4", short: "\u795E", color: "#6E6244", soft: "#EEE9DC", icon: "rules", description: "\u4F20\u7EDF\u6545\u4E8B" },
-    { id: "mengxue", name: "\u4E09\u5B57\u7ECF", short: "\u7ECF", color: "#627056", soft: "#E6EBDD", icon: "three", description: "\u8499\u5B66\u7ECF\u5178" }
+    { id: "sanzi", name: "\u4E09\u5B57\u7ECF", short: "\u4E09", color: "#8A5B36", soft: "#F3E7D8", icon: "three", description: "\u8499\u5B66\u7ECF\u5178" },
+    { id: "lunyu", name: "\u8BBA\u8BED", short: "\u8BBA", color: "#4A657D", soft: "#E2EAF0", icon: "three", description: "\u5B54\u5B50\u8A00\u884C" },
+    { id: "dizigui", name: "\u5F1F\u5B50\u89C4", short: "\u89C4", color: "#3D6159", soft: "#E2EBE5", icon: "rules", description: "\u884C\u4E3A\u89C4\u8303" },
+    { id: "qianziwen", name: "\u5343\u5B57\u6587", short: "\u5343", color: "#9A6A2F", soft: "#F2E8D5", icon: "poem", description: "\u8BC6\u5B57\u542F\u8499" }
   ];
-  var catalogRaw = [...grade1, ...grade2, ...grade3, ...grade4, ...grade5, ...grade6, ...supplemental, ...textbookExtras, ...classicalTexts, ...lessonExtra, ...corrections];
-  var catalogById = catalogRaw.reduce((map, item) => {
-    map.set(item.id, { ...map.get(item.id) || {}, ...item });
-    return map;
-  }, /* @__PURE__ */ new Map());
-  var items = Object.entries(TEXTBOOK_ENTRIES).map(([id, entry]) => {
-    const source = catalogById.get(id);
-    if (!source) return null;
-    const category = categories.find((c) => c.id === source.category) || categories[0];
-    const visual = source.visual || source.image || "classic-books";
+  var categoryById = Object.fromEntries(categories.map((c) => [c.id, c]));
+  var gradeLabels = ["\u4E00\u5E74\u7EA7", "\u4E8C\u5E74\u7EA7", "\u4E09\u5E74\u7EA7", "\u56DB\u5E74\u7EA7", "\u4E94\u5E74\u7EA7", "\u516D\u5E74\u7EA7"];
+  function normalize(item, index, extra = false) {
+    const category = categoryById[item.category] || categories[0];
     return {
-      ...source,
-      ...entry,
+      order: index,
+      ...item,
       category: category.id,
       categoryName: category.name,
-      image: visual,
-      scopeType: "textbook",
-      scopeName: "\u7EDF\u7F16\u8BFE\u6587",
-      sourceLabel: entry.unit,
-      sourceNote: "\u7EDF\u7F16\u7248\u8BED\u6587" + entry.grade + "\u5E74\u7EA7" + volumeLabel(entry.volume) + " " + entry.unit,
-      edition: "2026\u7EDF\u7F16\u7248",
-      gradeLabel: entry.grade + "\u5E74\u7EA7" + volumeLabel(entry.volume),
-      volumeLabel: volumeLabel(entry.volume)
+      image: item.image || (category.id === "classical" ? "classic-books" : "poetry-mountain-river"),
+      gradeLabel: extra ? "\u8BFE\u5916\u62D3\u5C55" : item.sourceType === "classics" ? gradeLabels[item.grade - 1] + " \xB7 \u56FD\u5B66\u7ECF\u5178" : item.gradeLabel || gradeLabels[item.grade - 1] + item.volume + "\u518C",
+      volumeLabel: extra ? "\u8BFE\u5916" : item.volume + "\u518C",
+      scopeType: extra ? "extra" : item.sourceType === "classics" ? "classics" : "textbook",
+      scopeName: extra ? "\u8BFE\u5916\u62D3\u5C55" : item.sourceType === "classics" ? "\u56FD\u5B66\u7ECF\u5178" : "\u6559\u6750\u5185\u5BB9",
+      sourceLabel: extra ? item.sourceLabel || "\u62D3\u5C55\u8BD7\u8BCD\u5305" : item.sourceLabel || (item.sourceType === "classics" ? "\u56FD\u5B66\u7ECF\u5178" : gradeLabels[item.grade - 1] + item.volume + "\u518C \xB7 \u5FC5\u80CC")
     };
-  }).filter(Boolean).sort((a, b) => a.grade - b.grade || (a.volume === "\u4E0A" ? 0 : 1) - (b.volume === "\u4E0A" ? 0 : 1) || a.order - b.order);
-  var grades = gradeThemes;
-  var categoryById = Object.fromEntries(categories.map((c) => [c.id, c]));
+  }
+  var items = [
+    ...packData.lesson.map((item, index) => normalize(item, index, false)),
+    ...packData.extra.map((item, index) => normalize(item, 1e3 + index, true)),
+    ...classicData.map((item, index) => normalize(item, 2e3 + index, false))
+  ];
+  var lessonItems = items.filter((i) => i.scopeType === "textbook");
+  var extraItems = items.filter((i) => i.scopeType === "extra");
+  var classicItems = items.filter((i) => i.scopeType === "classics");
   var itemById = Object.fromEntries(items.map((i) => [i.id, i]));
+  var grades = Array.from({ length: 6 }, (_, i) => ({ grade: i + 1, label: gradeLabels[i] }));
   function searchItems(list, options = {}) {
     const grade = options.grade || "all";
     const category = options.category || "all";
     const volume = options.volume || "all";
+    const scope = options.scope || "all";
     const query = String(options.keyword || "").trim().toLowerCase();
     return list.filter((item) => {
+      if (scope !== "all" && item.scopeType !== scope) return false;
       if (grade !== "all" && item.grade !== Number(grade)) return false;
       if (category !== "all" && item.category !== category) return false;
       if (volume !== "all" && item.volume !== volume) return false;
       if (!query) return true;
-      return [item.title, item.author, item.dynasty, item.excerpt, item.meaning, item.unit, ...item.tags || [], ...item.keywords || []].filter(Boolean).join(" ").toLowerCase().includes(query);
+      return [item.title, item.author, item.dynasty, item.excerpt, item.meaning, item.tags, item.sourceLabel].filter(Boolean).join(" ").toLowerCase().includes(query);
     });
   }
 
@@ -2886,277 +5400,12 @@
     return `<svg class="icon ${className}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ICONS.book}</svg>`;
   }
 
-  // assets/illustrations.js
-  var illustrationPalettes = {
-    "poetry-lotus": { sky: ["#DCE9D8", "#F7F0DC"], land: "#9DBB9B", accent: "#D6786B", dark: "#375850", motif: "lotus" },
-    "poetry-goose": { sky: ["#E8F0E5", "#FCF6E9"], land: "#8EAF9B", accent: "#C75B4E", dark: "#315C57", motif: "goose" },
-    "poetry-farmer": { sky: ["#F6DDA5", "#FCF2D9"], land: "#B8A05E", accent: "#A84F3E", dark: "#465A45", motif: "field" },
-    "poetry-moon": { sky: ["#24364C", "#71899E"], land: "#263C4A", accent: "#E2C47A", dark: "#15263A", motif: "moon" },
-    "idiom-rabbit": { sky: ["#DEE9D1", "#F7F0DC"], land: "#A2B38A", accent: "#A24A3C", dark: "#41513A", motif: "tree" },
-    "idiom-sheep": { sky: ["#F0E6CF", "#FCF7EA"], land: "#B6AF83", accent: "#8A5D3B", dark: "#4B5A48", motif: "pen" },
-    "fable-fox": { sky: ["#E6D9BE", "#F8EDD5"], land: "#9A8456", accent: "#A9573C", dark: "#3F5144", motif: "grapes" },
-    "classic-books": { sky: ["#EEE7D6", "#F8F2E1"], land: "#C8B898", accent: "#A74D3E", dark: "#5A503E", motif: "books" },
-    "classic-lunyu": { sky: ["#E7DED0", "#F7F0E3"], land: "#B6A486", accent: "#7C4B3D", dark: "#4F4437", motif: "scroll" },
-    "classic-family": { sky: ["#E5E9D8", "#F9F3E4"], land: "#A6B291", accent: "#A36D3F", dark: "#485446", motif: "house" },
-    "classic-cosmos": { sky: ["#28384A", "#6C8190"], land: "#263B45", accent: "#D6C187", dark: "#182A36", motif: "stars" },
-    "poetry-spring-rain": { sky: ["#C8D9D0", "#F1EBDD"], land: "#789C78", accent: "#B5584C", dark: "#31524B", motif: "rain" },
-    "poetry-willow": { sky: ["#D8E8D6", "#F7F1DD"], land: "#8FB58C", accent: "#C57A59", dark: "#365542", motif: "willow" },
-    "poetry-pond": { sky: ["#D7E8E3", "#F8F1DF"], land: "#83AB90", accent: "#B65D54", dark: "#315D59", motif: "pond" },
-    "poetry-egrets": { sky: ["#D6E8E7", "#F8F2DF"], land: "#91B18F", accent: "#506E95", dark: "#2F5661", motif: "egret" },
-    "idiom-monkeys": { sky: ["#E4E0CB", "#F8F2E0"], land: "#9A9366", accent: "#9B5B3A", dark: "#465141", motif: "trees" },
-    "idiom-bird": { sky: ["#D7E4E9", "#F8F2E1"], land: "#98A78F", accent: "#A16A46", dark: "#3E5960", motif: "bird" },
-    "fable-mountain": { sky: ["#E5D8BC", "#F8F1DD"], land: "#8F9B78", accent: "#92513E", dark: "#4B5544", motif: "mountains" },
-    "classic-seasons": { sky: ["#E7DCC4", "#F8F1DF"], land: "#A9A878", accent: "#9C663B", dark: "#4E5848", motif: "seasons" },
-    "poetry-mountain-river": { sky: ["#D5E3DB", "#F3EEDC"], land: "#759F83", accent: "#A65043", dark: "#345A52", motif: "mountain-river" },
-    "poetry-westlake": { sky: ["#D8E5E5", "#F8F1DE"], land: "#89AC91", accent: "#B65E54", dark: "#395A59", motif: "lake" },
-    "poetry-newyear": { sky: ["#F6D6B8", "#FCF4DF"], land: "#B98D68", accent: "#A93F38", dark: "#5A3E37", motif: "lanterns" },
-    "poetry-autumn": { sky: ["#EFD6AF", "#FAF1DB"], land: "#A57A5A", accent: "#B64F3E", dark: "#4B4940", motif: "maple" },
-    "idiom-dragon": { sky: ["#E7DDC7", "#FBF4E2"], land: "#A5A282", accent: "#A45043", dark: "#4A4B40", motif: "dragon" },
-    "idiom-leaf": { sky: ["#E3E7D1", "#FAF3E0"], land: "#A0AE83", accent: "#8C5B3D", dark: "#48513E", motif: "leaf" },
-    "fable-boat": { sky: ["#D9E5E1", "#F9F2DD"], land: "#92AC95", accent: "#A35444", dark: "#365650", motif: "boat" },
-    "classic-characters": { sky: ["#E5DAC5", "#F9F2DF"], land: "#B5A47C", accent: "#9C4E3E", dark: "#4F4A3D", motif: "characters" },
-    "poetry-lushan": { sky: ["#D8E1D8", "#F7F0DD"], land: "#80988B", accent: "#9A5B43", dark: "#3A514E", motif: "lushan" },
-    "poetry-border": { sky: ["#EADDBD", "#FAF1DA"], land: "#A6946A", accent: "#A34E3D", dark: "#4F5143", motif: "border" },
-    "poetry-desert": { sky: ["#F0D8B3", "#FAEFDA"], land: "#B79C70", accent: "#A54C3C", dark: "#554F42", motif: "desert" },
-    "poetry-homeland": { sky: ["#E4D9CB", "#FAF0DE"], land: "#9C9A7F", accent: "#9C4A3D", dark: "#4B4C42", motif: "homeland" },
-    "idiom-fish": { sky: ["#D4E4E4", "#F7F0DE"], land: "#86A9A1", accent: "#B95D49", dark: "#315A5C", motif: "fish" },
-    "idiom-crowd": { sky: ["#E7DDCC", "#FAF2DF"], land: "#B2A178", accent: "#A6533B", dark: "#4A4B3F", motif: "crowd" },
-    "fable-bell": { sky: ["#E3D9C7", "#FAF2DE"], land: "#A99C7C", accent: "#A15743", dark: "#4C4B40", motif: "bell" },
-    "classic-jade": { sky: ["#DFE8DD", "#F8F1DF"], land: "#99B195", accent: "#8C6542", dark: "#42564B", motif: "jade" },
-    "poetry-river-moon": { sky: ["#324A5A", "#93AAB0"], land: "#33555B", accent: "#E1C579", dark: "#1F3745", motif: "river-moon" },
-    "poetry-war-spring": { sky: ["#D9D4BE", "#F2E9D3"], land: "#7D8671", accent: "#9D5041", dark: "#435148", motif: "war-spring" },
-    "poetry-petals": { sky: ["#EAD6C2", "#FAF0DE"], land: "#9F9D7A", accent: "#B45748", dark: "#4B5044", motif: "petals" },
-    "idiom-bamboo": { sky: ["#DFE8D6", "#FAF2DE"], land: "#8FA486", accent: "#647C59", dark: "#3F5544", motif: "bamboo" },
-    "idiom-drum": { sky: ["#ECD9B9", "#FAF0DC"], land: "#AE9367", accent: "#A44537", dark: "#514940", motif: "drum" },
-    "fable-cup": { sky: ["#E5DEC9", "#FAF2DF"], land: "#A39C7D", accent: "#9C5E43", dark: "#494B40", motif: "cup" },
-    "poetry-village": { sky: ["#DCE8D4", "#FAF2DF"], land: "#91AC86", accent: "#B45B4A", dark: "#3F5848", motif: "village" },
-    "poetry-autumn-road": { sky: ["#EAD8B9", "#FAF0DC"], land: "#A28D6A", accent: "#A64B3B", dark: "#4D4D3F", motif: "autumn-road" },
-    "poetry-snow": { sky: ["#DCE6EB", "#F8F3E5"], land: "#9DB2B5", accent: "#A44A3B", dark: "#3E5861", motif: "snow" },
-    "poetry-farewell": { sky: ["#DDE7DD", "#FAF2DE"], land: "#94AB8D", accent: "#A95B4D", dark: "#42574A", motif: "farewell" },
-    "idiom-mountain": { sky: ["#E3E3D0", "#FAF2DE"], land: "#9DA184", accent: "#946040", dark: "#4A5345", motif: "step-mountain" },
-    "idiom-jade": { sky: ["#E0EAE2", "#F9F2E0"], land: "#9BB49C", accent: "#8F6445", dark: "#43594C", motif: "jade" },
-    "fable-dragon": { sky: ["#E8DDC6", "#FAF2DF"], land: "#A5A07E", accent: "#9E4F3F", dark: "#4C4C40", motif: "dragon" },
-    "classic-history": { sky: ["#E7DECB", "#F9F2DF"], land: "#B3A37D", accent: "#A04D3F", dark: "#4D4A3D", motif: "timeline" },
-    "classic-mind": { sky: ["#DDE9E0", "#FAF2DF"], land: "#9CAF94", accent: "#9B5B42", dark: "#41574A", motif: "mind" }
-  };
-
-  // assets/art.js
-  var hash = (s) => {
-    let h = 0;
-    for (let i = 0; i < s.length; i++) h = h * 31 + s.charCodeAt(i) >>> 0;
-    return h;
-  };
-  function sun(p, x = 310, y = 68, r = 31) {
-    return `<circle cx="${x}" cy="${y}" r="${r}" fill="${p.accent}" opacity=".88"/><circle cx="${x}" cy="${y}" r="${r + 13}" fill="${p.accent}" opacity=".08"/>`;
-  }
-  function birds(color = "#4C5D52", n = 3, x = 280, y = 80) {
-    let s = "";
-    for (let i = 0; i < n; i++) {
-      const bx = x + i * 24 - i % 2 * 9;
-      const by = y + i % 3 * 12;
-      s += `<path d="M${bx} ${by}q7-7 14 0q7-7 14 0" fill="none" stroke="${color}" stroke-width="1.6" opacity=".75"/>`;
-    }
-    return s;
-  }
-  function hills(p, h = 135) {
-    return `<path d="M0 ${h + 92} C32 ${h + 15} 76 ${h + 30} 110 ${h + 36} C160 ${h - 20} 210 ${h - 2} 250 ${h + 35} C290 ${h + 20} 338 ${h - 5} 400 ${h + 38} L400 240H0Z" fill="${p.land}" opacity=".66"/><path d="M0 ${h + 118} C80 ${h + 45} 142 ${h + 75} 205 ${h + 54} C260 ${h + 36} 334 ${h + 60} 400 ${h + 22}V240H0Z" fill="${p.dark}" opacity=".78"/>`;
-  }
-  function water(p, y = 160) {
-    return `<path d="M0 ${y} C60 ${y - 8} 100 ${y + 12} 156 ${y + 2} C220 ${y - 8} 274 ${y + 10} 400 ${y - 4}V240H0Z" fill="${p.dark}" opacity=".7"/><path d="M24 ${y + 21}h72M244 ${y + 27}h82M75 ${y + 38}h54M154 ${y + 18}h74" stroke="#F9F0D9" stroke-width="1.6" opacity=".45" stroke-linecap="round"/>`;
-  }
-  function lotus(p) {
-    let s = "";
-    for (let i = 0; i < 5; i++) {
-      const x = 44 + i * 61, y = 163 + i % 2 * 12;
-      s += `<ellipse cx="${x}" cy="${y}" rx="${28 - i * 2}" ry="${9 - i % 2}" fill="${p.land}" opacity=".88" transform="rotate(${i % 2 ? 8 : -8} ${x} ${y})"/>`;
-      if (i !== 2) s += `<path d="M${x} ${y} Q${x - 3} ${y - 27} ${x} ${y - 44}" stroke="${p.dark}" stroke-width="2" opacity=".7"/><path d="M${x} ${y - 47} q-13-9-14 4 q9 6 14-4 q12-9 14 4 q-8 7-14-4" fill="${p.accent}" opacity=".9"/>`;
-    }
-    return s + `<path d="M41 147 Q78 130 107 147M263 174 Q294 154 333 174" fill="none" stroke="${p.dark}" stroke-width="2" opacity=".45"/>`;
-  }
-  function goose(p) {
-    return `<path d="M198 147 C222 117 252 120 274 146 C294 169 274 194 242 188 L186 185 C155 183 151 156 173 147Z" fill="#FBF8EC" stroke="${p.dark}" stroke-width="2"/><path d="M254 131 C260 112 257 92 243 81 C232 72 218 82 225 94 C234 104 237 119 243 131" fill="none" stroke="${p.dark}" stroke-width="8" stroke-linecap="round"/><circle cx="224" cy="91" r="11" fill="#FBF8EC" stroke="${p.dark}" stroke-width="2"/><path d="M213 90 l-18 4 l15 8Z" fill="${p.accent}"/><circle cx="221" cy="88" r="2" fill="${p.dark}"/><path d="M191 187 q17 25 40 0M228 187 q18 24 40 0" fill="none" stroke="${p.accent}" stroke-width="5" stroke-linecap="round"/><path d="M180 161 q42-11 78 0" fill="none" stroke="${p.dark}" stroke-width="1" opacity=".3"/>`;
-  }
-  function farmer(p) {
-    for (let i = 0; i < 12; i++) {
-      const x = 20 + i * 32;
-      return `<path d="M0 173 C65 153 130 183 198 160 C260 141 320 170 400 149V240H0Z" fill="${p.land}" opacity=".78"/><path d="M0 195 Q60 175 120 192T240 186T400 183V240H0Z" fill="${p.dark}" opacity=".9"/>`;
-    }
-  }
-  function moon(p) {
-    return `<circle cx="282" cy="72" r="43" fill="${p.accent}" opacity=".92"/><circle cx="302" cy="58" r="43" fill="${p.sky[0]}"/><path d="M45 175 C105 142 149 172 205 147 C272 116 333 161 400 132V240H0Z" fill="${p.land}" opacity=".78"/><path d="M0 203 Q97 181 190 201T400 190V240H0Z" fill="${p.dark}" opacity=".88"/><path d="M236 138q21-11 42 0v30q-21 14-42 0Z" fill="${p.dark}"/><path d="M249 149h11v11h-11Z" fill="${p.accent}"/>`;
-  }
-  function tree(p, x = 233) {
-    return `<path d="M${x} 226V117" stroke="${p.dark}" stroke-width="13"/><path d="M${x} 162l-47-37M${x + 5} 140l43-31" stroke="${p.dark}" stroke-width="7"/><path d="M${x - 32} 87c-19-24-2-51 20-42c10-31 48-22 45 3c30 0 36 34 9 43Z" fill="${p.land}"/><path d="M${x - 12} 97c-2 8 2 17 14 19" fill="none" stroke="${p.dark}" stroke-width="2"/>`;
-  }
-  function grapes(p) {
-    let s = `<path d="M72 58 C152 20 284 42 335 90" fill="none" stroke="${p.dark}" stroke-width="5" opacity=".45"/><path d="M240 75 Q215 86 218 115" fill="none" stroke="${p.dark}" stroke-width="4"/>`;
-    const xs = [195, 216, 237, 258, 279];
-    xs.forEach((x, i) => {
-      s += `<circle cx="${x}" cy="${78 + i % 3 * 19}" r="12" fill="${p.accent}" opacity=".88"/><circle cx="${x - 3}" cy="${74 + i % 3 * 19}" r="3" fill="#F6E5C5" opacity=".5"/>`;
-    });
-    return s + `<path d="M151 183q30-19 59-9l-13 46h-31Z" fill="${p.dark}"/><path d="M182 174c18-22 43-20 47-2c-5 15-24 21-47 2Z" fill="${p.accent}"/>`;
-  }
-  function books(p) {
-    return `<path d="M76 180h244v21H76z" fill="${p.dark}" opacity=".65"/><path d="M100 158h83v22h-83zM143 135h84v23h-84z" fill="${p.accent}"/><path d="M224 155h77v25h-77zM193 179h94v21h-94z" fill="${p.land}"/><path d="M111 126h94l-9 29h-90zM200 115h76l-5 39h-75z" fill="#FAF4E4" stroke="${p.dark}" stroke-width="1.4"/><path d="M264 112l17-57l28 8l-16 56Z" fill="${p.dark}"/><path d="M277 62l2-20M288 65l8-18" stroke="${p.accent}" stroke-width="4"/>`;
-  }
-  function scroll(p) {
-    return `<path d="M100 58h200v129H100Z" fill="#FBF5E7" stroke="${p.dark}" stroke-width="1.5"/><path d="M91 52h218v14H91zM91 179h218v14H91z" fill="${p.accent}"/><path d="M124 86h151M124 104h122M124 122h139M124 140h88" stroke="${p.dark}" stroke-width="2.2" opacity=".48" stroke-linecap="round"/><circle cx="261" cy="155" r="16" fill="${p.accent}" opacity=".8"/>`;
-  }
-  function house(p) {
-    return `<path d="M93 194h208v-67H93Z" fill="#FAF4E4"/><path d="M103 126L195 74l95 52Z" fill="${p.dark}"/><path d="M154 193v-50h45v50M238 193v-41h29v41" fill="${p.land}" opacity=".7"/><path d="M113 192h170" stroke="${p.accent}" stroke-width="5"/><circle cx="197" cy="150" r="17" fill="${p.accent}" opacity=".85"/><path d="M197 132v39M178 150h38" stroke="#FAF4E4" stroke-width="2"/>`;
-  }
-  function stars(p) {
-    let s = `<circle cx="302" cy="61" r="31" fill="${p.accent}" opacity=".92"/>`;
-    for (let i = 0; i < 17; i++) s += `<circle cx="${26 + i * 67 % 354}" cy="${27 + i * 41 % 116}" r="${i % 4 === 0 ? 2.1 : 1.2}" fill="#F4E9C5" opacity=".85"/>`;
-    return s + `<path d="M0 185 Q80 157 146 174T278 163T400 176V240H0Z" fill="${p.dark}" opacity=".8"/>`;
-  }
-  function rain(p) {
-    let s = "";
-    for (let i = 0; i < 22; i++) s += `<path d="M${13 + i * 43 % 385} ${31 + i * 27 % 130}l-10 22" stroke="#D7E5E0" stroke-width="1.4" opacity=".68"/>`;
-    return hills(p, 139) + s;
-  }
-  function willow(p) {
-    let s = `<path d="M200 224V91" stroke="${p.dark}" stroke-width="10"/><path d="M198 117C138 76 98 91 70 59M201 132C258 88 298 94 330 56" fill="none" stroke="${p.dark}" stroke-width="4"/>`;
-    for (let i = 0; i < 11; i++) s += `<path d="M${49 + i * 31} ${72 + i % 4 * 8}q-18 33 3 80q16-27-3-80" fill="none" stroke="${p.land}" stroke-width="2.2" opacity=".9"/>`;
-    return s + `<path d="M0 208 Q95 177 200 204T400 188V240H0Z" fill="${p.land}" opacity=".62"/>`;
-  }
-  function pond(p) {
-    return water(p, 167) + `<ellipse cx="219" cy="184" rx="42" ry="8" fill="${p.land}" opacity=".78"/><path d="M236 180q-5-37 4-58q20 23 0 58Z" fill="${p.accent}"/><path d="M125 159q-6-36 5-54q18 23 1 54Z" fill="${p.accent}" opacity=".78"/><path d="M266 142l34-10M269 146l26 8" stroke="${p.dark}" stroke-width="2"/><ellipse cx="281" cy="137" rx="17" ry="4" fill="${p.dark}" opacity=".55"/>`;
-  }
-  function egret(p) {
-    return birds("#F8F4E6", 3, 281, 78) + hills(p, 141) + `<path d="M150 94v83M206 76v101" stroke="${p.dark}" stroke-width="3" opacity=".35"/><path d="M150 102h70" stroke="${p.dark}" stroke-width="2" opacity=".35"/>`;
-  }
-  function trees(p) {
-    return tree(p, 130) + tree(p, 274) + `<path d="M0 197 Q95 169 198 193T400 181V240H0Z" fill="${p.land}" opacity=".65"/><circle cx="208" cy="165" r="15" fill="${p.accent}" opacity=".6"/>`;
-  }
-  function bird(p) {
-    return `<path d="M0 197 Q92 164 201 187T400 174V240H0Z" fill="${p.land}" opacity=".7"/><path d="M191 121c24-37 87-35 97 19c-12-6-26-7-37 0c7 26-38 39-54 15c-13-2-19-17-6-34Z" fill="${p.dark}" opacity=".9"/><path d="M271 117l33-19M276 119l36 7" stroke="${p.dark}" stroke-width="2"/><path d="M112 92q24-19 46 0M84 110q30-20 59 1" fill="none" stroke="${p.accent}" stroke-width="2" opacity=".68"/>`;
-  }
-  function mountains(p) {
-    return `<path d="M0 203L89 77l60 81l55-105l74 112l47-71l75 109V240H0Z" fill="${p.land}" opacity=".7"/><path d="M0 213L101 129l53 49l57-71l70 76l37-38l82 68V240H0Z" fill="${p.dark}" opacity=".75"/><path d="M112 159l28-30M133 166l23-27" stroke="${p.accent}" stroke-width="4" stroke-linecap="round"/>`;
-  }
-  function seasons(p) {
-    return `<path d="M0 182 Q99 144 202 177T400 153V240H0Z" fill="${p.land}" opacity=".7"/><circle cx="78" cy="91" r="29" fill="${p.accent}" opacity=".7"/><path d="M211 72c-24 27 32 54 0 82c-23 26 18 41 0 72" fill="none" stroke="${p.dark}" stroke-width="5" opacity=".45"/><path d="M292 95l23 26l-19 21l-29-14Z" fill="${p.accent}" opacity=".6"/><path d="M306 148l26-7l5 31l-26 8Z" fill="${p.land}"/>`;
-  }
-  function mountainRiver(p) {
-    return `<path d="M0 196L73 88l58 67l43-104l54 95l42-57l68 71l62-25V240H0Z" fill="${p.land}" opacity=".72"/><path d="M0 197l93 10l62-7l72 9l80-8l93 7V240H0Z" fill="${p.dark}" opacity=".72"/><path d="M236 185l44-12l40 11l-15 15h-57Z" fill="${p.accent}"/><path d="M282 173V130l38 31" fill="#FBF5E7"/><path d="M0 215h400" stroke="#F9EFD7" stroke-width="2" opacity=".35"/>`;
-  }
-  function lake(p) {
-    return water(p, 151) + `<path d="M0 144Q80 123 150 141T300 132T400 145V240H0Z" fill="${p.land}" opacity=".55"/><path d="M244 157q30-28 58-4" fill="none" stroke="${p.dark}" stroke-width="2" opacity=".4"/><path d="M81 86q14-18 28 0M111 76q12-15 24 0" fill="none" stroke="${p.dark}" stroke-width="1.5" opacity=".5"/>`;
-  }
-  function lanterns(p) {
-    let s = `<path d="M96 0v93M209 0v109M318 0v75" stroke="${p.dark}" stroke-width="2"/>`;
-    [96, 209, 318].forEach((x, i) => {
-      const y = 111 + i * 12;
-      s += `<path d="M${x - 18} ${y - 17}h36v31h-36z" fill="${p.accent}" opacity=".9"/><path d="M${x - 12} ${y - 21}q12-13 24 0M${x - 4} ${y + 14}v15M${x + 6} ${y + 14}v15M${x - 20} ${y - 13}q-18 20 0 39M${x + 20} ${y - 13}q18 20 0 39" fill="none" stroke="${p.dark}" stroke-width="2"/>`;
-    });
-    return s + `<path d="M0 204Q100 171 203 198T400 185V240H0Z" fill="${p.dark}" opacity=".7"/>`;
-  }
-  function maple(p) {
-    return `<path d="M0 204 Q94 172 198 199T400 183V240H0Z" fill="${p.land}" opacity=".7"/><path d="M293 228V109M293 162l-58-44M293 145l53-44" stroke="${p.dark}" stroke-width="8"/><path d="M199 87l11-35l16 22l23-11l-7 25l20 2l-16 18l17 15l-28 3l4 27l-22-17l-18 16l-3-27l-26 1l15-19l-17-17Z" fill="${p.accent}"/><path d="M308 67l10-28l13 18l19-9l-7 22l18 3l-14 14l14 12l-22 2l2 20l-18-13l-15 12l-3-20l-19 1l11-13l-13-13Z" fill="${p.accent}" opacity=".8"/>`;
-  }
-  function dragon(p) {
-    return `<path d="M35 153C97 152 112 93 170 109C224 124 232 71 298 83C340 90 356 121 335 143C312 167 269 151 279 129C290 104 351 103 375 132" fill="none" stroke="${p.accent}" stroke-width="12" stroke-linecap="round" opacity=".9"/><path d="M58 155q46-20 90-4M189 98q-32-15-54 9M311 99q17-23 43-8" fill="none" stroke="${p.dark}" stroke-width="3"/><circle cx="362" cy="134" r="12" fill="${p.dark}"/><circle cx="365" cy="131" r="2" fill="#FAF2DD"/>`;
-  }
-  function leaf(p) {
-    return `<path d="M0 208Q99 166 201 202T400 183V240H0Z" fill="${p.land}" opacity=".62"/><path d="M93 194C114 102 211 46 318 76C310 165 228 216 93 194Z" fill="${p.land}" opacity=".86"/><path d="M93 194C155 140 227 104 318 76M177 133l-6-42M222 111l27-31M141 161l-37-3" fill="none" stroke="${p.dark}" stroke-width="2" opacity=".55"/>`;
-  }
-  function boat(p) {
-    return water(p, 156) + `<path d="M140 164l45-14l48 14l-19 24h-58Z" fill="${p.accent}"/><path d="M211 151V97l49 31" fill="#FAF4E3" stroke="${p.dark}" stroke-width="1.5"/><path d="M142 192q52 12 101 0" fill="none" stroke="#F9EFD7" stroke-width="2" opacity=".58"/>`;
-  }
-  function characters(p) {
-    return `<path d="M137 66h127v139H137Z" fill="#FAF3E1" stroke="${p.dark}" stroke-width="1.5"/><path d="M156 89l45 0M176 89v62M156 160h39M207 90l36-10M214 125h32M214 141l27 23" stroke="${p.accent}" stroke-width="4" stroke-linecap="round"/><path d="M63 189Q112 169 171 193T310 188T400 180V240H0Z" fill="${p.land}" opacity=".55"/>`;
-  }
-  function lushan(p) {
-    return `<path d="M0 201L55 131l41 45l49-97l60 91l38-55l63 56l44-28l50 55V240H0Z" fill="${p.land}" opacity=".65"/><path d="M0 212L92 148l37 35l50-51l33 63l80-48l39 53l69-28V240H0Z" fill="${p.dark}" opacity=".73"/><path d="M101 173l38-19M122 182l35-18" stroke="${p.accent}" stroke-width="2" opacity=".72"/>`;
-  }
-  function border(p) {
-    return `<path d="M0 201L83 129l45 52l51-104l70 101l49-34l102 75V240H0Z" fill="${p.land}" opacity=".7"/><path d="M0 214Q92 177 197 211T400 190V240H0Z" fill="${p.dark}" opacity=".75"/><path d="M273 108h92v93h-92Z" fill="none" stroke="${p.dark}" stroke-width="3"/><path d="M273 124h29v-23l20 0v23h43M273 152h92M273 177h92" fill="none" stroke="${p.dark}" stroke-width="2"/><circle cx="317" cy="63" r="27" fill="${p.accent}"/>`;
-  }
-  function desert(p) {
-    return `<path d="M0 195Q83 135 166 186T337 143T400 160V240H0Z" fill="${p.land}" opacity=".8"/><path d="M0 212Q107 164 212 201T400 178V240H0Z" fill="${p.dark}" opacity=".55"/><circle cx="322" cy="59" r="32" fill="${p.accent}"/><path d="M253 135l77-14M222 157l54-19" stroke="${p.dark}" stroke-width="2" opacity=".42"/>`;
-  }
-  function homeland(p) {
-    return `<path d="M0 202Q94 166 195 200T400 178V240H0Z" fill="${p.land}" opacity=".62"/><path d="M108 203v-54l48-34l48 34v54M213 203v-42l43-25l39 25v42" fill="none" stroke="${p.dark}" stroke-width="4"/><path d="M126 172h17v31h-17zM147 172h17v31h-17zM236 175h14v28h-14z" fill="${p.accent}" opacity=".6"/>`;
-  }
-  function fish(p) {
-    return water(p, 153) + `<path d="M113 139q38-34 83 0q-43 32-83 0Z" fill="${p.accent}" opacity=".86"/><path d="M196 139l29-20v40Z" fill="${p.accent}"/><circle cx="138" cy="136" r="2.2" fill="${p.dark}"/><path d="M155 127l15-15M155 151l15 14M70 103q35-28 68 0M250 176q31-22 60 0" fill="none" stroke="#F9EFD7" stroke-width="2" opacity=".65"/>`;
-  }
-  function crowd(p) {
-    let s = `<path d="M0 206Q105 168 199 202T400 181V240H0Z" fill="${p.land}" opacity=".62"/>`;
-    for (let i = 0; i < 8; i++) {
-      const x = 42 + i * 44, y = 151 + i % 3 * 13;
-      s += `<circle cx="${x}" cy="${y}" r="13" fill="${p.accent}" opacity="${0.5 + i % 3 * 0.12}"/><path d="M${x - 17} ${y + 14}q3-24 17-24t18 24Z" fill="${p.dark}" opacity=".7"/>`;
-    }
-    return s;
-  }
-  function bell(p) {
-    return `<path d="M0 207Q95 166 204 200T400 184V240H0Z" fill="${p.land}" opacity=".64"/><path d="M222 60h43v24h-43zM226 84h35l13 82h-61zM233 166h23v32h-23z" fill="${p.dark}"/><path d="M247 166v27" stroke="${p.accent}" stroke-width="4"/><path d="M285 89q22-7 28 11M291 98q24 7 22 22" fill="none" stroke="${p.accent}" stroke-width="2" opacity=".7"/>`;
-  }
-  function jade(p) {
-    return `<path d="M0 205Q100 169 202 198T400 183V240H0Z" fill="${p.land}" opacity=".6"/><path d="M164 71h76v31h-76zM149 102h106l18 62H131Z" fill="${p.land}" stroke="${p.dark}" stroke-width="2"/><path d="M164 102h76l9 42h-94Z" fill="${p.accent}" opacity=".35"/><path d="M206 137v27M188 156h36" stroke="${p.dark}" stroke-width="2" opacity=".5"/>`;
-  }
-  function riverMoon(p) {
-    return `<circle cx="278" cy="67" r="39" fill="${p.accent}" opacity=".9"/><path d="M0 164Q80 139 156 157T302 150T400 145V240H0Z" fill="${p.dark}" opacity=".6"/><path d="M0 186Q106 160 211 184T400 172V240H0Z" fill="${p.dark}" opacity=".9"/><path d="M196 179q64-17 124 0q-58 27-124 0Z" fill="${p.accent}" opacity=".28"/><path d="M217 168l55-35l50 34Z" fill="${p.dark}"/><path d="M234 168v-23M291 168v-20" stroke="${p.accent}" stroke-width="2"/>`;
-  }
-  function warSpring(p) {
-    return `<path d="M0 205Q104 164 196 199T400 181V240H0Z" fill="${p.land}" opacity=".63"/><path d="M96 199v-67l38-24l39 24v67M217 199v-50l30-18l35 18v50" fill="none" stroke="${p.dark}" stroke-width="3"/><path d="M111 183h14v16h-14zM238 183h13v16h-13z" fill="${p.accent}" opacity=".6"/><path d="M55 193q15-26 31 0M324 187q12-21 25 0" fill="none" stroke="${p.accent}" stroke-width="2"/>`;
-  }
-  function petals(p) {
-    let s = `<path d="M0 208Q95 165 199 202T400 181V240H0Z" fill="${p.land}" opacity=".6"/>`;
-    for (let i = 0; i < 12; i++) s += `<ellipse cx="${39 + i * 71 % 340}" cy="${72 + i * 41 % 112}" rx="8" ry="4" fill="${p.accent}" opacity="${0.38 + i % 4 * 0.11}" transform="rotate(${20 + i * 23} ${39 + i * 71 % 340} ${72 + i * 41 % 112})"/>`;
-    return s + `<path d="M206 161q26-20 50 0" fill="none" stroke="${p.dark}" stroke-width="2" opacity=".45"/>`;
-  }
-  function bamboo(p) {
-    let s = `<path d="M217 226V48M269 226V69M167 226V89" stroke="${p.dark}" stroke-width="5"/><path d="M217 88h-45l21 32M269 132l43-21l-14 34M167 163l-49-27l8 37" fill="none" stroke="${p.land}" stroke-width="7"/><path d="M217 76q18-28 33-27M269 112q24-20 36-10M167 140q-20-25-38-18" fill="none" stroke="${p.accent}" stroke-width="3"/>`;
-    for (let i = 0; i < 7; i++) s += `<path d="M${212 - i * 18} ${78 + i * 19}l-22-8M${267 + i * 7} ${99 + i * 16}l22-5" stroke="${p.land}" stroke-width="2"/>`;
-    return s;
-  }
-  function drum(p) {
-    return `<path d="M0 203Q99 169 201 199T400 184V240H0Z" fill="${p.land}" opacity=".62"/><ellipse cx="211" cy="135" rx="67" ry="33" fill="${p.accent}"/><path d="M144 135v51c0 18 30 32 67 32s67-14 67-32v-51" fill="${p.dark}" opacity=".8"/><path d="M150 159h122M159 179h104" stroke="${p.accent}" stroke-width="2" opacity=".55"/><path d="M289 102l39-44M303 115l45-20" stroke="${p.dark}" stroke-width="3" stroke-linecap="round"/>`;
-  }
-  function cup(p) {
-    return `<path d="M0 206Q98 168 200 201T400 183V240H0Z" fill="${p.land}" opacity=".62"/><path d="M148 103h66l-9 67h-48Z" fill="#FAF3E0" stroke="${p.dark}" stroke-width="2"/><path d="M214 119h28q18 0 0 37h-28" fill="none" stroke="${p.dark}" stroke-width="2"/><path d="M161 109q14 15 36 0" fill="none" stroke="${p.accent}" stroke-width="3"/><path d="M324 91c-17-21 10-37 0-57" fill="none" stroke="${p.accent}" stroke-width="2" opacity=".7"/>`;
-  }
-  function village(p) {
-    return `<path d="M0 208Q93 175 197 198T400 187V240H0Z" fill="${p.land}" opacity=".67"/><path d="M70 197v-50l49-31l51 31v50M221 197v-38l41-27l39 27v38" fill="#FAF4E4" stroke="${p.dark}" stroke-width="2"/><path d="M93 169h19v28H93zM244 173h15v24h-15z" fill="${p.accent}" opacity=".6"/><path d="M0 212Q104 187 201 207T400 198V240H0Z" fill="${p.dark}" opacity=".55"/><circle cx="295" cy="60" r="20" fill="${p.accent}" opacity=".6"/>`;
-  }
-  function autumnRoad(p) {
-    return `<path d="M0 203Q92 165 207 198T400 173V240H0Z" fill="${p.land}" opacity=".72"/><path d="M0 195Q87 182 194 200T400 192" fill="none" stroke="${p.dark}" stroke-width="3" opacity=".7"/><path d="M233 194q-10-54 14-96M246 103l-25-15M247 109l22-17" stroke="${p.dark}" stroke-width="5"/><path d="M196 99l7-23l13 15l17-10l-3 29Z" fill="${p.accent}"/><path d="M154 143l19-8l8 20l-20 8Z" fill="${p.land}" opacity=".6"/>`;
-  }
-  function snow(p) {
-    return `<path d="M0 195L89 108l55 59l62-101l58 81l41-31l95 65V240H0Z" fill="${p.land}" opacity=".7"/><path d="M0 209L91 143l54 42l63-65l56 78l45-21l91 41V240H0Z" fill="${p.dark}" opacity=".58"/>`;
-  }
-  function farewell(p) {
-    return `<path d="M0 205Q98 168 197 198T400 182V240H0Z" fill="${p.land}" opacity=".66"/><path d="M82 201v-54l39-25l36 25v54M250 201v-58l42-25l42 25v58" fill="#FAF4E4" stroke="${p.dark}" stroke-width="2"/><path d="M69 143h53M237 142h56" stroke="${p.accent}" stroke-width="5"/><path d="M184 81q18-19 36 0M143 68q11-13 23 0M264 62q11-13 23 0" fill="none" stroke="${p.dark}" stroke-width="1.3" opacity=".5"/>`;
-  }
-  function stepMountain(p) {
-    return `<path d="M0 202L84 130l40 45l48-105l64 93l44-63l82 68l38-24V240H0Z" fill="${p.land}" opacity=".7"/><path d="M224 199l22-24l19 20l18-19l18 23" fill="none" stroke="${p.dark}" stroke-width="3"/>`;
-  }
-  function timeline(p) {
-    return `<path d="M0 205Q100 166 201 200T400 183V240H0Z" fill="${p.land}" opacity=".62"/><path d="M80 141h239" stroke="${p.dark}" stroke-width="2"/><circle cx="100" cy="141" r="8" fill="${p.accent}"/><circle cx="198" cy="141" r="8" fill="${p.accent}"/><circle cx="298" cy="141" r="8" fill="${p.accent}"/><path d="M100 131V88M198 131V81M298 131V97" stroke="${p.dark}" stroke-width="2"/>`;
-  }
-  function mind(p) {
-    return `<path d="M0 207Q92 169 201 201T400 183V240H0Z" fill="${p.land}" opacity=".62"/><circle cx="211" cy="119" r="44" fill="none" stroke="${p.dark}" stroke-width="2"/><path d="M211 58v22M211 158v23M150 119h-20M293 119h24M170 78l15 16M252 145l15 15M253 78l-15 16M170 161l15-16" stroke="${p.accent}" stroke-width="3"/><circle cx="211" cy="119" r="13" fill="${p.accent}" opacity=".5"/>`;
-  }
-  var motifs = { lotus, goose, farmer, moon, tree, grapes, books, scroll, house, stars, rain, willow, pond, egret, trees, bird, mountains, seasons, "mountain-river": mountainRiver, lake, lanterns, maple, dragon, leaf, boat, characters, lushan, border, desert, homeland, fish, crowd, bell, jade, "river-moon": riverMoon, "war-spring": warSpring, petals, bamboo, drum, cup, village, "autumn-road": autumnRoad, snow, farewell, "step-mountain": stepMountain, timeline, mind };
-  function illustration(id, options = {}) {
-    const p = illustrationPalettes[id] || illustrationPalettes["classic-books"];
-    const small = options.small ? " is-small" : "";
-    const motif = motifs[p.motif] || books;
-    const overlay = options.overlay ?? true;
-    const seed = hash(id);
-    const grain = `<filter id="grain-${seed}"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .05"/></feComponentTransfer></filter>`;
-    return `<div class="illus${small}" aria-hidden="true"><svg viewBox="0 0 400 240" role="img"><defs><linearGradient id="sky-${seed}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${p.sky[0]}"/><stop offset="1" stop-color="${p.sky[1]}"/></linearGradient>${grain}</defs><rect width="400" height="240" fill="url(#sky-${seed})"/>${sun(p)}${birds(p.dark, 2, 55, 50)}${motif(p)}<rect width="400" height="240" filter="url(#grain-${seed})" opacity=".8"/>${overlay ? `<rect y="172" width="400" height="68" fill="url(#fade-${seed})"/>` : ""}<linearGradient id="fade-${seed}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${p.dark}" stop-opacity="0"/><stop offset="1" stop-color="${p.dark}" stop-opacity=".22"/></linearGradient></svg></div>`;
-  }
-
   // assets/app.js
   var app = document.querySelector("#app");
-  var KEYS = { favorites: "guoxue-favorites-v2", read: "guoxue-read-v2", prefs: "guoxue-prefs-v2" };
+  var KEYS = { favorites: "guoxue-favorites-v4", read: "guoxue-read-v4", prefs: "guoxue-prefs-v4" };
   var load = (key, fallback) => {
     try {
-      const value = JSON.parse(localStorage.getItem(key));
-      return value ?? fallback;
+      return JSON.parse(localStorage.getItem(key)) ?? fallback;
     } catch {
       return fallback;
     }
@@ -3173,42 +5422,36 @@
     category: "all",
     grade: "all",
     volume: "all",
-    scope: "all",
+    scope: "textbook",
     keyword: "",
+    topQuery: "",
+    videoOnly: false,
+    itemId: null,
+    toastTimer: null,
     favorites: new Set(load(KEYS.favorites, [])),
     read: new Set(load(KEYS.read, [])),
-    itemId: null,
-    quiz: false,
-    quizIndex: 0,
-    quizChoice: null,
-    toastTimer: null,
     ...savedPrefs
   };
   var categoryMap = Object.fromEntries(categories.map((c) => [c.id, c]));
-  var esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  var categoryStyle = (c) => "--cat-color:" + c.color + ";--cat-soft:" + c.soft;
+  var esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  var scopeName = (scope) => scope === "textbook" ? "\u6559\u6750\u5185\u5BB9" : scope === "extra" ? "\u8BFE\u5916\u62D3\u5C55" : "\u56FD\u5B66\u7ECF\u5178";
   function savePrefs() {
-    save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope });
+    save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly });
   }
   function toast(message, iconName = "check") {
     const el = document.querySelector("#toast");
     if (!el) return;
     clearTimeout(state.toastTimer);
-    el.innerHTML = icon(iconName, 15) + "<span>" + esc(message) + "</span>";
+    el.innerHTML = icon(iconName, 16) + "<span>" + esc(message) + "</span>";
     el.classList.add("show");
-    state.toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+    state.toastTimer = setTimeout(() => el.classList.remove("show"), 1800);
   }
   function toggleFavorite(id, event) {
-    event?.stopPropagation();
     event?.preventDefault();
-    if (state.favorites.has(id)) {
-      state.favorites.delete(id);
-      toast("\u5DF2\u53D6\u6D88\u6536\u85CF", "heart");
-    } else {
-      state.favorites.add(id);
-      toast("\u5DF2\u52A0\u5165\u6536\u85CF", "heart");
-    }
+    event?.stopPropagation();
+    state.favorites.has(id) ? state.favorites.delete(id) : state.favorites.add(id);
     save(KEYS.favorites, [...state.favorites]);
+    toast(state.favorites.has(id) ? "\u5DF2\u6536\u85CF" : "\u5DF2\u53D6\u6D88\u6536\u85CF", "heart");
     render();
   }
   function markRead(id) {
@@ -3217,316 +5460,223 @@
       save(KEYS.read, [...state.read]);
     }
   }
+  function scopePool(scope = state.scope) {
+    return scope === "textbook" ? lessonItems : scope === "extra" ? extraItems : classicItems;
+  }
+  function filteredItems() {
+    const result = searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword });
+    return state.videoOnly ? result.filter((i) => i.video) : result;
+  }
+  function globalResults() {
+    if (!state.topQuery.trim()) return [];
+    return searchItems(items, { keyword: state.topQuery.trim(), scope: "all" });
+  }
   function updateFilter(patch) {
     Object.assign(state, patch);
+    if (patch.scope) {
+      state.category = "all";
+      state.grade = "all";
+      state.volume = "all";
+      state.keyword = "";
+      state.videoOnly = false;
+    }
     savePrefs();
     render();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-  function clearFilters() {
-    Object.assign(state, { category: "all", grade: "all", volume: "all", scope: "all", keyword: "" });
-    savePrefs();
-    render();
-  }
   function topbar() {
-    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span class="brand-text"><span class="brand-name">\u8BFE\u672C\u56FD\u5B66</span><span class="brand-sub">\u4EBA\u6559\u7248 \xB7 \u5C0F\u5B66\u8BED\u6587</span></span></a><div class="top-actions"><button class="icon-btn ' + (state.favorites.size ? "active" : "") + '" data-go="favorites" aria-label="\u6536\u85CF">' + icon("heart", 19) + "</button></div></header>";
+    const fav = state.favorites.size ? "active" : "";
+    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span class="brand-text"><span class="brand-name">\u8BFE\u672C\u56FD\u5B66</span><span class="brand-sub">\u5C0F\u5B66\u8BED\u6587 \xB7 \u56FD\u5B66\u542F\u8499</span></span></a><button class="icon-btn ' + fav + '" data-go="favorites" aria-label="\u6536\u85CF">' + icon("heart", 20) + "</button></header>";
+  }
+  function topSearch() {
+    const results = globalResults();
+    return '<section class="top-search-section"><form class="top-search" id="top-search-form">' + icon("search", 21) + '<input id="top-search-input" autocomplete="off" value="' + esc(state.topQuery) + '" placeholder="\u641C\u7D22\u53E4\u8BD7\u3001\u6210\u8BED\u3001\u6587\u8A00\u6587\u6216\u56FD\u5B66\u7ECF\u5178"><button type="submit" class="top-search-button">\u67E5\u8BE2</button></form>' + (state.topQuery.trim() ? '<div class="top-search-results">' + (results.length ? results.slice(0, 8).map((i) => '<button class="top-result" data-open="' + esc(i.id) + '"><span><b>' + esc(i.title) + "</b><small>" + esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel) + "</small></span>" + icon("chevron", 16) + "</button>").join("") + '<div class="top-result-count">\u5171 ' + results.length + " \u6761\u7ED3\u679C</div>" : '<div class="top-result-empty">\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</div>') + "</div>" : "") + "</section>";
   }
   function nav() {
     const active = (v) => state.view === v ? "active" : "";
-    return '<nav class="bottom-nav" aria-label="\u4E3B\u5BFC\u822A"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 19) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 19) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A\u8BFB\u4E00\u7BC7">' + icon("sparkle", 20) + '</button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 19) + "<span>\u6536\u85CF</span></button></nav>";
+    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A">' + icon("sparkle", 21) + '</button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
+  }
+  function sourceTabs() {
+    const tabs = [{ id: "textbook", label: "\u6559\u6750\u5185\u5BB9", count: lessonItems.length }, { id: "extra", label: "\u8BFE\u5916\u62D3\u5C55", count: extraItems.length }, { id: "classics", label: "\u56FD\u5B66\u7ECF\u5178", count: classicItems.length }];
+    return '<div class="source-tabs">' + tabs.map((t) => '<button class="source-tab ' + (state.scope === t.id ? "active" : "") + '" data-scope="' + t.id + '"><span>' + t.label + "</span><b>" + t.count + "</b></button>").join("") + "</div>";
   }
   function categoryHub() {
-    const used = categories.filter((c) => items.some((i) => i.category === c.id));
+    const list = scopePool();
+    const used = categories.filter((c) => list.some((i) => i.category === c.id));
     return '<div class="category-hub">' + used.map((c) => {
-      const count = items.filter((i) => i.category === c.id).length;
-      const selected = state.category === c.id;
-      return '<button class="hub-card ' + (selected ? "active" : "") + '" style="' + categoryStyle(c) + '" data-category="' + c.id + '"><span class="hub-main"><b>' + c.name + "</b><small>" + (c.description || "") + '</small></span><span class="hub-count">' + count + "</span></button>";
+      const count = list.filter((i) => i.category === c.id).length;
+      return '<button class="hub-card ' + (state.category === c.id ? "active" : "") + '" style="--cat-color:' + c.color + ";--cat-soft:" + c.soft + '" data-category="' + c.id + '"><span class="hub-main"><b>' + c.name + "</b><small>" + c.description + '</small></span><span class="hub-count">' + count + "</span></button>";
     }).join("") + "</div>";
   }
   function gradeChips() {
-    return '<div class="quick-chips">' + [{ id: "all", label: "\u5168\u5E74\u7EA7" }, ...grades.map((g) => ({ id: String(g.grade), label: g.grade + "\u5E74\u7EA7" }))].map((g) => '<button class="quick-chip ' + (state.grade === g.id ? "active" : "") + '" data-grade="' + g.id + '">' + g.label + "</button>").join("") + "</div>";
+    return '<div class="quick-chips">' + [{ id: "all", label: "\u5168\u5E74\u7EA7" }, ...grades.map((g) => ({ id: String(g.grade), label: g.label }))].map((g) => '<button class="quick-chip ' + (state.grade === g.id ? "active" : "") + '" data-grade="' + g.id + '">' + g.label + "</button>").join("") + "</div>";
   }
   function volumeChips() {
-    return '<div class="segment-row">' + volumeOptions.map((v) => '<button class="segment ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + "</div>";
+    return '<div class="segment-row">' + [{ id: "all", label: "\u5168\u90E8" }, { id: "\u4E0A", label: "\u4E0A\u518C" }, { id: "\u4E0B", label: "\u4E0B\u518C" }].map((v) => '<button class="segment ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + "</div>";
   }
   function libraryCard(item) {
-    const c = categoryMap[item.category];
+    const c = categoryMap[item.category] || categories[0];
     const favorite = state.favorites.has(item.id);
-    return '<article class="library-card" style="' + categoryStyle(c) + '" data-open="' + esc(item.id) + '" tabindex="0" role="button" aria-label="\u9605\u8BFB' + esc(item.title) + '"><div class="library-info"><div class="library-kicker"><span>' + esc(item.categoryName) + "</span><span>" + esc(item.volumeLabel || "") + "</span></div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-meta"><span>' + esc(item.gradeLabel) + "</span><span>" + esc(item.sourceLabel) + '</span></div></div><button class="list-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="' + (favorite ? "\u53D6\u6D88\u6536\u85CF" : "\u6536\u85CF") + '">' + icon("heart", 16) + "</button></article>";
+    const video = item.video ? '<button class="card-play" data-play="' + esc(item.id) + '" aria-label="\u64AD\u653E\u89C6\u9891">' + icon("play", 15) + "<span>\u770B\u89C6\u9891</span></button>" : "";
+    return '<article class="library-card" style="--cat-color:' + c.color + ";--cat-soft:" + c.soft + '" data-open="' + esc(item.id) + '" tabindex="0" role="button"><div class="library-card-top"><div class="library-kicker"><span class="cat-dot"></span><span>' + esc(item.categoryName) + "</span></div>" + (item.video ? '<span class="has-video">\u89C6\u9891</span>' : "") + "</div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-footer"><span class="grade-pill">' + esc(item.gradeLabel) + '</span><div class="library-actions">' + video + '<button class="card-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 17) + "</button></div></div></article>";
   }
   function homeView() {
     const current = filteredItems();
     const cat = state.category === "all" ? "\u5168\u90E8\u5185\u5BB9" : categoryMap[state.category].name;
-    return '<main class="page-enter mobile-page">' + topbar() + '<section class="mobile-intro"><h1>\u8BFE\u672C\u56FD\u5B66</h1></section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u5206\u7C7B</h2></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u7BC7</span></div><div class="mobile-filters"><div class="mobile-filter-row"><span>\u5E74\u7EA7</span>' + gradeChips() + '</div><div class="mobile-filter-row"><span>\u518C\u6B21</span>' + volumeChips() + '</div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u641C\u7D22\u7BC7\u540D\u3001\u4F5C\u8005\u6216\u539F\u6587" aria-label="\u641C\u7D22\u8BFE\u6587"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A\u641C\u7D22">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn btn-secondary" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
-  }
-  function filteredItems() {
-    return searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword, favoriteIds: [...state.favorites] });
+    const showFilters = state.scope === "textbook" || state.scope === "classics";
+    const filters = showFilters ? '<div class="mobile-filter-row"><span>\u5E74\u7EA7</span>' + gradeChips() + "</div>" + (state.scope === "textbook" ? '<div class="mobile-filter-row"><span>\u518C\u6B21</span>' + volumeChips() + "</div>" : "") : "";
+    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<section class="mobile-intro"><h1>\u5C0F\u5B66\u8BED\u6587\u56FD\u5B66</h1></section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u6765\u6E90</h2></div>' + sourceTabs() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u5206\u7C7B</h2></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u9879</span></div><div class="mobile-filters">' + filters + '<div class="mobile-filter-row"><span>\u89C6\u9891</span><button class="video-filter ' + (state.videoOnly ? "active" : "") + '" data-video-only="1">' + icon("play", 14) + ' \u53EA\u770B\u6709\u89C6\u9891</button></div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u5728\u5F53\u524D\u5185\u5BB9\u4E2D\u641C\u7D22"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
   }
   function splitLines(text) {
     return String(text || "").split(/\n+/).filter(Boolean);
   }
   function splitPairs(item) {
-    const textLines = splitLines(item.excerpt);
-    const pyLines = splitLines(item.pinyin);
-    return textLines.map((text, index) => ({ text, pinyin: pyLines[index] || "" }));
+    const a = splitLines(item.excerpt), b = splitLines(item.pinyin);
+    return a.map((text, i) => ({ text, pinyin: b[i] || "" }));
+  }
+  function videoBlock(item) {
+    if (item.category === "idiom" || !item.video) return "";
+    return '<section class="video-section"><div class="video-head"><span class="video-label">' + icon("play", 16) + '\u5BF9\u5E94\u89C6\u9891</span><span class="video-series">' + esc(item.video.season) + " \xB7 \u7B2C" + item.video.episode + '\u96C6</span></div><button class="video-card" data-play="' + esc(item.id) + '"><span class="video-cover">' + icon("play", 26) + '</span><span class="video-info"><b>\u5728\u9875\u9762\u64AD\u653E</b><span>' + esc(item.video.title) + "</span></span>" + icon("chevron", 18) + '</button><a class="video-open" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">\u5728\u54D4\u54E9\u54D4\u54E9\u6253\u5F00 ' + icon("external", 15) + "</a></section>";
   }
   function detailView() {
     const item = items.find((i) => i.id === state.itemId);
     if (!item) return homeView();
-    const pairs = splitPairs(item);
-    const isFav = state.favorites.has(item.id);
-    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="reader-back"><button class="back-btn" data-go="home">' + icon("back", 18) + ' \u8FD4\u56DE</button><button class="icon-btn ' + (isFav ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 20) + '</button></div><article class="reader-article"><header class="reader-header"><span class="reader-category">' + esc(item.categoryName) + "</span><h1>" + esc(item.title) + '</h1><div class="reader-meta">' + esc(item.gradeLabel) + '</div><div class="reader-source">' + esc(item.sourceLabel) + '</div></header><div class="reader-audio"><button class="audio-button" data-speak="' + esc(item.id) + '" id="speak-btn">' + icon("volume", 20) + ' \u6717\u8BFB</button><audio id="reader-audio" preload="metadata" webkit-playsinline playsinline src="audio/' + esc(item.id) + '.mp3"></audio></div><section class="reader-text"><div class="reader-label">\u539F\u6587\u4E0E\u62FC\u97F3</div>' + pairs.map((pair) => '<div class="reader-line"><div class="reader-pinyin">' + esc(pair.pinyin) + '</div><div class="reader-text-content">' + esc(pair.text) + "</div></div>").join("") + '</section><section class="reader-meaning"><h2>\u8BD1\u6587</h2><p>' + esc(item.meaning) + '</p></section><section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + '</p></section><figure class="reader-illustration">' + illustration(item.image) + "<figcaption>" + esc(item.title) + " \xB7 \u8BFE\u6587\u914D\u56FE</figcaption></figure></article></main>" + nav();
+    const pairs = splitPairs(item), favorite = state.favorites.has(item.id);
+    const isIdiom = item.category === "idiom";
+    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-meta">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-source">' + (item.scopeType === "classics" ? esc(item.gradeLabel) : esc(item.sourceLabel) + " \xB7 " + esc(item.gradeLabel)) + '</div></header><div class="reader-audio"><button class="audio-button" data-speak="text" id="speak-btn">' + icon("volume", 19) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button>" + (item.meaning ? '<button class="audio-button audio-secondary" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 19) + " " + (isIdiom ? "\u8BFB\u4F8B\u53E5" : "\u8BFB\u8BD1\u6587") + "</button>" : "") + '<audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio></div><section class="reader-text"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + " \xB7 \u62FC\u97F3</div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2><p>" + esc(item.meaning) + "</p></section>" : "") + (item.appreciation ? '<section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + "</p></section>" : "") + videoBlock(item) + "</article></main>" + nav();
   }
-  function escapeRegex(value) {
-    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  }
-  function highlight(text, query) {
-    const safe = esc(text);
-    if (!query) return safe;
-    return safe.replace(new RegExp("(" + escapeRegex(esc(query)) + ")", "gi"), "<mark>$1</mark>");
-  }
-  function favoritesView() {
-    const allFav = items.filter((i) => state.favorites.has(i.id));
-    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><div class="page-header"><h1>\u6536\u85CF</h1></div>' + (allFav.length ? '<div class="favorite-list">' + allFav.map((item) => '<article class="favorite-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="favorite-info"><h3>' + esc(item.title) + '</h3><span class="favorite-meta">' + esc(item.gradeLabel) + " \xB7 " + esc(item.categoryName) + "</span></span></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u8FD8\u6CA1\u6709\u6536\u85CF</h2><p>\u5728\u8BFE\u6587\u9875\u9762\u70B9\u51FB\u7231\u5FC3\uFF0C\u5373\u53EF\u5728\u8FD9\u91CC\u627E\u5230\u3002</p><button class="btn btn-primary" data-go="home">\u8FD4\u56DE\u9996\u9875</button></div>') + "</div></main>" + nav();
-  }
-  function searchView() {
-    const result = searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword, favoriteIds: [...state.favorites] });
-    return '<main class="page-enter mobile-page">' + topbar() + '<div class="search-page"><h1>\u67E5\u8BE2</h1><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u7BC7\u540D\u3001\u4F5C\u8005\u6216\u539F\u6587" autocomplete="off" aria-label="\u641C\u7D22\u56FD\u5B66\u5185\u5BB9"><button class="search-submit" type="submit">\u67E5\u8BE2</button></form><section class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u5E74\u7EA7</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u518C\u6B21</span><div class="filter-options">' + volumeOptions.map((v) => '<button class="filter-option ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + '</div></div></section><div class="search-results-heading"><h2>\u67E5\u8BE2\u7ED3\u679C</h2><span>' + result.length + ' \u7BC7</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '" tabindex="0" role="button"><span class="search-result-text"><div class="search-result-title">' + highlight(item.title, state.keyword) + '</div><div class="search-result-meta">' + esc(item.gradeLabel) + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.sourceLabel) + '</div><p class="search-result-summary">' + highlight(item.excerpt, state.keyword) + "</p></span></article>").join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn btn-secondary" data-reset-filters>\u91CD\u7F6E\u7B5B\u9009</button></div>') + "</div></div></main>" + nav();
-  }
-  function openItem(id) {
-    state.itemId = id;
-    markRead(id);
-    state.view = "detail";
-    state.quiz = false;
-    state.quizChoice = null;
-    state.quizIndex = 0;
-    location.hash = "read/" + encodeURIComponent(id);
-    render();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-  function randomItem() {
-    const pool = filteredItems().length ? filteredItems() : items;
-    openItem(pool[Math.floor(Math.random() * pool.length)].id);
-  }
-  function speakText(id) {
-    const player = document.getElementById("reader-audio");
-    const button = document.getElementById("speak-btn");
+  var currentAudio = null;
+  function playAudio(kind) {
+    const meaning = kind === "meaning";
+    const player = document.querySelector(meaning ? "#meaning-audio" : "#reader-audio");
+    const button = document.querySelector(meaning ? "#meaning-speak-btn" : "#speak-btn");
     if (!player || !button) return;
+    currentAudio && currentAudio !== player && currentAudio.pause();
+    currentAudio = player;
+    const label = meaning ? document.body.innerText.includes("\u91CA\u4E49\u4E0E\u4F8B\u53E5") ? "\u8BFB\u4F8B\u53E5" : "\u8BFB\u8BD1\u6587" : document.body.innerText.includes("\u91CA\u4E49\u4E0E\u4F8B\u53E5") ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587";
     if (!player.paused) {
       player.pause();
-      button.innerHTML = icon("volume", 20) + " \u6717\u8BFB";
+      button.innerHTML = icon("volume", 19) + " " + label;
       return;
     }
     player.play().then(() => {
-      button.innerHTML = icon("volume", 20) + " \u6682\u505C";
-      toast("\u6B63\u5728\u6717\u8BFB", "volume");
-    }).catch(() => {
-      button.innerHTML = icon("volume", 20) + " \u6717\u8BFB";
-      toast("\u5F55\u97F3\u52A0\u8F7D\u5931\u8D25\uFF0C\u8BF7\u68C0\u67E5\u7F51\u7EDC\u540E\u91CD\u8BD5", "volume");
-    });
+      button.innerHTML = icon("volume", 19) + " \u6682\u505C";
+    }).catch(() => toast("\u97F3\u9891\u52A0\u8F7D\u5931\u8D25", "volume"));
     player.onended = () => {
-      button.innerHTML = icon("volume", 20) + " \u6717\u8BFB";
+      button.innerHTML = icon("volume", 19) + " " + label;
     };
   }
-  function fallbackCopy(text, done) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand("copy");
-      done();
-    } catch {
-      toast("\u590D\u5236\u5931\u8D25", "book");
-    }
-    ta.remove();
-  }
-  function copyOriginal(id) {
+  function openVideo(id, event) {
+    event?.preventDefault();
+    event?.stopPropagation();
     const item = items.find((i) => i.id === id);
-    if (!item) return;
-    const text = item.title + "\n" + item.sourceLabel + "\n" + item.excerpt + "\n\n" + item.meaning;
-    const done = () => toast("\u539F\u6587\u4E0E\u8BD1\u6587\u5DF2\u590D\u5236", "book");
-    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
-    else fallbackCopy(text, done);
+    if (!item?.video) return;
+    document.querySelector("#video-modal")?.remove();
+    const modal = document.createElement("div");
+    modal.id = "video-modal";
+    modal.className = "video-modal";
+    const src = "https://player.bilibili.com/player.html?bvid=" + encodeURIComponent(item.video.bvid) + "&page=1&high_quality=1&autoplay=1";
+    modal.innerHTML = '<div class="video-modal-backdrop" data-close-video></div><div class="video-modal-panel"><div class="video-modal-head"><div><span>\u5BF9\u5E94\u89C6\u9891</span><b>' + esc(item.title) + '</b></div><button class="icon-btn" data-close-video aria-label="\u5173\u95ED">' + icon("close", 20) + '</button></div><div class="video-frame"><iframe src="' + src + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="' + esc(item.title) + '"></iframe></div><div class="video-modal-note">\u82E5\u89C6\u9891\u533A\u57DF\u672A\u5F00\u59CB\u64AD\u653E\uFF0C\u8BF7\u70B9\u51FB\u4E0B\u65B9\u6309\u94AE</span><a class="video-external-primary" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">' + icon("external", 15) + " \u5728\u54D4\u54E9\u54D4\u54E9\u89C2\u770B</a></div></div>";
+    document.body.appendChild(modal);
+    document.body.classList.add("modal-open");
   }
-  function quizData(item) {
-    return [
-      { q: "\u8FD9\u7BC7\u5185\u5BB9\u5C5E\u4E8E\u54EA\u4E00\u7C7B\uFF1F", options: categories.map((c) => c.name), answer: categoryMap[item.category].name, explain: "\u8FD9\u662F" + item.categoryName + "\u4E2D\u7684\u5185\u5BB9\u3002" },
-      { q: "\u5B83\u6807\u6CE8\u5728\u54EA\u4E2A\u5E74\u7EA7\u4E0E\u518C\u6B21\uFF1F", options: grades.map((g) => g.label + "\u4E0A\u518C").concat(grades.map((g) => g.label + "\u4E0B\u518C")), answer: item.gradeLabel, explain: "\u672C\u8D44\u6599\u6309" + item.gradeLabel + "\u6574\u7406\u3002" },
-      { q: "\u5B83\u7684\u6559\u6750\u6765\u6E90\u662F\u4EC0\u4E48\uFF1F", options: ["\u7EDF\u7F16\u8BFE\u6587", "\u8BED\u6587\u56ED\u5730", "\u8BFE\u5916\u56FD\u5B66"], answer: item.scopeName, explain: item.sourceNote + "\u3002" }
-    ];
+  function closeVideo() {
+    document.querySelector("#video-modal")?.remove();
+    document.body.classList.remove("modal-open");
   }
-  function openQuiz() {
-    state.quiz = true;
-    state.quizIndex = 0;
-    state.quizChoice = null;
+  function searchView() {
+    const result = filteredItems();
+    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<div class="search-page"><h1>\u67E5\u8BE2</h1><p class="search-hint">\u53EF\u641C\u7D22\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u539F\u6587\u6216\u91CA\u4E49</p><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8F93\u5165\u5173\u952E\u8BCD"><button class="search-submit">\u67E5\u8BE2</button></form><div class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u6765\u6E90</span><div class="filter-options"><button class="filter-option ' + (state.scope === "all" ? "active" : "") + '" data-scope="all">\u5168\u90E8</button><button class="filter-option ' + (state.scope === "textbook" ? "active" : "") + '" data-scope="textbook">\u6559\u6750</button><button class="filter-option ' + (state.scope === "extra" ? "active" : "") + '" data-scope="extra">\u62D3\u5C55</button><button class="filter-option ' + (state.scope === "classics" ? "active" : "") + '" data-scope="classics">\u56FD\u5B66\u7ECF\u5178</button></div></div><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u90E8</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div></div><div class="search-results-heading"><h2>\u67E5\u8BE2\u7ED3\u679C</h2><span>' + result.length + ' \u9879</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '"><div class="search-result-title">' + esc(item.title) + '</div><div class="search-result-meta">' + esc(scopeName(item.scopeType)) + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.gradeLabel) + '</div><p class="search-result-summary">' + esc(item.excerpt) + "</p></article>").join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3></div>') + "</div></div></main>" + nav();
+  }
+  function favoritesView() {
+    const list = items.filter((i) => state.favorites.has(i.id));
+    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><h1>\u6536\u85CF</h1>' + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel) + "</span></div></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u8FD8\u6CA1\u6709\u6536\u85CF</h2><p>\u70B9\u51FB\u5185\u5BB9\u9875\u53F3\u4E0A\u89D2\u7684\u5FC3\u5F62\u6309\u94AE\u5373\u53EF\u6536\u85CF\u3002</p><button class="btn" data-go="home">\u53BB\u6D4F\u89C8</button></div>') + "</div></main>" + nav();
+  }
+  function openItem(id) {
+    state.itemId = id;
+    state.view = "detail";
+    markRead(id);
+    location.hash = "read/" + encodeURIComponent(id);
     render();
+    window.scrollTo({ top: 0, behavior: "auto" });
   }
-  function closeQuiz() {
-    state.quiz = false;
-    state.quizChoice = null;
-    render();
-  }
-  function chooseQuiz(index) {
-    if (state.quizChoice !== null) return;
-    state.quizChoice = index;
-    render();
-  }
-  function nextQuiz() {
-    const item = items.find((i) => i.id === state.itemId);
-    if (!item) return;
-    const qs = quizData(item);
-    if (state.quizIndex < qs.length - 1) {
-      state.quizIndex++;
-      state.quizChoice = null;
-      render();
-    } else {
-      state.quiz = false;
-      toast("\u5B8C\u6210\u968F\u5802\u95EE\u7B54", "star");
-      render();
-    }
-  }
-  function quizModal() {
-    if (!state.quiz) return "";
-    const item = items.find((i) => i.id === state.itemId);
-    if (!item) return "";
-    const qs = quizData(item), q = qs[state.quizIndex];
-    const options = q.options.map((opt, i) => {
-      let cls = "";
-      if (state.quizChoice !== null && opt === q.answer) cls = "correct";
-      if (state.quizChoice === i && opt !== q.answer) cls = "incorrect";
-      return '<button class="quiz-option ' + cls + '" data-quiz-choice="' + i + '"><span class="option-mark">' + String.fromCharCode(65 + i) + "</span>" + esc(opt) + "</button>";
-    }).join("");
-    const status = state.quizChoice === null ? "" : '<div class="quiz-feedback">' + (q.options[state.quizChoice] === q.answer ? "\u56DE\u7B54\u6B63\u786E\u3002" : "\u518D\u60F3\u4E00\u60F3\u3002") + " " + esc(q.explain) + "</div>";
-    return '<div class="reader-modal-backdrop"><div class="reader-modal" role="dialog" aria-modal="true"><div class="modal-head"><h2>\u968F\u5802\u4E00\u95EE</h2><button class="icon-btn" data-close-quiz aria-label="\u5173\u95ED">' + icon("close", 19) + '</button></div><div class="modal-content"><div class="quiz-prompt">' + esc(q.q) + '</div><div class="quiz-options">' + options + "</div>" + status + '<div class="quiz-footer"><span class="quiz-progress">\u7B2C ' + (state.quizIndex + 1) + " / " + qs.length + ' \u9898</span><button class="btn btn-primary" data-next-quiz>' + (state.quizIndex === qs.length - 1 ? "\u5B8C\u6210\u7EC3\u4E60" : "\u4E0B\u4E00\u9898") + "</button></div></div></div></div>";
+  function randomItem() {
+    const pool = filteredItems();
+    if (pool.length) openItem(pool[Math.floor(Math.random() * pool.length)].id);
   }
   function render() {
-    document.body.classList.toggle("no-scroll", state.quiz);
     let view = homeView;
     if (state.view === "detail") view = detailView;
     else if (state.view === "search") view = searchView;
     else if (state.view === "favorites") view = favoritesView;
-    app.innerHTML = view() + quizModal() + '<div class="toast" id="toast" role="status" aria-live="polite"></div>';
+    app.innerHTML = view() + '<div class="toast" id="toast" role="status" aria-live="polite"></div>';
   }
   function route() {
-    const hash2 = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
-    if (hash2.startsWith("read/")) {
-      const id = hash2.slice(5);
+    const hash = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
+    if (hash.startsWith("read/")) {
+      const id = hash.slice(5);
       if (items.some((i) => i.id === id)) {
         state.itemId = id;
-        markRead(id);
         state.view = "detail";
+        markRead(id);
       }
-    } else if (hash2 === "search") state.view = "search";
-    else if (hash2 === "favorites") state.view = "favorites";
+    } else if (hash === "search") state.view = "search";
+    else if (hash === "favorites") state.view = "favorites";
     else state.view = "home";
     render();
   }
   document.addEventListener("click", (event) => {
-    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-search],[data-speak],[data-copy],[data-quiz],[data-close-quiz],[data-quiz-choice],[data-next-quiz]");
+    if (event.target.closest("[data-close-video]")) return closeVideo();
+    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-play],[data-video-only]");
     if (!el) return;
-    if (el.dataset.fav) {
-      toggleFavorite(el.dataset.fav, event);
-      return;
-    }
-    if (el.dataset.open) {
-      openItem(el.dataset.open);
-      return;
-    }
-    if (el.dataset.grade !== void 0) {
-      updateFilter({ grade: el.dataset.grade });
-      return;
-    }
-    if (el.dataset.category !== void 0) {
-      updateFilter({ category: el.dataset.category });
-      return;
-    }
-    if (el.dataset.volume !== void 0) {
-      updateFilter({ volume: el.dataset.volume });
-      return;
-    }
-    if (el.dataset.scope !== void 0) {
-      updateFilter({ scope: el.dataset.scope });
-      return;
-    }
-    if (el.dataset.clearSearch !== void 0) {
-      updateFilter({ keyword: "" });
-      return;
-    }
+    if (el.dataset.play) return openVideo(el.dataset.play, event);
+    if (el.dataset.fav) return toggleFavorite(el.dataset.fav, event);
+    if (el.dataset.open) return openItem(el.dataset.open);
+    if (el.dataset.grade !== void 0) return updateFilter({ grade: el.dataset.grade });
+    if (el.dataset.category !== void 0) return updateFilter({ category: el.dataset.category });
+    if (el.dataset.volume !== void 0) return updateFilter({ volume: el.dataset.volume });
+    if (el.dataset.scope !== void 0) return updateFilter({ scope: el.dataset.scope });
+    if (el.dataset.videoOnly !== void 0) return updateFilter({ videoOnly: !state.videoOnly });
+    if (el.dataset.clearSearch !== void 0) return updateFilter({ keyword: "" });
     if (el.dataset.resetFilters !== void 0) {
-      clearFilters();
-      return;
+      Object.assign(state, { category: "all", grade: "all", volume: "all", keyword: "", videoOnly: false });
+      savePrefs();
+      return render();
     }
-    if (el.dataset.search !== void 0) {
-      state.keyword = el.dataset.search;
-      state.view = "search";
-      location.hash = "search";
-      render();
-      return;
-    }
-    if (el.dataset.speak) {
-      speakText(el.dataset.speak);
-      return;
-    }
-    if (el.dataset.copy) {
-      copyOriginal(el.dataset.copy);
-      return;
-    }
-    if (el.dataset.quiz !== void 0) {
-      openQuiz();
-      return;
-    }
-    if (el.dataset.closeQuiz !== void 0) {
-      closeQuiz();
-      return;
-    }
-    if (el.dataset.quizChoice !== void 0) {
-      chooseQuiz(Number(el.dataset.quizChoice));
-      return;
-    }
-    if (el.dataset.nextQuiz !== void 0) {
-      nextQuiz();
-      return;
-    }
+    if (el.dataset.speak) return playAudio(el.dataset.speak);
     if (el.dataset.go) {
-      const view = el.dataset.go;
-      if (view === "random") {
-        randomItem();
-        return;
-      }
-      state.view = view;
-      location.hash = view === "home" ? "" : view;
+      if (el.dataset.go === "random") return randomItem();
+      state.view = el.dataset.go;
+      location.hash = el.dataset.go === "home" ? "" : el.dataset.go;
       render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "auto" });
     }
   });
   document.addEventListener("input", (event) => {
+    if (event.target.id === "top-search-input") {
+      state.topQuery = event.target.value;
+      render();
+      const input = document.querySelector("#top-search-input");
+      if (input) {
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    }
     if (event.target.id === "inline-search") {
       state.keyword = event.target.value;
       const current = filteredItems();
       const list = document.querySelector("#library-list");
-      if (list) list.innerHTML = current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn btn-secondary" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>';
+      if (list) list.innerHTML = current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3></div>';
       const count = document.querySelector("#result-count");
-      if (count) count.textContent = current.length + " \u7BC7";
-    }
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && state.quiz) closeQuiz();
-    if (event.key === "/" && document.activeElement?.tagName !== "INPUT") {
-      event.preventDefault();
-      state.view = "search";
-      location.hash = "search";
-      render();
-      setTimeout(() => document.querySelector("#search-main")?.focus(), 30);
-    }
-    if ((event.key === "Enter" || event.key === " ") && event.target.matches("[data-open]")) {
-      event.preventDefault();
-      openItem(event.target.dataset.open);
+      if (count) count.textContent = current.length + " \u9879";
     }
   });
   document.addEventListener("submit", (event) => {
+    if (event.target.id === "top-search-form") {
+      event.preventDefault();
+      state.topQuery = document.querySelector("#top-search-input")?.value.trim() || "";
+      render();
+    }
     if (event.target.id === "search-form") {
       event.preventDefault();
       state.keyword = document.querySelector("#search-main")?.value || "";
