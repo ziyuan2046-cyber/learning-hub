@@ -40,7 +40,6 @@
 .reader-glossary .glossary-item{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed #eadfca}.reader-glossary .glossary-item:last-child{border-bottom:0}.reader-glossary dt,.reader-glossary dd{font-size:16px}.reader-glossary dt{white-space:nowrap;color:#a04c36}.reader-glossary dd{line-height:1.75}
 
 .reader-section-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}.reader-section-head h2{margin:0}.inline-audio-button{display:inline-flex;align-items:center;gap:4px;min-height:30px;padding:0 9px;border:1px solid #cfe0d7;border-radius:7px;background:#fff;color:var(--green-dark);font-size:12px;white-space:nowrap}.inline-audio-button:hover{background:var(--green-soft)}.reader-audio{display:none}.reader-meaning .reader-section-head{margin-bottom:8px}
-.reader-photo-bg{position:absolute;inset:0 0 auto;height:330px;overflow:hidden;pointer-events:none;z-index:0}.reader-photo-bg img{width:100%;height:100%;object-fit:cover;display:block}.reader-photo-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,40,32,.45),rgba(255,255,255,.55) 55%,#fff 100%)}.reader-header{position:relative;z-index:1}.reader-header h1,.reader-author{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}.reader-header .reader-meta{color:rgba(255,255,255,.88);text-shadow:0 1px 6px rgba(0,0,0,.35)}.reader-text{position:relative;z-index:1;background:#fff}.reader-text .reader-section-head{padding-top:3px}.reader-photo-source{display:block;margin:8px 17px 0;color:var(--muted);font-size:10px;text-align:right}.reader-article{position:relative}
 
 </style>
 </head>
@@ -5383,8 +5382,8 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
       image: item.image || (category.id === "classical" ? "classic-books" : "poetry-mountain-river"),
       gradeLabel: extra ? "\u8BFE\u5916\u62D3\u5C55" : item.sourceType === "classics" ? gradeLabels[item.grade - 1] : item.gradeLabel || gradeLabels[item.grade - 1] + item.volume + "\u518C",
       volumeLabel: extra ? "\u8BFE\u5916" : item.volume + "\u518C",
-      scopeType: extra ? "extra" : item.sourceType === "classics" ? "classics" : "textbook",
-      scopeName: extra ? "\u8BFE\u5916\u62D3\u5C55" : item.sourceType === "classics" ? "\u56FD\u5B66\u7ECF\u5178" : "\u6559\u6750\u5185\u5BB9",
+      scopeType: extra ? "extra" : "textbook",
+      scopeName: extra ? "\u8BFE\u5916\u62D3\u5C55" : "\u6559\u6750\u5185\u5BB9",
       sourceLabel: extra ? item.sourceLabel || "\u62D3\u5C55\u8BD7\u8BCD\u5305" : item.sourceLabel || (item.sourceType === "classics" ? "\u56FD\u5B66\u7ECF\u5178" : gradeLabels[item.grade - 1] + item.volume + "\u518C \xB7 \u5FC5\u80CC")
     };
   }
@@ -5395,7 +5394,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   ];
   var lessonItems = items.filter((i) => i.scopeType === "textbook");
   var extraItems = items.filter((i) => i.scopeType === "extra");
-  var classicItems = items.filter((i) => i.scopeType === "classics");
+  var classicItems = items.filter((i) => i.sourceType === "classics");
   var itemById = Object.fromEntries(items.map((i) => [i.id, i]));
   var grades = Array.from({ length: 6 }, (_, i) => ({ grade: i + 1, label: gradeLabels[i] }));
   function searchItems(list, options = {}) {
@@ -5423,6 +5422,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     lunyu: `<path d="M5 5h9a3 3 0 0 1 3 3v11H8a3 3 0 0 1-3-3V5Z"/><path d="M8 9h6M8 13h4M17 8c2 1 3 3 2 5"/>`,
     rules: `<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>`,
     thousand: `<path d="M5 5h14M12 5v14M5 19h14"/><path d="M5 12h14"/>`,
+    history: `<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/>`,
     home: `<path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/>`,
     search: `<circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/>`,
     heart: `<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/>`,
@@ -6950,7 +6950,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
 
   // assets/app.js
   var app = document.querySelector("#app");
-  var KEYS = { favorites: "guoxue-favorites-v4", read: "guoxue-read-v4", prefs: "guoxue-prefs-v4" };
+  var KEYS = { favorites: "guoxue-favorites-v5", read: "guoxue-read-v5", prefs: "guoxue-prefs-v5", history: "guoxue-history-v1" };
   var load = (key, fallback) => {
     try {
       return JSON.parse(localStorage.getItem(key)) ?? fallback;
@@ -6978,11 +6978,13 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     toastTimer: null,
     favorites: new Set(load(KEYS.favorites, [])),
     read: new Set(load(KEYS.read, [])),
+    history: load(KEYS.history, []),
     ...savedPrefs
   };
+  if (state.scope === "classics") state.scope = "textbook";
   var categoryMap = Object.fromEntries(categories.map((c) => [c.id, c]));
   var esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  var scopeName = (scope) => scope === "textbook" ? "\u6559\u6750\u5185\u5BB9" : scope === "extra" ? "\u8BFE\u5916\u62D3\u5C55" : "\u56FD\u5B66\u7ECF\u5178";
+  var scopeName = (scope) => scope === "textbook" ? "\u6559\u6750\u5185\u5BB9" : "\u8BFE\u5916\u62D3\u5C55";
   function savePrefs() {
     save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly });
   }
@@ -7007,9 +7009,11 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
       state.read.add(id);
       save(KEYS.read, [...state.read]);
     }
+    state.history = [id, ...state.history.filter((x) => x !== id)].slice(0, 30);
+    save(KEYS.history, state.history);
   }
   function scopePool(scope = state.scope) {
-    return scope === "textbook" ? lessonItems : scope === "extra" ? extraItems : classicItems;
+    return scope === "textbook" ? lessonItems : extraItems;
   }
   function filteredItems() {
     const result = searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword });
@@ -7038,14 +7042,14 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function topSearch() {
     const results = globalResults();
-    return '<section class="top-search-section"><form class="top-search" id="top-search-form">' + icon("search", 21) + '<input id="top-search-input" autocomplete="off" value="' + esc(state.topQuery) + '" placeholder="\u641C\u7D22\u53E4\u8BD7\u3001\u6210\u8BED\u3001\u6587\u8A00\u6587\u6216\u56FD\u5B66\u7ECF\u5178"><button type="submit" class="top-search-button">\u67E5\u8BE2</button></form>' + (state.topQuery.trim() ? '<div class="top-search-results">' + (results.length ? results.slice(0, 8).map((i) => '<button class="top-result" data-open="' + esc(i.id) + '"><span><b>' + esc(i.title) + "</b><small>" + (i.scopeType === "classics" ? "\u56FD\u5B66\u7ECF\u5178 \xB7 " + esc(i.gradeLabel) : esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel)) + "</small></span>" + icon("chevron", 16) + "</button>").join("") + '<div class="top-result-count">\u5171 ' + results.length + " \u6761\u7ED3\u679C</div>" : '<div class="top-result-empty">\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</div>') + "</div>" : "") + "</section>";
+    return '<section class="top-search-section"><form class="top-search" id="top-search-form">' + icon("search", 21) + '<input id="top-search-input" autocomplete="off" value="' + esc(state.topQuery) + '" placeholder="\u641C\u7D22\u53E4\u8BD7\u3001\u6210\u8BED\u3001\u6587\u8A00\u6587\u6216\u56FD\u5B66\u7ECF\u5178"><button type="submit" class="top-search-button">\u67E5\u8BE2</button></form>' + (state.topQuery.trim() ? '<div class="top-search-results">' + (results.length ? results.slice(0, 8).map((i) => '<button class="top-result" data-open="' + esc(i.id) + '"><span><b>' + esc(i.title) + "</b><small>" + (esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel)) + "</small></span>" + icon("chevron", 16) + "</button>").join("") + '<div class="top-result-count">\u5171 ' + results.length + " \u6761\u7ED3\u679C</div>" : '<div class="top-result-empty">\u6CA1\u6709\u627E\u5230\u76F8\u5173\u5185\u5BB9</div>') + "</div>" : "") + "</section>";
   }
   function nav() {
     const active = (v) => state.view === v ? "active" : "";
-    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A\u6253\u5F00\u4E00\u7BC7">' + icon("shuffle", 19) + '<span>\u968F\u673A</span></button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
+    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="history" aria-label="\u67E5\u770B\u5386\u53F2">' + icon("history", 19) + '<span>\u5386\u53F2</span></button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
   }
   function sourceTabs() {
-    const tabs = [{ id: "textbook", label: "\u6559\u6750\u5185\u5BB9", count: lessonItems.length }, { id: "extra", label: "\u8BFE\u5916\u62D3\u5C55", count: extraItems.length }, { id: "classics", label: "\u56FD\u5B66\u7ECF\u5178", count: classicItems.length }];
+    const tabs = [{ id: "textbook", label: "\u6559\u6750\u5185\u5BB9", count: lessonItems.length }, { id: "extra", label: "\u8BFE\u5916\u62D3\u5C55", count: extraItems.length }];
     return '<div class="source-tabs">' + tabs.map((t) => '<button class="source-tab ' + (state.scope === t.id ? "active" : "") + '" data-scope="' + t.id + '"><span>' + t.label + "</span><b>" + t.count + "</b></button>").join("") + "</div>";
   }
   function categoryHub() {
@@ -7065,14 +7069,14 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   function libraryCard(item) {
     const c = categoryMap[item.category] || categories[0];
     const favorite = state.favorites.has(item.id);
-    const video = item.video ? '<button class="card-play" data-play="' + esc(item.id) + '" aria-label="\u64AD\u653E\u89C6\u9891">' + icon("play", 15) + "<span>\u770B\u89C6\u9891</span></button>" : "";
+    const video = item.video ? '<a class="card-play" href="' + esc(item.video.url) + '" target="_blank" rel="noopener" aria-label="\u64AD\u653E\u89C6\u9891">' + icon("play", 15) + "<span>\u770B\u89C6\u9891</span></a>" : "";
     return '<article class="library-card" style="--cat-color:' + c.color + ";--cat-soft:" + c.soft + '" data-open="' + esc(item.id) + '" tabindex="0" role="button"><div class="library-card-top"><div class="library-kicker"><span class="cat-dot"></span><span>' + esc(item.categoryName) + "</span></div>" + (item.video ? '<span class="has-video">\u89C6\u9891</span>' : "") + "</div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-footer"><span class="grade-pill">' + esc(item.gradeLabel) + '</span><div class="library-actions">' + video + '<button class="card-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 17) + "</button></div></div></article>";
   }
   function homeView() {
     const current = filteredItems();
     const cat = state.category === "all" ? "\u5168\u90E8\u5185\u5BB9" : categoryMap[state.category].name;
-    const showFilters = state.scope === "textbook" || state.scope === "classics";
-    const filters = showFilters ? '<div class="mobile-filter-row"><span>\u5E74\u7EA7</span>' + gradeChips() + "</div>" + (state.scope === "textbook" ? '<div class="mobile-filter-row"><span>\u518C\u6B21</span>' + volumeChips() + "</div>" : "") : "";
+    const showFilters = state.scope === "textbook";
+    const filters = showFilters ? '<div class="mobile-filter-row"><span>\u5E74\u7EA7</span>' + gradeChips() + '</div><div class="mobile-filter-row"><span>\u518C\u6B21</span>' + volumeChips() + "</div>" : "";
     return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<section class="mobile-intro"><h1>\u5C0F\u5B66\u8BED\u6587\u56FD\u5B66</h1></section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u6765\u6E90</h2></div>' + sourceTabs() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5185\u5BB9\u5206\u7C7B</h2></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u9879</span></div><div class="mobile-filters">' + filters + '<div class="mobile-filter-row"><span>\u89C6\u9891</span><button class="video-filter ' + (state.videoOnly ? "active" : "") + '" data-video-only="1">' + icon("play", 14) + ' \u53EA\u770B\u6709\u89C6\u9891</button></div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u5728\u5F53\u524D\u5185\u5BB9\u4E2D\u641C\u7D22"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
   }
   function splitLines(text) {
@@ -7084,28 +7088,19 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function videoBlock(item) {
     if (item.category === "idiom" || !item.video) return "";
-    return '<section class="video-section"><div class="video-head"><span class="video-label">' + icon("play", 16) + '\u5BF9\u5E94\u89C6\u9891</span><span class="video-series">' + esc(item.video.season) + " \xB7 \u7B2C" + item.video.episode + '\u96C6</span></div><button class="video-card" data-play="' + esc(item.id) + '"><span class="video-cover">' + icon("play", 22) + '</span><span class="video-info"><b>\u70B9\u51FB\u64AD\u653E</b><span>' + esc(item.video.title) + '</span></span></button><a class="video-open" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">' + icon("external", 14) + " \u5728\u54D4\u54E9\u54D4\u54E9\u6253\u5F00</a></section>";
+    return '<section class="video-section"><div class="video-head"><span class="video-label">' + icon("play", 16) + '\u5BF9\u5E94\u89C6\u9891</span><span class="video-series">' + esc(item.video.season) + " \xB7 \u7B2C" + item.video.episode + '\u96C6</span></div><a class="video-card" href="' + esc(item.video.url) + '" target="_blank" rel="noopener"><span class="video-cover">' + icon("play", 22) + '</span><span class="video-info"><b>\u64AD\u653E\u89C6\u9891</b><span>' + esc(item.video.title) + "</span></span></a></section>";
   }
   function glossaryBlock(item) {
     const terms = glossary[item.title] || [];
     if (!terms.length || item.category === "idiom") return "";
     return '<section class="reader-glossary"><h2>\u91CD\u70B9\u5B57\u8BCD</h2><dl>' + terms.slice(0, 4).map(([word, meaning]) => '<div class="glossary-item"><dt>' + esc(word) + "</dt><dd>" + esc(meaning) + "</dd></div>").join("") + "</dl></section>";
   }
-  function photoFor(item) {
-    const text = item.title + item.excerpt;
-    if (/竹|笋/.test(text)) return "bamboo.jpg";
-    if (/雪|寒|霜|边塞|出塞|凉州|塞下/.test(text)) return "snow.jpg";
-    if (/月|嫦娥|七夕|夜|星|银河|迢迢牵牛/.test(text)) return "stars.jpg";
-    if (/山|江|河|湖|水|舟|瀑布|洞庭|天门/.test(text)) return "mountain.jpg";
-    return "mountain2.jpg";
-  }
   function detailView() {
     const item = items.find((i) => i.id === state.itemId);
     if (!item) return homeView();
     const pairs = splitPairs(item), favorite = state.favorites.has(item.id);
     const isIdiom = item.category === "idiom";
-    const photo = isIdiom ? "" : '<div class="reader-photo-bg" aria-hidden="true"><img src="assets/photos/' + photoFor(item) + '" alt=""></div>';
-    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article">' + photo + '<a class="reader-photo-source" href="https://www.pexels.com/" target="_blank" rel="noopener">\u80CC\u666F\u7167\u7247\uFF1APexels \u5F00\u653E\u56FE\u5E93</a><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header><audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + ' \xB7 \u62FC\u97F3</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon("volume", 16) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button></div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2>" + (isIdiom ? "" : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 16) + " \u8BFB\u8BD1\u6587</button>") + "</div><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + (item.appreciation ? '<section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + "</p></section>" : "") + videoBlock(item) + "</article></main>" + nav();
+    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header><audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + ' \xB7 \u62FC\u97F3</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon("volume", 16) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button></div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2>" + (isIdiom ? "" : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 16) + " \u8BFB\u8BD1\u6587</button>") + "</div><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + (item.appreciation ? '<section class="reader-note"><h2>\u8D4F\u6790</h2><p>' + esc(item.appreciation) + "</p></section>" : "") + videoBlock(item) + "</article></main>" + nav();
   }
   function playAudio(kind) {
     const meaning = kind === "meaning";
@@ -7127,32 +7122,17 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
       button.innerHTML = icon("volume", 19) + " " + label;
     };
   }
-  function openVideo(id, event) {
-    event?.preventDefault();
-    event?.stopPropagation();
-    const item = items.find((i) => i.id === id);
-    if (!item?.video) return;
-    const existing = document.querySelector("#video-modal");
-    if (existing) existing.remove();
-    const modal = document.createElement("div");
-    modal.id = "video-modal";
-    modal.className = "video-modal";
-    const src = "https://player.bilibili.com/player.html?bvid=" + encodeURIComponent(item.video.bvid) + "&page=1&high_quality=1&autoplay=1";
-    modal.innerHTML = '<div class="video-modal-backdrop" data-close-video></div><div class="video-modal-panel"><div class="video-modal-head"><div><span>\u5BF9\u5E94\u89C6\u9891</span><b>' + esc(item.title) + '</b></div><button class="icon-btn" data-close-video aria-label="\u5173\u95ED">' + icon("close", 20) + '</button></div><div class="video-frame"><iframe src="' + src + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="' + esc(item.title) + '"></iframe></div><div class="video-modal-note"><span>\u82E5\u89C6\u9891\u533A\u57DF\u672A\u5F00\u59CB\u64AD\u653E\uFF0C\u8BF7\u70B9\u51FB\u4E0B\u65B9\u6309\u94AE</span><a class="video-external-primary" href="' + esc(item.video.url) + '" target="_blank" rel="noopener">' + icon("external", 15) + " \u5728\u54D4\u54E9\u54D4\u54E9\u89C2\u770B</a></div></div>";
-    document.body.appendChild(modal);
-    document.body.classList.add("modal-open");
-  }
-  function closeVideo() {
-    document.querySelector("#video-modal")?.remove();
-    document.body.classList.remove("modal-open");
-  }
   function searchView() {
     const result = filteredItems();
-    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<div class="search-page"><h1>\u67E5\u8BE2</h1><p class="search-hint">\u53EF\u641C\u7D22\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u539F\u6587\u6216\u91CA\u4E49</p><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8F93\u5165\u5173\u952E\u8BCD"><button class="search-submit">\u67E5\u8BE2</button></form><div class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u6765\u6E90</span><div class="filter-options"><button class="filter-option ' + (state.scope === "all" ? "active" : "") + '" data-scope="all">\u5168\u90E8</button><button class="filter-option ' + (state.scope === "textbook" ? "active" : "") + '" data-scope="textbook">\u6559\u6750</button><button class="filter-option ' + (state.scope === "extra" ? "active" : "") + '" data-scope="extra">\u62D3\u5C55</button><button class="filter-option ' + (state.scope === "classics" ? "active" : "") + '" data-scope="classics">\u56FD\u5B66\u7ECF\u5178</button></div></div><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u90E8</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div></div><div class="search-results-heading"><h2>\u67E5\u8BE2\u7ED3\u679C</h2><span>' + result.length + ' \u9879</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '"><div class="search-result-title">' + esc(item.title) + '</div><div class="search-result-meta">' + (item.scopeType === "classics" ? "\u56FD\u5B66\u7ECF\u5178 \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.gradeLabel) : esc(scopeName(item.scopeType)) + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.gradeLabel)) + '</div><p class="search-result-summary">' + esc(item.excerpt) + "</p></article>").join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3></div>') + "</div></div></main>" + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<div class="search-page"><h1>\u67E5\u8BE2</h1><p class="search-hint">\u53EF\u641C\u7D22\u7BC7\u540D\u3001\u4F5C\u8005\u3001\u539F\u6587\u6216\u91CA\u4E49</p><form class="big-search" id="search-form">' + icon("search", 21) + '<input id="search-main" value="' + esc(state.keyword) + '" placeholder="\u8F93\u5165\u5173\u952E\u8BCD"><button class="search-submit">\u67E5\u8BE2</button></form><div class="search-filter-panel"><div class="search-filter-group"><span class="filter-label">\u6765\u6E90</span><div class="filter-options"><button class="filter-option ' + (state.scope === "all" ? "active" : "") + '" data-scope="all">\u5168\u90E8</button><button class="filter-option ' + (state.scope === "textbook" ? "active" : "") + '" data-scope="textbook">\u6559\u6750</button><button class="filter-option ' + (state.scope === "extra" ? "active" : "") + '" data-scope="extra">\u62D3\u5C55</button></div></div><div class="search-filter-group"><span class="filter-label">\u5206\u7C7B</span><div class="filter-options"><button class="filter-option ' + (state.category === "all" ? "active" : "") + '" data-category="all">\u5168\u90E8</button>' + categories.map((c) => '<button class="filter-option ' + (state.category === c.id ? "active" : "") + '" data-category="' + c.id + '">' + c.name + "</button>").join("") + '</div></div><div class="search-filter-group"><span class="filter-label">\u5E74\u7EA7</span><div class="filter-options"><button class="filter-option ' + (state.grade === "all" ? "active" : "") + '" data-grade="all">\u5168\u90E8</button>' + grades.map((g) => '<button class="filter-option ' + (state.grade === String(g.grade) ? "active" : "") + '" data-grade="' + g.grade + '">' + g.label + "</button>").join("") + '</div></div></div><div class="search-results-heading"><h2>\u67E5\u8BE2\u7ED3\u679C</h2><span>' + result.length + ' \u9879</span></div><div class="search-results-list">' + (result.length ? result.map((item) => '<article class="search-result-card" data-open="' + esc(item.id) + '"><div class="search-result-title">' + esc(item.title) + '</div><div class="search-result-meta">' + (esc(scopeName(item.scopeType)) + " \xB7 " + esc(item.categoryName) + " \xB7 " + esc(item.gradeLabel)) + '</div><p class="search-result-summary">' + esc(item.excerpt) + "</p></article>").join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3></div>') + "</div></div></main>" + nav();
   }
   function favoritesView() {
     const list = items.filter((i) => state.favorites.has(i.id));
-    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><h1>\u6536\u85CF</h1>' + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + (i.scopeType === "classics" ? "\u56FD\u5B66\u7ECF\u5178 \xB7 " + esc(i.gradeLabel) : esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel)) + "</span></div></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u8FD8\u6CA1\u6709\u6536\u85CF</h2><p>\u70B9\u51FB\u5185\u5BB9\u9875\u53F3\u4E0A\u89D2\u7684\u5FC3\u5F62\u6309\u94AE\u5373\u53EF\u6536\u85CF\u3002</p><button class="btn" data-go="home">\u53BB\u6D4F\u89C8</button></div>') + "</div></main>" + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><h1>\u6536\u85CF</h1>' + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + (esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel)) + "</span></div></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u8FD8\u6CA1\u6709\u6536\u85CF</h2><p>\u70B9\u51FB\u5185\u5BB9\u9875\u53F3\u4E0A\u89D2\u7684\u5FC3\u5F62\u6309\u94AE\u5373\u53EF\u6536\u85CF\u3002</p><button class="btn" data-go="home">\u53BB\u6D4F\u89C8</button></div>') + "</div></main>" + nav();
+  }
+  function historyView() {
+    const list = state.history.map((id) => items.find((i) => i.id === id)).filter(Boolean);
+    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><h1>\u5386\u53F2\u67E5\u770B</h1>' + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.categoryName) + " \xB7 " + esc(i.gradeLabel) + "</span></div></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u6682\u65E0\u6D4F\u89C8\u8BB0\u5F55</h2><p>\u6253\u5F00\u8FC7\u7684\u5185\u5BB9\u4F1A\u6309\u6700\u65B0\u67E5\u770B\u987A\u5E8F\u663E\u793A\u5728\u8FD9\u91CC\u3002</p><button class="btn" data-go="home">\u53BB\u6D4F\u89C8</button></div>') + "</div></main>" + nav();
   }
   function openItem(id) {
     state.itemId = id;
@@ -7162,15 +7142,12 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     render();
     window.scrollTo({ top: 0, behavior: "auto" });
   }
-  function randomItem() {
-    const pool = filteredItems();
-    if (pool.length) openItem(pool[Math.floor(Math.random() * pool.length)].id);
-  }
   function render() {
     let view = homeView;
     if (state.view === "detail") view = detailView;
     else if (state.view === "search") view = searchView;
     else if (state.view === "favorites") view = favoritesView;
+    else if (state.view === "history") view = historyView;
     app.innerHTML = view() + '<div class="toast" id="toast" role="status" aria-live="polite"></div>';
   }
   function route() {
@@ -7184,14 +7161,14 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
       }
     } else if (hash === "search") state.view = "search";
     else if (hash === "favorites") state.view = "favorites";
+    else if (hash === "history") state.view = "history";
     else state.view = "home";
     render();
   }
   document.addEventListener("click", (event) => {
-    if (event.target.closest("[data-close-video]")) return closeVideo();
-    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-play],[data-video-only]");
+    if (event.target.closest(".card-play, .video-card")) return;
+    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only]");
     if (!el) return;
-    if (el.dataset.play) return openVideo(el.dataset.play, event);
     if (el.dataset.fav) return toggleFavorite(el.dataset.fav, event);
     if (el.dataset.open) return openItem(el.dataset.open);
     if (el.dataset.grade !== void 0) return updateFilter({ grade: el.dataset.grade });
@@ -7207,7 +7184,6 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     }
     if (el.dataset.speak) return playAudio(el.dataset.speak);
     if (el.dataset.go) {
-      if (el.dataset.go === "random") return randomItem();
       state.view = el.dataset.go;
       location.hash = el.dataset.go === "home" ? "" : el.dataset.go;
       render();

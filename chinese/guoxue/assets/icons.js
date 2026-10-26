@@ -1,4 +1,4 @@
-﻿const ICONS = {
+const ICONS = {
   poem: `<path d="M5 5h12a2 2 0 0 1 2 2v11H7a2 2 0 0 1-2-2V5Z"/><path d="M8 9h8M8 13h7M9 17c1.5-2.2 4-2.2 5.5 0"/>`,
   idiom: `<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5M8 17h8"/>`,
   fable: `<path d="M4 6c4-2 8 1 8 1s4-3 8-1v12c-4-2-8 1-8 1s-4-3-8-1V6Z"/><path d="M12 7v12"/>`,
@@ -6,6 +6,7 @@
   lunyu: `<path d="M5 5h9a3 3 0 0 1 3 3v11H8a3 3 0 0 1-3-3V5Z"/><path d="M8 9h6M8 13h4M17 8c2 1 3 3 2 5"/>`,
   rules: `<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>`,
   thousand: `<path d="M5 5h14M12 5v14M5 19h14"/><path d="M5 12h14"/>`,
+  history: `<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/>`,
   home: `<path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/>`,
   search: `<circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/>`,
   heart: `<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/>`,
@@ -17,6 +18,7 @@
   close: `<path d="m6 6 12 12M18 6 6 18"/>`,
   filter: `<path d="M4 6h16M7 12h10M10 18h4"/>`,
   sparkle: `<path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/>`,
+  shuffle: `<path d="M4 7h3c5 0 7 10 12 10h1"/><path d="m17 14 3 3-3 3"/><path d="M4 17h3c2.2 0 3.8-1.9 5.2-4"/><path d="M14 8.8C15 7.6 16 7 17 7h3"/><path d="m17 4 3 3-3 3"/>`,
   check: `<path d="m5 12 4 4L19 6"/>`,
   external: `<path d="M15 3h6v6M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>`,
   chevron: `<path d="m9 18 6-6-6-6"/>`,

@@ -26,8 +26,8 @@ function normalize(item, index, extra = false) {
     image: item.image || (category.id === 'classical' ? 'classic-books' : 'poetry-mountain-river'),
     gradeLabel: extra ? '课外拓展' : (item.sourceType === 'classics' ? gradeLabels[item.grade - 1] : (item.gradeLabel || (gradeLabels[item.grade - 1] + item.volume + '册'))),
     volumeLabel: extra ? '课外' : (item.volume + '册'),
-    scopeType: extra ? 'extra' : (item.sourceType === 'classics' ? 'classics' : 'textbook'),
-    scopeName: extra ? '课外拓展' : (item.sourceType === 'classics' ? '国学经典' : '教材内容'),
+    scopeType: extra ? 'extra' : 'textbook',
+    scopeName: extra ? '课外拓展' : '教材内容',
     sourceLabel: extra ? (item.sourceLabel || '拓展诗词包') : (item.sourceLabel || (item.sourceType === 'classics' ? '国学经典' : (gradeLabels[item.grade - 1] + item.volume + '册 · 必背'))),
   };
 }
@@ -40,7 +40,7 @@ export const items = [
 
 export const lessonItems = items.filter(i => i.scopeType === 'textbook');
 export const extraItems = items.filter(i => i.scopeType === 'extra');
-export const classicItems = items.filter(i => i.scopeType === 'classics');
+export const classicItems = items.filter(i => i.sourceType === 'classics');
 export const itemById = Object.fromEntries(items.map(i => [i.id, i]));
 
 export const grades = Array.from({ length: 6 }, (_, i) => ({ grade: i + 1, label: gradeLabels[i] }));
