@@ -92,13 +92,15 @@ function homeView() {
   const current = filteredItems();
   const cat = state.category === 'all' ? '全部内容' : categoryMap[state.category].name;
   const showFilters = state.scope === 'textbook';
-  const filters = showFilters ? '<div class="mobile-filter-row"><span>年级</span>' + gradeChips() + '</div>' + '<div class="mobile-filter-row"><span>册次</span>' + volumeChips() + '</div>' : '';
+  const gradeLabel = state.grade === 'all' ? '全年级' : (grades.find(g => String(g.grade) === state.grade)?.label || '全年级');
+  const volumeLabel = state.volume === 'all' ? '全部册次' : (state.volume === '上' ? '上册' : '下册');
+  const filters = showFilters ? '<div class="filter-summary"><span>当前筛选</span><b>' + gradeLabel + ' · ' + volumeLabel + '</b><button type="button" data-reset-grade>重置</button></div><div class="mobile-filter-row"><span>年级</span>' + gradeChips() + '</div><div class="mobile-filter-row"><span>册次</span>' + volumeChips() + '</div>' : '<div class="filter-summary extra-summary"><span>内容范围</span><b>课外拓展</b></div>';
   return '<main class="page-enter mobile-page">' + topbar() + topSearch() +
     
     '<section class="mobile-section source-section">' + sourceTabs() + '</section>' +
     '<section class="mobile-section"><div class="mobile-section-head"><h2>分类</h2><button class="text-action" data-category="all">全部</button></div>' + categoryHub() + '</section>' +
     '<section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' 项</span></div>' +
-      '<div class="filter-actions"><button class="filters-toggle" type="button" data-toggle-filters aria-expanded="false">筛选</button></div><div class="mobile-filters collapsed" id="filters-panel">' + filters + '<div class="mobile-filter-row video-row"><span></span><button class="video-filter ' + (state.videoOnly ? 'active' : '') + '" data-video-only="1">' + icon('play', 14) + ' 只看有视频</button></div></div>' +
+      '<div class="mobile-filters" id="filters-panel">' + filters + '<div class="mobile-filter-row video-row"><span></span><button class="video-filter ' + (state.videoOnly ? 'active' : '') + '" data-video-only="1">' + icon('play', 14) + ' 只看有视频</button></div></div>' +
       '<div class="mobile-search"><div class="search-input-wrap">' + icon('search', 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="在当前内容中搜索"><button class="clear-search" data-clear-search aria-label="清空">' + icon('close', 14) + '</button></div></div>' +
       '<div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join('') : '<div class="empty-state"><h3>没有找到内容</h3><button class="btn" data-reset-filters>清除筛选</button></div>') + '</div></section></main>' + nav();
 }
@@ -168,10 +170,10 @@ function route() { const hash = decodeURIComponent(location.hash.replace(/^#\/?/
 document.addEventListener('click', event => {
   if (event.target.closest('.card-play, .video-card')) return;
 
-  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-toggle-filters]');
+  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade]');
   if (!el) return;
 
-  if (el.dataset.toggleFilters !== undefined) { const panel = document.querySelector('#filters-panel'); panel.classList.toggle('collapsed'); el.setAttribute('aria-expanded', String(!panel.classList.contains('collapsed'))); return; }
+  if (el.dataset.resetGrade !== undefined) return updateFilter({ grade: 'all', volume: 'all' });
   if (el.dataset.historyRemove) { event.stopPropagation(); return removeHistory(el.dataset.historyRemove); }
   if (el.dataset.historyClear !== undefined) return clearHistory();
   if (el.dataset.historyUndo !== undefined) return undoHistory();
