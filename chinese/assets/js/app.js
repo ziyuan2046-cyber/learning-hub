@@ -1940,6 +1940,7 @@
 
     var e = curElem();
     $('eBigChar').textContent = e.ch;
+    $('eBigChar').style.fontFamily = "'HanziKai','KaiTi',serif";
     $('ePy').textContent = e.py || '';
     $('eInfo').textContent = '第 ' + e.no + ' 号元素 · ' + e.symbol;
     $('eNo').textContent = e.no;
