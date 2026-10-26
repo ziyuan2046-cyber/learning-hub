@@ -1914,12 +1914,12 @@
     var html = '';
     for (var i = 0; i < elem.list.length; i++) {
       var e = elem.list[i];
-      var hasGlyph = !e.noGlyph;
+      // 新造字（104 号起）系统字体里有字形，格子照常显示汉字与拼音
       html += '<div class="elem-cell' + (i === elem.index ? ' on' : '') +
-        (hasGlyph ? '' : ' nostroke') + '" data-i="' + i + '">' +
+        (e.noGlyph ? ' nostroke' : '') + '" data-i="' + i + '">' +
         '<div class="no"><span>' + e.no + '</span><span class="sym">' + e.symbol + '</span></div>' +
-        '<div class="ch">' + (hasGlyph ? e.ch : '') + '</div>' +
-        '<div class="py">' + (hasGlyph ? (e.py || '') : '暂无字形') + '</div></div>';
+        '<div class="ch">' + (e.fallback || e.ch) + '</div>' +
+        '<div class="py">' + (e.py || '') + '</div></div>';
     }
     $('elemGrid').innerHTML = html;
     $('elemCount').textContent = elem.list.length + ' 种';

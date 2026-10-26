@@ -688,9 +688,9 @@
   .cell .kn { font-size: 8.5px; color: #c3b8a4; }
 
   /* ============ 元素周期表 ============ */
-  #viewElem .head .glyph,
-  #viewElem .rBigChar {
-    font-family: 'HanziKai', 'KaiTi', serif;
+  /* 元素详情标题也用系统字体，与识字表一致 */
+  #viewElem .head .glyph {
+    font-family: inherit;
   }
   .elem-grid {
     display: grid;
@@ -716,13 +716,9 @@
     display: flex; justify-content: space-between; padding: 0 3px;
   }
   .elem-cell .sym { font-size: 9.5px; color: #8a7f6d; }
+  /* 元素格子字体与识字表保持一致（系统字体）：楷体缺 104 号后的新造字 */
   .elem-cell .ch {
-    font-family: 'HanziKai', 'KaiTi', serif;
-    font-size: 27px; line-height: 31px; color: var(--ink);
-  }
-  .elem-cell .py {
-    font-family: 'HanziKai', 'KaiTi', serif;
-    font-size: 11px;
+    font-size: 26px; line-height: 31px; color: var(--ink);
   }
   .elem-cell .py { font-size: 11px; color: #b08968; }
   .elem-cell.nostroke .ch { color: #9a8f7d; }
@@ -1194,9 +1190,9 @@ window.__HANZI_BUILD__ = '2026-10-23-web';
   window.addEventListener('load', function () { setTimeout(report, 6000); });
 })();
 </script>
-<script src="assets/js/hanzi-codec.js?v=20261105-1"></script>
-<script src="assets/js/tianzige.js?v=20261105-1"></script>
-<script src="assets/js/animator.js?v=20261105-1"></script>
-<script src="assets/js/app.js?v=20261105-1"></script>
+<script src="assets/js/hanzi-codec.js?v=20261107-1"></script>
+<script src="assets/js/tianzige.js?v=20261107-1"></script>
+<script src="assets/js/animator.js?v=20261107-1"></script>
+<script src="assets/js/app.js?v=20261107-1"></script>
 </body>
 </html>
