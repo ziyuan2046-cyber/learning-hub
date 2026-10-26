@@ -24,7 +24,7 @@ function normalize(item, index, extra = false) {
     category: category.id,
     categoryName: category.name,
     image: item.image || (category.id === 'classical' ? 'classic-books' : 'poetry-mountain-river'),
-    gradeLabel: extra ? '课外拓展' : (item.sourceType === 'classics' ? (gradeLabels[item.grade - 1] + ' · 国学经典') : (item.gradeLabel || (gradeLabels[item.grade - 1] + item.volume + '册'))),
+    gradeLabel: extra ? '课外拓展' : (item.sourceType === 'classics' ? gradeLabels[item.grade - 1] : (item.gradeLabel || (gradeLabels[item.grade - 1] + item.volume + '册'))),
     volumeLabel: extra ? '课外' : (item.volume + '册'),
     scopeType: extra ? 'extra' : (item.sourceType === 'classics' ? 'classics' : 'textbook'),
     scopeName: extra ? '课外拓展' : (item.sourceType === 'classics' ? '国学经典' : '教材内容'),
