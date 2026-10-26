@@ -34,6 +34,8 @@ function toggleFavorite(id, event) {
   save(KEYS.favorites, [...state.favorites]); toast(state.favorites.has(id) ? '已收藏' : '已取消收藏', 'heart'); render();
 }
 function markRead(id) { if (!state.read.has(id)) { state.read.add(id); save(KEYS.read, [...state.read]); } state.history = [id, ...state.history.filter(x => x !== id)].slice(0, 30); save(KEYS.history, state.history); }
+function removeFavorite(id) { state.favorites.delete(id); save(KEYS.favorites, [...state.favorites]); render(); toast('已取消收藏', 'heart'); }
+function clearFavorites() { state.favorites.clear(); save(KEYS.favorites, []); render(); toast('已取消全部收藏', 'heart'); }
 function removeHistory(id) { state.historyUndo = [...state.history]; state.history = state.history.filter(x => x !== id); save(KEYS.history, state.history); render(); toast('已移除，可撤销', 'check'); }
 function undoHistory() { if (!state.historyUndo) return; state.history = state.historyUndo; state.historyUndo = null; save(KEYS.history, state.history); render(); toast('已恢复历史', 'history'); }
 function clearHistory() { state.historyUndo = [...state.history]; state.history = []; save(KEYS.history, state.history); render(); toast('历史已清空', 'check'); }
@@ -156,9 +158,8 @@ function searchView() {
 }
 function favoritesView() {
   const list = items.filter(i => state.favorites.has(i.id));
-  return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><h1>收藏</h1>' + (list.length ? '<div class="favorite-list">' + list.map(i => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + (esc(scopeName(i.scopeType)) + ' · ' + esc(i.gradeLabel)) + '</span></div></article>').join('') + '</div>' : '<div class="favorite-empty"><h2>还没有收藏</h2><p>点击内容页右上角的心形按钮即可收藏。</p><button class="btn" data-go="home">去浏览</button></div>') + '</div></main>' + nav();
+  return '<main class="page-enter mobile-page">' + topbar() + '<div class="collection-page"><div class="collection-head"><div><h1>收藏</h1><p>我的收藏</p></div><div class="collection-actions">' + (list.length ? '<button class="text-action" data-favorites-clear>全部取消</button>' : '') + '</div></div>' + (list.length ? '<div class="favorite-list">' + list.map(i => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="collection-index favorite-index">' + icon('heart', 18) + '</div><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + esc(i.categoryName) + ' · ' + esc(i.gradeLabel) + '</span></div><button class="favorite-remove" data-favorite-remove="' + esc(i.id) + '" aria-label="取消收藏">' + icon('close', 17) + '</button></article>').join('') + '</div>' : '<div class="favorite-empty"><h2>还没有收藏</h2><button class="btn" data-go="home">去浏览</button></div>') + '</div></main>' + nav();
 }
-
 function historyView() {
   const list = state.history.map(id => items.find(i => i.id === id)).filter(Boolean);
   return '<main class="page-enter mobile-page">' + topbar() + '<div class="collection-page"><div class="collection-head"><div><h1>历史</h1><p>最近阅读</p></div><div class="collection-actions">' + (state.historyUndo ? '<button class="text-action undo-action" data-history-undo>撤销</button>' : '') + (list.length ? '<button class="text-action" data-history-clear>清空</button>' : '') + '</div></div>' + (list.length ? '<div class="favorite-list">' + list.map(i => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="collection-index">' + icon('history', 17) + '</div><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + esc(i.categoryName) + ' · ' + esc(i.gradeLabel) + '</span></div><button class="history-remove" data-history-remove="' + esc(i.id) + '" aria-label="删除这条历史">' + icon('close', 17) + '</button></article>').join('') + '</div>' : '<div class="favorite-empty"><h2>暂无浏览记录</h2><button class="btn" data-go="home">去阅读</button></div>') + '</div></main>' + nav();
@@ -170,10 +171,12 @@ function route() { const hash = decodeURIComponent(location.hash.replace(/^#\/?/
 document.addEventListener('click', event => {
   if (event.target.closest('.card-play, .video-card')) return;
 
-  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade]');
+  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear]');
   if (!el) return;
 
   if (el.dataset.resetGrade !== undefined) return updateFilter({ grade: 'all', volume: 'all' });
+  if (el.dataset.favoriteRemove) { event.stopPropagation(); return removeFavorite(el.dataset.favoriteRemove); }
+  if (el.dataset.favoritesClear !== undefined) return clearFavorites();
   if (el.dataset.historyRemove) { event.stopPropagation(); return removeHistory(el.dataset.historyRemove); }
   if (el.dataset.historyClear !== undefined) return clearHistory();
   if (el.dataset.historyUndo !== undefined) return undoHistory();

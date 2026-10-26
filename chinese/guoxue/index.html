@@ -214,6 +214,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
 .favorite-meta { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; }
 .history-remove { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--muted); }
 .history-remove:hover { border-color: #dfbeb0; background: var(--accent-soft); color: var(--accent); }
+.favorite-index { color: var(--accent); }
+.favorite-remove { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--muted); }
+.favorite-remove:hover { border-color: #dfbeb0; background: var(--accent-soft); color: var(--accent); }
+
 .favorite-empty { padding: 70px 16px; text-align: center; }
 .favorite-empty h2 { font-size: 21px; }
 .favorite-empty p { margin: 8px 0 16px; color: var(--muted); font-size: 15px; }
@@ -7222,6 +7226,18 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     state.history = [id, ...state.history.filter((x) => x !== id)].slice(0, 30);
     save(KEYS.history, state.history);
   }
+  function removeFavorite(id) {
+    state.favorites.delete(id);
+    save(KEYS.favorites, [...state.favorites]);
+    render();
+    toast("\u5DF2\u53D6\u6D88\u6536\u85CF", "heart");
+  }
+  function clearFavorites() {
+    state.favorites.clear();
+    save(KEYS.favorites, []);
+    render();
+    toast("\u5DF2\u53D6\u6D88\u5168\u90E8\u6536\u85CF", "heart");
+  }
   function removeHistory(id) {
     state.historyUndo = [...state.history];
     state.history = state.history.filter((x) => x !== id);
@@ -7381,7 +7397,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function favoritesView() {
     const list = items.filter((i) => state.favorites.has(i.id));
-    return '<main class="page-enter mobile-page">' + topbar() + '<div class="favorites-page"><h1>\u6536\u85CF</h1>' + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + (esc(scopeName(i.scopeType)) + " \xB7 " + esc(i.gradeLabel)) + "</span></div></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u8FD8\u6CA1\u6709\u6536\u85CF</h2><p>\u70B9\u51FB\u5185\u5BB9\u9875\u53F3\u4E0A\u89D2\u7684\u5FC3\u5F62\u6309\u94AE\u5373\u53EF\u6536\u85CF\u3002</p><button class="btn" data-go="home">\u53BB\u6D4F\u89C8</button></div>') + "</div></main>" + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + '<div class="collection-page"><div class="collection-head"><div><h1>\u6536\u85CF</h1><p>\u6211\u7684\u6536\u85CF</p></div><div class="collection-actions">' + (list.length ? '<button class="text-action" data-favorites-clear>\u5168\u90E8\u53D6\u6D88</button>' : "") + "</div></div>" + (list.length ? '<div class="favorite-list">' + list.map((i) => '<article class="favorite-card" data-open="' + esc(i.id) + '"><div class="collection-index favorite-index">' + icon("heart", 18) + '</div><div class="favorite-info"><h3>' + esc(i.title) + '</h3><span class="favorite-meta">' + esc(i.categoryName) + " \xB7 " + esc(i.gradeLabel) + '</span></div><button class="favorite-remove" data-favorite-remove="' + esc(i.id) + '" aria-label="\u53D6\u6D88\u6536\u85CF">' + icon("close", 17) + "</button></article>").join("") + "</div>" : '<div class="favorite-empty"><h2>\u8FD8\u6CA1\u6709\u6536\u85CF</h2><button class="btn" data-go="home">\u53BB\u6D4F\u89C8</button></div>') + "</div></main>" + nav();
   }
   function historyView() {
     const list = state.history.map((id) => items.find((i) => i.id === id)).filter(Boolean);
@@ -7420,9 +7436,14 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   document.addEventListener("click", (event) => {
     if (event.target.closest(".card-play, .video-card")) return;
-    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade]");
+    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear]");
     if (!el) return;
     if (el.dataset.resetGrade !== void 0) return updateFilter({ grade: "all", volume: "all" });
+    if (el.dataset.favoriteRemove) {
+      event.stopPropagation();
+      return removeFavorite(el.dataset.favoriteRemove);
+    }
+    if (el.dataset.favoritesClear !== void 0) return clearFavorites();
     if (el.dataset.historyRemove) {
       event.stopPropagation();
       return removeHistory(el.dataset.historyRemove);

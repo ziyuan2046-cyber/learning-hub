@@ -201,6 +201,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
 .favorite-meta { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; }
 .history-remove { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--muted); }
 .history-remove:hover { border-color: #dfbeb0; background: var(--accent-soft); color: var(--accent); }
+.favorite-index { color: var(--accent); }
+.favorite-remove { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--muted); }
+.favorite-remove:hover { border-color: #dfbeb0; background: var(--accent-soft); color: var(--accent); }
+
 .favorite-empty { padding: 70px 16px; text-align: center; }
 .favorite-empty h2 { font-size: 21px; }
 .favorite-empty p { margin: 8px 0 16px; color: var(--muted); font-size: 15px; }
