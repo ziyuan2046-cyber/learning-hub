@@ -7016,7 +7016,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function topbar() {
     const fav = state.favorites.size ? "active" : "";
-    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span class="brand-name">\u8BFE\u672C\u56FD\u5B66</span></a></header>';
+    return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">\u5B66</span><span class="brand-name">\u8BFE\u672C\u56FD\u5B66</span></a><a class="back-home" href="https://ziyuan2046-cyber.github.io/learning-hub/" aria-label="\u8FD4\u56DE\u5B66\u4E60\u7A7A\u95F4\u4E3B\u9875">' + icon("back", 16) + "<span>\u8FD4\u56DE\u4E3B\u9875</span></a></header>";
   }
   function topSearch() {
     const results = globalResults();

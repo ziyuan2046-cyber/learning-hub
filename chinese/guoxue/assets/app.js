@@ -54,7 +54,7 @@ function updateFilter(patch) {
 
 function topbar() {
   const fav = state.favorites.size ? 'active' : '';
-  return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">学</span><span class="brand-name">课本国学</span></a></header>';
+  return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">学</span><span class="brand-name">课本国学</span></a><a class="back-home" href="https://ziyuan2046-cyber.github.io/learning-hub/" aria-label="返回学习空间主页">' + icon('back', 16) + '<span>返回主页</span></a></header>';
 }
 function topSearch() {
   const results = globalResults();

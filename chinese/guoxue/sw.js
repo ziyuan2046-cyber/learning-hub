@@ -1,4 +1,4 @@
-const CACHE = 'guoxue-20261026-v15-filters-meanings';
+const CACHE = 'guoxue-20261026-v16-home-link';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   './assets/icon-192.png', './assets/icon-512.png'
