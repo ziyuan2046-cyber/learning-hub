@@ -1632,23 +1632,17 @@
    *  data.vb = [x,y,w,h]  -> 用 viewBox 裁切（偏旁部件，保持原字形不变形）
    *  data.m  = [s, tx, ty] -> 等比缩放并居中（笔画）
    */
-  var __glyphSeq = 0;
-
   /**
    * 字形/笔画示意。
-   *  data.vb = [x,y,w,h]  -> 用 clipPath 真正裁出该部件（保持原字形不变形）
-   *  data.m  = [s, tx, ty] -> 等比缩放并居中（笔画）
+   *  data.vb = [x,y,w,h] -> 裁出该区域并铺满格子（偏旁部件）
+   *  data.m  = [s, tx, ty] -> 等比缩放居中（笔画）
    */
   function glyphHtml(glyph, data) {
     if (data && data.d && data.vb) {
       var v = data.vb;
-      var id = 'gc' + (++__glyphSeq);
       return '<div class="glyph-cell">' +
         '<svg viewBox="' + v.join(' ') + '" width="52" height="52" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
-        '<defs><clipPath id="' + id + '"><rect x="' + v[0] + '" y="' + v[1] +
-        '" width="' + v[2] + '" height="' + v[3] + '"/></clipPath></defs>' +
-        '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero" clip-path="url(#' + id + ')"/>' +
-        '</svg></div>';
+        '<path d="' + data.d + '" fill="#1a1a1a" fill-rule="nonzero"/></svg></div>';
     }
     if (data && data.d && data.m) {
       var m = data.m;
