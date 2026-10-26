@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f8f5">
+<meta name="description" content="小学数学公式与应用题解法，按人教版教材年级和上下册整理，适合小学生随身查阅。">
+<title>小学数学 · 公式与解题方法</title>
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="home-link" href="https://ziyuan2046-cyber.github.io/learning-hub/" aria-label="返回学习空间首页">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      <span>返回首页</span>
+    </a>
+    <a class="brand" href="./" aria-label="小学数学首页">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span>小学数学</span>
+    </a>
+    <button class="search-trigger" id="searchOpen" type="button" aria-label="打开搜索">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
+    </button>
+  </div>
+</div>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span>人教版 · 2026 学年参考</p>
+      <h1>数学，<br><em>一步一步</em>想明白。</h1>
+      <p class="hero-intro">公式不是用来死记的。先弄清数量关系，再选对方法。这里把小学 1～6 年级的公式、解题模型和易错点，整理成可以随手翻的知识卡。</p>
+      <button class="search-box" id="searchOpenInline" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
+        <span>搜索公式、题目关键词</span>
+        <kbd>搜索</kbd>
+      </button>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="visual-board">
+        <span class="board-label">今天先弄懂</span>
+        <strong>数量关系</strong>
+        <div class="model-line"><b>部分</b><span>+</span><b>部分</b><span>=</span><b>整体</b></div>
+        <div class="shape-row">
+          <span class="shape circle"></span>
+          <span class="shape square"></span>
+          <span class="shape triangle"></span>
+        </div>
+        <p>看清条件，再列式计算</p>
+      </div>
+      <span class="float-card float-one">公式</span>
+      <span class="float-card float-two">步骤</span>
+    </div>
+  </section>
+
+  <section class="quick-actions" aria-label="快捷入口">
+    <a href="#formulas" class="quick-card">
+      <span class="quick-icon formula-icon" aria-hidden="true">f</span>
+      <span><strong>公式速查</strong><small>按年级查找常用关系式</small></span>
+      <span class="arrow" aria-hidden="true"></span>
+    </a>
+    <a href="#applications" class="quick-card">
+      <span class="quick-icon method-icon" aria-hidden="true">→</span>
+      <span><strong>应用题解法</strong><small>读题、找关系、分步解答</small></span>
+      <span class="arrow" aria-hidden="true"></span>
+    </a>
+    <a href="#practice" class="quick-card">
+      <span class="quick-icon quiz-icon" aria-hidden="true">?</span>
+      <span><strong>随堂自测</strong><small>每册 3 道小题，即时判分</small></span>
+      <span class="arrow" aria-hidden="true"></span>
+    </a>
+  </section>
+
+  <section class="grade-section" id="grades" aria-labelledby="gradeTitle">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">按年级浏览</p>
+        <h2 id="gradeTitle">从哪一册开始？</h2>
+      </div>
+      <p class="section-note">上册 / 下册<br>教材版本标清楚</p>
+    </div>
+    <div class="grade-grid" id="gradeGrid"></div>
+  </section>
+
+  <section class="library" id="formulas" aria-labelledby="formulaTitle">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">公式速查</p>
+        <h2 id="formulaTitle">常用公式，一页看全</h2>
+      </div>
+      <a class="text-link" href="#grades">选年级看详细 <span>→</span></a>
+    </div>
+    <div class="filter-row" id="formulaFilters" role="group" aria-label="公式年级筛选"></div>
+    <div class="formula-list" id="formulaList"></div>
+    <p class="more-note" id="formulaMore"></p>
+  </section>
+
+  <section class="library" id="applications" aria-labelledby="appTitle">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">应用题解法</p>
+        <h2 id="appTitle">看到关键词，就有思路</h2>
+      </div>
+      <a class="text-link" href="./books/g1-up.html">看完整解题卡 <span>→</span></a>
+    </div>
+    <div class="method-strip">
+      <span><b>01</b> 读题圈条件</span>
+      <span><b>02</b> 找数量关系</span>
+      <span><b>03</b> 列式计算</span>
+      <span><b>04</b> 检查单位</span>
+    </div>
+    <div class="method-grid" id="methodGrid"></div>
+  </section>
+
+  <section class="practice" id="practice" aria-labelledby="practiceTitle">
+    <div class="practice-copy">
+      <p class="section-kicker">随堂自测</p>
+      <h2 id="practiceTitle">做题，检验自己真的会了</h2>
+      <p>每册精选 3 道基础题。答完立即看到解析，不着急，慢慢想。</p>
+    </div>
+    <div class="practice-card">
+      <p class="practice-label">现在试试</p>
+      <h3>小明有 12 张卡片，小红有 7 张。小明比小红多几张？</h3>
+      <div class="answer-row" id="miniQuiz" role="group" aria-label="口算选项">
+        <button type="button" data-answer="wrong">19 张</button>
+        <button type="button" data-answer="right">5 张</button>
+        <button type="button" data-answer="wrong">3 张</button>
+      </div>
+      <p class="answer-feedback" id="miniFeedback" aria-live="polite">想一想：问“多几张”，先找大数和小数。</p>
+    </div>
+  </section>
+
+  <section class="book-note">
+    <div class="note-mark" aria-hidden="true">i</div>
+    <div>
+      <h2>教材版本说明</h2>
+      <p>本站依据人教社现行小学数学教材目录整理。新教材正在分批使用：一至三年级已使用新版，四至六年级上册使用 2026 秋版；四至六年级下册标注为“现行版”，新版启用前以学校当季发放的课本为准。</p>
+      <p class="note-small">内容更新时间：<span id="updatedDate"></span> · 以《义务教育数学课程标准（2022 年版）》为内容依据</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>小学数学 · 公式与解题方法</p>
+  <a href="https://ziyuan2046-cyber.github.io/learning-hub/">返回学习空间</a>
+</footer>
+
+<div class="search-dialog" id="searchDialog" role="dialog" aria-modal="true" aria-labelledby="searchTitle" hidden>
+  <div class="search-panel">
+    <div class="search-head">
+      <h2 id="searchTitle">找一找</h2>
+      <button class="close-button" id="searchClose" type="button" aria-label="关闭搜索">×</button>
+    </div>
+    <label class="visually-hidden" for="searchInput">搜索数学知识</label>
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
+      <input id="searchInput" type="search" autocomplete="off" placeholder="试试：三角形面积、时间、分数">
+    </div>
+    <p class="search-hint">可以搜单元、公式名称、题型关键词</p>
+    <div class="search-results" id="searchResults" aria-live="polite"></div>
+  </div>
+</div>
+
+<script>window.MATH_DATA=window.MATH_DATA||{books:[]};</script>
+<script src="./assets/data/index.js"></script>
+<script src="./assets/data/g1.js"></script>
+<script src="./assets/data/g2.js"></script>
+<script src="./assets/data/g3.js"></script>
+<script src="./assets/data/g4.js"></script>
+<script src="./assets/data/g5.js"></script>
+<script src="./assets/data/g6.js"></script>
+<script src="./assets/app.js"></script>
+</body>
+</html>
