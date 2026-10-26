@@ -18,7 +18,7 @@
 @media(max-width:380px){.mobile-page{padding-left:9px;padding-right:9px}.brand-sub{display:none}.mobile-intro h1{font-size:27px}.source-tab{padding:0 6px;font-size:13px}.hub-card{padding:10px}.hub-main b{font-size:14px}.library-card{padding:12px}.library-card h3{font-size:19px}.library-excerpt{font-size:14px}.top-search-button{padding:0 11px}.reader-header{padding:19px 16px 16px}.reader-header h1{font-size:28px}.reader-text{padding:18px 16px 14px}.reader-text-content{font-size:26px}.reader-pinyin{font-size:13px}.reader-meaning,.reader-note{margin:9px 12px;padding:15px}.reader-meaning p,.reader-note p{font-size:17px}.audio-button{min-height:40px;padding:0 12px;font-size:13px}.video-section{margin-left:12px;margin-right:12px;padding:13px}.video-modal{padding:8px}.video-modal-head{padding:11px}.video-modal-head b{font-size:14px}.video-frame{aspect-ratio:16/10}}
 @media(min-width:720px){.mobile-page{max-width:560px}.reader-text-content{font-size:30px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}.mobile-page{width:100%;max-width:520px;margin:0 auto;padding:0 12px calc(118px + env(safe-area-inset-bottom))}
-.library-card:last-child{margin-bottom:20px}</style></head>
+.library-card:last-child{margin-bottom:20px}.nav-fab{width:52px;height:46px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:0;border-radius:12px;color:#fff;background:var(--green);box-shadow:0 4px 12px rgba(47,104,88,.24);font-size:10px}.nav-fab span{line-height:1;font-size:10px;font-weight:600}.nav-fab:hover{background:var(--green-dark)}</style></head>
 <body><div id="app"><div class="loading-screen"><span class="loading-mark">学</span><span>正在打开书房…</span></div></div><script>(() => {
   // assets/pack-data.js
   var packData = {
@@ -5407,6 +5407,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     close: `<path d="m6 6 12 12M18 6 6 18"/>`,
     filter: `<path d="M4 6h16M7 12h10M10 18h4"/>`,
     sparkle: `<path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/>`,
+    shuffle: `<path d="M4 7h3c5 0 7 10 12 10h1"/><path d="m17 14 3 3-3 3"/><path d="M4 17h3c2.2 0 3.8-1.9 5.2-4"/><path d="M14 8.8C15 7.6 16 7 17 7h3"/><path d="m17 4 3 3-3 3"/>`,
     check: `<path d="m5 12 4 4L19 6"/>`,
     external: `<path d="M15 3h6v6M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>`,
     chevron: `<path d="m9 18 6-6-6-6"/>`,
@@ -5515,7 +5516,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function nav() {
     const active = (v) => state.view === v ? "active" : "";
-    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A">' + icon("sparkle", 21) + '</button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
+    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A\u6253\u5F00\u4E00\u7BC7">' + icon("shuffle", 19) + '<span>\u968F\u673A</span></button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
   }
   function sourceTabs() {
     const tabs = [{ id: "textbook", label: "\u6559\u6750\u5185\u5BB9", count: lessonItems.length }, { id: "extra", label: "\u8BFE\u5916\u62D3\u5C55", count: extraItems.length }, { id: "classics", label: "\u56FD\u5B66\u7ECF\u5178", count: classicItems.length }];

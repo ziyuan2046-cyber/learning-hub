@@ -5386,6 +5386,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     close: `<path d="m6 6 12 12M18 6 6 18"/>`,
     filter: `<path d="M4 6h16M7 12h10M10 18h4"/>`,
     sparkle: `<path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/>`,
+    shuffle: `<path d="M4 7h3c5 0 7 10 12 10h1"/><path d="m17 14 3 3-3 3"/><path d="M4 17h3c2.2 0 3.8-1.9 5.2-4"/><path d="M14 8.8C15 7.6 16 7 17 7h3"/><path d="m17 4 3 3-3 3"/>`,
     check: `<path d="m5 12 4 4L19 6"/>`,
     external: `<path d="M15 3h6v6M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>`,
     chevron: `<path d="m9 18 6-6-6-6"/>`,
@@ -5494,7 +5495,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   function nav() {
     const active = (v) => state.view === v ? "active" : "";
-    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A">' + icon("sparkle", 21) + '</button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
+    return '<nav class="bottom-nav"><button class="nav-item ' + active("home") + '" data-go="home">' + icon("home", 20) + '<span>\u9996\u9875</span></button><button class="nav-item ' + active("search") + '" data-go="search">' + icon("search", 20) + '<span>\u67E5\u8BE2</span></button><button class="nav-fab" data-go="random" aria-label="\u968F\u673A\u6253\u5F00\u4E00\u7BC7">' + icon("shuffle", 19) + '<span>\u968F\u673A</span></button><button class="nav-item ' + active("favorites") + '" data-go="favorites">' + icon("heart", 20) + "<span>\u6536\u85CF</span></button></nav>";
   }
   function sourceTabs() {
     const tabs = [{ id: "textbook", label: "\u6559\u6750\u5185\u5BB9", count: lessonItems.length }, { id: "extra", label: "\u8BFE\u5916\u62D3\u5C55", count: extraItems.length }, { id: "classics", label: "\u56FD\u5B66\u7ECF\u5178", count: classicItems.length }];
