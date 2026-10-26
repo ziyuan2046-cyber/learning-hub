@@ -922,6 +922,7 @@
       <div class="grid-wrap">
         <div class="grid-box">
           <canvas id="readCanvas"></canvas>
+          <button class="zoom-btn" id="readZoomBtn" title="放大">⤢</button>
         </div>
       </div>
 
@@ -1024,6 +1025,7 @@
       <div class="grid-wrap">
         <div class="grid-box">
           <canvas id="elemCanvas"></canvas>
+          <button class="zoom-btn" id="elemZoomBtn" title="放大">⤢</button>
         </div>
       </div>
 
@@ -1056,6 +1058,40 @@
       <div class="tip" id="eTip">元素汉字多为生僻字，这里提供笔顺与读音。</div>
     </div>
   </div><!-- /viewElem -->
+</div>
+
+<!-- 通用放大弹窗（识字表 / 元素周期表共用） -->
+<div class="modal" id="zoomModal" hidden>
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="t" id="zoomTitle">田字格</span>
+      <button class="modal-close" id="zoomClose">×</button>
+    </div>
+    <div class="grid-wrap">
+      <div class="grid-box">
+        <canvas id="zoomCanvas"></canvas>
+      </div>
+    </div>
+    <div class="seq">
+      <div class="seq-head">
+        <h3>全笔顺分解</h3>
+        <span class="hint">点每一笔可单独查看</span>
+      </div>
+      <div class="seq-grid" id="zoomSeq"></div>
+    </div>
+    <div class="progress">
+      <span id="zoomStep">第 0 / 0 笔</span>
+      <span class="bar"><i id="zoomBar" style="width:0%"></i></span>
+    </div>
+    <div class="nav-row">
+      <button class="btn" id="zoomPrev">‹ 上一笔</button>
+      <button class="btn" id="zoomNext">下一笔 ›</button>
+    </div>
+    <div class="ctrl-row">
+      <button class="btn primary" id="zoomPlay">播放笔顺</button>
+      <button class="btn" id="zoomReplay">重播</button>
+    </div>
+  </div>
 </div>
 
 <!-- 放大弹窗 -->
@@ -1158,9 +1194,9 @@ window.__HANZI_BUILD__ = '2026-10-23-web';
   window.addEventListener('load', function () { setTimeout(report, 6000); });
 })();
 </script>
-<script src="assets/js/hanzi-codec.js?v=20261101-1"></script>
-<script src="assets/js/tianzige.js?v=20261101-1"></script>
-<script src="assets/js/animator.js?v=20261101-1"></script>
-<script src="assets/js/app.js?v=20261101-1"></script>
+<script src="assets/js/hanzi-codec.js?v=20261103-1"></script>
+<script src="assets/js/tianzige.js?v=20261103-1"></script>
+<script src="assets/js/animator.js?v=20261103-1"></script>
+<script src="assets/js/app.js?v=20261103-1"></script>
 </body>
 </html>

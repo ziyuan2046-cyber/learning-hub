@@ -354,6 +354,7 @@
     bindElemEvents();
     initElemView();
     bindGlobalSearch();
+    bindZoomModal();
     bindRefEvents();
     initReadView();
   }
@@ -1982,7 +1983,24 @@
     if (!e || !box) return;
     var esd = elemStrokeData(e);
     if (!esd) {
-      box.innerHTML = '<div class="empty" style="padding:14px 0">该元素汉字为近年新造字，暂缺笔顺数据</div>';
+      // 新造字没有分笔数据：显示整字一格 + 说明，避免整块空白
+      if (e.glyphPath) {
+        box.innerHTML = '<div class="seq-item" data-s="0">' +
+          '<canvas id="elemCvGlyph"></canvas>' +
+          '<div class="no"><b class="nm">整字</b>暂无分笔</div></div>' +
+          '<div class="empty" style="padding:10px 0;width:100%">该元素汉字为近年新造字，暂无笔顺分解</div>';
+        var cv0 = $('elemCvGlyph');
+        if (cv0) {
+          var dpr0 = window.devicePixelRatio || 1, sz0 = 56;
+          cv0.width = sz0 * dpr0; cv0.height = sz0 * dpr0;
+          var c0 = cv0.getContext('2d');
+          c0.setTransform(dpr0, 0, 0, dpr0, 0, 0);
+          TianZiGe.drawGrid(c0, 0, 0, sz0, sz0, { lineWidth: 1, showDiagonal: false });
+          TianZiGe.drawStrokes(c0, [e.glyphPath], 0, 0, sz0, { color: '#1f2937', pad: sz0 * 0.06 });
+        }
+      } else {
+        box.innerHTML = '<div class="empty" style="padding:14px 0">该元素汉字为近年新造字，暂缺笔顺数据</div>';
+      }
       return;
     }
     var paths = esd.strokes;
@@ -2230,6 +2248,184 @@
     });
     // 预建索引：空闲时后台做，不阻塞首屏
     setTimeout(function () { buildGlobalIndex(); }, 2500);
+  }
+
+  /* ================================================================
+   *  通用放大弹窗（识字表 / 元素周期表共用）
+   * ================================================================ */
+
+  var zoomView = {
+    anim: null, src: null, cur: 0, playing: false, open: false
+  };
+
+  function zoomData() {
+    if (zoomView.src === 'read') {
+      var c = readChar();
+      return c ? toStrokeData(c) : null;
+    }
+    if (zoomView.src === 'elem') {
+      return elemStrokeData(curElem());
+    }
+    return null;
+  }
+
+  function zoomCaption() {
+    if (zoomView.src === 'read') {
+      var c = readChar();
+      return c ? (c.ch + ' · ' + read.book.title) : '田字格';
+    }
+    if (zoomView.src === 'elem') {
+      var e = curElem();
+      return e ? (e.ch + ' · ' + e.no + ' 号元素 ' + e.symbol) : '田字格';
+    }
+    return '田字格';
+  }
+
+  function openZoom(src) {
+    zoomView.src = src;
+    var d = zoomData();
+    if (!d || !d.count) return;
+    zoomView.open = true;
+    lockScroll();
+    $('zoomModal').hidden = false;
+    $('zoomTitle').textContent = zoomCaption();
+
+    if (!zoomView.anim) {
+      zoomView.anim = new StrokeAnimator($('zoomCanvas'), {
+        strokeColor: '#1f2937',
+        tipColor: '#e2703a',
+        speed: 1 / 3,
+        onFrame: function (done) {
+          zoomView.cur = done;
+          $('zoomStep').textContent = '第 ' + done + ' / ' + d.count + ' 笔';
+          $('zoomBar').style.width = (done / d.count * 100) + '%';
+        },
+        onEnd: function () {
+          zoomView.playing = false;
+          $('zoomPlay').textContent = '播放笔顺';
+        }
+      });
+    }
+    buildZoomSeq(d);
+    $('zoomStep').textContent = '第 0 / ' + d.count + ' 笔';
+    $('zoomBar').style.width = '0%';
+    zoomView.cur = 0;
+    setTimeout(function () {
+      if (!zoomView.open) return;
+      zoomView.anim.resize();
+      zoomView.anim.render(d, 0, true);
+      setTimeout(function () {
+        if (!zoomView.open) return;
+        zoomView.anim.resize();
+        zoomView.anim.render(d, 0, true);
+      }, 60);
+    }, 40);
+  }
+
+  function buildZoomSeq(d) {
+    var box = $('zoomSeq');
+    var html = '';
+    var names = [];
+    if (zoomView.src === 'read') {
+      var c = readChar();
+      names = (c && c.strokes) || [];
+    }
+    for (var i = 0; i < d.count; i++) {
+      html += '<div class="seq-item" data-s="' + i + '">' +
+        '<canvas id="zCv' + i + '"></canvas>' +
+        '<div class="no">' + (names[i] ? '<b class="nm">' + names[i] + '</b>' : '') +
+        '第' + (i + 1) + '笔</div></div>';
+    }
+    box.innerHTML = html;
+    var dpr = window.devicePixelRatio || 1, size = 52;
+    for (var j = 0; j < d.count; j++) {
+      var cv = $('zCv' + j);
+      if (!cv) continue;
+      cv.width = size * dpr; cv.height = size * dpr;
+      var ctx = cv.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      TianZiGe.drawGrid(ctx, 0, 0, size, size, { lineWidth: 1, showDiagonal: false });
+      TianZiGe.drawStrokes(ctx, d.strokes.slice(0, j + 1), 0, 0, size,
+        { color: '#1f2937', pad: size * 0.06 });
+    }
+  }
+
+  function closeZoom() {
+    if (!zoomView.open) return;
+    zoomView.open = false;
+    if (zoomView.anim) zoomView.anim.stop();
+    $('zoomModal').hidden = true;
+    unlockScroll();
+  }
+
+  function bindZoomModal() {
+    $('readZoomBtn').addEventListener('click', function () { openZoom('read'); });
+    $('elemZoomBtn').addEventListener('click', function () { openZoom('elem'); });
+    $('zoomClose').addEventListener('click', closeZoom);
+    $('zoomModal').addEventListener('click', function (e) {
+      if (e.target === $('zoomModal')) closeZoom();
+    });
+    $('zoomPlay').addEventListener('click', function () {
+      var d = zoomData();
+      if (!d) return;
+      if (zoomView.playing) {
+        zoomView.anim.stop();
+        zoomView.playing = false;
+        $('zoomPlay').textContent = '播放笔顺';
+        zoomView.anim.render(d, zoomView.cur, true);
+        return;
+      }
+      zoomView.anim.play(d, zoomView.cur >= d.count ? 0 : zoomView.cur);
+      zoomView.playing = true;
+      $('zoomPlay').textContent = '暂停';
+    });
+    $('zoomReplay').addEventListener('click', function () {
+      var d = zoomData();
+      if (!d) return;
+      zoomView.cur = 0;
+      zoomView.anim.play(d, 0);
+      zoomView.playing = true;
+      $('zoomPlay').textContent = '暂停';
+    });
+    $('zoomPrev').addEventListener('click', function () {
+      var d = zoomData();
+      if (!d) return;
+      zoomView.anim.stop(); zoomView.playing = false;
+      $('zoomPlay').textContent = '播放笔顺';
+      zoomView.cur = Math.max(0, zoomView.cur - 1);
+      $('zoomStep').textContent = '第 ' + zoomView.cur + ' / ' + d.count + ' 笔';
+      $('zoomBar').style.width = (zoomView.cur / d.count * 100) + '%';
+      zoomView.anim.render(d, zoomView.cur, true);
+    });
+    $('zoomNext').addEventListener('click', function () {
+      var d = zoomData();
+      if (!d) return;
+      zoomView.anim.stop(); zoomView.playing = false;
+      $('zoomPlay').textContent = '播放笔顺';
+      zoomView.cur = Math.min(d.count, zoomView.cur + 1);
+      $('zoomStep').textContent = '第 ' + zoomView.cur + ' / ' + d.count + ' 笔';
+      $('zoomBar').style.width = (zoomView.cur / d.count * 100) + '%';
+      zoomView.anim.render(d, zoomView.cur, true);
+    });
+    $('zoomSeq').addEventListener('click', function (e) {
+      var t = e.target.closest('.seq-item');
+      if (!t) return;
+      var d = zoomData();
+      if (!d) return;
+      zoomView.anim.stop(); zoomView.playing = false;
+      $('zoomPlay').textContent = '播放笔顺';
+      zoomView.cur = parseInt(t.dataset.s, 10) + 1;
+      $('zoomStep').textContent = '第 ' + zoomView.cur + ' / ' + d.count + ' 笔';
+      $('zoomBar').style.width = (zoomView.cur / d.count * 100) + '%';
+      zoomView.anim.render(d, zoomView.cur, true);
+    });
+    window.addEventListener('resize', function () {
+      if (!zoomView.open) return;
+      var d = zoomData();
+      if (!d) return;
+      zoomView.anim.resize();
+      zoomView.anim.render(d, zoomView.cur, true);
+    });
   }
 
   if (document.readyState === 'loading') {
