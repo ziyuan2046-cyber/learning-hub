@@ -34,12 +34,13 @@
   }
 
   function renderUnits(book) {
-    return `<div class="content-heading"><div><p class="eyebrow">知识地图 / ${book.units.length} 个主题</p><h3>本册学什么</h3></div><p>先看知识要点，再去完整册页读公式和例题。</p></div>
+    return `<div class="content-heading"><div><p class="eyebrow">${book.units.length} 个知识主题</p><h3>本册学什么</h3></div></div>
       <div class="learning-layout"><div class="unit-list">${book.units.map((unit) => `
-        <a class="unit-row" href="${bookUrl(book)}#unit-${unit.no}">
+        <details class="unit-row" id="unit-${unit.no}"><summary>
           <span class="unit-number">${unit.no}</span><span class="unit-copy"><strong>${escape(unit.title)}</strong><small>${escape(unit.brief)}</small></span>
-          <span class="unit-tag">${escape(unit.tag)}</span><span class="unit-arrow" aria-hidden="true">→</span>
-        </a>`).join("")}</div>
+          <span class="unit-arrow" aria-hidden="true">＋</span>
+        </summary><div class="unit-detail"><ul>${unit.learn.map((point) => `<li>${escape(point)}</li>`).join("")}</ul>
+          <p><b>记住</b> ${escape(unit.tip)}</p><a href="${bookUrl(book)}#unit-${unit.no}">在册页查看 →</a></div></details>`).join("")}</div>
         <aside class="first-step"><p class="eyebrow">试着记住这一条</p><h4>${escape(book.formulas[0].title)}</h4>
           <div class="first-formula">${escape(book.formulas[0].expr)}</div>
           ${book.id === "g1-up" ? '<img class="part-whole" src="./assets/part-whole.svg" alt="线段图：左边3份、右边2份，合起来是5份" width="360" height="130">' : ""}
@@ -48,7 +49,7 @@
   }
 
   function renderFormulas(book) {
-    return `<div class="content-heading"><div><p class="eyebrow">公式速查 / ${book.formulas.length} 条</p><h3>理解后再记</h3></div><p>每条公式都有一句解释和一个算式例子。</p></div>
+    return `<div class="content-heading"><div><p class="eyebrow">${book.formulas.length} 条核心公式</p><h3>公式与例子</h3></div></div>
       <div class="formula-list">${book.formulas.map((formula, index) => `<article class="formula-row" id="formula-${index + 1}">
         <span class="formula-index">${String(index + 1).padStart(2, "0")}</span><div><h4>${escape(formula.title)}</h4>
         <p class="formula-expression">${escape(formula.expr)}</p><p>${escape(formula.explain)}</p>
@@ -56,9 +57,9 @@
   }
 
   function renderMethods(book) {
-    return `<div class="content-heading"><div><p class="eyebrow">应用题 / ${book.applications.length} 种方法</p><h3>先想关系，再列算式</h3></div><p>抓住题目中的数量，不要只凭一个关键词决定加减乘除。</p></div>
+    return `<div class="content-heading"><div><p class="eyebrow">${book.applications.length} 种应用题</p><h3>先想关系，再列算式</h3></div></div>
       <div class="solve-steps" aria-label="应用题解题步骤"><span><b>1</b> 圈出已知和问题</span><span><b>2</b> 画图或写数量关系</span><span><b>3</b> 分步列式计算</span><span><b>4</b> 检查结果与单位</span></div>
-      <div class="method-list">${book.applications.map((method, index) => `<details class="method-item" ${index === 0 ? "open" : ""}>
+      <div class="method-list">${book.applications.map((method, index) => `<details class="method-item" id="method-${index + 1}" ${index === 0 ? "open" : ""}>
         <summary><span class="method-index">${String(index + 1).padStart(2, "0")}</span><span><strong>${escape(method.title)}</strong><small>${escape(method.kind)} · ${method.clues.map(escape).join(" / ")}</small></span><span class="expand-mark" aria-hidden="true">＋</span></summary>
         <div class="method-body"><ol>${method.steps.map((step) => `<li>${escape(step)}</li>`).join("")}</ol>
           <div class="worked-example"><p class="example-label">例题</p><p>${escape(method.example.question)}</p>
@@ -67,7 +68,7 @@
   }
 
   function renderQuiz(book) {
-    return `<div class="content-heading"><div><p class="eyebrow">随堂自测 / 3 题</p><h3>试试自己会不会</h3></div><p>选完答案，就能看到怎么算。</p></div>
+    return `<div class="content-heading"><div><p class="eyebrow">3 道小练习</p><h3>做一做</h3></div></div>
       <div class="quiz-list">${book.quiz.map((question, index) => `<fieldset class="quiz-question" data-question="${index}">
         <legend><span>${index + 1} / ${book.quiz.length}</span>${escape(question.question)}</legend>
         <div class="quiz-options">${question.options.map((option, choice) => `<button type="button" data-choice="${choice}">${escape(option)}</button>`).join("")}</div>
@@ -90,23 +91,36 @@
     $("#bookIntro").textContent = book.intro;
     $("#bookLink").href = bookUrl(book);
     $("#studyContent").innerHTML = ({ units: renderUnits, formulas: renderFormulas, methods: renderMethods, quiz: renderQuiz })[state.view](book);
+    const rail = $("#gradeChoices");
+    const selected = $("#gradeChoices [aria-pressed=true]");
+    const railBox = rail.getBoundingClientRect();
+    const selectedBox = selected.getBoundingClientRect();
+    if (selectedBox.left < railBox.left + 4 || selectedBox.right > railBox.right - 4) {
+      const delta = selectedBox.left - railBox.left - (rail.clientWidth - selected.clientWidth) / 2;
+      rail.scrollBy({left: delta, behavior: "auto"});
+    }
     syncUrl();
   }
 
   $("#gradeChoices").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-grade]");
-    if (!button) return;
+    if (!button || Number(button.dataset.grade) === state.grade) return;
     state.grade = Number(button.dataset.grade); render(); $(`#gradeChoices [data-grade="${state.grade}"]`).focus();
   });
   $("#termChoices").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-term]");
-    if (!button) return;
+    if (!button || button.dataset.term === state.term) return;
     state.term = button.dataset.term; render(); $(`#termChoices [data-term="${state.term}"]`).focus();
   });
   $("#studyTabs").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-view]");
-    if (!button) return;
+    if (!button || button.dataset.view === state.view) return;
     state.view = button.dataset.view; render(); $(`#studyTabs [data-view="${state.view}"]`).focus();
+    const content = $("#studyContent");
+    const top = content.getBoundingClientRect().top + scrollY - $("#studyTabs").offsetHeight - $(".topbar").offsetHeight - 8;
+    if (content.getBoundingClientRect().top < 130) {
+      window.scrollTo({top, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    }
   });
   $("#studyContent").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-choice], #resetQuiz");
@@ -138,15 +152,18 @@
     books.forEach((book) => {
       const prefix = `${gradeName(book.grade)} · ${book.term}`;
       const entries = [
-        ...book.units.map((item) => ({ title: item.title, detail: item.brief, terms: [item.title, item.brief, ...item.learn, item.tip], type: "知识点", href: `${bookUrl(book)}#unit-${item.no}` })),
-        ...book.formulas.map((item, index) => ({ title: item.title, detail: item.expr, terms: [item.title, item.expr, item.explain, item.example], type: "公式", href: `${bookUrl(book)}#formula-${index + 1}` })),
-        ...book.applications.map((item, index) => ({ title: item.title, detail: item.example.question, terms: [item.kind, item.title, ...item.clues, ...item.steps, item.example.question, item.example.work, item.tip], type: "应用题", href: `${bookUrl(book)}#application-${index + 1}` }))
+        ...book.units.map((item) => ({ title: item.title, terms: [item.title, item.brief, ...item.learn, item.tip], type: "知识点", view: "units", id: `unit-${item.no}` })),
+        ...book.formulas.map((item, index) => ({ title: item.title, terms: [item.title, item.expr, item.explain, item.example], type: "公式", view: "formulas", id: `formula-${index + 1}` })),
+        ...book.applications.map((item, index) => ({ title: item.title, terms: [item.kind, item.title, ...item.clues, ...item.steps, item.example.question, item.example.work, item.tip], type: "应用题", view: "methods", id: `method-${index + 1}` }))
       ];
       entries.forEach((entry) => {
-        if (entry.terms.join(" ").toLowerCase().includes(term)) results.push({ ...entry, prefix });
+        if (entry.terms.join(" ").toLowerCase().includes(term)) results.push({ ...entry, prefix, bookId: book.id });
       });
     });
-    return results;
+    return results.sort((a, b) =>
+      Number(b.bookId === currentBook().id) - Number(a.bookId === currentBook().id)
+      || Number(b.title.includes(term)) - Number(a.title.includes(term))
+    );
   }
   function renderSearch() {
     const term = searchInput.value.trim();
@@ -157,8 +174,9 @@
     }
     const results = searchResults(term);
     target.innerHTML = results.length ? results.slice(0, 30).map((result) => `
-      <a href="${result.href}"><span><strong>${escape(result.title)}</strong><small>${escape(result.prefix)} · ${escape(result.type)}</small></span>
-      <span class="search-arrow" aria-hidden="true">→</span></a>`).join("") :
+      <button type="button" data-book="${result.bookId}" data-view="${result.view}" data-target="${result.id}">
+        <span><strong>${escape(result.title)}</strong><small>${escape(result.prefix)} · ${escape(result.type)}</small></span>
+        <span class="search-arrow" aria-hidden="true">→</span></button>`).join("") :
       `<div class="search-empty">没有找到「${escape(term)}」。试试缩短关键词，或按年级浏览。</div>`;
   }
   ["#searchOpen", "#searchOpenInline"].forEach((selector) => {
@@ -173,6 +191,26 @@
   searchDialog.addEventListener("click", (event) => { if (event.target === searchDialog) searchDialog.close(); });
   searchDialog.addEventListener("close", () => { if (searchTrigger) searchTrigger.focus(); });
   searchInput.addEventListener("input", renderSearch);
+  $("#searchResults").addEventListener("click", (event) => {
+    const result = event.target.closest("button[data-book]");
+    if (!result) return;
+    const book = books.find((item) => item.id === result.dataset.book);
+    state.grade = book.grade;
+    state.term = book.term === "上册" ? "up" : "down";
+    state.view = result.dataset.view;
+    searchTrigger = null;
+    searchDialog.close();
+    render();
+    const target = document.getElementById(result.dataset.target);
+    if (!target) return;
+    if (target.matches("details")) target.open = true;
+    target.classList.add("search-highlight");
+    const focusTarget = target.querySelector("summary") || target;
+    if (!focusTarget.hasAttribute("tabindex") && focusTarget === target) focusTarget.tabIndex = -1;
+    focusTarget.focus({preventScroll: true});
+    window.scrollTo({top: target.getBoundingClientRect().top + scrollY - 145, behavior: "smooth"});
+    setTimeout(() => target.classList.remove("search-highlight"), 2000);
+  });
 
   renderPicker();
   $("#sourceNote").textContent = data.sourceNote;

@@ -60,6 +60,7 @@ function page(book) {
   <title>${escape(grade.name)}数学${escape(book.term)} · 数学知识本</title>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/book.css">
+  <link rel="stylesheet" href="../assets/fresh.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>

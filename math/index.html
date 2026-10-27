@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f8faf7">
+  <meta name="theme-color" content="#f7fbfa">
   <meta name="description" content="小学数学知识本：按年级和上下册学习人教版数学重点，查公式、看应用题解法、做随堂自测。">
   <title>小学数学知识本 · 公式与解题方法</title>
   <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/fresh.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -24,7 +25,7 @@
 
   <main id="main" class="workspace">
     <div class="page-heading">
-      <div><p class="eyebrow">人教版小学数学 · 1—6 年级</p><h1>今天想学哪一册？</h1></div>
+      <div><p class="eyebrow">人教版 · 一至六年级</p><h1>今天学哪一册？</h1></div>
       <button class="search-inline" id="searchOpenInline" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
         <span>搜索公式或题型</span>
@@ -32,7 +33,7 @@
     </div>
 
     <section class="picker" id="grades" aria-labelledby="gradeLabel">
-      <div class="picker-heading"><h2 id="gradeLabel">选择年级</h2><span>选好后可以随时切换</span></div>
+      <div class="picker-heading"><h2 id="gradeLabel">选择年级</h2></div>
       <div class="grade-choices" id="gradeChoices" role="group" aria-label="选择年级"></div>
       <div class="term-row">
         <span class="term-label">课本</span>
@@ -71,7 +72,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
       <input id="searchInput" type="search" placeholder="比如：圆的面积、平均数、折扣" autocomplete="off">
     </div>
-    <p class="search-hint">可搜索单元、公式和应用题；点击结果查看完整内容。</p>
+    <p class="search-hint">选择结果后会切换到对应年级，并在本页打开内容。</p>
     <div class="search-results" id="searchResults" aria-live="polite"></div>
   </dialog>
 
