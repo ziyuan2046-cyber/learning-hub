@@ -8,6 +8,7 @@
   <title>小学数学知识本 · 公式与解题方法</title>
   <link rel="stylesheet" href="./assets/style.css">
   <link rel="stylesheet" href="./assets/fresh.css">
+  <link rel="stylesheet" href="./assets/lab.css">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -25,7 +26,7 @@
 
   <main id="main" class="workspace">
     <div class="page-heading">
-      <div><p class="eyebrow">人教版 · 一至六年级</p><h1>今天学哪一册？</h1></div>
+      <div><p class="eyebrow">小学数学 · 看一看，动手学</p><h1>把数学，变成小实验。</h1></div>
       <button class="search-inline" id="searchOpenInline" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
         <span>搜索公式或题型</span>
@@ -48,7 +49,8 @@
         <a class="book-link" id="bookLink" href="./books/g1-up.html">打开本册全部内容 <span aria-hidden="true">↗</span></a>
       </div>
       <nav class="study-tabs" id="studyTabs" aria-label="学习内容">
-        <button type="button" class="is-active" data-view="units" aria-current="page">学什么</button>
+        <button type="button" class="is-active" data-view="lab" aria-current="page">互动小课堂</button>
+        <button type="button" data-view="units">知识地图</button>
         <button type="button" data-view="formulas">查公式</button>
         <button type="button" data-view="methods">解应用题</button>
         <button type="button" data-view="quiz">练一练</button>
@@ -84,6 +86,7 @@
   <script src="./assets/data/g4.js"></script>
   <script src="./assets/data/g5.js"></script>
   <script src="./assets/data/g6.js"></script>
+  <script src="./assets/lab.js"></script>
   <script src="./assets/app.js"></script>
 </body>
 </html>

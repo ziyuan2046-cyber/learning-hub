@@ -13,8 +13,8 @@
   const saved = (() => { try { return localStorage.getItem("math-book"); } catch (_) { return null; } })();
   const initial = books.find((book) => book.id === `g${params.get("grade")}-${params.get("term")}`)
     || books.find((book) => book.id === saved) || books[0];
-  const views = ["units", "formulas", "methods", "quiz"];
-  const state = { grade: initial.grade, term: initial.term === "上册" ? "up" : "down", view: views.includes(params.get("view")) ? params.get("view") : "units" };
+  const views = ["units", "lab", "formulas", "methods", "quiz"];
+  const state = { grade: initial.grade, term: initial.term === "上册" ? "up" : "down", view: views.includes(params.get("view")) ? params.get("view") : "lab" };
 
   function currentBook() { return books.find((book) => book.id === `g${state.grade}-${state.term}`); }
   function gradeName(grade) { return data.grades.find((item) => item.id === grade).name; }
@@ -35,6 +35,7 @@
 
   function renderUnits(book) {
     return `<div class="content-heading"><div><p class="eyebrow">${book.units.length} 个知识主题</p><h3>本册学什么</h3></div></div>
+      <button class="ml-invite" type="button" data-open-lab>先动手：${window.MathLab.catalog.find(item=>item.id===book.id).title} <span>去小课堂 →</span></button>
       <div class="learning-layout"><div class="unit-list">${book.units.map((unit) => `
         <details class="unit-row" id="unit-${unit.no}"><summary>
           <span class="unit-number">${unit.no}</span><span class="unit-copy"><strong>${escape(unit.title)}</strong><small>${escape(unit.brief)}</small></span>
@@ -67,6 +68,11 @@
           <p class="reminder"><b>别忘记</b> ${escape(method.tip)}</p></div></details>`).join("")}</div>`;
   }
 
+  function renderLab(book) {
+    return window.MathLab.render(book.id);
+  }
+  function stopLabPlayback() { window.MathLab.stop(); }
+
   function renderQuiz(book) {
     return `<div class="content-heading"><div><p class="eyebrow">3 道小练习</p><h3>做一做</h3></div></div>
       <div class="quiz-list">${book.quiz.map((question, index) => `<fieldset class="quiz-question" data-question="${index}">
@@ -77,7 +83,9 @@
   }
 
   function render() {
+    window.MathLab.stop();
     const book = currentBook();
+    document.body.classList.toggle("view-lab", state.view === "lab");
     $$("[data-grade]").forEach((button) => button.setAttribute("aria-pressed", button.dataset.grade === String(state.grade)));
     $$("[data-term]").forEach((button) => button.setAttribute("aria-pressed", button.dataset.term === state.term));
     $$("#studyTabs button").forEach((button) => {
@@ -90,7 +98,8 @@
     $("#bookTitle").textContent = book.theme;
     $("#bookIntro").textContent = book.intro;
     $("#bookLink").href = bookUrl(book);
-    $("#studyContent").innerHTML = ({ units: renderUnits, formulas: renderFormulas, methods: renderMethods, quiz: renderQuiz })[state.view](book);
+    $("#studyContent").innerHTML = ({ units: renderUnits, lab: renderLab, formulas: renderFormulas, methods: renderMethods, quiz: renderQuiz })[state.view](book);
+    if (state.view === "lab") window.MathLab.mount($("#studyContent"), book.id);
     const rail = $("#gradeChoices");
     const selected = $("#gradeChoices [aria-pressed=true]");
     const railBox = rail.getBoundingClientRect();
@@ -105,16 +114,19 @@
   $("#gradeChoices").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-grade]");
     if (!button || Number(button.dataset.grade) === state.grade) return;
+    stopLabPlayback();
     state.grade = Number(button.dataset.grade); render(); $(`#gradeChoices [data-grade="${state.grade}"]`).focus();
   });
   $("#termChoices").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-term]");
     if (!button || button.dataset.term === state.term) return;
+    stopLabPlayback();
     state.term = button.dataset.term; render(); $(`#termChoices [data-term="${state.term}"]`).focus();
   });
   $("#studyTabs").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-view]");
     if (!button || button.dataset.view === state.view) return;
+    stopLabPlayback();
     state.view = button.dataset.view; render(); $(`#studyTabs [data-view="${state.view}"]`).focus();
     const content = $("#studyContent");
     const top = content.getBoundingClientRect().top + scrollY - $("#studyTabs").offsetHeight - $(".topbar").offsetHeight - 8;
@@ -123,6 +135,9 @@
     }
   });
   $("#studyContent").addEventListener("click", (event) => {
+    if(event.target.closest('[data-open-lab]')) {
+      state.view="lab";render();$("#studyTabs [data-view=lab]").focus();return;
+    }
     const button = event.target.closest("button[data-choice], #resetQuiz");
     if (!button || state.view !== "quiz") return;
     if (button.id === "resetQuiz") { render(); return; }
@@ -151,7 +166,9 @@
     if (!term) return results;
     books.forEach((book) => {
       const prefix = `${gradeName(book.grade)} · ${book.term}`;
+      const lesson = window.MathLab.catalog.find(item=>item.id===book.id);
       const entries = [
+        {title:lesson.title, terms:[lesson.title,lesson.topic,lesson.story], type:"互动实验", view:"lab", id:"mlTitle"},
         ...book.units.map((item) => ({ title: item.title, terms: [item.title, item.brief, ...item.learn, item.tip], type: "知识点", view: "units", id: `unit-${item.no}` })),
         ...book.formulas.map((item, index) => ({ title: item.title, terms: [item.title, item.expr, item.explain, item.example], type: "公式", view: "formulas", id: `formula-${index + 1}` })),
         ...book.applications.map((item, index) => ({ title: item.title, terms: [item.kind, item.title, ...item.clues, ...item.steps, item.example.question, item.example.work, item.tip], type: "应用题", view: "methods", id: `method-${index + 1}` }))
@@ -182,6 +199,7 @@
   ["#searchOpen", "#searchOpenInline"].forEach((selector) => {
     $(selector).addEventListener("click", (event) => {
       searchTrigger = event.currentTarget;
+      window.MathLab.pause();
       searchDialog.showModal();
       searchInput.focus();
       renderSearch();
@@ -194,6 +212,7 @@
   $("#searchResults").addEventListener("click", (event) => {
     const result = event.target.closest("button[data-book]");
     if (!result) return;
+    stopLabPlayback();
     const book = books.find((item) => item.id === result.dataset.book);
     state.grade = book.grade;
     state.term = book.term === "上册" ? "up" : "down";

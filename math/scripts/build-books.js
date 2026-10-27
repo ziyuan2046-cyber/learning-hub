@@ -80,6 +80,7 @@ function page(book) {
       <span class="edition-note">${escape(book.editionNote)}</span>
     </div>
     <nav class="page-toc" aria-label="本册内容"><a href="#units">知识主题</a><a href="#formulas">核心公式</a><a href="#applications">应用题解法</a><a href="#quiz">练一练</a></nav>
+    <a class="book-lab-entry" href="../?grade=${book.grade}&amp;term=${book.term === "上册" ? "up" : "down"}&amp;view=lab"><span>动手小课堂</span>先用图形和数量做个实验，再来看公式 <b>去试试 →</b></a>
     <section class="book-section" id="units"><div class="section-heading"><p class="eyebrow">01 / 知识主题</p><h2>这一册，学什么</h2><p>先看主要内容和易错点，遇到不懂的再往下查公式、看例题。</p></div><div class="chapter-list">${units}</div></section>
     <section class="book-section" id="formulas"><div class="section-heading"><p class="eyebrow">02 / 核心公式</p><h2>想明白，再记住</h2><p>每条关系式后面都有简短解释，别急着背。</p></div><div class="formula-detail-list">${formulas}</div></section>
     <section class="book-section" id="applications"><div class="section-heading"><p class="eyebrow">03 / 应用题解法</p><h2>看懂数量关系</h2><p>先找到条件与问题，再把数量关系写出来。</p></div>

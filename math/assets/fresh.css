@@ -117,6 +117,9 @@ p { text-wrap: pretty; }
 .book-main .teaching-note b { color: var(--green); }
 .book-main .math-expression { border: 0; border-radius: 6px; background: #eaf6f3; color: #126e66; font-family: var(--sans); }
 .book-main .worked-example { border: 0; border-radius: 6px; background: #eef7f9; }
+.book-lab-entry { display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;margin-top:20px;border:1px solid #d2e7de;border-radius:10px;background:#edf8f2;color:#5d7e71;font-size:13px; }
+.book-lab-entry > span { color:#3e8069;font-weight:750; }
+.book-lab-entry > b { margin-left:auto;color:#3e8069;white-space:nowrap; }
 .source-note { grid-template-columns: 130px minmax(0, 1fr); gap: 6px 14px; padding: 18px 4px 0; margin-top: 30px; border: 0; border-top: 1px solid var(--line); background: transparent; }
 .source-note > strong { color: var(--muted); font-size: 13px; }
 .source-note p { color: var(--muted); font-size: 12px; }
