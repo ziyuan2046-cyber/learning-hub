@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="130" viewBox="0 0 360 130" role="img" aria-labelledby="title description">
+  <title id="title">部分与整体线段图</title>
+  <desc id="description">一条线段分成左边3份和右边2份，合起来是5份。</desc>
+  <rect width="360" height="130" fill="#ffffff"/>
+  <text x="105" y="22" fill="#246647" font-family="sans-serif" font-size="15" text-anchor="middle">3份</text>
+  <text x="272" y="22" fill="#a45130" font-family="sans-serif" font-size="15" text-anchor="middle">2份</text>
+  <rect x="15" y="35" width="198" height="46" fill="#e8f2eb" stroke="#246647" stroke-width="2"/>
+  <rect x="213" y="35" width="132" height="46" fill="#f8eee8" stroke="#a45130" stroke-width="2"/>
+  <path d="M81 35v46m66-46v46m132-46v46" stroke="#b1cbb8" stroke-width="1"/>
+  <path d="M15 97v8h330v-8" fill="none" stroke="#202923" stroke-width="2" stroke-linejoin="round"/>
+  <text x="180" y="125" fill="#202923" font-family="sans-serif" font-size="16" text-anchor="middle">3 + 2 = 5份</text>
+</svg>

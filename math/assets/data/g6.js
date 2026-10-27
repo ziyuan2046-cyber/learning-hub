@@ -13,7 +13,7 @@ window.MATH_DATA.books.push(
     { no:"06", title:"百分数", tag:"数与运算", brief:"理解百分数的意义，进行百分数与小数、分数互化。", learn:["百分数的意义","互化方法","求百分率"], tip:"百分数只表示倍比关系，不能表示具体数量。" }
   ],
   formulas: [
-    { title:"数对表示位置", expr:"先列后行，写成（列，行）", explain:"数对中两个数的顺序不能颠倒。", example:"第3列第2行写作(3,2)" },
+    { title:"方向与距离", expr:"观测点 + 方向与角度 + 距离 = 位置", explain:"先说从哪里看，再说朝哪个方向偏多少度，最后说走多远。", example:"图书馆在学校北偏东30°方向400米处" },
     { title:"分数乘整数", expr:"a/b × c = (a×c)/b", explain:"分子与整数相乘，分母不变。", example:"2/5×3=6/5" },
     { title:"分数乘分数", expr:"a/b × c/d = (a×c)/(b×d)", explain:"先约分再相乘更简便。", example:"2/3×3/4=1/2" },
     { title:"倒数", expr:"a × 1/a = 1（a≠0）", explain:"求一个分数的倒数，交换分子分母。", example:"5/8的倒数是8/5" },
