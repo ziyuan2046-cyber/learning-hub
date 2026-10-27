@@ -6928,6 +6928,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     keyword: "",
     topQuery: "",
     videoOnly: false,
+    examOnly: false,
     itemId: null,
     toastTimer: null,
     favorites: new Set(load(KEYS.favorites, [])),
@@ -6942,7 +6943,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   var esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   var scopeName = (scope) => scope === "textbook" ? "\u6559\u6750\u5185\u5BB9" : "\u8BFE\u5916\u62D3\u5C55";
   function savePrefs() {
-    save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly });
+    save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly, examOnly: state.examOnly });
   }
   function toast(message, iconName = "check") {
     const el = document.querySelector("#toast");
@@ -7005,9 +7006,13 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   function scopePool(scope = state.scope) {
     return scope === "textbook" ? lessonItems : extraItems;
   }
+  function isExamFocus(item) {
+    return item.scopeType === "textbook" && !["fable", "myth"].includes(item.category);
+  }
   function filteredItems() {
     const result = searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword });
-    return state.videoOnly ? result.filter((i) => i.video) : result;
+    const videoFiltered = state.videoOnly ? result.filter((i) => i.video) : result;
+    return state.examOnly ? videoFiltered.filter(isExamFocus) : videoFiltered;
   }
   function globalResults() {
     if (!state.topQuery.trim()) return [];
@@ -7021,6 +7026,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
       state.volume = "all";
       state.keyword = "";
       state.videoOnly = false;
+      if (patch.scope !== "textbook") state.examOnly = false;
     }
     savePrefs();
     render();
@@ -7056,11 +7062,30 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   function volumeChips() {
     return '<div class="segment-row">' + [{ id: "all", label: "\u5168\u90E8" }, { id: "\u4E0A", label: "\u4E0A\u518C" }, { id: "\u4E0B", label: "\u4E0B\u518C" }].map((v) => '<button class="segment ' + (state.volume === v.id ? "active" : "") + '" data-volume="' + v.id + '">' + v.label + "</button>").join("") + "</div>";
   }
+  var examLabels = { poetry: "\u80CC\u8BF5\u9ED8\u5199", idiom: "\u8BCD\u4E49\u8FD0\u7528", classical: "\u91CD\u70B9\u5B57\u8BCD", fable: "\u5BD3\u610F\u7406\u89E3", myth: "\u5185\u5BB9\u7406\u89E3", sanzi: "\u719F\u8BFB\u80CC\u8BF5", lunyu: "\u7406\u89E3\u80CC\u8BF5", dizigui: "\u7406\u89E3\u8DF5\u884C", qianziwen: "\u719F\u8BFB\u8BC6\u8BB0" };
+  function focusPoints(item) {
+    const grade = Number(item.grade) || 1;
+    const category = item.category;
+    if (category === "poetry") return grade <= 2 ? ["\u5168\u6587\u80CC\u8BF5\u4E0E\u6613\u9519\u5B57\u9ED8\u5199", "\u7ED3\u5408\u8BD7\u53E5\u8BF4\u51FA\u753B\u9762\u548C\u5B63\u8282"] : grade <= 4 ? ["\u540D\u53E5\u9ED8\u5199\u4E0E\u91CD\u70B9\u8BCD\u4E49", "\u7ED3\u5408\u5173\u952E\u8BCD\u4F53\u4F1A\u666F\u7269\u548C\u60C5\u611F"] : ["\u7406\u89E3\u8BD7\u53E5\u542B\u4E49\u5E76\u80CC\u8BF5\u9ED8\u5199", "\u7ED3\u5408\u610F\u8C61\u3001\u8868\u8FBE\u65B9\u5F0F\u4F53\u4F1A\u60C5\u611F"];
+    if (category === "idiom") return ["\u638C\u63E1\u6210\u8BED\u5B57\u5F62\u3001\u8BFB\u97F3\u548C\u542B\u4E49", "\u7ED3\u5408\u8BED\u5883\u6B63\u786E\u7406\u89E3\u6216\u8FD0\u7528"];
+    if (category === "classical") return grade <= 3 ? ["\u8BFB\u51C6\u5B57\u97F3\uFF0C\u7406\u89E3\u91CD\u70B9\u8BCD\u53E5", "\u6309\u987A\u5E8F\u590D\u8FF0\u5185\u5BB9\u6216\u4EBA\u7269\u8868\u73B0"] : ["\u7406\u89E3\u91CD\u70B9\u5B9E\u8BCD\u548C\u5173\u952E\u53E5", "\u6982\u62EC\u5185\u5BB9\uFF0C\u8BF4\u660E\u4EBA\u7269\u7279\u70B9\u6216\u6587\u7AE0\u9053\u7406"];
+    if (category === "fable") return ["\u68B3\u7406\u6545\u4E8B\u8D77\u56E0\u3001\u7ECF\u8FC7\u548C\u7ED3\u679C", "\u6982\u62EC\u5BD3\u610F\uFF0C\u5E76\u8054\u7CFB\u751F\u6D3B\u8BF4\u660E"];
+    if (["sanzi", "lunyu", "dizigui", "qianziwen"].includes(category)) return ["\u719F\u8BFB\u80CC\u8BF5\uFF0C\u6CE8\u610F\u6613\u9519\u5B57\u8BCD", "\u7406\u89E3\u53E5\u610F\uFF0C\u5E76\u8054\u7CFB\u4E3B\u9898\u8868\u8FBE"];
+    if (category === "myth") return ["\u68B3\u7406\u4E3B\u8981\u60C5\u8282\u548C\u4EBA\u7269\u8868\u73B0", "\u6982\u62EC\u6545\u4E8B\u4E3B\u9898\uFF0C\u7406\u89E3\u60F3\u8C61\u7279\u70B9"];
+    return ["\u8BFB\u61C2\u91CD\u70B9\u8BCD\u53E5\uFF0C\u6982\u62EC\u4E3B\u8981\u5185\u5BB9", "\u8054\u7CFB\u8BED\u5883\u8BF4\u660E\u4EBA\u7269\u3001\u60C5\u611F\u6216\u9053\u7406"];
+  }
+  function focusBlock(item) {
+    const isTextbook = item.scopeType === "textbook";
+    const examFocus = isExamFocus(item);
+    const points = focusPoints(item);
+    return '<section class="learning-focus ' + (isTextbook ? examFocus ? "exam-focus" : "study-focus" : "extension-focus") + '"><div class="learning-focus-title"><span class="learning-focus-icon">' + icon(examFocus ? "star" : "book", 17) + "</span><div><h2>" + (isTextbook ? "\u5B66\u4E60\u91CD\u70B9" : "\u62D3\u5C55\u79EF\u7D2F") + "</h2><span>" + (examFocus ? "\u6559\u6750\u5B66\u4E60 \xB7 \u5E38\u89C1\u8003\u67E5\u89D2\u5EA6" : isTextbook ? "\u6559\u6750\u5B66\u4E60 \xB7 \u9605\u8BFB\u7406\u89E3\u91CD\u70B9" : "\u9605\u8BFB\u79EF\u7D2F \xB7 \u7406\u89E3\u8FD0\u7528") + "</span></div></div><ul>" + points.map((x, i) => "<li><b>" + (i + 1) + "</b><span>" + esc(x) + "</span></li>").join("") + "</ul>" + (examFocus ? '<p class="focus-note">\u590D\u4E60\u5EFA\u8BAE\uFF0C\u4E0D\u4EE3\u8868\u5177\u4F53\u8BD5\u9898\u9884\u6D4B</p>' : "") + "</section>";
+  }
   function libraryCard(item) {
     const c = categoryMap[item.category] || categories[0];
     const favorite = state.favorites.has(item.id);
     const video = item.video ? '<a class="card-play" href="' + esc(item.video.url) + '" target="_blank" rel="noopener" aria-label="\u64AD\u653E\u89C6\u9891">' + icon("play", 15) + "<span>\u770B\u89C6\u9891</span></a>" : "";
-    return '<article class="library-card" style="--cat-color:' + c.color + ";--cat-soft:" + c.soft + '" data-open="' + esc(item.id) + '" tabindex="0" role="button"><div class="library-card-top"><div class="library-kicker"><span class="cat-dot"></span><span>' + esc(item.categoryName) + "</span></div>" + (item.video ? '<span class="has-video">\u89C6\u9891</span>' : "") + "</div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-footer"><span class="grade-pill">' + esc(item.gradeLabel) + '</span><div class="library-actions">' + video + '<button class="card-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 17) + "</button></div></div></article>";
+    const label = item.scopeType !== "textbook" ? "\u62D3\u5C55\u79EF\u7D2F" : isExamFocus(item) ? examLabels[item.category] || "\u5E38\u89C1\u8003\u67E5" : "\u5B66\u4E60\u91CD\u70B9";
+    return '<article class="library-card ' + (item.scopeType === "textbook" ? "is-textbook" : "is-extra") + '" style="--cat-color:' + c.color + ";--cat-soft:" + c.soft + '" data-open="' + esc(item.id) + '" tabindex="0" role="button"><div class="library-card-top"><div class="library-kicker"><span class="cat-dot"></span><span>' + esc(item.categoryName) + '</span></div><span class="learning-badge ' + (item.scopeType !== "textbook" ? "extension-badge" : isExamFocus(item) ? "exam-badge" : "study-badge") + '">' + label + "</span></div><h3>" + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-footer"><span class="grade-pill">' + esc(item.gradeLabel) + '</span><div class="library-actions">' + video + '<button class="card-fav ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 17) + "</button></div></div></article>";
   }
   function homeView() {
     const current = filteredItems();
@@ -7069,7 +7094,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     const gradeLabel = state.grade === "all" ? "\u5168\u5E74\u7EA7" : grades.find((g) => String(g.grade) === state.grade)?.label || "\u5168\u5E74\u7EA7";
     const volumeLabel = state.volume === "all" ? "\u5168\u90E8\u518C\u6B21" : state.volume === "\u4E0A" ? "\u4E0A\u518C" : "\u4E0B\u518C";
     const filters = showFilters ? '<div class="filter-summary"><span>\u5F53\u524D\u7B5B\u9009</span><b>' + gradeLabel + " \xB7 " + volumeLabel + '</b><button type="button" data-reset-grade>\u91CD\u7F6E</button></div><div class="mobile-filter-row"><span>\u5E74\u7EA7</span>' + gradeChips() + '</div><div class="mobile-filter-row"><span>\u518C\u6B21</span>' + volumeChips() + "</div>" : '<div class="filter-summary extra-summary"><span>\u5185\u5BB9\u8303\u56F4</span><b>\u8BFE\u5916\u62D3\u5C55</b></div>';
-    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<section class="mobile-section source-section">' + sourceTabs() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5206\u7C7B</h2><button class="text-action" data-category="all">\u5168\u90E8</button></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u9879</span></div><div class="mobile-filters" id="filters-panel">' + filters + '<div class="mobile-filter-row video-row"><span></span><button class="video-filter ' + (state.videoOnly ? "active" : "") + '" data-video-only="1">' + icon("play", 14) + ' \u53EA\u770B\u6709\u89C6\u9891</button></div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u5728\u5F53\u524D\u5185\u5BB9\u4E2D\u641C\u7D22"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
+    return '<main class="page-enter mobile-page">' + topbar() + topSearch() + '<section class="mobile-section source-section">' + sourceTabs() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>\u5206\u7C7B</h2><button class="text-action" data-category="all">\u5168\u90E8</button></div>' + categoryHub() + '</section><section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' \u9879</span></div><div class="mobile-filters" id="filters-panel">' + filters + (showFilters ? '<div class="mobile-filter-row focus-filter-row"><span>\u91CD\u70B9</span><button class="exam-filter ' + (state.examOnly ? "active" : "") + '" data-exam-only aria-pressed="' + state.examOnly + '">' + icon("star", 14) + " \u53EA\u770B\u6559\u6750\u91CD\u70B9</button></div>" : "") + '<div class="mobile-filter-row video-row"><span></span><button class="video-filter ' + (state.videoOnly ? "active" : "") + '" data-video-only="1">' + icon("play", 14) + ' \u53EA\u770B\u6709\u89C6\u9891</button></div></div><div class="mobile-search"><div class="search-input-wrap">' + icon("search", 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="\u5728\u5F53\u524D\u5185\u5BB9\u4E2D\u641C\u7D22"><button class="clear-search" data-clear-search aria-label="\u6E05\u7A7A">' + icon("close", 14) + '</button></div></div><div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join("") : '<div class="empty-state"><h3>\u6CA1\u6709\u627E\u5230\u5185\u5BB9</h3><button class="btn" data-reset-filters>\u6E05\u9664\u7B5B\u9009</button></div>') + "</div></section></main>" + nav();
   }
   function splitLines(text) {
     return String(text || "").split(/\n+/).filter(Boolean);
@@ -7092,7 +7117,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     if (!item) return homeView();
     const pairs = splitPairs(item), favorite = state.favorites.has(item.id);
     const isIdiom = item.category === "idiom";
-    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header><audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + '</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon("volume", 16) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button></div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2>" + (isIdiom ? "" : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 16) + " \u8BFB\u8BD1\u6587</button>") + "</div><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + videoBlock(item) + "</article></main>" + nav();
+    return '<main class="page-enter detail-page mobile-page">' + topbar() + '<div class="breadcrumb"><button data-go="home">\u9996\u9875</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + "</span><span>/</span><span>" + esc(item.categoryName) + '</span></div><article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? "active" : "") + '" data-fav="' + esc(item.id) + '" aria-label="\u6536\u85CF">' + icon("heart", 21) + "</button></div><h1>" + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + " \xB7 " + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + '</div></header><audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? "\u91CA\u4E49" : "\u539F\u6587") + '</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon("volume", 16) + " " + (isIdiom ? "\u8BFB\u91CA\u4E49" : "\u8BFB\u539F\u6587") + "</button></div>" + pairs.map((p) => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + "</div></div>").join("") + "</section>" + (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? "\u91CA\u4E49\u4E0E\u4F8B\u53E5" : "\u8BD1\u6587") + "</h2>" + (isIdiom ? "" : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon("volume", 16) + " \u8BFB\u8BD1\u6587</button>") + "</div><p>" + esc(item.meaning) + "</p></section>" : "") + glossaryBlock(item) + focusBlock(item) + videoBlock(item) + "</article></main>" + nav();
   }
   var currentAudio = null;
   function playAudio(kind) {
@@ -7178,7 +7203,7 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
   }
   document.addEventListener("click", (event) => {
     if (event.target.closest(".card-play, .video-card")) return;
-    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear]");
+    const el = event.target.closest("[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-exam-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear]");
     if (!el) return;
     if (el.dataset.resetGrade !== void 0) return updateFilter({ grade: "all", volume: "all" });
     if (el.dataset.favoriteRemove) {
@@ -7199,9 +7224,10 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     if (el.dataset.volume !== void 0) return updateFilter({ volume: el.dataset.volume });
     if (el.dataset.scope !== void 0) return updateFilter({ scope: el.dataset.scope });
     if (el.dataset.videoOnly !== void 0) return updateFilter({ videoOnly: !state.videoOnly });
+    if (el.dataset.examOnly !== void 0) return updateFilter({ examOnly: !state.examOnly });
     if (el.dataset.clearSearch !== void 0) return updateFilter({ keyword: "" });
     if (el.dataset.resetFilters !== void 0) {
-      Object.assign(state, { category: "all", grade: "all", volume: "all", keyword: "", videoOnly: false });
+      Object.assign(state, { category: "all", grade: "all", volume: "all", keyword: "", videoOnly: false, examOnly: false });
       savePrefs();
       return render();
     }

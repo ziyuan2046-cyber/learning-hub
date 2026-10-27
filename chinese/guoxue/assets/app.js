@@ -9,7 +9,7 @@ const save = (key, value) => { try { localStorage.setItem(key, JSON.stringify(va
 const savedPrefs = load(KEYS.prefs, {});
 const state = {
   view: 'home', category: 'all', grade: 'all', volume: 'all', scope: 'textbook', keyword: '',
-  topQuery: '', videoOnly: false, itemId: null, toastTimer: null,
+  topQuery: '', videoOnly: false, examOnly: false, itemId: null, toastTimer: null,
   favorites: new Set(load(KEYS.favorites, [])), read: new Set(load(KEYS.read, [])), history: load(KEYS.history, []), historyUndo: null,
   ...savedPrefs
 };
@@ -20,7 +20,7 @@ const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const scopeName = scope => scope === 'textbook' ? '教材内容' : '课外拓展';
 
 function savePrefs() {
-  save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly });
+  save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly, examOnly: state.examOnly });
 }
 function toast(message, iconName = 'check') {
   const el = document.querySelector('#toast'); if (!el) return;
@@ -40,9 +40,11 @@ function removeHistory(id) { state.historyUndo = [...state.history]; state.histo
 function undoHistory() { if (!state.historyUndo) return; state.history = state.historyUndo; state.historyUndo = null; save(KEYS.history, state.history); render(); toast('已恢复历史', 'history'); }
 function clearHistory() { state.historyUndo = [...state.history]; state.history = []; save(KEYS.history, state.history); render(); toast('历史已清空', 'check'); }
 function scopePool(scope = state.scope) { return scope === 'textbook' ? lessonItems : extraItems; }
+function isExamFocus(item) { return item.scopeType === 'textbook' && !['fable', 'myth'].includes(item.category); }
 function filteredItems() {
   const result = searchItems(items, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, keyword: state.keyword });
-  return state.videoOnly ? result.filter(i => i.video) : result;
+  const videoFiltered = state.videoOnly ? result.filter(i => i.video) : result;
+  return state.examOnly ? videoFiltered.filter(isExamFocus) : videoFiltered;
 }
 function globalResults() {
   if (!state.topQuery.trim()) return [];
@@ -50,7 +52,7 @@ function globalResults() {
 }
 function updateFilter(patch) {
   Object.assign(state, patch);
-  if (patch.scope) { state.category = 'all'; state.grade = 'all'; state.volume = 'all'; state.keyword = ''; state.videoOnly = false; }
+  if (patch.scope) { state.category = 'all'; state.grade = 'all'; state.volume = 'all'; state.keyword = ''; state.videoOnly = false; if (patch.scope !== 'textbook') state.examOnly = false; }
   savePrefs(); render(); window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -84,11 +86,30 @@ function gradeChips() {
 function volumeChips() {
   return '<div class="segment-row">' + [{ id:'all', label:'全部' }, { id:'上', label:'上册' }, { id:'下', label:'下册' }].map(v => '<button class="segment ' + (state.volume === v.id ? 'active' : '') + '" data-volume="' + v.id + '">' + v.label + '</button>').join('') + '</div>';
 }
+const examLabels = { poetry:'背诵默写', idiom:'词义运用', classical:'重点字词', fable:'寓意理解', myth:'内容理解', sanzi:'熟读背诵', lunyu:'理解背诵', dizigui:'理解践行', qianziwen:'熟读识记' };
+function focusPoints(item) {
+  const grade = Number(item.grade) || 1;
+  const category = item.category;
+  if (category === 'poetry') return grade <= 2 ? ['全文背诵与易错字默写', '结合诗句说出画面和季节'] : grade <= 4 ? ['名句默写与重点词义', '结合关键词体会景物和情感'] : ['理解诗句含义并背诵默写', '结合意象、表达方式体会情感'];
+  if (category === 'idiom') return ['掌握成语字形、读音和含义', '结合语境正确理解或运用'];
+  if (category === 'classical') return grade <= 3 ? ['读准字音，理解重点词句', '按顺序复述内容或人物表现'] : ['理解重点实词和关键句', '概括内容，说明人物特点或文章道理'];
+  if (category === 'fable') return ['梳理故事起因、经过和结果', '概括寓意，并联系生活说明'];
+  if (['sanzi','lunyu','dizigui','qianziwen'].includes(category)) return ['熟读背诵，注意易错字词', '理解句意，并联系主题表达'];
+  if (category === 'myth') return ['梳理主要情节和人物表现', '概括故事主题，理解想象特点'];
+  return ['读懂重点词句，概括主要内容', '联系语境说明人物、情感或道理'];
+}
+function focusBlock(item) {
+  const isTextbook = item.scopeType === 'textbook';
+  const examFocus = isExamFocus(item);
+  const points = focusPoints(item);
+  return '<section class="learning-focus ' + (isTextbook ? (examFocus ? 'exam-focus' : 'study-focus') : 'extension-focus') + '"><div class="learning-focus-title"><span class="learning-focus-icon">' + icon(examFocus ? 'star' : 'book', 17) + '</span><div><h2>' + (isTextbook ? '学习重点' : '拓展积累') + '</h2><span>' + (examFocus ? '教材学习 · 常见考查角度' : (isTextbook ? '教材学习 · 阅读理解重点' : '阅读积累 · 理解运用')) + '</span></div></div><ul>' + points.map((x,i)=>'<li><b>'+(i+1)+'</b><span>'+esc(x)+'</span></li>').join('') + '</ul>' + (examFocus ? '<p class="focus-note">复习建议，不代表具体试题预测</p>' : '') + '</section>';
+}
 function libraryCard(item) {
   const c = categoryMap[item.category] || categories[0];
   const favorite = state.favorites.has(item.id);
   const video = item.video ? '<a class="card-play" href="' + esc(item.video.url) + '" target="_blank" rel="noopener" aria-label="播放视频">' + icon('play', 15) + '<span>看视频</span></a>' : '';
-  return '<article class="library-card" style="--cat-color:' + c.color + ';--cat-soft:' + c.soft + '" data-open="' + esc(item.id) + '" tabindex="0" role="button"><div class="library-card-top"><div class="library-kicker"><span class="cat-dot"></span><span>' + esc(item.categoryName) + '</span></div>' + (item.video ? '<span class="has-video">视频</span>' : '') + '</div><h3>' + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + ' · ' + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-footer"><span class="grade-pill">' + esc(item.gradeLabel) + '</span><div class="library-actions">' + video + '<button class="card-fav ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏">' + icon('heart', 17) + '</button></div></div></article>';
+  const label = item.scopeType !== 'textbook' ? '拓展积累' : (isExamFocus(item) ? (examLabels[item.category] || '常见考查') : '学习重点');
+  return '<article class="library-card ' + (item.scopeType === 'textbook' ? 'is-textbook' : 'is-extra') + '" style="--cat-color:' + c.color + ';--cat-soft:' + c.soft + '" data-open="' + esc(item.id) + '" tabindex="0" role="button"><div class="library-card-top"><div class="library-kicker"><span class="cat-dot"></span><span>' + esc(item.categoryName) + '</span></div><span class="learning-badge ' + (item.scopeType !== 'textbook' ? 'extension-badge' : (isExamFocus(item) ? 'exam-badge' : 'study-badge')) + '">' + label + '</span></div><h3>' + esc(item.title) + '</h3><p class="library-author">' + esc(item.dynasty) + ' · ' + esc(item.author) + '</p><p class="library-excerpt">' + esc(item.excerpt) + '</p><div class="library-footer"><span class="grade-pill">' + esc(item.gradeLabel) + '</span><div class="library-actions">' + video + '<button class="card-fav ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏">' + icon('heart', 17) + '</button></div></div></article>';
 }
 function homeView() {
   const current = filteredItems();
@@ -102,7 +123,7 @@ function homeView() {
     '<section class="mobile-section source-section">' + sourceTabs() + '</section>' +
     '<section class="mobile-section"><div class="mobile-section-head"><h2>分类</h2><button class="text-action" data-category="all">全部</button></div>' + categoryHub() + '</section>' +
     '<section class="mobile-section"><div class="mobile-section-head"><h2>' + cat + '</h2><span id="result-count">' + current.length + ' 项</span></div>' +
-      '<div class="mobile-filters" id="filters-panel">' + filters + '<div class="mobile-filter-row video-row"><span></span><button class="video-filter ' + (state.videoOnly ? 'active' : '') + '" data-video-only="1">' + icon('play', 14) + ' 只看有视频</button></div></div>' +
+      '<div class="mobile-filters" id="filters-panel">' + filters + (showFilters ? '<div class="mobile-filter-row focus-filter-row"><span>重点</span><button class="exam-filter ' + (state.examOnly ? 'active' : '') + '" data-exam-only aria-pressed="' + state.examOnly + '">' + icon('star', 14) + ' 只看教材重点</button></div>' : '') + '<div class="mobile-filter-row video-row"><span></span><button class="video-filter ' + (state.videoOnly ? 'active' : '') + '" data-video-only="1">' + icon('play', 14) + ' 只看有视频</button></div></div>' +
       '<div class="mobile-search"><div class="search-input-wrap">' + icon('search', 18) + '<input class="search-input" id="inline-search" value="' + esc(state.keyword) + '" placeholder="在当前内容中搜索"><button class="clear-search" data-clear-search aria-label="清空">' + icon('close', 14) + '</button></div></div>' +
       '<div class="mobile-list" id="library-list">' + (current.length ? current.map(libraryCard).join('') : '<div class="empty-state"><h3>没有找到内容</h3><button class="btn" data-reset-filters>清除筛选</button></div>') + '</div></section></main>' + nav();
 }
@@ -128,7 +149,7 @@ function detailView() {
     '<audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio>' +
     '<section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? '释义' : '原文') + '</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon('volume', 16) + ' ' + (isIdiom ? '读释义' : '读原文') + '</button></div>' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</section>' +
     (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? '释义与例句' : '译文') + '</h2>' + (isIdiom ? '' : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon('volume', 16) + ' 读译文</button>') + '</div><p>' + esc(item.meaning) + '</p></section>' : '') +
-    glossaryBlock(item) + videoBlock(item) + '</article></main>' + nav();
+    glossaryBlock(item) + focusBlock(item) + videoBlock(item) + '</article></main>' + nav();
 }
 let currentAudio = null;
 function playAudio(kind) {
@@ -171,7 +192,7 @@ function route() { const hash = decodeURIComponent(location.hash.replace(/^#\/?/
 document.addEventListener('click', event => {
   if (event.target.closest('.card-play, .video-card')) return;
 
-  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear]');
+  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-exam-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear]');
   if (!el) return;
 
   if (el.dataset.resetGrade !== undefined) return updateFilter({ grade: 'all', volume: 'all' });
@@ -187,8 +208,9 @@ document.addEventListener('click', event => {
   if (el.dataset.volume !== undefined) return updateFilter({ volume: el.dataset.volume });
   if (el.dataset.scope !== undefined) return updateFilter({ scope: el.dataset.scope });
   if (el.dataset.videoOnly !== undefined) return updateFilter({ videoOnly: !state.videoOnly });
+  if (el.dataset.examOnly !== undefined) return updateFilter({ examOnly: !state.examOnly });
   if (el.dataset.clearSearch !== undefined) return updateFilter({ keyword: '' });
-  if (el.dataset.resetFilters !== undefined) { Object.assign(state, { category:'all', grade:'all', volume:'all', keyword:'', videoOnly:false }); savePrefs(); return render(); }
+  if (el.dataset.resetFilters !== undefined) { Object.assign(state, { category:'all', grade:'all', volume:'all', keyword:'', videoOnly:false, examOnly:false }); savePrefs(); return render(); }
   if (el.dataset.speak) return playAudio(el.dataset.speak);
   if (el.dataset.go) { state.view = el.dataset.go; location.hash = el.dataset.go === 'home' ? '' : el.dataset.go; render(); window.scrollTo({ top: 0, behavior: 'auto' }); }
 });

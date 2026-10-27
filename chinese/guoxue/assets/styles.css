@@ -101,6 +101,35 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
 .clear-search { position: absolute; right: 7px; width: 33px; height: 33px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--muted); }
 
 .mobile-list { display: flex; flex-direction: column; gap: 11px; }
+
+/* Learning and exam-focus hierarchy */
+.learning-badge { display:inline-flex; align-items:center; gap:4px; min-height:25px; padding:0 8px; border-radius:7px; font-size:11px; font-weight:700; white-space:nowrap; }
+.exam-badge { color:#873526; background:#f5e4de; border:1px solid #e7c8bd; }
+.study-badge { color:#5f5a50; background:#f0ede6; border:1px solid #ded8cc; }
+.extension-badge { color:#52634f; background:#e8eee7; border:1px solid #d2ddd0; }
+.library-card.is-textbook { border-left:3px solid #b65b45; }
+.library-card.is-extra { border-left:3px solid #86947b; }
+.focus-filter-row { align-items:center; }
+.exam-filter { display:inline-flex; align-items:center; gap:5px; min-height:33px; padding:0 10px; border:1px solid #e2c7bc; border-radius:8px; background:#fffaf6; color:#865044; font-size:13px; font-weight:600; }
+.exam-filter.active { background:#9e3f2f; color:#fff; border-color:#9e3f2f; }
+.learning-focus { margin:13px 17px; padding:16px; border-radius:12px; }
+.exam-focus { background:linear-gradient(145deg,#fbf1e9,#f8e8df); border:1px solid #e8ccbd; }
+.study-focus { background:linear-gradient(145deg,#f4f0e8,#eee9df); border:1px solid #ddd5c8; }
+.study-focus .learning-focus-icon { color:#6d6253; background:#fffdf8; }
+.study-focus li b { color:#665b4d; background:#fffdf8; }
+.extension-focus { background:linear-gradient(145deg,#eff2e9,#e9eee4); border:1px solid #d4dece; }
+.learning-focus-title { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.learning-focus-icon { width:34px; height:34px; display:grid; place-items:center; border-radius:9px; background:#fffaf6; color:#9e3f2f; }
+.extension-focus .learning-focus-icon { color:#54654d; background:#f9fbf6; }
+.learning-focus-title h2 { font-family:var(--serif); font-size:19px; line-height:1.35; }
+.learning-focus-title span:not(.learning-focus-icon) { color:var(--muted); font-size:12px; }
+.learning-focus ul { list-style:none; display:grid; gap:8px; margin:0; padding:0; }
+.learning-focus li { display:flex; align-items:flex-start; gap:9px; color:#4a443b; font-size:15px; line-height:1.65; }
+.learning-focus li b { flex:0 0 21px; width:21px; height:21px; display:grid; place-items:center; border-radius:50%; background:#fffaf6; color:#9e3f2f; font-size:12px; }
+.extension-focus li b { color:#54654d; background:#f9fbf6; }
+.learning-focus li p { margin:0; }
+.focus-note { margin-top:10px; padding-top:8px; border-top:1px solid rgba(120,80,60,.14); color:#897c70; font-size:11px; }
+
 .library-card { position: relative; padding: 16px 15px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); cursor: pointer; transition: border-color .16s, transform .16s, box-shadow .16s; }
 .library-card:active { transform: scale(.995); }
 .library-card:hover { border-color: #c6b9a7; box-shadow: var(--shadow); }
@@ -231,6 +260,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
   .glossary-item { grid-template-columns: 78px 1fr; gap: 9px; }
   .glossary-item dt, .glossary-item dd { font-size: 16px; }
   .video-section { margin-left: 12px; margin-right: 12px; }
+  .learning-focus { margin-left: 12px; margin-right: 12px; padding: 14px; }
+  .learning-focus li { font-size: 14px; }
 }
 @media (min-width: 720px) {
   .mobile-page { max-width: 560px; }
