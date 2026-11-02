@@ -10,7 +10,7 @@ const COURSE = {
     {
       letter: 'A', lower: 'a', name: '/eɪ/', sound: '/æ/', word: 'apple', wordCn: '苹果',
       audio: './assets/audio/alphabet/a.mp3', wordAudio: './assets/audio/words/apple.mp3',
-      extras: [{ word: 'ax', cn: '斧头', audio: './assets/audio/words/ax.mp3' }, { word: 'Adam', cn: '亚当' }, { word: 'alligator', cn: '短吻鳄', audio: './assets/audio/words/alligator.mp3' }]
+      extras: [{ word: 'ax', cn: '斧头', audio: './assets/audio/words/ax.mp3' }, { word: 'Adam', cn: '亚当', audio: './assets/audio/words/adam.mp3' }, { word: 'alligator', cn: '短吻鳄', audio: './assets/audio/words/alligator.mp3' }]
     },
     {
       letter: 'B', lower: 'b', name: '/biː/', sound: '/b/', word: 'bear', wordCn: '熊',
@@ -92,7 +92,8 @@ const COURSE = {
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-const audio = $('#audio');
+const audioHost = $('#audio');
+let audio = audioHost;
 let playerState = { queue: [], index: -1, title: '', eyebrow: '', trigger: null, currentKey: '', quiz: false };
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -264,6 +265,27 @@ function getPlaylist(name) {
   return [];
 }
 
+function bindAudioEvents(element) {
+  element.addEventListener('play', () => { updatePauseButton(); if (playerState.trigger) { playerState.trigger.classList.add('is-playing'); } });
+  element.addEventListener('pause', updatePauseButton);
+  element.addEventListener('timeupdate', updateProgressBar);
+  element.addEventListener('ended', onAudioEnded);
+  element.addEventListener('error', () => { if (playerState.currentKey) { toast('音频暂时没有加载成功，请再点一次'); } });
+}
+
+function onAudioEnded() {
+  clearPlayingHighlights();
+  if (playerState.quiz) {
+    playerState.queue = [];
+    playerState.index = -1;
+    updatePauseButton();
+    return;
+  }
+  if (!playerState.queue.length) { updatePauseButton(); return; }
+  if (playerState.index < playerState.queue.length - 1) { playTrack(playerState.queue[playerState.index + 1], playerState.queue, playerState.index + 1); }
+  else { playerState.queue = []; playerState.index = -1; updatePauseButton(); }
+}
+
 function playTrack(track, queue = null, index = null) {
   if (!track) { return; }
   const storyMatch = /^story-(\d+)$/.exec(track.key || '');
@@ -279,10 +301,15 @@ function playTrack(track, queue = null, index = null) {
   playerState.trigger = track.trigger || null;
   playerState.currentKey = track.key || '';
   playerState.quiz = Boolean(track.quiz);
-  audio.pause();
+  if (audio !== audioHost) {
+    audio.pause();
+    audio.removeAttribute('src');
+    audio.load();
+  }
+  audio = new Audio();
   audio.preload = 'auto';
   audio.src = new URL(track.audio, document.baseURI).href;
-  audio.currentTime = 0;
+  bindAudioEvents(audio);
   audio.load();
   const playback = audio.play();
   if (playback) {
@@ -465,21 +492,7 @@ function init() {
   $('#playerPrev').addEventListener('click', () => playAdjacent(-1));
   $('#playerNext').addEventListener('click', () => playAdjacent(1));
   $('#playerClose').addEventListener('click', () => { audio.pause(); $('#playerBar').classList.remove('is-visible'); clearPlayingHighlights(); });
-  audio.addEventListener('play', () => { updatePauseButton(); if (playerState.trigger) { playerState.trigger.classList.add('is-playing'); } });
-  audio.addEventListener('pause', updatePauseButton);
-  audio.addEventListener('timeupdate', updateProgressBar);
-  audio.addEventListener('ended', () => {
-    clearPlayingHighlights();
-    if (playerState.quiz) {
-      playerState.queue = [];
-      playerState.index = -1;
-      updatePauseButton();
-      return;
-    }
-    if (!playerState.queue.length) { updatePauseButton(); return; }
-    if (playerState.index < playerState.queue.length - 1) { playTrack(playerState.queue[playerState.index + 1], playerState.queue, playerState.index + 1); }
-    else { playerState.queue = []; playerState.index = -1; updatePauseButton(); }
-  });
+  bindAudioEvents(audioHost);
   $('.menu-button').addEventListener('click', () => openMobileMenu($('#mobileMenu').hidden));
   $('#mobileMenu').addEventListener('click', (event) => { if (event.target.closest('a')) { openMobileMenu(false); } });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { openMobileMenu(false); } });
