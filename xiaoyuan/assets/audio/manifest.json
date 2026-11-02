@@ -1,0 +1,296 @@
+[
+  {
+    "id": "apple",
+    "file": "./assets/audio/words/apple.mp3",
+    "text": "Apple.",
+    "bytes": 9936
+  },
+  {
+    "id": "bear",
+    "file": "./assets/audio/words/bear.mp3",
+    "text": "Bear.",
+    "bytes": 9648
+  },
+  {
+    "id": "cat",
+    "file": "./assets/audio/words/cat.mp3",
+    "text": "Cat.",
+    "bytes": 9504
+  },
+  {
+    "id": "dog",
+    "file": "./assets/audio/words/dog.mp3",
+    "text": "Dog.",
+    "bytes": 9504
+  },
+  {
+    "id": "fish",
+    "file": "./assets/audio/words/fish.mp3",
+    "text": "Fish.",
+    "bytes": 9936
+  },
+  {
+    "id": "crab",
+    "file": "./assets/audio/words/crab.mp3",
+    "text": "Crab.",
+    "bytes": 9792
+  },
+  {
+    "id": "bat",
+    "file": "./assets/audio/words/bat.mp3",
+    "text": "Bat.",
+    "bytes": 9216
+  },
+  {
+    "id": "duck",
+    "file": "./assets/audio/words/duck.mp3",
+    "text": "Duck.",
+    "bytes": 9504
+  },
+  {
+    "id": "bad",
+    "file": "./assets/audio/words/bad.mp3",
+    "text": "Bad.",
+    "bytes": 9360
+  },
+  {
+    "id": "cab",
+    "file": "./assets/audio/words/cab.mp3",
+    "text": "Cab.",
+    "bytes": 9360
+  },
+  {
+    "id": "dab",
+    "file": "./assets/audio/words/dab.mp3",
+    "text": "Dab.",
+    "bytes": 9360
+  },
+  {
+    "id": "dad",
+    "file": "./assets/audio/words/dad.mp3",
+    "text": "Dad.",
+    "bytes": 9504
+  },
+  {
+    "id": "ax",
+    "file": "./assets/audio/words/ax.mp3",
+    "text": "Ax.",
+    "bytes": 9936
+  },
+  {
+    "id": "bag",
+    "file": "./assets/audio/words/bag.mp3",
+    "text": "Bag.",
+    "bytes": 9216
+  },
+  {
+    "id": "adam",
+    "file": "./assets/audio/words/adam.mp3",
+    "text": "Adam.",
+    "bytes": 9792
+  },
+  {
+    "id": "alphabet-a",
+    "file": "./assets/audio/alphabet/a.mp3",
+    "text": "A. A. A. /a/, /a/, /a/.",
+    "bytes": 24624
+  },
+  {
+    "id": "alphabet-b",
+    "file": "./assets/audio/alphabet/b.mp3",
+    "text": "B. B. B. /b/, /b/, /b/.",
+    "bytes": 22464
+  },
+  {
+    "id": "alphabet-c",
+    "file": "./assets/audio/alphabet/c.mp3",
+    "text": "C. C. C. /k/, /k/, /k/.",
+    "bytes": 23904
+  },
+  {
+    "id": "alphabet-d",
+    "file": "./assets/audio/alphabet/d.mp3",
+    "text": "D. D. D. /d/, /d/, /d/.",
+    "bytes": 22752
+  },
+  {
+    "id": "sentence-name",
+    "file": "./assets/audio/sentences/my-name-is-adam.mp3",
+    "text": "My name is Adam.",
+    "bytes": 14544
+  },
+  {
+    "id": "sentence-from",
+    "file": "./assets/audio/sentences/i-am-from-china.mp3",
+    "text": "I am from China.",
+    "bytes": 14976
+  },
+  {
+    "id": "sentence-age",
+    "file": "./assets/audio/sentences/i-am-seven-years-old.mp3",
+    "text": "I am seven years old.",
+    "bytes": 17568
+  },
+  {
+    "id": "sentence-bad",
+    "file": "./assets/audio/sentences/bad-bad-bear.mp3",
+    "text": "Bad, bad bear!",
+    "bytes": 15552
+  },
+  {
+    "id": "sentence-apples",
+    "file": "./assets/audio/sentences/my-bag-of-apples.mp3",
+    "text": "My bag of apples.",
+    "bytes": 15840
+  },
+  {
+    "id": "sentence-sees",
+    "file": "./assets/audio/sentences/adam-sees-big-brown-bear.mp3",
+    "text": "Adam sees Big Brown Bear.",
+    "bytes": 19584
+  },
+  {
+    "id": "sentence-what",
+    "file": "./assets/audio/sentences/what-will-happen.mp3",
+    "text": "What will happen?",
+    "bytes": 12960
+  },
+  {
+    "id": "sentence-hello",
+    "file": "./assets/audio/sentences/hello-bear.mp3",
+    "text": "Hello, bear!",
+    "bytes": 14256
+  },
+  {
+    "id": "sentence-see",
+    "file": "./assets/audio/sentences/see-you-next-time.mp3",
+    "text": "See you next time!",
+    "bytes": 14832
+  },
+  {
+    "id": "chant-1",
+    "file": "./assets/audio/chants/chant-1.mp3",
+    "text": "A, A, A. a, a, a. Apple, apple, a, a, a.",
+    "bytes": 47088
+  },
+  {
+    "id": "chant-2",
+    "file": "./assets/audio/chants/chant-2.mp3",
+    "text": "B, B, B. b, b, b. Bear, bear, b, b, b.",
+    "bytes": 50832
+  },
+  {
+    "id": "chant-3",
+    "file": "./assets/audio/chants/chant-3.mp3",
+    "text": "C, C, C. c, c, c. Cat, cat, c, c, c.",
+    "bytes": 52272
+  },
+  {
+    "id": "chant-4",
+    "file": "./assets/audio/chants/chant-4.mp3",
+    "text": "D, D, D. d, d, d. Duck, duck, d, d, d.",
+    "bytes": 50112
+  },
+  {
+    "id": "alligator",
+    "file": "./assets/audio/words/alligator.mp3",
+    "text": "Alligator.",
+    "bytes": 11808
+  },
+  {
+    "id": "bee",
+    "file": "./assets/audio/words/bee.mp3",
+    "text": "Bee.",
+    "bytes": 8928
+  },
+  {
+    "id": "bread",
+    "file": "./assets/audio/words/bread.mp3",
+    "text": "Bread.",
+    "bytes": 9504
+  },
+  {
+    "id": "cow",
+    "file": "./assets/audio/words/cow.mp3",
+    "text": "Cow.",
+    "bytes": 9072
+  },
+  {
+    "id": "card",
+    "file": "./assets/audio/words/card.mp3",
+    "text": "Card.",
+    "bytes": 9792
+  },
+  {
+    "id": "car",
+    "file": "./assets/audio/words/car.mp3",
+    "text": "Car.",
+    "bytes": 9792
+  },
+  {
+    "id": "desk",
+    "file": "./assets/audio/words/desk.mp3",
+    "text": "Desk.",
+    "bytes": 9936
+  },
+  {
+    "id": "dig",
+    "file": "./assets/audio/words/dig.mp3",
+    "text": "Dig.",
+    "bytes": 9216
+  },
+  {
+    "id": "story-hint-01",
+    "file": "./assets/audio/story/hint-01.mp3",
+    "text": "Look! A forest of apple trees.",
+    "bytes": 27360
+  },
+  {
+    "id": "story-hint-02",
+    "file": "./assets/audio/story/hint-02.mp3",
+    "text": "A shadow in the bushes!",
+    "bytes": 17424
+  },
+  {
+    "id": "story-hint-03",
+    "file": "./assets/audio/story/hint-03.mp3",
+    "text": "Adam and Big Brown Bear meet.",
+    "bytes": 20304
+  },
+  {
+    "id": "story-hint-07",
+    "file": "./assets/audio/story/hint-07.mp3",
+    "text": "Bear is at the door.",
+    "bytes": 14976
+  },
+  {
+    "id": "story-01-forest",
+    "file": "./assets/audio/story/01-forest.mp3",
+    "text": "01 Forest.",
+    "bytes": 55152
+  },
+  {
+    "id": "story-02-meet",
+    "file": "./assets/audio/story/02-meet.mp3",
+    "text": "02 Meet.",
+    "bytes": 42912
+  },
+  {
+    "id": "story-03-apple",
+    "file": "./assets/audio/story/03-apple.mp3",
+    "text": "03 Apple.",
+    "bytes": 39312
+  },
+  {
+    "id": "story-04-share",
+    "file": "./assets/audio/story/04-share.mp3",
+    "text": "04 Share.",
+    "bytes": 37008
+  },
+  {
+    "id": "story-05-friends",
+    "file": "./assets/audio/story/05-friends.mp3",
+    "text": "05 Friends.",
+    "bytes": 33552
+  }
+]
