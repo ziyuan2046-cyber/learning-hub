@@ -3,184 +3,129 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover">
-  <meta name="theme-color" content="#f8f5ec">
+  <meta name="theme-color" content="#f7f4eb">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Adam and the Bear：Aa–Dd 森林英语课堂。字母、词汇、句型、歌谣与绘本，支持手机点读。">
+  <link rel="preload" as="image" href="./assets/img/hero/course-overview.jpg" fetchpriority="low">
+  <meta name="description" content="森林英语课程学习空间：按课程目录和学习步骤，逐步学习字母、单词、句子、歌谣与故事。">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="森林英语">
-  <title>Adam and the Bear · 森林英语课堂</title>
+  <title>森林英语 · 课程学习空间</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/img/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=13">
 </head>
 <body>
-  <a class="skip-link" href="#course">跳到课程内容</a>
+  <a class="skip-link" href="#mainContent">跳到主要内容</a>
   <div class="paper-grain" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="森林英语课堂首页">
+  <header class="site-header" id="siteHeader">
+    <div class="header-primary">
+    <a class="brand" href="#catalog" aria-label="森林英语课程目录">
       <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
       <span class="brand-text">森林英语<small>FOREST ENGLISH</small></span>
     </a>
-    <nav class="section-nav" aria-label="课程分区">
-      <a href="#letters">字母</a><a href="#words">词汇</a><a href="#sentences">句型</a><a href="#chants">歌谣</a><a href="#story">绘本</a><a href="#practice">练习</a>
+    <nav class="header-nav" aria-label="页面导航">
+      <a href="#catalog" data-view-link="catalog">课程目录</a>
+      <a href="#lessonView" data-view-link="lesson" id="currentLessonLink">本课学习</a>
     </nav>
-    <button class="menu-button" type="button" aria-label="打开课程目录" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    <button class="header-catalog-button" type="button" id="headerCatalogButton">
+      <span aria-hidden="true">☰</span> 课程 <em id="headerCourseCount">1 / 12</em>
+    </button>
+    </div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu" hidden>
-    <nav aria-label="移动端课程目录">
-      <a href="#letters"><b>01</b> 字母拼读 <span>Aa–Dd</span></a>
-      <a href="#words"><b>02</b> 词汇点读 <span>15 词</span></a>
-      <a href="#sentences"><b>03</b> 情景句型 <span>9 句</span></a>
-      <a href="#chants"><b>04</b> 字母歌谣 <span>4 首</span></a>
-      <a href="#story"><b>05</b> 故事绘本 <span>9 页</span></a>
-      <a href="#practice"><b>06</b> 练习清单 <span>闯关</span></a>
-    </nav>
-  </div>
-
-  <main id="top">
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="hero-copy">
-        <p class="eyebrow"><span>Lesson 01</span> 双新阅读表达 · Level 2</p>
-        <h1 id="heroTitle">Adam <span>and the</span><br><em>Bear</em><i aria-hidden="true">.</i></h1>
-        <p class="hero-lead">跟着 Adam 走进森林，认识 Aa–Dd，听懂故事，大声读出来。</p>
-        <div class="hero-actions">
-          <button class="primary-button" type="button" data-playlist="story"><span class="play-icon" aria-hidden="true"></span>从故事开始</button>
-          <a class="text-button" href="#letters">查看本课内容 <span aria-hidden="true">↓</span></a>
+  <main id="mainContent">
+    <section class="catalog-view view-wrap" id="catalogView" aria-labelledby="catalogTitle">
+      <div class="catalog-hero content-wrap">
+        <div class="catalog-hero-copy">
+          <p class="eyebrow">LEARNING HUB · FOREST ENGLISH</p>
+          <h1 id="catalogTitle">一课一读，<br><span>把英语读明白。</span></h1>
+          <p class="catalog-intro">从森林故事开始，按步骤学习字母、关键词、句型、歌谣和绘本。每次只看一个小重点，听清、读懂、跟读。</p>
+          <div class="hero-badges" aria-label="课程特点">
+            <span>分步学习</span><span>重点音频</span><span>英文 + 中文</span>
+          </div>
         </div>
-        <dl class="hero-facts">
-          <div><dt>字母</dt><dd>4</dd></div><div><dt>核心词汇</dt><dd>5</dd></div><div><dt>句型</dt><dd>9</dd></div><div><dt>歌谣</dt><dd>4</dd></div>
-        </dl>
+        <aside class="catalog-summary" aria-label="课程安排">
+          <span class="summary-leaf" aria-hidden="true"></span>
+          <p class="hand-note">十二课学习地图</p>
+          <strong><span id="catalogOpenCount">1</span><small> / 12 已开放</small></strong>
+          <div class="summary-line"><i id="catalogOpenBar"></i></div>
+          <p>Lesson 2–12 的位置已经预留，后续补充内容后会自动出现在这里。</p>
+        </aside>
       </div>
-      <div class="hero-visual">
-        <div class="hero-frame">
-          <img src="./assets/img/hero/course-overview.jpg" width="1350" height="1013" alt="Adam and the Bear 课程内容总览，包含 Aa 至 Dd、词汇和字母歌谣">
-          <span class="hero-sticker">Aa–Dd</span>
+
+      <div class="catalog-main content-wrap" id="catalog">
+        <div class="section-heading">
+          <div><p class="section-kicker">COURSE MAP</p><h2>森林英语课程目录</h2></div>
+          <p>适合手机与平板浏览</p>
         </div>
-        <div class="hero-note"><span class="note-line"></span><p>今天，和森林里的<br>新朋友打个招呼。</p><small>HELLO, BEAR!</small></div>
+        <div class="course-grid" id="courseGrid"></div>
       </div>
     </section>
 
-    <section class="course-intro content-wrap" aria-labelledby="introTitle">
-      <div class="progress-card">
-        <div class="progress-top">
-          <div><p class="section-kicker">MY JOURNEY</p><h2 id="introTitle">今天学一点，明天读更多。</h2></div>
-          <div class="progress-number"><strong id="progressPercent">0</strong><span>%</span></div>
-        </div>
-        <div class="progress-track" role="progressbar" aria-labelledby="progressLabel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressBar"></span></div>
-        <div class="progress-bottom"><p id="progressLabel"><span id="progressDone">0</span> / <span id="progressTotal">9</span> 个学习环节已完成</p><button class="reset-progress" id="resetProgress" type="button">重新开始</button></div>
-      </div>
-      <aside class="intro-note"><span class="tape" aria-hidden="true"></span><p class="hand-note">本课小结</p><p>字母名、字母音与书写一起学；核心词会认会读；再用故事把句子串起来。</p><div class="intro-tags"><span>看</span><span>听</span><span>读</span><span>说</span></div></aside>
-    </section>
-
-    <section class="lesson-section content-wrap" id="course" aria-labelledby="courseTitle">
-      <div class="section-heading"><div><p class="section-kicker">LESSON MAP <span>01</span></p><h2 id="courseTitle">这一课，我们会遇见</h2></div><p class="section-aside">每个段落都可以单独点读，也可以跟着播放条连续听。</p></div>
-      <div class="lesson-map" id="lessonMap"></div>
-    </section>
-
-    <section class="lesson-section content-wrap" id="letters" aria-labelledby="lettersTitle">
-      <div class="section-heading"><div><p class="section-kicker">01 · LETTERS &amp; PHONICS</p><h2 id="lettersTitle">字母有名字，也有声音。</h2></div><button class="section-play" type="button" data-playlist="letters"><span class="play-icon" aria-hidden="true"></span> 连听 Aa–Dd</button></div>
-      <p class="section-lead">先听字母名，再听字母音。注意嘴形，跟着音频读三遍。</p>
-      <div class="alphabet-board">
-        <div class="alphabet-poster"><img src="./assets/img/alphabet/alphabet-writing.jpg" width="1350" height="1013" alt="Aa 到 Dd 的字母名、字母音和书写示范"><span class="poster-label">LET'S READ</span></div>
-        <div class="alphabet-grid" id="alphabetGrid"></div>
-      </div>
-      <div class="letter-strokes"><figure><img src="./assets/img/alphabet/letter-strokes.jpg" width="1350" height="1013" alt="Aa 到 Dd 的大小写书写笔顺图"><figcaption>书写小提示：先看箭头，再按笔画顺序描写。大写字母站稳格线，小写字母注意中线与基线。</figcaption></figure></div>
-    </section>
-
-    <section class="lesson-section content-wrap" id="words" aria-labelledby="wordsTitle">
-      <div class="section-heading"><div><p class="section-kicker">02 · WORDS</p><h2 id="wordsTitle">把森林装进口袋。</h2></div><button class="section-play" type="button" data-playlist="words"><span class="play-icon" aria-hidden="true"></span> 连听全部词汇</button></div>
-      <p class="section-lead">先认 5 个核心词，再读 10 个拼读词。同一个词在本页只出现一次。</p>
-      <div class="word-feature" aria-labelledby="coreWordsTitle">
-        <div class="word-feature-copy"><p class="micro-label">CORE VOCABULARY</p><h3 id="coreWordsTitle">森林里的五位朋友</h3><p>点一下卡片，听单词，再看音标和中文意思。</p></div>
-        <div class="core-word-grid" id="coreWordGrid"></div>
-      </div>
-      <div class="phonics-words" aria-labelledby="phonicsWordsTitle">
-        <div class="phonics-heading"><div><p class="micro-label">PHONICS WORD BANK</p><h3 id="phonicsWordsTitle">拼读词库</h3></div><span>15 个词均有 AI 示范朗读</span></div>
-        <div class="phonics-grid" id="phonicsGrid"></div>
-      </div>
-      <div class="word-poster-row">
-        <figure class="poster-card"><img src="./assets/img/words/vocabulary-panel.jpg" width="690" height="897" alt="课件词汇页：cat、dog、fish、bat、crab"><figcaption><b>Words 词汇</b><span>课件原图 · 核心词</span></figcaption></figure>
-        <figure class="poster-card"><img src="./assets/img/words/phonics-panel.jpg" width="690" height="897" alt="课件自然拼读页：Aa 至 Dd 与拼读词"><figcaption><b>Letters &amp; Phonics</b><span>课件原图 · 拼读与歌谣</span></figcaption></figure>
-      </div>
-    </section>
-
-    <section class="lesson-section sentence-section" id="sentences" aria-labelledby="sentencesTitle">
-      <div class="content-wrap">
-        <div class="section-heading"><div><p class="section-kicker">03 · SENTENCES</p><h2 id="sentencesTitle">一句一句，把故事说清楚。</h2></div><button class="section-play" type="button" data-playlist="sentences"><span class="play-icon" aria-hidden="true"></span> 连听句型</button></div>
-        <p class="section-lead">前三句是自我介绍替换练习，后六句来自本课故事和互动页。</p>
-        <div class="sentence-intro" id="sentenceIntro"></div>
-        <div class="story-lines" id="sentenceStory"></div>
-      </div>
-    </section>
-
-    <section class="lesson-section content-wrap" id="chants" aria-labelledby="chantsTitle">
-      <div class="section-heading"><div><p class="section-kicker">04 · CHANT</p><h2 id="chantsTitle">拍一拍，唱一唱。</h2></div><button class="section-play" type="button" data-playlist="chants"><span class="play-icon" aria-hidden="true"></span> 歌谣连播</button></div>
-      <p class="section-lead">每首两句。先慢读，再跟着节奏拍手，最后试着不看文字唱出来。</p>
-      <div class="chant-grid" id="chantGrid"></div>
-    </section>
-
-    <section class="lesson-section story-section" id="story" aria-labelledby="storyTitle">
-      <div class="content-wrap">
-        <div class="section-heading light-heading"><div><p class="section-kicker">05 · PICTURE STORY</p><h2 id="storyTitle">走进森林，故事开始了。</h2></div><button class="section-play light-play" type="button" data-playlist="story"><span class="play-icon" aria-hidden="true"></span> 故事连播</button></div>
-        <p class="section-lead light-lead">点图片上的喇叭逐页听。英文原句按课件标出；场景说明只是看图提示。</p>
-        <div class="story-stage">
-          <figure class="story-frame">
-            <div class="story-image-wrap"><img id="storyImage" src="./assets/img/story/story-01.jpg" width="1350" height="1013" alt="森林里的苹果树与兔子"></div>
-            <figcaption id="storyCaption"><span>01 / 09</span> 森林里结满红苹果。</figcaption>
-            <button class="story-audio-button" id="storyAudioButton" type="button" aria-label="播放当前故事页的句子"><span class="play-icon" aria-hidden="true"></span></button>
+    <section class="lesson-view view-wrap" id="lessonView" hidden aria-labelledby="lessonTitle">
+      <div class="lesson-head content-wrap">
+        <a class="back-link" href="#catalog" id="backToCatalog"><span aria-hidden="true">←</span> 返回课程目录</a>
+        <div class="lesson-head-grid">
+          <div class="lesson-title-block">
+            <p class="eyebrow" id="lessonEyebrow">LESSON 01 · Aa–Dd</p>
+            <h1 id="lessonTitle">Adam and the Bear</h1>
+            <p class="lesson-title-cn" id="lessonTitleCn">亚当和大熊</p>
+            <p class="lesson-description" id="lessonDescription"></p>
+            <div class="lesson-meta" id="lessonMeta"></div>
+          </div>
+          <figure class="lesson-cover" id="lessonCover">
+            <img src="./assets/img/hero/course-overview.jpg" width="1346" height="1010" alt="Adam and the Bear 课程总览" id="lessonCoverImage">
+            <figcaption id="lessonCoverCaption">Lesson 01 · 故事里的森林英语</figcaption>
           </figure>
-          <aside class="story-copy" aria-live="polite">
-            <p class="story-original-label" id="storyOriginalLabel">故事原句</p>
-            <blockquote id="storyText">Adam sees Big Brown Bear.</blockquote>
-            <p class="story-translation" id="storyTranslation">Adam 看见了大棕熊。</p>
-            <p class="story-hint" id="storyHint">看图提示（非课件原文）：林间小路边，兔子先发现了树丛后的动静。</p>
-            <div class="story-controls"><button type="button" id="storyPrev" aria-label="上一页"><span aria-hidden="true">←</span> 上一页</button><div class="story-dots" id="storyDots" role="tablist" aria-label="选择故事页"></div><button type="button" id="storyNext" aria-label="下一页">下一页 <span aria-hidden="true">→</span></button></div>
-            <p class="story-note">故事页图为课件截取；“故事原句”可跟读，“AI 导读”仅用于看图提示。</p>
-          </aside>
         </div>
       </div>
-    </section>
 
-    <section class="lesson-section content-wrap" id="practice" aria-labelledby="practiceTitle">
-      <div class="section-heading"><div><p class="section-kicker">06 · PRACTICE</p><h2 id="practiceTitle">学会了吗？来闯三关。</h2></div><button class="reset-progress subtle" id="resetProgressBottom" type="button">清空进度</button></div>
-      <p class="section-lead">练习结果只保存在当前设备，不需要登录。完成一项，点亮一片叶子。</p>
-      <div class="practice-layout">
-        <div class="quiz-card">
-          <div class="quiz-head"><div><span>QUICK CHECK</span><h3>听音选词</h3></div><p><span id="quizIndex">1</span> / 3</p></div>
-          <button class="quiz-audio" id="quizAudio" type="button"><span class="play-icon" aria-hidden="true"></span> 听一听，选单词</button>
-          <div class="quiz-options" id="quizOptions"></div>
-          <p class="quiz-feedback" id="quizFeedback" role="status">准备好了吗？点上方按钮播放。</p>
+      <div class="study-shell content-wrap">
+        <div class="study-heading">
+          <div class="study-number" id="stepNumber">01</div>
+          <div class="study-title"><p>LEARNING STEP</p><h2 id="stepTitle">字母声音</h2></div>
+          <p class="study-count"><span id="stepCurrent">1</span> / <span id="stepTotal">6</span></p>
         </div>
-        <div class="checklist-card">
-          <div class="checklist-head"><div><span>CHECKLIST</span><h3>本课学习清单</h3></div><span class="leaf-badge" aria-hidden="true"></span></div>
-          <ul id="checklist"></ul>
-          <p class="local-note">进度自动保存在本机浏览器。</p>
+        <nav class="step-tabs" id="stepTabs" aria-label="本课学习步骤"></nav>
+        <div class="step-panel" id="stepContent" tabindex="-1" aria-live="polite"></div>
+        <div class="step-controls">
+          <button class="step-button secondary" type="button" id="stepPrev"><span aria-hidden="true">←</span> 上一步</button>
+          <button class="step-button primary" type="button" id="stepNext">下一步 <span aria-hidden="true">→</span></button>
         </div>
-      </div>
-      <div class="summary-sheet">
-        <figure><img src="./assets/img/words/lesson-summary.jpg" width="1350" height="1013" alt="本课内容总结：字母拼读、核心词汇和字母歌谣"><figcaption>本课内容总结 · 课件原图</figcaption></figure>
-        <div class="summary-copy"><p class="micro-label">LESSON RECAP</p><h3>今天带走的，不只是四个字母。</h3><p>能读出 Aa–Dd 的字母名与字母音，认出森林里的核心词，用完整句子复述故事，再唱一首轻松的字母歌。</p><a class="primary-button outline-button" href="#top">回到页首 <span aria-hidden="true">↑</span></a></div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="content-wrap"><div class="footer-brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><p>森林英语课堂<small>LEARN WITH STORIES</small></p></div><p>Lesson 01 · Adam and the Bear<br>语音由 AI 生成，仅用于学习示范。</p><a href="./">返回学习空间 <span aria-hidden="true">↗</span></a></div></footer>
+  <footer class="site-footer">
+    <div class="content-wrap">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p>森林英语课堂<small>LEARN WITH STORIES</small></p>
+      </div>
+      <p>课程内容按学习步骤整理，音频仅用于学习示范。</p>
+      <a href="https://ziyuan2046-cyber.github.io/learning-hub/">返回学习空间 <span aria-hidden="true">→</span></a>
+    </div>
+  </footer>
 
   <div class="player-bar" id="playerBar" aria-live="polite">
     <div class="player-progress"><span id="playerProgress"></span></div>
     <div class="player-inner">
       <button class="player-toggle" id="playerToggle" type="button" aria-label="暂停"><span class="pause-icon" aria-hidden="true"></span></button>
-      <div class="player-copy"><span id="playerEyebrow">NOW PLAYING</span><strong id="playerTitle">选择一段内容开始点读</strong></div>
-      <div class="player-actions"><button class="player-prev" id="playerPrev" type="button" aria-label="上一段"><span aria-hidden="true">|&#9664;</span></button><button class="player-next" id="playerNext" type="button" aria-label="下一段"><span aria-hidden="true">&#9654;|</span></button><button class="player-close" id="playerClose" type="button" aria-label="关闭播放器"><span aria-hidden="true">&times;</span></button></div>
+      <div class="player-copy"><span id="playerEyebrow">NOW PLAYING</span><strong id="playerTitle">选择一个重点内容开始点读</strong></div>
+      <div class="player-actions">
+        <button class="player-prev" id="playerPrev" type="button" aria-label="上一段"><span aria-hidden="true">|◀</span></button>
+        <button class="player-next" id="playerNext" type="button" aria-label="下一段"><span aria-hidden="true">▶|</span></button>
+        <button class="player-close" id="playerClose" type="button" aria-label="关闭播放器"><span aria-hidden="true">×</span></button>
+      </div>
     </div>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <audio id="audio" preload="auto"></audio>
-  <script src="./app.js"></script>
+  <audio id="audio" preload="none"></audio>
+  <script src="./courses.js?v=13"></script>
+  <script src="./app.js?v=13"></script>
 </body>
 </html>
