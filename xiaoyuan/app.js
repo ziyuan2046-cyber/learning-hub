@@ -94,13 +94,13 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 const audioHost = $('#audio');
 let audio = audioHost;
-let playerState = { queue: [], index: -1, title: '', eyebrow: '', trigger: null, currentKey: '', quiz: false };
+let playerState = { queue: [], index: -1, title: '', eyebrow: '', trigger: null, currentKey: '', sourceUrl: '', quiz: false };
 
 // GitHub Pages media range requests can stall on some mobile connections.
 // Prefetch these small MP3s as Blobs, then play from memory whenever possible.
 const audioBlobCache = new Map();
 const audioBlobRequests = new Map();
-const AUDIO_PREFETCH_CONCURRENCY = 3;
+const AUDIO_PREFETCH_CONCURRENCY = 2;
 let audioPrefetchQueue = [];
 let audioPrefetchActive = 0;
 let playRequestId = 0;
@@ -279,6 +279,22 @@ function normalizeAudioUrl(path) {
   return new URL(path, document.baseURI).href;
 }
 
+const AUDIO_CDN_ROOT = 'https://cdn.jsdelivr.net/gh/ziyuan2046-cyber/learning-hub@main/xiaoyuan/';
+
+function getAudioCandidates(path) {
+  const localUrl = normalizeAudioUrl(path);
+  if (!/(^|\.)github\.io$/i.test(location.hostname)) { return [localUrl]; }
+  try {
+    const local = new URL(localUrl);
+    const base = new URL('./', document.baseURI);
+    if (local.origin !== location.origin || !local.pathname.startsWith(base.pathname)) { return [localUrl]; }
+    const relativePath = local.pathname.slice(base.pathname.length);
+    return [new URL(relativePath, AUDIO_CDN_ROOT).href, localUrl];
+  } catch {
+    return [localUrl];
+  }
+}
+
 function collectAudioUrls() {
   const paths = $$('[data-audio]').map((element) => element.dataset.audio);
   COURSE.story.forEach((item) => paths.push(item.audio));
@@ -289,14 +305,23 @@ function fetchAudioBlob(url) {
   if (audioBlobCache.has(url)) { return Promise.resolve(audioBlobCache.get(url)); }
   if (audioBlobRequests.has(url)) { return audioBlobRequests.get(url); }
 
-  const request = fetch(url, { cache: 'force-cache' }).then((response) => {
-    if (!response.ok) { throw new Error('Audio request failed: ' + response.status); }
-    return response.blob();
-  }).then((blob) => {
-    if (!blob.size) { throw new Error('Empty audio file'); }
-    audioBlobCache.set(url, blob);
-    return blob;
-  }).finally(() => {
+  const request = (async () => {
+    let lastError = null;
+    for (const candidate of getAudioCandidates(url)) {
+      try {
+        const signal = typeof AbortSignal.timeout === 'function' ? AbortSignal.timeout(8000) : undefined;
+        const response = await fetch(candidate, { cache: 'force-cache', signal });
+        if (!response.ok) { throw new Error('Audio request failed: ' + response.status); }
+        const blob = await response.blob();
+        if (!blob.size) { throw new Error('Empty audio file'); }
+        audioBlobCache.set(url, blob);
+        return blob;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw lastError || new Error('No audio source available');
+  })().finally(() => {
     audioBlobRequests.delete(url);
   });
 
@@ -329,9 +354,12 @@ function queueAudioPrefetch(urls, priority = false) {
 
 function scheduleAudioPrefetch() {
   const urls = collectAudioUrls();
-  window.requestIdleCallback
-    ? window.requestIdleCallback(() => queueAudioPrefetch(urls), { timeout: 1200 })
-    : window.setTimeout(() => queueAudioPrefetch(urls), 350);
+  const start = () => queueAudioPrefetch(urls);
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(start, { timeout: 1200 });
+  } else {
+    window.setTimeout(start, 350);
+  }
 }
 
 function disposeAudioSource() {
@@ -374,7 +402,7 @@ function bindAudioEvents(element) {
   element.addEventListener('ended', onAudioEnded);
   element.addEventListener('error', () => {
     if (element !== audio || !element.currentSrc) { return; }
-    if (audioBlobRequests.has(normalizeAudioUrl(element.currentSrc)) || audioBlobCache.has(normalizeAudioUrl(element.currentSrc))) { return; }
+    if (audioBlobRequests.has(playerState.sourceUrl) || audioBlobCache.has(playerState.sourceUrl)) { return; }
     if (playerState.currentKey) { toast('音频暂时没有加载成功，请再点一次'); }
   });
 }
@@ -409,13 +437,14 @@ function playTrack(track, queue = null, index = null) {
   playerState.quiz = Boolean(track.quiz);
   const token = ++playRequestId;
   const sourceUrl = normalizeAudioUrl(track.audio);
+  playerState.sourceUrl = sourceUrl;
   const cachedBlob = audioBlobCache.get(sourceUrl);
 
   if (cachedBlob) {
     const nextUrl = URL.createObjectURL(cachedBlob);
     mountAudioSource(nextUrl, token, nextUrl);
   } else {
-    mountAudioSource(sourceUrl, token);
+    mountAudioSource(getAudioCandidates(sourceUrl)[0], token);
     queueAudioPrefetch([sourceUrl], true);
     fetchAudioBlob(sourceUrl).then((blob) => {
       if (token !== playRequestId || audio.ended) { return; }
