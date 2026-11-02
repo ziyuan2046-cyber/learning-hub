@@ -1,17 +1,32 @@
 {
-  "name": "森林英语课堂 · Adam and the Bear",
+  "name": "森林英语 · 课程学习空间",
   "short_name": "森林英语",
-  "description": "Aa–Dd 森林英语点读课堂：字母、词汇、句型、歌谣与绘本。",
+  "description": "森林英语课程学习空间：按课程目录和学习步骤，逐步学习字母、单词、句子、歌谣和故事。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "background_color": "#f8f5ec",
-  "theme_color": "#f8f5ec",
+  "orientation": "any",
+  "background_color": "#f7f4eb",
+  "theme_color": "#f7f4eb",
   "icons": [
-    { "src": "./assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "./assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "./assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "./assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
