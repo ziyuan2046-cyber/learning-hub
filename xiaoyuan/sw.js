@@ -1,4 +1,4 @@
-const CACHE_NAME = 'xiaoyuan-lesson-01-v1';
+const CACHE_NAME = 'xiaoyuan-lesson-01-v2';
 const CORE_ASSETS = [
   "./",
   "./index.html",
