@@ -279,8 +279,15 @@ function playTrack(track, queue = null, index = null) {
   playerState.trigger = track.trigger || null;
   playerState.currentKey = track.key || '';
   playerState.quiz = Boolean(track.quiz);
-  audio.src = track.audio;
-  audio.play().catch(() => { toast('请再点一下播放按钮'); });
+  audio.pause();
+  audio.preload = 'auto';
+  audio.src = new URL(track.audio, document.baseURI).href;
+  audio.currentTime = 0;
+  audio.load();
+  const playback = audio.play();
+  if (playback) {
+    playback.catch(() => { toast('音频正在加载，请再点一下播放按钮'); });
+  }
   updatePlayer(true);
   clearPlayingHighlights();
   if (track.trigger) { track.trigger.classList.add('is-playing'); }
