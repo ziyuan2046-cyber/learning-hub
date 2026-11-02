@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 const COURSE = {
   id: 'lesson-01-adam-and-the-bear',
@@ -95,6 +95,16 @@ const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selec
 const audioHost = $('#audio');
 let audio = audioHost;
 let playerState = { queue: [], index: -1, title: '', eyebrow: '', trigger: null, currentKey: '', quiz: false };
+
+// GitHub Pages media range requests can stall on some mobile connections.
+// Prefetch these small MP3s as Blobs, then play from memory whenever possible.
+const audioBlobCache = new Map();
+const audioBlobRequests = new Map();
+const AUDIO_PREFETCH_CONCURRENCY = 3;
+let audioPrefetchQueue = [];
+let audioPrefetchActive = 0;
+let playRequestId = 0;
+let currentObjectUrl = '';
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -265,12 +275,108 @@ function getPlaylist(name) {
   return [];
 }
 
+function normalizeAudioUrl(path) {
+  return new URL(path, document.baseURI).href;
+}
+
+function collectAudioUrls() {
+  const paths = $$('[data-audio]').map((element) => element.dataset.audio);
+  COURSE.story.forEach((item) => paths.push(item.audio));
+  return Array.from(new Set(paths.filter(Boolean).map(normalizeAudioUrl)));
+}
+
+function fetchAudioBlob(url) {
+  if (audioBlobCache.has(url)) { return Promise.resolve(audioBlobCache.get(url)); }
+  if (audioBlobRequests.has(url)) { return audioBlobRequests.get(url); }
+
+  const request = fetch(url, { cache: 'force-cache' }).then((response) => {
+    if (!response.ok) { throw new Error('Audio request failed: ' + response.status); }
+    return response.blob();
+  }).then((blob) => {
+    if (!blob.size) { throw new Error('Empty audio file'); }
+    audioBlobCache.set(url, blob);
+    return blob;
+  }).finally(() => {
+    audioBlobRequests.delete(url);
+  });
+
+  audioBlobRequests.set(url, request);
+  return request;
+}
+
+function pumpAudioPrefetch() {
+  while (audioPrefetchActive < AUDIO_PREFETCH_CONCURRENCY && audioPrefetchQueue.length) {
+    const url = audioPrefetchQueue.shift();
+    if (audioBlobCache.has(url) || audioBlobRequests.has(url)) { continue; }
+    audioPrefetchActive += 1;
+    fetchAudioBlob(url).catch(() => {}).finally(() => {
+      audioPrefetchActive -= 1;
+      window.setTimeout(pumpAudioPrefetch, 90);
+    });
+  }
+}
+
+function queueAudioPrefetch(urls, priority = false) {
+  const pending = new Set(audioPrefetchQueue);
+  urls.map(normalizeAudioUrl).forEach((url) => {
+    if (!audioBlobCache.has(url) && !audioBlobRequests.has(url) && !pending.has(url)) {
+      if (priority) { audioPrefetchQueue.unshift(url); } else { audioPrefetchQueue.push(url); }
+      pending.add(url);
+    }
+  });
+  pumpAudioPrefetch();
+}
+
+function scheduleAudioPrefetch() {
+  const urls = collectAudioUrls();
+  window.requestIdleCallback
+    ? window.requestIdleCallback(() => queueAudioPrefetch(urls), { timeout: 1200 })
+    : window.setTimeout(() => queueAudioPrefetch(urls), 350);
+}
+
+function disposeAudioSource() {
+  if (!audio) { return; }
+  audio.pause();
+  audio.removeAttribute('src');
+  audio.load();
+  if (currentObjectUrl) {
+    URL.revokeObjectURL(currentObjectUrl);
+    currentObjectUrl = '';
+  }
+}
+
+function mountAudioSource(source, token, objectUrl = '') {
+  if (token !== playRequestId) { return null; }
+  disposeAudioSource();
+  currentObjectUrl = objectUrl;
+  audio.src = source;
+  audio.load();
+  return audio;
+}
+
+function attemptPlayback(token) {
+  if (token !== playRequestId) { return; }
+  const playback = audio.play();
+  if (!playback) { return; }
+  playback.catch(() => {
+    window.setTimeout(() => {
+      if (token === playRequestId && audio.paused) {
+        toast('音频正在准备，请稍候再点一次播放按钮');
+      }
+    }, 2600);
+  });
+}
+
 function bindAudioEvents(element) {
   element.addEventListener('play', () => { updatePauseButton(); if (playerState.trigger) { playerState.trigger.classList.add('is-playing'); } });
   element.addEventListener('pause', updatePauseButton);
   element.addEventListener('timeupdate', updateProgressBar);
   element.addEventListener('ended', onAudioEnded);
-  element.addEventListener('error', () => { if (playerState.currentKey) { toast('音频暂时没有加载成功，请再点一次'); } });
+  element.addEventListener('error', () => {
+    if (element !== audio || !element.currentSrc) { return; }
+    if (audioBlobRequests.has(normalizeAudioUrl(element.currentSrc)) || audioBlobCache.has(normalizeAudioUrl(element.currentSrc))) { return; }
+    if (playerState.currentKey) { toast('音频暂时没有加载成功，请再点一次'); }
+  });
 }
 
 function onAudioEnded() {
@@ -301,20 +407,29 @@ function playTrack(track, queue = null, index = null) {
   playerState.trigger = track.trigger || null;
   playerState.currentKey = track.key || '';
   playerState.quiz = Boolean(track.quiz);
-  if (audio !== audioHost) {
-    audio.pause();
-    audio.removeAttribute('src');
-    audio.load();
+  const token = ++playRequestId;
+  const sourceUrl = normalizeAudioUrl(track.audio);
+  const cachedBlob = audioBlobCache.get(sourceUrl);
+
+  if (cachedBlob) {
+    const nextUrl = URL.createObjectURL(cachedBlob);
+    mountAudioSource(nextUrl, token, nextUrl);
+  } else {
+    mountAudioSource(sourceUrl, token);
+    queueAudioPrefetch([sourceUrl], true);
+    fetchAudioBlob(sourceUrl).then((blob) => {
+      if (token !== playRequestId || audio.ended) { return; }
+      // Only replace a fallback that has not actually started. If the direct
+      // request is already playing, leave it alone and keep the Blob for later.
+      if (!audio.paused && audio.currentTime > 0) { return; }
+      const nextUrl = URL.createObjectURL(blob);
+      const next = mountAudioSource(nextUrl, token, nextUrl);
+      if (next) { attemptPlayback(token); }
+    }).catch(() => {
+      if (token === playRequestId) { toast('音频暂时没有加载成功，请检查网络后重试'); }
+    });
   }
-  audio = new Audio();
-  audio.preload = 'auto';
-  audio.src = new URL(track.audio, document.baseURI).href;
-  bindAudioEvents(audio);
-  audio.load();
-  const playback = audio.play();
-  if (playback) {
-    playback.catch(() => { toast('音频正在加载，请再点一下播放按钮'); });
-  }
+  attemptPlayback(token);
   updatePlayer(true);
   clearPlayingHighlights();
   if (track.trigger) { track.trigger.classList.add('is-playing'); }
@@ -454,6 +569,7 @@ function init() {
   initQuiz();
   initObservers();
   initServiceWorker();
+  scheduleAudioPrefetch();
 
   document.addEventListener('click', (event) => {
     const audioTrigger = event.target.closest('[data-audio]');
@@ -491,7 +607,7 @@ function init() {
   $('#playerToggle').addEventListener('click', () => { if (audio.paused) { audio.play().catch(() => {}); } else { audio.pause(); } });
   $('#playerPrev').addEventListener('click', () => playAdjacent(-1));
   $('#playerNext').addEventListener('click', () => playAdjacent(1));
-  $('#playerClose').addEventListener('click', () => { audio.pause(); $('#playerBar').classList.remove('is-visible'); clearPlayingHighlights(); });
+  $('#playerClose').addEventListener('click', () => { playRequestId += 1; audio.pause(); $('#playerBar').classList.remove('is-visible'); clearPlayingHighlights(); });
   bindAudioEvents(audioHost);
   $('.menu-button').addEventListener('click', () => openMobileMenu($('#mobileMenu').hidden));
   $('#mobileMenu').addEventListener('click', (event) => { if (event.target.closest('a')) { openMobileMenu(false); } });
