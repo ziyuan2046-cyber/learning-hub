@@ -1,7 +1,8 @@
-const CACHE_NAME = 'xiaoyuan-lesson-01-v8';
+const CACHE_NAME = 'xiaoyuan-course-hub-v13';
 const CORE_ASSETS = [
   "./",
   "./index.html",
+  "./courses.js",
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
