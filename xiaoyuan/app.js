@@ -1,292 +1,561 @@
-'use strict';
+"use strict";
 
-const COURSE = {
-  id: 'lesson-01-adam-and-the-bear',
-  lesson: 1,
-  title: 'Adam and the Bear',
-  subtitle: 'Aa–Dd',
-  level: '双新阅读表达 · Level 2',
-  letters: [
-    {
-      letter: 'A', lower: 'a', name: '/eɪ/', sound: '/æ/', word: 'apple', wordCn: '苹果',
-      audio: './assets/audio/alphabet/a.mp3', wordAudio: './assets/audio/words/apple.mp3',
-      extras: [{ word: 'ax', cn: '斧头', audio: './assets/audio/words/ax.mp3' }, { word: 'Adam', cn: '亚当', audio: './assets/audio/words/adam.mp3' }, { word: 'alligator', cn: '短吻鳄', audio: './assets/audio/words/alligator.mp3' }]
-    },
-    {
-      letter: 'B', lower: 'b', name: '/biː/', sound: '/b/', word: 'bear', wordCn: '熊',
-      audio: './assets/audio/alphabet/b.mp3', wordAudio: './assets/audio/words/bear.mp3',
-      extras: [{ word: 'bee', cn: '蜜蜂', audio: './assets/audio/words/bee.mp3' }, { word: 'bread', cn: '面包', audio: './assets/audio/words/bread.mp3' }, { word: 'bag', cn: '包', audio: './assets/audio/words/bag.mp3' }]
-    },
-    {
-      letter: 'C', lower: 'c', name: '/siː/', sound: '/k/', word: 'cat', wordCn: '猫',
-      audio: './assets/audio/alphabet/c.mp3', wordAudio: './assets/audio/words/cat.mp3',
-      extras: [{ word: 'cow', cn: '奶牛', audio: './assets/audio/words/cow.mp3' }, { word: 'car', cn: '汽车', audio: './assets/audio/words/car.mp3' }, { word: 'card', cn: '卡片', audio: './assets/audio/words/card.mp3' }]
-    },
-    {
-      letter: 'D', lower: 'd', name: '/diː/', sound: '/d/', word: 'duck', wordCn: '鸭子',
-      audio: './assets/audio/alphabet/d.mp3', wordAudio: './assets/audio/words/duck.mp3',
-      extras: [{ word: 'dog', cn: '狗', audio: './assets/audio/words/dog.mp3' }, { word: 'dad', cn: '爸爸', audio: './assets/audio/words/dad.mp3' }, { word: 'desk', cn: '书桌', audio: './assets/audio/words/desk.mp3' }, { word: 'dig', cn: '挖', audio: './assets/audio/words/dig.mp3' }]
-    }
-  ],
-  coreWords: [
-    { id: 'cat', en: 'cat', phonetic: '/kæt/', cn: '猫', image: './assets/img/words/cat.jpg', audio: './assets/audio/words/cat.mp3' },
-    { id: 'dog', en: 'dog', phonetic: '/dɒɡ/', cn: '狗', image: './assets/img/words/dog.jpg', audio: './assets/audio/words/dog.mp3' },
-    { id: 'fish', en: 'fish', phonetic: '/fɪʃ/', cn: '鱼', image: './assets/img/words/fish.jpg', audio: './assets/audio/words/fish.mp3' },
-    { id: 'crab', en: 'crab', phonetic: '/kræb/', cn: '螃蟹', image: './assets/img/words/crab.jpg', audio: './assets/audio/words/crab.mp3' },
-    { id: 'bat', en: 'bat', phonetic: '/bæt/', cn: '蝙蝠', image: './assets/img/words/bat.jpg', audio: './assets/audio/words/bat.mp3' }
-  ],
-  phonicsWords: [
-    { en: 'apple', phonetic: '/ˈæpəl/', cn: '苹果', audio: './assets/audio/words/apple.mp3' },
-    { en: 'bear', phonetic: '/beə(r)/', cn: '熊', audio: './assets/audio/words/bear.mp3' },
-    { en: 'duck', phonetic: '/dʌk/', cn: '鸭子', audio: './assets/audio/words/duck.mp3' },
-    { en: 'bad', phonetic: '/bæd/', cn: '坏的', audio: './assets/audio/words/bad.mp3' },
-    { en: 'cab', phonetic: '/kæb/', cn: '出租车', audio: './assets/audio/words/cab.mp3' },
-    { en: 'dab', phonetic: '/dæb/', cn: '轻拍', audio: './assets/audio/words/dab.mp3' },
-    { en: 'dad', phonetic: '/dæd/', cn: '爸爸', audio: './assets/audio/words/dad.mp3' },
-    { en: 'ax', phonetic: '/æks/', cn: '斧头', audio: './assets/audio/words/ax.mp3' },
-    { en: 'bag', phonetic: '/bæɡ/', cn: '包', audio: './assets/audio/words/bag.mp3' },
-    { en: 'Adam', phonetic: '/ˈædəm/', cn: '亚当', audio: './assets/audio/words/adam.mp3' }
-  ],
-  introSentences: [
-    { id: 'name', text: 'My name is <u>Adam</u>.', cn: '我的名字是 Adam。', tag: '替换示范', audio: './assets/audio/sentences/my-name-is-adam.mp3' },
-    { id: 'from', text: 'I\'m from <u>China</u>.', cn: '我来自中国。', tag: '替换示范', audio: './assets/audio/sentences/i-am-from-china.mp3' },
-    { id: 'age', text: 'I\'m <u>seven</u> years old.', cn: '我七岁了。', tag: '替换示范', audio: './assets/audio/sentences/i-am-seven-years-old.mp3' }
-  ],
-  storySentences: [
-    { id: 'hello', text: 'Hello, bear!', cn: '你好，熊！', tag: '互动页 · 打招呼', audio: './assets/audio/sentences/hello-bear.mp3' },
-    { id: 'sees', text: 'Adam sees Big Brown Bear.', cn: 'Adam 看见了大棕熊。', tag: '故事原句', audio: './assets/audio/sentences/adam-sees-big-brown-bear.mp3' },
-    { id: 'bad', text: 'Bad, bad bear!', cn: '坏熊，坏熊！', tag: '故事原句', audio: './assets/audio/sentences/bad-bad-bear.mp3' },
-    { id: 'what', text: 'What will happen?', cn: '接下来会发生什么？', tag: '故事原句', audio: './assets/audio/sentences/what-will-happen.mp3' },
-    { id: 'apples', text: 'My bag of apples.', cn: '我的那袋苹果。', tag: '故事原句', audio: './assets/audio/sentences/my-bag-of-apples.mp3' },
-    { id: 'see', text: 'See you next time!', cn: '下次见！', tag: '故事原句', audio: './assets/audio/sentences/see-you-next-time.mp3' }
-  ],
-  chants: [
-    { id: 'a', letter: 'A', lines: ['A, A, A, a, a, a.', 'Apple, apple, a, a, a.'], audio: './assets/audio/chants/chant-1.mp3' },
-    { id: 'b', letter: 'B', lines: ['B, B, B, b, b, b.', 'Bear, bear, b, b, b.'], audio: './assets/audio/chants/chant-2.mp3' },
-    { id: 'c', letter: 'C', lines: ['C, C, C, c, c, c.', 'Cat, cat, c, c, c.'], audio: './assets/audio/chants/chant-3.mp3' },
-    { id: 'd', letter: 'D', lines: ['D, D, D, d, d, d.', 'Duck, duck, d, d, d.'], audio: './assets/audio/chants/chant-4.mp3' }
-  ],
-  story: [
-    { image: './assets/img/story/story-01.jpg', caption: '森林里结满红苹果。', original: false, text: 'Look! A forest of apple trees.', cn: '看，一片结着苹果的森林。', hint: '看图提示（非课件原文）：阳光照进树林，兔子先发现了树丛后的动静。', audio: './assets/audio/story/hint-01.mp3' },
-    { image: './assets/img/story/story-02.jpg', caption: '树丛后出现了一道影子。', original: false, text: 'A shadow in the bushes!', cn: '树丛里有一道影子！', hint: '看图提示（非课件原文）：兔子和甲虫看向树丛，影子越来越近。', audio: './assets/audio/story/hint-02.mp3' },
-    { image: './assets/img/story/story-03.jpg', caption: 'Adam 遇见了大棕熊。', original: false, text: 'Adam and Big Brown Bear meet.', cn: 'Adam 和大棕熊遇见了。', hint: '看图提示（非课件原文）：大熊举起手，Adam 背着苹果袋站在树下。', audio: './assets/audio/story/hint-03.mp3' },
-    { image: './assets/img/story/story-04.jpg', caption: 'Adam sees Big Brown Bear.', original: true, text: 'Adam sees Big Brown Bear.', cn: 'Adam 看见了大棕熊。', hint: '故事原句：注意 sees 的发音，句尾 Bear 可以稍微上扬。', audio: './assets/audio/sentences/adam-sees-big-brown-bear.mp3' },
-    { image: './assets/img/story/story-05.jpg', caption: 'What will happen?', original: true, text: 'What will happen?', cn: '接下来会发生什么？', hint: '故事原句：看图猜一猜，A、B、C 三种结局哪一个会发生？', audio: './assets/audio/sentences/what-will-happen.mp3' },
-    { image: './assets/img/story/story-06.jpg', caption: 'Bad, bad bear!', original: true, text: 'Bad, bad bear!', cn: '坏熊，坏熊！', hint: '故事原句：先听音频，再模仿 Adam 着急又委屈的语气。', audio: './assets/audio/sentences/bad-bad-bear.mp3' },
-    { image: './assets/img/story/story-07.jpg', caption: '大熊来到门前。', original: false, text: 'Bear is at the door.', cn: '熊来到了门口。', hint: '看图提示（非课件原文）：桌上有面包和香蕉，观察窗外是谁来了。', audio: './assets/audio/story/hint-07.mp3' },
-    { image: './assets/img/story/story-08.jpg', caption: 'My bag of apples.', original: true, text: 'My bag of apples.', cn: '我的那袋苹果。', hint: '故事原句：bag 和 apples 是重点词，注意 apples 的复数音。', audio: './assets/audio/sentences/my-bag-of-apples.mp3' },
-    { image: './assets/img/story/story-09.jpg', caption: 'See you next time!', original: true, text: 'See you next time!', cn: '下次见！', hint: '故事原句：故事到这里结束，和森林里的朋友们说再见吧。', audio: './assets/audio/sentences/see-you-next-time.mp3' }
-  ],
-  checklist: [
-    { id: 'letters', text: '认读 Aa–Dd 的字母名与字母音' },
-    { id: 'writing', text: '按笔顺描写 Aa–Dd 的大小写' },
-    { id: 'words', text: '点读 5 个核心词与 10 个拼读词' },
-    { id: 'sentences', text: '跟读本课故事句子' },
-    { id: 'chant', text: '跟唱 Aa–Dd 字母歌谣' },
-    { id: 'story', text: '看图复述 Adam and the Bear' },
-    { id: 'pronunciation', text: '完成个性化纠音练习' },
-    { id: 'dubbing', text: '挑战配音小达人' },
-    { id: 'explore', text: '完成互动探究任务' }
-  ]
-};
+const COURSES = Array.isArray(window.XIAOYUAN_COURSES) ? window.XIAOYUAN_COURSES : [];
+const STEPS = [
+  { id: "letters", label: "字母声音", render: renderLettersStep },
+  { id: "words", label: "核心单词", render: renderCoreWordsStep },
+  { id: "phonics", label: "自然拼读", render: renderPhonicsStep },
+  { id: "sentences", label: "重点句子", render: renderSentencesStep },
+  { id: "chants", label: "歌谣律动", render: renderChantsStep },
+  { id: "story", label: "故事时间", render: renderStoryStep }
+];
+const AUDIO_CDN_ROOT = "https://cdn.jsdelivr.net/gh/ziyuan2046-cyber/learning-hub@main/xiaoyuan/";
+const AUDIO_PREFETCH_CONCURRENCY = 2;
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-const audioHost = $('#audio');
-let audio = audioHost;
-let playerState = { queue: [], index: -1, title: '', eyebrow: '', trigger: null, currentKey: '', sourceUrl: '', quiz: false };
+const escapeHtml = (value) => String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[char]));
+const stripHtml = (value) => String(value == null ? "" : value).replace(/<[^>]*>/g, "");
+const formatSentence = (value) => escapeHtml(value)
+  .replace(/&lt;u&gt;/g, "<u>")
+  .replace(/&lt;\/u&gt;/g, "</u>");
+const slug = (value) => String(value || "item").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "item";
+const pad = (value) => String(value).padStart(2, "0");
 
-// GitHub Pages media range requests can stall on some mobile connections.
-// Prefetch these small MP3s as Blobs, then play from memory whenever possible.
-const audioBlobCache = new Map();
-const audioBlobRequests = new Map();
-const AUDIO_PREFETCH_CONCURRENCY = 2;
+let COURSE = COURSES.find((item) => item.available) || COURSES[0] || null;
+let stepIndex = 0;
+let storyIndex = 0;
+const focusIndexes = { letters: 0, words: 0, phonics: 0, sentences: 0, chants: 0 };
+let quizRound = 0;
+let quizAnswered = false;
+let currentView = "catalog";
+let audio = null;
+let currentObjectUrl = "";
+let playRequestId = 0;
 let audioPrefetchQueue = [];
 let audioPrefetchActive = 0;
-let playRequestId = 0;
-let currentObjectUrl = '';
+let toastTimer = 0;
 
-const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-}[char]));
+const audioBlobCache = new Map();
+const audioBlobRequests = new Map();
+const playerState = {
+  queue: [],
+  index: -1,
+  title: "",
+  eyebrow: "",
+  trigger: null,
+  currentKey: "",
+  sourceUrl: "",
+  solo: false
+};
 
-function createPlayIcon() {
-  return '<span class="play-icon" aria-hidden="true"></span>';
+function getProgressKey() {
+  return COURSE?.id ? `xiaoyuan:progress:${COURSE.id}` : "xiaoyuan:progress:no-course";
 }
 
-function renderLetters() {
-  const grid = $('#alphabetGrid');
-  grid.innerHTML = COURSE.letters.map((item, index) => `
-    <article class="letter-card">
-      <button class="letter-main" type="button" data-audio="${item.audio}" data-title="${item.letter} 的字母名与字母音" data-key="letter-${item.letter}" aria-label="播放字母 ${item.letter} 的示范朗读">
-        <div class="letter-head">
-          <span class="letter-glyph">${item.letter}<small>${item.lower}</small></span>
-          <span class="letter-audio-hint">${createPlayIcon()} 字母音</span>
-          <span class="letter-index">0${index + 1} / 04</span>
+function showToast(message) {
+  const element = $("#toast");
+  if (!element) { return; }
+  element.textContent = message;
+  element.classList.add("is-visible");
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => element.classList.remove("is-visible"), 2200);
+}
+
+function emptyMarkup(message) {
+  return `<div class="empty-state"><strong>内容正在整理</strong><p>${escapeHtml(message)}</p></div>`;
+}
+
+function imageMarkup(path, alt, className = "") {
+  if (!path) { return ""; }
+  return `<img${className ? ` class="${escapeHtml(className)}"` : ""} src="${escapeHtml(path)}" alt="${escapeHtml(alt || "")}" loading="lazy" decoding="async">`;
+}
+
+function renderCatalog() {
+  const grid = $("#courseGrid");
+  const openCount = COURSES.filter((item) => item.available).length;
+  $("#catalogOpenCount").textContent = openCount;
+  $("#catalogOpenBar").style.width = `${COURSES.length ? (openCount / COURSES.length) * 100 : 0}%`;
+  grid.innerHTML = COURSES.map((item, index) => {
+    const available = Boolean(item.available);
+    const title = item.title || `Lesson ${pad(item.lesson || index + 1)}`;
+    const subtitle = available
+      ? [item.titleCn, item.subtitle].filter(Boolean).join(" · ")
+      : "课程内容待补充";
+    return `
+      <button class="course-card ${available ? "is-open" : "is-locked"}" type="button"
+        ${available ? `data-course-id="${escapeHtml(item.id)}"` : "disabled"}
+        aria-label="${escapeHtml(available ? `进入 ${title}` : `${title} 尚未开放`)}">
+        <span class="course-card-top">
+          <span class="course-card-index">LESSON ${pad(item.lesson || index + 1)}</span>
+          <span class="course-card-status">${available ? "可学习" : "待补充"}</span>
+        </span>
+        <span class="course-card-body">
+          <strong>${escapeHtml(title)}</strong>
+          <span>${escapeHtml(subtitle)}</span>
+        </span>
+        <span class="${available ? "course-card-cta" : "course-card-note"}">${available ? "进入本课 · 6 个学习步骤" : "位置已预留，后续自动开放"}</span>
+      </button>`;
+  }).join("") || emptyMarkup("还没有可显示的课程，请检查课程数据。");
+
+  const headerCount = $("#headerCourseCount");
+  if (headerCount) { headerCount.textContent = `${openCount} / ${COURSES.length || 12}`; }
+}
+
+function renderLesson() {
+  if (!COURSE) { return; }
+  const lessonNo = pad(COURSE.lesson || 1);
+  $("#lessonEyebrow").textContent = `LESSON ${lessonNo}${COURSE.subtitle ? ` · ${COURSE.subtitle}` : ""}`;
+  $("#lessonTitle").textContent = COURSE.title || `Lesson ${lessonNo}`;
+  $("#lessonTitleCn").textContent = COURSE.titleCn || "课程内容";
+  $("#lessonDescription").textContent = COURSE.description || "本课内容正在整理，后续会补充完整。";
+
+  const meta = [
+    COURSE.subtitle ? `字母与拼读 · ${COURSE.subtitle}` : "",
+    COURSE.level || "",
+    `${STEPS.length} 个学习步骤`
+  ].filter(Boolean);
+  $("#lessonMeta").innerHTML = meta.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
+
+  const cover = $("#lessonCover");
+  if (COURSE.coverImage) {
+    $("#lessonCoverImage").src = COURSE.coverImage;
+    $("#lessonCoverImage").alt = `${COURSE.title || "课程"} 课程总览`;
+    $("#lessonCoverCaption").textContent = `Lesson ${lessonNo} · ${COURSE.titleCn || "课程总览"}`;
+    cover.hidden = false;
+  } else {
+    cover.hidden = true;
+    $("#lessonCoverImage").removeAttribute("src");
+  }
+  document.title = `${COURSE.title || `Lesson ${lessonNo}`} · 森林英语`;
+  $("#currentLessonLink").textContent = COURSE.title || `Lesson ${lessonNo}`;
+}
+
+function renderStep(options = {}) {
+  if (!COURSE) { return; }
+  const step = STEPS[stepIndex];
+  $("#stepNumber").textContent = pad(stepIndex + 1);
+  $("#stepTitle").textContent = step.label;
+  $("#stepCurrent").textContent = stepIndex + 1;
+  $("#stepTotal").textContent = STEPS.length;
+  $("#stepTabs").innerHTML = STEPS.map((item, index) => `
+    <button class="step-tab ${index === stepIndex ? "is-active" : ""}" type="button"
+      data-step-index="${index}" aria-current="${index === stepIndex ? "step" : "false"}">
+      <span class="tab-no">${pad(index + 1)}</span>${escapeHtml(item.label)}
+    </button>`).join("");
+  $("#stepContent").innerHTML = step.render();
+  $("#stepPrev").disabled = stepIndex === 0;
+  $("#stepNext").disabled = stepIndex === STEPS.length - 1;
+  $("#stepNext").innerHTML = stepIndex === STEPS.length - 1
+    ? `本课完成 <span aria-hidden="true">✓</span>`
+    : `下一步 <span aria-hidden="true">→</span>`;
+
+  if (step.id === "story") {
+    renderQuizRound();
+    updateProgress();
+  }
+  if (options.scroll) {
+    $(".study-heading")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  if (options.focus) {
+    $("#stepContent")?.focus({ preventScroll: true });
+  }
+}
+
+function stepIntro(title, description, count, unit) {
+  return `
+    <header class="step-intro">
+      <div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p></div>
+      <span class="stat-badge"><strong>${count}</strong><span>${escapeHtml(unit)}</span></span>
+    </header>`;
+}
+
+function focusPageLabel(index, total) {
+  return `${pad(index + 1)} / ${pad(total)}`;
+}
+
+function clampFocus(stepId, total) {
+  const safeTotal = Math.max(0, total);
+  const current = Number(focusIndexes[stepId] || 0);
+  const next = Math.max(0, Math.min(current, Math.max(0, safeTotal - 1)));
+  focusIndexes[stepId] = next;
+  return next;
+}
+
+function focusPager(stepId, index, total, unit, detail = "") {
+  return `
+    <nav class="focus-pager" aria-label="${escapeHtml(unit)}翻页">
+      <button type="button" data-focus-step="${escapeHtml(stepId)}" data-focus-direction="-1" ${index <= 0 ? "disabled" : ""}>← 上一项</button>
+      <span><b>${index + 1}</b> / ${total}${detail ? ` · ${escapeHtml(detail)}` : ""}</span>
+      <button type="button" data-focus-step="${escapeHtml(stepId)}" data-focus-direction="1" ${index >= total - 1 ? "disabled" : ""}>下一项 →</button>
+    </nav>`;
+}
+
+function getSentenceItems() {
+  const intro = Array.isArray(COURSE.introSentences) ? COURSE.introSentences : [];
+  const story = Array.isArray(COURSE.storySentences) ? COURSE.storySentences : [];
+  const seen = new Set();
+  return [
+    ...intro.map((item) => ({ ...item, source: "intro" })),
+    ...story.map((item) => ({ ...item, source: "story" }))
+  ].filter((item) => {
+    const value = stripHtml(item.text).trim().toLowerCase();
+    if (!value || seen.has(value)) { return false; }
+    seen.add(value);
+    return true;
+  });
+}
+
+function renderLettersStep() {
+  const letters = Array.isArray(COURSE.letters) ? COURSE.letters : [];
+  if (!letters.length) { return emptyMarkup("本课还没有字母学习内容。"); }
+  const index = clampFocus("letters", letters.length);
+  const item = letters[index];
+  const guides = Array.isArray(item.guides) ? item.guides.filter((guide) => guide.image) : [];
+  const letterKey = `letter-${slug(item.letter)}`;
+  const wordKey = `letter-${slug(item.letter)}-word`;
+  return `
+    ${stepIntro("一个字母，听清两个声音", "每一页只认识一个字母。先听字母名，再听它在单词里的发音，最后跟读例词。", letters.length, "个字母")}
+    <article class="focus-card focus-letter ${guides.length ? "has-image" : "no-image"}">
+      ${guides.length ? `<div class="focus-media">${guides.map((guide) => `<figure>${imageMarkup(guide.image, guide.alt || guide.caption || "字母书写示范")}<figcaption>${escapeHtml(guide.caption || "")}</figcaption></figure>`).join("")}</div>` : ""}
+      <div class="focus-copy">
+        <div class="focus-topline"><span class="focus-label">字母声音 · ${escapeHtml(item.letter || "")}</span><span class="focus-page">PAGE ${focusPageLabel(index, letters.length)}</span></div>
+        <p class="focus-eyebrow">字母名与字母音</p>
+        <h4 class="focus-en focus-letter-glyph">${escapeHtml(item.letter || "")}<small>${escapeHtml(item.lower || String(item.letter || "").toLowerCase())}</small></h4>
+        <p class="focus-phonetic">字母名 ${escapeHtml(item.name || "")} · 字母音 ${escapeHtml(item.sound || "")}</p>
+        <p class="focus-cn">字母名读作 ${escapeHtml(item.name || "")}，在单词中常发 ${escapeHtml(item.sound || "")} 的音。</p>
+        <div class="focus-example"><span>例词</span><strong>${escapeHtml(item.word || "")}</strong><b>${escapeHtml(item.wordCn || "")}</b></div>
+        <div class="focus-audio-actions">
+          <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${letterKey}" data-title="${escapeHtml(`${item.letter} · 字母名与字母音`)}" data-eyebrow="LETTER SOUND" aria-label="播放 ${escapeHtml(item.letter)} 的字母名与字母音">
+            <span class="play-icon" aria-hidden="true"></span>播放重点发音
+          </button>
+          ${item.wordAudio ? `<button class="play-button focus-secondary" type="button" data-audio="${escapeHtml(item.wordAudio)}" data-key="${wordKey}" data-title="${escapeHtml(`${item.word} · ${item.wordCn || ""}`)}" data-eyebrow="EXAMPLE WORD" aria-label="播放例词 ${escapeHtml(item.word)}"><span class="play-icon" aria-hidden="true"></span>听例词</button>` : ""}
         </div>
-        <div class="letter-sounds"><span class="letter-sound">字母名 <b>${item.name}</b></span><span class="letter-sound">字母音 <b>${item.sound}</b></span></div>
-        <div class="letter-example"><div><strong>${item.word}</strong><small>${item.wordCn}<br>例词点读</small></div><span class="letter-play" aria-hidden="true">${createPlayIcon()}</span></div>
-      </button>
-      <div class="letter-extra">
-        <span>教材补充例词</span>
-        <p>${item.extras.map((extra, extraIndex) => `${extraIndex ? '<span class="extra-separator" aria-hidden="true">·</span>' : ''}<button class="extra-word" type="button" data-audio="${extra.audio}" data-title="${extra.word} · ${extra.cn}" data-key="phonics-${extra.word.toLowerCase()}" aria-label="播放单词 ${extra.word}"><b>${extra.word}</b> ${extra.cn}</button>`).join('')}</p>
+        ${Array.isArray(item.extras) && item.extras.length ? `
+          <div class="focus-extras">
+            <p>还可以听</p>
+            ${item.extras.map((extra) => `<button class="extra-word" type="button" data-audio="${escapeHtml(extra.audio || "")}" data-key="letter-${slug(item.letter)}-extra-${slug(extra.word)}" data-title="${escapeHtml(`${extra.word} · ${extra.cn || ""}`)}" data-eyebrow="MORE WORDS"><span class="play-icon" aria-hidden="true"></span><b>${escapeHtml(extra.word)}</b>${escapeHtml(extra.cn || "")}</button>`).join("")}
+          </div>` : ""}
+        ${focusPager("letters", index, letters.length, "个字母", item.letter || "")}
       </div>
-    </article>`).join('');
-}
-function renderCoreWords() {
-  const grid = $('#coreWordGrid');
-  grid.innerHTML = COURSE.coreWords.map((word) => `
-    <button class="core-word-card" type="button" data-audio="${word.audio}" data-title="${word.en} · ${word.cn}" data-key="word-${word.id}" aria-label="播放单词 ${word.en}">
-      <img src="${word.image}" width="180" height="180" alt="${word.cn} ${word.en} 的插画" loading="lazy">
-      <div class="word-card-copy"><div class="word-card-head"><strong>${word.en}</strong><span aria-hidden="true">${createPlayIcon()}</span></div><p class="phonetic">${word.phonetic}</p><p class="word-cn">${word.cn}</p></div>
-    </button>`).join('');
+    </article>`;
 }
 
-function renderPhonics() {
-  const grid = $('#phonicsGrid');
-  grid.innerHTML = COURSE.phonicsWords.map((word) => `
-    <button class="phonic-word" type="button" data-audio="${word.audio}" data-title="${word.en} · ${word.cn}" data-key="phonics-${word.en.toLowerCase()}" aria-label="播放单词 ${word.en}">
-      <strong>${word.en.replace(/[aeiou]+/gi, (match) => `<i>${match}</i>`)}</strong><span>${word.phonetic} · ${word.cn}</span><b aria-hidden="true">${createPlayIcon()}</b>
-    </button>`).join('');
+function renderCoreWordsStep() {
+  const words = Array.isArray(COURSE.coreWords) ? COURSE.coreWords : [];
+  if (!words.length) { return emptyMarkup("本课还没有核心单词。"); }
+  const index = clampFocus("words", words.length);
+  const item = words[index];
+  const key = `word-${slug(item.id || item.en)}`;
+  return `
+    ${stepIntro("一个单词，一次听清", "每页只练一个核心词。图片只在素材存在时显示，没有图片时页面会自动收紧，不留空白框。", words.length, "个核心词")}
+    <article class="focus-card focus-word ${item.image ? "has-image" : "no-image"}">
+      ${item.image ? `<div class="focus-media single">${imageMarkup(item.image, item.cn || item.en, "focus-image")}</div>` : ""}
+      <div class="focus-copy">
+        <div class="focus-topline"><span class="focus-label">核心单词</span><span class="focus-page">PAGE ${focusPageLabel(index, words.length)}</span></div>
+        <p class="focus-eyebrow">听发音 · 看中文</p>
+        <h4 class="focus-en">${escapeHtml(item.en || "")}</h4>
+        <p class="focus-phonetic">${escapeHtml(item.phonetic || "")}</p>
+        <p class="focus-cn">${escapeHtml(item.cn || "")}</p>
+        <div class="focus-audio-actions">
+          <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${key}" data-title="${escapeHtml(`${item.en} · ${item.cn || ""}`)}" data-eyebrow="CORE WORD" aria-label="播放单词 ${escapeHtml(item.en)}，中文 ${escapeHtml(item.cn || "")}">
+            <span class="play-icon" aria-hidden="true"></span>播放这个单词
+          </button>
+        </div>
+        ${focusPager("words", index, words.length, "个单词", item.en || "")}
+      </div>
+    </article>`;
 }
 
-function renderSentences() {
-  $('#sentenceIntro').innerHTML = COURSE.introSentences.map((sentence) => `
-    <button class="sentence-card" type="button" data-audio="${sentence.audio}" data-title="自我介绍 · ${sentence.text.replace(/<[^>]+>/g, '')}" data-key="sentence-${sentence.id}" aria-label="播放句子 ${sentence.text.replace(/<[^>]+>/g, '')}">
-      <span>${sentence.tag}</span><p>${sentence.text}</p><small>${sentence.cn}</small><i class="mini-play" aria-hidden="true">${createPlayIcon()}</i>
-    </button>`).join('');
-  $('#sentenceStory').innerHTML = COURSE.storySentences.map((sentence) => `
-    <button class="story-line" type="button" data-audio="${sentence.audio}" data-title="${sentence.text}" data-key="sentence-${sentence.id}" aria-label="播放句子 ${sentence.text}">
-      <p>${sentence.text}</p><span>${sentence.tag} · ${sentence.cn}</span><i class="line-play" aria-hidden="true">${createPlayIcon()}</i>
-    </button>`).join('');
+function renderPhonicsStep() {
+  const words = Array.isArray(COURSE.phonicsWords) ? COURSE.phonicsWords : [];
+  if (!words.length) { return emptyMarkup("本课还没有自然拼读内容。"); }
+  const index = clampFocus("phonics", words.length);
+  const item = words[index];
+  const key = `phonics-${slug(item.en)}`;
+  return `
+    ${stepIntro("一个词，一步一步拼", "每页只出现一个拼读词。先听完整发音，再看音标和中文，跟着节奏读一次。", words.length, "个拼读词")}
+    <article class="focus-card focus-phonics no-image">
+      <div class="focus-copy">
+        <div class="focus-topline"><span class="focus-label">自然拼读</span><span class="focus-page">PAGE ${focusPageLabel(index, words.length)}</span></div>
+        <p class="focus-eyebrow">先听 · 再拼 · 后跟读</p>
+        <h4 class="focus-en">${escapeHtml(item.en || "")}</h4>
+        <p class="focus-phonetic">${escapeHtml(item.phonetic || "")}</p>
+        <p class="focus-cn">${escapeHtml(item.cn || "")}</p>
+        <div class="focus-audio-actions">
+          <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${key}" data-title="${escapeHtml(`${item.en} · ${item.cn || ""}`)}" data-eyebrow="PHONICS" aria-label="播放拼读示范 ${escapeHtml(item.en)}，中文 ${escapeHtml(item.cn || "")}">
+            <span class="play-icon" aria-hidden="true"></span>播放拼读示范
+          </button>
+        </div>
+        ${focusPager("phonics", index, words.length, "个拼读词", item.en || "")}
+      </div>
+    </article>`;
 }
 
-function renderChants() {
-  $('#chantGrid').innerHTML = COURSE.chants.map((chant) => `
-    <button class="chant-card" type="button" data-audio="${chant.audio}" data-title="字母歌谣 ${chant.letter}" data-key="chant-${chant.id}" data-letter="${chant.letter}" aria-label="播放字母 ${chant.letter} 的歌谣">
-      <div class="chant-head"><span>CHANT ${chant.id.toUpperCase()}</span><div><span class="chant-tag">跟唱</span></div></div>
-      <p>${chant.lines[0]}<br><span>${chant.lines[1]}</span></p>
-      <span class="chant-action">${createPlayIcon()} 点一下，跟着节奏唱</span>
-    </button>`).join('');
+function renderSentencesStep() {
+  const items = getSentenceItems();
+  if (!items.length) { return emptyMarkup("本课还没有重点句子。"); }
+  const index = clampFocus("sentences", items.length);
+  const item = items[index];
+  const key = `sentence-${slug(item.id || stripHtml(item.text))}`;
+  return `
+    ${stepIntro("一个句子，听完整语气", "每页集中听一句话。英文用大字号显示，下面保留中文翻译；相同句子只出现一次。", items.length, "个句子")}
+    <article class="focus-card focus-sentence no-image">
+      <div class="focus-copy">
+        <div class="focus-topline"><span class="focus-label">${escapeHtml(item.source === "intro" ? "自我介绍" : "故事重点句")}</span><span class="focus-page">PAGE ${focusPageLabel(index, items.length)}</span></div>
+        <p class="focus-eyebrow">${escapeHtml(item.tag || "重点句子")}</p>
+        <h4 class="focus-en focus-sentence-en">${formatSentence(item.text || "")}</h4>
+        <p class="focus-cn focus-sentence-cn">${escapeHtml(item.cn || "")}</p>
+        <div class="focus-audio-actions">
+          <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${key}" data-title="${escapeHtml(stripHtml(item.text))}" data-eyebrow="${escapeHtml(item.source === "intro" ? "SENTENCE" : "STORY LINE")}" aria-label="播放句子 ${escapeHtml(stripHtml(item.text))}，中文 ${escapeHtml(item.cn || "")}">
+            <span class="play-icon" aria-hidden="true"></span>播放整句
+          </button>
+        </div>
+        ${focusPager("sentences", index, items.length, "个句子", item.source === "intro" ? "自我介绍" : "故事重点句")}
+      </div>
+    </article>`;
 }
 
-function renderLessonMap() {
-  const items = [
-    ['01', 'Aa–Dd', '字母拼读', '字母名 · 字母音 · 书写', '#letters'],
-    ['02', 'Words', '森林词汇', '5 个核心词 · 10 个拼读词', '#words'],
-    ['03', 'Sentences', '情景句型', '自我介绍 · 故事表达', '#sentences'],
-    ['04', 'Chant', '字母歌谣', '节奏跟读 · 四首连播', '#chants'],
-    ['05', 'Story', '故事绘本', '9 页看图 · 原句跟读', '#story'],
-    ['06', 'Practice', '练习清单', '听音选词 · 学习打卡', '#practice']
-  ];
-  $('#lessonMap').innerHTML = items.map(([number, en, title, detail, href]) => `
-    <a class="map-card" href="${href}" data-number="${number}"><div class="map-top"><span>${en}</span><span class="map-arrow" aria-hidden="true">↗</span></div><div class="map-copy"><h3>${title}</h3><p>${detail}</p></div></a>`).join('');
+function renderChantsStep() {
+  const chants = Array.isArray(COURSE.chants) ? COURSE.chants : [];
+  if (!chants.length) { return emptyMarkup("本课还没有歌谣内容。"); }
+  const index = clampFocus("chants", chants.length);
+  const item = chants[index];
+  const key = `chant-${slug(item.id || item.letter)}`;
+  const lines = Array.isArray(item.lines) ? item.lines : [item.lines || ""];
+  return `
+    ${stepIntro("一首歌谣，跟着节奏唱", "每页只放一首歌谣。先点整首音频，再看着大号英文跟唱，中文意思放在下方。", chants.length, "首歌谣")}
+    <article class="focus-card focus-chant no-image">
+      <div class="focus-copy">
+        <div class="focus-topline"><span class="focus-label">歌谣律动 · ${escapeHtml(item.letter || "")}</span><span class="focus-page">PAGE ${focusPageLabel(index, chants.length)}</span></div>
+        <p class="focus-eyebrow">CHANT · ${escapeHtml(item.letter || "")}</p>
+        <div class="focus-chant-lines">${lines.map((line) => `<span>${escapeHtml(line)}</span>`).join("")}</div>
+        <p class="focus-cn focus-chant-cn">${escapeHtml(item.cn || "")}</p>
+        <div class="focus-audio-actions">
+          <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${key}" data-title="${escapeHtml(`歌谣 ${item.letter || ""}`)}" data-eyebrow="CHANT" aria-label="播放字母 ${escapeHtml(item.letter || "")} 的歌谣">
+            <span class="play-icon" aria-hidden="true"></span>播放整首歌谣
+          </button>
+        </div>
+        ${focusPager("chants", index, chants.length, "首歌谣", `字母 ${item.letter || ""}`)}
+      </div>
+    </article>`;
 }
 
-function renderChecklist() {
-  const progress = loadProgress();
-  $('#checklist').innerHTML = COURSE.checklist.map((item) => `
-    <li class="${progress.includes(item.id) ? 'is-done' : ''}"><input id="check-${item.id}" type="checkbox" data-check="${item.id}" ${progress.includes(item.id) ? 'checked' : ''}><label for="check-${item.id}">${item.text}</label></li>`).join('');
+function renderStoryStep() {
+  const story = Array.isArray(COURSE.story) ? COURSE.story : [];
+  if (!story.length) { return emptyMarkup("本课还没有故事页面。"); }
+  storyIndex = Math.max(0, Math.min(storyIndex, story.length - 1));
+  const item = story[storyIndex];
+  const hasImage = Boolean(item.image);
+  const isLast = storyIndex === story.length - 1;
+  const label = item.original ? "故事原句" : "看图导读 · 非课件原文";
+  return `
+    ${stepIntro("一次只看一页故事", "听这一页的重点音频，先看英文，再看中文翻译。翻页时只切换当前这一页。", story.length, "页故事")}
+    <article class="story-layout ${hasImage ? "" : "no-story-image"}">
+      ${hasImage ? `
+        <figure class="story-figure">
+          ${imageMarkup(item.image, item.caption || item.text || `故事第 ${storyIndex + 1} 页`)}
+          <figcaption><span class="story-pageno">${pad(storyIndex + 1)} / ${pad(story.length)}</span><span>${escapeHtml(item.caption || "")}</span></figcaption>
+        </figure>` : ""}
+      <section class="story-copy" aria-labelledby="storyText">
+        <div class="story-topline"><span class="story-label ${item.original ? "" : "is-hint"}">${escapeHtml(label)}</span><span class="story-pageno">PAGE ${pad(storyIndex + 1)}</span></div>
+        <p class="story-text" id="storyText">${escapeHtml(item.text || "")}</p>
+        <p class="story-translation">${escapeHtml(item.cn || "")}</p>
+        ${item.hint ? `<p class="story-hint">${escapeHtml(item.hint)}</p>` : ""}
+        <div class="story-actions">
+          <button class="play-button story-audio" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="story-${storyIndex}" data-title="${escapeHtml(item.text || "")}" data-eyebrow="STORY AUDIO" aria-label="播放本页故事音频">
+            <span class="play-icon" aria-hidden="true"></span>听这一页
+          </button>
+          <span class="story-audio-note">英文 + 中文译文</span>
+        </div>
+        <div class="story-pager">
+          <button type="button" data-story-step="-1" ${storyIndex === 0 ? "disabled" : ""}>← 上一页</button>
+          <span>第 ${storyIndex + 1} / ${story.length} 页</span>
+          <button type="button" data-story-step="1" ${isLast ? "disabled" : ""}>下一页 →</button>
+        </div>
+      </section>
+    </article>
+    ${isLast ? renderPractice() : `<p class="story-continue-note">翻到最后一页后，会显示本课听音练习和学习清单。</p>`}`;
+}
+
+function getQuizRounds() {
+  const source = (COURSE.coreWords?.length ? COURSE.coreWords : COURSE.phonicsWords || [])
+    .filter((item) => item.en && item.audio);
+  return source.slice(0, 3).map((answer, index) => {
+    const options = [];
+    [answer, ...source.filter((item) => item !== answer)].forEach((item) => {
+      if (options.length < 3 && !options.some((option) => option.en === item.en)) { options.push(item); }
+    });
+    const offset = index % options.length;
+    return { answer: answer.en, options: options.slice(offset).concat(options.slice(0, offset)), audio: answer.audio };
+  });
+}
+
+function renderPractice() {
+  const rounds = getQuizRounds();
+  const checklist = Array.isArray(COURSE.checklist) ? COURSE.checklist : [];
+  return `
+    <div class="practice-wrap">
+      <section class="practice-block">
+        <div class="practice-heading"><h3>听音小练习</h3><p>听一个词，选出正确选项</p></div>
+        ${rounds.length ? `
+          <div class="quiz-box">
+            <div class="quiz-topline"><p>QUICK CHECK · 第 <strong id="quizIndex">1</strong> / ${rounds.length} 题</p><button class="play-button quiz-audio" id="quizAudio" type="button" data-audio="${escapeHtml(rounds[0].audio)}" data-key="quiz-0" data-title="听音选词 · 第 1 题" data-eyebrow="QUICK CHECK"><span class="play-icon" aria-hidden="true"></span>播放题目</button></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <p class="quiz-feedback" id="quizFeedback">准备好了吗？先点播放题目。</p>
+          </div>` : `<p class="story-continue-note">本课音频不足，听音练习会在内容补充后显示。</p>`}
+      </section>
+      ${checklist.length ? `
+        <section class="practice-block">
+          <div class="practice-heading"><h3>本课学习清单</h3><p>勾选后会自动保存</p></div>
+          <ul class="checklist-box" id="checklist">
+            ${checklist.map((item) => `<li><input type="checkbox" id="check-${escapeHtml(item.id)}" data-check="${escapeHtml(item.id)}"><label for="check-${escapeHtml(item.id)}">${escapeHtml(item.text)}</label></li>`).join("")}
+          </ul>
+          <div class="progress-summary">
+            <div class="progress-summary-track"><i id="progressBar"></i></div>
+            <span><b id="progressDone">0</b> / <span id="progressTotal">${checklist.length}</span> 已完成</span>
+          </div>
+          <button class="reset-button" id="resetProgress" type="button">清空本课进度</button>
+        </section>` : ""}
+    </div>`;
+}
+
+function renderQuizRound() {
+  const rounds = getQuizRounds();
+  if (!rounds.length) { return; }
+  quizRound %= rounds.length;
+  quizAnswered = false;
+  const round = rounds[quizRound];
+  const options = $("#quizOptions");
+  const feedback = $("#quizFeedback");
+  const audioButton = $("#quizAudio");
+  if (!options || !feedback || !audioButton) { return; }
+  $("#quizIndex").textContent = quizRound + 1;
+  options.innerHTML = round.options.map((option) => `<button class="quiz-option" type="button" data-quiz-answer="${escapeHtml(option.en)}">${escapeHtml(option.en)}</button>`).join("");
+  feedback.textContent = "听一听，选出你听到的单词。";
+  audioButton.dataset.audio = round.audio;
+  audioButton.dataset.key = `quiz-${quizRound}`;
+  audioButton.dataset.title = `听音选词 · 第 ${quizRound + 1} 题`;
+  updateProgress();
 }
 
 function loadProgress() {
   try {
-    const value = JSON.parse(localStorage.getItem('xiaoyuan-lesson1-progress') || '[]');
+    const value = JSON.parse(localStorage.getItem(getProgressKey()) || "[]");
     return Array.isArray(value) ? value : [];
-  } catch (error) {
+  } catch {
     return [];
   }
 }
 
 function saveProgress(value) {
-  try { localStorage.setItem('xiaoyuan-lesson1-progress', JSON.stringify(value)); } catch (error) {}
+  try { localStorage.setItem(getProgressKey(), JSON.stringify(value)); } catch (error) {}
 }
 
 function updateProgress() {
-  const done = loadProgress().filter((id) => COURSE.checklist.some((item) => item.id === id)).length;
-  const total = COURSE.checklist.length;
-  const percent = Math.round((done / total) * 100);
-  $('#progressPercent').textContent = percent;
-  $('#progressDone').textContent = done;
-  $('#progressTotal').textContent = total;
-  $('#progressBar').style.width = percent + '%';
-  $('.progress-track').setAttribute('aria-valuenow', percent);
-  $$('#checklist li').forEach((item) => {
-    const input = $('input', item);
-    item.classList.toggle('is-done', input.checked);
+  if (!COURSE) { return; }
+  const checklist = Array.isArray(COURSE.checklist) ? COURSE.checklist : [];
+  const valid = new Set(checklist.map((item) => item.id));
+  const completed = loadProgress().filter((id) => valid.has(id));
+  const percent = checklist.length ? Math.round((completed.length / checklist.length) * 100) : 0;
+  $$(".checklist-box li").forEach((item) => {
+    const input = $("input", item);
+    if (!input) { return; }
+    input.checked = completed.includes(input.dataset.check);
+    item.classList.toggle("is-done", input.checked);
   });
+  const bar = $("#progressBar");
+  if (bar) { bar.style.width = `${percent}%`; }
+  const done = $("#progressDone");
+  if (done) { done.textContent = completed.length; }
+  const total = $("#progressTotal");
+  if (total) { total.textContent = checklist.length; }
 }
 
 function resetProgress() {
   saveProgress([]);
-  $$('#checklist input').forEach((input) => { input.checked = false; });
   updateProgress();
-  toast('学习进度已清空');
+  showToast("本课学习进度已清空");
 }
 
-function renderStory() {
-  const dots = $('#storyDots');
-  dots.innerHTML = COURSE.story.map((item, index) => `<button type="button" role="tab" aria-label="第 ${index + 1} 页" aria-selected="${index === 0}" data-story-index="${index}"></button>`).join('');
-  setStory(0);
+function openCourse(id) {
+  const nextCourse = COURSES.find((item) => item.id === id);
+  if (!nextCourse || !nextCourse.available) {
+    showToast("这一课的内容还在补充中");
+    return;
+  }
+  COURSE = nextCourse;
+  stepIndex = 0;
+  storyIndex = 0;
+  quizRound = 0;
+  quizAnswered = false;
+  renderLesson();
+  renderStep();
+  showView("lesson");
+  scheduleAudioPrefetch();
 }
 
-let storyIndex = 0;
-
-function setStory(index, play = false) {
-  storyIndex = (index + COURSE.story.length) % COURSE.story.length;
-  const item = COURSE.story[storyIndex];
-  const frame = $('.story-frame');
-  frame.classList.add('is-switching');
-  window.setTimeout(() => {
-    $('#storyImage').src = item.image;
-    $('#storyImage').alt = item.caption;
-    frame.classList.remove('is-switching');
-  }, 110);
-  $('#storyCaption').innerHTML = `<span>${String(storyIndex + 1).padStart(2, '0')} / ${String(COURSE.story.length).padStart(2, '0')}</span>${escapeHtml(item.caption)}`;
-  $('#storyText').textContent = item.text;
-  $('#storyTranslation').textContent = item.cn;
-  $('#storyHint').textContent = item.hint;
-  $('#storyOriginalLabel').textContent = item.original ? '故事原句' : '看图提示 · AI 导读（非课件原文）';
-  $('#storyOriginalLabel').classList.toggle('is-hint', !item.original);
-  $$('#storyDots button').forEach((dot, dotIndex) => dot.setAttribute('aria-selected', String(dotIndex === storyIndex)));
-  if (play) {
-    playTrack({ audio: item.audio, title: item.text, eyebrow: `STORY · ${storyIndex + 1} / ${COURSE.story.length}`, key: `story-${storyIndex}`, trigger: $('#storyAudioButton') });
+function showView(view) {
+  currentView = view;
+  $("#catalogView").hidden = view !== "catalog";
+  $("#lessonView").hidden = view !== "lesson";
+  $$("[data-view-link]").forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.viewLink === view);
+    link.setAttribute("aria-current", link.dataset.viewLink === view ? "page" : "false");
+  });
+  if (view === "catalog") {
+    document.title = "森林英语 · 课程学习空间";
   }
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function getPlaylist(name) {
-  if (name === 'letters') {
-    return COURSE.letters.map((item) => ({ audio: item.audio, title: `${item.letter} · 字母名与字母音`, eyebrow: 'LETTERS', key: `letter-${item.letter}`, trigger: $(`[data-key="letter-${item.letter}"]`) }));
-  }
-  if (name === 'words') {
-    return [...COURSE.coreWords.map((item) => ({ audio: item.audio, title: `${item.en} · ${item.cn}`, eyebrow: 'WORDS', key: `word-${item.id}`, trigger: $(`[data-key="word-${item.id}"]`) })),
-      ...COURSE.phonicsWords.map((item) => ({ audio: item.audio, title: `${item.en} · ${item.cn}`, eyebrow: 'PHONICS', key: `phonics-${item.en.toLowerCase()}`, trigger: $(`[data-key="phonics-${item.en.toLowerCase()}"]`) }))];
-  }
-  if (name === 'sentences') {
-    return [...COURSE.introSentences.map((item) => ({ audio: item.audio, title: item.text.replace(/<[^>]+>/g, ''), eyebrow: 'SENTENCES', key: `sentence-${item.id}`, trigger: $(`[data-key="sentence-${item.id}"]`) })),
-      ...COURSE.storySentences.map((item) => ({ audio: item.audio, title: item.text, eyebrow: 'STORY LINES', key: `sentence-${item.id}`, trigger: $(`[data-key="sentence-${item.id}"]`) }))];
-  }
-  if (name === 'chants') {
-    return COURSE.chants.map((item) => ({ audio: item.audio, title: `字母歌谣 ${item.letter}`, eyebrow: 'CHANT', key: `chant-${item.id}`, trigger: $(`[data-key="chant-${item.id}"]`) }));
-  }
-  if (name === 'story') {
-    return COURSE.story.map((item, index) => ({ audio: item.audio, title: item.text, eyebrow: `${item.original ? 'STORY LINE' : 'STORY HINT'} · ${index + 1} / ${COURSE.story.length}`, key: `story-${index}`, trigger: index === storyIndex ? $('#storyAudioButton') : null }));
-  }
-  return [];
+function changeStep(nextIndex, scroll = false) {
+  const next = Math.max(0, Math.min(STEPS.length - 1, nextIndex));
+  if (next === stepIndex) { return; }
+  stepIndex = next;
+  renderStep({ scroll });
+}
+
+function changeStory(direction) {
+  const story = Array.isArray(COURSE.story) ? COURSE.story : [];
+  const next = Math.max(0, Math.min(story.length - 1, storyIndex + direction));
+  if (next === storyIndex) { return; }
+  storyIndex = next;
+  renderStep({ scroll: true, focus: false });
+}
+
+function getFocusTotal(stepId) {
+  if (!COURSE) { return 0; }
+  if (stepId === "letters") { return (COURSE.letters || []).length; }
+  if (stepId === "words") { return (COURSE.coreWords || []).length; }
+  if (stepId === "phonics") { return (COURSE.phonicsWords || []).length; }
+  if (stepId === "sentences") { return getSentenceItems().length; }
+  if (stepId === "chants") { return (COURSE.chants || []).length; }
+  return 0;
+}
+
+function changeFocus(stepId, direction) {
+  const total = getFocusTotal(stepId);
+  if (!total) { return; }
+  const current = Number(focusIndexes[stepId] || 0);
+  const next = Math.max(0, Math.min(total - 1, current + direction));
+  if (next === current) { return; }
+  focusIndexes[stepId] = next;
+  renderStep({ scroll: true, focus: false });
 }
 
 function normalizeAudioUrl(path) {
   return new URL(path, document.baseURI).href;
 }
 
-const AUDIO_CDN_ROOT = 'https://cdn.jsdelivr.net/gh/ziyuan2046-cyber/learning-hub@main/xiaoyuan/';
-
 function getAudioCandidates(path) {
   const localUrl = normalizeAudioUrl(path);
   if (!/(^|\.)github\.io$/i.test(location.hostname)) { return [localUrl]; }
   try {
     const local = new URL(localUrl);
-    const base = new URL('./', document.baseURI);
+    const base = new URL("./", document.baseURI);
     if (local.origin !== location.origin || !local.pathname.startsWith(base.pathname)) { return [localUrl]; }
     const relativePath = local.pathname.slice(base.pathname.length);
     return [new URL(relativePath, AUDIO_CDN_ROOT).href, localUrl];
@@ -295,36 +564,26 @@ function getAudioCandidates(path) {
   }
 }
 
-function collectAudioUrls() {
-  const paths = $$('[data-audio]').map((element) => element.dataset.audio);
-  COURSE.story.forEach((item) => paths.push(item.audio));
-  return Array.from(new Set(paths.filter(Boolean).map(normalizeAudioUrl)));
-}
-
 function fetchAudioBlob(url) {
   if (audioBlobCache.has(url)) { return Promise.resolve(audioBlobCache.get(url)); }
   if (audioBlobRequests.has(url)) { return audioBlobRequests.get(url); }
-
   const request = (async () => {
     let lastError = null;
     for (const candidate of getAudioCandidates(url)) {
       try {
-        const signal = typeof AbortSignal.timeout === 'function' ? AbortSignal.timeout(8000) : undefined;
-        const response = await fetch(candidate, { cache: 'force-cache', signal });
-        if (!response.ok) { throw new Error('Audio request failed: ' + response.status); }
+        const signal = typeof AbortSignal.timeout === "function" ? AbortSignal.timeout(8000) : undefined;
+        const response = await fetch(candidate, { cache: "force-cache", signal });
+        if (!response.ok) { throw new Error(`Audio request failed: ${response.status}`); }
         const blob = await response.blob();
-        if (!blob.size) { throw new Error('Empty audio file'); }
+        if (!blob.size) { throw new Error("Empty audio file"); }
         audioBlobCache.set(url, blob);
         return blob;
       } catch (error) {
         lastError = error;
       }
     }
-    throw lastError || new Error('No audio source available');
-  })().finally(() => {
-    audioBlobRequests.delete(url);
-  });
-
+    throw lastError || new Error("No audio source available");
+  })().finally(() => audioBlobRequests.delete(url));
   audioBlobRequests.set(url, request);
   return request;
 }
@@ -336,20 +595,36 @@ function pumpAudioPrefetch() {
     audioPrefetchActive += 1;
     fetchAudioBlob(url).catch(() => {}).finally(() => {
       audioPrefetchActive -= 1;
-      window.setTimeout(pumpAudioPrefetch, 90);
+      window.setTimeout(pumpAudioPrefetch, 80);
     });
   }
 }
 
 function queueAudioPrefetch(urls, priority = false) {
   const pending = new Set(audioPrefetchQueue);
-  urls.map(normalizeAudioUrl).forEach((url) => {
+  urls.forEach((path) => {
+    if (!path) { return; }
+    const url = normalizeAudioUrl(path);
     if (!audioBlobCache.has(url) && !audioBlobRequests.has(url) && !pending.has(url)) {
       if (priority) { audioPrefetchQueue.unshift(url); } else { audioPrefetchQueue.push(url); }
       pending.add(url);
     }
   });
   pumpAudioPrefetch();
+}
+
+function collectAudioUrls() {
+  if (!COURSE) { return []; }
+  const urls = [];
+  (COURSE.letters || []).forEach((item) => {
+    urls.push(item.audio, item.wordAudio);
+    (item.extras || []).forEach((extra) => urls.push(extra.audio));
+  });
+  ["coreWords", "phonicsWords", "introSentences", "storySentences", "chants", "story"].forEach((key) => {
+    (COURSE[key] || []).forEach((item) => urls.push(item.audio));
+  });
+  $$("[data-audio]").forEach((element) => urls.push(element.dataset.audio));
+  return Array.from(new Set(urls.filter(Boolean)));
 }
 
 function scheduleAudioPrefetch() {
@@ -362,19 +637,68 @@ function scheduleAudioPrefetch() {
   }
 }
 
+function getPlaylist(name) {
+  if (!COURSE) { return []; }
+  if (name === "letters") {
+    return (COURSE.letters || []).flatMap((item) => {
+      const tracks = [
+        { audio: item.audio, title: `${item.letter} · 字母名与字母音`, eyebrow: "LETTER SOUND", key: `letter-${slug(item.letter)}` },
+        { audio: item.wordAudio, title: `${item.word} · ${item.wordCn || ""}`, eyebrow: "EXAMPLE WORD", key: `letter-${slug(item.letter)}-word` }
+      ];
+      (item.extras || []).forEach((extra) => tracks.push({ audio: extra.audio, title: `${extra.word} · ${extra.cn || ""}`, eyebrow: "MORE WORDS", key: `letter-${slug(item.letter)}-extra-${slug(extra.word)}` }));
+      return tracks.filter((track) => track.audio);
+    });
+  }
+  if (name === "words") {
+    return [
+      ...(COURSE.coreWords || []).map((item) => ({ audio: item.audio, title: `${item.en} · ${item.cn || ""}`, eyebrow: "CORE WORD", key: `word-${slug(item.id || item.en)}` })),
+      ...(COURSE.phonicsWords || []).map((item) => ({ audio: item.audio, title: `${item.en} · ${item.cn || ""}`, eyebrow: "PHONICS", key: `phonics-${slug(item.en)}` }))
+    ].filter((track) => track.audio);
+  }
+  if (name === "sentences") {
+    return getSentenceItems().map((item) => ({
+      audio: item.audio,
+      title: stripHtml(item.text),
+      eyebrow: item.source === "intro" ? "SENTENCE" : "STORY LINE",
+      key: `sentence-${slug(item.id || stripHtml(item.text))}`
+    })).filter((track) => track.audio);
+  }
+  if (name === "chants") {
+    return (COURSE.chants || []).map((item) => ({ audio: item.audio, title: `字母歌谣 ${item.letter || ""}`, eyebrow: "CHANT", key: `chant-${slug(item.id || item.letter)}` })).filter((track) => track.audio);
+  }
+  if (name === "story") {
+    return (COURSE.story || []).map((item, index) => ({ audio: item.audio, title: item.text, eyebrow: `STORY · ${index + 1} / ${COURSE.story.length}`, key: `story-${index}` })).filter((track) => track.audio);
+  }
+  return [];
+}
+
+function getPlaylistName(key) {
+  if (!key) { return ""; }
+  if (key.startsWith("letter-")) { return "letters"; }
+  if (key.startsWith("word-") || key.startsWith("phonics-")) { return "words"; }
+  if (key.startsWith("sentence-")) { return "sentences"; }
+  if (key.startsWith("chant-")) { return "chants"; }
+  if (key.startsWith("story-")) { return "story"; }
+  return "";
+}
+
+function findAudioTrigger(key) {
+  return $$("[data-audio]").find((element) => element.dataset.key === key) || null;
+}
+
 function disposeAudioSource() {
   if (!audio) { return; }
   audio.pause();
-  audio.removeAttribute('src');
+  audio.removeAttribute("src");
   audio.load();
   if (currentObjectUrl) {
     URL.revokeObjectURL(currentObjectUrl);
-    currentObjectUrl = '';
+    currentObjectUrl = "";
   }
 }
 
-function mountAudioSource(source, token, objectUrl = '') {
-  if (token !== playRequestId) { return null; }
+function mountAudioSource(source, token, objectUrl = "") {
+  if (token !== playRequestId || !audio) { return null; }
   disposeAudioSource();
   currentObjectUrl = objectUrl;
   audio.src = source;
@@ -383,274 +707,289 @@ function mountAudioSource(source, token, objectUrl = '') {
 }
 
 function attemptPlayback(token) {
-  if (token !== playRequestId) { return; }
+  if (token !== playRequestId || !audio) { return; }
   const playback = audio.play();
-  if (!playback) { return; }
-  playback.catch(() => {
-    window.setTimeout(() => {
-      if (token === playRequestId && audio.paused) {
-        toast('音频正在准备，请稍候再点一次播放按钮');
-      }
-    }, 2600);
-  });
-}
-
-function bindAudioEvents(element) {
-  element.addEventListener('play', () => { updatePauseButton(); if (playerState.trigger) { playerState.trigger.classList.add('is-playing'); } });
-  element.addEventListener('pause', updatePauseButton);
-  element.addEventListener('timeupdate', updateProgressBar);
-  element.addEventListener('ended', onAudioEnded);
-  element.addEventListener('error', () => {
-    if (element !== audio || !element.currentSrc) { return; }
-    if (audioBlobRequests.has(playerState.sourceUrl) || audioBlobCache.has(playerState.sourceUrl)) { return; }
-    if (playerState.currentKey) { toast('音频暂时没有加载成功，请再点一次'); }
-  });
-}
-
-function onAudioEnded() {
-  clearPlayingHighlights();
-  if (playerState.quiz) {
-    playerState.queue = [];
-    playerState.index = -1;
-    updatePauseButton();
-    return;
+  if (playback) {
+    playback.catch(() => {
+      window.setTimeout(() => {
+        if (token === playRequestId && audio.paused) { showToast("音频正在准备，请稍后再点一次"); }
+      }, 2400);
+    });
   }
-  if (!playerState.queue.length) { updatePauseButton(); return; }
-  if (playerState.index < playerState.queue.length - 1) { playTrack(playerState.queue[playerState.index + 1], playerState.queue, playerState.index + 1); }
-  else { playerState.queue = []; playerState.index = -1; updatePauseButton(); }
+}
+
+function clearPlayingHighlights() {
+  $$(".is-playing").forEach((item) => item.classList.remove("is-playing"));
+}
+
+function updatePauseButton() {
+  const button = $("#playerToggle");
+  if (!button || !audio) { return; }
+  button.innerHTML = audio.paused ? '<span class="play-icon" aria-hidden="true"></span>' : '<span class="pause-icon" aria-hidden="true"></span>';
+  button.setAttribute("aria-label", audio.paused ? "继续播放" : "暂停");
+}
+
+function updateProgressBar() {
+  const bar = $("#playerProgress");
+  if (!bar || !audio) { return; }
+  const percent = audio.duration && Number.isFinite(audio.duration) ? (audio.currentTime / audio.duration) * 100 : 0;
+  bar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+}
+
+function updatePlayer(show = false) {
+  const bar = $("#playerBar");
+  if (!bar) { return; }
+  if (show || playerState.title) { bar.classList.add("is-visible"); }
+  $("#playerTitle").textContent = playerState.title || "选择一个重点内容开始点读";
+  $("#playerEyebrow").textContent = playerState.eyebrow || "NOW PLAYING";
+  updatePauseButton();
+  updateProgressBar();
+}
+
+function syncStoryForTrack(track) {
+  const match = /^story-(\d+)$/.exec(track.key || "");
+  if (!match || !COURSE.story?.length) { return; }
+  const next = Math.max(0, Math.min(COURSE.story.length - 1, Number(match[1])));
+  if (next !== storyIndex) {
+    storyIndex = next;
+    if (currentView === "lesson" && stepIndex === STEPS.length - 1) { renderStep(); }
+  }
 }
 
 function playTrack(track, queue = null, index = null) {
-  if (!track) { return; }
-  const storyMatch = /^story-(\d+)$/.exec(track.key || '');
-  if (storyMatch) {
-    const nextStory = Number(storyMatch[1]);
-    if (nextStory !== storyIndex) { setStory(nextStory, false); }
+  if (!track || !track.audio || !audio) { return; }
+  syncStoryForTrack(track);
+  if (queue) {
+    playerState.queue = queue;
+    playerState.index = index == null ? 0 : index;
+  } else {
+    playerState.queue = [track];
+    playerState.index = 0;
   }
-  if (queue) { playerState.queue = queue; playerState.index = index == null ? 0 : index; }
-  else if (!track.key || !playerState.queue.some((item) => item.key === track.key)) { playerState.queue = [track]; playerState.index = 0; }
-  else { playerState.index = playerState.queue.findIndex((item) => item.key === track.key); }
-  playerState.title = track.title;
-  playerState.eyebrow = track.eyebrow || 'NOW PLAYING';
-  playerState.trigger = track.trigger || null;
-  playerState.currentKey = track.key || '';
-  playerState.quiz = Boolean(track.quiz);
+  playerState.title = track.title || "重点音频";
+  playerState.eyebrow = track.eyebrow || "NOW PLAYING";
+  playerState.currentKey = track.key || "";
+  playerState.solo = Boolean(track.solo);
   const token = ++playRequestId;
   const sourceUrl = normalizeAudioUrl(track.audio);
   playerState.sourceUrl = sourceUrl;
   const cachedBlob = audioBlobCache.get(sourceUrl);
 
   if (cachedBlob) {
-    const nextUrl = URL.createObjectURL(cachedBlob);
-    mountAudioSource(nextUrl, token, nextUrl);
+    const objectUrl = URL.createObjectURL(cachedBlob);
+    mountAudioSource(objectUrl, token, objectUrl);
   } else {
     mountAudioSource(getAudioCandidates(sourceUrl)[0], token);
     queueAudioPrefetch([sourceUrl], true);
     fetchAudioBlob(sourceUrl).then((blob) => {
-      if (token !== playRequestId || audio.ended) { return; }
-      // Only replace a fallback that has not actually started. If the direct
-      // request is already playing, leave it alone and keep the Blob for later.
+      if (token !== playRequestId || !audio || audio.ended) { return; }
       if (!audio.paused && audio.currentTime > 0) { return; }
-      const nextUrl = URL.createObjectURL(blob);
-      const next = mountAudioSource(nextUrl, token, nextUrl);
-      if (next) { attemptPlayback(token); }
+      const objectUrl = URL.createObjectURL(blob);
+      if (mountAudioSource(objectUrl, token, objectUrl)) { attemptPlayback(token); }
     }).catch(() => {
-      if (token === playRequestId) { toast('音频暂时没有加载成功，请检查网络后重试'); }
+      if (token === playRequestId) { showToast("音频暂时没有加载成功，请检查网络后重试"); }
     });
   }
+
+  playerState.trigger = track.trigger || findAudioTrigger(track.key || "");
   attemptPlayback(token);
   updatePlayer(true);
   clearPlayingHighlights();
-  if (track.trigger) { track.trigger.classList.add('is-playing'); }
-  $$('.section-play').forEach((button) => {
-    if (button.dataset.playlist === (queue ? getPlaylistName(track.key) : '')) { button.classList.add('is-playing'); }
-  });
+  playerState.trigger = track.trigger || findAudioTrigger(track.key || "");
+  playerState.trigger?.classList.add("is-playing");
 }
 
-function getPlaylistName(key) {
-  if (!key) { return ''; }
-  if (key.startsWith('letter-')) { return 'letters'; }
-  if (key.startsWith('word-') || key.startsWith('phonics-')) { return 'words'; }
-  if (key.startsWith('sentence-')) { return 'sentences'; }
-  if (key.startsWith('chant-')) { return 'chants'; }
-  if (key.startsWith('story-')) { return 'story'; }
-  return '';
-}
-
-function clearPlayingHighlights() {
-  $$('.is-playing').forEach((item) => item.classList.remove('is-playing'));
-  $$('.section-play').forEach((item) => item.classList.remove('is-playing'));
-}
-
-function updatePlayer(forceShow = false) {
-  const bar = $('#playerBar');
-  const title = $('#playerTitle');
-  const eyebrow = $('#playerEyebrow');
-  if (forceShow || playerState.title) { bar.classList.add('is-visible'); }
-  title.textContent = playerState.title || '选择一段内容开始点读';
-  eyebrow.textContent = playerState.eyebrow || 'NOW PLAYING';
-  updatePauseButton();
-  updateProgressBar();
-}
-
-function updatePauseButton() {
-  const button = $('#playerToggle');
-  button.innerHTML = audio.paused ? '<span class="play-icon" aria-hidden="true"></span>' : '<span class="pause-icon" aria-hidden="true"></span>';
-  button.setAttribute('aria-label', audio.paused ? '继续播放' : '暂停');
-}
-
-function updateProgressBar() {
-  const progress = audio.duration && Number.isFinite(audio.duration) ? (audio.currentTime / audio.duration) * 100 : 0;
-  $('#playerProgress').style.width = progress + '%';
+function onAudioEnded() {
+  clearPlayingHighlights();
+  if (playerState.solo || !playerState.queue.length) {
+    if (playerState.solo) {
+      playerState.queue = [];
+      playerState.index = -1;
+    }
+    updatePauseButton();
+    return;
+  }
+  if (playerState.index < playerState.queue.length - 1) {
+    const next = playerState.index + 1;
+    playTrack(playerState.queue[next], playerState.queue, next);
+  } else {
+    playerState.queue = [];
+    playerState.index = -1;
+    updatePauseButton();
+  }
 }
 
 function playAdjacent(direction) {
   if (!playerState.queue.length) { return; }
-  const nextIndex = (playerState.index + direction + playerState.queue.length) % playerState.queue.length;
-  playTrack(playerState.queue[nextIndex], playerState.queue, nextIndex);
+  const next = (playerState.index + direction + playerState.queue.length) % playerState.queue.length;
+  playTrack(playerState.queue[next], playerState.queue, next);
 }
 
-function toast(message) {
-  const element = $('#toast');
-  element.textContent = message;
-  element.classList.add('is-visible');
-  window.clearTimeout(toast.timer);
-  toast.timer = window.setTimeout(() => element.classList.remove('is-visible'), 1900);
-}
-
-function openMobileMenu(open) {
-  const menu = $('#mobileMenu');
-  const button = $('.menu-button');
-  menu.hidden = !open;
-  button.setAttribute('aria-expanded', String(open));
-}
-
-function initObservers() {
-  const navLinks = $$('.section-nav a');
-  const sections = navLinks.map((link) => ($(link.getAttribute('href')))).filter(Boolean);
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id));
-        }
-      });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    sections.forEach((section) => observer.observe(section));
-  }
-  window.addEventListener('scroll', () => $('.site-header').classList.toggle('is-scrolled', window.scrollY > 8), { passive: true });
-}
-
-function initQuiz() {
-  const rounds = [
-    { answer: 'cat', audio: './assets/audio/words/cat.mp3', options: ['cat', 'bat', 'crab'] },
-    { answer: 'fish', audio: './assets/audio/words/fish.mp3', options: ['fish', 'dog', 'duck'] },
-    { answer: 'bear', audio: './assets/audio/words/bear.mp3', options: ['bear', 'apple', 'bag'] }
-  ];
-  let round = 0;
-  let answered = false;
-  const options = $('#quizOptions');
-  const feedback = $('#quizFeedback');
-  function renderRound() {
-    answered = false;
-    $('#quizIndex').textContent = round + 1;
-    options.innerHTML = rounds[round].options.map((option) => `<button class="quiz-option" type="button" data-answer="${option}">${option}</button>`).join('');
-    feedback.textContent = round === 0 ? '准备好了吗？点上方按钮播放。' : '听一听，选出你听到的单词。';
-  }
-  $('#quizAudio').addEventListener('click', () => {
-    playTrack({ audio: rounds[round].audio, title: `听音选词 · 第 ${round + 1} 题`, eyebrow: 'QUICK CHECK', key: `quiz-${round}`, quiz: true });
+function bindAudioEvents() {
+  if (!audio) { return; }
+  audio.addEventListener("play", () => {
+    updatePauseButton();
+    clearPlayingHighlights();
+    playerState.trigger?.classList.add("is-playing");
   });
-  options.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-answer]');
-    if (!button || answered) { return; }
-    answered = true;
-    const correct = button.dataset.answer === rounds[round].answer;
-    button.classList.add(correct ? 'is-correct' : 'is-wrong');
-    if (!correct) {
-      const answerButton = $(`[data-answer="${rounds[round].answer}"]`, options);
-      if (answerButton) { answerButton.classList.add('is-correct'); }
-    }
-    feedback.textContent = correct ? '答对啦，耳朵很灵！' : `再听一次。正确答案是 ${rounds[round].answer}。`;
-    window.setTimeout(() => {
-      round = (round + 1) % rounds.length;
-      renderRound();
-    }, 1700);
+  audio.addEventListener("pause", updatePauseButton);
+  audio.addEventListener("timeupdate", updateProgressBar);
+  audio.addEventListener("ended", onAudioEnded);
+  audio.addEventListener("error", () => {
+    if (audio.currentSrc && !audioBlobCache.has(playerState.sourceUrl)) { updatePauseButton(); }
   });
-  renderRound();
 }
 
 function initServiceWorker() {
-  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
-    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).catch(() => {});
+  if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+    navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).catch(() => {});
   }
 }
 
-function init() {
-  renderLessonMap();
-  renderLetters();
-  renderCoreWords();
-  renderPhonics();
-  renderSentences();
-  renderChants();
-  renderStory();
-  renderChecklist();
-  updateProgress();
-  initQuiz();
-  initObservers();
-  initServiceWorker();
-  scheduleAudioPrefetch();
-
-  document.addEventListener('click', (event) => {
-    const audioTrigger = event.target.closest('[data-audio]');
-    if (audioTrigger) {
-      const playlistName = getPlaylistName(audioTrigger.dataset.key || '');
-      const wordsPlaylist = playlistName === 'words' ? getPlaylist('words') : null;
-      const trackQueue = wordsPlaylist && wordsPlaylist.some((track) => track.key === audioTrigger.dataset.key) ? wordsPlaylist : null;
-      const index = trackQueue ? trackQueue.findIndex((track) => track.key === audioTrigger.dataset.key) : -1;
-      playTrack({ audio: audioTrigger.dataset.audio, title: audioTrigger.dataset.title, eyebrow: playlistName ? playlistName.toUpperCase() : 'NOW PLAYING', key: audioTrigger.dataset.key, trigger: audioTrigger }, trackQueue && index >= 0 ? trackQueue : null, index >= 0 ? index : null);
+function bindEvents() {
+  document.addEventListener("click", (event) => {
+    const courseCard = event.target.closest("[data-course-id]");
+    if (courseCard) {
+      openCourse(courseCard.dataset.courseId);
       return;
     }
-    const playButton = event.target.closest('[data-playlist]');
-    if (playButton) {
-      const name = playButton.dataset.playlist;
-      let queue = getPlaylist(name);
-      if (name === 'story') {
-        setStory(storyIndex, false);
-        queue = getPlaylist('story');
+
+    const storyStep = event.target.closest("[data-story-step]");
+    if (storyStep) {
+      changeStory(Number(storyStep.dataset.storyStep));
+      return;
+    }
+
+    const focusStep = event.target.closest("[data-focus-step]");
+    if (focusStep) {
+      changeFocus(focusStep.dataset.focusStep, Number(focusStep.dataset.focusDirection));
+      return;
+    }
+
+    const stepTab = event.target.closest("[data-step-index]");
+    if (stepTab) {
+      changeStep(Number(stepTab.dataset.stepIndex));
+      return;
+    }
+
+    const audioTrigger = event.target.closest("[data-audio]");
+    if (audioTrigger) {
+      const key = audioTrigger.dataset.key || "";
+      const playlistName = getPlaylistName(key);
+      const queue = getPlaylist(playlistName);
+      const index = queue.findIndex((track) => track.key === key);
+      playTrack({
+        audio: audioTrigger.dataset.audio,
+        title: audioTrigger.dataset.title || "重点音频",
+        eyebrow: audioTrigger.dataset.eyebrow || "NOW PLAYING",
+        key,
+        trigger: audioTrigger,
+        solo: key.startsWith("quiz-")
+      }, index >= 0 ? queue : null, index >= 0 ? index : null);
+      return;
+    }
+
+    const quizOption = event.target.closest("[data-quiz-answer]");
+    if (quizOption && !quizAnswered) {
+      const rounds = getQuizRounds();
+      const round = rounds[quizRound % rounds.length];
+      quizAnswered = true;
+      const correct = quizOption.dataset.quizAnswer === round.answer;
+      quizOption.classList.add(correct ? "is-correct" : "is-wrong");
+      if (!correct) {
+        $$("[data-quiz-answer]", $("#quizOptions")).find((button) => button.dataset.quizAnswer === round.answer)?.classList.add("is-correct");
       }
-      if (!queue.length) { return; }
-      playTrack(queue[0], queue, 0);
+      $("#quizFeedback").textContent = correct ? "答对啦，耳朵很灵！" : `再听一次，正确答案是 ${round.answer}。`;
+      window.setTimeout(() => {
+        quizRound = (quizRound + 1) % rounds.length;
+        renderQuizRound();
+      }, 1500);
+      return;
+    }
+
+    const viewLink = event.target.closest("[data-view-link]");
+    if (viewLink) {
+      event.preventDefault();
+      showView(viewLink.dataset.viewLink);
+      return;
+    }
+    if (event.target.closest("#headerCatalogButton, #backToCatalog")) {
+      event.preventDefault();
+      showView("catalog");
+      return;
+    }
+    if (event.target.closest("#stepPrev")) {
+      changeStep(stepIndex - 1, true);
+      return;
+    }
+    if (event.target.closest("#stepNext")) {
+      changeStep(stepIndex + 1, true);
+      return;
+    }
+    if (event.target.closest("#resetProgress")) {
+      resetProgress();
+      return;
+    }
+    if (event.target.closest("#playerClose")) {
+      playRequestId += 1;
+      audio?.pause();
+      $("#playerBar").classList.remove("is-visible");
+      clearPlayingHighlights();
+      return;
+    }
+    if (event.target.closest("#playerPrev")) { playAdjacent(-1); return; }
+    if (event.target.closest("#playerNext")) { playAdjacent(1); return; }
+    if (event.target.closest("#playerToggle")) {
+      if (!audio) { return; }
+      if (audio.paused) { audio.play().catch(() => {}); } else { audio.pause(); }
     }
   });
 
-  $('#storyAudioButton').addEventListener('click', () => {
-    const item = COURSE.story[storyIndex];
-    playTrack({ audio: item.audio, title: item.text, eyebrow: `STORY · ${storyIndex + 1} / ${COURSE.story.length}`, key: `story-${storyIndex}`, trigger: $('#storyAudioButton') });
-  });
-  $('#storyPrev').addEventListener('click', () => setStory(storyIndex - 1, false));
-  $('#storyNext').addEventListener('click', () => setStory(storyIndex + 1, false));
-  $('#storyDots').addEventListener('click', (event) => {
-    const button = event.target.closest('[data-story-index]');
-    if (button) { setStory(Number(button.dataset.storyIndex), false); }
-  });
-  $('#playerToggle').addEventListener('click', () => { if (audio.paused) { audio.play().catch(() => {}); } else { audio.pause(); } });
-  $('#playerPrev').addEventListener('click', () => playAdjacent(-1));
-  $('#playerNext').addEventListener('click', () => playAdjacent(1));
-  $('#playerClose').addEventListener('click', () => { playRequestId += 1; audio.pause(); $('#playerBar').classList.remove('is-visible'); clearPlayingHighlights(); });
-  bindAudioEvents(audioHost);
-  $('.menu-button').addEventListener('click', () => openMobileMenu($('#mobileMenu').hidden));
-  $('#mobileMenu').addEventListener('click', (event) => { if (event.target.closest('a')) { openMobileMenu(false); } });
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { openMobileMenu(false); } });
-  $('#checklist').addEventListener('change', (event) => {
-    const input = event.target.closest('[data-check]');
-    if (!input) { return; }
+  document.addEventListener("change", (event) => {
+    const input = event.target.closest("[data-check]");
+    if (!input || !COURSE) { return; }
     const progress = new Set(loadProgress());
     if (input.checked) { progress.add(input.dataset.check); } else { progress.delete(input.dataset.check); }
     saveProgress(Array.from(progress));
     updateProgress();
   });
-  $('#resetProgress').addEventListener('click', resetProgress);
-  $('#resetProgressBottom').addEventListener('click', resetProgress);
+
+  document.addEventListener("error", (event) => {
+    if (event.target instanceof HTMLImageElement) {
+      event.target.hidden = true;
+      event.target.closest("figure")?.setAttribute("hidden", "");
+    }
+  }, true);
+
+  window.addEventListener("scroll", () => {
+    $("#siteHeader")?.classList.toggle("is-scrolled", window.scrollY > 8);
+  }, { passive: true });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      $("#playerBar")?.classList.remove("is-visible");
+      audio?.pause();
+    }
+  });
 }
 
-document.addEventListener('DOMContentLoaded', init);
+function init() {
+  audio = $("#audio");
+  renderCatalog();
+  if (COURSE) {
+    renderLesson();
+    renderStep();
+  }
+  showView("catalog");
+  bindAudioEvents();
+  bindEvents();
+  initServiceWorker();
+  scheduleAudioPrefetch();
+  window.XIAOYUAN_APP_READY = true;
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init, { once: true });
+} else {
+  init();
+}
