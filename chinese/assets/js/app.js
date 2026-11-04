@@ -107,18 +107,18 @@
       var lazy = lazyGet(key);
       if (lazy !== undefined) return Promise.resolve(lazy);
     }
-    // 优先读 .json；缺失时回退到等价的 .js（仓库里通常只有 .js）
-    var tryJson = canFetchFiles() ? fetchJSON(url).catch(function () { return null; }) : Promise.resolve(null);
-    return tryJson.then(function (v) {
-      if (v !== null) return v;
-      if (!key) throw new Error('无法读取 ' + url);
-      return loadScript('assets/data/' + key + '.js?v=20261023-1').then(function () {
-        var s = dataStore();
-        if (s[key] !== undefined) return s[key];
-        var lz = lazyGet(key);
-        if (lz !== undefined) return lz;
-        throw new Error('无法读取 ' + key);
-      });
+    // The published site contains the equivalent .js datasets, not .json.
+    // Prefer the shared offline/online format so successful loads do not 404.
+    if (!key) return fetchJSON(url);
+    return loadScript('assets/data/' + key + '.js?v=20261023-1').then(function () {
+      var s = dataStore();
+      if (s[key] !== undefined) return s[key];
+      var lz = lazyGet(key);
+      if (lz !== undefined) return lz;
+      throw new Error('无法读取 ' + key);
+    }).catch(function (error) {
+      if (!canFetchFiles()) throw error;
+      return fetchJSON(url);
     });
   }
 
@@ -142,16 +142,16 @@
       return Promise.resolve(strokeNames);
     }
     var url = 'assets/data/strokenames';
-    if (canFetchFiles()) {
+    return loadScript(url + '.js').then(function () {
+      strokeNames = (window.__HANZI_STROKE_NAMES__ || {}).names || null;
+      return strokeNames;
+    }).catch(function () {
+      if (!canFetchFiles()) return null;
       return fetchJSON(url + '.json').then(function (map) {
         strokeNames = map;
         return map;
       }).catch(function () { return null; });
-    }
-    return loadScript(url + '.js').then(function () {
-      strokeNames = (window.__HANZI_STROKE_NAMES__ || {}).names || null;
-      return strokeNames;
-    }).catch(function () { return null; });
+    });
   }
 
   /* ---------------- 识字表 / 名称表数据 ---------------- */
@@ -457,7 +457,14 @@
     }
     var on = $('charGrid').querySelector('.cell.on');
     // 首次进入页面时不要滚动，否则会把顶部的标题和「返回主页」按钮推出视野
-    if (on && on.scrollIntoView && !firstSelect) on.scrollIntoView({ block: 'nearest' });
+    if (on && !firstSelect) {
+      // Only scroll the character list, not the entire tablet study desk.
+      var grid = $('charGrid');
+      var cellRect = on.getBoundingClientRect();
+      var gridRect = grid.getBoundingClientRect();
+      if (cellRect.top < gridRect.top) grid.scrollTop -= gridRect.top - cellRect.top + 3;
+      else if (cellRect.bottom > gridRect.bottom) grid.scrollTop += cellRect.bottom - gridRect.bottom + 3;
+    }
 
     drawDemo();
     drawSeq();
@@ -537,6 +544,7 @@
   }
 
   function drawTrace() {
+    if (state.mode !== 'trace') return;
     var c = curChar();
     if (!c) return;
     var cv = $('traceCanvas');
@@ -548,12 +556,10 @@
       board.canvas = cv;
       board.width = Math.max(8, rect.width * 0.045);
     }
-    var ctx = cv.getContext('2d');
-    var size = Math.min(rect.width, rect.height);
-    TianZiGe.drawGrid(ctx, 0, 0, size, size, {});
-    TianZiGe.drawStrokes(ctx, c.strokes, 0, 0, size, {
-      color: '#dbe4f0', alpha: 0.9, pad: size * 0.06
-    });
+    // Keep the pale model on the base canvas. The drawing layer clears itself
+    // on every pointer move, undo and clear; it must remain transparent.
+    demo.resize();
+    demo.render(c, 0, true);
     board._redraw();
   }
 
@@ -631,6 +637,7 @@
   function setMode(m) {
     state.mode = m;
     var isTrace = m === 'trace';
+    if ($('traceTools')) $('traceTools').hidden = !isTrace;
     $('traceCanvas').classList.toggle('hidden', !isTrace);
     $('tip').textContent = isTrace
       ? '在浅色字模上直接用手指书写，练习这一笔一画。'
@@ -1062,6 +1069,13 @@
       $('modalBar').style.width = '100%';
     });
 
+    if ($('traceUndo')) $('traceUndo').addEventListener('click', function () {
+      if (board && state.mode === 'trace') { board.undo(); drawTrace(); }
+    });
+    if ($('traceClear')) $('traceClear').addEventListener('click', function () {
+      if (board && state.mode === 'trace') { board.clear(); drawTrace(); }
+    });
+
     // 搜索
     var input = $('search');
     var timer = null;
@@ -1072,11 +1086,16 @@
 
     // 键盘
     document.addEventListener('keydown', function (e) {
-      if (e.target && e.target.tagName === 'INPUT') return;
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey ||
+          (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))) return;
       if (e.key === 'Escape') { closeModal(); return; }
-      if (!state.book || state.index < 0) return;
-      if (e.key === 'ArrowLeft') selectChar(state.index - 1);
-      else if (e.key === 'ArrowRight') selectChar(state.index + 1);
+      if (state.gridOpen || zoomView.open || !$('viewRef').hidden) return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      var dir = e.key === 'ArrowLeft' ? -1 : 1;
+      if (!$('viewRead').hidden) selectReadChar(read.index + dir);
+      else if (!$('viewElem').hidden) selectElem(elem.index + dir);
+      else if (state.book && state.index >= 0) selectChar(state.index + dir);
     });
   }
 
@@ -1612,7 +1631,9 @@
           '<div class="ch">' + c.ch + '</div><div class="mt">' + (c.strokes || []).length + '画</div></div>';
       }
       var box = $('readGrid');
-      box.classList.toggle('expanded');
+      var expanded = box.classList.toggle('expanded');
+      readExpandBtn.textContent = expanded ? '收起字表' : '全部展开';
+      readExpandBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       box.innerHTML = html;
     });
 
@@ -1825,6 +1846,9 @@
   /* ---------------- 主视图切换 ---------------- */
 
   function switchView(name) {
+    if (name !== 'write') { demo.stop(); state.playing = false; $('playBtn').textContent = '播放笔顺'; }
+    if (name !== 'read' && read.demo) { read.demo.stop(); read.playing = false; $('readPlay').textContent = '播放笔顺'; }
+    if (name !== 'elem' && elem.demo) { elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺'; }
     ['write', 'read', 'ref', 'elem'].forEach(function (v) {
       var el = $('view' + v.charAt(0).toUpperCase() + v.slice(1));
       if (el) el.hidden = (v !== name);
@@ -2208,8 +2232,10 @@
       // 同一个字在多处出现时合并显示，优先显示写字表
       var order = { write: 0, read: 1, elem: 2 };
       hits.sort(function (a, b) {
-        if (a.ch === b.ch) return order[a.kind] - order[b.kind];
-        return order[a.kind] - order[b.kind];
+        // Exact symbols such as Fe take precedence over broad pinyin prefixes.
+        var exactA = a.ch === q || (a.symbol && a.symbol.toLowerCase() === low) ? 0 : 1;
+        var exactB = b.ch === q || (b.symbol && b.symbol.toLowerCase() === low) ? 0 : 1;
+        return exactA - exactB || order[a.kind] - order[b.kind];
       });
       if (!hits.length) {
         box.innerHTML = '<div class="gr-more">没有找到「' + q + '」</div>';
