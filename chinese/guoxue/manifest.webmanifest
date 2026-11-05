@@ -1,24 +1,27 @@
 {
-  "name": "课本国学 · 人教版小学语文",
+  "id": "/learning-hub/chinese/guoxue/index.html",
+  "name": "课本国学",
   "short_name": "课本国学",
-  "description": "按内容类型、年级和上下册查询小学语文国学，包含古诗词、成语、文言文、原文、拼音、译文与朗读。",
+  "description": "古诗文与经典",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#F4EFE2",
-  "theme_color": "#A64B3C",
+  "theme_color": "#F4EFE2",
   "lang": "zh-CN",
   "icons": [
     {
-      "src": "assets/icon-192.png",
+      "src": "/learning-hub/assets/app-icons/v20261105/guoxue-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "assets/icon-512.png",
+      "src": "/learning-hub/assets/app-icons/v20261105/guoxue-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ]
 }

@@ -1,52 +1,17 @@
-const CACHE_NAME = 'xiaoyuan-course-hub-v13';
-const CORE_ASSETS = [
-  "./",
-  "./index.html",
-  "./courses.js",
-  "./styles.css",
-  "./app.js",
-  "./manifest.webmanifest",
-  "./assets/img/icon-192.png",
-  "./assets/img/icon-512.png",
-  "./assets/img/apple-touch-icon.png",
-];
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS)).then(() => self.skipWaiting()));
-});
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))).then(() => self.clients.claim()));
-});
-
-self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') { return; }
-
-  const requestUrl = new URL(event.request.url);
-  if (requestUrl.origin !== self.location.origin) { return; }
-
-  // Keep audio outside the service worker so the browser can issue its own
-  // Range request immediately instead of competing with precache downloads.
-  if (event.request.destination === 'audio' || /\.(?:mp3|m4a|aac|ogg|wav)$/i.test(requestUrl.pathname)) {
-    return;
-  }
-
-  if (event.request.mode === 'navigate') {
-    event.respondWith(fetch(event.request).then((response) => {
-      if (response.ok) { caches.open(CACHE_NAME).then((cache) => cache.put('./index.html', response.clone())); }
-      return response;
-    }).catch(() => caches.match('./index.html')));
-    return;
-  }
-
-  event.respondWith(caches.match(event.request).then((cached) => {
-    if (cached) { return cached; }
-    return fetch(event.request).then((response) => {
-      if (response.status === 200) {
-        const copy = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-      }
-      return response;
-    }).catch(() => Response.error());
-  }));
+'use strict';
+const CACHE="forest-mobile-20261105", OWN=["xiaoyuan-"], SHELL=["./", "./index.html", "./manifest.webmanifest", "./courses.js?v=13", "./styles.css?v=13", "./app.js?v=13"];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&OWN.some(prefix=>k.startsWith(prefix))).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{
+ const req=event.request,u=new URL(req.url);
+ if(req.method!=='GET'||u.origin!==self.location.origin||req.headers.has('range')||/\.(?:mp3|mp4|m4a|ogg|wav|aac)$/i.test(u.pathname))return;
+ const base=new URL(self.registration.scope),key=req.mode==='navigate'?u.origin+u.pathname:req;
+ // Child applications keep their own caches; do not intercept another app's scope.
+ 
+ event.respondWith(fetch(req,{cache:'no-cache'}).then(res=>{
+   if(res.ok&&res.type!=='opaque'){
+     const copy=res.clone();event.waitUntil(caches.open(CACHE).then(cache=>cache.put(key,copy)));
+   }
+   return res;
+ }).catch(()=>caches.open(CACHE).then(cache=>cache.match(key).then(hit=>hit||(req.mode==='navigate'?cache.match(new URL('./index.html',base).href):null))).then(hit=>hit||new Response('当前离线，首次访问此内容需联网。',{status:503,headers:{'Content-Type':'text/plain; charset=utf-8'}}))));
 });

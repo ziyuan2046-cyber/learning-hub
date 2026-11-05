@@ -1,0 +1,27 @@
+{
+  "id": "/learning-hub/chinese/index.html",
+  "name": "汉字笔顺",
+  "short_name": "汉字笔顺",
+  "description": "识字与笔顺",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f3ea",
+  "theme_color": "#f7f3ea",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/learning-hub/assets/app-icons/v20261105/hanzi-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/learning-hub/assets/app-icons/v20261105/hanzi-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

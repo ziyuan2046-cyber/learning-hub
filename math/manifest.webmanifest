@@ -1,0 +1,27 @@
+{
+  "id": "/learning-hub/math/index.html",
+  "name": "小学数学",
+  "short_name": "小学数学",
+  "description": "数学学习",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f6f8f4",
+  "theme_color": "#f6f8f4",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/learning-hub/assets/app-icons/v20261105/math-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/learning-hub/assets/app-icons/v20261105/math-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

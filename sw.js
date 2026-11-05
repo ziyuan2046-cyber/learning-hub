@@ -1,13 +1,17 @@
 'use strict';
-var CACHE='learning-hub-tech-v2';
-var SHELL=['./','./index.html','./manifest.webmanifest'];
-self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(SHELL)}).then(function(){return self.skipWaiting()}))});
-self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.filter(function(k){return k!==CACHE}).map(function(k){return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
-self.addEventListener('fetch',function(e){
-  var req=e.request;if(req.method!=='GET'||new URL(req.url).origin!==location.origin)return;
-  var path=new URL(req.url).pathname;
-  if(path==='/'||path.endsWith('/index.html')||path.endsWith('/manifest.webmanifest')){
-    e.respondWith(fetch(req).then(function(r){if(r&&r.ok){var copy=r.clone();caches.open(CACHE).then(function(c){c.put(req,copy)})}return r}).catch(function(){return caches.match(req)}));return
-  }
-  e.respondWith(caches.match(req).then(function(hit){return hit||fetch(req)}));
+const CACHE="learning-hub-mobile-20261105", OWN=["learning-hub-shell-", "learning-hub-tech-", "learning-hub-mobile-"], SHELL=["./", "./index.html", "./manifest.webmanifest"];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&OWN.some(prefix=>k.startsWith(prefix))).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{
+ const req=event.request,u=new URL(req.url);
+ if(req.method!=='GET'||u.origin!==self.location.origin||req.headers.has('range')||/\.(?:mp3|mp4|m4a|ogg|wav|aac)$/i.test(u.pathname))return;
+ const base=new URL(self.registration.scope),key=req.mode==='navigate'?u.origin+u.pathname:req;
+ // Child applications keep their own caches; do not intercept another app's scope.
+ if(u.pathname.startsWith(base.pathname+'chinese/guoxue/')||u.pathname.startsWith(base.pathname+'xiaoyuan/'))return;
+ event.respondWith(fetch(req,{cache:'no-cache'}).then(res=>{
+   if(res.ok&&res.type!=='opaque'){
+     const copy=res.clone();event.waitUntil(caches.open(CACHE).then(cache=>cache.put(key,copy)));
+   }
+   return res;
+ }).catch(()=>caches.open(CACHE).then(cache=>cache.match(key).then(hit=>hit||(req.mode==='navigate'?cache.match(new URL('./index.html',base).href):null))).then(hit=>hit||new Response('当前离线，首次访问此内容需联网。',{status:503,headers:{'Content-Type':'text/plain; charset=utf-8'}}))));
 });
