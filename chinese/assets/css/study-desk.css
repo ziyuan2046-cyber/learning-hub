@@ -282,3 +282,23 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
 .elem-grid.by-period .elem-cell { min-height: 44px; padding: 2px 1px; }
 .elem-grid.by-period .elem-cell .ch { font-size: 18px; line-height: 23px; }
 .zoom-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Polyphonic status uses a true blue, independent of the tracing accent. */
+:root { --poly-blue: #2563b0; }
+.cell.poly .ch, .cell.poly .py,
+.head .glyph.poly, .head .py.poly { color: var(--poly-blue); }
+.cell.poly .py { opacity: 1; }
+.tag.poly { color: var(--poly-blue); background: #edf4ff; font-weight: 600; }
+.poly-readings { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin-top: 8px; color: var(--poly-blue); font-size: 12px; line-height: 1.5; }
+.reading-label { color: var(--sub); font-size: 11px; margin-right: 2px; }
+.reading-chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 7px; border-radius: 6px; background: #f0f5fc; border: 1px solid #dbe7f8; white-space: nowrap; }
+.reading-chip.current { background: #e6effc; border-color: #b8d0f0; }
+.reading-chip small { color: #557197; font-size: 9px; font-weight: 400; }
+/* Preserve the 44px touch target and existing zoom behavior. */
+.zoom-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border-radius: 50%; border-color: #e5d8c9; background: rgba(255,254,250,.96); color: var(--red); box-shadow: 0 2px 8px rgba(75,57,37,.08); }
+.zoom-btn svg { width: 23px; height: 23px; display: block; pointer-events: none; }
+.zoom-btn:not(:disabled):active { transform: scale(.96); }
+@media (hover: hover) {
+ .zoom-btn:not(:disabled):hover { background: #fbefe5; border-color: #cfaa94; box-shadow: 0 3px 10px rgba(75,57,37,.12); color: var(--red); }
+}
+.modal-head .t.poly { color: var(--poly-blue); }

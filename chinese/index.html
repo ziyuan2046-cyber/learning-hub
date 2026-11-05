@@ -788,7 +788,7 @@
 <meta name="theme-color" content="#f5f2eb">
 <meta name="description" content="按统编版教材学习汉字，查看田字格笔顺、逐笔分解与偏旁名称，支持触屏描红。">
 <link rel="stylesheet" href="assets/css/hanzi-fonts.css?v=20261105-fix1">
-<link rel="stylesheet" href="assets/css/study-desk.css?v=20261105-fix1">
+<link rel="stylesheet" href="assets/css/study-desk.css?v=20261105-poly1">
 </head>
 <body>
 <a class="sr-only skip-link" href="#mainTabs">跳到学习内容</a>
@@ -879,7 +879,7 @@
       <div class="grid-box">
         <canvas id="demoCanvas"></canvas>
         <canvas id="traceCanvas" class="trace-layer hidden"></canvas>
-        <button class="zoom-btn" id="zoomBtn" title="放大">⤢</button>
+        <button class="zoom-btn" id="zoomBtn" title="放大查看田字格"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.25"/><path d="m15.2 15.2 4.55 4.55M10.5 7.75v5.5M7.75 10.5h5.5"/></svg></button>
       </div>
     </div>
 
@@ -954,9 +954,10 @@
           <div class="py" id="rPy">—</div>
           <div class="sub" id="rInfo">点上方汉字查看笔顺</div>
           <div class="tags">
-            <span class="tag" id="rPolyTag" hidden>多音字</span>
+            <span class="tag poly" id="rPolyTag" hidden>多音字</span>
             <span class="tag">笔画 <b id="rStroke">—</b></span>
           </div>
+          <div class="poly-readings" id="rReadings" role="group" aria-label="多音字的不同读音" hidden></div>
         </div>
         <label class="switch" title="自动播放笔顺">
           <input type="checkbox" id="rAutoPlay">
@@ -968,7 +969,7 @@
       <div class="grid-wrap">
         <div class="grid-box">
           <canvas id="readCanvas"></canvas>
-          <button class="zoom-btn" id="readZoomBtn" title="放大">⤢</button>
+          <button class="zoom-btn" id="readZoomBtn" title="放大查看田字格"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.25"/><path d="m15.2 15.2 4.55 4.55M10.5 7.75v5.5M7.75 10.5h5.5"/></svg></button>
         </div>
       </div>
 
@@ -1073,7 +1074,7 @@
       <div class="grid-wrap">
         <div class="grid-box">
           <canvas id="elemCanvas"></canvas>
-          <button class="zoom-btn" id="elemZoomBtn" title="放大">⤢</button>
+          <button class="zoom-btn" id="elemZoomBtn" title="放大查看田字格"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.25"/><path d="m15.2 15.2 4.55 4.55M10.5 7.75v5.5M7.75 10.5h5.5"/></svg></button>
         </div>
       </div>
 
@@ -1224,7 +1225,7 @@
 <script>
 /* 版本自检：老浏览器可能缓存了旧版页面（依赖 assets/data/*.txt，线上会 404）。
    新版以 __HANZI_BUILD__ 标识；若数据在 6 秒内仍未就绪，说明确实加载失败。 */
-window.__HANZI_BUILD__ = '2026-11-05-hanzi-font-stroke-1';
+window.__HANZI_BUILD__ = '2026-11-05-polyphones-1';
 (function () {
   function report() {
     // JSON-first loading does not register objects in __HANZI_DATA__.
@@ -1254,7 +1255,8 @@ window.__HANZI_BUILD__ = '2026-11-05-hanzi-font-stroke-1';
 <script src="assets/js/animator.js?v=20261117-1"></script>
 <script src="assets/data/reading-strokes.js?v=20261105-fix1"></script>
 <script src="assets/data/glyph-support.js?v=20261105-fix1"></script>
-<script src="assets/js/app.js?v=20261105-fix1"></script>
+<script src="assets/data/polyphones.js?v=20261105-poly1"></script>
+<script src="assets/js/app.js?v=20261105-poly1"></script>
 <script src="assets/js/study-desk.js?v=20261105-fix1"></script>
 </body>
 </html>

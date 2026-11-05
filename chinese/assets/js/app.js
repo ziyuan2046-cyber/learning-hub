@@ -1355,6 +1355,43 @@
     if (e) selectReadBookEntry(e);
   }
 
+  function readPronunciations(c) {
+    if (!c || !c.poly) return [];
+    var catalog = window.__HANZI_POLYPHONES__ || {};
+    var current = (c.py || '').trim().toLowerCase();
+    var values = ((catalog.readings || {})[c.ch] || []).slice();
+    // Keep this textbook's pronunciation first, including neutral tones.
+    if (current) values = [current].concat(values.filter(function (py) { return py !== current; }));
+    return values;
+  }
+
+  function showReadPronunciations(c) {
+    var poly = !!c.poly;
+    $('rBigChar').classList.toggle('poly', poly);
+    $('rPy').classList.toggle('poly', poly);
+    var box = $('rReadings');
+    box.hidden = !poly;
+    box.textContent = '';
+    if (!poly) return;
+    var label = document.createElement('span');
+    label.className = 'reading-label'; label.textContent = '读音';
+    box.appendChild(label);
+    var data = window.__HANZI_POLYPHONES__ || {};
+    var notes = (data.notes || {})[c.ch] || {};
+    readPronunciations(c).forEach(function (py, i) {
+      var chip = document.createElement('span');
+      chip.className = 'reading-chip' + (i === 0 ? ' current' : '');
+      chip.textContent = py;
+      if (notes[py]) { chip.title = notes[py]; chip.setAttribute('aria-label', py + '，' + notes[py]); }
+      if (i === 0 || notes[py]) {
+        var small = document.createElement('small');
+        small.textContent = i === 0 ? '本册' : notes[py];
+        chip.appendChild(small);
+      }
+      box.appendChild(chip);
+    });
+  }
+
   function renderReadGrid() {
     var b = read.book;
     if (!b) return;
@@ -1386,6 +1423,7 @@
     $('rInfo').textContent = b.title + ' · 第 ' + (i + 1) + ' / ' + b.chars.length + ' 字';
     $('rStroke').textContent = (c.strokes ? c.strokes.length : 0) + ' 画';
     $('rPolyTag').hidden = !c.poly;
+    showReadPronunciations(c);
 
     var cells = $('readGrid').querySelectorAll('.cell');
     for (var k = 0; k < cells.length; k++) cells[k].classList.toggle('on', k === i);
@@ -2330,7 +2368,7 @@
   function zoomCaption() {
     if (zoomView.src === 'read') {
       var c = readChar();
-      return c ? (c.ch + ' · ' + read.book.title) : '田字格';
+      return c ? (c.ch + (c.poly ? ' · ' + readPronunciations(c).join(' / ') : '') + ' · ' + read.book.title) : '田字格';
     }
     if (zoomView.src === 'elem') {
       var e = curElem();
@@ -2347,6 +2385,7 @@
     lockScroll();
     $('zoomModal').hidden = false;
     $('zoomTitle').textContent = zoomCaption();
+    $('zoomTitle').classList.toggle('poly', src === 'read' && !!(readChar() && readChar().poly));
 
     if (!zoomView.anim) {
       zoomView.anim = new StrokeAnimator($('zoomCanvas'), {
