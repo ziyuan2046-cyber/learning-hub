@@ -243,7 +243,24 @@
     ]).then(function (r) { return { strokes: r[0], radicals: r[1] }; });
   }
 
+  var parsedBooks = {};
+  var pendingBooks = {};
+
   function loadBookText(id) {
+    if (parsedBooks[id]) return Promise.resolve(parsedBooks[id]);
+    if (pendingBooks[id]) return pendingBooks[id];
+    pendingBooks[id] = fetchBookText(id).then(function (book) {
+      parsedBooks[id] = book;
+      delete pendingBooks[id];
+      return book;
+    }).catch(function (error) {
+      delete pendingBooks[id];
+      throw error;
+    });
+    return pendingBooks[id];
+  }
+
+  function fetchBookText(id) {
     var d = dataStore();
     if (d[id] !== undefined) {
       return Promise.resolve(HanziCodec.parseBook(d[id]));
@@ -387,14 +404,9 @@
     });
     $('termTabs').innerHTML = html;
 
-    var cur = list.filter(function (b) { return b.id === state.bookId; })[0];
-    var note = $('revNote');
-    if (cur && cur.rev) {
-      note.textContent = '2026 修订：' + cur.rev;
-      note.hidden = false;
-    } else {
-      note.hidden = true;
-    }
+    // Editorial/import notes are intentionally not shown in the study UI.
+    $('revNote').hidden = true;
+    $('revNote').textContent = '';
   }
 
   function selectBook(id) {
@@ -1291,14 +1303,8 @@
     });
     $('readTermTabs').innerHTML = html;
 
-    var note = $('readNote');
-    var cur = read.book;
-    if (cur && cur.kind === 'image') {
-      note.hidden = false;
-      note.textContent = '按教材识字表照片逐字录入：识字 → 汉语拼音 → 阅读 → 语文园地，共 280 个生字（另标 4 个多音字）';
-    } else {
-      note.hidden = true;
-    }
+    $('readNote').hidden = true;
+    $('readNote').textContent = '';
   }
 
   /** 按目录项加载并显示某一册 */
@@ -1389,7 +1395,21 @@
     renderReadSeq();
     markReadSeq();
 
-    if (read.autoPlay) playRead();
+    var token = read.selectionToken = (read.selectionToken || 0) + 1;
+    var ready = toStrokeData(c).strokes.length > 0;
+    setReadControls(!ready);
+    $('readTip').textContent = ready ? '点汉字看笔顺与笔画名称。' : '正在加载笔顺…';
+    ensureReadStrokes(c).then(function () {
+      if (readChar() !== c || read.selectionToken !== token) return;
+      setReadControls(false);
+      $('readTip').textContent = '点汉字看笔顺与笔画名称。';
+      drawRead(); renderReadSeq(); markReadSeq();
+      if (read.autoPlay && !$('viewRead').hidden) playRead();
+    }).catch(function () {
+      if (readChar() !== c || read.selectionToken !== token) return;
+      setReadControls(true);
+      $('readTip').textContent = '笔顺加载失败，请重新点选此字重试。';
+    });
   }
 
   function drawRead() {
@@ -1398,10 +1418,8 @@
     read.demo.resize();
     var d = toStrokeData(c);
     if (!d.strokes.length) {
-      // 索引尚未就绪，稍后补画
-      setTimeout(function () {
-        if (readChar() === c) drawRead();
-      }, 260);
+      var g = read.demo._geom();
+      TianZiGe.drawGrid(read.demo.ctx, g.ox, g.oy, g.size, g.size, read.demo.gridOpt || {});
       return;
     }
     read.demo.render(d, read.current, true);
@@ -1410,29 +1428,13 @@
   /* 写字表里的字可直接借用它的笔顺轮廓，识字表只为独有字内置轮廓 */
   var pathIndex = {};      // ch -> {medians, outlines}
 
-  /** 识字表第 N 册 大致对应写字表第 N 册 */
-  function guessWritingBook(ch) {
-    var b = read.book;
-    if (!b) return 'b0';
-    var m = /shizi(\d+)/.exec(b.id || '');
-    if (m) return 'b' + m[1];
-    return 'b0';
-  }
-
-  function buildPathIndex() {
-    if (pathIndexReady) return pathIndexReady;
-    var jobs = (state.books || []).map(function (b) {
-      return loadBookText(b.id).then(function (book) {
-        var metaChars = book.meta.chars;
-        book.chars.forEach(function (c, i) {
-          var ch = metaChars[i];
-          if (!ch || pathIndex[ch]) return;
-          pathIndex[ch] = { medians: c.medians, outlines: c.strokes };
-        });
-      });
-    });
-    pathIndexReady = Promise.all(jobs).catch(function () {});
-    return pathIndexReady;
+  /** Reading and writing lists use different textbook locations. */
+  function writingBookFor(ch) {
+    var catalog = window.__HANZI_WRITING_BOOKS__ || [];
+    for (var i = 0; i < catalog.length; i++) {
+      if (catalog[i].indexOf(ch) >= 0) return 'b' + i;
+    }
+    return null;
   }
 
   function decodeOutline(list) {
@@ -1441,48 +1443,57 @@
     });
   }
 
-  /** 把当前册加入路径索引（避免一次加载全部 12 册） */
+  /** Fetch only the textbook actually containing this character. */
   var indexedBooks = {};
-
   function indexBook(bookId) {
-    if (indexedBooks[bookId]) return;
-    indexedBooks[bookId] = true;
-    loadBookText(bookId).then(function (book) {
-      var metaChars = book.meta.chars;
+    if (indexedBooks[bookId]) return indexedBooks[bookId];
+    indexedBooks[bookId] = loadBookText(bookId).then(function (book) {
+      var chars = Array.from(book.meta.chars);
       book.chars.forEach(function (c, i) {
-        var ch = metaChars[i];
-        if (!ch || pathIndex[ch]) return;
-        pathIndex[ch] = { medians: c.medians, outlines: c.strokes };
+        var ch = chars[i];
+        if (ch && !pathIndex[ch]) pathIndex[ch] = { medians: c.medians, outlines: c.strokes };
       });
-      // 数据到了，补画一次
-      if (read.book && bookId === (read.book.linkBook || read.book.id)) {
-        drawRead(); renderReadSeq(); markReadSeq();
-      }
-    }).catch(function () {});
+    }).catch(function (error) {
+      delete indexedBooks[bookId];
+      throw error;
+    });
+    return indexedBooks[bookId];
   }
 
-  /** 识字表数据 -> 动画器所需结构 {strokes:指令, medians:中线} */
   function toStrokeData(c) {
-    var paths = c.paths, medians = c.medians;
-    if (!paths) {
-      var p = pathIndex[c.ch];
-      if (p) { paths = p.outlines; medians = p.medians; }
-      else if (c.ch) {
-        // 该字不在识字表自带的轮廓里，按册索引写字表数据（只取当前册）
-        var bid = guessWritingBook(c.ch);
-        if (bid) indexBook(bid);
-      }
-    }
+    // Some original reading entries contain truncated custom encoding or raw
+    // SVG strings. Prefer the complete, locally restored paths for those chars.
+    var restored = (window.__HANZI_READING_STROKES__ || {})[c.ch];
+    var paths = restored ? restored.paths : c.paths;
+    var medians = restored ? restored.medians : c.medians;
+    var cached = pathIndex[c.ch];
+    if (!paths && cached) { paths = cached.outlines; medians = cached.medians; }
     return {
       strokes: decodeOutline(paths),
       medians: medians || [],
-      count: (c.strokes || []).length
+      count: (c.strokes || c.nm || []).length
     };
+  }
+
+  function ensureReadStrokes(c) {
+    if (toStrokeData(c).strokes.length) return Promise.resolve();
+    var bookId = writingBookFor(c.ch);
+    if (!bookId) return Promise.reject(new Error('未找到该字的笔顺数据'));
+    return indexBook(bookId).then(function () {
+      if (!toStrokeData(c).strokes.length) throw new Error('笔顺数据暂未就绪');
+    });
+  }
+
+  function setReadControls(loading) {
+    ['readPlay', 'readReplay', 'readPrev', 'readNext', 'readZoomBtn'].forEach(function (id) {
+      $(id).disabled = loading;
+    });
+    $('readCanvas').setAttribute('aria-busy', loading ? 'true' : 'false');
   }
 
   function playRead() {
     var c = readChar();
-    if (!c) return;
+    if (!c || !toStrokeData(c).strokes.length) return;
     read.current = 0;
     read.playing = true;
     $('readPlay').textContent = '暂停';
@@ -1513,12 +1524,6 @@
     var dpr = window.devicePixelRatio || 1, size = 56;
     // 关键：共用写字表数据时 c.paths 不存在，必须走 toStrokeData 的取路径逻辑
     var strokeData = toStrokeData(c);
-    if (strokeData.strokes.length !== names.length) {
-      // 轮廓还没准备好（写字表异步索引未完成），稍后重试一次
-      setTimeout(function () {
-        if (readChar() === c) { renderReadSeq(); markReadSeq(); }
-      }, 260);
-    }
     var paths = strokeData.strokes;
     for (var j = 0; j < names.length; j++) {
       var cv = $('readCv' + j);
@@ -1937,6 +1942,14 @@
         $('elemGrid').innerHTML = '<div class="empty">元素数据加载失败</div>';
         return;
       }
+      var glyphs = window.__HANZI_ELEMENT_GLYPHS__ || {};
+      list.forEach(function (entry) {
+        if (entry.noGlyph && glyphs[entry.ch]) {
+          entry.glyphPath = glyphs[entry.ch];
+          entry.noGlyph = false;
+          delete entry.fallback;
+        }
+      });
       elem.list = list;
       renderElemGrid();
       selectElem(0);
@@ -1975,7 +1988,7 @@
 
     var e = curElem();
     $('eBigChar').textContent = e.noGlyph ? '—' : e.ch;
-    $('eBigChar').style.fontFamily = "'HanziKai','KaiTi',serif";
+    $('eBigChar').style.removeProperty('font-family');
     $('ePy').textContent = e.noGlyph ? '' : (e.py || '');
     $('eInfo').textContent = '第 ' + e.no + ' 号元素 · ' + e.symbol +
       (e.noGlyph ? ' · 该元素汉字暂无可用字形' : '');
@@ -1983,6 +1996,9 @@
     $('eSym').textContent = e.symbol;
     var esd = elemStrokeData(e);
     $('eStroke').textContent = esd ? (esd.count + ' 画') : '暂无';
+    ['ePlay', 'eReplay', 'ePrevStroke', 'eNextStroke', 'elemZoomBtn'].forEach(function (id) {
+      $(id).disabled = !esd;
+    });
 
     var cells = $('elemGrid').querySelectorAll('.elem-cell');
     for (var k = 0; k < cells.length; k++) cells[k].classList.toggle('on', k === i);
