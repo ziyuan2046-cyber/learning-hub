@@ -14,7 +14,7 @@
   
   
   
-  <link rel="stylesheet" href="./styles.css?v=15">
+  <link rel="stylesheet" href="./styles.css?v=16">
 
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/png" href="/learning-hub/assets/app-icons/v20261105/forest-192.png">
@@ -36,7 +36,7 @@
       <a href="#lessonView" data-view-link="lesson" id="currentLessonLink">本课学习</a>
     </nav>
     <button class="header-catalog-button" type="button" id="headerCatalogButton">
-      <span aria-hidden="true">☰</span> 课程 <em id="headerCourseCount">1 / 12</em>
+      <span aria-hidden="true">☰</span> 课程 <em id="headerCourseCount">12 本</em>
     </button>
     </div>
   </header>
@@ -44,30 +44,29 @@
   <main id="mainContent">
     <section class="catalog-view view-wrap" id="catalogView" aria-labelledby="catalogTitle">
       <div class="catalog-hero content-wrap">
-        <div class="catalog-hero-copy">
-          <p class="eyebrow">LEARNING HUB · FOREST ENGLISH</p>
-          <h1 id="catalogTitle">一课一读，<br><span>把英语读明白。</span></h1>
-          <p class="catalog-intro">从森林故事开始，按步骤学习字母、关键词、句型、歌谣和绘本。每次只看一个小重点，听清、读懂、跟读。</p>
-          <div class="hero-badges" aria-label="课程特点">
-            <span>分步学习</span><span>重点音频</span><span>英文 + 中文</span>
-          </div>
-        </div>
-        <aside class="catalog-summary" aria-label="课程安排">
-          <span class="summary-leaf" aria-hidden="true"></span>
-          <p class="hand-note">十二课学习地图</p>
-          <strong><span id="catalogOpenCount">8</span><small> / 12 已开放</small></strong>
-          <div class="summary-line"><i id="catalogOpenBar"></i></div>
-          <p>已整理 8 节课程与 12 本绘本。Lesson 9–12 继续保留，另有 4 本独立拓展绘本。</p>
-        </aside>
+        <p class="eyebrow">FOREST ENGLISH · 自主听读版</p>
+        <h1 id="catalogTitle">一页一句，<br><span>慢慢读懂英语。</span></h1>
+        <p class="catalog-intro">绘本精读与自然拼读，分开学、随时听。<br>大字英文、中文对照，不需要视频也能开始。</p>
+        <p class="catalog-disclosure">根据现有课件整理 · 音频为合成朗读，非教师授课</p>
       </div>
-
       <div class="catalog-main content-wrap" id="catalog">
-        <div class="section-heading">
-          <div><p class="section-kicker">COURSE MAP</p><h2>森林英语课程目录</h2></div>
-          <p>适合手机与平板浏览</p>
-        </div>
-        <div class="course-grid" id="courseGrid"></div>
-        <section class="reading-section" aria-labelledby="readingTitle"><p class="section-kicker">PICTURE BOOKS</p><h2 id="readingTitle">拓展绘本</h2><p>与课程分开归档，不把文件编号误当作课次。</p><div class="course-grid" id="readingGrid"></div></section>
+        <nav class="catalog-switch" aria-label="选择课程类型">
+          <button type="button" data-catalog-track="reading" aria-pressed="true" aria-controls="readingPanel">绘本精读 <span>12 本</span></button>
+          <button type="button" data-catalog-track="phonics" aria-pressed="false" aria-controls="phonicsPanel">自然拼读 <span>8 / 12 课</span></button>
+        </nav>
+        <section id="readingPanel" aria-labelledby="readingTitle">
+          <div class="catalog-section-heading"><div><p class="section-kicker">READ A STORY</p><h2 id="readingTitle">自拼绘本精读</h2></div><span>点开就能读</span></div>
+          <p class="catalog-order-note">前 7 课按你提供的客户端截图排序。其余 5 本放在下方，不猜测平台课次。</p>
+          <div class="reading-list" id="readingGrid"></div>
+          <div class="catalog-section-heading secondary-heading"><h3>已收录，课次待核对</h3><span>5 本</span></div>
+          <div class="reading-list" id="pendingReadingGrid"></div>
+        </section>
+        <section id="phonicsPanel" hidden aria-labelledby="phonicsTitle">
+          <div class="catalog-section-heading"><div><p class="section-kicker">LETTERS & SOUNDS</p><h2 id="phonicsTitle">自然拼读课</h2></div><span><b id="catalogOpenCount">8</b> / 12 已整理</span></div>
+          <p class="catalog-order-note">按自然拼读课件的 Lesson 编号排列。第 9–12 课已留位置，和绘本精读目录分别管理。</p>
+          <div class="summary-line" aria-hidden="true"><i id="catalogOpenBar"></i></div>
+          <div class="course-grid" id="courseGrid"></div>
+        </section>
       </div>
     </section>
 
@@ -80,7 +79,7 @@
             <h1 id="lessonTitle">Adam and the Bear</h1>
             <p class="lesson-title-cn" id="lessonTitleCn">亚当和大熊</p>
             <p class="lesson-description" id="lessonDescription"></p>
-            <div class="lesson-meta" id="lessonMeta"></div><p class="audio-origin-note">新增音频为合成英文朗读；原课音频保留。字母音以课件标注为准，合成字母名不替代原声发音示范。</p>
+            <div class="lesson-meta" id="lessonMeta"></div><p class="audio-origin-note">合成英文朗读 · 中文对照。不是官方课程视频，字母音以课件音标为准。</p>
           </div>
           <figure class="lesson-cover" id="lessonCover">
             <img src="./assets/img/hero/course-overview.jpg" width="1346" height="1010" alt="Adam and the Bear 课程总览" id="lessonCoverImage">
@@ -102,6 +101,7 @@
           <button class="step-button primary" type="button" id="stepNext">下一步 <span aria-hidden="true">→</span></button>
         </div>
       </div>
+      <div class="content-wrap lesson-video-section" id="lessonVideoSection"></div>
     </section>
   </main>
 
@@ -131,8 +131,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <audio id="audio" preload="none"></audio>
-  <script src="./courses.js?v=15"></script>
-  <script src="./app.js?v=15"></script>
+  <script src="./courses.js?v=16"></script>
+  <script src="./app.js?v=16"></script>
 
 <script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('/learning-hub/xiaoyuan/sw.js',{updateViaCache:'none'}).then(function(r){r.update().catch(function(){});}).catch(function(){});}</script>
 </body>
