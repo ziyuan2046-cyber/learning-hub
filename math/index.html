@@ -1,19 +1,532 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
+<script data-course-recovery="20261106-recovery3">
+(function(){'use strict';window.__studyRelease="20261106-recovery3";
+if(!('serviceWorker'in navigator)||!/^https?:$/.test(location.protocol))return;
+var hadController=!!navigator.serviceWorker.controller,reloaded=false;
+navigator.serviceWorker.addEventListener('controllerchange',function(){if(!hadController||reloaded)return;var k='study-reloaded-'+window.__studyRelease;try{if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,'1');}catch(e){}reloaded=true;location.reload();});
+navigator.serviceWorker.register("/learning-hub/sw.js",{updateViaCache:'none'}).then(function(r){r.update().catch(function(){});}).catch(function(){});
+})();</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f7fbfa">
   <meta name="description" content="小学数学知识本：按年级和上下册学习人教版数学重点，查公式、看应用题解法、做随堂自测。">
   <title>小学数学知识本 · 公式与解题方法</title>
-  <link rel="stylesheet" href="./assets/style.css">
-  <link rel="stylesheet" href="./assets/fresh.css">
-  <link rel="stylesheet" href="./assets/lab.css">
+  <style data-inlined-source="math/assets/style.css">
+:root {
+  color-scheme: light;
+  --paper: #f8faf7;
+  --white: #ffffff;
+  --ink: #202923;
+  --muted: #65736b;
+  --quiet: #87938c;
+  --line: #dce5df;
+  --line-strong: #bccdc3;
+  --green: #246647;
+  --green-soft: #e8f2eb;
+  --blue: #3b6f89;
+  --blue-soft: #eaf2f5;
+  --orange: #a45130;
+  --orange-soft: #f8eee8;
+  --yellow: #f2cc62;
+  --yellow-soft: #fff7dd;
+  --shadow: 0 8px 24px rgba(33, 57, 43, .06);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --serif: "STSong", "Songti SC", "Noto Serif CJK SC", serif;
+}
+* { box-sizing: border-box; }
+html { min-height: 100%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-width: 320px; min-height: 100vh; min-height: 100dvh; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+button, input { font: inherit; }
+button { color: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #bc8d26; outline-offset: 3px; }
+svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.skip { position: fixed; z-index: 100; top: -80px; left: 16px; padding: 10px 15px; background: var(--ink); color: white; }
+.skip:focus { top: 14px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.topbar { position: sticky; z-index: 20; top: 0; padding-top: var(--safe-top); border-bottom: 1px solid var(--line); background: rgba(248,250,247,.96); }
+.topbar-inner { width: min(1050px, calc(100% - 40px)); height: 62px; margin: auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.home-link { justify-self: start; display: inline-flex; align-items: center; gap: 5px; min-height: 44px; padding: 0 9px 0 0; color: #47574d; font-size: 14px; font-weight: 650; }
+.home-link svg { width: 19px; height: 19px; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-family: var(--serif); font-size: 19px; font-weight: 700; white-space: nowrap; }
+.brand > span:last-child { white-space: nowrap; }
+.brand-mark { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 7px; background: var(--green); color: white; font-family: var(--sans); font-size: 24px; line-height: 1; }
+.icon-button { display: grid; place-items: center; justify-self: end; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; background: white; }
+.workspace { width: min(1050px, calc(100% - 40px)); margin: 0 auto; padding: 36px 0 70px; }
+.page-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 23px; }
+.eyebrow { margin: 0 0 5px; color: var(--green); font-size: 13px; font-weight: 750; }
+h1, h2, h3, h4, p { overflow-wrap: anywhere; }
+.page-heading h1 { margin: 0; font-family: var(--serif); font-size: 34px; line-height: 1.35; font-weight: 700; }
+.search-inline { min-height: 44px; display: inline-flex; align-items: center; gap: 9px; padding: 0 13px; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--muted); font-size: 14px; }
+.search-inline svg { width: 19px; height: 19px; color: var(--green); }
+.picker { padding: 21px 23px 18px; border: 1px solid var(--line); border-top: 3px solid var(--green); background: var(--white); }
+.picker-heading { display: flex; align-items: baseline; gap: 11px; margin-bottom: 15px; }
+.picker-heading h2 { margin: 0; font-size: 19px; font-weight: 750; }
+.picker-heading span { color: var(--quiet); font-size: 13px; }
+.grade-choices { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.grade-choices button { min-height: 51px; border: 1px solid var(--line); background: #fbfcfa; color: #435047; font-size: 15px; font-weight: 650; transition: background .16s, border-color .16s, color .16s; }
+.grade-choices button:hover { border-color: var(--green); }
+.grade-choices button[aria-pressed="true"] { border-color: var(--green); background: var(--green); color: white; }
+.term-row { display: flex; align-items: center; gap: 8px; margin-top: 17px; padding-top: 15px; border-top: 1px solid #edf0ed; }
+.term-label { margin-right: 3px; color: var(--muted); font-size: 14px; font-weight: 650; }
+.term-choices { display: flex; gap: 7px; }
+.term-choices button { min-width: 75px; min-height: 40px; border: 1px solid var(--line); background: white; color: #435047; font-size: 14px; }
+.term-choices button[aria-pressed="true"] { border-color: #8a9b90; background: #edf3ef; color: var(--green); font-weight: 750; }
+.edition-label { margin-left: auto; color: var(--quiet); font-size: 12px; text-align: right; }
+.study { margin-top: 32px; border: 1px solid var(--line); background: white; }
+.study-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 26px 20px; }
+.study-meta { margin: 0 0 4px; color: var(--blue); font-size: 13px; font-weight: 700; }
+.study-head h2 { margin: 0; font-family: var(--serif); font-size: 25px; line-height: 1.45; font-weight: 700; }
+.study-summary { margin: 7px 0 0; max-width: 690px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.book-link { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; min-height: 42px; padding: 0 12px; border: 1px solid #ccd9d0; color: var(--green); font-size: 13px; font-weight: 700; }
+.book-link span { font-size: 18px; }
+.study-tabs { display: flex; gap: 3px; padding: 0 25px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.study-tabs button { flex: 0 0 auto; min-height: 47px; padding: 0 17px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); font-size: 14px; font-weight: 650; }
+.study-tabs button.is-active { border-bottom-color: var(--green); color: var(--green); }
+.study-content { min-height: 285px; padding: 23px 25px 27px; }
+.content-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 17px; }
+.content-heading .eyebrow { margin-bottom: 3px; color: var(--blue); font-size: 12px; }
+.content-heading h3 { margin: 0; font-size: 20px; font-weight: 750; }
+.content-heading > p { max-width: 420px; margin: 0; color: var(--muted); font-size: 13px; text-align: right; }
+.learning-layout { display: grid; grid-template-columns: minmax(0,1fr) 235px; gap: 18px; align-items: start; }
+.unit-list { border-top: 1px solid var(--line); }
+.unit-row { display: grid; grid-template-columns: 34px minmax(0,1fr) auto 18px; align-items: center; gap: 12px; min-height: 72px; padding: 11px 9px; border-bottom: 1px solid var(--line); }
+.unit-row:hover { background: #f8fbf8; }
+.unit-number, .formula-index, .method-index { color: #89702b; font-family: Georgia, serif; font-size: 13px; font-weight: 700; }
+.unit-copy strong { display: block; font-size: 15px; font-weight: 700; }
+.unit-copy small { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.unit-tag { padding: 3px 7px; background: var(--blue-soft); color: var(--blue); font-size: 11px; white-space: nowrap; }
+.unit-arrow { color: #7e8d83; font-size: 17px; }
+.first-step { padding: 17px; border: 1px solid #eedb9d; background: var(--yellow-soft); }
+.first-step .eyebrow { color: #745b13; }
+.first-step h4 { margin: 5px 0; font-size: 16px; }
+.first-formula { padding: 10px 11px; background: white; color: var(--green); font-family: Georgia, serif; font-size: 16px; font-weight: 650; line-height: 1.55; }
+.part-whole { display: block; width: 100%; height: auto; margin-top: 11px; border: 1px solid #e7ddb8; }
+.first-step > p:not(.eyebrow) { margin: 9px 0 12px; color: #655a36; font-size: 13px; line-height: 1.65; }
+.first-step a { color: var(--green); font-size: 13px; font-weight: 750; }
+.formula-list { border-top: 1px solid var(--line); }
+.formula-row { display: grid; grid-template-columns: 42px minmax(0,1fr); gap: 12px; padding: 17px 8px; border-bottom: 1px solid var(--line); }
+.formula-index { padding-top: 2px; }
+.formula-row h4 { margin: 0; font-size: 15px; }
+.formula-expression { display: inline-block; max-width: 100%; margin: 8px 0; padding: 7px 10px; border-left: 3px solid var(--yellow); background: #fff9e6; color: var(--ink); font-family: Georgia, serif; font-size: 16px; font-weight: 650; line-height: 1.6; overflow-wrap: anywhere; }
+.formula-row p:not(.formula-expression) { margin: 0; color: var(--muted); font-size: 14px; }
+.formula-row small { display: block; margin-top: 5px; color: #4e6576; font-size: 13px; }
+.solve-steps { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 16px; border: 1px solid var(--line); background: #f8faf8; }
+.solve-steps span { display: flex; align-items: center; gap: 9px; min-height: 50px; padding: 7px 10px; border-right: 1px solid var(--line); color: #47574d; font-size: 13px; }
+.solve-steps span:last-child { border-right: 0; }
+.solve-steps b { display: grid; place-items: center; flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: white; font-size: 12px; }
+.method-item { border-top: 1px solid var(--line); }
+.method-item:last-child { border-bottom: 1px solid var(--line); }
+.method-item summary { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 8px; list-style: none; cursor: pointer; }
+.method-item summary::-webkit-details-marker { display: none; }
+.method-item summary > span:nth-child(2) { display: grid; gap: 2px; }
+.method-item summary strong { font-size: 15px; }
+.method-item summary small { color: var(--muted); font-size: 12px; }
+.expand-mark { margin-left: auto; color: var(--green); font-size: 21px; }
+.method-item[open] .expand-mark { transform: rotate(45deg); }
+.method-body { padding: 0 12px 18px 51px; }
+.method-body ol { display: grid; gap: 5px; margin: 0 0 13px; padding-left: 20px; color: #46544b; font-size: 14px; }
+.worked-example { padding: 13px 15px; border-left: 3px solid var(--blue); background: var(--blue-soft); }
+.example-label { margin: 0 0 4px !important; color: var(--blue) !important; font-size: 12px !important; font-weight: 750; }
+.worked-example > p { margin: 5px 0; font-size: 14px; }
+.worked-example > strong { display: block; margin-top: 7px; color: var(--ink); font-size: 15px; line-height: 1.65; overflow-wrap: anywhere; }
+.worked-example .answer { color: var(--green); font-weight: 700; }
+.reminder { margin: 10px 0 0; color: var(--orange); font-size: 13px; }
+.reminder b { margin-right: 7px; }
+.quiz-list { display: grid; gap: 11px; }
+.quiz-question { min-width: 0; margin: 0; padding: 16px; border: 1px solid var(--line); }
+.quiz-question legend { max-width: 100%; padding: 0 4px; font-size: 15px; font-weight: 700; line-height: 1.55; }
+.quiz-question legend span { display: block; margin-bottom: 2px; color: var(--blue); font-size: 11px; font-weight: 750; }
+.quiz-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 11px; }
+.quiz-options button { min-height: 43px; padding: 7px 13px; border: 1px solid var(--line-strong); border-radius: 5px; background: white; font-size: 14px; text-align: left; }
+.quiz-options button:hover:not(:disabled) { border-color: var(--green); background: #f4faf5; }
+.quiz-options button:disabled { cursor: default; opacity: .8; }
+.quiz-options button.is-correct { border-color: var(--green); background: var(--green-soft); color: var(--green); opacity: 1; }
+.quiz-options button.is-wrong { border-color: var(--orange); background: var(--orange-soft); color: var(--orange); opacity: 1; }
+.quiz-feedback { margin: 10px 0 0; color: var(--green); font-size: 14px; line-height: 1.65; }
+.quiz-summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; }
+.quiz-summary p { margin: 0; color: var(--muted); font-size: 13px; }
+.reset-quiz { min-height: 40px; padding: 0 12px; border: 1px solid var(--line-strong); background: white; color: var(--green); font-size: 13px; font-weight: 700; }
+.source-note { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 8px 15px; margin-top: 22px; padding: 16px 18px; border: 1px solid #eadba9; background: #fff9e8; }
+.source-note > strong { color: #685622; font-size: 14px; }
+.source-note p { margin: 0; color: #685f45; font-size: 13px; line-height: 1.65; }
+.source-note .source-meta { grid-column: 2; color: #77705e; font-size: 12px; }
+.source-note a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.footer { width: min(1050px, calc(100% - 40px)); min-height: 58px; margin: 0 auto; padding: 12px 0 calc(12px + var(--safe-bottom)); display: flex; justify-content: space-between; gap: 15px; border-top: 1px solid var(--line); color: var(--quiet); font-size: 13px; }
+.footer p { margin: 0; }
+.footer a { color: var(--green); font-weight: 700; }
+.search-dialog { width: min(620px, calc(100% - 28px)); max-height: min(78dvh, 720px); padding: 20px; border: 1px solid var(--line); background: var(--white); color: var(--ink); }
+.search-dialog::backdrop { background: rgba(24, 39, 29, .4); }
+.search-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.search-head h2 { margin: 0; font-size: 20px; }
+.close-button { font-size: 22px; }
+.search-input-wrap { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 0 12px; border: 1px solid var(--line-strong); }
+.search-input-wrap input { width: 100%; min-height: 47px; border: 0; outline: 0; background: transparent; font-size: 15px; }
+.search-hint { margin: 8px 0 12px; color: var(--quiet); font-size: 12px; }
+.search-results { display: grid; max-height: 48dvh; overflow: auto; }
+.search-results > a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 8px; border-top: 1px solid var(--line); }
+.search-results > a:hover { background: #f5f8f5; }
+.search-results strong, .search-results small { display: block; }
+.search-results strong { font-size: 14px; }
+.search-results small { color: var(--muted); font-size: 12px; }
+.search-arrow { color: var(--green); }
+.search-empty { padding: 18px 4px; color: var(--muted); font-size: 14px; }
+@media (max-width: 760px) {
+  .topbar-inner, .workspace, .footer { width: min(100% - 28px, 650px); }
+  .home-link { flex: 0 0 auto; padding-right: 0; white-space: nowrap; }
+  .workspace { padding-top: 24px; }
+  .page-heading { align-items: start; margin-bottom: 17px; }
+  .page-heading h1 { font-size: 27px; }
+  .search-inline { display: none; }
+  .picker { padding: 15px 14px 13px; }
+  .picker-heading { align-items: baseline; justify-content: space-between; gap: 6px; margin-bottom: 11px; }
+  .picker-heading h2 { font-size: 16px; }
+  .picker-heading span { font-size: 11px; }
+  .grade-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .grade-choices button { min-height: 45px; font-size: 14px; }
+  .term-row { flex-wrap: wrap; margin-top: 11px; padding-top: 10px; }
+  .term-label { font-size: 13px; }
+  .term-choices button { min-height: 38px; }
+  .edition-label { flex-basis: 100%; margin: 0; text-align: left; font-size: 11px; }
+  .study { margin-top: 18px; }
+  .study-head { flex-direction: column; align-items: stretch; gap: 10px; padding: 16px 15px 14px; }
+  .study-head h2 { font-size: 21px; }
+  .study-summary { font-size: 14px; }
+  .book-link { align-self: flex-start; min-height: 42px; padding: 0 10px; font-size: 13px; }
+  .study-tabs { padding: 0 8px; }
+  .study-tabs button { min-height: 46px; padding: 0 12px; font-size: 13px; }
+  .study-content { padding: 16px 14px 20px; }
+  .content-heading { display: block; }
+  .content-heading h3 { font-size: 18px; }
+  .content-heading > p { margin-top: 4px; text-align: left; font-size: 12px; }
+  .learning-layout { grid-template-columns: 1fr; }
+  .unit-row { grid-template-columns: 27px minmax(0,1fr) 16px; gap: 8px; min-height: 69px; padding: 9px 2px; }
+  .unit-number { font-size: 12px; }
+  .unit-copy strong { font-size: 14px; }
+  .unit-copy small { font-size: 13px; }
+  .unit-tag { display: none; }
+  .unit-arrow { grid-column: 3; grid-row: 1; }
+  .first-step { padding: 14px; }
+  .formula-row { grid-template-columns: 30px minmax(0,1fr); gap: 7px; padding: 14px 2px; }
+  .formula-row p:not(.formula-expression) { font-size: 13px; }
+  .formula-expression { font-size: 15px; }
+  .solve-steps { grid-template-columns: 1fr 1fr; }
+  .solve-steps span:nth-child(2) { border-right: 0; }
+  .solve-steps span:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .solve-steps span { min-height: 46px; font-size: 12px; }
+  .method-item summary { min-height: 62px; gap: 9px; }
+  .method-item summary strong { font-size: 14px; }
+  .method-item summary small { font-size: 11px; }
+  .method-body { padding: 0 3px 16px 30px; }
+  .method-body ol { font-size: 13px; }
+  .worked-example { padding: 11px 12px; }
+  .worked-example > p { font-size: 13px; }
+  .worked-example > strong { font-size: 14px; }
+  .quiz-question { padding: 13px 11px; }
+  .quiz-question legend { font-size: 14px; }
+  .quiz-options button { min-height: 44px; font-size: 13px; }
+  .quiz-feedback { font-size: 13px; }
+  .source-note { grid-template-columns: 1fr; gap: 5px; margin-top: 17px; padding: 13px; }
+  .source-note .source-meta { grid-column: 1; }
+  .footer { min-height: 52px; }
+}
+@media (max-width: 360px) {
+  .brand > span:last-child { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+</style>
+  <style data-inlined-source="math/assets/fresh.css">
+:root {
+  --paper: #f7fbfa;
+  --white: #ffffff;
+  --ink: #21343b;
+  --muted: #61757b;
+  --quiet: #81959b;
+  --line: #dceae8;
+  --line-strong: #bed9d5;
+  --green: #197f78;
+  --green-soft: #e5f4f0;
+  --blue: #407c9c;
+  --blue-soft: #edf6f8;
+  --orange: #c7604e;
+  --orange-soft: #fff0ec;
+  --yellow: #f2cf83;
+  --yellow-soft: #fef8e9;
+  --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --serif: var(--sans);
+  --shadow: 0 14px 36px rgba(24, 80, 80, .08);
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-variant-numeric: tabular-nums; }
+h1, h2, h3, h4 { font-family: var(--sans); letter-spacing: 0; text-wrap: balance; }
+p { text-wrap: pretty; }
+.topbar { background: rgba(255, 255, 255, .97); border-bottom-color: var(--line); }
+.brand { font-family: var(--sans); font-weight: 760; font-size: 17px; }
+.brand-mark { border-radius: 8px; background: #d9f0eb; color: var(--green); font-size: 24px; }
+.home-link { color: var(--muted); font-weight: 600; }
+.home-link:hover { color: var(--green); }
+.icon-button { border-color: var(--line); background: #f9fcfb; transition: background .16s ease, transform .16s ease; }
+.icon-button:hover { background: var(--green-soft); }
+.icon-button:active, .search-inline:active { transform: scale(.96); }
+.workspace { width: min(960px, calc(100% - 42px)); padding-top: 34px; }
+.eyebrow { color: var(--blue); font-weight: 650; font-size: 12px; }
+.page-heading { margin-bottom: 14px; }
+.page-heading h1 { font-family: var(--sans); font-size: clamp(28px, 4vw, 35px); line-height: 1.33; font-weight: 760; }
+.search-inline { border-color: var(--line); border-radius: 7px; box-shadow: none; color: var(--muted); background: white; }
+.search-inline svg { color: var(--green); }
+.picker { padding: 20px 0 18px; border: 0; border-bottom: 1px solid var(--line); background: transparent; }
+.picker-heading { margin-bottom: 12px; }
+.picker-heading h2 { font-size: 15px; color: var(--muted); font-weight: 650; }
+.grade-choices { display: flex; gap: 8px; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
+.grade-choices::-webkit-scrollbar, .study-tabs::-webkit-scrollbar { display: none; }
+.grade-choices button { flex: 1 0 100px; min-height: 47px; border: 1px solid var(--line); border-radius: 7px; background: white; color: #405b61; font-size: 14px; font-weight: 650; white-space: nowrap; }
+.grade-choices button:hover { border-color: #9acbc4; background: #f5fcfa; }
+.grade-choices button[aria-pressed="true"] { border-color: #abd9d2; background: #dff3ef; color: #126e66; font-weight: 760; }
+.term-row { margin-top: 12px; padding-top: 0; border: 0; }
+.term-label { color: var(--muted); font-size: 13px; }
+.term-choices { gap: 2px; padding: 3px; border-radius: 7px; background: #ebf3f2; }
+.term-choices button { min-width: 70px; min-height: 39px; border: 0; border-radius: 5px; background: transparent; color: #62747a; font-size: 13px; }
+.term-choices button[aria-pressed="true"] { border: 0; background: white; color: var(--green); box-shadow: 0 1px 5px rgba(27, 80, 75, .1); font-weight: 750; }
+.edition-label { color: #7a9294; font-size: 12px; }
+.study { margin-top: 23px; border: 0; background: transparent; }
+.study-head { align-items: end; gap: 18px; padding: 24px 26px 22px; border-radius: 8px; background: #eaf6f3; }
+.study-meta { color: var(--green); font-size: 12px; font-weight: 700; }
+.study-head h2 { font-family: var(--sans); font-size: clamp(21px, 3vw, 27px); font-weight: 750; line-height: 1.4; }
+.study-summary { max-width: 670px; margin-top: 9px; color: #4e666a; font-size: 14px; line-height: 1.75; }
+.book-link { min-height: 40px; padding: 0; border: 0; color: #126f6b; font-size: 13px; font-weight: 750; white-space: nowrap; }
+.book-link:hover { color: var(--blue); }
+.study-tabs { position: sticky; top: calc(62px + var(--safe-top)); z-index: 10; gap: 6px; margin-top: 8px; padding: 0 6px; border-bottom: 1px solid var(--line); background: rgba(247,251,250,.98); scrollbar-width: none; }
+.study-tabs button { min-height: 51px; padding: 0 19px; border-bottom-width: 2px; font-size: 14px; font-weight: 650; }
+.study-tabs button.is-active { border-bottom-color: var(--green); color: var(--green); }
+.study-content { min-height: 290px; padding: 27px 7px 25px; }
+.content-heading { margin-bottom: 19px; }
+.content-heading .eyebrow { color: var(--blue); }
+.content-heading h3 { font-size: 21px; font-weight: 750; }
+.learning-layout { grid-template-columns: minmax(0, 1fr) 228px; gap: 22px; }
+.unit-list { border-color: var(--line); }
+.unit-row { display: block; min-height: 0; padding: 0; border-bottom: 1px solid var(--line); scroll-margin-top: 132px; transition: background .16s ease; }
+.unit-row:hover { background: #f4faf8; }
+.unit-row summary { display: grid; grid-template-columns: 31px minmax(0,1fr) 22px; gap: 10px; align-items: center; min-height: 77px; padding: 12px 5px; list-style: none; cursor: pointer; }
+.unit-row summary::-webkit-details-marker { display: none; }
+.unit-number, .formula-index, .method-index { color: #688ca1; font-family: var(--sans); font-size: 12px; font-weight: 750; }
+.unit-copy strong { color: var(--ink); font-size: 15px; font-weight: 700; }
+.unit-copy small { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.unit-arrow { grid-column: 3; grid-row: 1; color: var(--green); font-size: 22px; font-weight: 350; text-align: center; transition: transform .16s ease; }
+.unit-row[open] .unit-arrow, .method-item[open] .expand-mark { transform: rotate(45deg); }
+.unit-row[open] { background: #f2faf8; }
+.unit-detail { padding: 0 19px 18px 46px; }
+.unit-detail ul { display: grid; gap: 5px; margin: 0 0 12px; padding-left: 19px; color: #42646a; font-size: 14px; }
+.unit-detail p { margin: 0 0 10px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.unit-detail p b { color: var(--green); margin-right: 5px; }
+.unit-more, .unit-detail a { display: inline-flex; align-items: center; min-height: 40px; color: var(--green); font-size: 13px; font-weight: 750; }
+.first-step { border: 0; border-radius: 7px; background: #f0f8f6; padding: 19px; }
+.first-step .eyebrow { color: var(--blue); }
+.first-formula { padding: 10px 0; border-bottom: 1px solid #cee5df; background: transparent; color: #116e66; font-family: var(--sans); font-size: 16px; }
+.first-step > p:not(.eyebrow) { color: var(--muted); }
+.part-whole { border: 1px solid rgba(22, 94, 85, .08); border-radius: 5px; }
+.formula-list { border-color: var(--line); }
+.formula-row { border-color: var(--line); padding-top: 19px; padding-bottom: 19px; scroll-margin-top: 132px; }
+.formula-expression { border: 0; border-radius: 5px; background: #e9f6f3; color: #126b69; font-family: var(--sans); font-size: 17px; font-weight: 750; }
+.formula-row h4 { color: var(--ink); }
+.formula-row small { color: var(--blue); }
+.solve-steps { border: 0; border-radius: 7px; background: #edf6f8; }
+.solve-steps span { border-color: #d9e9ed; color: #486b7d; }
+.solve-steps b { background: #70a7b3; }
+.method-item { border-color: var(--line); scroll-margin-top: 132px; }
+.method-item summary { padding-left: 7px; padding-right: 7px; }
+.method-item summary strong { color: var(--ink); }
+.method-item summary small { color: var(--muted); }
+.method-body { padding-bottom: 20px; }
+.worked-example { border: 0; border-radius: 6px; background: #eef7f9; }
+.worked-example .answer { color: var(--green); }
+.reminder { color: #936957; }
+.quiz-question { border-color: var(--line); border-radius: 7px; background: white; }
+.quiz-question legend { color: var(--ink); }
+.quiz-options button { border-color: var(--line-strong); border-radius: 6px; }
+.quiz-options button.is-correct { border-color: #96d2c3; background: var(--green-soft); color: #126e66; }
+.quiz-options button.is-wrong { border-color: #ebad9f; background: var(--orange-soft); color: var(--orange); }
+.quiz-feedback { color: #126e66; }
+.book-main .book-heading h1, .book-main .section-heading h2 { font-family: var(--sans); font-weight: 760; }
+.book-main .book-heading > p:last-child { color: var(--muted); }
+.book-main .edition-badge { border-radius: 4px; background: #e4f3ee; color: #23756b; }
+.book-main .page-toc { border-color: var(--line); background: #f7fbfa; }
+.book-main .chapter, .book-main .formula-detail, .book-main .application { border-color: var(--line); }
+.book-main .chapter-content li { border: 0; border-radius: 4px; background: #eaf5f2; color: #386964; }
+.book-main .teaching-note { border: 0; border-radius: 6px; background: #ecf7f4; color: #476c69; }
+.book-main .teaching-note b { color: var(--green); }
+.book-main .math-expression { border: 0; border-radius: 6px; background: #eaf6f3; color: #126e66; font-family: var(--sans); }
+.book-main .worked-example { border: 0; border-radius: 6px; background: #eef7f9; }
+.book-lab-entry { display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;margin-top:20px;border:1px solid #d2e7de;border-radius:10px;background:#edf8f2;color:#5d7e71;font-size:13px; }
+.book-lab-entry > span { color:#3e8069;font-weight:750; }
+.book-lab-entry > b { margin-left:auto;color:#3e8069;white-space:nowrap; }
+.source-note { grid-template-columns: 130px minmax(0, 1fr); gap: 6px 14px; padding: 18px 4px 0; margin-top: 30px; border: 0; border-top: 1px solid var(--line); background: transparent; }
+.source-note > strong { color: var(--muted); font-size: 13px; }
+.source-note p { color: var(--muted); font-size: 12px; }
+.source-note .source-meta { font-size: 11px; }
+.footer { width: min(960px, calc(100% - 42px)); color: var(--quiet); }
+.search-dialog { border: 0; border-radius: 9px; box-shadow: 0 24px 90px rgba(25, 62, 69, .22); }
+.search-dialog::backdrop { background: rgba(27, 52, 58, .28); }
+.search-input-wrap { border-color: var(--line-strong); border-radius: 7px; }
+.search-results > button { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; padding: 12px 9px; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--ink); text-align: left; }
+.search-results > button:hover { background: #f0f8f6; }
+.search-results strong, .search-results small { display: block; }
+.search-results strong { font-size: 14px; }
+.search-results small { color: var(--muted); font-size: 12px; }
+.search-highlight { animation: highlight 1.8s ease-out; }
+@keyframes highlight { from { background: #d8f5ee; } to { background: transparent; } }
+@media (max-width: 760px) {
+  .topbar-inner, .workspace, .footer, .book-main { width: min(calc(100% - 32px), 650px); }
+  .workspace { padding-top: 23px; }
+  .page-heading { margin-bottom: 11px; }
+  .page-heading h1 { font-size: 28px; }
+  .picker { padding: 12px 0 16px; }
+  .picker-heading { margin-bottom: 9px; }
+  .grade-choices { gap: 7px; margin-right: -16px; padding-right: 16px; }
+  .grade-choices button { flex: 0 0 88px; min-height: 46px; font-size: 13px; }
+  .term-row { margin-top: 11px; }
+  .edition-label { flex: 1 1 auto; margin-left: auto; text-align: right; }
+  .study { margin-top: 20px; }
+  .study-head { padding: 20px 18px 18px; }
+  .study-head h2 { font-size: 22px; }
+  .study-summary { margin-top: 8px; font-size: 13px; }
+  .book-link { min-height: 38px; }
+  .study-tabs { top: calc(62px + var(--safe-top)); gap: 0; margin-top: 6px; padding: 0; }
+  .study-tabs button { flex: 1 0 auto; min-height: 50px; padding: 0 12px; font-size: 13px; }
+  .study-content { padding: 22px 0 24px; }
+  .content-heading { margin-bottom: 13px; }
+  .content-heading h3 { font-size: 20px; }
+  .learning-layout { grid-template-columns: 1fr; gap: 20px; }
+  .unit-row summary { min-height: 75px; padding: 9px 2px; }
+  .unit-detail { padding: 0 9px 18px 38px; }
+  .unit-copy small { font-size: 12px; }
+  .first-step { padding: 17px; }
+  .source-note { display: block; margin-top: 23px; }
+  .source-note p { margin-top: 6px; }
+  .book-heading { padding-top: 19px; }
+  .book-heading h1 { font-family: var(--sans); font-size: 27px; font-weight: 760; line-height: 1.35; }
+  .book-section .section-heading h2 { font-family: var(--sans); font-size: 23px; }
+}
+@media (prefers-reduced-motion: reduce) { .search-highlight { animation: none; outline: 2px solid var(--green); } }
+@media (max-width: 360px) { .brand::after { content: "数学"; font-size: 15px; } }
+
+</style>
+  <style data-inlined-source="math/assets/lab.css">
+.ml-classroom { --ml-mint:#63b6a2; --ml-orange:#eda77c; --ml-blue:#557da9; --ml-ink:#233c50; }
+.ml-heading { display:flex;align-items:start;justify-content:space-between;gap:18px;margin:0 0 17px; }
+.ml-heading .eyebrow { color:#56798c;font-size:12px;margin-bottom:4px; }
+.ml-heading h3 { margin:0;color:var(--ml-ink);font-size:27px;font-weight:780;line-height:1.4; }
+.ml-topic { flex:0 0 auto;align-self:center;border:1px solid #deece8;border-radius:99px;padding:4px 11px;color:#648077;font-size:12px;background:#fff; }
+.ml-route { display:flex;align-items:center;gap:8px;margin-bottom:15px; }
+.ml-route button { min-height:42px;border:0;border-radius:8px;padding:0 15px;background:#edf3f2;color:#697e7b;font-size:13px;font-weight:650;transition:background .18s,color .18s; }
+.ml-route button[aria-pressed=true] { color:#206e62;background:#dff2e9; }
+.ml-layout { display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.8fr);gap:20px;align-items:stretch; }
+.ml-theater { min-width:0;overflow:hidden;border:1px solid #d8e9e7;border-radius:18px;background:#f0f8fb; }
+.ml-scene { min-width:0;display:grid;place-items:center;padding:17px 10px 7px;background:radial-gradient(ellipse at 50% 40%,#fff 35%,#eef8fa 85%); }
+.ml-svg { display:block;width:100%;max-width:470px;height:auto;aspect-ratio:4/3;fill:none;stroke:none;overflow:visible; }
+.ml-svg text { font-family:var(--sans);font-size:12px;fill:#527080;stroke:none; }
+.ml-svg .ml-big { font-size:30px;fill:#64a695; }
+.ml-svg .ml-small { font-size:10px; }
+.ml-svg .ml-price { font-size:26px;fill:#28796d;font-weight:750; }
+.ml-svg .ml-tray { fill:#f1f9f5;stroke:#a9d6c8;stroke-width:1.4; }
+.ml-svg .ml-tray.orange { fill:#fff5ea;stroke:#efc499; }
+.ml-svg .ml-dot { fill:#71bea9;stroke:#4b9f8a;stroke-width:.7; }
+.ml-svg .ml-dot.orange { fill:#edb180;stroke:#d69765; }
+.ml-svg .ml-fill { fill:#8fc9b4;stroke:#5aa38c;stroke-width:1; }
+.ml-svg .ml-fill.orange { fill:#edc09a;stroke:#ce9870; }
+.ml-svg .ml-fill.pale { fill:#f4f6f5;stroke:#cbd9d5;stroke-dasharray:3 2; }
+.ml-svg .ml-cross { stroke:#bf6658;stroke-width:2;stroke-linecap:round; }
+.ml-svg .ml-choco { fill:#bc9a82;stroke:#9e7960;stroke-width:1; }
+.ml-svg .ml-choco.selected { fill:#6fb19a;stroke:#4d8d77; }
+.ml-svg .ml-cell { fill:#daf0e2;stroke:#9bc8ad;stroke-width:.8; }
+.ml-svg .ml-outline { fill:none;stroke:#6ba98a;stroke-width:2; }
+.ml-svg .ml-outline.walk { stroke:#dc8d64;stroke-width:4;stroke-dasharray:10 5;animation:ml-walk 2.5s linear infinite; }
+.ml-svg .ml-glass { fill:#fff;stroke:#aecbd1;stroke-width:1.5; }
+.ml-svg .ml-juice { fill:#edc17d;stroke:none; }
+.ml-svg .ml-dash { fill:none;stroke:#ac7060;stroke-width:1.5;stroke-dasharray:4 3; }
+.ml-caption { display:flex;align-items:start;gap:12px;min-height:98px;margin:0 15px 15px;padding:14px 15px;border-radius:12px;background:#fff;box-shadow:0 3px 10px #41677606; }
+.ml-guide { flex:0 0 auto;display:grid;place-items:center;width:31px;height:31px;background:#e5f3ef;border-radius:10px;color:#609c87;font-family:Georgia,serif;font-size:21px;font-weight:bold; }
+.ml-caption p { margin:0;color:#4d6875;line-height:1.8;font-size:14px; }
+.ml-workbench { display:flex;flex-direction:column;min-width:0;border:1px solid #e2ebe5;border-radius:15px;padding:20px;background:#fff; }
+.ml-control-title { margin:0 0 18px;color:#557469;font-size:13px;font-weight:650; }
+.ml-value-row { display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px;color:#556a6b; }
+.ml-value-row output { padding:3px 11px;border-radius:6px;background:#f0f8f3;color:#34715c;font-weight:750;font-size:17px; }
+.ml-adjust { display:grid;grid-template-columns:42px minmax(0,1fr) 42px;align-items:center;gap:10px;margin:12px 0 16px; }
+.ml-adjust input { width:100%;min-width:0;min-height:44px;accent-color:#64a58e;cursor:pointer; }
+.ml-adjust button { width:42px;height:44px;border:1px solid #dce7df;border-radius:8px;background:#f8fcf8;color:#6b9580;font-size:21px; }
+.ml-adjust button:disabled { opacity:.35;cursor:default; }
+.ml-action { min-height:45px;border:1px solid #afcfc0;border-radius:8px;padding:9px 11px;background:#e9f5ed;color:#33705c;font-size:14px;font-weight:700;line-height:1.5; }
+.ml-action:hover { background:#dcefe3; }
+.ml-player { display:flex;align-items:center;justify-content:space-between;gap:7px;margin:9px 0 0; }
+.ml-player button { min-height:42px;padding:6px 4px;border:0;background:transparent;color:#6b8a95;font-size:12px; }
+.ml-player button[aria-pressed=true] { color:#a46b46; }
+.ml-predict { margin-top:auto;padding-top:15px;border-top:1px dashed #dce7df; }
+.ml-question { margin:0 0 9px;color:#476270;font-size:13px;line-height:1.65;font-weight:650; }
+.ml-choices { display:flex;flex-wrap:wrap;gap:7px; }
+.ml-choices button { flex:1;min-width:44px;min-height:43px;padding:6px 10px;border:1px solid #d8e4eb;border-radius:7px;background:#f9fcfd;color:#557b95;font-size:15px;font-weight:700; }
+.ml-choices button:disabled { cursor:default; }
+.ml-choices button.correct { border-color:#9bc9af;background:#e6f5e9;color:#39734d; }
+.ml-choices button.wrong { border-color:#e8baa4;background:#fff0e7;color:#a76d4a; }
+.ml-feedback { min-height:40px;margin:9px 0 0;color:#788d90;font-size:12px;line-height:1.7; }
+.ml-retry { min-height:40px;border:0;background:transparent;color:#678f83;font-size:12px;font-weight:700;padding:0 4px; }
+.ml-retry[hidden] { display:none!important; }
+.ml-rule { display:grid;grid-template-columns:105px minmax(0,1fr);gap:6px 14px;margin-top:18px;border-radius:12px;border:1px solid #cde4d8;background:#eef8f1;padding:18px 21px; }
+.ml-rule > span { padding-top:4px;color:#66977b;font-size:13px;font-weight:700; }
+.ml-equation { white-space:pre-line;color:#326d55;font-size:19px;line-height:1.7;font-weight:750; }
+.ml-explanation, .ml-takeaway { grid-column:2;margin:0;color:#5a7767;font-size:14px;line-height:1.75; }
+.ml-takeaway { padding-top:7px;font-weight:700;color:#466b53; }
+.ml-rule[hidden], .ml-reveal[hidden] { display:none!important; }
+.ml-reveal { display:block;min-height:45px;margin:18px auto 0;padding:9px 18px;border:1px solid #cadbd5;border-radius:9px;background:white;color:#497d6b;font-size:14px;font-weight:700; }
+.ml-note { margin:17px 0 0;text-align:center;font-size:12px;line-height:1.7;color:#829497; }
+.ml-invite { display:flex;justify-content:space-between;align-items:center;gap:14px;width:100%;min-height:57px;margin-bottom:18px;padding:12px 15px;border:1px solid #d2e8de;border-radius:10px;background:#edf8f2;color:#478271;font-size:14px;text-align:left; }
+.ml-invite span { white-space:nowrap;font-size:12px; }
+.view-lab .study-head { display:none; }
+.view-lab .study-tabs { margin-top:0; }
+.view-lab .study { margin-top:8px; }
+.view-lab .study-content { padding-top:23px; }
+@keyframes ml-walk { to { stroke-dashoffset:-60; } }
+@media(max-width:760px) {
+  .view-lab .workspace { padding-top:20px; }
+  .view-lab .page-heading h1 { font-size:25px; }
+  .view-lab .page-heading .eyebrow { font-size:11px; }
+  .view-lab .picker { padding-top:8px;padding-bottom:12px; }
+  .view-lab .picker-heading { display:none; }
+  .ml-heading { display:block;margin-bottom:13px; }
+  .ml-heading h3 { font-size:24px; }
+  .ml-topic { display:inline-block;margin-top:6px;padding:0;border:0;background:transparent;font-size:12px; }
+  .ml-route { gap:5px;margin-bottom:13px; }
+  .ml-route button { flex:1;min-height:42px;padding:0 7px;font-size:12px; }
+  .ml-layout { grid-template-columns:1fr;gap:13px; }
+  .ml-scene { padding:8px 7px 2px; }
+  .ml-svg { max-width:360px; }
+  .ml-caption { min-height:0;margin:0 10px 10px;padding:12px;gap:9px; }
+  .ml-guide { width:26px;height:26px;border-radius:8px;font-size:19px; }
+  .ml-caption p { font-size:13px; }
+  .ml-workbench { padding:15px; }
+  .ml-control-title { margin-bottom:10px;font-size:12px; }
+  .ml-adjust { margin:7px 0 11px; }
+  .ml-action { min-height:44px;font-size:13px; }
+  .ml-predict { margin-top:11px;padding-top:12px; }
+  .ml-feedback { min-height:22px; }
+  .ml-rule { display:block;padding:15px; }
+  .ml-rule > span { display:block;margin-bottom:5px; }
+  .ml-equation { display:block;font-size:17px; }
+  .ml-explanation, .ml-takeaway { font-size:13px;margin-top:6px; }
+  .ml-note { font-size:11px; }
+  .ml-invite { font-size:13px; }
+}
+@media(prefers-reduced-motion:reduce) { .ml-svg .ml-outline.walk { animation:none; } }
+
+</style>
 
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/png" href="/learning-hub/assets/app-icons/v20261105/math-192.png">
 <link rel="apple-touch-icon" href="/learning-hub/assets/app-icons/v20261105/math-180.png">
 <meta name="apple-mobile-web-app-title" content="小学数学">
+<meta name="study-release" content="20261106-recovery3">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -84,16 +597,900 @@
   </dialog>
 
   <script>window.MATH_DATA = window.MATH_DATA || {books:[]};</script>
-  <script src="./assets/data/index.js"></script>
-  <script src="./assets/data/g1.js"></script>
-  <script src="./assets/data/g2.js"></script>
-  <script src="./assets/data/g3.js"></script>
-  <script src="./assets/data/g4.js"></script>
-  <script src="./assets/data/g5.js"></script>
-  <script src="./assets/data/g6.js"></script>
-  <script src="./assets/lab.js"></script>
-  <script src="./assets/app.js"></script>
+  <script data-inlined-source="math/assets/data/index.js">
+window.MATH_DATA = window.MATH_DATA || { books: [] };
+window.MATH_DATA.grades = [
+  { id: 1, name: "一年级", sub: "认识数与形", tone: "mint" },
+  { id: 2, name: "二年级", sub: "乘除与测量", tone: "sky" },
+  { id: 3, name: "三年级", sub: "分数与面积", tone: "sun" },
+  { id: 4, name: "四年级", sub: "大数与模型", tone: "coral" },
+  { id: 5, name: "五年级", sub: "小数与体积", tone: "violet" },
+  { id: 6, name: "六年级", sub: "比例与综合", tone: "teal" }
+];
+window.MATH_DATA.updated = "2026-10-27";
+window.MATH_DATA.sourceNote = "按人教版数学教材的学段内容与《义务教育数学课程标准（2022年版）》梳理，单元名称是学习主题概括，不等同于课本原目录。教材分批更新，实际学习顺序与版本请以学校发放的课本为准。";
 
-<script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('/learning-hub/sw.js',{updateViaCache:'none'}).then(function(r){r.update().catch(function(){});}).catch(function(){});}</script>
+</script>
+  <script data-inlined-source="math/assets/data/g1.js">
+window.MATH_DATA = window.MATH_DATA || { books: [] };
+window.MATH_DATA.books.push(
+{
+  id: "g1-up", grade: 1, term: "上册", edition: "2024年秋版", editionNote: "一年级新教材",
+  theme: "从数一数开始，学会看图想数量",
+  intro: "认识 0～20 各数，学会 10 以内加减法和 20 以内进位加法。先看懂图里的数量关系，再列式计算。",
+  units: [
+    { no:"01", title:"在校园里学数学", tag:"数与生活", brief:"按顺序观察，数出物体的个数，分清上下、前后、左右。", learn:["数物体时不重复、不遗漏","用“第几”表示位置","完整说出图意"], tip:"数较大的物体时，可以先圈一组再数。" },
+    { no:"02", title:"1～5的认识和加减法", tag:"数与运算", brief:"认识 1～5 和 0，比大小，理解分与合，会算 5 以内加减法。", learn:["会数、读、写 1～5","知道“几”和“第几”","用分与合算加减法"], tip:"加法想“合起来”，减法想“去掉”或“剩下”。" },
+    { no:"03", title:"6～10的认识和加减法", tag:"数与运算", brief:"认识 6～10，学习 10 以内加减法、连加连减和加减混合。", learn:["10 可以分成几和几","一图写两道加法、两道减法","从左往右算连加连减"], tip:"凑十好朋友：1和9、2和8、3和7、4和6、5和5。" },
+    { no:"04", title:"认识立体图形", tag:"图形与几何", brief:"从身边物体认识长方体、正方体、圆柱和球。", learn:["按形状分类","摸一摸、滚一滚","说出立体图形名称"], tip:"球能向各个方向滚动，正方体的每个面都是正方形。" },
+    { no:"05", title:"11～20的认识和进位加法", tag:"数与运算", brief:"知道“1个十和几个一”，用凑十法计算 20 以内进位加法。", learn:["10个一是1个十","9加几、8加几的凑十法","解决“一共有多少”"], tip:"9加4，把4分成1和3，先算9+1=10，再算10+3=13。" }
+  ],
+  formulas: [
+    { title:"加法", expr:"加数 + 加数 = 和", explain:"把两个部分合起来，用加法。", example:"3 + 2 = 5" },
+    { title:"减法", expr:"被减数 − 减数 = 差", explain:"从整体里去掉一部分，用减法。", example:"5 − 2 = 3" },
+    { title:"加减互验", expr:"和 − 一个加数 = 另一个加数", explain:"检查加法时，可以倒过来减一减。", example:"5 − 3 = 2" },
+    { title:"凑十法", expr:"9 + 4 = 9 + 1 + 3 = 13", explain:"先凑成10，再加上剩下的数。", example:"8 + 5 = 8 + 2 + 3 = 13" },
+    { title:"数的组成", expr:"1个十 + 3个一 = 13", explain:"十位上的1表示10，个位上的3表示3。", example:"15 = 10 + 5" }
+  ],
+  applications: [
+    { kind:"加法模型", title:"一共有多少", clues:["一共","合起来","又来了"], steps:["找两部分","把两部分合起来","写单位和答语"], example:{ question:"树上有4只鸟，又飞来3只，一共有几只？", work:"4 + 3 = 7（只）", answer:"7只" }, tip:"问“一共”通常用加法。" },
+    { kind:"减法模型", title:"还剩多少", clues:["剩下","去掉","吃了","飞走"], steps:["找原来有多少","找去掉多少","列减法"], example:{ question:"盘子里有8个苹果，吃了3个，还剩几个？", work:"8 − 3 = 5（个）", answer:"5个" }, tip:"“还剩”表示从整体中去掉一部分。" },
+    { kind:"比较模型", title:"多几或少几", clues:["比……多","比……少"], steps:["找谁和谁比","大数减小数","说清谁多"], example:{ question:"小明有7支笔，小红有4支，小明比小红多几支？", work:"7 − 4 = 3（支）", answer:"多3支" }, tip:"求相差多少，用较大的数减较小的数。" },
+    { kind:"逆向思考", title:"原来有多少", clues:["原来","又来了","现在有"], steps:["从结果倒着想","把又来的部分减回去","检查答案"], example:{ question:"树上现在有9只鸟，飞来了4只，原来有几只？", work:"9 − 4 = 5（只）", answer:"5只" }, tip:"有“现在”不一定就加，要看数量是变多还是变少。" }
+  ],
+  quiz: [
+    { question:"6 + 3 = ？", options:["8","9","10"], answer:1, explain:"6和3合起来是9。" },
+    { question:"10可以分成4和几？", options:["5","6","7"], answer:1, explain:"4 + 6 = 10。" },
+    { question:"有9个苹果，吃了4个，还剩几个？", options:["4个","5个","6个"], answer:1, explain:"9 − 4 = 5。" }
+  ]
+},
+{
+  id: "g1-down", grade: 1, term: "下册", edition: "2025年春版", editionNote: "一年级下册新教材",
+  theme: "把图看明白，把数算准确",
+  intro: "认识平面图形和100以内的数，学习20以内退位减法、100以内加减法、人民币和相差关系。",
+  units: [
+    { no:"01", title:"认识平面图形", tag:"图形与几何", brief:"认识长方形、正方形、三角形和圆，感受图形的拼组。", learn:["说出图形的名称","用小图形拼大图形","从生活中找图形"], tip:"正方形四条边一样长，长方形对边一样长。" },
+    { no:"02", title:"20以内的退位减法", tag:"数与运算", brief:"学习十几减9、8、7、6等，用破十法或想加算减法。", learn:["破十法","想加算减","解决简单实际问题"], tip:"13−8，先算10−8=2，再算2+3=5。" },
+    { no:"03", title:"100以内数的认识", tag:"数与运算", brief:"认识100，理解个位和十位，会比较数的大小。", learn:["10个十是100","读、写、排序","用多一些、少一些描述"], tip:"从右边起，第一位是个位，第二位是十位。" },
+    { no:"04", title:"100以内的加减法", tag:"数与运算", brief:"学习两位数加减一位数、整十数，掌握竖式进位和退位。", learn:["口算加减法","竖式个位对齐","个位满十进一、退一当十"], tip:"笔算加法个位满十要向十位进1。" },
+    { no:"05", title:"认识人民币", tag:"常见的量", brief:"认识元、角、分，会换钱，解决购物中的总价和找零问题。", learn:["1元=10角","1角=10分","统一单位再计算"], tip:"单位不同不能直接相加，先换成同一种单位。" }
+  ],
+  formulas: [
+    { title:"退位减法", expr:"13 − 8 = 13 − 3 − 5 = 5", explain:"先减到10，再减剩下的部分。", example:"15 − 7 = 15 − 5 − 2 = 8" },
+    { title:"数位", expr:"10个十 = 100", explain:"10个一组成十，10个十组成百。", example:"46 = 4个十 + 6个一" },
+    { title:"进位加法", expr:"38 + 5 = 43", explain:"个位相加满十，向十位进1。", example:"27 + 6 = 33" },
+    { title:"退位减法", expr:"42 − 7 = 35", explain:"个位不够减，从十位退1当10。", example:"51 − 8 = 43" },
+    { title:"人民币", expr:"1元 = 10角，1角 = 10分", explain:"大单位换小单位，乘进率。", example:"2元3角 = 23角" },
+    { title:"相差关系", expr:"大数 − 小数 = 相差数", explain:"比较两个数量相差多少。", example:"12 − 7 = 5" }
+  ],
+  applications: [
+    { kind:"比较模型", title:"求两数相差几", clues:["比……多","比……少","相差"], steps:["找大数和小数","相减","答语写清相差数"], example:{ question:"小华有18张卡片，小丽有12张，两人相差几张？", work:"18 − 12 = 6（张）", answer:"相差6张" }, tip:"不要只看“多”就加，要先判断谁是标准量。" },
+    { kind:"比较模型", title:"求比一个数多几的数", clues:["比……多"], steps:["找标准数","加上多出的部分","检查结果"], example:{ question:"小丽有12张，小华比小丽多6张，小华有几张？", work:"12 + 6 = 18（张）", answer:"18张" }, tip:"已知较小数，求较大数，用加法。" },
+    { kind:"比较模型", title:"求比一个数少几的数", clues:["比……少"], steps:["找标准数","减去少的部分","检查结果"], example:{ question:"小华有18张，小丽比小华少6张，小丽有几张？", work:"18 − 6 = 12（张）", answer:"12张" }, tip:"已知较大数，求较小数，用减法。" },
+    { kind:"连减模型", title:"每次装一份", clues:["每……一份","装完","可以分几份"], steps:["总数反复减去一份","数一共减了几次","也可以想几个几"], example:{ question:"有12个苹果，每3个装一盘，可以装几盘？", work:"12 − 3 − 3 − 3 − 3 = 0", answer:"4盘" }, tip:"同数连减和平均分表示同一个意思。" },
+    { kind:"购物模型", title:"购物中的加减法", clues:["买","一共","找回"], steps:["先算应付","再算找回或比较","统一单位"], example:{ question:"一支笔3元5角，一本本子2元，一共多少钱？", work:"3元5角 + 2元 = 5元5角", answer:"5元5角" }, tip:"满10角要换成1元。" }
+  ],
+  quiz: [
+    { question:"15 − 8 = ？", options:["6","7","8"], answer:1, explain:"10−8=2，2+5=7。" },
+    { question:"3个十和8个一组成的数是？", options:["38","83","308"], answer:0, explain:"十位是3，个位是8。" },
+    { question:"2元5角等于多少角？", options:["7角","25角","250角"], answer:1, explain:"2元=20角，20+5=25角。" }
+  ]
+}
+);
+
+</script>
+  <script data-inlined-source="math/assets/data/g2.js">
+window.MATH_DATA = window.MATH_DATA || { books: [] };
+window.MATH_DATA.books.push(
+{
+  id: "g2-up", grade: 2, term: "上册", edition: "2025年秋版", editionNote: "二年级上册新教材",
+  theme: "从加法走向乘法",
+  intro: "学会分类整理、表内乘除法，认识厘米和米，能用乘法、除法解决购物和平均分问题。",
+  units: [
+    { no:"01", title:"分类与整理", tag:"数据意识", brief:"按给定标准或自选标准分类，尝试逐层分类，并整理结果。", learn:["按同一标准分类","用表格记录","尝试二级分类"], tip:"分类标准不同，结果可能不同，但总数不会变。" },
+    { no:"02", title:"乘法的初步认识", tag:"数与运算", brief:"理解乘法是求几个相同加数的和，认识乘号和乘法算式。", learn:["几个几相加","写成乘法算式","2～6的乘法口诀"], tip:"只有每份同样多时，才能用乘法计算。" },
+    { no:"03", title:"表内除法", tag:"数与运算", brief:"理解平均分，认识除法算式，用乘法口诀求商。", learn:["平均分成几份","按每份几个来分","用口诀想除法"], tip:"12÷3=4，可以想“三四十二”。" },
+    { no:"04", title:"长度单位与方向", tag:"测量", brief:"认识厘米、米、线段和东南西北，会用尺子测量和估测。", learn:["1米=100厘米","从0刻度开始量","方向口诀"], tip:"量较短物体用厘米，量较长物体用米。" },
+    { no:"05", title:"7～9的乘法口诀", tag:"数与运算", brief:"学习7、8、9的乘法口诀，解决连续两问的乘除问题。", learn:["7、8、9口诀","用口诀求商","连续两问"], tip:"第一问的答案，常常是第二问的条件。" }
+  ],
+  formulas: [
+    { title:"乘法意义", expr:"每份数 × 份数 = 总数", explain:"几个相同的数相加，可以用乘法。", example:"4 × 3 = 12" },
+    { title:"乘法口诀", expr:"三四十二", explain:"口诀能同时帮助乘法与除法。", example:"3 × 4 = 12；12 ÷ 3 = 4" },
+    { title:"平均分求每份", expr:"总数 ÷ 份数 = 每份数", explain:"平均分成几份，求一份是多少。", example:"12 ÷ 3 = 4" },
+    { title:"按每份求份数", expr:"总数 ÷ 每份数 = 份数", explain:"每几个一份，求能分成几份。", example:"12 ÷ 4 = 3" },
+    { title:"长度进率", expr:"1米 = 100厘米", explain:"大单位化小单位，乘100。", example:"2米 = 200厘米" },
+    { title:"方向口诀", expr:"上北下南，左西右东", explain:"看地图先找方向标。", example:"面朝北，右手边是东" }
+  ],
+  applications: [
+    { kind:"乘法模型", title:"求几个几是多少", clues:["每……有","一共","几组"], steps:["找每份数","找份数","每份数×份数"], example:{ question:"每盒有6支笔，4盒一共多少支？", work:"6 × 4 = 24（支）", answer:"24支" }, tip:"每份必须同样多，才能用乘法。" },
+    { kind:"除法模型", title:"平均分求每份", clues:["平均分成","每份同样多"], steps:["找总数","找份数","总数÷份数"], example:{ question:"12块糖平均分给3人，每人几块？", work:"12 ÷ 3 = 4（块）", answer:"4块" }, tip:"“平均分成几份”，求每份用除法。" },
+    { kind:"除法模型", title:"按每份求份数", clues:["每……一份","可以分成"], steps:["找总数","找每份数","总数÷每份数"], example:{ question:"18个鸡蛋，每6个装一盒，可以装几盒？", work:"18 ÷ 6 = 3（盒）", answer:"3盒" }, tip:"“每几个一份”，求份数也用除法。" },
+    { kind:"两问模型", title:"先求部分，再求总数", clues:["第一问","第二问","又来了"], steps:["先算第一问","把结果当条件","再算第二问"], example:{ question:"每组5人，有3组，又来了4人，一共有几人？", work:"5×3=15（人）；15+4=19（人）", answer:"19人" }, tip:"连续两问要分别列式，不要漏算第二问。" }
+  ],
+  quiz: [
+    { question:"4 × 6 = ？", options:["20","24","28"], answer:1, explain:"四六二十四。" },
+    { question:"把15平均分成3份，每份是多少？", options:["4","5","6"], answer:1, explain:"15÷3=5。" },
+    { question:"1米等于多少厘米？", options:["10厘米","100厘米","1000厘米"], answer:1, explain:"1米=100厘米。" }
+  ]
+},
+{
+  id: "g2-down", grade: 2, term: "下册", edition: "2026年春版", editionNote: "二年级下册新教材",
+  theme: "会看时间，也会分完数",
+  intro: "认识时间，学习有余数的除法、万以内的数和加减法，理解乘除之间的数量关系。",
+  units: [
+    { no:"01", title:"认识时间", tag:"常见的量", brief:"认识时和分，会读写几时几分，感受并记录时间。", learn:["钟面有12个大格","1时=60分","求经过时间"], tip:"分针走1小格是1分，走1大格是5分。" },
+    { no:"02", title:"有余数的除法", tag:"数与运算", brief:"理解分完后还有剩余的情况，认识余数并解决实际问题。", learn:["余数必须小于除数","商和余数怎么写","至少需要的问题"], tip:"19÷4=4……3，余数是分完后剩下、不够再分一份的数。" },
+    { no:"03", title:"数量间的乘除关系", tag:"数量关系", brief:"用乘法、除法和倍的关系解决实际问题。", learn:["求几个几","求几倍","求一份或几份"], tip:"先判断谁和谁比，再找标准量。" },
+    { no:"04", title:"万以内数的认识", tag:"数与运算", brief:"认识1000与10000，理解数位、计数单位和数的读写。", learn:["10个百是1千","10个千是1万","读写中间或末尾有0"], tip:"读数时，末尾的0不读。" },
+    { no:"05", title:"万以内的加减法", tag:"数与运算", brief:"学习三位数加减法，理解加减法各部分之间的关系。", learn:["相同数位对齐","从个位算起","加减法互相验算"], tip:"减法可以用加法验算。" }
+  ],
+  formulas: [
+    { title:"有余数除法", expr:"被除数 = 商 × 除数 + 余数", explain:"检查有余数除法是否算对。", example:"19 = 4 × 4 + 3" },
+    { title:"余数规则", expr:"余数 < 除数", explain:"余数不小于除数，说明还能继续分。", example:"17÷5=3……2" },
+    { title:"时间换算", expr:"1时 = 60分，1分 = 60秒", explain:"时间单位相邻进率为60。", example:"2时 = 120分" },
+    { title:"计数单位", expr:"10个百=1千，10个千=1万", explain:"相邻计数单位进率为10。", example:"3000 = 3个千" },
+    { title:"倍数关系", expr:"倍数 = 比较量 ÷ 标准量", explain:"求一个数是另一个数的几倍。", example:"18 ÷ 6 = 3倍" }
+  ],
+  applications: [
+    { kind:"有余数模型", title:"装盒后还剩多少", clues:["每盒装","还剩"], steps:["总数÷每份数","商是盒数","余数是剩下数"], example:{ question:"23个乒乓球，每5个装一盒，能装满几盒，剩几个？", work:"23 ÷ 5 = 4（盒）……3（个）", answer:"装满4盒，剩3个" }, tip:"余数单位要和原来的总数单位一致。" },
+    { kind:"有余数模型", title:"至少需要多少", clues:["至少","都坐下","装下"], steps:["先做除法","有余数就再增加1份","检查答案"], example:{ question:"22人坐车，每车坐4人，至少需要几辆车？", work:"22÷4=5（辆）……2（人）；5+1=6（辆）", answer:"6辆" }, tip:"余下的人也要坐车。" },
+    { kind:"倍数模型", title:"求一个数是另一个数的几倍", clues:["是……的几倍"], steps:["找标准量","比较量÷标准量","写清答语"], example:{ question:"小红有12朵花，小明有3朵，小红的朵数是小明的几倍？", work:"12 ÷ 3 = 4", answer:"4倍" }, tip:"“倍”不是单位，表示两个数量的倍数关系。" },
+    { kind:"时间模型", title:"求经过的时间", clues:["从……到……","经过"], steps:["看开始时刻","看结束时刻","分段计算"], example:{ question:"从8:20到9:05，经过多长时间？", work:"8:20到9:00是40分，9:00到9:05是5分，共45分", answer:"45分" }, tip:"分清“时刻”和“经过的时间”。" },
+    { kind:"加减模型", title:"万以内加减法", clues:["借出","还剩","比……多"], steps:["数位对齐","从个位算起","写单位并验算"], example:{ question:"图书馆有1200本书，借出350本，还剩多少本？", work:"1200 − 350 = 850（本）", answer:"850本" }, tip:"减法验算：850+350=1200。" }
+  ],
+  quiz: [
+    { question:"17 ÷ 5 的商和余数分别是？", options:["3……2","2……3","4……1"], answer:0, explain:"5×3=15，17−15=2，所以是3……2。" },
+    { question:"1时等于多少分？", options:["30分","60分","100分"], answer:1, explain:"1时=60分。" },
+    { question:"18是6的几倍？", options:["2倍","3倍","4倍"], answer:1, explain:"18÷6=3。" }
+  ]
+}
+);
+
+</script>
+  <script data-inlined-source="math/assets/data/g3.js">
+window.MATH_DATA = window.MATH_DATA || { books: [] };
+window.MATH_DATA.books.push(
+{
+  id: "g3-up", grade: 3, term: "上册", edition: "2025年秋版", editionNote: "三年级上册新教材",
+  theme: "会算，更会讲道理",
+  intro: "学习混合运算、测量、多位数乘一位数、线与角、分数的初步认识，开始用多步思考解决问题。",
+  units: [
+    { no:"01", title:"观察物体与混合运算", tag:"数与运算", brief:"从不同位置观察物体，理解同级、两级运算和括号。", learn:["先乘除后加减","同级运算从左到右","有括号先算括号"], tip:"列综合算式前，先想清楚先算什么、再算什么。" },
+    { no:"02", title:"测量：长度和质量", tag:"常见的量", brief:"认识毫米、分米、千米，以及克、千克、吨。", learn:["1厘米=10毫米","1米=10分米","1吨=1000千克"], tip:"换算先找进率，再看大化小还是小化大。" },
+    { no:"03", title:"多位数乘一位数", tag:"数与运算", brief:"学习整十整百数口算乘法和多位数乘一位数笔算。", learn:["从个位乘起","满几十向前进几","中间或末尾有0也要乘"], tip:"笔算乘法要把进位的数字记清楚。" },
+    { no:"04", title:"线与角", tag:"图形与几何", brief:"认识线段、射线、直线，比较角的大小。", learn:["线段有两个端点","直角是90°","锐角、钝角和直角"], tip:"角的大小和两边张开的程度有关，与边的长短无关。" },
+    { no:"05", title:"分数的初步认识", tag:"数与运算", brief:"把一个整体平均分，认识几分之一和几分之几。", learn:["平均分才能用分数","分母、分子的意义","同分母分数加减"], tip:"同分母分数相加减，分母不变，只算分子。" }
+  ],
+  formulas: [
+    { title:"混合运算顺序", expr:"有括号先算括号，再算乘除，最后算加减", explain:"同级运算从左往右依次计算。", example:"(12+8)×3=60" },
+    { title:"长度单位", expr:"1km=1000m，1m=10dm，1dm=10cm", explain:"米到千米的进率是1000，其余相邻常用单位进率是10。", example:"3米=30分米" },
+    { title:"质量单位", expr:"1吨=1000千克，1千克=1000克", explain:"较重物品常用吨，较轻物品常用克。", example:"2吨=2000千克" },
+    { title:"多位数乘一位数", expr:"相同数位对齐，从个位乘起", explain:"哪一位满几十，就向前一位进几。", example:"236×4=944" },
+    { title:"角的认识", expr:"1直角=90°", explain:"锐角比直角小，钝角比直角大。", example:"30°是锐角" },
+    { title:"同分母加减", expr:"a/c ± b/c = (a±b)/c", explain:"分母不变，分子相加减。", example:"2/7+3/7=5/7" }
+  ],
+  applications: [
+    { kind:"两步计算", title:"连减和加减混合", clues:["先……再……","还剩"], steps:["找已知条件","判断运算顺序","列综合算式"], example:{ question:"商店有45个球，上午卖出12个，下午卖出8个，还剩多少个？", work:"45−12−8=25（个）", answer:"25个" }, tip:"也可以先算一共卖出12+8=20个。" },
+    { kind:"估算模型", title:"够不够、大约", clues:["大约","估一估","够不够"], steps:["把数看成接近的整十整百","估算","与标准比较"], example:{ question:"每张票198元，买3张大约需要多少钱？", work:"198≈200，200×3=600（元）", answer:"大约600元" }, tip:"要结合问题判断估大还是估小。" },
+    { kind:"乘法模型", title:"多位数乘一位数", clues:["每份","几份","一共"], steps:["找每份数","找份数","相乘并检查进位"], example:{ question:"每箱有236瓶水，4箱一共有多少瓶？", work:"236×4=944（瓶）", answer:"944瓶" }, tip:"逐位相乘，注意加上进位的数。" },
+    { kind:"测量模型", title:"单位换算", clues:["厘米","米","千米"], steps:["找进率","判断换算方向","计算"], example:{ question:"3千米200米等于多少米？", work:"3×1000=3000；3000+200=3200（米）", answer:"3200米" }, tip:"不同单位不能直接相加。" },
+    { kind:"分数模型", title:"同分母分数加减", clues:["几分之几","还剩"], steps:["确认整体相同","分母不变","分子加减"], example:{ question:"一张纸用去2/7，还剩几分之几？", work:"1−2/7=7/7−2/7=5/7", answer:"5/7" }, tip:"1可以写成与分数同分母的分数。" }
+  ],
+  quiz: [
+    { question:"计算 24 + 6 × 3，先算什么？", options:["24+6","6×3","都可以"], answer:1, explain:"没有括号时，先乘除后加减。" },
+    { question:"3千米等于多少米？", options:["300米","3000米","30000米"], answer:1, explain:"1千米=1000米。" },
+    { question:"2/9 + 4/9 = ？", options:["6/18","6/9","2/9"], answer:1, explain:"同分母分数相加，分母不变，分子相加。" }
+  ]
+},
+{
+  id: "g3-down", grade: 3, term: "下册", edition: "2026年春版", editionNote: "三年级下册新教材",
+  theme: "周长、面积与小数的第一次见面",
+  intro: "学习除数是一位数的除法、周长和面积、年月日、小数的初步认识，解决更多生活中的数学问题。",
+  units: [
+    { no:"01", title:"生活中的运动与除法", tag:"数与运算", brief:"感受平移、旋转和轴对称现象，学习除数是一位数的除法。", learn:["口算除法","笔算除法","除法验算"], tip:"每次除得的余数都要小于除数。" },
+    { no:"02", title:"长方形和正方形的周长", tag:"图形与测量", brief:"理解周长，会计算长方形和正方形的周长。", learn:["周长是一周的长度","长方形对边相等","正方形四边相等"], tip:"靠墙围篱笆时，要看清哪几条边需要围。" },
+    { no:"03", title:"面积", tag:"图形与测量", brief:"认识面积和面积单位，计算长方形、正方形的面积。", learn:["面积表示面的大小","面积单位","长方形、正方形面积公式"], tip:"周长看一圈，面积看里面，不要混淆。" },
+    { no:"04", title:"数据整理与年月日", tag:"统计", brief:"收集整理数据，认识年月日，了解平年和闰年。", learn:["用表格整理数据","大小月","平年、闰年"], tip:"一般年份能被4整除是闰年；整百年份必须能被400整除。闰年2月有29天。" },
+    { no:"05", title:"小数的初步认识", tag:"数与运算", brief:"结合元角分和长度认识小数，会比较和加减简单小数。", learn:["0.1=1/10","小数的大小比较","小数加减法"], tip:"小数加减时，小数点要对齐。" }
+  ],
+  formulas: [
+    { title:"除法验算", expr:"被除数 = 商 × 除数 + 余数", explain:"有余数除法也可以这样验算。", example:"743÷6=123……5" },
+    { title:"长方形周长", expr:"周长 = (长 + 宽) × 2", explain:"四条边总长，两条长加两条宽。", example:"长5米、宽3米，周长16米" },
+    { title:"正方形周长", expr:"周长 = 边长 × 4", explain:"正方形四条边一样长。", example:"边长6厘米，周长24厘米" },
+    { title:"长方形面积", expr:"面积 = 长 × 宽", explain:"求长方形面的大小。", example:"5×3=15平方米" },
+    { title:"正方形面积", expr:"面积 = 边长 × 边长", explain:"正方形面积计算。", example:"6×6=36平方厘米" },
+    { title:"面积单位", expr:"1平方米=100平方分米", explain:"相邻常用面积单位进率是100。", example:"3平方米=300平方分米" },
+    { title:"小数意义", expr:"0.1 = 1/10", explain:"一位小数表示十分之几。", example:"0.3=3/10" }
+  ],
+  applications: [
+    { kind:"除法模型", title:"平均分", clues:["平均分","每份"], steps:["找总数","找份数","从高位除起"], example:{ question:"846本书，平均放在6个书架上，每个书架放多少本？", work:"846÷6=141（本）", answer:"141本" }, tip:"三位数除以一位数，从百位开始除。" },
+    { kind:"周长模型", title:"围一圈需要多长", clues:["围一圈","边框","篱笆"], steps:["判断图形","找各边长度","求一周总长"], example:{ question:"一个长8米、宽5米的长方形花坛，围一圈需要多少米？", work:"(8+5)×2=26（米）", answer:"26米" }, tip:"先分清求周长还是求面积。" },
+    { kind:"面积模型", title:"铺地砖、求面积", clues:["面积","铺满","占地"], steps:["统一单位","长×宽","写平方单位"], example:{ question:"一块长方形菜地长9米、宽6米，面积是多少？", work:"9×6=54（平方米）", answer:"54平方米" }, tip:"面积单位要带“平方”。" },
+    { kind:"时间模型", title:"日期和经过时间", clues:["经过几天","从……到……"], steps:["数清起止日期","分段计算","检查是否含头尾"], example:{ question:"从3月1日到3月5日，经过几天？", work:"5−1=4（天）", answer:"4天" }, tip:"经过时间用结束时刻减开始时刻。" },
+    { kind:"小数模型", title:"购物中的小数加减", clues:["元","角","分"], steps:["小数点对齐","按位计算","写单位"], example:{ question:"一本笔记本3.5元，一支笔2.4元，一共多少钱？", work:"3.5+2.4=5.9（元）", answer:"5.9元" }, tip:"小数点对齐，相同数位就对齐了。" }
+  ],
+  quiz: [
+    { question:"长7厘米、宽4厘米的长方形周长是？", options:["11厘米","22厘米","28厘米"], answer:1, explain:"(7+4)×2=22厘米。" },
+    { question:"1平方米等于多少平方分米？", options:["10","100","1000"], answer:1, explain:"相邻常用面积单位进率是100。" },
+    { question:"0.6表示几分之几？", options:["6/10","6/100","1/6"], answer:0, explain:"一位小数表示十分之几。" }
+  ]
+}
+);
+
+</script>
+  <script data-inlined-source="math/assets/data/g4.js">
+window.MATH_DATA = window.MATH_DATA || { books: [] };
+window.MATH_DATA.books.push(
+{
+  id: "g4-up", grade: 4, term: "上册", edition: "2026年秋版", editionNote: "四年级上册新教材",
+  theme: "从大数到数量模型",
+  intro: "认识万以上的数，学习角的度量、三位数乘两位数，理解总价、路程等数量模型，认识平行四边形和梯形。",
+  units: [
+    { no:"01", title:"万以上数的认识", tag:"数与运算", brief:"认识亿以内的数，掌握数位顺序、读写、改写和近似数。", learn:["四位一级","大数读写","四舍五入求近似数"], tip:"改写用“=”，求近似数用“≈”，两者不要混淆。" },
+    { no:"02", title:"角的度量", tag:"图形与几何", brief:"认识量角器，会量角和比较角的大小。", learn:["角的单位是度","中心对顶点","0刻度线对一边"], tip:"先看0刻度在哪一圈，再读另一边的刻度。" },
+    { no:"03", title:"三位数乘两位数", tag:"数与运算", brief:"掌握三位数乘两位数的笔算和估算。", learn:["分步相乘","十位积对齐十位","两次积相加"], tip:"十位乘得的积末尾要和十位对齐。" },
+    { no:"04", title:"加法模型和乘法模型", tag:"数量关系", brief:"用加法和乘法模型解决总价、路程等实际问题。", learn:["部分+部分=整体","单价×数量=总价","速度×时间=路程"], tip:"先判断是“合起来”还是“几个几”。" },
+    { no:"05", title:"平行四边形和梯形", tag:"图形与几何", brief:"认识平行与垂直，掌握平行四边形和梯形的特征。", learn:["平行和垂直","平行四边形特征","梯形特征"], tip:"梯形只有一组对边平行，平行四边形有两组。" },
+    { no:"06", title:"条形统计图", tag:"统计", brief:"认识条形统计图，能读取、比较和分析数据。", learn:["看横轴和纵轴","认清每格表示多少","比较数据"], tip:"不要把格子数直接当成数据。" }
+  ],
+  formulas: [
+    { title:"数位顺序", expr:"每相邻两个计数单位之间的进率是10", explain:"个、十、百、千、万、十万、百万、千万、亿。", example:"10个一万是十万" },
+    { title:"大数改写", expr:"1万=10000，1亿=100000000", explain:"整万数去掉末尾4个0，改写成“万”。", example:"320000=32万" },
+    { title:"近似数", expr:"四舍五入到指定位", explain:"看指定数位的下一位，小于5舍，大于等于5入。", example:"386500≈39万" },
+    { title:"角的度量", expr:"1直角=90°，1平角=180°", explain:"量角时中心对顶点，0刻度线对一边。", example:"30°+60°=90°" },
+    { title:"三位数乘两位数", expr:"分步相乘，再把积相加", explain:"十位乘得的积末位对齐十位。", example:"236×24=5664" },
+    { title:"总价模型", expr:"总价=单价×数量", explain:"也可以求数量或单价。", example:"8×5=40元" },
+    { title:"路程模型", expr:"路程=速度×时间", explain:"速度表示单位时间内走的路程。", example:"60×3=180千米" }
+  ],
+  applications: [
+    { kind:"大数模型", title:"改写和近似数", clues:["省略","约","万位"], steps:["找数位","判断改写或四舍五入","写结果"], example:{ question:"386500人，省略万位后面的尾数约是多少？", work:"看千位8，向万位进1：386500≈39万", answer:"约39万人" }, tip:"改写不改变大小，近似数会改变大小。" },
+    { kind:"乘法模型", title:"三位数乘两位数", clues:["每台","买几台","一共"], steps:["分步相乘","对齐数位","相加并验算"], example:{ question:"每台机器236元，买24台需要多少钱？", work:"236×24=5664（元）", answer:"5664元" }, tip:"十位乘完后，积要向左错一位。" },
+    { kind:"价格模型", title:"总价、单价、数量", clues:["每件","买几个","共花"], steps:["写出数量关系","代入数据","检查单位"], example:{ question:"每本练习本8元，买15本要多少钱？", work:"8×15=120（元）", answer:"120元" }, tip:"单位要和答语对应。" },
+    { kind:"行程模型", title:"速度、时间、路程", clues:["每小时","行驶","相距"], steps:["路程=速度×时间","代入数据","检查单位"], example:{ question:"汽车每小时行60千米，3小时行多少千米？", work:"60×3=180（千米）", answer:"180千米" }, tip:"速度单位常写成“千米/时”。" },
+    { kind:"角度模型", title:"求未知角", clues:["直角","平角","已知角"], steps:["找直角或平角","减去已知角","检查结果"], example:{ question:"一个直角分成30°和另一个角，另一个角是多少度？", work:"90°−30°=60°", answer:"60°" }, tip:"量角器读数时先确认0刻度线。" },
+    { kind:"统计模型", title:"读条形统计图", clues:["最多","最少","相差"], steps:["看每格表示多少","读数据","比较或计算"], example:{ question:"每格表示5人，某条形高4格，表示多少人？", work:"5×4=20（人）", answer:"20人" }, tip:"每格代表的数量，要写在纵轴上或图例中。" }
+  ],
+  quiz: [
+    { question:"10个一万是多少？", options:["十万","一百万","一亿"], answer:0, explain:"相邻两个计数单位进率是10。" },
+    { question:"236×24 的积是？", options:["5664","4720","566"], answer:0, explain:"236×24=4720+944=5664。" },
+    { question:"速度60千米/时，行3小时的路程是？", options:["20千米","63千米","180千米"], answer:2, explain:"路程=速度×时间。" }
+  ]
+},
+{
+  id: "g4-down", grade: 4, term: "下册", edition: "现行版", editionNote: "新版启用前，按现行教材范围整理",
+  theme: "运算律让计算更聪明",
+  intro: "学习四则运算和运算律，深入认识小数、三角形、图形运动、平均数与复式条形统计图。",
+  units: [
+    { no:"01", title:"四则运算和运算律", tag:"数与运算", brief:"理解四则运算顺序，运用运算律简便计算。", learn:["先乘除后加减","交换律、结合律","乘法分配律"], tip:"简便计算每一步都要有依据。" },
+    { no:"02", title:"小数的意义和性质", tag:"数与运算", brief:"理解小数数位，掌握小数性质、小数点移动和近似数。", learn:["小数的性质","小数点移动","求近似数"], tip:"小数点移动要数清位数，位数不够用0补。" },
+    { no:"03", title:"三角形", tag:"图形与几何", brief:"认识三角形，理解分类、三边关系与内角和。", learn:["三角形稳定性","三边关系","内角和180°"], tip:"判断能否围成三角形，最简便的是看两条短边之和是否大于最长边。" },
+    { no:"04", title:"小数加减法", tag:"数与运算", brief:"掌握小数加减法的竖式计算与混合运算。", learn:["小数点对齐","相同数位相加减","结果化简"], tip:"小数点对齐后，整数部分和小数部分就都对齐了。" },
+    { no:"05", title:"图形的运动", tag:"图形与几何", brief:"认识轴对称和平移，能在方格纸上描述图形运动。", learn:["找对称点","平移方向和距离","保持图形形状大小"], tip:"平移不改形状，只改变位置。" },
+    { no:"06", title:"平均数与统计图", tag:"统计", brief:"理解平均数的意义，会看复式条形统计图。", learn:["平均数=总数÷份数","平均数反映整体水平","读复式条形图的图例"], tip:"平均数不一定是数据中真实存在的数。" }
+  ],
+  formulas: [
+    { title:"四则运算", expr:"先乘除后加减，有括号先算括号", explain:"同级运算从左到右。", example:"36÷6+4×2=14" },
+    { title:"加法交换律", expr:"a + b = b + a", explain:"交换加数位置，和不变。", example:"28+72=72+28" },
+    { title:"加法结合律", expr:"(a+b)+c=a+(b+c)", explain:"改变加法分组，和不变。", example:"(25+75)+38=100+38" },
+    { title:"乘法交换律", expr:"a × b = b × a", explain:"交换因数位置，积不变。", example:"25×4=4×25" },
+    { title:"乘法结合律", expr:"(a×b)×c=a×(b×c)", explain:"改变乘法分组，积不变。", example:"25×4×8=(25×4)×8" },
+    { title:"乘法分配律", expr:"(a+b)×c=a×c+b×c", explain:"括号里的每个数都要和外面的数相乘。", example:"(20+4)×25=500+100" },
+    { title:"小数性质", expr:"小数末尾添上或去掉0，大小不变", explain:"改变的是写法，不是大小。", example:"3.20=3.2" },
+    { title:"小数点移动", expr:"向右移动一位，原数×10", explain:"向左移动一位，原数÷10。", example:"3.5×10=35" },
+    { title:"三角形内角和", expr:"∠A+∠B+∠C=180°", explain:"知道两个角，可以求第三个角。", example:"90°+45°+45°=180°" },
+    { title:"三边关系", expr:"任意两边之和 > 第三边", explain:"判断三条线段能否围成三角形。", example:"3+4>5" },
+    { title:"平均数", expr:"平均数=总数÷份数", explain:"也可以由平均数和份数求总数。", example:"(80+90+100)÷3=90" }
+  ],
+  applications: [
+    { kind:"运算律模型", title:"简便计算", clues:["简算","凑整","合理"], steps:["观察数字特点","选择运算律","写出每一步依据"], example:{ question:"25×32×125，怎样简便计算？", work:"25×32×125=(25×4)×(8×125)=100×1000=100000", answer:"100000" }, tip:"寻找能凑成整十、整百、整千的数。" },
+    { kind:"小数模型", title:"小数点移动", clues:["扩大到","缩小到","换算"], steps:["确定移动方向","确定移动位数","补0或点小数点"], example:{ question:"3.6扩大到原来的10倍是多少？", work:"3.6×10=36", answer:"36" }, tip:"整数末尾也是小数点所在的位置。" },
+    { kind:"三角形模型", title:"求内角", clues:["已知两个角","求第三个角"], steps:["利用内角和180°","减去已知角","检查结果"], example:{ question:"三角形两个角是65°和45°，第三个角是多少度？", work:"180°−65°−45°=70°", answer:"70°" }, tip:"任意三角形内角和都是180°。" },
+    { kind:"三角形模型", title:"判断能否围成三角形", clues:["三条边","围成"], steps:["找两条短边","相加","与最长边比较"], example:{ question:"长度3cm、4cm、8cm的三根小棒能围成三角形吗？", work:"3+4=7<8，不能围成", answer:"不能" }, tip:"只要两条短边之和不大于最长边，就不能围成。" },
+    { kind:"平均数模型", title:"求平均数", clues:["平均","每人","整体水平"], steps:["求总数","数清份数","总数÷份数"], example:{ question:"三名同学分别得80分、90分、100分，平均分是多少？", work:"(80+90+100)÷3=90（分）", answer:"90分" }, tip:"平均数不一定是原来的数据之一。" },
+    { kind:"统计模型", title:"复式条形图比较", clues:["两组数据","相差"], steps:["读图例","读数据","比较或计算"], example:{ question:"男生20人、女生18人，男生比女生多几人？", work:"20−18=2（人）", answer:"2人" }, tip:"先分清哪根条形表示哪一组。" }
+  ],
+  quiz: [
+    { question:"下面哪个运用了乘法分配律？", options:["a×b=b×a","(a+b)×c=a×c+b×c","a+(b+c)=(a+b)+c"], answer:1, explain:"分配律是把括号里的每个数分别相乘。" },
+    { question:"三角形内角和是？", options:["90°","180°","360°"], answer:1, explain:"任意三角形内角和都是180°。" },
+    { question:"3、4、8三条边能围成三角形吗？", options:["能","不能","不一定"], answer:1, explain:"3+4=7<8，不能围成。" }
+  ]
+}
+);
+
+</script>
+  <script data-inlined-source="math/assets/data/g5.js">
+window.MATH_DATA = window.MATH_DATA || { books: [] };
+window.MATH_DATA.books.push(
+{
+  id: "g5-up", grade: 5, term: "上册", edition: "2026年秋版", editionNote: "五年级上册新教材",
+  theme: "小数、图形与字母",
+  intro: "学习小数乘除法、图形运动、用字母表示数和多边形面积，用数学语言表达数量关系。",
+  units: [
+    { no:"01", title:"观察简单组合体", tag:"图形与几何", brief:"从不同方向观察由小正方体组成的立体图形。", learn:["从前面、上面、左面观察","根据视图想象","用同样的小正方体搭一搭"], tip:"同一组物体，从不同方向看到的形状可能不同。" },
+    { no:"02", title:"小数乘法和除法", tag:"数与运算", brief:"掌握小数乘除法的计算和实际应用。", learn:["先按整数乘除","看小数位数点小数点","除数变成整数"], tip:"商的小数点要和被除数移动后的小数点对齐。" },
+    { no:"03", title:"图形的运动", tag:"图形与几何", brief:"进一步认识轴对称和平移，学习旋转。", learn:["轴对称","平移方向和距离","旋转中心、方向和角度"], tip:"描述运动时，三个要素要说完整。" },
+    { no:"04", title:"用字母表示数", tag:"代数思维", brief:"用字母表示数量关系，初步体会代数思想。", learn:["字母表示数","省略乘号","含字母的式子表示数量"], tip:"数字和字母相乘时，数字通常写在前面。" },
+    { no:"05", title:"多边形的面积", tag:"图形与测量", brief:"推导平行四边形、三角形、梯形的面积公式。", learn:["转化思想","面积公式","底和高的对应关系"], tip:"高必须和对应的底互相垂直。" },
+    { no:"06", title:"可能性", tag:"统计与概率", brief:"感受事件发生的可能性大小，能用分数表示简单可能性。", learn:["一定、可能、不可能","可能性大小","用分数表示可能性"], tip:"每个球被摸到的机会相同时，某种颜色的球越多，摸到它的可能性越大；可能性大不等于一定。" }
+  ],
+  formulas: [
+    { title:"小数乘法", expr:"先按整数乘法算，再点小数点", explain:"未化简的积中，小数位数等于两个因数小数位数之和；结果末尾的0可以去掉。", example:"1.2×0.3=0.36" },
+    { title:"小数除法", expr:"先把除数变成整数", explain:"被除数和除数同时扩大相同倍数，商不变。", example:"0.36÷0.3=3.6÷3=1.2" },
+    { title:"字母表示", expr:"a×b = ab", explain:"字母与字母相乘可省略乘号。", example:"3×a=3a" },
+    { title:"平行四边形面积", expr:"S = a × h", explain:"底乘对应的高。", example:"底6cm、高4cm，面积24cm²" },
+    { title:"三角形面积", expr:"S = a × h ÷ 2", explain:"底乘高再除以2。", example:"底8cm、高5cm，面积20cm²" },
+    { title:"梯形面积", expr:"S = (a + b) × h ÷ 2", explain:"上底加下底，乘高，再除以2。", example:"上底3cm、下底7cm、高4cm，面积20cm²" },
+    { title:"面积换算", expr:"1公顷=10000平方米，1平方千米=100公顷", explain:"大面积单位按进率换算。", example:"2公顷=20000平方米" },
+    { title:"可能性", expr:"可能性大小与数量多少有关", explain:"可以用分数表示部分占整体的比例。", example:"3红2蓝，摸到红球的可能性是3/5" }
+  ],
+  applications: [
+    { kind:"小数模型", title:"小数乘法", clues:["每千克","买多少","一共"], steps:["转化为整数乘法","数小数位数","点小数点"], example:{ question:"每千克苹果8.5元，买2.4千克多少钱？", work:"8.5×2.4=20.4（元）", answer:"20.4元" }, tip:"两个因数共有2位小数，积也要有2位小数。" },
+    { kind:"小数模型", title:"小数除法", clues:["平均分","每段","每份"], steps:["把除数变成整数","按整数除法算","商的小数点对齐"], example:{ question:"12.6米长的绳子平均分成3段，每段多长？", work:"12.6÷3=4.2（米）", answer:"4.2米" }, tip:"商的小数点要和被除数的小数点对齐。" },
+    { kind:"代数模型", title:"用字母表示数量关系", clues:["用式子表示","a","b"], steps:["找数量关系","用字母代替未知数","写出式子"], example:{ question:"每支笔a元，买5支需要多少钱？", work:"5a元", answer:"5a元" }, tip:"字母式后面要写清单位。" },
+    { kind:"面积模型", title:"求多边形面积", clues:["面积","底","高"], steps:["判断图形","选择公式","找对应底和高"], example:{ question:"一个平行四边形底12cm、高5cm，面积是多少？", work:"12×5=60（平方厘米）", answer:"60平方厘米" }, tip:"高不对应时，不能直接代入底×高。" },
+    { kind:"面积模型", title:"已知面积求高或底", clues:["已知面积","求高","求底"], steps:["三角形面积×2","再除以底或高","检查单位"], example:{ question:"三角形面积是24平方厘米，底8厘米，高多少？", work:"24×2÷8=6（厘米）", answer:"6厘米" }, tip:"三角形已知面积求高，要先乘2再除以底。" },
+    { kind:"可能性模型", title:"可能性大小", clues:["可能性大","可能性小","一定"], steps:["数出各部分数量","比较数量","选择更可能的"], example:{ question:"袋里有3个红球、2个蓝球，任意摸一个，哪种球更可能？", work:"红球3个，蓝球2个，3>2", answer:"红球更可能" }, tip:"可能不等于一定。" }
+  ],
+  quiz: [
+    { question:"1.2×0.3 = ？", options:["0.36","3.6","0.036"], answer:0, explain:"12×3=36，两个因数共有2位小数，所以是0.36。" },
+    { question:"三角形面积公式是？", options:["底×高","底×高÷2","(上底+下底)×高÷2"], answer:1, explain:"两个相同三角形可以拼成平行四边形。" },
+    { question:"袋中红球3个、蓝球2个，摸到哪种球的可能性大？", options:["红球","蓝球","一样大"], answer:0, explain:"红球数量更多，可能性更大。" }
+  ]
+},
+{
+  id: "g5-down", grade: 5, term: "下册", edition: "现行版", editionNote: "新版启用前，按现行教材范围整理",
+  theme: "分数、体积与数据",
+  intro: "学习因数与倍数、长方体和正方体、分数的意义和性质、分数加减法以及折线统计图。",
+  units: [
+    { no:"01", title:"因数与倍数", tag:"数与运算", brief:"理解因数、倍数、质数、合数，掌握2、3、5的倍数特征。", learn:["因数与倍数相互依存","2、3、5的倍数特征","质数与合数"], tip:"1既不是质数也不是合数。" },
+    { no:"02", title:"长方体和正方体", tag:"图形与测量", brief:"认识长方体、正方体的表面积和体积，理解容积。", learn:["面、棱、顶点","表面积","体积和容积"], tip:"求无盖水箱表面积时，要少算一个面。" },
+    { no:"03", title:"分数的意义和性质", tag:"数与运算", brief:"理解分数的意义、分数与除法关系、约分与通分。", learn:["分数单位","分数基本性质","约分和通分"], tip:"约分到分子分母只有公因数1为止。" },
+    { no:"04", title:"图形的运动", tag:"图形与几何", brief:"进一步学习旋转和图形运动。", learn:["旋转中心","旋转方向和角度","图形形状大小不变"], tip:"旋转中心的位置会改变图形运动后的位置。" },
+    { no:"05", title:"分数加减法", tag:"数与运算", brief:"计算同分母和异分母分数加减，解决实际问题。", learn:["同分母加减","异分母先通分","结果约分"], tip:"分数单位不同时，不能直接加分子。" },
+    { no:"06", title:"折线统计图", tag:"统计", brief:"认识单式和复式折线统计图，分析变化趋势。", learn:["折线图反映变化","读图例","比较变化快慢"], tip:"折线的陡缓要结合纵轴每格代表多少来判断。" }
+  ],
+  formulas: [
+    { title:"因数与倍数", expr:"a×b=c，a和b是c的因数", explain:"c是a和b的倍数，因数和倍数相互依存。", example:"3×4=12" },
+    { title:"2、5、3的倍数", expr:"2、5看个位，3看各位数字和", explain:"能被3整除的数，各位数字和是3的倍数。", example:"123的数字和是6" },
+    { title:"质数合数", expr:"质数只有2个因数，合数至少有3个因数", explain:"1既不是质数也不是合数。", example:"7是质数，9是合数" },
+    { title:"长方体表面积", expr:"S=2(ab+ah+bh)", explain:"六个面的面积和。", example:"长5、宽4、高3，S=94" },
+    { title:"正方体表面积", expr:"S=6a²", explain:"正方体六个面面积相等。", example:"棱长3，S=54" },
+    { title:"长方体体积", expr:"V=abh", explain:"长×宽×高。", example:"5×4×3=60" },
+    { title:"正方体体积", expr:"V=a³", explain:"棱长×棱长×棱长。", example:"3×3×3=27" },
+    { title:"体积与容积", expr:"1L=1dm³=1000mL", explain:"容积单位常与体积单位互换。", example:"2L=2000mL" },
+    { title:"分数与除法", expr:"a÷b=a/b（b≠0）", explain:"除法中的商可以用分数表示。", example:"3÷4=3/4" },
+    { title:"分数基本性质", expr:"a/b=(a×c)/(b×c)（c≠0）", explain:"分子分母同乘或同除以相同的非零数，大小不变。", example:"2/3=4/6" },
+    { title:"分数加减", expr:"同分母分母不变；异分母先通分", explain:"结果要约成最简分数。", example:"1/2+1/3=5/6" }
+  ],
+  applications: [
+    { kind:"因数模型", title:"分组、排队、装盒", clues:["正好分完","每组一样多"], steps:["找因数或公因数","判断能否整除","计算组数"], example:{ question:"把24人平均分成若干组，每组6人，可以分成几组？", work:"24÷6=4（组）", answer:"4组" }, tip:"能整除说明没有余数。" },
+    { kind:"体积模型", title:"求体积", clues:["体积","占空间","能装"], steps:["找长宽高","统一单位","V=abh"], example:{ question:"长5分米、宽4分米、高3分米的长方体，体积是多少？", work:"5×4×3=60（立方分米）", answer:"60立方分米" }, tip:"体积单位要带“立方”。" },
+    { kind:"表面积模型", title:"求表面积", clues:["无盖","四周","刷漆"], steps:["判断要算几个面","选面积公式","相加"], example:{ question:"无盖长方体水箱长5分米、宽4分米、高3分米，需要多少平方分米材料？", work:"底面积5×4=20；四周2×(5×3+4×3)=54；合计74（平方分米）", answer:"74平方分米" }, tip:"“无盖”要少算上面的面。" },
+    { kind:"分数模型", title:"分数与除法", clues:["平均分","占总数的几分之几"], steps:["确定整体和部分","部分÷整体","化简"], example:{ question:"4米长的绳子平均分成5段，每段是全长的几分之几？", work:"1÷5=1/5", answer:"1/5" }, tip:"每段占全长的1/5，具体长度是4/5米。" },
+    { kind:"分数模型", title:"异分母加减", clues:["一共","还剩","比……多"], steps:["通分","分子加减","约分"], example:{ question:"1/2+1/3等于多少？", work:"1/2=3/6，1/3=2/6，3/6+2/6=5/6", answer:"5/6" }, tip:"分数单位不同时不能直接加分子。" },
+    { kind:"统计模型", title:"折线统计图变化", clues:["上升","下降","变化最快"], steps:["读横纵轴","比较相邻数据差","判断趋势"], example:{ question:"周一10人，周二15人，变化是多少？", work:"15−10=5（人）", answer:"增加5人" }, tip:"折线陡不陡，要看纵轴每格代表多少。" }
+  ],
+  quiz: [
+    { question:"下面哪个数是质数？", options:["9","11","15"], answer:1, explain:"11只有1和11两个因数。" },
+    { question:"棱长3cm的正方体体积是？", options:["9cm³","27cm³","54cm³"], answer:1, explain:"3×3×3=27cm³。" },
+    { question:"1/2+1/3 = ？", options:["2/5","5/6","2/6"], answer:1, explain:"通分后3/6+2/6=5/6。" }
+  ]
+}
+);
+
+</script>
+  <script data-inlined-source="math/assets/data/g6.js">
+window.MATH_DATA = window.MATH_DATA || { books: [] };
+window.MATH_DATA.books.push(
+{
+  id: "g6-up", grade: 6, term: "上册", edition: "2026年秋版", editionNote: "六年级上册新教材",
+  theme: "分数、圆与百分数",
+  intro: "学习分数乘除法、圆、百分数和位置方向，进一步理解数量之间的倍数和占比关系。",
+  units: [
+    { no:"01", title:"确定位置", tag:"图形与几何", brief:"用方向和距离描述位置，在平面图上确定物体位置。", learn:["先找正方向","量偏离角度","量距离"], tip:"方向、角度、距离三个条件缺一不可。" },
+    { no:"02", title:"分数乘法", tag:"数与运算", brief:"理解分数乘法意义，掌握分数乘分数、乘整数。", learn:["分数乘整数","分数乘分数","先约分再计算"], tip:"分数乘法结果要化成最简分数。" },
+    { no:"03", title:"分数除法", tag:"数与运算", brief:"理解倒数，掌握分数除法计算。", learn:["认识倒数","除以一个数等于乘它的倒数","先转成乘法再约分"], tip:"0没有倒数，1的倒数是1。" },
+    { no:"04", title:"生活中的负数", tag:"数与运算", brief:"认识负数，理解正负数表示相反意义的量。", learn:["0既不是正数也不是负数","负数在0的左边","用正负数记录现象"], tip:"说负数时要结合具体情境。" },
+    { no:"05", title:"圆", tag:"图形与测量", brief:"认识圆心、半径、直径，计算圆的周长和面积。", learn:["d=2r","圆周率π","圆的周长和面积公式"], tip:"半径决定圆的大小，圆心决定圆的位置。" },
+    { no:"06", title:"百分数", tag:"数与运算", brief:"理解百分数的意义，进行百分数与小数、分数互化。", learn:["百分数的意义","互化方法","求百分率"], tip:"百分数只表示倍比关系，不能表示具体数量。" }
+  ],
+  formulas: [
+    { title:"方向与距离", expr:"观测点 + 方向与角度 + 距离 = 位置", explain:"先说从哪里看，再说朝哪个方向偏多少度，最后说走多远。", example:"图书馆在学校北偏东30°方向400米处" },
+    { title:"分数乘整数", expr:"a/b × c = (a×c)/b", explain:"分子与整数相乘，分母不变。", example:"2/5×3=6/5" },
+    { title:"分数乘分数", expr:"a/b × c/d = (a×c)/(b×d)", explain:"先约分再相乘更简便。", example:"2/3×3/4=1/2" },
+    { title:"倒数", expr:"a × 1/a = 1（a≠0）", explain:"求一个分数的倒数，交换分子分母。", example:"5/8的倒数是8/5" },
+    { title:"分数除法", expr:"a/b ÷ c/d = a/b × d/c", explain:"除以一个数，等于乘它的倒数。", example:"2/3÷4/5=2/3×5/4=5/6" },
+    { title:"圆的基本关系", expr:"d=2r，C=πd=2πr", explain:"直径是半径的2倍。", example:"r=3，C=6π" },
+    { title:"圆面积", expr:"S=πr²", explain:"面积单位是平方单位。", example:"r=2cm，S=4πcm²" },
+    { title:"百分率", expr:"百分数=部分÷整体×100%", explain:"百分数表示倍比关系。", example:"30÷120=25%" },
+    { title:"正负数", expr:"正数>0，负数<0", explain:"0既不是正数也不是负数。", example:"+5和−5表示相反方向" }
+  ],
+  applications: [
+    { kind:"位置模型", title:"用方向和距离确定位置", clues:["北偏东","南偏西","距离"], steps:["确定观测点","量方向角度","量距离"], example:{ question:"图书馆在学校北偏东30°方向400米处，怎样描述？", work:"从学校出发，向北偏东30°走400米到图书馆", answer:"北偏东30°，400米" }, tip:"方向和角度顺序不要颠倒。" },
+    { kind:"分数乘法", title:"求一个数的几分之几", clues:["其中","的几分之几"], steps:["找单位“1”","单位“1”×分率","检查结果"], example:{ question:"一箱苹果有24个，吃了其中的3/8，吃了多少个？", work:"24×3/8=9（个）", answer:"9个" }, tip:"求一个数的几分之几，用乘法。" },
+    { kind:"分数除法", title:"已知部分求整体", clues:["是整体的几分之几"], steps:["找对应关系","部分÷对应分率","得到整体"], example:{ question:"一本书看了40页，正好是全书的2/5，全书多少页？", work:"40÷2/5=40×5/2=100（页）", answer:"100页" }, tip:"已知部分和它占整体的分率，求整体用除法。" },
+    { kind:"圆模型", title:"周长和面积", clues:["围一圈","铺满","半径","直径"], steps:["先找半径","选周长或面积公式","带单位"], example:{ question:"半径3米的圆，周长和面积各是多少？", work:"C=2×3×π=6π米；S=3×3×π=9π平方米", answer:"6π米，9π平方米" }, tip:"周长用长度单位，面积用平方单位。" },
+    { kind:"百分数模型", title:"求百分率", clues:["占百分之几","合格率","出勤率"], steps:["部分÷整体","乘100%","写百分号"], example:{ question:"全班50人，出勤48人，出勤率是多少？", work:"48÷50×100%=96%", answer:"96%" }, tip:"百分率的结果要带%。" },
+    { kind:"百分数模型", title:"求一个数的百分之几", clues:["原价的百分之几","现价"], steps:["找单位“1”","乘百分数","根据增减调整"], example:{ question:"原价200元，现价是原价的80%，现价多少元？", work:"200×80%=160（元）", answer:"160元" }, tip:"增加百分之几和减少百分之几，要找对单位“1”。" }
+  ],
+  quiz: [
+    { question:"圆的直径是6cm，半径是多少？", options:["3cm","6cm","12cm"], answer:0, explain:"d=2r，所以r=3cm。" },
+    { question:"2/3÷4/5 = ？", options:["8/15","5/6","10/12"], answer:1, explain:"除以4/5等于乘5/4，约分得5/6。" },
+    { question:"48÷50×100% = ？", options:["96%","48%","104%"], answer:0, explain:"48÷50=0.96=96%。" }
+  ]
+},
+{
+  id: "g6-down", grade: 6, term: "下册", edition: "现行版", editionNote: "新版启用前，按现行教材范围整理",
+  theme: "圆柱、比例与小学总复习",
+  intro: "学习百分数应用、圆柱圆锥、比例和比例尺，最后把小学六年的知识串成一张网。",
+  units: [
+    { no:"01", title:"负数和百分数应用", tag:"数与运算", brief:"复习负数，学习折扣、成数、税率和利率。", learn:["折扣","成数","税率和利率"], tip:"先找单位“1”，再判断求部分、整体还是百分率。" },
+    { no:"02", title:"圆柱和圆锥", tag:"图形与测量", brief:"认识圆柱、圆锥，计算表面积和体积。", learn:["圆柱的侧面展开图","圆柱体积","圆锥体积"], tip:"圆锥体积公式中的1/3不要漏掉。" },
+    { no:"03", title:"比例", tag:"数与运算", brief:"理解比例、比例的基本性质，解比例。", learn:["比例的意义","内项积等于外项积","解比例"], tip:"比是两个数的关系，比例是两个比相等。" },
+    { no:"04", title:"比例尺", tag:"数量关系", brief:"理解比例尺，进行图上距离与实际距离换算。", learn:["比例尺的意义","求图上距离","求实际距离"], tip:"计算前先统一单位，比例尺本身没有单位。" },
+    { no:"05", title:"数学广角：鸽巢问题", tag:"数学思考", brief:"理解“至少有一个抽屉放两个物体”的简单原理。", learn:["找物体和抽屉","平均分","用至少表述"], tip:"关键是把题目中的“抽屉”和“物体”找清楚。" },
+    { no:"06", title:"小学总复习", tag:"综合复习", brief:"把数的认识、运算、图形、统计、比例等知识系统整理。", learn:["数与运算","图形与几何","统计与综合实践"], tip:"复习不是重复做题，要把知识连成线、织成网。" }
+  ],
+  formulas: [
+    { title:"折扣", expr:"现价=原价×折扣", explain:"几折就是原价的百分之几十。", example:"八折=80%" },
+    { title:"成数", expr:"几成=十分之几=百分之几十", explain:"二成五就是25%。", example:"三成=30%" },
+    { title:"税率", expr:"应纳税额=收入×税率", explain:"税率是应纳税额占收入的比例。", example:"收入5000元，税率3%，税150元" },
+    { title:"利息", expr:"利息=本金×利率×存期", explain:"本息和=本金+利息。", example:"1000×2%×3=60元" },
+    { title:"圆柱侧面积", expr:"S侧=C×h=2πrh", explain:"侧面展开图的长是底面周长。", example:"r=2，h=5，S侧=20π" },
+    { title:"圆柱表面积", expr:"S表=2πr²+2πrh", explain:"两个底面积加侧面积。", example:"r=2，h=5，S表=28π" },
+    { title:"圆柱体积", expr:"V=πr²h", explain:"底面积×高。", example:"r=2，h=5，V=20π" },
+    { title:"圆锥体积", expr:"V=1/3πr²h", explain:"与等底等高圆柱体积的比是1∶3。", example:"r=3，h=4，V=12π" },
+    { title:"比例基本性质", expr:"a∶b=c∶d ⇒ ad=bc", explain:"内项积等于外项积。", example:"2∶3=4∶6 ⇒ 2×6=3×4" },
+    { title:"正比例反比例", expr:"正比例y/x=k；反比例xy=k", explain:"比值一定成正比例，乘积一定成反比例。", example:"速度一定，路程和时间成正比例" },
+    { title:"比例尺", expr:"比例尺=图上距离÷实际距离", explain:"计算时图上和实际单位要统一。", example:"1∶100000表示图上1cm代表实际1km" }
+  ],
+  applications: [
+    { kind:"百分数模型", title:"折扣问题", clues:["打折","原价","现价"], steps:["判断单位“1”","原价×折扣=现价","写单位"], example:{ question:"一件衣服原价300元，打八折，现价多少元？", work:"300×80%=240（元）", answer:"240元" }, tip:"打八折不是减8元，而是按原价的80%出售。" },
+    { kind:"百分数模型", title:"利息问题", clues:["本金","利率","存期"], steps:["利息=本金×利率×存期","求本息和加本金","写单位"], example:{ question:"存入1000元，年利率2%，存3年，利息多少？", work:"1000×2%×3=60（元）", answer:"60元" }, tip:"年利率对应按年计算，存期要用年。" },
+    { kind:"圆柱模型", title:"圆柱表面积", clues:["做水桶","油漆","用料"], steps:["求几个面","侧面积+底面积","检查是否遗漏"], example:{ question:"一个无盖圆柱水桶，半径2分米，高5分米，需要多少材料？", work:"侧面积=2π×2×5=20π；底面积=4π；合计24π平方分米", answer:"24π平方分米" }, tip:"无盖水桶只需一个底面。" },
+    { kind:"圆柱模型", title:"圆柱和圆锥体积", clues:["等底等高","圆锥","圆柱"], steps:["求底面积","圆柱体积=底面积×高","圆锥再乘1/3"], example:{ question:"圆柱和圆锥等底等高，圆锥体积是圆柱的几分之几？", work:"V锥=1/3V柱", answer:"1/3" }, tip:"等底等高是使用1/3关系的前提。" },
+    { kind:"比例模型", title:"正比例和反比例", clues:["比值一定","乘积一定"], steps:["列两个量的关系式","判断比值或乘积是否一定","选择模型"], example:{ question:"路程一定时，速度和时间成什么比例？", work:"速度×时间=路程（一定），成反比例", answer:"成反比例" }, tip:"先找不变量，再看两个变量之间的关系。" },
+    { kind:"比例尺模型", title:"图上距离和实际距离", clues:["比例尺","地图","平面图"], steps:["统一单位","按比例尺换算","写实际单位"], example:{ question:"比例尺1∶1000，图上3cm表示实际多少米？", work:"3×1000=3000cm=30m", answer:"30m" }, tip:"图上距离和实际距离的单位要统一。" },
+    { kind:"鸽巢模型", title:"至少有几个", clues:["至少","抽屉","保证"], steps:["找物体数和抽屉数","用平均分想","用至少表述"], example:{ question:"5个人分到4个班，至少几人同班？", work:"5÷4=1……1，1+1=2（人）", answer:"至少2人" }, tip:"“至少”表示无论怎样分，都一定成立。" }
+  ],
+  quiz: [
+    { question:"原价200元，打九折，现价是多少？", options:["180元","190元","20元"], answer:0, explain:"九折就是原价的90%，200×90%=180元。" },
+    { question:"等底等高的圆锥体积是圆柱的？", options:["1/2","1/3","1/4"], answer:1, explain:"圆锥体积=1/3×底面积×高。" },
+    { question:"速度一定，路程和时间成什么比例？", options:["正比例","反比例","不成比例"], answer:0, explain:"路程÷时间=速度（一定），成正比例。" }
+  ]
+}
+);
+
+</script>
+  <script data-inlined-source="math/assets/lab.js">
+(function () {
+  "use strict";
+  const escape = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+  const catalog = [
+    {id:"g1-up",kind:"addition",title:"苹果去野餐",topic:"加法 · 整体与部分",story:"篮子里有3个苹果，又来了几个？先猜一猜，合在一起会有多少个。",label:"又来了",unit:"个",min:1,max:7,value:4,action:"把苹果合起来",after:"分回两只篮子",answer:n=>n+3,question:"合起来一共有多少个苹果？",formula:n=>`3 + ${n} = ${n+3}`,rule:"加法，就是把两个部分合成一个整体。",explain:n=>`原来3个，又来了${n}个。合起来是${n+3}个。改变一部分，整体也会跟着变。`},
+    {id:"g1-down",kind:"subtract",title:"十个一捆，减法不难",topic:"退位减法 · 破十法",story:"13根小棒，拿走一些。先从一捆10根里拿，再加上旁边的3根。",label:"拿走",unit:"根",min:6,max:9,value:8,action:"从10根里拿走",after:"把小棒放回来",answer:n=>13-n,question:"13根拿走这些，还剩多少根？",formula:n=>`13 − ${n} = (10 − ${n}) + 3 = ${13-n}`,rule:"把13分成10和3，先用10减，再加上3。",explain:n=>`先算10−${n}=${10-n}，再把剩下的${10-n}根和旁边3根合起来，共${13-n}根。`},
+    {id:"g2-up",kind:"multiply",title:"小熊的点心盘",topic:"乘法 · 几个几",story:"每盘放3块点心。盘数变了，总数怎样变化？每盘同样多，才能这样乘。",label:"盘数",unit:"盘",min:1,max:6,value:4,action:"排成小方阵",after:"放回点心盘",answer:n=>3*n,question:"这些点心一共有多少块？",formula:n=>`每盘3块 × ${n}盘 = ${3*n}块`,rule:"几个相同加数的和，可以用乘法计算。",explain:n=>`${n}个3相加，写作3×${n}=${3*n}。每多一盘，就多3块。`},
+    {id:"g2-down",kind:"divide",title:"17颗糖，怎么分？",topic:"有余数的除法",story:"把17颗糖按每袋一样多装起来。装不满一袋的糖，就是余数。",label:"每袋",unit:"颗",min:2,max:6,value:4,action:"装进小袋子",after:"倒回大盘子",answer:n=>17%n,question:"装完这些袋子后，还剩多少颗？",formula:n=>`17 ÷ ${n} = ${Math.floor(17/n)}（袋）…… ${17%n}（颗）`,rule:"余数一定比除数小，否则还能再装一袋。",explain:n=>`每袋${n}颗，能装满${Math.floor(17/n)}袋，剩${17%n}颗。检查：${Math.floor(17/n)}×${n}+${17%n}=17。`},
+    {id:"g3-up",kind:"fraction",title:"巧克力分一分",topic:"分数 · 平均分",story:"同一块巧克力平均分成6份。拿走几份，就表示这块巧克力的六分之几。",label:"拿取",unit:"份",min:1,max:6,value:2,action:"拿出选中的几份",after:"放回整块巧克力",answer:n=>n,question:"这个分数的分子应该是多少？",formula:n=>`平均6份，取${n}份 → ${n}/6`,rule:"分母说平均分成几份，分子说取了几份。",explain:n=>`每一份都是整块的1/6。取${n}份就是${n}/6。注意：每份必须同样大。`},
+    {id:"g3-down",kind:"area",title:"小花园，围还是铺？",topic:"长方形 · 周长与面积",story:"长固定4厘米。围栅栏看外面一圈，铺草坪看里面的方格。两者单位也不同。",label:"宽",unit:"厘米",min:1,max:6,value:3,action:"沿边走一圈",after:"看看里面的方格",answer:n=>4*n,question:"每个方格1平方厘米，草坪面积是多少？",formula:n=>`周长 (4 + ${n}) × 2 = ${2*(4+n)}厘米\n面积 4 × ${n} = ${4*n}平方厘米`,rule:"周长是一圈的长度，面积是面的大小。",explain:n=>`里面有4列、${n}行，共${4*n}格。边界是两条长、两条宽，共${2*(4+n)}厘米。`},
+    {id:"g4-up",kind:"price",title:"文具店小掌柜",topic:"单价 · 数量 · 总价",story:"每本笔记本8元。单价不变，增加一本，就增加一份8元。",label:"购买",unit:"本",min:1,max:10,value:4,action:"算一算总价",after:"回到购物清单",answer:n=>8*n,question:"这些笔记本总共要付多少元？",formula:n=>`8元/本 × ${n}本 = ${8*n}元`,rule:"单价乘数量得到总价，单位也要对应。",explain:n=>`${n}本，每本8元，共${8*n}元。总价÷数量，又能算回单价8元/本。`},
+    {id:"g4-down",kind:"average",title:"果汁怎样分才公平？",topic:"平均数 · 移多补少",story:"三杯果汁高低不同。保持总量不变，把多的倒给少的，最后每杯一样多。",label:"第三杯",unit:"份",min:1,max:4,value:2,display:n=>`${n*3}份`,action:"移多补少，分一样多",after:"看看原来的三杯",answer:n=>n+2,question:"平均以后，每杯应该有多少份？",formula:n=>`(2 + 4 + ${3*n}) ÷ 3 = ${n+2}份`,rule:"平均数=总数÷份数。分配前后，总量不变。",explain:n=>`总共${6+3*n}份，平均分给3杯，每杯${n+2}份；检查3×${n+2}=${6+3*n}。`},
+    {id:"g5-up",kind:"triangle",title:"两个三角形的秘密",topic:"三角形面积 · 转化",story:"用两个完全一样的直角三角形拼成长方形。一个三角形，只占这个长方形的一半。",label:"高",unit:"厘米",min:2,max:8,value:5,action:"再拼上一个相同三角形",after:"只看原来的一个",answer:n=>4*n,question:"原来一个三角形的面积是多少平方厘米？",formula:n=>`8 × ${n} ÷ 2 = ${4*n}平方厘米`,rule:"底×高是拼成的长方形面积，所以三角形还要除以2。",explain:n=>`拼成的长方形面积是8×${n}=${8*n}平方厘米，一个三角形是它的一半：${4*n}平方厘米。`},
+    {id:"g5-down",kind:"volume",title:"小方块盖房子",topic:"长方体体积 · 单位立方体",story:"每个小方块都是1立方厘米。每层3排、每排2个，叠起来看看一共有多少个。",label:"高度",unit:"层",min:1,max:5,value:3,action:"突出最上面一层",after:"看看完整长方体",answer:n=>6*n,question:"这些小方块的总体积是多少立方厘米？",formula:n=>`3 × 2 × ${n} = ${6*n}立方厘米`,rule:"一层的个数×层数，就是长×宽×高。",explain:n=>`每层3×2=6个，${n}层一共6×${n}=${6*n}个。每个1立方厘米，所以体积${6*n}立方厘米。`},
+    {id:"g6-up",kind:"circle",title:"圆，剪一剪就懂了",topic:"圆的面积 · 转化",story:"把圆分成许多相同的扇形，交错拼一拼。分得越细，越接近一个长方形。",label:"半径",unit:"厘米",min:1,max:5,value:3,action:"把扇形交错拼起来",after:"重新拼成一个圆",answer:n=>n*n,question:"面积是“几π”平方厘米？",formula:n=>`S = π × ${n}² = ${n*n}π平方厘米`,rule:"近似长方形的长是圆周长的一半πr，宽是r，所以S=πr²。",explain:n=>`半径${n}厘米，πr×r=π×${n}×${n}=${n*n}π平方厘米。图中只分16份，所以边缘仍是弧线。`},
+    {id:"g6-down",kind:"discount",title:"折扣不是减几元",topic:"百分数应用 · 折扣",story:"原价200元，平均分成10份，每份20元。几折就是付其中的几份。",label:"折扣",unit:"折",min:1,max:10,value:8,action:"把原价分成10份",after:"看看价格标签",answer:n=>20*n,question:"这个折扣下，应该付多少元？",formula:n=>`200 × ${10*n}% = ${20*n}元`,rule:"几折就是原价的百分之几十，不是减去几元。",explain:n=>`${n}折=原价的${n*10}%。付${n}份，每份20元，共${20*n}元，便宜${200-20*n}元。`}
+  ];
+  const memory = new Map();
+  let timer = null, controller = null, mounted = null, current = null, state = null;
+  const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tokens = (count, fn) => Array.from({length:count}, (_,i) => fn(i)).join("");
+  const text = (x,y,value,cls="") => `<text x="${x}" y="${y}" class="${cls}" text-anchor="middle">${escape(value)}</text>`;
+  const dot = (x,y,id,color="mint",size=10) => `<g data-key="${id}"><circle cx="${x}" cy="${y}" r="${size}" class="ml-dot ${color}"/><circle cx="${x-3}" cy="${y-3}" r="2.4" fill="white" opacity=".55"/>${id.startsWith('apple')?`<path d="M${x} ${y-size+1}q-2-9 8-7q0 7-8 7" fill="#579b77"/>`:''}</g>`;
+  const svg = (body,label) => `<svg class="ml-svg" viewBox="0 0 320 240" role="img" aria-label="${escape(label)}">${body}</svg>`;
+  function scene(lesson,n,action) {
+    const kind=lesson.kind;
+    if(kind==="addition") {
+      const total=n+3;
+      const bowls=action?'<rect x="24" y="55" width="272" height="137" rx="28" class="ml-tray"/>':'<rect x="16" y="55" width="128" height="137" rx="24" class="ml-tray"/><rect x="176" y="55" width="128" height="137" rx="24" class="ml-tray orange"/>';
+      const dots=tokens(total,i=>{const orange=i>=3, pos=action?i:(orange?i-3:i), x=action?50+(pos%5)*55:(orange?199:43)+(pos%3)*36, y=action?100+Math.floor(pos/5)*48:90+Math.floor(pos/3)*40;return dot(x,y,`apple${i}`,orange?"orange":"mint",12)});
+      return svg(bowls+dots+(action?text(160,222,`合起来 ${total} 个`):text(80,222,"原来 3 个")+text(240,222,`又来 ${n} 个`))+(!action?text(160,125,"＋","ml-big"):""),`原来3个苹果，又来${n}个，共${total}个`);
+    }
+    if(kind==="subtract") {
+      return svg('<rect x="20" y="30" width="280" height="120" rx="18" class="ml-tray"/>'+tokens(13,i=>{const x=40+(i%10)*26,y=i<10?82:193,taken=action&&i<n;return `<g data-key="stick${i}" opacity="${taken?.2:1}"><rect x="${x}" y="${y-28}" width="8" height="53" rx="4" class="ml-fill ${i<10?'mint':'orange'}"/>${taken?`<path d="M${x-6} ${y+5}l20-15" class="ml-cross"/>`:""}</g>`})+text(160,29,"一捆 10 根")+text(196,198,"旁边还有 3 根")+text(160,235,action?`10 − ${n}，再加 3 → ${13-n}`:"先把13分成10和3"),`13根小棒，拿走${n}根，剩${13-n}根`);
+    }
+    if(kind==="multiply") {
+      const trays=action?'':tokens(n,i=>`<rect x="${13+(i%3)*102}" y="${22+Math.floor(i/3)*96}" width="90" height="76" rx="17" class="ml-tray"/>`);
+      return svg(trays+tokens(3*n,i=>{const group=Math.floor(i/3),j=i%3,x=action?160-(n-1)*19+(i%n)*38:37+(group%3)*102+(j%2)*36,y=action?62+Math.floor(i/n)*50:47+Math.floor(group/3)*96+Math.floor(j/2)*27;return dot(x,y,`cake${i}`,group%2?"orange":"mint",11)})+text(160,230,`${n}盘，每盘3块，共${3*n}块`),`${n}盘点心，每盘3块，总数${3*n}`);
+    }
+    if(kind==="divide") {
+      const groups=Math.floor(17/n),r=17%n;
+      const trays=action?tokens(groups,g=>`<rect x="${9+(g%4)*77}" y="${18+Math.floor(g/4)*78}" width="69" height="65" rx="13" class="ml-tray"/>`):'<rect x="23" y="25" width="274" height="165" rx="25" class="ml-tray"/>';
+      const dots=tokens(17,i=>{const g=Math.floor(i/n),j=i%n,left=action&&g>=groups;let x,y;if(!action){x=61+(i%5)*49;y=62+Math.floor(i/5)*35;}else if(left){x=74+(i-groups*n)*24;y=205;}else{x=26+(g%4)*77+(j%3)*17;y=39+Math.floor(g/4)*78+Math.floor(j/3)*23;}return dot(x,y,`sweet${i}`,left?"orange":"mint",7)});
+      return svg(trays+dots+text(160,235,action?`${groups}袋装满，余下${r}颗`:`17颗糖，每袋装${n}颗`),`17颗糖，每袋${n}颗，装满${groups}袋，剩${r}颗`);
+    }
+    if(kind==="fraction") {
+      return svg(tokens(6,i=>{const selected=i<n,y=70+(action&&selected?-16:0);return `<g data-key="choco${i}"><rect x="${24+i*46}" y="${y}" width="42" height="79" rx="6" class="ml-choco ${selected?'selected':''}"/><rect x="${30+i*46}" y="${y+7}" width="30" height="64" rx="3" fill="none" stroke="white" opacity=".25"/>${text(45+i*46,y+102,"1/6")}</g>`})+text(160,33,"同一块巧克力，平均分成6份")+text(160,225,`取${n}份，是整块的 ${n}/6`),`巧克力平均分成6份，取${n}份，是${n}/6`);
+    }
+    if(kind==="area") {
+      const w=4*27,h=n*27,x=106,y=35;
+      return svg(tokens(4*n,i=>`<rect x="${x+(i%4)*27}" y="${y+Math.floor(i/4)*27}" width="27" height="27" class="ml-cell"/>`)+`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="ml-outline ${action?'walk':''}"/>`+text(160,22,"长 4 厘米")+text(46,y+h/2,`宽${n}厘米`)+text(160,226,action?`围一圈：${2*(4+n)}厘米`:`铺里面：${4*n}平方厘米`),`长4厘米宽${n}厘米，周长${2*(4+n)}厘米，面积${4*n}平方厘米`);
+    }
+    if(kind==="price") {
+      return svg(tokens(n,i=>{const x=28+(i%5)*58,y=33+Math.floor(i/5)*82;return `<g data-key="book${i}"><rect x="${x}" y="${y}" width="44" height="64" rx="5" class="ml-fill ${i%2?'orange':'mint'}"/><path d="M${x+8} ${y}v64" stroke="white" opacity=".55"/>${text(x+26,y+36,"8元")}</g>`})+text(160,226,action?`结账：${8*n}元`:`${n}本笔记本，每本8元`),`${n}本笔记本，每本8元，共${8*n}元`);
+    }
+    if(kind==="average") {
+      const levels=action?[n+2,n+2,n+2]:[2,4,n*3];
+      return svg(tokens(3,i=>{const x=39+i*91,height=levels[i]*10;return `<rect x="${x}" y="38" width="58" height="145" rx="7" class="ml-glass"/><rect data-key="juice${i}" x="${x+5}" y="${178-height}" width="48" height="${height}" rx="4" class="ml-juice"/>${tokens(12,j=>`<path d="M${x+1} ${178-j*10}h7" stroke="#9bb8bd"/>`)}${text(x+29,207,`${levels[i]}份`)}`})+(action?`<path d="M28 ${178-(n+2)*10}H292" class="ml-dash"/>`:"")+text(160,235,action?"每杯一样多，总量不变":"总量不变，移多补少"),`三杯原来2、4、${n*3}份，平均后每杯${n+2}份`);
+    }
+    if(kind==="triangle") {
+      const x=72,w=176,h=n*22,y=205;
+      return svg((action?`<path d="M${x} ${y-h}H${x+w}V${y}Z" class="ml-fill orange ml-arrive"/>`:"")+`<path d="M${x} ${y}H${x+w}L${x} ${y-h}Z" class="ml-fill mint"/><path d="M${x} ${y}V${y-h}" class="ml-dash"/>`+text(160,229,"底 8 厘米")+text(41,y-h/2,`高 ${n}`,"ml-small")+text(160,18,action?"两个相同三角形 → 长方形":"一个三角形占多少？"),`底8厘米高${n}厘米的直角三角形，两个拼成面积${8*n}平方厘米的长方形`);
+    }
+    if(kind==="volume") {
+      const body=[];
+      for(let z=0;z<n;z++)for(let y=1;y>=0;y--)for(let x=0;x<3;x++){
+        const px=124+(x-y)*25,py=184+(x+y)*12-z*25;
+        body.push(`<g data-key="cube${x}-${y}-${z}" opacity="${action&&z<n-1?.24:1}"><path d="M${px} ${py}l25 12v-25l-25-12Z" fill="#80bcb0" stroke="#fff"/><path d="M${px+25} ${py+12}l25-12v-25l-25 12Z" fill="#4b948a" stroke="#fff"/><path d="M${px} ${py-25}l25-12 25 12-25 12Z" fill="#c7e7dc" stroke="#fff"/></g>`);
+      }
+      return svg(body.join("")+text(160,25,`每层 3×2=6 个，叠 ${n} 层`)+text(160,235,`每个小方块 1立方厘米 → 共${6*n}立方厘米`),`每层6个单位立方体，${n}层体积${6*n}立方厘米`);
+    }
+    if(kind==="circle") {
+      const r=16*n,N=16,a=Math.PI/N,w=2*r*Math.sin(a),left=(320-(N/2+.5)*w)/2;
+      const body=tokens(N,i=>{
+        let cx=160,cy=120,angle=i*2*Math.PI/N;
+        if(action){cx=left+(Math.floor(i/2)+(i%2?1:.5))*w;cy=i%2?168-r*Math.cos(a):168;angle=i%2?Math.PI/2:-Math.PI/2;}
+        const p1=[cx+r*Math.cos(angle-a),cy+r*Math.sin(angle-a)],p2=[cx+r*Math.cos(angle+a),cy+r*Math.sin(angle+a)];
+        return `<g data-key="sector${i}"><path d="M${cx} ${cy}L${p1}A${r} ${r} 0 0 1 ${p2}Z" fill="${i%2?'#eebda0':'#8ac9b6'}" stroke="white" stroke-width=".7"/></g>`;
+      });
+      return svg(body+(action?text(160,212,"长约 πr，宽约 r"):text(160,224,`半径 ${n} 厘米`))+(!action?`<path d="M160 120h${r}" class="ml-dash"/>`:"")+text(160,24,action?"分得越细，越接近长方形":"一个圆分成16个扇形"),`圆半径${n}厘米，分成16扇形，${action?'交错排列近似长方形':'原位组成圆'}，面积${n*n}π平方厘米`);
+    }
+    return svg(`<rect x="29" y="31" width="262" height="105" rx="15" class="ml-tray"/>`+text(160,56,"原价 200 元")+(action?tokens(10,i=>`<rect x="${34+i*25.2}" y="86" width="22.5" height="33" rx="3" class="ml-fill ${i<n?'mint':'pale'}"/>`):text(160,109,`现价 ${20*n} 元`,"ml-price"))+text(160,169,`${n}折 = ${n*10}%`)+text(160,211,action?`付${n}份 × 每份20元 = ${20*n}元`:`便宜了 ${200-20*n} 元`),`原价200元，${n}折，现价${20*n}元，便宜${200-20*n}元`);
+  }
+
+  function render(bookId) {
+    const lesson=catalog.find(item=>item.id===bookId);
+    return `<section class="ml-classroom" data-lesson="${lesson.id}" aria-labelledby="mlTitle">
+      <div class="ml-heading"><div><p class="eyebrow">本册示范小课 · 看见数学</p><h3 id="mlTitle">${lesson.title}</h3></div><span class="ml-topic">${lesson.topic}</span></div>
+      <div class="ml-route" aria-label="学习步骤"><button type="button" data-phase="0">01 看一看</button><button type="button" data-phase="1">02 动手试</button><button type="button" data-phase="2">03 说规律</button></div>
+      <div class="ml-layout"><div class="ml-theater"><div class="ml-scene"></div><div class="ml-caption"><span class="ml-guide" aria-hidden="true">?</span><p></p></div></div>
+      <div class="ml-workbench"><p class="ml-control-title">动一动，看看会发生什么</p><div class="ml-value-row"><label for="mlRange">${lesson.label}</label><output id="mlValue" for="mlRange"></output></div>
+        <div class="ml-adjust"><button type="button" data-delta="-1" aria-label="减少数值">−</button><input id="mlRange" type="range" min="${lesson.min}" max="${lesson.max}" value="${lesson.value}"><button type="button" data-delta="1" aria-label="增加数值">＋</button></div>
+        <button class="ml-action" type="button" data-action="transform">${lesson.action}</button>
+        <div class="ml-player"><button type="button" data-action="play" aria-pressed="false">播放变化</button><button type="button" data-action="reset">重来一次</button></div>
+        <div class="ml-predict"><p class="ml-question"></p><div class="ml-choices"></div><p class="ml-feedback" role="status"></p><button class="ml-retry" type="button" data-action="retry" hidden>再想一次</button></div>
+      </div></div>
+      <div class="ml-rule" hidden><span>原来是这样</span><strong class="ml-equation"></strong><p class="ml-explanation"></p><p class="ml-takeaway"></p></div>
+      <button class="ml-reveal" type="button" data-action="reveal">看看数量关系 →</button><p class="ml-note">每册先用一个核心小实验帮助理解；更多主题可在知识地图里继续学习。</p>
+    </section>`;
+  }
+  function stop() {
+    if(timer)clearInterval(timer);
+    timer=null;
+    if(controller)controller.abort();
+    controller=null;
+    mounted=null;
+  }
+  function stopPlayback() {
+    if(timer)clearInterval(timer);
+    timer=null;
+    const btn=mounted?.querySelector('[data-action="play"]');
+    if(btn){btn.textContent="播放变化";btn.setAttribute("aria-pressed","false");}
+  }
+  function draw(animate=true) {
+    if(!mounted||!current)return;
+    const root=mounted,lesson=current,s=state;
+    const canvas=root.querySelector('.ml-scene');
+    const old=new Map([...canvas.querySelectorAll('[data-key]')].map(el=>[el.dataset.key,el.getBoundingClientRect()]));
+    canvas.innerHTML=scene(lesson,s.n,s.action);
+    if(animate&&!reduce()) {
+      canvas.querySelectorAll('[data-key]').forEach(el=>{const previous=old.get(el.dataset.key),now=el.getBoundingClientRect();if(previous){const dx=previous.x-now.x,dy=previous.y-now.y;if(Math.abs(dx)+Math.abs(dy)>1)el.animate([{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:400,easing:'cubic-bezier(.2,.75,.2,1)'});}else el.animate([{opacity:0},{opacity:1}],{duration:280});});
+    }
+    root.querySelector('#mlRange').value=s.n;
+    root.querySelector('#mlRange').setAttribute('aria-valuetext',lesson.display?lesson.display(s.n):`${s.n}${lesson.unit}`);
+    root.querySelector('#mlValue').textContent=lesson.display?lesson.display(s.n):`${s.n}${lesson.unit}`;
+    root.querySelector('.ml-caption p').textContent=s.phase===0?lesson.story:s.phase===1?'试着改变数值，再点绿色按钮。图中的数量怎样变化？数一数，猜一猜。':lesson.explain(s.n);
+    root.querySelector('[data-action="transform"]').textContent=s.action?lesson.after:lesson.action;
+    root.querySelector('[data-action="transform"]').setAttribute('aria-pressed',s.action);
+    root.querySelector('[data-delta="-1"]').disabled=s.n===lesson.min;
+    root.querySelector('[data-delta="1"]').disabled=s.n===lesson.max;
+    root.querySelectorAll('[data-phase]').forEach(btn=>{const active=Number(btn.dataset.phase)===s.phase;btn.setAttribute('aria-pressed',active);});
+    root.querySelector('.ml-rule').hidden=s.phase<2;
+    root.querySelector('.ml-equation').textContent=lesson.formula(s.n);
+    root.querySelector('.ml-explanation').textContent=lesson.explain(s.n);
+    root.querySelector('.ml-takeaway').textContent=lesson.rule;
+    root.querySelector('[data-action="reveal"]').hidden=s.phase===2;
+    root.querySelector('.ml-question').textContent=`猜一猜：${lesson.question}`;
+    const correct=lesson.answer(s.n);
+    const offsets=[-1,0,1];
+    const answers=[...new Set(offsets.map(d=>Math.max(0,correct+d)))];
+    if(answers.length<3)answers.push(correct+2);
+    root.querySelector('.ml-choices').innerHTML=answers.map(value=>`<button type="button" data-guess="${value}" ${s.guess!==null?'disabled':''} class="${s.guess!==null&&value===correct?'correct':s.guess===value?'wrong':''}">${value}</button>`).join('');
+    root.querySelector('.ml-feedback').textContent=s.guess===null?'试着先判断，再打开关系式。':s.guess===correct?'答对了！再说一说你是怎么想的。':`这次是${correct}。看图数一数，或查看下面的数量关系。`;
+    root.querySelector('[data-action="retry"]').hidden=s.guess===null||s.guess===correct;
+  }
+  function mount(root,bookId) {
+    stop();
+    mounted=root.querySelector('.ml-classroom');
+    if(!mounted)return;
+    current=catalog.find(item=>item.id===bookId);
+    if(!memory.has(bookId))memory.set(bookId,{n:current.value,action:false,phase:0,guess:null});
+    state=memory.get(bookId);
+    controller=new AbortController();
+    const signal=controller.signal;
+    mounted.addEventListener('input',event=>{
+      if(event.target.id!=='mlRange')return;
+      stopPlayback();state.n=Number(event.target.value);state.phase=Math.max(1,state.phase);state.guess=null;draw();
+    },{signal});
+    mounted.addEventListener('click',event=>{
+      const btn=event.target.closest('button');if(!btn)return;
+      if(btn.dataset.delta){stopPlayback();state.n=Math.min(current.max,Math.max(current.min,state.n+Number(btn.dataset.delta)));state.guess=null;state.phase=Math.max(1,state.phase);draw();}
+      else if(btn.hasAttribute('data-phase')){stopPlayback();state.phase=Number(btn.dataset.phase);if(state.phase===0)state.action=false;draw(false);}
+      else if(btn.hasAttribute('data-guess')){stopPlayback();state.guess=Number(btn.dataset.guess);draw(false);}
+      else if(btn.dataset.action==='retry'){state.guess=null;draw(false);}
+      else if(btn.dataset.action==='transform'){stopPlayback();state.action=!state.action;state.phase=Math.max(1,state.phase);draw();}
+      else if(btn.dataset.action==='reveal'){stopPlayback();state.phase=2;draw(false);}
+      else if(btn.dataset.action==='reset'){stopPlayback();Object.assign(state,{n:current.value,action:false,phase:0,guess:null});draw();}
+      else if(btn.dataset.action==='play'){
+        if(timer){stopPlayback();return;}
+        state.phase=1;state.action=true;state.guess=null;
+        if(state.n>=current.max)state.n=current.min;
+        draw();
+        if(reduce()){state.n=current.max;state.phase=2;draw(false);return;}
+        btn.textContent='暂停变化';btn.setAttribute('aria-pressed','true');
+        timer=setInterval(()=>{if(state.n>=current.max){stopPlayback();state.phase=2;draw(false);return;}state.n++;draw();},1000);
+      }
+    },{signal});
+    draw(false);
+  }
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopPlayback();});
+  window.MathLab={catalog,render,mount,stop,pause:stopPlayback};
+})();
+
+</script>
+  <script data-inlined-source="math/assets/app.js">
+(function () {
+  "use strict";
+
+  const data = window.MATH_DATA;
+  const books = data.books;
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const escape = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[char]);
+  const bookUrl = (book) => `./books/${book.id}.html`;
+  const params = new URLSearchParams(location.search);
+  const saved = (() => { try { return localStorage.getItem("math-book"); } catch (_) { return null; } })();
+  const initial = books.find((book) => book.id === `g${params.get("grade")}-${params.get("term")}`)
+    || books.find((book) => book.id === saved) || books[0];
+  const views = ["units", "lab", "formulas", "methods", "quiz"];
+  const state = { grade: initial.grade, term: initial.term === "上册" ? "up" : "down", view: views.includes(params.get("view")) ? params.get("view") : "lab" };
+
+  function currentBook() { return books.find((book) => book.id === `g${state.grade}-${state.term}`); }
+  function gradeName(grade) { return data.grades.find((item) => item.id === grade).name; }
+  function syncUrl() {
+    const url = new URL(location.href);
+    url.searchParams.set("grade", state.grade);
+    url.searchParams.set("term", state.term);
+    url.searchParams.set("view", state.view);
+    history.replaceState(null, "", url);
+    try { localStorage.setItem("math-book", currentBook().id); } catch (_) { /* Storage may be disabled. */ }
+  }
+
+  function renderPicker() {
+    $("#gradeChoices").innerHTML = data.grades.map((item) => `<button type="button" data-grade="${item.id}" aria-pressed="${item.id === state.grade}">${escape(item.name)}</button>`).join("");
+    $("#termChoices").innerHTML = [["up", "上册"], ["down", "下册"]].map(([value, label]) =>
+      `<button type="button" data-term="${value}" aria-pressed="${value === state.term}">${label}</button>`).join("");
+  }
+
+  function renderUnits(book) {
+    return `<div class="content-heading"><div><p class="eyebrow">${book.units.length} 个知识主题</p><h3>本册学什么</h3></div></div>
+      <button class="ml-invite" type="button" data-open-lab>先动手：${window.MathLab.catalog.find(item=>item.id===book.id).title} <span>去小课堂 →</span></button>
+      <div class="learning-layout"><div class="unit-list">${book.units.map((unit) => `
+        <details class="unit-row" id="unit-${unit.no}"><summary>
+          <span class="unit-number">${unit.no}</span><span class="unit-copy"><strong>${escape(unit.title)}</strong><small>${escape(unit.brief)}</small></span>
+          <span class="unit-arrow" aria-hidden="true">＋</span>
+        </summary><div class="unit-detail"><ul>${unit.learn.map((point) => `<li>${escape(point)}</li>`).join("")}</ul>
+          <p><b>记住</b> ${escape(unit.tip)}</p><a href="${bookUrl(book)}#unit-${unit.no}">在册页查看 →</a></div></details>`).join("")}</div>
+        <aside class="first-step"><p class="eyebrow">试着记住这一条</p><h4>${escape(book.formulas[0].title)}</h4>
+          <div class="first-formula">${escape(book.formulas[0].expr)}</div>
+          ${book.id === "g1-up" ? '<img class="part-whole" src="./assets/part-whole.svg" alt="线段图：左边3份、右边2份，合起来是5份" width="360" height="130">' : ""}
+          <p>${escape(book.formulas[0].explain)}</p>
+          <a href="${bookUrl(book)}#formulas">查看本册全部公式 →</a></aside></div>`;
+  }
+
+  function renderFormulas(book) {
+    return `<div class="content-heading"><div><p class="eyebrow">${book.formulas.length} 条核心公式</p><h3>公式与例子</h3></div></div>
+      <div class="formula-list">${book.formulas.map((formula, index) => `<article class="formula-row" id="formula-${index + 1}">
+        <span class="formula-index">${String(index + 1).padStart(2, "0")}</span><div><h4>${escape(formula.title)}</h4>
+        <p class="formula-expression">${escape(formula.expr)}</p><p>${escape(formula.explain)}</p>
+        <small>例如：${escape(formula.example)}</small></div></article>`).join("")}</div>`;
+  }
+
+  function renderMethods(book) {
+    return `<div class="content-heading"><div><p class="eyebrow">${book.applications.length} 种应用题</p><h3>先想关系，再列算式</h3></div></div>
+      <div class="solve-steps" aria-label="应用题解题步骤"><span><b>1</b> 圈出已知和问题</span><span><b>2</b> 画图或写数量关系</span><span><b>3</b> 分步列式计算</span><span><b>4</b> 检查结果与单位</span></div>
+      <div class="method-list">${book.applications.map((method, index) => `<details class="method-item" id="method-${index + 1}" ${index === 0 ? "open" : ""}>
+        <summary><span class="method-index">${String(index + 1).padStart(2, "0")}</span><span><strong>${escape(method.title)}</strong><small>${escape(method.kind)} · ${method.clues.map(escape).join(" / ")}</small></span><span class="expand-mark" aria-hidden="true">＋</span></summary>
+        <div class="method-body"><ol>${method.steps.map((step) => `<li>${escape(step)}</li>`).join("")}</ol>
+          <div class="worked-example"><p class="example-label">例题</p><p>${escape(method.example.question)}</p>
+            <strong>${escape(method.example.work)}</strong><p class="answer">答：${escape(method.example.answer)}</p></div>
+          <p class="reminder"><b>别忘记</b> ${escape(method.tip)}</p></div></details>`).join("")}</div>`;
+  }
+
+  function renderLab(book) {
+    return window.MathLab.render(book.id);
+  }
+  function stopLabPlayback() { window.MathLab.stop(); }
+
+  function renderQuiz(book) {
+    return `<div class="content-heading"><div><p class="eyebrow">3 道小练习</p><h3>做一做</h3></div></div>
+      <div class="quiz-list">${book.quiz.map((question, index) => `<fieldset class="quiz-question" data-question="${index}">
+        <legend><span>${index + 1} / ${book.quiz.length}</span>${escape(question.question)}</legend>
+        <div class="quiz-options">${question.options.map((option, choice) => `<button type="button" data-choice="${choice}">${escape(option)}</button>`).join("")}</div>
+        <p class="quiz-feedback" aria-live="polite"></p></fieldset>`).join("")}</div>
+      <div class="quiz-summary"><p id="quizProgress" aria-live="polite">已完成 0 / ${book.quiz.length} 题</p><button class="reset-quiz" id="resetQuiz" type="button">重新练习</button></div>`;
+  }
+
+  function render() {
+    window.MathLab.stop();
+    const book = currentBook();
+    document.body.classList.toggle("view-lab", state.view === "lab");
+    $$("[data-grade]").forEach((button) => button.setAttribute("aria-pressed", button.dataset.grade === String(state.grade)));
+    $$("[data-term]").forEach((button) => button.setAttribute("aria-pressed", button.dataset.term === state.term));
+    $$("#studyTabs button").forEach((button) => {
+      button.classList.toggle("is-active", button.dataset.view === state.view);
+      if (button.dataset.view === state.view) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    });
+    $("#editionLabel").textContent = book.edition;
+    $("#bookMeta").textContent = `${gradeName(book.grade)} · ${book.term} · ${book.edition}`;
+    $("#bookTitle").textContent = book.theme;
+    $("#bookIntro").textContent = book.intro;
+    $("#bookLink").href = bookUrl(book);
+    $("#studyContent").innerHTML = ({ units: renderUnits, lab: renderLab, formulas: renderFormulas, methods: renderMethods, quiz: renderQuiz })[state.view](book);
+    if (state.view === "lab") window.MathLab.mount($("#studyContent"), book.id);
+    const rail = $("#gradeChoices");
+    const selected = $("#gradeChoices [aria-pressed=true]");
+    const railBox = rail.getBoundingClientRect();
+    const selectedBox = selected.getBoundingClientRect();
+    if (selectedBox.left < railBox.left + 4 || selectedBox.right > railBox.right - 4) {
+      const delta = selectedBox.left - railBox.left - (rail.clientWidth - selected.clientWidth) / 2;
+      rail.scrollBy({left: delta, behavior: "auto"});
+    }
+    syncUrl();
+  }
+
+  $("#gradeChoices").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-grade]");
+    if (!button || Number(button.dataset.grade) === state.grade) return;
+    stopLabPlayback();
+    state.grade = Number(button.dataset.grade); render(); $(`#gradeChoices [data-grade="${state.grade}"]`).focus();
+  });
+  $("#termChoices").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-term]");
+    if (!button || button.dataset.term === state.term) return;
+    stopLabPlayback();
+    state.term = button.dataset.term; render(); $(`#termChoices [data-term="${state.term}"]`).focus();
+  });
+  $("#studyTabs").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-view]");
+    if (!button || button.dataset.view === state.view) return;
+    stopLabPlayback();
+    state.view = button.dataset.view; render(); $(`#studyTabs [data-view="${state.view}"]`).focus();
+    const content = $("#studyContent");
+    const top = content.getBoundingClientRect().top + scrollY - $("#studyTabs").offsetHeight - $(".topbar").offsetHeight - 8;
+    if (content.getBoundingClientRect().top < 130) {
+      window.scrollTo({top, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    }
+  });
+  $("#studyContent").addEventListener("click", (event) => {
+    if(event.target.closest('[data-open-lab]')) {
+      state.view="lab";render();$("#studyTabs [data-view=lab]").focus();return;
+    }
+    const button = event.target.closest("button[data-choice], #resetQuiz");
+    if (!button || state.view !== "quiz") return;
+    if (button.id === "resetQuiz") { render(); return; }
+    const fieldset = button.closest("[data-question]");
+    if (fieldset.dataset.answered) return;
+    const question = currentBook().quiz[Number(fieldset.dataset.question)];
+    const correct = Number(button.dataset.choice) === question.answer;
+    fieldset.dataset.answered = correct ? "correct" : "wrong";
+    $$("button", fieldset).forEach((option) => {
+      option.disabled = true;
+      if (Number(option.dataset.choice) === question.answer) option.classList.add("is-correct");
+      else if (option === button) option.classList.add("is-wrong");
+    });
+    $(".quiz-feedback", fieldset).textContent = `${correct ? "答对了。" : `正确答案：${question.options[question.answer]}。`}${question.explain}`;
+    const answered = $$("[data-question][data-answered]").length;
+    const right = $$("[data-question][data-answered=correct]").length;
+    $("#quizProgress").textContent = answered === currentBook().quiz.length ? `完成啦，答对 ${right} / ${answered} 题。` : `已完成 ${answered} / ${currentBook().quiz.length} 题`;
+  });
+
+  const searchDialog = $("#searchDialog");
+  const searchInput = $("#searchInput");
+  let searchTrigger = null;
+  function searchResults(query) {
+    const results = [];
+    const term = query.trim().toLowerCase();
+    if (!term) return results;
+    books.forEach((book) => {
+      const prefix = `${gradeName(book.grade)} · ${book.term}`;
+      const lesson = window.MathLab.catalog.find(item=>item.id===book.id);
+      const entries = [
+        {title:lesson.title, terms:[lesson.title,lesson.topic,lesson.story], type:"互动实验", view:"lab", id:"mlTitle"},
+        ...book.units.map((item) => ({ title: item.title, terms: [item.title, item.brief, ...item.learn, item.tip], type: "知识点", view: "units", id: `unit-${item.no}` })),
+        ...book.formulas.map((item, index) => ({ title: item.title, terms: [item.title, item.expr, item.explain, item.example], type: "公式", view: "formulas", id: `formula-${index + 1}` })),
+        ...book.applications.map((item, index) => ({ title: item.title, terms: [item.kind, item.title, ...item.clues, ...item.steps, item.example.question, item.example.work, item.tip], type: "应用题", view: "methods", id: `method-${index + 1}` }))
+      ];
+      entries.forEach((entry) => {
+        if (entry.terms.join(" ").toLowerCase().includes(term)) results.push({ ...entry, prefix, bookId: book.id });
+      });
+    });
+    return results.sort((a, b) =>
+      Number(b.bookId === currentBook().id) - Number(a.bookId === currentBook().id)
+      || Number(b.title.includes(term)) - Number(a.title.includes(term))
+    );
+  }
+  function renderSearch() {
+    const term = searchInput.value.trim();
+    const target = $("#searchResults");
+    if (!term) {
+      target.innerHTML = '<div class="search-empty">试试搜索「面积」「平均数」或「折扣」。</div>';
+      return;
+    }
+    const results = searchResults(term);
+    target.innerHTML = results.length ? results.slice(0, 30).map((result) => `
+      <button type="button" data-book="${result.bookId}" data-view="${result.view}" data-target="${result.id}">
+        <span><strong>${escape(result.title)}</strong><small>${escape(result.prefix)} · ${escape(result.type)}</small></span>
+        <span class="search-arrow" aria-hidden="true">→</span></button>`).join("") :
+      `<div class="search-empty">没有找到「${escape(term)}」。试试缩短关键词，或按年级浏览。</div>`;
+  }
+  ["#searchOpen", "#searchOpenInline"].forEach((selector) => {
+    $(selector).addEventListener("click", (event) => {
+      searchTrigger = event.currentTarget;
+      window.MathLab.pause();
+      searchDialog.showModal();
+      searchInput.focus();
+      renderSearch();
+    });
+  });
+  $("#searchClose").addEventListener("click", () => searchDialog.close());
+  searchDialog.addEventListener("click", (event) => { if (event.target === searchDialog) searchDialog.close(); });
+  searchDialog.addEventListener("close", () => { if (searchTrigger) searchTrigger.focus(); });
+  searchInput.addEventListener("input", renderSearch);
+  $("#searchResults").addEventListener("click", (event) => {
+    const result = event.target.closest("button[data-book]");
+    if (!result) return;
+    stopLabPlayback();
+    const book = books.find((item) => item.id === result.dataset.book);
+    state.grade = book.grade;
+    state.term = book.term === "上册" ? "up" : "down";
+    state.view = result.dataset.view;
+    searchTrigger = null;
+    searchDialog.close();
+    render();
+    const target = document.getElementById(result.dataset.target);
+    if (!target) return;
+    if (target.matches("details")) target.open = true;
+    target.classList.add("search-highlight");
+    const focusTarget = target.querySelector("summary") || target;
+    if (!focusTarget.hasAttribute("tabindex") && focusTarget === target) focusTarget.tabIndex = -1;
+    focusTarget.focus({preventScroll: true});
+    window.scrollTo({top: target.getBoundingClientRect().top + scrollY - 145, behavior: "smooth"});
+    setTimeout(() => target.classList.remove("search-highlight"), 2000);
+  });
+
+  renderPicker();
+  $("#sourceNote").textContent = data.sourceNote;
+  $("#updatedDate").textContent = data.updated;
+  $("#updatedDate").dateTime = data.updated;
+  render();
+})();
+
+</script>
+
+
+<script>(function(){function verify(){if(document.querySelector('#gradeChoices [data-grade]')&&document.querySelector('#studyContent').children.length)return;var e=document.createElement('div');e.setAttribute('role','alert');e.style.cssText='position:fixed;inset:auto 12px 16px;z-index:2147483000;padding:14px;border:1px solid #a34435;border-radius:12px;background:#fff7ed;color:#47241d;font:15px/1.7 sans-serif';e.innerHTML='课程未能完整加载，可能是旧缓存或网络问题。 <a style="display:inline-block;padding:6px 12px;background:#163941;color:white;border-radius:8px" href="/learning-hub/update.html">更新修复</a>';document.body.appendChild(e);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(verify,10000);});else setTimeout(verify,10000);})();</script>
 </body>
 </html>
