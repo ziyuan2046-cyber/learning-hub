@@ -45,7 +45,6 @@ let audioPrefetchQueue = [];
 let audioPrefetchActive = 0;
 let toastTimer = 0;
 
-const assetPackCache = new Map();
 const audioBlobCache = new Map();
 const audioBlobRequests = new Map();
 const playerState = {
@@ -592,15 +591,6 @@ function fetchAudioBlob(url) {
   if (audioBlobCache.has(url)) { return Promise.resolve(audioBlobCache.get(url)); }
   if (audioBlobRequests.has(url)) { return audioBlobRequests.get(url); }
   const request = (async () => {
-    const generated = /\/generated\/([a-f0-9]+\.mp3)$/.exec(new URL(url).pathname);
-    if (generated) {
-      const pack = await loadAssetPack("voice-" + generated[1][0]);
-      const data = pack[generated[1]];
-      if (!data) { throw new Error("Generated recording missing from voice pack"); }
-      const blob = base64Blob(data, "audio/mpeg");
-      audioBlobCache.set(url, blob);
-      return blob;
-    }
     let lastError = null;
     for (const candidate of getAudioCandidates(url)) {
       try {
@@ -813,7 +803,7 @@ function playTrack(track, queue = null, index = null) {
     const objectUrl = URL.createObjectURL(cachedBlob);
     mountAudioSource(objectUrl, token, objectUrl);
   } else {
-    if (!sourceUrl.includes("/audio/generated/")) { mountAudioSource(getAudioCandidates(sourceUrl)[0], token); } else { disposeAudioSource(); }
+    mountAudioSource(getAudioCandidates(sourceUrl)[0], token);
     queueAudioPrefetch([sourceUrl], true);
     fetchAudioBlob(sourceUrl).then((blob) => {
       if (token !== playRequestId || !audio || audio.ended) { return; }
@@ -1126,18 +1116,3 @@ function mountCourseVideo() {
   video.addEventListener("play", () => { audio?.pause(); window.speechSynthesis?.cancel(); });
 }
 
-// Static, per-document packs reduce hundreds of small mobile requests. No external API is needed at runtime.
-function loadAssetPack(name) {
-  if (assetPackCache.has(name)) { return assetPackCache.get(name); }
-  const request = fetch(new URL("./assets/packs/" + name + ".json", document.baseURI)).then((response) => {
-    if (!response.ok) { throw new Error("Asset pack request failed: " + response.status); }
-    return response.json();
-  }).catch((error) => { assetPackCache.delete(name); throw error; });
-  assetPackCache.set(name, request);
-  return request;
-}
-function base64Blob(data, type) {
-  const raw = atob(data);
-  const bytes = Uint8Array.from(raw, (char) => char.charCodeAt(0));
-  return new Blob([bytes], { type });
-}
