@@ -1,7 +1,7 @@
 "use strict";
 
 const COURSES = Array.isArray(window.XIAOYUAN_COURSES) ? window.XIAOYUAN_COURSES : [];
-const READINGS = Array.isArray(window.XIAOYUAN_READINGS) ? window.XIAOYUAN_READINGS : [];
+const READINGS = Array.isArray(window.XIAOYUAN_READINGS) ? [...window.XIAOYUAN_READINGS].sort((a, b) => String(a.materialTime || "").localeCompare(String(b.materialTime || ""))) : [];
 const ALL_STEPS = [
   { id: "letters", label: "字母声音", render: renderLettersStep },
   { id: "words", label: "核心单词", render: renderCoreWordsStep },
@@ -83,22 +83,20 @@ function imageMarkup(path, alt, className = "") {
 function renderCatalog() {
   const openCount = COURSES.filter((item) => item.available).length;
   $("#catalogOpenCount").textContent = openCount;
-  $("#catalogOpenBar").style.width = `${COURSES.length ? (openCount / COURSES.length) * 100 : 0}%`;
-  $("#courseGrid").innerHTML = COURSES.map((item, index) => {
+  $("#catalogOpenBar").style.width = "100%";
+  $("#courseGrid").innerHTML = COURSES.filter((item) => item.available).sort((a, b) => String(a.materialTime || "").localeCompare(String(b.materialTime || ""))).map((item, index) => {
     const available = Boolean(item.available);
     return `<button class="course-card ${available ? "is-open" : "is-locked"}" type="button" ${available ? `data-course-id="${escapeHtml(item.id)}"` : "disabled"} aria-label="${escapeHtml(available ? "进入自然拼读课 " + item.title : "第 " + (index + 1) + " 课待补充")}">
       <span class="course-card-top"><span class="course-card-index">LESSON ${pad(item.lesson || index + 1)}</span><span class="course-card-status">${available ? escapeHtml(item.subtitle) : "待补充"}</span></span>
       <span class="course-card-body"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(available ? item.titleCn : "后续课件和音频的位置已预留")}</span></span>
-      <span class="course-card-cta">${available ? "字母 · 拼读 · 词句 · 故事" : "等待补充"}</span></button>`;
+      <span class="course-material-time">${materialTimeMarkup(item.materialTime)}</span><span class="course-card-cta">${available ? "字母 · 拼读 · 词句 · 故事" : "等待补充"}</span></button>`;
   }).join("");
-  const confirmed = READINGS.filter((book) => book.orderConfirmed);
-  const pending = READINGS.filter((book) => !book.orderConfirmed);
+
   const card = (book) => `<button class="reading-row" type="button" data-course-id="${escapeHtml(book.id)}" aria-label="阅读 ${escapeHtml(book.title)}，${escapeHtml(book.titleCn)}">
-    <span class="reading-number">${book.readingOrder ? pad(book.readingOrder) : "＋"}</span>
-    <span class="reading-main"><strong>${escapeHtml(book.title)}</strong><span>${escapeHtml(book.titleCn)}</span><small>${book.storySentences.length} 个句子 · ${book.coreWords.length} 个关键词${book.orderConfirmed ? "" : " · 课次待核对"}</small></span>
+    <span class="reading-number">${pad(book.readingOrder)}</span>
+    <span class="reading-main"><strong>${escapeHtml(book.title)}</strong><span>${escapeHtml(book.titleCn)}</span><small>${book.storySentences.length} 个句子 · ${book.coreWords.length} 个关键词</small><small class="reading-material-time">${materialTimeMarkup(book.materialTime)}</small></span>
     <span class="reading-enter" aria-hidden="true">→</span></button>`;
-  $("#readingGrid").innerHTML = confirmed.map(card).join("");
-  $("#pendingReadingGrid").innerHTML = pending.map(card).join("");
+  $("#readingGrid").innerHTML = READINGS.map(card).join("");
   updateCatalogTrack();
 }
 
@@ -108,16 +106,17 @@ function updateCatalogTrack() {
   $("#phonicsPanel").hidden = reading;
   $$("[data-catalog-track]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.catalogTrack === catalogTrack)));
   const count = $("#headerCourseCount");
-  if (count) { count.textContent = reading ? READINGS.length + " 本" : COURSES.filter((c) => c.available).length + " / " + COURSES.length; }
+  if (count) { count.textContent = reading ? READINGS.length + " 本" : COURSES.filter((c) => c.available).length + " 课"; }
 }
 
 function renderLesson() {
   if (!COURSE) { return; }
   const lessonNo = pad(COURSE.lesson || 1);
-  $("#lessonEyebrow").textContent = COURSE.isReading ? `绘本精读 · ${COURSE.readingOrder ? `第 ${pad(COURSE.readingOrder)} 课` : "已有资料 / 课次待核对"}` : `自然拼读 · LESSON ${lessonNo} · ${COURSE.subtitle || ""}`;
+  $("#lessonEyebrow").textContent = COURSE.isReading ? `绘本精读 · ${`第 ${pad(COURSE.readingOrder)} 课`}` : `自然拼读 · LESSON ${lessonNo} · ${COURSE.subtitle || ""}`;
   $("#lessonTitle").textContent = COURSE.title || `Lesson ${lessonNo}`;
   $("#lessonTitleCn").textContent = COURSE.titleCn || "课程内容";
   $("#lessonDescription").textContent = COURSE.description || "本课内容正在整理，后续会补充完整。";
+  $("#lessonMaterialTime").innerHTML = materialTimeMarkup(COURSE.materialTime);
 
   const meta = [
     COURSE.subtitle ? `字母与拼读 · ${COURSE.subtitle}` : "",
@@ -1129,3 +1128,8 @@ function mountCourseVideo() {
   video.addEventListener("play", () => { audio?.pause(); window.speechSynthesis?.cancel(); });
 }
 
+
+function materialTimeMarkup(value) {
+  if (!value) { return ""; }
+  return `资料时间 <time datetime="${escapeHtml(value)}">${escapeHtml(value.replace("T", " "))}</time>`;
+}

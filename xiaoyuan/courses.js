@@ -1,5 +1,5 @@
 "use strict";
-// Two learning tracks. Only reading positions 1-7 are confirmed by the supplied screenshot.
+// Material timestamps transcribed from user screenshots; chronological numbering does not change stable progress IDs.
 window.XIAOYUAN_COURSES = [
   {
     "id": "lesson-01-adam-and-the-bear",
@@ -983,7 +983,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-09-06T09:01",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-02",
@@ -1902,7 +1904,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-09-13T09:14",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-03",
@@ -3012,7 +3016,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-09-20T17:54",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-04",
@@ -3944,7 +3950,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-09-27T08:49",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-05",
@@ -4844,7 +4852,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-10-10T10:55",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-06",
@@ -6088,7 +6098,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-10-18T08:49",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-07",
@@ -7023,7 +7035,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-10-25T08:59",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-08",
@@ -8173,7 +8187,9 @@ window.XIAOYUAN_COURSES = [
         "id": "story",
         "text": "读完绘本并尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2026-11-01T09:02",
+    "timeSource": "用户提供的自然拼读资料时间截图"
   },
   {
     "id": "lesson-09",
@@ -8211,7 +8227,7 @@ window.XIAOYUAN_READINGS = [
     "bookNumber": 1,
     "readingOrder": 1,
     "orderConfirmed": true,
-    "orderNote": "目录位置依据客户端截图",
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Adam and the Bear",
     "titleCn": "亚当和大熊",
     "available": true,
@@ -8618,7 +8634,10 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-07-04T17:32",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-02",
@@ -8626,7 +8645,7 @@ window.XIAOYUAN_READINGS = [
     "bookNumber": 2,
     "readingOrder": 2,
     "orderConfirmed": true,
-    "orderNote": "目录位置依据客户端截图",
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Ted's Cat",
     "titleCn": "特德的猫",
     "available": true,
@@ -9058,7 +9077,10 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-07-04T17:37",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-03",
@@ -9066,7 +9088,7 @@ window.XIAOYUAN_READINGS = [
     "bookNumber": 3,
     "readingOrder": 3,
     "orderConfirmed": true,
-    "orderNote": "目录位置依据客户端截图",
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Elephant's Friends",
     "titleCn": "大象的朋友们",
     "available": true,
@@ -9448,113 +9470,107 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-07-04T17:39",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
-    "id": "reading-08",
+    "id": "reading-04",
     "lesson": null,
-    "bookNumber": 8,
+    "bookNumber": 4,
     "readingOrder": 4,
     "orderConfirmed": true,
-    "orderNote": "目录位置依据客户端截图",
-    "title": "Grandpa and Holly",
-    "titleCn": "爷爷和霍莉",
+    "orderNote": "按资料时间从早到晚排列",
+    "title": "Ned, Mum and Nan",
+    "titleCn": "内德、妈妈和奶奶",
     "available": true,
     "isReading": true,
     "subtitle": "自拼绘本精读",
     "level": "绘本精读 · 自主跟读版",
     "description": "按原绘本逐句听读，查看大字英文和中文翻译。未接入官方视频，合成朗读并非教师授课。",
-    "coverImage": "./assets/library/story-08/p001.webp",
+    "coverImage": "./assets/library/story-04/p001.webp",
     "coreWords": [
       {
-        "id": "holly",
-        "en": "Holly",
-        "cn": "霍莉",
-        "audio": "./assets/audio/generated/fd6045b6fc1949fcc41c.mp3",
+        "id": "ned",
+        "en": "Ned",
+        "cn": "内德",
+        "audio": "./assets/audio/generated/7c95b1b284881b54153a.mp3",
         "audioType": "synthesized",
-        "sourcePage": 3,
-        "image": "./assets/library/story-08/p003.webp"
+        "sourcePage": 2,
+        "image": "./assets/library/story-04/p002.webp"
       },
       {
-        "id": "good",
-        "en": "good",
-        "cn": "好的",
-        "audio": "./assets/audio/generated/770e607624d689265ca6.mp3",
+        "id": "mum",
+        "en": "mum",
+        "cn": "妈妈",
+        "audio": "./assets/audio/generated/f2d758f9e379babc91f1.mp3",
         "audioType": "synthesized",
-        "sourcePage": 4,
-        "image": "./assets/library/story-08/p004.webp"
+        "image": "./assets/library/story-04/p003.webp",
+        "sourcePage": 3
       },
       {
-        "id": "dog",
-        "en": "dog",
-        "cn": "狗",
-        "audio": "./assets/audio/words/dog.mp3",
+        "id": "nan",
+        "en": "nan",
+        "cn": "奶奶",
+        "audio": "./assets/audio/generated/9b2d5b4678781e53038e.mp3",
         "audioType": "synthesized",
-        "sourcePage": 5,
-        "image": "./assets/library/story-08/p005.webp"
+        "image": "./assets/library/story-04/p004.webp",
+        "sourcePage": 4
       },
       {
-        "id": "help",
-        "en": "help",
-        "cn": "帮助",
-        "audio": "./assets/audio/generated/106a5842fc5fce6f6631.mp3",
+        "id": "nest",
+        "en": "nest",
+        "cn": "窝",
+        "audio": "./assets/audio/generated/75ef2e329bdb50d26a4c.mp3",
         "audioType": "synthesized",
-        "sourcePage": 6,
-        "image": "./assets/library/story-08/p006.webp"
+        "sourcePage": 7,
+        "image": "./assets/library/story-04/p007.webp"
       },
       {
-        "id": "get",
-        "en": "get",
-        "cn": "拿到",
-        "audio": "./assets/audio/generated/2998b3232d29e8dc5a78.mp3",
+        "id": "milk",
+        "en": "milk",
+        "cn": "牛奶",
+        "audio": "./assets/audio/generated/8825e76530f87ff5c737.mp3",
         "audioType": "synthesized",
         "sourcePage": 9,
-        "image": "./assets/library/story-08/p009.webp"
+        "image": "./assets/library/story-04/p009.webp"
       },
       {
-        "id": "hay",
-        "en": "hay",
-        "cn": "干草",
-        "audio": "./assets/audio/generated/4e30ea25cda1c18cfc42.mp3",
+        "id": "man",
+        "en": "man",
+        "cn": "男人",
+        "audio": "./assets/audio/generated/48b676e2b107da679512.mp3",
         "audioType": "synthesized",
-        "sourcePage": 10,
-        "image": "./assets/library/story-08/p010.webp"
+        "sourcePage": 11,
+        "image": "./assets/library/story-04/p011.webp"
       },
       {
-        "id": "hen",
-        "en": "hen",
-        "cn": "母鸡",
-        "audio": "./assets/audio/generated/d44a08de3981889dae0f.mp3",
+        "id": "mug",
+        "en": "mug",
+        "cn": "马克杯",
+        "audio": "./assets/audio/generated/a19ee2577879b76a5b98.mp3",
         "audioType": "synthesized",
-        "sourcePage": 12,
-        "image": "./assets/library/story-08/p012.webp"
+        "sourcePage": 14,
+        "image": "./assets/library/story-04/p014.webp"
       },
       {
-        "id": "goat",
-        "en": "goat",
-        "cn": "山羊",
-        "audio": "./assets/audio/generated/5480f08f35968440ebe8.mp3",
+        "id": "pan",
+        "en": "pan",
+        "cn": "平底锅",
+        "audio": "./assets/audio/generated/00e37ffae0562ab6818d.mp3",
         "audioType": "synthesized",
-        "sourcePage": 15,
-        "image": "./assets/library/story-08/p015.webp"
+        "sourcePage": 16,
+        "image": "./assets/library/story-04/p016.webp"
       },
       {
-        "id": "hat",
-        "en": "hat",
-        "cn": "帽子",
-        "audio": "./assets/audio/generated/18e1dd392168f601d0e5.mp3",
+        "id": "nap",
+        "en": "nap",
+        "cn": "小睡",
+        "audio": "./assets/audio/generated/82ebadafdeec2df737e5.mp3",
         "audioType": "synthesized",
-        "sourcePage": 17,
-        "image": "./assets/library/story-08/p017.webp"
-      },
-      {
-        "id": "girl",
-        "en": "girl",
-        "cn": "女孩",
-        "audio": "./assets/audio/generated/431ba1c6936744f65928.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 19,
-        "image": "./assets/library/story-08/p019.webp"
+        "sourcePage": 18,
+        "image": "./assets/library/story-04/p018.webp"
       }
     ],
     "phonicsWords": [],
@@ -9563,365 +9579,337 @@ window.XIAOYUAN_READINGS = [
     "introSentences": [],
     "storySentences": [
       {
-        "id": "book-8-line-1",
-        "text": "Holly is a good dog.",
-        "cn": "霍莉是一只好狗。",
-        "audio": "./assets/audio/generated/7dfba09e2e57c5a6d60e.mp3",
-        "sourcePage": 2,
-        "tag": "绘本原页 2"
+        "id": "book-4-line-1",
+        "text": "Ned is at a farm.",
+        "cn": "内德在农场。",
+        "audio": "./assets/audio/generated/453389e9e139f0ee99cf.mp3",
+        "sourcePage": 5,
+        "tag": "绘本原页 5"
       },
       {
-        "id": "book-8-line-2",
-        "text": "She helps Grandpa.",
-        "cn": "她帮助爷爷。",
-        "audio": "./assets/audio/generated/7007bfceec128a1127cd.mp3",
-        "sourcePage": 2,
-        "tag": "绘本原页 2"
+        "id": "book-4-line-2",
+        "text": "He gets eggs from a nest.",
+        "cn": "他从鸟窝里拿到鸡蛋。",
+        "audio": "./assets/audio/generated/ba5400d404b2e2c1e645.mp3",
+        "sourcePage": 6,
+        "tag": "绘本原页 6"
       },
       {
-        "id": "book-8-line-3",
-        "text": "They go to see the horse.",
-        "cn": "他们去看马。",
-        "audio": "./assets/audio/generated/236ae3ba646c187f6319.mp3",
-        "sourcePage": 7,
-        "tag": "绘本原页 7"
-      },
-      {
-        "id": "book-8-line-4",
-        "text": "Holly gets the hay.",
-        "cn": "霍莉拿来干草。",
-        "audio": "./assets/audio/generated/300d1938f1b3c5b824ce.mp3",
+        "id": "book-4-line-3",
+        "text": "Mum gets milk from a cow.",
+        "cn": "妈妈从奶牛那里挤到牛奶。",
+        "audio": "./assets/audio/generated/578175e86f89aa607cf2.mp3",
         "sourcePage": 8,
         "tag": "绘本原页 8"
       },
       {
-        "id": "book-8-line-5",
-        "text": "They go to see the hens.",
-        "cn": "他们去看母鸡。",
-        "audio": "./assets/audio/generated/de7e675b3c31c00f253d.mp3",
-        "sourcePage": 11,
-        "tag": "绘本原页 11"
+        "id": "book-4-line-4",
+        "text": "Moo!",
+        "cn": "哞！",
+        "audio": "./assets/audio/generated/565f923aa7a886d9ff5e.mp3",
+        "sourcePage": 8,
+        "tag": "绘本原页 8"
       },
       {
-        "id": "book-8-line-6",
-        "text": "Holly gets the eggs.",
-        "cn": "霍莉拿到鸡蛋。",
-        "audio": "./assets/audio/generated/0a0b4d4f7a95473e5783.mp3",
+        "id": "book-4-line-5",
+        "text": "Nan gets a bag from the man.",
+        "cn": "奶奶从那个人那里拿到一个袋子。",
+        "audio": "./assets/audio/generated/8d85f53bdd86a174e510.mp3",
+        "sourcePage": 10,
+        "tag": "绘本原页 10"
+      },
+      {
+        "id": "book-4-line-6",
+        "text": "Now Ned is at home.",
+        "cn": "现在内德在家了。",
+        "audio": "./assets/audio/generated/abca8fd657d215c198b5.mp3",
+        "sourcePage": 12,
+        "tag": "绘本原页 12"
+      },
+      {
+        "id": "book-4-line-7",
+        "text": "He gets a mug.",
+        "cn": "他拿来一个马克杯。",
+        "audio": "./assets/audio/generated/0981f5787545f5ec6e5b.mp3",
         "sourcePage": 13,
         "tag": "绘本原页 13"
       },
       {
-        "id": "book-8-line-7",
-        "text": "They go to see the goats.",
-        "cn": "他们去看山羊。",
-        "audio": "./assets/audio/generated/d53755f2cb6bf75aa1dd.mp3",
-        "sourcePage": 14,
-        "tag": "绘本原页 14"
+        "id": "book-4-line-8",
+        "text": "Mum gets a pan.",
+        "cn": "妈妈拿来一个平底锅。",
+        "audio": "./assets/audio/generated/b13281935e20e461d3dc.mp3",
+        "sourcePage": 15,
+        "tag": "绘本原页 15"
       },
       {
-        "id": "book-8-line-8",
-        "text": "A goat gets Grandpa's hat.",
-        "cn": "一只山羊拿走了爷爷的帽子。",
-        "audio": "./assets/audio/generated/a038a69f6c7955da9a89.mp3",
-        "sourcePage": 16,
-        "tag": "绘本原页 16"
+        "id": "book-4-line-9",
+        "text": "Nan gets pancakes and a nap!",
+        "cn": "奶奶吃到薄煎饼，还能打个盹！",
+        "audio": "./assets/audio/generated/9d6fc6ad73bf20028fb0.mp3",
+        "sourcePage": 17,
+        "tag": "绘本原页 17"
       },
       {
-        "id": "book-8-line-9",
-        "text": "Hey!",
-        "cn": "嘿！",
-        "audio": "./assets/audio/generated/b57c370a0fcc704562e1.mp3",
-        "sourcePage": 16,
-        "tag": "绘本原页 16"
-      },
-      {
-        "id": "book-8-line-10",
-        "text": "But Holly gets it back!",
-        "cn": "不过霍莉把帽子拿回来了！",
-        "audio": "./assets/audio/generated/09705fef7ed0f161658d.mp3",
-        "sourcePage": 18,
-        "tag": "绘本原页 18"
-      },
-      {
-        "id": "book-8-line-11",
-        "text": "Good girl, Holly!",
-        "cn": "真棒，霍莉！",
-        "audio": "./assets/audio/generated/d49512c497bb06b921be.mp3",
-        "sourcePage": 18,
-        "tag": "绘本原页 18"
+        "id": "book-4-line-10",
+        "text": "Yum!",
+        "cn": "真好吃！",
+        "audio": "./assets/audio/generated/b753825e9d9ca0bb0c0f.mp3",
+        "sourcePage": 17,
+        "tag": "绘本原页 17"
       }
     ],
     "story": [
       {
-        "text": "Holly is a good dog.",
-        "cn": "霍莉是一只好狗。",
-        "audio": "./assets/audio/generated/7dfba09e2e57c5a6d60e.mp3",
+        "text": "Ned is at a farm.",
+        "cn": "内德在农场。",
+        "audio": "./assets/audio/generated/453389e9e139f0ee99cf.mp3",
         "lines": [
           {
-            "text": "Holly is a good dog.",
-            "cn": "霍莉是一只好狗。",
-            "audio": "./assets/audio/generated/7dfba09e2e57c5a6d60e.mp3"
+            "text": "Ned is at a farm.",
+            "cn": "内德在农场。",
+            "audio": "./assets/audio/generated/453389e9e139f0ee99cf.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p002.webp",
-        "caption": "绘本原页 2",
-        "sourcePage": 2,
+        "image": "./assets/library/story-04/p005.webp",
+        "caption": "绘本原页 5",
+        "sourcePage": 5,
         "original": true
       },
       {
-        "text": "She helps Grandpa.",
-        "cn": "她帮助爷爷。",
-        "audio": "./assets/audio/generated/7007bfceec128a1127cd.mp3",
+        "text": "He gets eggs from a nest.",
+        "cn": "他从鸟窝里拿到鸡蛋。",
+        "audio": "./assets/audio/generated/ba5400d404b2e2c1e645.mp3",
         "lines": [
           {
-            "text": "She helps Grandpa.",
-            "cn": "她帮助爷爷。",
-            "audio": "./assets/audio/generated/7007bfceec128a1127cd.mp3"
+            "text": "He gets eggs from a nest.",
+            "cn": "他从鸟窝里拿到鸡蛋。",
+            "audio": "./assets/audio/generated/ba5400d404b2e2c1e645.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p002.webp",
-        "caption": "绘本原页 2",
-        "sourcePage": 2,
+        "image": "./assets/library/story-04/p006.webp",
+        "caption": "绘本原页 6",
+        "sourcePage": 6,
         "original": true
       },
       {
-        "text": "They go to see the horse.",
-        "cn": "他们去看马。",
-        "audio": "./assets/audio/generated/236ae3ba646c187f6319.mp3",
+        "text": "Mum gets milk from a cow.",
+        "cn": "妈妈从奶牛那里挤到牛奶。",
+        "audio": "./assets/audio/generated/578175e86f89aa607cf2.mp3",
         "lines": [
           {
-            "text": "They go to see the horse.",
-            "cn": "他们去看马。",
-            "audio": "./assets/audio/generated/236ae3ba646c187f6319.mp3"
+            "text": "Mum gets milk from a cow.",
+            "cn": "妈妈从奶牛那里挤到牛奶。",
+            "audio": "./assets/audio/generated/578175e86f89aa607cf2.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p007.webp",
-        "caption": "绘本原页 7",
-        "sourcePage": 7,
-        "original": true
-      },
-      {
-        "text": "Holly gets the hay.",
-        "cn": "霍莉拿来干草。",
-        "audio": "./assets/audio/generated/300d1938f1b3c5b824ce.mp3",
-        "lines": [
-          {
-            "text": "Holly gets the hay.",
-            "cn": "霍莉拿来干草。",
-            "audio": "./assets/audio/generated/300d1938f1b3c5b824ce.mp3"
-          }
-        ],
-        "image": "./assets/library/story-08/p008.webp",
+        "image": "./assets/library/story-04/p008.webp",
         "caption": "绘本原页 8",
         "sourcePage": 8,
         "original": true
       },
       {
-        "text": "They go to see the hens.",
-        "cn": "他们去看母鸡。",
-        "audio": "./assets/audio/generated/de7e675b3c31c00f253d.mp3",
+        "text": "Moo!",
+        "cn": "哞！",
+        "audio": "./assets/audio/generated/565f923aa7a886d9ff5e.mp3",
         "lines": [
           {
-            "text": "They go to see the hens.",
-            "cn": "他们去看母鸡。",
-            "audio": "./assets/audio/generated/de7e675b3c31c00f253d.mp3"
+            "text": "Moo!",
+            "cn": "哞！",
+            "audio": "./assets/audio/generated/565f923aa7a886d9ff5e.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p011.webp",
-        "caption": "绘本原页 11",
-        "sourcePage": 11,
+        "image": "./assets/library/story-04/p008.webp",
+        "caption": "绘本原页 8",
+        "sourcePage": 8,
         "original": true
       },
       {
-        "text": "Holly gets the eggs.",
-        "cn": "霍莉拿到鸡蛋。",
-        "audio": "./assets/audio/generated/0a0b4d4f7a95473e5783.mp3",
+        "text": "Nan gets a bag from the man.",
+        "cn": "奶奶从那个人那里拿到一个袋子。",
+        "audio": "./assets/audio/generated/8d85f53bdd86a174e510.mp3",
         "lines": [
           {
-            "text": "Holly gets the eggs.",
-            "cn": "霍莉拿到鸡蛋。",
-            "audio": "./assets/audio/generated/0a0b4d4f7a95473e5783.mp3"
+            "text": "Nan gets a bag from the man.",
+            "cn": "奶奶从那个人那里拿到一个袋子。",
+            "audio": "./assets/audio/generated/8d85f53bdd86a174e510.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p013.webp",
+        "image": "./assets/library/story-04/p010.webp",
+        "caption": "绘本原页 10",
+        "sourcePage": 10,
+        "original": true
+      },
+      {
+        "text": "Now Ned is at home.",
+        "cn": "现在内德在家了。",
+        "audio": "./assets/audio/generated/abca8fd657d215c198b5.mp3",
+        "lines": [
+          {
+            "text": "Now Ned is at home.",
+            "cn": "现在内德在家了。",
+            "audio": "./assets/audio/generated/abca8fd657d215c198b5.mp3"
+          }
+        ],
+        "image": "./assets/library/story-04/p012.webp",
+        "caption": "绘本原页 12",
+        "sourcePage": 12,
+        "original": true
+      },
+      {
+        "text": "He gets a mug.",
+        "cn": "他拿来一个马克杯。",
+        "audio": "./assets/audio/generated/0981f5787545f5ec6e5b.mp3",
+        "lines": [
+          {
+            "text": "He gets a mug.",
+            "cn": "他拿来一个马克杯。",
+            "audio": "./assets/audio/generated/0981f5787545f5ec6e5b.mp3"
+          }
+        ],
+        "image": "./assets/library/story-04/p013.webp",
         "caption": "绘本原页 13",
         "sourcePage": 13,
         "original": true
       },
       {
-        "text": "They go to see the goats.",
-        "cn": "他们去看山羊。",
-        "audio": "./assets/audio/generated/d53755f2cb6bf75aa1dd.mp3",
+        "text": "Mum gets a pan.",
+        "cn": "妈妈拿来一个平底锅。",
+        "audio": "./assets/audio/generated/b13281935e20e461d3dc.mp3",
         "lines": [
           {
-            "text": "They go to see the goats.",
-            "cn": "他们去看山羊。",
-            "audio": "./assets/audio/generated/d53755f2cb6bf75aa1dd.mp3"
+            "text": "Mum gets a pan.",
+            "cn": "妈妈拿来一个平底锅。",
+            "audio": "./assets/audio/generated/b13281935e20e461d3dc.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p014.webp",
-        "caption": "绘本原页 14",
-        "sourcePage": 14,
+        "image": "./assets/library/story-04/p015.webp",
+        "caption": "绘本原页 15",
+        "sourcePage": 15,
         "original": true
       },
       {
-        "text": "A goat gets Grandpa's hat.",
-        "cn": "一只山羊拿走了爷爷的帽子。",
-        "audio": "./assets/audio/generated/a038a69f6c7955da9a89.mp3",
+        "text": "Nan gets pancakes and a nap!",
+        "cn": "奶奶吃到薄煎饼，还能打个盹！",
+        "audio": "./assets/audio/generated/9d6fc6ad73bf20028fb0.mp3",
         "lines": [
           {
-            "text": "A goat gets Grandpa's hat.",
-            "cn": "一只山羊拿走了爷爷的帽子。",
-            "audio": "./assets/audio/generated/a038a69f6c7955da9a89.mp3"
+            "text": "Nan gets pancakes and a nap!",
+            "cn": "奶奶吃到薄煎饼，还能打个盹！",
+            "audio": "./assets/audio/generated/9d6fc6ad73bf20028fb0.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p016.webp",
-        "caption": "绘本原页 16",
-        "sourcePage": 16,
+        "image": "./assets/library/story-04/p017.webp",
+        "caption": "绘本原页 17",
+        "sourcePage": 17,
         "original": true
       },
       {
-        "text": "Hey!",
-        "cn": "嘿！",
-        "audio": "./assets/audio/generated/b57c370a0fcc704562e1.mp3",
+        "text": "Yum!",
+        "cn": "真好吃！",
+        "audio": "./assets/audio/generated/b753825e9d9ca0bb0c0f.mp3",
         "lines": [
           {
-            "text": "Hey!",
-            "cn": "嘿！",
-            "audio": "./assets/audio/generated/b57c370a0fcc704562e1.mp3"
+            "text": "Yum!",
+            "cn": "真好吃！",
+            "audio": "./assets/audio/generated/b753825e9d9ca0bb0c0f.mp3"
           }
         ],
-        "image": "./assets/library/story-08/p016.webp",
-        "caption": "绘本原页 16",
-        "sourcePage": 16,
-        "original": true
-      },
-      {
-        "text": "But Holly gets it back!",
-        "cn": "不过霍莉把帽子拿回来了！",
-        "audio": "./assets/audio/generated/09705fef7ed0f161658d.mp3",
-        "lines": [
-          {
-            "text": "But Holly gets it back!",
-            "cn": "不过霍莉把帽子拿回来了！",
-            "audio": "./assets/audio/generated/09705fef7ed0f161658d.mp3"
-          }
-        ],
-        "image": "./assets/library/story-08/p018.webp",
-        "caption": "绘本原页 18",
-        "sourcePage": 18,
-        "original": true
-      },
-      {
-        "text": "Good girl, Holly!",
-        "cn": "真棒，霍莉！",
-        "audio": "./assets/audio/generated/d49512c497bb06b921be.mp3",
-        "lines": [
-          {
-            "text": "Good girl, Holly!",
-            "cn": "真棒，霍莉！",
-            "audio": "./assets/audio/generated/d49512c497bb06b921be.mp3"
-          }
-        ],
-        "image": "./assets/library/story-08/p018.webp",
-        "caption": "绘本原页 18",
-        "sourcePage": 18,
+        "image": "./assets/library/story-04/p017.webp",
+        "caption": "绘本原页 17",
+        "sourcePage": 17,
         "original": true
       }
     ],
     "sources": [
       {
         "kind": "story",
-        "number": 8,
-        "fileName": "绘本\\008.pdf",
-        "totalPages": 21,
+        "number": 4,
+        "fileName": "绘本\\004.pdf",
+        "totalPages": 20,
         "pages": [
           {
             "page": 1,
-            "image": "./assets/library/story-08/p001.webp"
+            "image": "./assets/library/story-04/p001.webp"
           },
           {
             "page": 2,
-            "image": "./assets/library/story-08/p002.webp"
+            "image": "./assets/library/story-04/p002.webp"
           },
           {
             "page": 3,
-            "image": "./assets/library/story-08/p003.webp"
+            "image": "./assets/library/story-04/p003.webp"
           },
           {
             "page": 4,
-            "image": "./assets/library/story-08/p004.webp"
+            "image": "./assets/library/story-04/p004.webp"
           },
           {
             "page": 5,
-            "image": "./assets/library/story-08/p005.webp"
+            "image": "./assets/library/story-04/p005.webp"
           },
           {
             "page": 6,
-            "image": "./assets/library/story-08/p006.webp"
+            "image": "./assets/library/story-04/p006.webp"
           },
           {
             "page": 7,
-            "image": "./assets/library/story-08/p007.webp"
+            "image": "./assets/library/story-04/p007.webp"
           },
           {
             "page": 8,
-            "image": "./assets/library/story-08/p008.webp"
+            "image": "./assets/library/story-04/p008.webp"
           },
           {
             "page": 9,
-            "image": "./assets/library/story-08/p009.webp"
+            "image": "./assets/library/story-04/p009.webp"
           },
           {
             "page": 10,
-            "image": "./assets/library/story-08/p010.webp"
+            "image": "./assets/library/story-04/p010.webp"
           },
           {
             "page": 11,
-            "image": "./assets/library/story-08/p011.webp"
+            "image": "./assets/library/story-04/p011.webp"
           },
           {
             "page": 12,
-            "image": "./assets/library/story-08/p012.webp"
+            "image": "./assets/library/story-04/p012.webp"
           },
           {
             "page": 13,
-            "image": "./assets/library/story-08/p013.webp"
+            "image": "./assets/library/story-04/p013.webp"
           },
           {
             "page": 14,
-            "image": "./assets/library/story-08/p014.webp"
+            "image": "./assets/library/story-04/p014.webp"
           },
           {
             "page": 15,
-            "image": "./assets/library/story-08/p015.webp"
+            "image": "./assets/library/story-04/p015.webp"
           },
           {
             "page": 16,
-            "image": "./assets/library/story-08/p016.webp"
+            "image": "./assets/library/story-04/p016.webp"
           },
           {
             "page": 17,
-            "image": "./assets/library/story-08/p017.webp"
+            "image": "./assets/library/story-04/p017.webp"
           },
           {
             "page": 18,
-            "image": "./assets/library/story-08/p018.webp"
+            "image": "./assets/library/story-04/p018.webp"
           },
           {
             "page": 19,
-            "image": "./assets/library/story-08/p019.webp"
+            "image": "./assets/library/story-04/p019.webp"
           },
           {
             "page": 20,
-            "image": "./assets/library/story-08/p020.webp"
-          },
-          {
-            "page": 21,
-            "image": "./assets/library/story-08/p021.webp"
+            "image": "./assets/library/story-04/p020.webp"
           }
         ],
-        "title": "Grandpa and Holly · 绘本原页"
+        "title": "Ned, Mum and Nan · 绘本原页"
       }
     ],
     "video": null,
@@ -9938,15 +9926,496 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-07-04T18:12",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
+  },
+  {
+    "id": "reading-05",
+    "lesson": null,
+    "bookNumber": 5,
+    "readingOrder": 5,
+    "orderConfirmed": true,
+    "orderNote": "按资料时间从早到晚排列",
+    "title": "Ollie and Puppy",
+    "titleCn": "奥利和小狗",
+    "available": true,
+    "isReading": true,
+    "subtitle": "自拼绘本精读",
+    "level": "绘本精读 · 自主跟读版",
+    "description": "按原绘本逐句听读，查看大字英文和中文翻译。未接入官方视频，合成朗读并非教师授课。",
+    "coverImage": "./assets/library/story-05/p001.webp",
+    "coreWords": [
+      {
+        "id": "ollie",
+        "en": "Ollie",
+        "cn": "奥利",
+        "audio": "./assets/audio/generated/8ae01e3d4d5a82236892.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 3,
+        "image": "./assets/library/story-05/p003.webp"
+      },
+      {
+        "id": "puppy",
+        "en": "puppy",
+        "cn": "小狗",
+        "audio": "./assets/audio/generated/6588ef4db6a357d6d9ca.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 5,
+        "image": "./assets/library/story-05/p005.webp"
+      },
+      {
+        "id": "pat",
+        "en": "pat",
+        "cn": "轻拍",
+        "audio": "./assets/audio/generated/68d753f055b1a15b3949.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 6,
+        "image": "./assets/library/story-05/p006.webp"
+      },
+      {
+        "id": "shop",
+        "en": "shop",
+        "cn": "商店",
+        "audio": "./assets/audio/generated/8d9001d32c6a703d9592.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 7,
+        "image": "./assets/library/story-05/p007.webp"
+      },
+      {
+        "id": "park",
+        "en": "park",
+        "cn": "公园",
+        "audio": "./assets/audio/generated/4d3971de62245c94cd3d.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 9,
+        "image": "./assets/library/story-05/p009.webp"
+      },
+      {
+        "id": "penny",
+        "en": "Penny",
+        "cn": "佩妮",
+        "audio": "./assets/audio/generated/529c3146271d02cb3aca.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 14,
+        "image": "./assets/library/story-05/p014.webp"
+      },
+      {
+        "id": "dog",
+        "en": "dog",
+        "cn": "狗",
+        "audio": "./assets/audio/words/dog.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 15,
+        "image": "./assets/library/story-05/p015.webp"
+      }
+    ],
+    "phonicsWords": [],
+    "letters": [],
+    "chants": [],
+    "introSentences": [],
+    "storySentences": [
+      {
+        "id": "book-5-line-1",
+        "text": "Ollie wants a friend.",
+        "cn": "奥利想要一个朋友。",
+        "audio": "./assets/audio/generated/6dba34c6b394b15f5c79.mp3",
+        "sourcePage": 2,
+        "tag": "绘本原页 2"
+      },
+      {
+        "id": "book-5-line-2",
+        "text": "He finds a puppy.",
+        "cn": "他发现了一只小狗。",
+        "audio": "./assets/audio/generated/3d9e2200b5d0045dd1ef.mp3",
+        "sourcePage": 4,
+        "tag": "绘本原页 4"
+      },
+      {
+        "id": "book-5-line-3",
+        "text": "He pats it.",
+        "cn": "他轻轻拍拍它。",
+        "audio": "./assets/audio/generated/8ff2ee58dc4b5501fe7f.mp3",
+        "sourcePage": 4,
+        "tag": "绘本原页 4"
+      },
+      {
+        "id": "book-5-line-4",
+        "text": "Ollie plays in the park.",
+        "cn": "奥利在公园里玩。",
+        "audio": "./assets/audio/generated/cfe02bcd6ccf47df416e.mp3",
+        "sourcePage": 8,
+        "tag": "绘本原页 8"
+      },
+      {
+        "id": "book-5-line-5",
+        "text": "Puppy plays in the park.",
+        "cn": "小狗也在公园里玩。",
+        "audio": "./assets/audio/generated/dbbc80741ce62a824040.mp3",
+        "sourcePage": 10,
+        "tag": "绘本原页 10"
+      },
+      {
+        "id": "book-5-line-6",
+        "text": "Come on!",
+        "cn": "来吧！",
+        "audio": "./assets/audio/generated/4907ee25d9f6991a18c2.mp3",
+        "sourcePage": 10,
+        "tag": "绘本原页 10"
+      },
+      {
+        "id": "book-5-line-7",
+        "text": "Ollie eats pizza and an orange.",
+        "cn": "奥利吃比萨和一个橙子。",
+        "audio": "./assets/audio/generated/faea1f30bb88216eca7d.mp3",
+        "sourcePage": 11,
+        "tag": "绘本原页 11"
+      },
+      {
+        "id": "book-5-line-8",
+        "text": "Puppy eats pizza and an orange.",
+        "cn": "小狗吃比萨和一个橙子。",
+        "audio": "./assets/audio/generated/19476231c33c572ef410.mp3",
+        "sourcePage": 12,
+        "tag": "绘本原页 12"
+      },
+      {
+        "id": "book-5-line-9",
+        "text": "Penny finds her puppy.",
+        "cn": "佩妮找到了自己的小狗。",
+        "audio": "./assets/audio/generated/72b2d10d165e3c70a2f3.mp3",
+        "sourcePage": 13,
+        "tag": "绘本原页 13"
+      },
+      {
+        "id": "book-5-line-10",
+        "text": "She pats it.",
+        "cn": "她轻轻拍拍它。",
+        "audio": "./assets/audio/generated/d363baf0b9106274ee9f.mp3",
+        "sourcePage": 13,
+        "tag": "绘本原页 13"
+      },
+      {
+        "id": "book-5-line-11",
+        "text": "Good dog!",
+        "cn": "乖狗狗！",
+        "audio": "./assets/audio/generated/f04f90ac55f009bb6325.mp3",
+        "sourcePage": 13,
+        "tag": "绘本原页 13"
+      },
+      {
+        "id": "book-5-line-12",
+        "text": "Ollie finds a friend.",
+        "cn": "奥利找到了一个朋友。",
+        "audio": "./assets/audio/generated/ce477972bab0014bb57e.mp3",
+        "sourcePage": 16,
+        "tag": "绘本原页 16"
+      }
+    ],
+    "story": [
+      {
+        "text": "Ollie wants a friend.",
+        "cn": "奥利想要一个朋友。",
+        "audio": "./assets/audio/generated/6dba34c6b394b15f5c79.mp3",
+        "lines": [
+          {
+            "text": "Ollie wants a friend.",
+            "cn": "奥利想要一个朋友。",
+            "audio": "./assets/audio/generated/6dba34c6b394b15f5c79.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p002.webp",
+        "caption": "绘本原页 2",
+        "sourcePage": 2,
+        "original": true
+      },
+      {
+        "text": "He finds a puppy.",
+        "cn": "他发现了一只小狗。",
+        "audio": "./assets/audio/generated/3d9e2200b5d0045dd1ef.mp3",
+        "lines": [
+          {
+            "text": "He finds a puppy.",
+            "cn": "他发现了一只小狗。",
+            "audio": "./assets/audio/generated/3d9e2200b5d0045dd1ef.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p004.webp",
+        "caption": "绘本原页 4",
+        "sourcePage": 4,
+        "original": true
+      },
+      {
+        "text": "He pats it.",
+        "cn": "他轻轻拍拍它。",
+        "audio": "./assets/audio/generated/8ff2ee58dc4b5501fe7f.mp3",
+        "lines": [
+          {
+            "text": "He pats it.",
+            "cn": "他轻轻拍拍它。",
+            "audio": "./assets/audio/generated/8ff2ee58dc4b5501fe7f.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p004.webp",
+        "caption": "绘本原页 4",
+        "sourcePage": 4,
+        "original": true
+      },
+      {
+        "text": "Ollie plays in the park.",
+        "cn": "奥利在公园里玩。",
+        "audio": "./assets/audio/generated/cfe02bcd6ccf47df416e.mp3",
+        "lines": [
+          {
+            "text": "Ollie plays in the park.",
+            "cn": "奥利在公园里玩。",
+            "audio": "./assets/audio/generated/cfe02bcd6ccf47df416e.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p008.webp",
+        "caption": "绘本原页 8",
+        "sourcePage": 8,
+        "original": true
+      },
+      {
+        "text": "Puppy plays in the park.",
+        "cn": "小狗也在公园里玩。",
+        "audio": "./assets/audio/generated/dbbc80741ce62a824040.mp3",
+        "lines": [
+          {
+            "text": "Puppy plays in the park.",
+            "cn": "小狗也在公园里玩。",
+            "audio": "./assets/audio/generated/dbbc80741ce62a824040.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p010.webp",
+        "caption": "绘本原页 10",
+        "sourcePage": 10,
+        "original": true
+      },
+      {
+        "text": "Come on!",
+        "cn": "来吧！",
+        "audio": "./assets/audio/generated/4907ee25d9f6991a18c2.mp3",
+        "lines": [
+          {
+            "text": "Come on!",
+            "cn": "来吧！",
+            "audio": "./assets/audio/generated/4907ee25d9f6991a18c2.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p010.webp",
+        "caption": "绘本原页 10",
+        "sourcePage": 10,
+        "original": true
+      },
+      {
+        "text": "Ollie eats pizza and an orange.",
+        "cn": "奥利吃比萨和一个橙子。",
+        "audio": "./assets/audio/generated/faea1f30bb88216eca7d.mp3",
+        "lines": [
+          {
+            "text": "Ollie eats pizza and an orange.",
+            "cn": "奥利吃比萨和一个橙子。",
+            "audio": "./assets/audio/generated/faea1f30bb88216eca7d.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p011.webp",
+        "caption": "绘本原页 11",
+        "sourcePage": 11,
+        "original": true
+      },
+      {
+        "text": "Puppy eats pizza and an orange.",
+        "cn": "小狗吃比萨和一个橙子。",
+        "audio": "./assets/audio/generated/19476231c33c572ef410.mp3",
+        "lines": [
+          {
+            "text": "Puppy eats pizza and an orange.",
+            "cn": "小狗吃比萨和一个橙子。",
+            "audio": "./assets/audio/generated/19476231c33c572ef410.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p012.webp",
+        "caption": "绘本原页 12",
+        "sourcePage": 12,
+        "original": true
+      },
+      {
+        "text": "Penny finds her puppy.",
+        "cn": "佩妮找到了自己的小狗。",
+        "audio": "./assets/audio/generated/72b2d10d165e3c70a2f3.mp3",
+        "lines": [
+          {
+            "text": "Penny finds her puppy.",
+            "cn": "佩妮找到了自己的小狗。",
+            "audio": "./assets/audio/generated/72b2d10d165e3c70a2f3.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p013.webp",
+        "caption": "绘本原页 13",
+        "sourcePage": 13,
+        "original": true
+      },
+      {
+        "text": "She pats it.",
+        "cn": "她轻轻拍拍它。",
+        "audio": "./assets/audio/generated/d363baf0b9106274ee9f.mp3",
+        "lines": [
+          {
+            "text": "She pats it.",
+            "cn": "她轻轻拍拍它。",
+            "audio": "./assets/audio/generated/d363baf0b9106274ee9f.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p013.webp",
+        "caption": "绘本原页 13",
+        "sourcePage": 13,
+        "original": true
+      },
+      {
+        "text": "Good dog!",
+        "cn": "乖狗狗！",
+        "audio": "./assets/audio/generated/f04f90ac55f009bb6325.mp3",
+        "lines": [
+          {
+            "text": "Good dog!",
+            "cn": "乖狗狗！",
+            "audio": "./assets/audio/generated/f04f90ac55f009bb6325.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p013.webp",
+        "caption": "绘本原页 13",
+        "sourcePage": 13,
+        "original": true
+      },
+      {
+        "text": "Ollie finds a friend.",
+        "cn": "奥利找到了一个朋友。",
+        "audio": "./assets/audio/generated/ce477972bab0014bb57e.mp3",
+        "lines": [
+          {
+            "text": "Ollie finds a friend.",
+            "cn": "奥利找到了一个朋友。",
+            "audio": "./assets/audio/generated/ce477972bab0014bb57e.mp3"
+          }
+        ],
+        "image": "./assets/library/story-05/p016.webp",
+        "caption": "绘本原页 16",
+        "sourcePage": 16,
+        "original": true
+      }
+    ],
+    "sources": [
+      {
+        "kind": "story",
+        "number": 5,
+        "fileName": "绘本\\005.pdf",
+        "totalPages": 18,
+        "pages": [
+          {
+            "page": 1,
+            "image": "./assets/library/story-05/p001.webp"
+          },
+          {
+            "page": 2,
+            "image": "./assets/library/story-05/p002.webp"
+          },
+          {
+            "page": 3,
+            "image": "./assets/library/story-05/p003.webp"
+          },
+          {
+            "page": 4,
+            "image": "./assets/library/story-05/p004.webp"
+          },
+          {
+            "page": 5,
+            "image": "./assets/library/story-05/p005.webp"
+          },
+          {
+            "page": 6,
+            "image": "./assets/library/story-05/p006.webp"
+          },
+          {
+            "page": 7,
+            "image": "./assets/library/story-05/p007.webp"
+          },
+          {
+            "page": 8,
+            "image": "./assets/library/story-05/p008.webp"
+          },
+          {
+            "page": 9,
+            "image": "./assets/library/story-05/p009.webp"
+          },
+          {
+            "page": 10,
+            "image": "./assets/library/story-05/p010.webp"
+          },
+          {
+            "page": 11,
+            "image": "./assets/library/story-05/p011.webp"
+          },
+          {
+            "page": 12,
+            "image": "./assets/library/story-05/p012.webp"
+          },
+          {
+            "page": 13,
+            "image": "./assets/library/story-05/p013.webp"
+          },
+          {
+            "page": 14,
+            "image": "./assets/library/story-05/p014.webp"
+          },
+          {
+            "page": 15,
+            "image": "./assets/library/story-05/p015.webp"
+          },
+          {
+            "page": 16,
+            "image": "./assets/library/story-05/p016.webp"
+          },
+          {
+            "page": 17,
+            "image": "./assets/library/story-05/p017.webp"
+          },
+          {
+            "page": 18,
+            "image": "./assets/library/story-05/p018.webp"
+          }
+        ],
+        "title": "Ollie and Puppy · 绘本原页"
+      }
+    ],
+    "video": null,
+    "checklist": [
+      {
+        "id": "words",
+        "text": "跟读绘本关键词"
+      },
+      {
+        "id": "sentences",
+        "text": "逐句跟读并对照中文"
+      },
+      {
+        "id": "story",
+        "text": "读完绘本，尝试复述"
+      }
+    ],
+    "materialTime": "2024-07-05T11:13",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-06",
     "lesson": null,
     "bookNumber": 6,
-    "readingOrder": 5,
+    "readingOrder": 6,
     "orderConfirmed": true,
-    "orderNote": "目录位置依据客户端截图",
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Spin, Jenny, Spin!",
     "titleCn": "转起来，珍妮！",
     "available": true,
@@ -10567,15 +11036,18 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-07-09T15:52",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-07",
     "lesson": null,
     "bookNumber": 7,
-    "readingOrder": 6,
+    "readingOrder": 7,
     "orderConfirmed": true,
-    "orderNote": "目录位置依据客户端截图",
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Lola and the King",
     "titleCn": "洛拉和国王",
     "available": true,
@@ -10973,530 +11445,44 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-07-09T15:53",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
-    "id": "reading-04",
+    "id": "reading-08",
     "lesson": null,
-    "bookNumber": 4,
-    "readingOrder": 7,
+    "bookNumber": 8,
+    "readingOrder": 8,
     "orderConfirmed": true,
-    "orderNote": "目录位置依据客户端截图",
-    "title": "Ned, Mum and Nan",
-    "titleCn": "内德、妈妈和奶奶",
+    "orderNote": "按资料时间从早到晚排列",
+    "title": "Grandpa and Holly",
+    "titleCn": "爷爷和霍莉",
     "available": true,
     "isReading": true,
     "subtitle": "自拼绘本精读",
     "level": "绘本精读 · 自主跟读版",
     "description": "按原绘本逐句听读，查看大字英文和中文翻译。未接入官方视频，合成朗读并非教师授课。",
-    "coverImage": "./assets/library/story-04/p001.webp",
+    "coverImage": "./assets/library/story-08/p001.webp",
     "coreWords": [
       {
-        "id": "ned",
-        "en": "Ned",
-        "cn": "内德",
-        "audio": "./assets/audio/generated/7c95b1b284881b54153a.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 2,
-        "image": "./assets/library/story-04/p002.webp"
-      },
-      {
-        "id": "mum",
-        "en": "mum",
-        "cn": "妈妈",
-        "audio": "./assets/audio/generated/f2d758f9e379babc91f1.mp3",
-        "audioType": "synthesized",
-        "image": "./assets/library/story-04/p003.webp",
-        "sourcePage": 3
-      },
-      {
-        "id": "nan",
-        "en": "nan",
-        "cn": "奶奶",
-        "audio": "./assets/audio/generated/9b2d5b4678781e53038e.mp3",
-        "audioType": "synthesized",
-        "image": "./assets/library/story-04/p004.webp",
-        "sourcePage": 4
-      },
-      {
-        "id": "nest",
-        "en": "nest",
-        "cn": "窝",
-        "audio": "./assets/audio/generated/75ef2e329bdb50d26a4c.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 7,
-        "image": "./assets/library/story-04/p007.webp"
-      },
-      {
-        "id": "milk",
-        "en": "milk",
-        "cn": "牛奶",
-        "audio": "./assets/audio/generated/8825e76530f87ff5c737.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 9,
-        "image": "./assets/library/story-04/p009.webp"
-      },
-      {
-        "id": "man",
-        "en": "man",
-        "cn": "男人",
-        "audio": "./assets/audio/generated/48b676e2b107da679512.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 11,
-        "image": "./assets/library/story-04/p011.webp"
-      },
-      {
-        "id": "mug",
-        "en": "mug",
-        "cn": "马克杯",
-        "audio": "./assets/audio/generated/a19ee2577879b76a5b98.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 14,
-        "image": "./assets/library/story-04/p014.webp"
-      },
-      {
-        "id": "pan",
-        "en": "pan",
-        "cn": "平底锅",
-        "audio": "./assets/audio/generated/00e37ffae0562ab6818d.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 16,
-        "image": "./assets/library/story-04/p016.webp"
-      },
-      {
-        "id": "nap",
-        "en": "nap",
-        "cn": "小睡",
-        "audio": "./assets/audio/generated/82ebadafdeec2df737e5.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 18,
-        "image": "./assets/library/story-04/p018.webp"
-      }
-    ],
-    "phonicsWords": [],
-    "letters": [],
-    "chants": [],
-    "introSentences": [],
-    "storySentences": [
-      {
-        "id": "book-4-line-1",
-        "text": "Ned is at a farm.",
-        "cn": "内德在农场。",
-        "audio": "./assets/audio/generated/453389e9e139f0ee99cf.mp3",
-        "sourcePage": 5,
-        "tag": "绘本原页 5"
-      },
-      {
-        "id": "book-4-line-2",
-        "text": "He gets eggs from a nest.",
-        "cn": "他从鸟窝里拿到鸡蛋。",
-        "audio": "./assets/audio/generated/ba5400d404b2e2c1e645.mp3",
-        "sourcePage": 6,
-        "tag": "绘本原页 6"
-      },
-      {
-        "id": "book-4-line-3",
-        "text": "Mum gets milk from a cow.",
-        "cn": "妈妈从奶牛那里挤到牛奶。",
-        "audio": "./assets/audio/generated/578175e86f89aa607cf2.mp3",
-        "sourcePage": 8,
-        "tag": "绘本原页 8"
-      },
-      {
-        "id": "book-4-line-4",
-        "text": "Moo!",
-        "cn": "哞！",
-        "audio": "./assets/audio/generated/565f923aa7a886d9ff5e.mp3",
-        "sourcePage": 8,
-        "tag": "绘本原页 8"
-      },
-      {
-        "id": "book-4-line-5",
-        "text": "Nan gets a bag from the man.",
-        "cn": "奶奶从那个人那里拿到一个袋子。",
-        "audio": "./assets/audio/generated/8d85f53bdd86a174e510.mp3",
-        "sourcePage": 10,
-        "tag": "绘本原页 10"
-      },
-      {
-        "id": "book-4-line-6",
-        "text": "Now Ned is at home.",
-        "cn": "现在内德在家了。",
-        "audio": "./assets/audio/generated/abca8fd657d215c198b5.mp3",
-        "sourcePage": 12,
-        "tag": "绘本原页 12"
-      },
-      {
-        "id": "book-4-line-7",
-        "text": "He gets a mug.",
-        "cn": "他拿来一个马克杯。",
-        "audio": "./assets/audio/generated/0981f5787545f5ec6e5b.mp3",
-        "sourcePage": 13,
-        "tag": "绘本原页 13"
-      },
-      {
-        "id": "book-4-line-8",
-        "text": "Mum gets a pan.",
-        "cn": "妈妈拿来一个平底锅。",
-        "audio": "./assets/audio/generated/b13281935e20e461d3dc.mp3",
-        "sourcePage": 15,
-        "tag": "绘本原页 15"
-      },
-      {
-        "id": "book-4-line-9",
-        "text": "Nan gets pancakes and a nap!",
-        "cn": "奶奶吃到薄煎饼，还能打个盹！",
-        "audio": "./assets/audio/generated/9d6fc6ad73bf20028fb0.mp3",
-        "sourcePage": 17,
-        "tag": "绘本原页 17"
-      },
-      {
-        "id": "book-4-line-10",
-        "text": "Yum!",
-        "cn": "真好吃！",
-        "audio": "./assets/audio/generated/b753825e9d9ca0bb0c0f.mp3",
-        "sourcePage": 17,
-        "tag": "绘本原页 17"
-      }
-    ],
-    "story": [
-      {
-        "text": "Ned is at a farm.",
-        "cn": "内德在农场。",
-        "audio": "./assets/audio/generated/453389e9e139f0ee99cf.mp3",
-        "lines": [
-          {
-            "text": "Ned is at a farm.",
-            "cn": "内德在农场。",
-            "audio": "./assets/audio/generated/453389e9e139f0ee99cf.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p005.webp",
-        "caption": "绘本原页 5",
-        "sourcePage": 5,
-        "original": true
-      },
-      {
-        "text": "He gets eggs from a nest.",
-        "cn": "他从鸟窝里拿到鸡蛋。",
-        "audio": "./assets/audio/generated/ba5400d404b2e2c1e645.mp3",
-        "lines": [
-          {
-            "text": "He gets eggs from a nest.",
-            "cn": "他从鸟窝里拿到鸡蛋。",
-            "audio": "./assets/audio/generated/ba5400d404b2e2c1e645.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p006.webp",
-        "caption": "绘本原页 6",
-        "sourcePage": 6,
-        "original": true
-      },
-      {
-        "text": "Mum gets milk from a cow.",
-        "cn": "妈妈从奶牛那里挤到牛奶。",
-        "audio": "./assets/audio/generated/578175e86f89aa607cf2.mp3",
-        "lines": [
-          {
-            "text": "Mum gets milk from a cow.",
-            "cn": "妈妈从奶牛那里挤到牛奶。",
-            "audio": "./assets/audio/generated/578175e86f89aa607cf2.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p008.webp",
-        "caption": "绘本原页 8",
-        "sourcePage": 8,
-        "original": true
-      },
-      {
-        "text": "Moo!",
-        "cn": "哞！",
-        "audio": "./assets/audio/generated/565f923aa7a886d9ff5e.mp3",
-        "lines": [
-          {
-            "text": "Moo!",
-            "cn": "哞！",
-            "audio": "./assets/audio/generated/565f923aa7a886d9ff5e.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p008.webp",
-        "caption": "绘本原页 8",
-        "sourcePage": 8,
-        "original": true
-      },
-      {
-        "text": "Nan gets a bag from the man.",
-        "cn": "奶奶从那个人那里拿到一个袋子。",
-        "audio": "./assets/audio/generated/8d85f53bdd86a174e510.mp3",
-        "lines": [
-          {
-            "text": "Nan gets a bag from the man.",
-            "cn": "奶奶从那个人那里拿到一个袋子。",
-            "audio": "./assets/audio/generated/8d85f53bdd86a174e510.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p010.webp",
-        "caption": "绘本原页 10",
-        "sourcePage": 10,
-        "original": true
-      },
-      {
-        "text": "Now Ned is at home.",
-        "cn": "现在内德在家了。",
-        "audio": "./assets/audio/generated/abca8fd657d215c198b5.mp3",
-        "lines": [
-          {
-            "text": "Now Ned is at home.",
-            "cn": "现在内德在家了。",
-            "audio": "./assets/audio/generated/abca8fd657d215c198b5.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p012.webp",
-        "caption": "绘本原页 12",
-        "sourcePage": 12,
-        "original": true
-      },
-      {
-        "text": "He gets a mug.",
-        "cn": "他拿来一个马克杯。",
-        "audio": "./assets/audio/generated/0981f5787545f5ec6e5b.mp3",
-        "lines": [
-          {
-            "text": "He gets a mug.",
-            "cn": "他拿来一个马克杯。",
-            "audio": "./assets/audio/generated/0981f5787545f5ec6e5b.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p013.webp",
-        "caption": "绘本原页 13",
-        "sourcePage": 13,
-        "original": true
-      },
-      {
-        "text": "Mum gets a pan.",
-        "cn": "妈妈拿来一个平底锅。",
-        "audio": "./assets/audio/generated/b13281935e20e461d3dc.mp3",
-        "lines": [
-          {
-            "text": "Mum gets a pan.",
-            "cn": "妈妈拿来一个平底锅。",
-            "audio": "./assets/audio/generated/b13281935e20e461d3dc.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p015.webp",
-        "caption": "绘本原页 15",
-        "sourcePage": 15,
-        "original": true
-      },
-      {
-        "text": "Nan gets pancakes and a nap!",
-        "cn": "奶奶吃到薄煎饼，还能打个盹！",
-        "audio": "./assets/audio/generated/9d6fc6ad73bf20028fb0.mp3",
-        "lines": [
-          {
-            "text": "Nan gets pancakes and a nap!",
-            "cn": "奶奶吃到薄煎饼，还能打个盹！",
-            "audio": "./assets/audio/generated/9d6fc6ad73bf20028fb0.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p017.webp",
-        "caption": "绘本原页 17",
-        "sourcePage": 17,
-        "original": true
-      },
-      {
-        "text": "Yum!",
-        "cn": "真好吃！",
-        "audio": "./assets/audio/generated/b753825e9d9ca0bb0c0f.mp3",
-        "lines": [
-          {
-            "text": "Yum!",
-            "cn": "真好吃！",
-            "audio": "./assets/audio/generated/b753825e9d9ca0bb0c0f.mp3"
-          }
-        ],
-        "image": "./assets/library/story-04/p017.webp",
-        "caption": "绘本原页 17",
-        "sourcePage": 17,
-        "original": true
-      }
-    ],
-    "sources": [
-      {
-        "kind": "story",
-        "number": 4,
-        "fileName": "绘本\\004.pdf",
-        "totalPages": 20,
-        "pages": [
-          {
-            "page": 1,
-            "image": "./assets/library/story-04/p001.webp"
-          },
-          {
-            "page": 2,
-            "image": "./assets/library/story-04/p002.webp"
-          },
-          {
-            "page": 3,
-            "image": "./assets/library/story-04/p003.webp"
-          },
-          {
-            "page": 4,
-            "image": "./assets/library/story-04/p004.webp"
-          },
-          {
-            "page": 5,
-            "image": "./assets/library/story-04/p005.webp"
-          },
-          {
-            "page": 6,
-            "image": "./assets/library/story-04/p006.webp"
-          },
-          {
-            "page": 7,
-            "image": "./assets/library/story-04/p007.webp"
-          },
-          {
-            "page": 8,
-            "image": "./assets/library/story-04/p008.webp"
-          },
-          {
-            "page": 9,
-            "image": "./assets/library/story-04/p009.webp"
-          },
-          {
-            "page": 10,
-            "image": "./assets/library/story-04/p010.webp"
-          },
-          {
-            "page": 11,
-            "image": "./assets/library/story-04/p011.webp"
-          },
-          {
-            "page": 12,
-            "image": "./assets/library/story-04/p012.webp"
-          },
-          {
-            "page": 13,
-            "image": "./assets/library/story-04/p013.webp"
-          },
-          {
-            "page": 14,
-            "image": "./assets/library/story-04/p014.webp"
-          },
-          {
-            "page": 15,
-            "image": "./assets/library/story-04/p015.webp"
-          },
-          {
-            "page": 16,
-            "image": "./assets/library/story-04/p016.webp"
-          },
-          {
-            "page": 17,
-            "image": "./assets/library/story-04/p017.webp"
-          },
-          {
-            "page": 18,
-            "image": "./assets/library/story-04/p018.webp"
-          },
-          {
-            "page": 19,
-            "image": "./assets/library/story-04/p019.webp"
-          },
-          {
-            "page": 20,
-            "image": "./assets/library/story-04/p020.webp"
-          }
-        ],
-        "title": "Ned, Mum and Nan · 绘本原页"
-      }
-    ],
-    "video": null,
-    "checklist": [
-      {
-        "id": "words",
-        "text": "跟读绘本关键词"
-      },
-      {
-        "id": "sentences",
-        "text": "逐句跟读并对照中文"
-      },
-      {
-        "id": "story",
-        "text": "读完绘本，尝试复述"
-      }
-    ]
-  },
-  {
-    "id": "reading-05",
-    "lesson": null,
-    "bookNumber": 5,
-    "readingOrder": null,
-    "orderConfirmed": false,
-    "orderNote": "已有资料，平台课次待核对",
-    "title": "Ollie and Puppy",
-    "titleCn": "奥利和小狗",
-    "available": true,
-    "isReading": true,
-    "subtitle": "自拼绘本精读",
-    "level": "绘本精读 · 自主跟读版",
-    "description": "按原绘本逐句听读，查看大字英文和中文翻译。未接入官方视频，合成朗读并非教师授课。",
-    "coverImage": "./assets/library/story-05/p001.webp",
-    "coreWords": [
-      {
-        "id": "ollie",
-        "en": "Ollie",
-        "cn": "奥利",
-        "audio": "./assets/audio/generated/8ae01e3d4d5a82236892.mp3",
+        "id": "holly",
+        "en": "Holly",
+        "cn": "霍莉",
+        "audio": "./assets/audio/generated/fd6045b6fc1949fcc41c.mp3",
         "audioType": "synthesized",
         "sourcePage": 3,
-        "image": "./assets/library/story-05/p003.webp"
+        "image": "./assets/library/story-08/p003.webp"
       },
       {
-        "id": "puppy",
-        "en": "puppy",
-        "cn": "小狗",
-        "audio": "./assets/audio/generated/6588ef4db6a357d6d9ca.mp3",
+        "id": "good",
+        "en": "good",
+        "cn": "好的",
+        "audio": "./assets/audio/generated/770e607624d689265ca6.mp3",
         "audioType": "synthesized",
-        "sourcePage": 5,
-        "image": "./assets/library/story-05/p005.webp"
-      },
-      {
-        "id": "pat",
-        "en": "pat",
-        "cn": "轻拍",
-        "audio": "./assets/audio/generated/68d753f055b1a15b3949.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 6,
-        "image": "./assets/library/story-05/p006.webp"
-      },
-      {
-        "id": "shop",
-        "en": "shop",
-        "cn": "商店",
-        "audio": "./assets/audio/generated/8d9001d32c6a703d9592.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 7,
-        "image": "./assets/library/story-05/p007.webp"
-      },
-      {
-        "id": "park",
-        "en": "park",
-        "cn": "公园",
-        "audio": "./assets/audio/generated/4d3971de62245c94cd3d.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 9,
-        "image": "./assets/library/story-05/p009.webp"
-      },
-      {
-        "id": "penny",
-        "en": "Penny",
-        "cn": "佩妮",
-        "audio": "./assets/audio/generated/529c3146271d02cb3aca.mp3",
-        "audioType": "synthesized",
-        "sourcePage": 14,
-        "image": "./assets/library/story-05/p014.webp"
+        "sourcePage": 4,
+        "image": "./assets/library/story-08/p004.webp"
       },
       {
         "id": "dog",
@@ -11504,8 +11490,71 @@ window.XIAOYUAN_READINGS = [
         "cn": "狗",
         "audio": "./assets/audio/words/dog.mp3",
         "audioType": "synthesized",
+        "sourcePage": 5,
+        "image": "./assets/library/story-08/p005.webp"
+      },
+      {
+        "id": "help",
+        "en": "help",
+        "cn": "帮助",
+        "audio": "./assets/audio/generated/106a5842fc5fce6f6631.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 6,
+        "image": "./assets/library/story-08/p006.webp"
+      },
+      {
+        "id": "get",
+        "en": "get",
+        "cn": "拿到",
+        "audio": "./assets/audio/generated/2998b3232d29e8dc5a78.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 9,
+        "image": "./assets/library/story-08/p009.webp"
+      },
+      {
+        "id": "hay",
+        "en": "hay",
+        "cn": "干草",
+        "audio": "./assets/audio/generated/4e30ea25cda1c18cfc42.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 10,
+        "image": "./assets/library/story-08/p010.webp"
+      },
+      {
+        "id": "hen",
+        "en": "hen",
+        "cn": "母鸡",
+        "audio": "./assets/audio/generated/d44a08de3981889dae0f.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 12,
+        "image": "./assets/library/story-08/p012.webp"
+      },
+      {
+        "id": "goat",
+        "en": "goat",
+        "cn": "山羊",
+        "audio": "./assets/audio/generated/5480f08f35968440ebe8.mp3",
+        "audioType": "synthesized",
         "sourcePage": 15,
-        "image": "./assets/library/story-05/p015.webp"
+        "image": "./assets/library/story-08/p015.webp"
+      },
+      {
+        "id": "hat",
+        "en": "hat",
+        "cn": "帽子",
+        "audio": "./assets/audio/generated/18e1dd392168f601d0e5.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 17,
+        "image": "./assets/library/story-08/p017.webp"
+      },
+      {
+        "id": "girl",
+        "en": "girl",
+        "cn": "女孩",
+        "audio": "./assets/audio/generated/431ba1c6936744f65928.mp3",
+        "audioType": "synthesized",
+        "sourcePage": 19,
+        "image": "./assets/library/story-08/p019.webp"
       }
     ],
     "phonicsWords": [],
@@ -11514,377 +11563,365 @@ window.XIAOYUAN_READINGS = [
     "introSentences": [],
     "storySentences": [
       {
-        "id": "book-5-line-1",
-        "text": "Ollie wants a friend.",
-        "cn": "奥利想要一个朋友。",
-        "audio": "./assets/audio/generated/6dba34c6b394b15f5c79.mp3",
+        "id": "book-8-line-1",
+        "text": "Holly is a good dog.",
+        "cn": "霍莉是一只好狗。",
+        "audio": "./assets/audio/generated/7dfba09e2e57c5a6d60e.mp3",
         "sourcePage": 2,
         "tag": "绘本原页 2"
       },
       {
-        "id": "book-5-line-2",
-        "text": "He finds a puppy.",
-        "cn": "他发现了一只小狗。",
-        "audio": "./assets/audio/generated/3d9e2200b5d0045dd1ef.mp3",
-        "sourcePage": 4,
-        "tag": "绘本原页 4"
+        "id": "book-8-line-2",
+        "text": "She helps Grandpa.",
+        "cn": "她帮助爷爷。",
+        "audio": "./assets/audio/generated/7007bfceec128a1127cd.mp3",
+        "sourcePage": 2,
+        "tag": "绘本原页 2"
       },
       {
-        "id": "book-5-line-3",
-        "text": "He pats it.",
-        "cn": "他轻轻拍拍它。",
-        "audio": "./assets/audio/generated/8ff2ee58dc4b5501fe7f.mp3",
-        "sourcePage": 4,
-        "tag": "绘本原页 4"
+        "id": "book-8-line-3",
+        "text": "They go to see the horse.",
+        "cn": "他们去看马。",
+        "audio": "./assets/audio/generated/236ae3ba646c187f6319.mp3",
+        "sourcePage": 7,
+        "tag": "绘本原页 7"
       },
       {
-        "id": "book-5-line-4",
-        "text": "Ollie plays in the park.",
-        "cn": "奥利在公园里玩。",
-        "audio": "./assets/audio/generated/cfe02bcd6ccf47df416e.mp3",
+        "id": "book-8-line-4",
+        "text": "Holly gets the hay.",
+        "cn": "霍莉拿来干草。",
+        "audio": "./assets/audio/generated/300d1938f1b3c5b824ce.mp3",
         "sourcePage": 8,
         "tag": "绘本原页 8"
       },
       {
-        "id": "book-5-line-5",
-        "text": "Puppy plays in the park.",
-        "cn": "小狗也在公园里玩。",
-        "audio": "./assets/audio/generated/dbbc80741ce62a824040.mp3",
-        "sourcePage": 10,
-        "tag": "绘本原页 10"
-      },
-      {
-        "id": "book-5-line-6",
-        "text": "Come on!",
-        "cn": "来吧！",
-        "audio": "./assets/audio/generated/4907ee25d9f6991a18c2.mp3",
-        "sourcePage": 10,
-        "tag": "绘本原页 10"
-      },
-      {
-        "id": "book-5-line-7",
-        "text": "Ollie eats pizza and an orange.",
-        "cn": "奥利吃比萨和一个橙子。",
-        "audio": "./assets/audio/generated/faea1f30bb88216eca7d.mp3",
+        "id": "book-8-line-5",
+        "text": "They go to see the hens.",
+        "cn": "他们去看母鸡。",
+        "audio": "./assets/audio/generated/de7e675b3c31c00f253d.mp3",
         "sourcePage": 11,
         "tag": "绘本原页 11"
       },
       {
-        "id": "book-5-line-8",
-        "text": "Puppy eats pizza and an orange.",
-        "cn": "小狗吃比萨和一个橙子。",
-        "audio": "./assets/audio/generated/19476231c33c572ef410.mp3",
-        "sourcePage": 12,
-        "tag": "绘本原页 12"
-      },
-      {
-        "id": "book-5-line-9",
-        "text": "Penny finds her puppy.",
-        "cn": "佩妮找到了自己的小狗。",
-        "audio": "./assets/audio/generated/72b2d10d165e3c70a2f3.mp3",
+        "id": "book-8-line-6",
+        "text": "Holly gets the eggs.",
+        "cn": "霍莉拿到鸡蛋。",
+        "audio": "./assets/audio/generated/0a0b4d4f7a95473e5783.mp3",
         "sourcePage": 13,
         "tag": "绘本原页 13"
       },
       {
-        "id": "book-5-line-10",
-        "text": "She pats it.",
-        "cn": "她轻轻拍拍它。",
-        "audio": "./assets/audio/generated/d363baf0b9106274ee9f.mp3",
-        "sourcePage": 13,
-        "tag": "绘本原页 13"
+        "id": "book-8-line-7",
+        "text": "They go to see the goats.",
+        "cn": "他们去看山羊。",
+        "audio": "./assets/audio/generated/d53755f2cb6bf75aa1dd.mp3",
+        "sourcePage": 14,
+        "tag": "绘本原页 14"
       },
       {
-        "id": "book-5-line-11",
-        "text": "Good dog!",
-        "cn": "乖狗狗！",
-        "audio": "./assets/audio/generated/f04f90ac55f009bb6325.mp3",
-        "sourcePage": 13,
-        "tag": "绘本原页 13"
-      },
-      {
-        "id": "book-5-line-12",
-        "text": "Ollie finds a friend.",
-        "cn": "奥利找到了一个朋友。",
-        "audio": "./assets/audio/generated/ce477972bab0014bb57e.mp3",
+        "id": "book-8-line-8",
+        "text": "A goat gets Grandpa's hat.",
+        "cn": "一只山羊拿走了爷爷的帽子。",
+        "audio": "./assets/audio/generated/a038a69f6c7955da9a89.mp3",
         "sourcePage": 16,
         "tag": "绘本原页 16"
+      },
+      {
+        "id": "book-8-line-9",
+        "text": "Hey!",
+        "cn": "嘿！",
+        "audio": "./assets/audio/generated/b57c370a0fcc704562e1.mp3",
+        "sourcePage": 16,
+        "tag": "绘本原页 16"
+      },
+      {
+        "id": "book-8-line-10",
+        "text": "But Holly gets it back!",
+        "cn": "不过霍莉把帽子拿回来了！",
+        "audio": "./assets/audio/generated/09705fef7ed0f161658d.mp3",
+        "sourcePage": 18,
+        "tag": "绘本原页 18"
+      },
+      {
+        "id": "book-8-line-11",
+        "text": "Good girl, Holly!",
+        "cn": "真棒，霍莉！",
+        "audio": "./assets/audio/generated/d49512c497bb06b921be.mp3",
+        "sourcePage": 18,
+        "tag": "绘本原页 18"
       }
     ],
     "story": [
       {
-        "text": "Ollie wants a friend.",
-        "cn": "奥利想要一个朋友。",
-        "audio": "./assets/audio/generated/6dba34c6b394b15f5c79.mp3",
+        "text": "Holly is a good dog.",
+        "cn": "霍莉是一只好狗。",
+        "audio": "./assets/audio/generated/7dfba09e2e57c5a6d60e.mp3",
         "lines": [
           {
-            "text": "Ollie wants a friend.",
-            "cn": "奥利想要一个朋友。",
-            "audio": "./assets/audio/generated/6dba34c6b394b15f5c79.mp3"
+            "text": "Holly is a good dog.",
+            "cn": "霍莉是一只好狗。",
+            "audio": "./assets/audio/generated/7dfba09e2e57c5a6d60e.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p002.webp",
+        "image": "./assets/library/story-08/p002.webp",
         "caption": "绘本原页 2",
         "sourcePage": 2,
         "original": true
       },
       {
-        "text": "He finds a puppy.",
-        "cn": "他发现了一只小狗。",
-        "audio": "./assets/audio/generated/3d9e2200b5d0045dd1ef.mp3",
+        "text": "She helps Grandpa.",
+        "cn": "她帮助爷爷。",
+        "audio": "./assets/audio/generated/7007bfceec128a1127cd.mp3",
         "lines": [
           {
-            "text": "He finds a puppy.",
-            "cn": "他发现了一只小狗。",
-            "audio": "./assets/audio/generated/3d9e2200b5d0045dd1ef.mp3"
+            "text": "She helps Grandpa.",
+            "cn": "她帮助爷爷。",
+            "audio": "./assets/audio/generated/7007bfceec128a1127cd.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p004.webp",
-        "caption": "绘本原页 4",
-        "sourcePage": 4,
+        "image": "./assets/library/story-08/p002.webp",
+        "caption": "绘本原页 2",
+        "sourcePage": 2,
         "original": true
       },
       {
-        "text": "He pats it.",
-        "cn": "他轻轻拍拍它。",
-        "audio": "./assets/audio/generated/8ff2ee58dc4b5501fe7f.mp3",
+        "text": "They go to see the horse.",
+        "cn": "他们去看马。",
+        "audio": "./assets/audio/generated/236ae3ba646c187f6319.mp3",
         "lines": [
           {
-            "text": "He pats it.",
-            "cn": "他轻轻拍拍它。",
-            "audio": "./assets/audio/generated/8ff2ee58dc4b5501fe7f.mp3"
+            "text": "They go to see the horse.",
+            "cn": "他们去看马。",
+            "audio": "./assets/audio/generated/236ae3ba646c187f6319.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p004.webp",
-        "caption": "绘本原页 4",
-        "sourcePage": 4,
+        "image": "./assets/library/story-08/p007.webp",
+        "caption": "绘本原页 7",
+        "sourcePage": 7,
         "original": true
       },
       {
-        "text": "Ollie plays in the park.",
-        "cn": "奥利在公园里玩。",
-        "audio": "./assets/audio/generated/cfe02bcd6ccf47df416e.mp3",
+        "text": "Holly gets the hay.",
+        "cn": "霍莉拿来干草。",
+        "audio": "./assets/audio/generated/300d1938f1b3c5b824ce.mp3",
         "lines": [
           {
-            "text": "Ollie plays in the park.",
-            "cn": "奥利在公园里玩。",
-            "audio": "./assets/audio/generated/cfe02bcd6ccf47df416e.mp3"
+            "text": "Holly gets the hay.",
+            "cn": "霍莉拿来干草。",
+            "audio": "./assets/audio/generated/300d1938f1b3c5b824ce.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p008.webp",
+        "image": "./assets/library/story-08/p008.webp",
         "caption": "绘本原页 8",
         "sourcePage": 8,
         "original": true
       },
       {
-        "text": "Puppy plays in the park.",
-        "cn": "小狗也在公园里玩。",
-        "audio": "./assets/audio/generated/dbbc80741ce62a824040.mp3",
+        "text": "They go to see the hens.",
+        "cn": "他们去看母鸡。",
+        "audio": "./assets/audio/generated/de7e675b3c31c00f253d.mp3",
         "lines": [
           {
-            "text": "Puppy plays in the park.",
-            "cn": "小狗也在公园里玩。",
-            "audio": "./assets/audio/generated/dbbc80741ce62a824040.mp3"
+            "text": "They go to see the hens.",
+            "cn": "他们去看母鸡。",
+            "audio": "./assets/audio/generated/de7e675b3c31c00f253d.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p010.webp",
-        "caption": "绘本原页 10",
-        "sourcePage": 10,
-        "original": true
-      },
-      {
-        "text": "Come on!",
-        "cn": "来吧！",
-        "audio": "./assets/audio/generated/4907ee25d9f6991a18c2.mp3",
-        "lines": [
-          {
-            "text": "Come on!",
-            "cn": "来吧！",
-            "audio": "./assets/audio/generated/4907ee25d9f6991a18c2.mp3"
-          }
-        ],
-        "image": "./assets/library/story-05/p010.webp",
-        "caption": "绘本原页 10",
-        "sourcePage": 10,
-        "original": true
-      },
-      {
-        "text": "Ollie eats pizza and an orange.",
-        "cn": "奥利吃比萨和一个橙子。",
-        "audio": "./assets/audio/generated/faea1f30bb88216eca7d.mp3",
-        "lines": [
-          {
-            "text": "Ollie eats pizza and an orange.",
-            "cn": "奥利吃比萨和一个橙子。",
-            "audio": "./assets/audio/generated/faea1f30bb88216eca7d.mp3"
-          }
-        ],
-        "image": "./assets/library/story-05/p011.webp",
+        "image": "./assets/library/story-08/p011.webp",
         "caption": "绘本原页 11",
         "sourcePage": 11,
         "original": true
       },
       {
-        "text": "Puppy eats pizza and an orange.",
-        "cn": "小狗吃比萨和一个橙子。",
-        "audio": "./assets/audio/generated/19476231c33c572ef410.mp3",
+        "text": "Holly gets the eggs.",
+        "cn": "霍莉拿到鸡蛋。",
+        "audio": "./assets/audio/generated/0a0b4d4f7a95473e5783.mp3",
         "lines": [
           {
-            "text": "Puppy eats pizza and an orange.",
-            "cn": "小狗吃比萨和一个橙子。",
-            "audio": "./assets/audio/generated/19476231c33c572ef410.mp3"
+            "text": "Holly gets the eggs.",
+            "cn": "霍莉拿到鸡蛋。",
+            "audio": "./assets/audio/generated/0a0b4d4f7a95473e5783.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p012.webp",
-        "caption": "绘本原页 12",
-        "sourcePage": 12,
-        "original": true
-      },
-      {
-        "text": "Penny finds her puppy.",
-        "cn": "佩妮找到了自己的小狗。",
-        "audio": "./assets/audio/generated/72b2d10d165e3c70a2f3.mp3",
-        "lines": [
-          {
-            "text": "Penny finds her puppy.",
-            "cn": "佩妮找到了自己的小狗。",
-            "audio": "./assets/audio/generated/72b2d10d165e3c70a2f3.mp3"
-          }
-        ],
-        "image": "./assets/library/story-05/p013.webp",
+        "image": "./assets/library/story-08/p013.webp",
         "caption": "绘本原页 13",
         "sourcePage": 13,
         "original": true
       },
       {
-        "text": "She pats it.",
-        "cn": "她轻轻拍拍它。",
-        "audio": "./assets/audio/generated/d363baf0b9106274ee9f.mp3",
+        "text": "They go to see the goats.",
+        "cn": "他们去看山羊。",
+        "audio": "./assets/audio/generated/d53755f2cb6bf75aa1dd.mp3",
         "lines": [
           {
-            "text": "She pats it.",
-            "cn": "她轻轻拍拍它。",
-            "audio": "./assets/audio/generated/d363baf0b9106274ee9f.mp3"
+            "text": "They go to see the goats.",
+            "cn": "他们去看山羊。",
+            "audio": "./assets/audio/generated/d53755f2cb6bf75aa1dd.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p013.webp",
-        "caption": "绘本原页 13",
-        "sourcePage": 13,
+        "image": "./assets/library/story-08/p014.webp",
+        "caption": "绘本原页 14",
+        "sourcePage": 14,
         "original": true
       },
       {
-        "text": "Good dog!",
-        "cn": "乖狗狗！",
-        "audio": "./assets/audio/generated/f04f90ac55f009bb6325.mp3",
+        "text": "A goat gets Grandpa's hat.",
+        "cn": "一只山羊拿走了爷爷的帽子。",
+        "audio": "./assets/audio/generated/a038a69f6c7955da9a89.mp3",
         "lines": [
           {
-            "text": "Good dog!",
-            "cn": "乖狗狗！",
-            "audio": "./assets/audio/generated/f04f90ac55f009bb6325.mp3"
+            "text": "A goat gets Grandpa's hat.",
+            "cn": "一只山羊拿走了爷爷的帽子。",
+            "audio": "./assets/audio/generated/a038a69f6c7955da9a89.mp3"
           }
         ],
-        "image": "./assets/library/story-05/p013.webp",
-        "caption": "绘本原页 13",
-        "sourcePage": 13,
-        "original": true
-      },
-      {
-        "text": "Ollie finds a friend.",
-        "cn": "奥利找到了一个朋友。",
-        "audio": "./assets/audio/generated/ce477972bab0014bb57e.mp3",
-        "lines": [
-          {
-            "text": "Ollie finds a friend.",
-            "cn": "奥利找到了一个朋友。",
-            "audio": "./assets/audio/generated/ce477972bab0014bb57e.mp3"
-          }
-        ],
-        "image": "./assets/library/story-05/p016.webp",
+        "image": "./assets/library/story-08/p016.webp",
         "caption": "绘本原页 16",
         "sourcePage": 16,
+        "original": true
+      },
+      {
+        "text": "Hey!",
+        "cn": "嘿！",
+        "audio": "./assets/audio/generated/b57c370a0fcc704562e1.mp3",
+        "lines": [
+          {
+            "text": "Hey!",
+            "cn": "嘿！",
+            "audio": "./assets/audio/generated/b57c370a0fcc704562e1.mp3"
+          }
+        ],
+        "image": "./assets/library/story-08/p016.webp",
+        "caption": "绘本原页 16",
+        "sourcePage": 16,
+        "original": true
+      },
+      {
+        "text": "But Holly gets it back!",
+        "cn": "不过霍莉把帽子拿回来了！",
+        "audio": "./assets/audio/generated/09705fef7ed0f161658d.mp3",
+        "lines": [
+          {
+            "text": "But Holly gets it back!",
+            "cn": "不过霍莉把帽子拿回来了！",
+            "audio": "./assets/audio/generated/09705fef7ed0f161658d.mp3"
+          }
+        ],
+        "image": "./assets/library/story-08/p018.webp",
+        "caption": "绘本原页 18",
+        "sourcePage": 18,
+        "original": true
+      },
+      {
+        "text": "Good girl, Holly!",
+        "cn": "真棒，霍莉！",
+        "audio": "./assets/audio/generated/d49512c497bb06b921be.mp3",
+        "lines": [
+          {
+            "text": "Good girl, Holly!",
+            "cn": "真棒，霍莉！",
+            "audio": "./assets/audio/generated/d49512c497bb06b921be.mp3"
+          }
+        ],
+        "image": "./assets/library/story-08/p018.webp",
+        "caption": "绘本原页 18",
+        "sourcePage": 18,
         "original": true
       }
     ],
     "sources": [
       {
         "kind": "story",
-        "number": 5,
-        "fileName": "绘本\\005.pdf",
-        "totalPages": 18,
+        "number": 8,
+        "fileName": "绘本\\008.pdf",
+        "totalPages": 21,
         "pages": [
           {
             "page": 1,
-            "image": "./assets/library/story-05/p001.webp"
+            "image": "./assets/library/story-08/p001.webp"
           },
           {
             "page": 2,
-            "image": "./assets/library/story-05/p002.webp"
+            "image": "./assets/library/story-08/p002.webp"
           },
           {
             "page": 3,
-            "image": "./assets/library/story-05/p003.webp"
+            "image": "./assets/library/story-08/p003.webp"
           },
           {
             "page": 4,
-            "image": "./assets/library/story-05/p004.webp"
+            "image": "./assets/library/story-08/p004.webp"
           },
           {
             "page": 5,
-            "image": "./assets/library/story-05/p005.webp"
+            "image": "./assets/library/story-08/p005.webp"
           },
           {
             "page": 6,
-            "image": "./assets/library/story-05/p006.webp"
+            "image": "./assets/library/story-08/p006.webp"
           },
           {
             "page": 7,
-            "image": "./assets/library/story-05/p007.webp"
+            "image": "./assets/library/story-08/p007.webp"
           },
           {
             "page": 8,
-            "image": "./assets/library/story-05/p008.webp"
+            "image": "./assets/library/story-08/p008.webp"
           },
           {
             "page": 9,
-            "image": "./assets/library/story-05/p009.webp"
+            "image": "./assets/library/story-08/p009.webp"
           },
           {
             "page": 10,
-            "image": "./assets/library/story-05/p010.webp"
+            "image": "./assets/library/story-08/p010.webp"
           },
           {
             "page": 11,
-            "image": "./assets/library/story-05/p011.webp"
+            "image": "./assets/library/story-08/p011.webp"
           },
           {
             "page": 12,
-            "image": "./assets/library/story-05/p012.webp"
+            "image": "./assets/library/story-08/p012.webp"
           },
           {
             "page": 13,
-            "image": "./assets/library/story-05/p013.webp"
+            "image": "./assets/library/story-08/p013.webp"
           },
           {
             "page": 14,
-            "image": "./assets/library/story-05/p014.webp"
+            "image": "./assets/library/story-08/p014.webp"
           },
           {
             "page": 15,
-            "image": "./assets/library/story-05/p015.webp"
+            "image": "./assets/library/story-08/p015.webp"
           },
           {
             "page": 16,
-            "image": "./assets/library/story-05/p016.webp"
+            "image": "./assets/library/story-08/p016.webp"
           },
           {
             "page": 17,
-            "image": "./assets/library/story-05/p017.webp"
+            "image": "./assets/library/story-08/p017.webp"
           },
           {
             "page": 18,
-            "image": "./assets/library/story-05/p018.webp"
+            "image": "./assets/library/story-08/p018.webp"
+          },
+          {
+            "page": 19,
+            "image": "./assets/library/story-08/p019.webp"
+          },
+          {
+            "page": 20,
+            "image": "./assets/library/story-08/p020.webp"
+          },
+          {
+            "page": 21,
+            "image": "./assets/library/story-08/p021.webp"
           }
         ],
-        "title": "Ollie and Puppy · 绘本原页"
+        "title": "Grandpa and Holly · 绘本原页"
       }
     ],
     "video": null,
@@ -11901,15 +11938,18 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-07-09T17:11",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-09",
     "lesson": null,
     "bookNumber": 9,
-    "readingOrder": null,
-    "orderConfirmed": false,
-    "orderNote": "已有资料，平台课次待核对",
+    "readingOrder": 9,
+    "orderConfirmed": true,
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Roses for the Queen",
     "titleCn": "送给女王的玫瑰",
     "available": true,
@@ -12366,15 +12406,18 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-11-28T19:13",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-10",
     "lesson": null,
     "bookNumber": 10,
-    "readingOrder": null,
-    "orderConfirmed": false,
-    "orderNote": "已有资料，平台课次待核对",
+    "readingOrder": 10,
+    "orderConfirmed": true,
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Tess and the Swans",
     "titleCn": "苔丝和天鹅",
     "available": true,
@@ -13104,15 +13147,18 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-11-29T12:25",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-11",
     "lesson": null,
     "bookNumber": 11,
-    "readingOrder": null,
-    "orderConfirmed": false,
-    "orderNote": "已有资料，平台课次待核对",
+    "readingOrder": 11,
+    "orderConfirmed": true,
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Uncle Vic's Wagon",
     "titleCn": "维克叔叔的马车",
     "available": true,
@@ -13603,15 +13649,18 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-11-29T12:56",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   },
   {
     "id": "reading-12",
     "lesson": null,
     "bookNumber": 12,
-    "readingOrder": null,
-    "orderConfirmed": false,
-    "orderNote": "已有资料，平台课次待核对",
+    "readingOrder": 12,
+    "orderConfirmed": true,
+    "orderNote": "按资料时间从早到晚排列",
     "title": "Ox, Yak and Zebra",
     "titleCn": "公牛、牦牛和斑马",
     "available": true,
@@ -14257,7 +14306,10 @@ window.XIAOYUAN_READINGS = [
         "id": "story",
         "text": "读完绘本，尝试复述"
       }
-    ]
+    ],
+    "materialTime": "2024-11-29T13:32",
+    "timeSource": "用户提供的绘本资料时间截图",
+    "orderBasis": "material-time-ascending"
   }
 ];
 window.XIAOYUAN_AUDIO_TEXT = {

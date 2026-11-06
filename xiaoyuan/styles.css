@@ -691,3 +691,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 /* Make the current sentence's audio the primary action in every reading layout. */
 .story-audio { color: var(--card); background: var(--pine); box-shadow: 0 5px 14px rgba(31,89,73,.12); }
 .story-audio:hover, .story-audio.is-playing { color: var(--pine); background: var(--pine-light); }
+/* Chronological curriculum metadata; timestamps are copied as shown, not converted between timezones. */
+.reading-material-time, .course-material-time, .lesson-material-time { color: var(--ink-soft); font-size: 11px; line-height: 1.6; }
+.reading-main .reading-material-time { font-variant-numeric: tabular-nums; }
+.course-material-time { margin-top: 10px; }
+.lesson-material-time { margin: 8px 0; }
+@media (max-width: 760px) { .reading-main .reading-material-time, .lesson-material-time { font-size: 10px; } }

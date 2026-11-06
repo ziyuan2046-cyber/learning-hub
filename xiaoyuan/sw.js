@@ -1,5 +1,5 @@
 'use strict';
-const VERSION="20261106-recovery3",CACHE="study-forest-20261106-recovery3",OWN=["xiaoyuan-", "forest-mobile-", "forest-library-", "study-forest-"],SHELL=["./", "./index.html", "./manifest.webmanifest"];
+const VERSION="20261106-chronological-v18",CACHE="study-forest-20261106-chronological-v18",OWN=["xiaoyuan-", "forest-mobile-", "forest-library-", "study-forest-"],SHELL=["./", "./index.html", "./manifest.webmanifest"];
 function canonical(url){const u=new URL(url);if(u.pathname.endsWith('/'))u.pathname+='index.html';u.search='';u.hash='';return u.href;}
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(CACHE);

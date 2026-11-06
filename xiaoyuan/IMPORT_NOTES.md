@@ -18,23 +18,30 @@
 | 7 | 007.pdf | 011.pdf | Uncle Vic's Wagon |
 | 8 | 008.pdf | 012.pdf | Ox, Yak and Zebra |
 
-自然拼读第 9–12 课保留位置，等待补充资料。
+自然拼读实际已有 8 课，按第一张截图的资料时间升序显示，后续有资料再增加。
 
-### 自拼绘本精读课
+### 自拼绘本精读课（依据最新时间截图修正）
 
-截图中能确认的前 7 课，依次为：
+12 本绘本合并为一个正常课程目录。以第二张截图中的资料时间从早到晚编号，资料时间按截图原样记录，不作时区转换，也不将它误称为授课时间。
 
-1. Adam and the Bear
-2. Ted's Cat
-3. Elephant's Friends
-4. Grandpa and Holly
-5. Spin, Jenny, Spin!
-6. Lola and the King
-7. Ned, Mum and Nan
+| 课次 | 标题 | 资料时间 |
+| --- | --- | --- |
+| 1 | Adam and the Bear | 2024-07-04 17:32 |
+| 2 | Ted's Cat | 2024-07-04 17:37 |
+| 3 | Elephant's Friends | 2024-07-04 17:39 |
+| 4 | Ned, Mum and Nan | 2024-07-04 18:12 |
+| 5 | Ollie and Puppy | 2024-07-05 11:13 |
+| 6 | Spin, Jenny, Spin! | 2024-07-09 15:52 |
+| 7 | Lola and the King | 2024-07-09 15:53 |
+| 8 | Grandpa and Holly | 2024-07-09 17:11 |
+| 9 | Roses for the Queen | 2024-11-28 19:13 |
+| 10 | Tess and the Swans | 2024-11-29 12:25 |
+| 11 | Uncle Vic's Wagon | 2024-11-29 12:56 |
+| 12 | Ox, Yak and Zebra | 2024-11-29 13:32 |
 
-另有 Ollie and Puppy、Roses for the Queen、Tess and the Swans、Uncle Vic's Wagon、Ox, Yak and Zebra 共 5 本，放入“已收录，课次待核对”，不推测平台课次。
+删除“课次待核对”和独立分区。第 9–12 课均为正常可学习绘本。自然拼读按第一张截图资料时间排列，共 8 课，目录不显示不存在的第 9–12 课占位。
 
-两个目录共用相同 WebP 图片与 MP3，不重复存储媒体。课程和绘本的学习进度按独立 id 保存，互不覆盖。此前 4 本独立绘本的 id 保持不变，以兼容已保存的勾选记录。
+所有稳定 id、音频、图片和学习进度 key 保持不变，仅修改排列与可见编号。单文件内联加载和 recovery service worker 机制保持，防止丢失此前线上缓存修复。
 
 ## 学习体验
 
