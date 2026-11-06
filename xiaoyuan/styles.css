@@ -688,3 +688,6 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
   .story-audio { min-height: 49px; padding-inline: 18px; font-size: 14px; }
   .story-figure { margin-top: 4px; }
 }
+/* Make the current sentence's audio the primary action in every reading layout. */
+.story-audio { color: var(--card); background: var(--pine); box-shadow: 0 5px 14px rgba(31,89,73,.12); }
+.story-audio:hover, .story-audio.is-playing { color: var(--pine); background: var(--pine-light); }

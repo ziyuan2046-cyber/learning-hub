@@ -1,5 +1,5 @@
 'use strict';
-const CACHE="forest-library-20261106-v16", OWN=["xiaoyuan-", "forest-mobile-", "forest-library-"], SHELL=["./", "./index.html", "./manifest.webmanifest", "./courses.js?v=16", "./styles.css?v=16", "./app.js?v=16"];
+const CACHE="forest-library-20261106-v17", OWN=["xiaoyuan-", "forest-mobile-", "forest-library-"], SHELL=["./", "./index.html", "./manifest.webmanifest", "./courses.js?v=17", "./styles.css?v=17", "./app.js?v=17"];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&OWN.some(prefix=>k.startsWith(prefix))).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{

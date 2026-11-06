@@ -8266,7 +8266,7 @@ window.XIAOYUAN_READINGS = [
       {
         "id": "bag",
         "en": "bag",
-        "cn": "书包",
+        "cn": "袋子；包",
         "audio": "./assets/audio/words/bag.mp3",
         "audioType": "synthesized",
         "image": "./assets/library/story-01/p016.webp",
@@ -9968,7 +9968,7 @@ window.XIAOYUAN_READINGS = [
       {
         "id": "zip",
         "en": "zip",
-        "cn": "拉链",
+        "cn": "快速移动",
         "audio": "./assets/audio/generated/4a70fe9aa6436e02c2de.mp3",
         "audioType": "synthesized",
         "image": "./assets/library/story-06/p004.webp",
