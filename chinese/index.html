@@ -1263,6 +1263,7 @@ window.__HANZI_BUILD__ = '2026-11-05-polyphones-1';
 <script src="assets/data/polyphones.js?v=20261105-poly1"></script>
 <script src="assets/js/app.js?v=20261105-poly1"></script>
 <script src="assets/js/study-desk.js?v=20261105-fix1"></script>
-<script defer src="/learning-hub/assets/mobile/install.js?v=20261105" data-app="hanzi" data-sw="/learning-hub/sw.js"></script>
+
+<script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('/learning-hub/sw.js',{updateViaCache:'none'}).then(function(r){r.update().catch(function(){});}).catch(function(){});}</script>
 </body>
 </html>

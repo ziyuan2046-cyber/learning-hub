@@ -132,6 +132,7 @@
   <audio id="audio" preload="none"></audio>
   <script src="./courses.js?v=13"></script>
   <script src="./app.js?v=13"></script>
-<script defer src="/learning-hub/assets/mobile/install.js?v=20261105" data-app="forest" data-sw="/learning-hub/xiaoyuan/sw.js"></script>
+
+<script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('/learning-hub/xiaoyuan/sw.js',{updateViaCache:'none'}).then(function(r){r.update().catch(function(){});}).catch(function(){});}</script>
 </body>
 </html>

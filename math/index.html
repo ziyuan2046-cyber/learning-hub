@@ -93,6 +93,7 @@
   <script src="./assets/data/g6.js"></script>
   <script src="./assets/lab.js"></script>
   <script src="./assets/app.js"></script>
-<script defer src="/learning-hub/assets/mobile/install.js?v=20261105" data-app="math" data-sw="/learning-hub/sw.js"></script>
+
+<script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('/learning-hub/sw.js',{updateViaCache:'none'}).then(function(r){r.update().catch(function(){});}).catch(function(){});}</script>
 </body>
 </html>

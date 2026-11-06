@@ -1,22 +1,12 @@
 (function(){
 'use strict';
-var script=document.currentScript,app=script.getAttribute('data-app')||'hub',sw=script.getAttribute('data-sw');
-var home='/learning-hub/',guide=home+'install/',promptEvent=null,previousFocus=null;
-var host=document.createElement('div');host.id='learning-mobile-tools';document.body.appendChild(host);
-var shadow=host.attachShadow?host.attachShadow({mode:'open'}):host;
-shadow.innerHTML='<style>:host{font:15px/1.65 "PingFang SC","Microsoft YaHei",sans-serif;color:#e8f7fa}*{box-sizing:border-box}button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #61e6da;outline-offset:3px}.launcher{position:fixed;right:12px;bottom:calc(82px + env(safe-area-inset-bottom,0px));z-index:5000;min-height:44px;padding:0 14px;border:1px solid #35727b;border-radius:12px;color:#bde9ee;background:#112630;box-shadow:0 4px 15px #0003}.backdrop{position:fixed;inset:0;z-index:10000;background:#000a;display:flex;align-items:center;justify-content:center;padding:18px}.backdrop[hidden]{display:none}.panel{position:relative;background:#101f29;border:1px solid #335560;border-radius:22px;width:100%;max-width:420px;max-height:90vh;overflow:auto;padding:24px;color:#e8f7fa}h2{font-size:24px;margin:0 30px 14px 0}p{font-size:15px;line-height:1.8;color:#b6cdd3;margin:12px 0}.close{position:absolute;right:15px;top:15px;width:36px;height:36px;border:1px solid #335560;border-radius:50%;background:none;color:inherit;font-size:24px}.action{display:block;min-height:48px;width:100%;padding:10px 14px;margin-top:10px;border:1px solid #335560;border-radius:12px;text-align:center;text-decoration:none;background:#182e39;color:#e8f7fa;font-weight:650}.primary{background:#61e6da;color:#071018;border-color:#61e6da}.status{font-size:13px;min-height:22px;color:#91d9ce}.muted{font-size:13px;color:#93aeb8}</style>'+
-'<button class="launcher" type="button">桌面图标</button><div class="backdrop" hidden><section class="panel" role="dialog" aria-modal="true" aria-labelledby="mobile-title"><button class="close" type="button" aria-label="关闭">×</button><h2 id="mobile-title">桌面图标与更新</h2><p class="instructions"></p><button class="action primary install" type="button">添加此应用到桌面</button><button class="action refresh" type="button">检查更新并重新打开</button><a class="action" href="'+guide+'">查看全部学习图标</a><p class="status" role="status" aria-live="polite"></p><p class="muted">这里只更新网页缓存，不清除收藏与学习记录。手机桌面图标由浏览器和系统管理。</p></section></div>';
-var overlay=shadow.querySelector('.backdrop'),close=shadow.querySelector('.close'),install=shadow.querySelector('.install'),status=shadow.querySelector('.status'),launcher=shadow.querySelector('.launcher');
-if(app==='hub'){launcher.hidden=true;launcher.style.display='none'}
-function standalone(){return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true}
-function instructions(){var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);return isIOS?'在 Safari 中点击“分享”，选择“添加到主屏幕”。每个学习应用需要分别添加。':'请在 Chrome 或手机系统浏览器中打开。点击右上角菜单，选择“安装应用”“添加到主屏幕”或“添加到桌面”（名称因浏览器而异）。'}
-function open(){previousFocus=document.activeElement;shadow.querySelector('.instructions').textContent=standalone()?'当前已从桌面图标打开，可检查内容更新；要添加其他图标，请打开下方“查看全部学习图标”。':instructions();install.textContent=standalone()?'查看其他桌面图标':'添加此应用到桌面';overlay.hidden=false;close.focus()}
-function hide(){overlay.hidden=true;if(previousFocus&&previousFocus.focus)previousFocus.focus()}
-launcher.addEventListener('click',open);document.querySelectorAll('[data-mobile-open]').forEach(function(el){el.addEventListener('click',open)});close.addEventListener('click',hide);overlay.addEventListener('click',function(e){if(e.target===overlay)hide()});
-shadow.addEventListener('keydown',function(e){if(e.key==='Escape'){hide();return}if(e.key==='Tab'&&!overlay.hidden){var items=Array.prototype.slice.call(shadow.querySelector('.panel').querySelectorAll('button,a[href]')).filter(function(el){return !el.disabled});var first=items[0],last=items[items.length-1];if(e.shiftKey&&shadow.activeElement===first){last.focus();e.preventDefault()}else if(!e.shiftKey&&shadow.activeElement===last){first.focus();e.preventDefault()}}});
-window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();promptEvent=e});
-install.addEventListener('click',function(){if(standalone()){location.href=guide;return}if(promptEvent){var p=promptEvent;promptEvent=null;p.prompt();p.userChoice.then(function(result){status.textContent=result.outcome==='accepted'?'已发送安装请求，请查看系统提示。':'已取消，可稍后从浏览器菜单添加。'})}else{status.textContent=instructions()}});
-shadow.querySelector('.refresh').addEventListener('click',function(){var button=this;button.disabled=true;status.textContent='正在联网检查…';var regs=('serviceWorker'in navigator)?navigator.serviceWorker.getRegistrations().then(function(list){return Promise.all(list.filter(function(r){return location.href.indexOf(r.scope)===0}).map(function(r){return r.update().catch(function(){})}))}):Promise.resolve();regs.then(function(){return fetch(location.pathname+'?desktop-update='+Date.now(),{cache:'no-store',credentials:'same-origin'})}).then(function(r){if(!r.ok)throw Error('http');var u=new URL(location.href);u.searchParams.delete('desktop');u.searchParams.set('updated',Date.now());location.replace(u.href)}).catch(function(){status.textContent='更新检查失败，请联网后重试；未清除任何学习记录。';button.disabled=false})});
-if('serviceWorker'in navigator&&sw&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register(sw,{updateViaCache:'none'}).then(function(r){r.update().catch(function(){})}).catch(function(){})}
-if(new URL(location.href).searchParams.get('desktop')==='1')open();
+var script=document.currentScript,app=script&&script.getAttribute('data-app'),sw=script&&script.getAttribute('data-sw');
+// Compatibility for cached 2026-11-05 HTML: no floating tools on any lesson page.
+if(app==='hub'){
+ document.querySelectorAll('[data-mobile-open]').forEach(function(el){
+  if(el.tagName==='A')return;
+  el.addEventListener('click',function(){location.href='/learning-hub/install/';});
+ });
+}
+if('serviceWorker'in navigator&&sw&&/^https?:$/.test(location.protocol))navigator.serviceWorker.register(sw,{updateViaCache:'none'}).then(function(reg){return reg.update();}).catch(function(){});
 })();

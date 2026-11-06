@@ -1,5 +1,5 @@
 'use strict';
-const CACHE="learning-hub-mobile-20261105", OWN=["learning-hub-shell-", "learning-hub-tech-", "learning-hub-mobile-"], SHELL=["./", "./index.html", "./manifest.webmanifest"];
+const CACHE="learning-hub-mobile-20261106", OWN=["learning-hub-shell-", "learning-hub-tech-", "learning-hub-mobile-"], SHELL=["./", "./index.html", "./manifest.webmanifest"];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&OWN.some(prefix=>k.startsWith(prefix))).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
