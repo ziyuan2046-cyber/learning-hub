@@ -1,27 +1,27 @@
 {
   "id": "/learning-hub/xiaoyuan/",
-  "name": "森林英语",
-  "short_name": "森林英语",
-  "description": "字母与故事",
+  "name": "小猿英语",
+  "short_name": "小猿英语",
+  "description": "绘本全文 · 中文对照 · 逐句跟读",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#f7f4eb",
-  "theme_color": "#f7f4eb",
+  "background_color": "#f5faff",
+  "theme_color": "#f5faff",
   "lang": "zh-CN",
   "icons": [
     {
-      "src": "/learning-hub/assets/app-icons/v20261105/forest-192.png",
+      "src": "./assets/img/xiaoyuan-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/learning-hub/assets/app-icons/v20261105/forest-512.png",
+      "src": "./assets/img/xiaoyuan-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }

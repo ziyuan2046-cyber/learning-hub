@@ -3,6 +3,7 @@
 const COURSES = Array.isArray(window.XIAOYUAN_COURSES) ? window.XIAOYUAN_COURSES : [];
 const READINGS = Array.isArray(window.XIAOYUAN_READINGS) ? [...window.XIAOYUAN_READINGS].sort((a, b) => String(a.materialTime || "").localeCompare(String(b.materialTime || ""))) : [];
 const ALL_STEPS = [
+  { id: "fulltext", label: "全文阅读", render: renderFullTextStep },
   { id: "letters", label: "字母声音", render: renderLettersStep },
   { id: "words", label: "核心单词", render: renderCoreWordsStep },
   { id: "phonics", label: "自然拼读", render: renderPhonicsStep },
@@ -44,6 +45,8 @@ let playRequestId = 0;
 let audioPrefetchQueue = [];
 let audioPrefetchActive = 0;
 let toastTimer = 0;
+let showChinese = true;
+try { showChinese = localStorage.getItem("xiaoyuan:show-chinese") !== "false"; } catch {}
 
 const audioBlobCache = new Map();
 const audioBlobRequests = new Map();
@@ -83,18 +86,18 @@ function imageMarkup(path, alt, className = "") {
 function renderCatalog() {
   const openCount = COURSES.filter((item) => item.available).length;
   $("#catalogOpenCount").textContent = openCount;
-  $("#catalogOpenBar").style.width = "100%";
+
   $("#courseGrid").innerHTML = COURSES.filter((item) => item.available).sort((a, b) => String(a.materialTime || "").localeCompare(String(b.materialTime || ""))).map((item, index) => {
     const available = Boolean(item.available);
     return `<button class="course-card ${available ? "is-open" : "is-locked"}" type="button" ${available ? `data-course-id="${escapeHtml(item.id)}"` : "disabled"} aria-label="${escapeHtml(available ? "进入自然拼读课 " + item.title : "第 " + (index + 1) + " 课待补充")}">
       <span class="course-card-top"><span class="course-card-index">LESSON ${pad(item.lesson || index + 1)}</span><span class="course-card-status">${available ? escapeHtml(item.subtitle) : "待补充"}</span></span>
       <span class="course-card-body"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(available ? item.titleCn : "后续课件和音频的位置已预留")}</span></span>
-      <span class="course-material-time">${materialTimeMarkup(item.materialTime)}</span><span class="course-card-cta">${available ? "字母 · 拼读 · 词句 · 故事" : "等待补充"}</span></button>`;
+      <span class="course-card-cta">${available ? "字母 · 拼读 · 词句 · 故事" : "等待补充"}</span></button>`;
   }).join("");
 
   const card = (book) => `<button class="reading-row" type="button" data-course-id="${escapeHtml(book.id)}" aria-label="阅读 ${escapeHtml(book.title)}，${escapeHtml(book.titleCn)}">
     <span class="reading-number">${pad(book.readingOrder)}</span>
-    <span class="reading-main"><strong>${escapeHtml(book.title)}</strong><span>${escapeHtml(book.titleCn)}</span><small>${book.storySentences.length} 个句子 · ${book.coreWords.length} 个关键词</small><small class="reading-material-time">${materialTimeMarkup(book.materialTime)}</small></span>
+    <span class="reading-main"><strong>${escapeHtml(book.title)}</strong><span>${escapeHtml(book.titleCn)}</span><small>${book.storySentences.length} 个句子 · ${book.coreWords.length} 个关键词</small></span>
     <span class="reading-enter" aria-hidden="true">→</span></button>`;
   $("#readingGrid").innerHTML = READINGS.map(card).join("");
   updateCatalogTrack();
@@ -111,32 +114,13 @@ function updateCatalogTrack() {
 
 function renderLesson() {
   if (!COURSE) { return; }
-  const lessonNo = pad(COURSE.lesson || 1);
-  $("#lessonEyebrow").textContent = COURSE.isReading ? `绘本精读 · ${`第 ${pad(COURSE.readingOrder)} 课`}` : `自然拼读 · LESSON ${lessonNo} · ${COURSE.subtitle || ""}`;
-  $("#lessonTitle").textContent = COURSE.title || `Lesson ${lessonNo}`;
-  $("#lessonTitleCn").textContent = COURSE.titleCn || "课程内容";
-  $("#lessonDescription").textContent = COURSE.description || "本课内容正在整理，后续会补充完整。";
-  $("#lessonMaterialTime").innerHTML = materialTimeMarkup(COURSE.materialTime);
-
-  const meta = [
-    COURSE.subtitle ? `字母与拼读 · ${COURSE.subtitle}` : "",
-    COURSE.level || "",
-    `${STEPS.length} 个学习步骤`
-  ].filter(Boolean);
-  $("#lessonMeta").innerHTML = meta.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
-
-  const cover = $("#lessonCover");
-  if (COURSE.coverImage) {
-    $("#lessonCoverImage").removeAttribute("src");
-    $("#lessonCoverImage").alt = `${COURSE.title || "课程"} 课程总览`;
-    $("#lessonCoverCaption").textContent = `Lesson ${lessonNo} · ${COURSE.titleCn || "课程总览"}`;
-    cover.hidden = false;
-  } else {
-    cover.hidden = true;
-    $("#lessonCoverImage").removeAttribute("src");
-  }
-  document.title = `${COURSE.title || `Lesson ${lessonNo}`} · 森林英语`;
-  $("#currentLessonLink").textContent = COURSE.title || `Lesson ${lessonNo}`;
+  const number = COURSE.isReading ? COURSE.readingOrder : COURSE.lesson;
+  $("#lessonEyebrow").textContent = `${COURSE.isReading ? "绘本精读" : "自然拼读"} · 第 ${pad(number)} 课`;
+  $("#lessonTitle").textContent = COURSE.title;
+  $("#lessonTitleCn").textContent = COURSE.titleCn || "";
+  $("#lessonTitleCn").hidden = !showChinese;
+  document.title = COURSE.title + " · 小猿英语";
+  $("#currentLessonLink").textContent = "课程目录";
   renderVideoSection();
 }
 
@@ -149,10 +133,11 @@ function renderStep(options = {}) {
   $("#stepTotal").textContent = STEPS.length;
   $("#stepTabs").innerHTML = STEPS.map((item, index) => `
     <button class="step-tab ${index === stepIndex ? "is-active" : ""}" type="button"
-      data-step-index="${index}" aria-current="${index === stepIndex ? "step" : "false"}">
+      data-step-id="${item.id}" data-step-index="${index}" aria-current="${index === stepIndex ? "step" : "false"}">
       <span class="tab-no">${pad(index + 1)}</span>${escapeHtml(item.label)}
     </button>`).join("");
   $("#stepContent").innerHTML = step.render();
+  $("#stepContent").classList.toggle("is-fulltext", step.id === "fulltext");
   $("#stepPrev").disabled = stepIndex === 0;
   $("#stepNext").disabled = false;
   $("#stepNext").innerHTML = stepIndex === STEPS.length - 1
@@ -172,11 +157,7 @@ function renderStep(options = {}) {
 }
 
 function stepIntro(title, description, count, unit) {
-  return `
-    <header class="step-intro">
-      <div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p></div>
-      <span class="stat-badge"><strong>${count}</strong><span>${escapeHtml(unit)}</span></span>
-    </header>`;
+  return `<header class="step-intro"><h3>${escapeHtml(title)}</h3><span class="stat-badge"><strong>${count}</strong> ${escapeHtml(unit)}</span></header>`;
 }
 
 function focusPageLabel(index, total) {
@@ -224,7 +205,7 @@ function renderLettersStep() {
   const letterKey = `letter-${slug(item.letter)}`;
   const wordKey = `letter-${slug(item.letter)}-word`;
   return `
-    ${stepIntro("一个字母，听清两个声音", "每一页只认识一个字母。先听字母名，再听它在单词里的发音，最后跟读例词。", letters.length, "个字母")}
+    ${stepIntro("字母练习", "每一页只认识一个字母。先听字母名，再听它在单词里的发音，最后跟读例词。", letters.length, "个字母")}
     <article class="focus-card focus-letter ${guides.length ? "has-image" : "no-image"}">
       ${guides.length ? `<div class="focus-media">${guides.map((guide) => `<figure>${imageMarkup(guide.image, guide.alt || guide.caption || "字母书写示范")}<figcaption>${escapeHtml(guide.caption || "")}</figcaption></figure>`).join("")}</div>` : ""}
       <div class="focus-copy">
@@ -257,12 +238,12 @@ function renderCoreWordsStep() {
   const item = words[index];
   const key = `word-${slug(item.id || item.en)}`;
   return `
-    ${stepIntro("一个单词，一次听清", "每页只练一个核心词。图片只在素材存在时显示，没有图片时页面会自动收紧，不留空白框。", words.length, "个核心词")}
+    ${stepIntro("核心单词", "每页只练一个核心词。图片只在素材存在时显示，没有图片时页面会自动收紧，不留空白框。", words.length, "个核心词")}
     <article class="focus-card focus-word ${item.image ? "has-image" : "no-image"}">
       ${item.image ? `<div class="focus-media single">${imageMarkup(item.image, item.cn || item.en, "focus-image")}</div>` : ""}
       <div class="focus-copy">
         <div class="focus-topline"><span class="focus-label">核心单词</span><span class="focus-page">PAGE ${focusPageLabel(index, words.length)}</span></div>
-        <p class="focus-eyebrow">听发音 · 看中文</p>
+        
         <h4 class="focus-en">${escapeHtml(item.en || "")}</h4>
         <p class="focus-phonetic">${escapeHtml(item.phonetic || "")}</p>
         <p class="focus-cn">${escapeHtml(item.cn || "")}</p>
@@ -283,7 +264,7 @@ function renderPhonicsStep() {
   const item = words[index];
   const key = `phonics-${slug(item.en)}`;
   return `
-    ${stepIntro("一个词，一步一步拼", "每页只出现一个拼读词。先听完整发音，再看音标和中文，跟着节奏读一次。", words.length, "个拼读词")}
+    ${stepIntro("自然拼读", "每页只出现一个拼读词。先听完整发音，再看音标和中文，跟着节奏读一次。", words.length, "个拼读词")}
     <article class="focus-card focus-phonics no-image">
       <div class="focus-copy">
         <div class="focus-topline"><span class="focus-label">自然拼读</span><span class="focus-page">PAGE ${focusPageLabel(index, words.length)}</span></div>
@@ -308,7 +289,7 @@ function renderSentencesStep() {
   const item = items[index];
   const key = `sentence-${slug(item.id || stripHtml(item.text))}`;
   return `
-    ${stepIntro("一个句子，听完整语气", "每页集中听一句话。英文用大字号显示，下面保留中文翻译；相同句子只出现一次。", items.length, "个句子")}
+    ${stepIntro("重点句子", "每页集中听一句话。英文用大字号显示，下面保留中文翻译；相同句子只出现一次。", items.length, "个句子")}
     <article class="focus-card focus-sentence no-image">
       <div class="focus-copy">
         <div class="focus-topline"><span class="focus-label">${escapeHtml(item.source === "intro" ? "表达练习" : "绘本重点句")}</span><span class="focus-page">PAGE ${focusPageLabel(index, items.length)}</span></div>
@@ -333,7 +314,7 @@ function renderChantsStep() {
   const key = `chant-${slug(item.id || item.letter)}`;
   const lines = Array.isArray(item.lines) ? item.lines : [item.lines || ""];
   return `
-    ${stepIntro("一首歌谣，跟着节奏唱", "每页只放一首歌谣。先点整首音频，再看着大号英文跟唱，中文意思放在下方。", chants.length, "首歌谣")}
+    ${stepIntro("歌谣跟读", "每页只放一首歌谣。先点整首音频，再看着大号英文跟唱，中文意思放在下方。", chants.length, "首歌谣")}
     <article class="focus-card focus-chant no-image">
       <div class="focus-copy">
         <div class="focus-topline"><span class="focus-label">歌谣律动 · ${escapeHtml(item.letter || "")}</span><span class="focus-page">PAGE ${focusPageLabel(index, chants.length)}</span></div>
@@ -360,7 +341,7 @@ function renderStoryStep() {
   const isLast = storyIndex === story.length - 1;
   const label = item.original ? "故事原句" : "看图导读 · 非课件原文";
   return `
-    ${stepIntro("一页一句，听懂再往下读", "英文、中文与朗读一一对应；原绘本图片保留在下方参考。", story.length, "句故事")}
+    ${stepIntro("逐句跟读", "英文、中文与朗读一一对应；原绘本图片保留在下方参考。", story.length, "句故事")}
     <article class="story-layout ${hasImage ? "" : "no-story-image"}">
       ${hasImage ? `
         <figure class="story-figure">
@@ -377,7 +358,7 @@ function renderStoryStep() {
           <button class="play-button story-audio" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="story-${storyIndex}" data-title="${escapeHtml(item.text || "")}" data-eyebrow="STORY AUDIO" aria-label="播放当前故事句子">
             <span class="play-icon" aria-hidden="true"></span>读这一句
           </button>
-          <span class="story-audio-note">英文 + 中文译文</span>
+          
         </div>
         <div class="story-pager">
           <button type="button" data-story-step="-1" ${storyIndex === 0 ? "disabled" : ""}>← 上一句</button>
@@ -386,7 +367,7 @@ function renderStoryStep() {
         </div>
       </section>
     </article>
-    ${isLast ? renderPractice() : `<p class="story-continue-note">读到最后一句后，会显示听音练习和学习清单。</p>`}`;
+    ${isLast ? renderPractice() : ""}`;
 }
 
 function getQuizRounds() {
@@ -523,7 +504,7 @@ function showView(view) {
   });
   if (view === "catalog") {
     stopAllMedia();
-    document.title = "森林英语 · 课程学习空间";
+    document.title = "小猿英语";
   }
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -648,7 +629,7 @@ function collectAudioUrls() {
 }
 
 function scheduleAudioPrefetch() {
-  const urls = Array.from(new Set($$("[data-audio]", $("#stepContent")).map((element) => element.dataset.audio).filter(Boolean)));
+  const urls = Array.from(new Set($$("[data-audio]", $("#stepContent")).map((element) => element.dataset.audio).filter(Boolean))).slice(0, 3);
   const start = () => queueAudioPrefetch(urls);
   if (window.requestIdleCallback) {
     window.requestIdleCallback(start, { timeout: 1200 });
@@ -759,7 +740,7 @@ function updateProgressBar() {
 function updatePlayer(show = false) {
   const bar = $("#playerBar");
   if (!bar) { return; }
-  if (show || playerState.title) { bar.classList.add("is-visible"); }
+  if (show || playerState.title) { bar.classList.add("is-visible"); document.body.classList.add("has-audio"); }
   $("#playerTitle").textContent = playerState.title || "选择一个重点内容开始点读";
   $("#playerEyebrow").textContent = playerState.eyebrow || "NOW PLAYING";
   updatePauseButton();
@@ -853,7 +834,7 @@ function bindAudioEvents() {
     clearPlayingHighlights();
     playerState.trigger?.classList.add("is-playing");
   });
-  audio.addEventListener("pause", updatePauseButton);
+  audio.addEventListener("pause", () => { updatePauseButton(); clearPlayingHighlights(); });
   audio.addEventListener("timeupdate", updateProgressBar);
   audio.addEventListener("ended", onAudioEnded);
   audio.addEventListener("error", () => {
@@ -871,6 +852,13 @@ function bindEvents() {
   document.addEventListener("click", (event) => {
     const track = event.target.closest("[data-catalog-track]");
     if (track) { catalogTrack = track.dataset.catalogTrack; updateCatalogTrack(); return; }
+    if (event.target.closest("#translationToggle")) { toggleChinese(); return; }
+    if (event.target.closest("#readAllButton")) {
+      const tracks = getFullTextTracks();
+      if (tracks.length) { playTrack(tracks[0], tracks, 0); }
+      return;
+    }
+    if (event.target.closest("#stopReadingButton")) { stopAllMedia(); return; }
     const courseCard = event.target.closest("[data-course-id]");
     if (courseCard) {
       openCourse(courseCard.dataset.courseId);
@@ -967,6 +955,7 @@ function bindEvents() {
       audio?.pause();
       window.speechSynthesis?.cancel();
       $("#playerBar").classList.remove("is-visible");
+      document.body.classList.remove("has-audio");
       clearPlayingHighlights();
       return;
     }
@@ -1040,10 +1029,10 @@ if (document.readyState === "loading") {
 
 function getCourseSteps(course) {
   if (!course) { return []; }
-  const dataKeys = { letters: "letters", words: "coreWords", phonics: "phonicsWords", sentences: "storySentences", chants: "chants", story: "story", sources: "sources" };
+  const dataKeys = { fulltext: "story", letters: "letters", words: "coreWords", phonics: "phonicsWords", sentences: "storySentences", chants: "chants", story: "story", sources: "sources" };
   const steps = ALL_STEPS.filter((step) => Boolean(course[dataKeys[step.id]]?.length) || (step.id === "sentences" && course.introSentences?.length));
   if (!course.isReading) { return steps; }
-  const readingOrder = ["story", "words", "sentences", "sources"];
+  const readingOrder = ["fulltext", "story", "words", "sentences", "sources"];
   return readingOrder.map((id) => steps.find((step) => step.id === id)).filter(Boolean);
 }
 
@@ -1054,6 +1043,7 @@ function stopAllMedia() {
   $("#courseVideo")?.pause();
   clearPlayingHighlights();
   $("#playerBar")?.classList.remove("is-visible");
+  document.body.classList.remove("has-audio");
 }
 
 function speakFallback(track, token) {
@@ -1086,7 +1076,7 @@ function renderSourcesStep() {
   const pages = source.pages || [];
   sourcePageIndex = Math.max(0, Math.min(sourcePageIndex, pages.length - 1));
   const item = pages[sourcePageIndex];
-  return `<div class="source-toolbar"><div class="source-tabs">${sources.map((entry, i) => `<button type="button" data-source-index="${i}" class="${i === sourceIndex ? "is-active" : ""}">${escapeHtml(entry.kind === "story" ? "绘本原页" : "自然拼读课件")}</button>`).join("")}</div><label>跳至原页<select data-source-page aria-label="选择课件原页">${pages.map((entry, i) => `<option value="${i}" ${i === sourcePageIndex ? "selected" : ""}>第 ${entry.page} 页</option>`).join("")}</select></label></div><h3 class="source-title">${escapeHtml(source.title)}</h3><p class="audio-origin-note">原资料共 ${source.totalPages} 页，这里收录 ${pages.length} 个去重学习页。课程宣传、活动通知和无学习内容的休息页不单列练习。原图里的未核实文字不自动送入朗读，避免 OCR 误读。</p><figure class="source-figure">${imageMarkup(item?.image, source.title + " 第 " + item?.page + " 页")}<figcaption>原文件：${escapeHtml(source.fileName)} · 原页 ${item?.page}</figcaption></figure><nav class="focus-pager" aria-label="原页翻页"><button type="button" data-source-direction="-1" ${sourcePageIndex === 0 ? "disabled" : ""}>← 上一页</button><span>${sourcePageIndex + 1} / ${pages.length}</span><button type="button" data-source-direction="1" ${sourcePageIndex === pages.length - 1 ? "disabled" : ""}>下一页 →</button></nav>`;
+  return `<div class="source-toolbar"><div class="source-tabs">${sources.map((entry, i) => `<button type="button" data-source-index="${i}" class="${i === sourceIndex ? "is-active" : ""}">${escapeHtml(entry.kind === "story" ? "绘本原页" : "自然拼读课件")}</button>`).join("")}</div><label>跳至原页<select data-source-page aria-label="选择课件原页">${pages.map((entry, i) => `<option value="${i}" ${i === sourcePageIndex ? "selected" : ""}>第 ${entry.page} 页</option>`).join("")}</select></label></div><h3 class="source-title">${escapeHtml(source.title)}</h3><figure class="source-figure">${imageMarkup(item?.image, source.title + " 第 " + item?.page + " 页")}<figcaption>原文件：${escapeHtml(source.fileName)} · 原页 ${item?.page}</figcaption></figure><nav class="focus-pager" aria-label="原页翻页"><button type="button" data-source-direction="-1" ${sourcePageIndex === 0 ? "disabled" : ""}>← 上一页</button><span>${sourcePageIndex + 1} / ${pages.length}</span><button type="button" data-source-direction="1" ${sourcePageIndex === pages.length - 1 ? "disabled" : ""}>下一页 →</button></nav>`;
 }
 
 function changeSourcePage(direction) {
@@ -1100,12 +1090,7 @@ function renderVideoSection(keepOpen = false) {
   if (!holder || !COURSE) { return; }
   const selected = videoSelections.get(COURSE.id);
   const hasVideo = Boolean(selected || COURSE.video?.src);
-  holder.innerHTML = `<details class="lesson-video-details" ${keepOpen || hasVideo ? "open" : ""}>
-    <summary><span>课程视频</span><small>${hasVideo ? "本设备已选择" : "暂未提供 · 不影响听读"}</small></summary>
-    <div class="video-panel"><p>这里是资料整理与合成朗读版，不是官方视频课堂。目前没有课程视频，先用逐句跟读、中文对照和课件原页学习。</p>
-    <label class="video-file-button">${hasVideo ? "更换本地视频" : "以后有视频时，从本机选择"}<input type="file" data-video-file accept="video/*,.mp4,.webm,.mov,.m4v"></label>
-    ${hasVideo ? `<p class="video-selected">${escapeHtml(selected?.name || "已配置课程视频")}</p><video id="courseVideo" controls playsinline preload="metadata"></video><p id="videoFeedback" class="video-feedback" role="status"></p>` : ""}
-    <p class="audio-origin-note">本地选择的文件只在当前标签页使用，不会上传或公开。之后获得可使用的视频，再接入对应课程。</p></div></details>`;
+  holder.innerHTML = `<details class="lesson-video-details" ${keepOpen || hasVideo ? "open" : ""}><summary>课程视频 <small>${hasVideo ? "已添加" : "未添加"}</small></summary><div class="video-panel"><label class="video-file-button">选择本机视频<input type="file" data-video-file accept="video/*,.mp4,.webm,.mov,.m4v"></label><p class="audio-origin-note">仅在当前设备播放，不上传。</p>${hasVideo ? `<p class="video-selected">${escapeHtml(selected?.name || "课程视频")}</p><video id="courseVideo" controls playsinline preload="metadata"></video><p id="videoFeedback" role="status"></p>` : ""}</div></details>`;
   if (hasVideo) { mountCourseVideo(); }
 }
 
@@ -1132,4 +1117,52 @@ function mountCourseVideo() {
 function materialTimeMarkup(value) {
   if (!value) { return ""; }
   return `资料时间 <time datetime="${escapeHtml(value)}">${escapeHtml(value.replace("T", " "))}</time>`;
+}
+
+function getFullTextSections() {
+  if (!COURSE) { return []; }
+  const story = (COURSE.story || []).flatMap((scene) => {
+    const lines = scene.lines?.length ? scene.lines : [scene];
+    return lines.map((line) => ({ text: line.text || "", cn: line.cn || "", audio: line.audio || scene.audio, sourcePage: scene.sourcePage }));
+  }).filter((line) => line.text.trim());
+  const keyFor = (text) => stripHtml(text).toLowerCase().replace(/[^a-z0-9]+/g, "");
+  const seen = new Set(story.map((line) => keyFor(line.text)));
+  const classroom = getSentenceItems().filter((line) => {
+    const key = keyFor(line.text);
+    if (!key || seen.has(key)) { return false; }
+    seen.add(key); return true;
+  });
+  return [
+    { id: "story", title: "绘本全文", lines: story },
+    { id: "classroom", title: "课堂对话与句子", lines: classroom }
+  ].filter((section) => section.lines.length);
+}
+
+function getFullTextTracks() {
+  return getFullTextSections().flatMap((section) => section.lines.map((line, index) => ({
+    audio: line.audio, title: stripHtml(line.text), eyebrow: "全文朗读", key: `fulltext-${section.id}-${index}`
+  }))).filter((track) => track.audio);
+}
+
+function renderFullTextStep() {
+  const sections = getFullTextSections();
+  const total = sections.reduce((sum, section) => sum + section.lines.length, 0);
+  return `<article class="fulltext-reader" id="fullTextReader" aria-label="${escapeHtml(COURSE.title)} 全文阅读">
+    <div class="reader-toolbar">
+      <button type="button" class="reader-toggle" id="translationToggle" aria-pressed="${showChinese}" aria-label="显示中文翻译" aria-controls="fullTextSections">${showChinese ? "隐藏中文" : "显示中文"}</button>
+      <span class="reader-count">${total} 句</span>
+      <button type="button" class="reader-play-all" id="readAllButton" ${!getFullTextTracks().length ? "disabled" : ""}><span class="play-icon" aria-hidden="true"></span>连续朗读</button>
+      <button type="button" class="reader-stop" id="stopReadingButton" aria-label="停止全文朗读">停止</button>
+    </div>
+    <div id="fullTextSections">${sections.map((section) => `<section class="fulltext-section" aria-labelledby="fulltext-${section.id}-title"><h3 id="fulltext-${section.id}-title">${section.title}</h3><ol class="fulltext-lines">${section.lines.map((line, i) => `<li class="fulltext-line"><span class="fulltext-line-no" aria-hidden="true">${pad(i + 1)}</span><div class="fulltext-line-copy"><p class="fulltext-en" lang="en">${formatSentence(line.text)}</p>${line.cn ? `<p class="fulltext-cn" data-fulltext-cn ${showChinese ? "" : "hidden"}>${escapeHtml(line.cn)}</p>` : ""}</div>${line.audio ? `<button type="button" class="fulltext-audio" data-audio="${escapeHtml(line.audio)}" data-key="fulltext-${section.id}-${i}" data-title="${escapeHtml(stripHtml(line.text))}" data-eyebrow="全文朗读" aria-label="朗读：${escapeHtml(stripHtml(line.text))}"><span class="play-icon" aria-hidden="true"></span></button>` : ""}</li>`).join("")}</ol></section>`).join("")}</div>
+  </article>`;
+}
+
+function toggleChinese() {
+  showChinese = !showChinese;
+  $("#lessonTitleCn").hidden = !showChinese;
+  try { localStorage.setItem("xiaoyuan:show-chinese", String(showChinese)); } catch {}
+  $$("[data-fulltext-cn]").forEach((element) => { element.hidden = !showChinese; });
+  const toggle = $("#translationToggle");
+  if (toggle) { toggle.textContent = showChinese ? "隐藏中文" : "显示中文"; toggle.setAttribute("aria-pressed", String(showChinese)); }
 }
