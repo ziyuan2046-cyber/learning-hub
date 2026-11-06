@@ -20,9 +20,9 @@ window.XIAOYUAN_COURSES = [
         "sound": "/æ/",
         "word": "apple",
         "wordCn": "苹果",
-        "audio": "./assets/audio/alphabet/a.mp3",
+        "audio": "./assets/audio/generated/559aead08264d5795d39.mp3",
         "wordAudio": "./assets/audio/words/apple.mp3",
-        "nameAudioOnly": false
+        "nameAudioOnly": true
       },
       {
         "letter": "B",
@@ -31,9 +31,9 @@ window.XIAOYUAN_COURSES = [
         "sound": "/b/",
         "word": "bear",
         "wordCn": "熊",
-        "audio": "./assets/audio/alphabet/b.mp3",
+        "audio": "./assets/audio/generated/df7e70e5021544f4834b.mp3",
         "wordAudio": "./assets/audio/words/bear.mp3",
-        "nameAudioOnly": false
+        "nameAudioOnly": true
       },
       {
         "letter": "C",
@@ -42,9 +42,9 @@ window.XIAOYUAN_COURSES = [
         "sound": "/k/",
         "word": "cat",
         "wordCn": "猫",
-        "audio": "./assets/audio/alphabet/c.mp3",
+        "audio": "./assets/audio/generated/6b23c0d5f35d1b11f9b6.mp3",
         "wordAudio": "./assets/audio/words/cat.mp3",
-        "nameAudioOnly": false
+        "nameAudioOnly": true
       },
       {
         "letter": "D",
@@ -53,9 +53,9 @@ window.XIAOYUAN_COURSES = [
         "sound": "/d/",
         "word": "duck",
         "wordCn": "鸭子",
-        "audio": "./assets/audio/alphabet/d.mp3",
+        "audio": "./assets/audio/generated/3f39d5c348e5b79d06e8.mp3",
         "wordAudio": "./assets/audio/words/duck.mp3",
-        "nameAudioOnly": false
+        "nameAudioOnly": true
       }
     ],
     "coreWords": [
@@ -363,7 +363,7 @@ window.XIAOYUAN_COURSES = [
         ],
         "cn": "字母 A；例词 apple，意思是“苹果”。小写字母表示课件中的字母音练习。",
         "audio": "./assets/audio/chants/chant-1.mp3",
-        "synthesized": false
+        "synthesized": true
       },
       {
         "id": "b",
@@ -374,7 +374,7 @@ window.XIAOYUAN_COURSES = [
         ],
         "cn": "字母 B；例词 bear，意思是“熊”。小写字母表示课件中的字母音练习。",
         "audio": "./assets/audio/chants/chant-2.mp3",
-        "synthesized": false
+        "synthesized": true
       },
       {
         "id": "c",
@@ -385,7 +385,7 @@ window.XIAOYUAN_COURSES = [
         ],
         "cn": "字母 C；例词 cat，意思是“猫”。小写字母表示课件中的字母音练习。",
         "audio": "./assets/audio/chants/chant-3.mp3",
-        "synthesized": false
+        "synthesized": true
       },
       {
         "id": "d",
@@ -396,7 +396,7 @@ window.XIAOYUAN_COURSES = [
         ],
         "cn": "字母 D；例词 duck，意思是“鸭子”。小写字母表示课件中的字母音练习。",
         "audio": "./assets/audio/chants/chant-4.mp3",
-        "synthesized": false
+        "synthesized": true
       }
     ],
     "story": [
@@ -1217,9 +1217,9 @@ window.XIAOYUAN_COURSES = [
       },
       {
         "id": "book-3-line-3",
-        "text": "Brrrr!",
+        "text": "Brrr!",
         "cn": "哆嗦的声音：哔——！",
-        "audio": "./assets/audio/generated/cccf820066ccdc2a8711.mp3",
+        "audio": "./assets/audio/generated/f27a8e6a5354633ba5cd.mp3",
         "tag": "绘本第 5 页",
         "sourcePage": 5
       },
@@ -1352,14 +1352,14 @@ window.XIAOYUAN_COURSES = [
         "original": true
       },
       {
-        "text": "Brrrr!",
+        "text": "Brrr!",
         "cn": "哆嗦的声音：哔——！",
-        "audio": "./assets/audio/generated/cccf820066ccdc2a8711.mp3",
+        "audio": "./assets/audio/generated/f27a8e6a5354633ba5cd.mp3",
         "lines": [
           {
-            "text": "Brrrr!",
+            "text": "Brrr!",
             "cn": "哆嗦的声音：哔——！",
-            "audio": "./assets/audio/generated/cccf820066ccdc2a8711.mp3"
+            "audio": "./assets/audio/generated/f27a8e6a5354633ba5cd.mp3"
           }
         ],
         "image": "./assets/library/story-03/p005.webp",
@@ -10376,5 +10376,10 @@ window.XIAOYUAN_AUDIO_TEXT = {
   "./assets/audio/generated/192e9d1e64b5d3c8b73c.mp3": "This is my pencil case.",
   "./assets/audio/generated/f89ad04ea6795bb35f43.mp3": "This is my book.",
   "./assets/audio/generated/df63101fed847354bade.mp3": "This is my bag.",
-  "./assets/audio/generated/c6cf43f650ed2cbd34aa.mp3": "This is my ruler."
+  "./assets/audio/generated/c6cf43f650ed2cbd34aa.mp3": "This is my ruler.",
+  "./assets/audio/generated/559aead08264d5795d39.mp3": "A",
+  "./assets/audio/generated/df7e70e5021544f4834b.mp3": "B",
+  "./assets/audio/generated/6b23c0d5f35d1b11f9b6.mp3": "C",
+  "./assets/audio/generated/3f39d5c348e5b79d06e8.mp3": "D",
+  "./assets/audio/generated/f27a8e6a5354633ba5cd.mp3": "Brrr!"
 };

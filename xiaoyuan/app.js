@@ -32,7 +32,6 @@ let STEPS = ALL_STEPS;
 let stepIndex = 0;
 let sourceIndex = 0;
 let sourcePageIndex = 0;
-let videoObjectUrl = "";
 const videoSelections = new Map();
 let storyIndex = 0;
 const focusIndexes = { letters: 0, words: 0, phonics: 0, sentences: 0, chants: 0 };
@@ -79,9 +78,6 @@ function emptyMarkup(message) {
 
 function imageMarkup(path, alt, className = "") {
   if (!path) { return ""; }
-  if (path.includes("/assets/library/")) {
-    return `<img${className ? ` class="${escapeHtml(className)}"` : ""} data-library-src="${escapeHtml(path)}" alt="${escapeHtml(alt || "")}" loading="lazy" decoding="async">`;
-  }
   return `<img${className ? ` class="${escapeHtml(className)}"` : ""} src="${escapeHtml(path)}" alt="${escapeHtml(alt || "")}" loading="lazy" decoding="async">`;
 }
 
@@ -162,7 +158,6 @@ function renderStep(options = {}) {
       <span class="tab-no">${pad(index + 1)}</span>${escapeHtml(item.label)}
     </button>`).join("");
   $("#stepContent").innerHTML = step.render();
-  hydrateLibraryImages();
   if (step.id === "video") { mountCourseVideo(); }
   $("#stepPrev").disabled = stepIndex === 0;
   $("#stepNext").disabled = stepIndex === STEPS.length - 1;
@@ -790,7 +785,7 @@ function syncStoryForTrack(track) {
   const next = Math.max(0, Math.min(COURSE.story.length - 1, Number(match[1])));
   if (next !== storyIndex) {
     storyIndex = next;
-    if (currentView === "lesson" && stepIndex === STEPS.length - 1) { renderStep(); }
+    if (currentView === "lesson" && STEPS[stepIndex]?.id === "story") { renderStep(); }
   }
 }
 
@@ -1145,19 +1140,4 @@ function base64Blob(data, type) {
   const raw = atob(data);
   const bytes = Uint8Array.from(raw, (char) => char.charCodeAt(0));
   return new Blob([bytes], { type });
-}
-function hydrateLibraryImages() {
-  $$("img[data-library-src]").forEach((img) => {
-    const match = /\/library\/([^/]+)\/([^/]+)$/.exec(img.dataset.librarySrc);
-    if (!match) { img.hidden = true; return; }
-    loadAssetPack(match[1]).then((pack) => {
-      if (!img.isConnected) { return; }
-      if (!pack[match[2]]) { throw new Error("Page missing from document pack"); }
-      img.src = "data:image/webp;base64," + pack[match[2]];
-    }).catch(() => {
-      img.hidden = true;
-      img.closest("figure")?.setAttribute("hidden", "");
-      showToast("原页图片暂未加载，可以继续读文字并听音频");
-    });
-  });
 }
