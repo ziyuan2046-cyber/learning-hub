@@ -1,13 +1,16 @@
 "use strict";
 
 const COURSES = Array.isArray(window.XIAOYUAN_COURSES) ? window.XIAOYUAN_COURSES : [];
-const STEPS = [
+const READINGS = Array.isArray(window.XIAOYUAN_READINGS) ? window.XIAOYUAN_READINGS : [];
+const ALL_STEPS = [
   { id: "letters", label: "字母声音", render: renderLettersStep },
   { id: "words", label: "核心单词", render: renderCoreWordsStep },
   { id: "phonics", label: "自然拼读", render: renderPhonicsStep },
   { id: "sentences", label: "重点句子", render: renderSentencesStep },
   { id: "chants", label: "歌谣律动", render: renderChantsStep },
-  { id: "story", label: "故事时间", render: renderStoryStep }
+  { id: "story", label: "故事时间", render: renderStoryStep },
+  { id: "sources", label: "课件原页", render: renderSourcesStep },
+  { id: "video", label: "课程视频", render: renderVideoStep }
 ];
 const AUDIO_CDN_ROOT = "https://cdn.jsdelivr.net/gh/ziyuan2046-cyber/learning-hub@main/xiaoyuan/";
 const AUDIO_PREFETCH_CONCURRENCY = 2;
@@ -25,7 +28,12 @@ const slug = (value) => String(value || "item").toLowerCase().replace(/[^a-z0-9]
 const pad = (value) => String(value).padStart(2, "0");
 
 let COURSE = COURSES.find((item) => item.available) || COURSES[0] || null;
+let STEPS = ALL_STEPS;
 let stepIndex = 0;
+let sourceIndex = 0;
+let sourcePageIndex = 0;
+let videoObjectUrl = "";
+const videoSelections = new Map();
 let storyIndex = 0;
 const focusIndexes = { letters: 0, words: 0, phonics: 0, sentences: 0, chants: 0 };
 let quizRound = 0;
@@ -38,6 +46,7 @@ let audioPrefetchQueue = [];
 let audioPrefetchActive = 0;
 let toastTimer = 0;
 
+const assetPackCache = new Map();
 const audioBlobCache = new Map();
 const audioBlobRequests = new Map();
 const playerState = {
@@ -70,6 +79,9 @@ function emptyMarkup(message) {
 
 function imageMarkup(path, alt, className = "") {
   if (!path) { return ""; }
+  if (path.includes("/assets/library/")) {
+    return `<img${className ? ` class="${escapeHtml(className)}"` : ""} data-library-src="${escapeHtml(path)}" alt="${escapeHtml(alt || "")}" loading="lazy" decoding="async">`;
+  }
   return `<img${className ? ` class="${escapeHtml(className)}"` : ""} src="${escapeHtml(path)}" alt="${escapeHtml(alt || "")}" loading="lazy" decoding="async">`;
 }
 
@@ -96,10 +108,14 @@ function renderCatalog() {
           <strong>${escapeHtml(title)}</strong>
           <span>${escapeHtml(subtitle)}</span>
         </span>
-        <span class="${available ? "course-card-cta" : "course-card-note"}">${available ? "进入本课 · 6 个学习步骤" : "位置已预留，后续自动开放"}</span>
+        <span class="${available ? "course-card-cta" : "course-card-note"}">${available ? `进入本课 · ${getCourseSteps(item).length} 个学习步骤` : "位置已预留，后续自动开放"}</span>
       </button>`;
   }).join("") || emptyMarkup("还没有可显示的课程，请检查课程数据。");
 
+  const readingGrid = $("#readingGrid");
+  if (readingGrid) {
+    readingGrid.innerHTML = READINGS.map((book) => `<button class="course-card reading-card is-open" type="button" data-course-id="${escapeHtml(book.id)}"><span class="course-card-top"><span class="course-card-index">EXTRA READING</span><span class="course-card-status">逐句朗读</span></span><span class="course-card-body"><strong>${escapeHtml(book.title)}</strong><span>${escapeHtml(book.titleCn)}</span></span><span class="course-card-note">独立拓展绘本 · 不占课程编号</span></button>`).join("");
+  }
   const headerCount = $("#headerCourseCount");
   if (headerCount) { headerCount.textContent = `${openCount} / ${COURSES.length || 12}`; }
 }
@@ -107,7 +123,7 @@ function renderCatalog() {
 function renderLesson() {
   if (!COURSE) { return; }
   const lessonNo = pad(COURSE.lesson || 1);
-  $("#lessonEyebrow").textContent = `LESSON ${lessonNo}${COURSE.subtitle ? ` · ${COURSE.subtitle}` : ""}`;
+  $("#lessonEyebrow").textContent = `${COURSE.isReading ? "EXTRA READING" : `LESSON ${lessonNo}`}${COURSE.subtitle ? ` · ${COURSE.subtitle}` : ""}`;
   $("#lessonTitle").textContent = COURSE.title || `Lesson ${lessonNo}`;
   $("#lessonTitleCn").textContent = COURSE.titleCn || "课程内容";
   $("#lessonDescription").textContent = COURSE.description || "本课内容正在整理，后续会补充完整。";
@@ -121,7 +137,7 @@ function renderLesson() {
 
   const cover = $("#lessonCover");
   if (COURSE.coverImage) {
-    $("#lessonCoverImage").src = COURSE.coverImage;
+    $("#lessonCoverImage").removeAttribute("src");
     $("#lessonCoverImage").alt = `${COURSE.title || "课程"} 课程总览`;
     $("#lessonCoverCaption").textContent = `Lesson ${lessonNo} · ${COURSE.titleCn || "课程总览"}`;
     cover.hidden = false;
@@ -146,6 +162,8 @@ function renderStep(options = {}) {
       <span class="tab-no">${pad(index + 1)}</span>${escapeHtml(item.label)}
     </button>`).join("");
   $("#stepContent").innerHTML = step.render();
+  hydrateLibraryImages();
+  if (step.id === "video") { mountCourseVideo(); }
   $("#stepPrev").disabled = stepIndex === 0;
   $("#stepNext").disabled = stepIndex === STEPS.length - 1;
   $("#stepNext").innerHTML = stepIndex === STEPS.length - 1
@@ -228,8 +246,8 @@ function renderLettersStep() {
         <p class="focus-cn">字母名读作 ${escapeHtml(item.name || "")}，在单词中常发 ${escapeHtml(item.sound || "")} 的音。</p>
         <div class="focus-example"><span>例词</span><strong>${escapeHtml(item.word || "")}</strong><b>${escapeHtml(item.wordCn || "")}</b></div>
         <div class="focus-audio-actions">
-          <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${letterKey}" data-title="${escapeHtml(`${item.letter} · 字母名与字母音`)}" data-eyebrow="LETTER SOUND" aria-label="播放 ${escapeHtml(item.letter)} 的字母名与字母音">
-            <span class="play-icon" aria-hidden="true"></span>播放重点发音
+          <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${letterKey}" data-title="${escapeHtml(`${item.letter} · ${item.nameAudioOnly ? "字母名（合成）" : "字母名与字母音"}`)}" data-eyebrow="LETTER SOUND" aria-label="播放 ${escapeHtml(item.letter)} 的字母名与字母音">
+            <span class="play-icon" aria-hidden="true"></span>${item.nameAudioOnly ? "听字母名（合成朗读）" : "播放重点发音"}
           </button>
           ${item.wordAudio ? `<button class="play-button focus-secondary" type="button" data-audio="${escapeHtml(item.wordAudio)}" data-key="${wordKey}" data-title="${escapeHtml(`${item.word} · ${item.wordCn || ""}`)}" data-eyebrow="EXAMPLE WORD" aria-label="播放例词 ${escapeHtml(item.word)}"><span class="play-icon" aria-hidden="true"></span>听例词</button>` : ""}
         </div>
@@ -304,7 +322,7 @@ function renderSentencesStep() {
     ${stepIntro("一个句子，听完整语气", "每页集中听一句话。英文用大字号显示，下面保留中文翻译；相同句子只出现一次。", items.length, "个句子")}
     <article class="focus-card focus-sentence no-image">
       <div class="focus-copy">
-        <div class="focus-topline"><span class="focus-label">${escapeHtml(item.source === "intro" ? "自我介绍" : "故事重点句")}</span><span class="focus-page">PAGE ${focusPageLabel(index, items.length)}</span></div>
+        <div class="focus-topline"><span class="focus-label">${escapeHtml(item.source === "intro" ? "表达练习" : "绘本重点句")}</span><span class="focus-page">PAGE ${focusPageLabel(index, items.length)}</span></div>
         <p class="focus-eyebrow">${escapeHtml(item.tag || "重点句子")}</p>
         <h4 class="focus-en focus-sentence-en">${formatSentence(item.text || "")}</h4>
         <p class="focus-cn focus-sentence-cn">${escapeHtml(item.cn || "")}</p>
@@ -313,7 +331,7 @@ function renderSentencesStep() {
             <span class="play-icon" aria-hidden="true"></span>播放整句
           </button>
         </div>
-        ${focusPager("sentences", index, items.length, "个句子", item.source === "intro" ? "自我介绍" : "故事重点句")}
+        ${focusPager("sentences", index, items.length, "个句子", item.source === "intro" ? "表达练习" : "绘本重点句")}
       </div>
     </article>`;
 }
@@ -333,9 +351,10 @@ function renderChantsStep() {
         <p class="focus-eyebrow">CHANT · ${escapeHtml(item.letter || "")}</p>
         <div class="focus-chant-lines">${lines.map((line) => `<span>${escapeHtml(line)}</span>`).join("")}</div>
         <p class="focus-cn focus-chant-cn">${escapeHtml(item.cn || "")}</p>
+        ${item.synthesized ? `<p class="audio-origin-note">这是合成关键词朗读，不是原课歌谣演唱，也不替代字母音示范。</p>` : ""}
         <div class="focus-audio-actions">
           <button class="play-button focus-play" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="${key}" data-title="${escapeHtml(`歌谣 ${item.letter || ""}`)}" data-eyebrow="CHANT" aria-label="播放字母 ${escapeHtml(item.letter || "")} 的歌谣">
-            <span class="play-icon" aria-hidden="true"></span>播放整首歌谣
+            <span class="play-icon" aria-hidden="true"></span>${item.synthesized ? "听歌谣关键词（朗读）" : "播放整首歌谣"}
           </button>
         </div>
         ${focusPager("chants", index, chants.length, "首歌谣", `字母 ${item.letter || ""}`)}
@@ -364,6 +383,7 @@ function renderStoryStep() {
         <p class="story-text" id="storyText">${escapeHtml(item.text || "")}</p>
         <p class="story-translation">${escapeHtml(item.cn || "")}</p>
         ${item.hint ? `<p class="story-hint">${escapeHtml(item.hint)}</p>` : ""}
+        ${renderSentenceReadButtons(item)}
         <div class="story-actions">
           <button class="play-button story-audio" type="button" data-audio="${escapeHtml(item.audio || "")}" data-key="story-${storyIndex}" data-title="${escapeHtml(item.text || "")}" data-eyebrow="STORY AUDIO" aria-label="播放本页故事音频">
             <span class="play-icon" aria-hidden="true"></span>听这一页
@@ -481,12 +501,17 @@ function resetProgress() {
 }
 
 function openCourse(id) {
-  const nextCourse = COURSES.find((item) => item.id === id);
+  const nextCourse = [...COURSES, ...READINGS].find((item) => item.id === id);
   if (!nextCourse || !nextCourse.available) {
     showToast("这一课的内容还在补充中");
     return;
   }
+  stopAllMedia();
   COURSE = nextCourse;
+  STEPS = getCourseSteps(COURSE);
+  Object.keys(focusIndexes).forEach((key) => { focusIndexes[key] = 0; });
+  sourceIndex = 0;
+  sourcePageIndex = 0;
   stepIndex = 0;
   storyIndex = 0;
   quizRound = 0;
@@ -506,6 +531,7 @@ function showView(view) {
     link.setAttribute("aria-current", link.dataset.viewLink === view ? "page" : "false");
   });
   if (view === "catalog") {
+    stopAllMedia();
     document.title = "森林英语 · 课程学习空间";
   }
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -514,6 +540,7 @@ function showView(view) {
 function changeStep(nextIndex, scroll = false) {
   const next = Math.max(0, Math.min(STEPS.length - 1, nextIndex));
   if (next === stepIndex) { return; }
+  stopAllMedia();
   stepIndex = next;
   renderStep({ scroll });
 }
@@ -522,6 +549,7 @@ function changeStory(direction) {
   const story = Array.isArray(COURSE.story) ? COURSE.story : [];
   const next = Math.max(0, Math.min(story.length - 1, storyIndex + direction));
   if (next === storyIndex) { return; }
+  stopAllMedia();
   storyIndex = next;
   renderStep({ scroll: true, focus: false });
 }
@@ -542,6 +570,7 @@ function changeFocus(stepId, direction) {
   const current = Number(focusIndexes[stepId] || 0);
   const next = Math.max(0, Math.min(total - 1, current + direction));
   if (next === current) { return; }
+  stopAllMedia();
   focusIndexes[stepId] = next;
   renderStep({ scroll: true, focus: false });
 }
@@ -558,7 +587,7 @@ function getAudioCandidates(path) {
     const base = new URL("./", document.baseURI);
     if (local.origin !== location.origin || !local.pathname.startsWith(base.pathname)) { return [localUrl]; }
     const relativePath = local.pathname.slice(base.pathname.length);
-    return [new URL(relativePath, AUDIO_CDN_ROOT).href, localUrl];
+    return [localUrl, new URL(relativePath, AUDIO_CDN_ROOT).href];
   } catch {
     return [localUrl];
   }
@@ -568,6 +597,15 @@ function fetchAudioBlob(url) {
   if (audioBlobCache.has(url)) { return Promise.resolve(audioBlobCache.get(url)); }
   if (audioBlobRequests.has(url)) { return audioBlobRequests.get(url); }
   const request = (async () => {
+    const generated = /\/generated\/([a-f0-9]+\.mp3)$/.exec(new URL(url).pathname);
+    if (generated) {
+      const pack = await loadAssetPack("voice-" + generated[1][0]);
+      const data = pack[generated[1]];
+      if (!data) { throw new Error("Generated recording missing from voice pack"); }
+      const blob = base64Blob(data, "audio/mpeg");
+      audioBlobCache.set(url, blob);
+      return blob;
+    }
     let lastError = null;
     for (const candidate of getAudioCandidates(url)) {
       try {
@@ -628,7 +666,7 @@ function collectAudioUrls() {
 }
 
 function scheduleAudioPrefetch() {
-  const urls = collectAudioUrls();
+  const urls = Array.from(new Set($$("[data-audio]", $("#stepContent")).map((element) => element.dataset.audio).filter(Boolean)));
   const start = () => queueAudioPrefetch(urls);
   if (window.requestIdleCallback) {
     window.requestIdleCallback(start, { timeout: 1200 });
@@ -770,6 +808,7 @@ function playTrack(track, queue = null, index = null) {
   playerState.eyebrow = track.eyebrow || "NOW PLAYING";
   playerState.currentKey = track.key || "";
   playerState.solo = Boolean(track.solo);
+  window.speechSynthesis?.cancel();
   const token = ++playRequestId;
   const sourceUrl = normalizeAudioUrl(track.audio);
   playerState.sourceUrl = sourceUrl;
@@ -779,7 +818,7 @@ function playTrack(track, queue = null, index = null) {
     const objectUrl = URL.createObjectURL(cachedBlob);
     mountAudioSource(objectUrl, token, objectUrl);
   } else {
-    mountAudioSource(getAudioCandidates(sourceUrl)[0], token);
+    if (!sourceUrl.includes("/audio/generated/")) { mountAudioSource(getAudioCandidates(sourceUrl)[0], token); } else { disposeAudioSource(); }
     queueAudioPrefetch([sourceUrl], true);
     fetchAudioBlob(sourceUrl).then((blob) => {
       if (token !== playRequestId || !audio || audio.ended) { return; }
@@ -787,12 +826,12 @@ function playTrack(track, queue = null, index = null) {
       const objectUrl = URL.createObjectURL(blob);
       if (mountAudioSource(objectUrl, token, objectUrl)) { attemptPlayback(token); }
     }).catch(() => {
-      if (token === playRequestId) { showToast("音频暂时没有加载成功，请检查网络后重试"); }
+      if (token === playRequestId && audio?.paused) { speakFallback(track, token); }
     });
   }
 
   playerState.trigger = track.trigger || findAudioTrigger(track.key || "");
-  attemptPlayback(token);
+  if (audio?.getAttribute("src")) { attemptPlayback(token); }
   updatePlayer(true);
   clearPlayingHighlights();
   playerState.trigger = track.trigger || findAudioTrigger(track.key || "");
@@ -872,6 +911,14 @@ function bindEvents() {
       return;
     }
 
+    const sourceTab = event.target.closest("[data-source-index]");
+    if (sourceTab) { sourceIndex = Number(sourceTab.dataset.sourceIndex); sourcePageIndex = 0; renderStep(); return; }
+    const sourcePager = event.target.closest("[data-source-direction]");
+    if (sourcePager) { changeSourcePage(Number(sourcePager.dataset.sourceDirection)); return; }
+    if (event.target.closest("[data-repeat]")) {
+      if (audio?.src) { audio.currentTime = 0; audio.play().catch(() => showToast("请点击正文朗读按钮重试")); }
+      return;
+    }
     const audioTrigger = event.target.closest("[data-audio]");
     if (audioTrigger) {
       const key = audioTrigger.dataset.key || "";
@@ -884,7 +931,7 @@ function bindEvents() {
         eyebrow: audioTrigger.dataset.eyebrow || "NOW PLAYING",
         key,
         trigger: audioTrigger,
-        solo: key.startsWith("quiz-")
+        solo: true
       }, index >= 0 ? queue : null, index >= 0 ? index : null);
       return;
     }
@@ -933,6 +980,7 @@ function bindEvents() {
     if (event.target.closest("#playerClose")) {
       playRequestId += 1;
       audio?.pause();
+      window.speechSynthesis?.cancel();
       $("#playerBar").classList.remove("is-visible");
       clearPlayingHighlights();
       return;
@@ -946,6 +994,10 @@ function bindEvents() {
   });
 
   document.addEventListener("change", (event) => {
+    if (event.target.matches("[data-source-page]")) {
+      sourcePageIndex = Number(event.target.value); renderStep(); return;
+    }
+    if (event.target.matches("[data-video-file]")) { selectLocalVideo(event.target.files?.[0]); return; }
     const input = event.target.closest("[data-check]");
     if (!input || !COURSE) { return; }
     const progress = new Set(loadProgress());
@@ -958,6 +1010,10 @@ function bindEvents() {
     if (event.target instanceof HTMLImageElement) {
       event.target.hidden = true;
       event.target.closest("figure")?.setAttribute("hidden", "");
+      const media = event.target.closest(".focus-media");
+      if (media && !Array.from(media.querySelectorAll("img")).some((img) => !img.hidden)) {
+        const card = media.closest(".focus-card"); media.remove(); card?.classList.add("no-image");
+      }
     }
   }, true);
 
@@ -969,6 +1025,7 @@ function bindEvents() {
     if (event.key === "Escape") {
       $("#playerBar")?.classList.remove("is-visible");
       audio?.pause();
+      window.speechSynthesis?.cancel();
     }
   });
 }
@@ -976,6 +1033,7 @@ function bindEvents() {
 function init() {
   audio = $("#audio");
   renderCatalog();
+  STEPS = getCourseSteps(COURSE);
   if (COURSE) {
     renderLesson();
     renderStep();
@@ -992,4 +1050,114 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init, { once: true });
 } else {
   init();
+}
+
+function getCourseSteps(course) {
+  if (!course) { return []; }
+  const dataKeys = { letters: "letters", words: "coreWords", phonics: "phonicsWords", sentences: "storySentences", chants: "chants", story: "story", sources: "sources" };
+  return ALL_STEPS.filter((step) => step.id === "video" || Boolean(course[dataKeys[step.id]]?.length) || (step.id === "sentences" && course.introSentences?.length));
+}
+
+function stopAllMedia() {
+  playRequestId += 1;
+  audio?.pause();
+  window.speechSynthesis?.cancel();
+  $("#courseVideo")?.pause();
+  clearPlayingHighlights();
+  $("#playerBar")?.classList.remove("is-visible");
+}
+
+function speakFallback(track, token) {
+  if (token !== playRequestId || !("speechSynthesis" in window)) {
+    showToast("朗读未加载，请联网后再试"); return;
+  }
+  const text = stripHtml(track.title).split(" · ")[0];
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US"; speech.rate = 0.85;
+  const voice = speechSynthesis.getVoices().find((item) => /^en-US/i.test(item.lang)) || speechSynthesis.getVoices().find((item) => /^en/i.test(item.lang));
+  if (voice) { speech.voice = voice; }
+  speech.onerror = () => { if (token === playRequestId) { showToast("此设备朗读不可用，请联网加载 MP3"); } };
+  speech.onend = () => { if (token === playRequestId) { clearPlayingHighlights(); $("#playerBar")?.classList.remove("is-visible"); } };
+  $("#playerBar")?.classList.remove("is-visible");
+  speechSynthesis.speak(speech);
+  showToast("MP3 暂不可用，已改用设备英文朗读");
+}
+
+function renderSentenceReadButtons(item) {
+  const lines = item.lines || [];
+  if (lines.length <= 1) { return ""; }
+  return `<div class="sentence-read-list" aria-label="逐句朗读">${lines.map((line, i) => `<div class="sentence-read-item"><p>${escapeHtml(line.text)}</p><small>${escapeHtml(line.cn)}</small><button class="play-button" type="button" data-audio="${escapeHtml(line.audio)}" data-key="single-${storyIndex}-${i}" data-title="${escapeHtml(line.text)}"><span class="play-icon" aria-hidden="true"></span>读这一句</button></div>`).join("")}<p class="audio-origin-note">新增音频为合成英文朗读，并非课程原录音。</p></div>`;
+}
+
+function renderSourcesStep() {
+  const sources = COURSE.sources || [];
+  if (!sources.length) { return emptyMarkup("本课暂未补充原页。"); }
+  sourceIndex = Math.max(0, Math.min(sourceIndex, sources.length - 1));
+  const source = sources[sourceIndex];
+  const pages = source.pages || [];
+  sourcePageIndex = Math.max(0, Math.min(sourcePageIndex, pages.length - 1));
+  const item = pages[sourcePageIndex];
+  return `<div class="source-toolbar"><div class="source-tabs">${sources.map((entry, i) => `<button type="button" data-source-index="${i}" class="${i === sourceIndex ? "is-active" : ""}">${escapeHtml(entry.kind === "story" ? "绘本原页" : "自然拼读课件")}</button>`).join("")}</div><label>跳至原页<select data-source-page aria-label="选择课件原页">${pages.map((entry, i) => `<option value="${i}" ${i === sourcePageIndex ? "selected" : ""}>第 ${entry.page} 页</option>`).join("")}</select></label></div><h3 class="source-title">${escapeHtml(source.title)}</h3><p class="audio-origin-note">原资料共 ${source.totalPages} 页，这里收录 ${pages.length} 个去重学习页。课程宣传、活动通知和无学习内容的休息页不单列练习。原图里的未核实文字不自动送入朗读，避免 OCR 误读。</p><figure class="source-figure">${imageMarkup(item?.image, source.title + " 第 " + item?.page + " 页")}<figcaption>原文件：${escapeHtml(source.fileName)} · 原页 ${item?.page}</figcaption></figure><nav class="focus-pager" aria-label="原页翻页"><button type="button" data-source-direction="-1" ${sourcePageIndex === 0 ? "disabled" : ""}>← 上一页</button><span>${sourcePageIndex + 1} / ${pages.length}</span><button type="button" data-source-direction="1" ${sourcePageIndex === pages.length - 1 ? "disabled" : ""}>下一页 →</button></nav>`;
+}
+
+function changeSourcePage(direction) {
+  const total = COURSE.sources?.[sourceIndex]?.pages?.length || 0;
+  sourcePageIndex = Math.max(0, Math.min(total - 1, sourcePageIndex + direction));
+  renderStep();
+}
+
+function renderVideoStep() {
+  const selected = videoSelections.get(COURSE.id);
+  const configured = COURSE.video?.src;
+  return `<div class="video-panel"><p class="section-kicker">COURSE VIDEO</p><h3>课程视频，留在这一课</h3><p>选择本课视频后即可在这里播放。文件只在当前设备和当前标签页使用，不上传服务器，不会公开分享。</p><label class="video-file-button">${selected ? "更换本课视频" : "选择本课视频"}<input type="file" data-video-file accept="video/*,.mp4,.webm,.mov,.m4v"></label><p class="video-selected" role="status">${escapeHtml(selected?.name || (configured ? "已配置课程视频" : "本课暂未添加视频"))}</p><video id="courseVideo" controls playsinline preload="metadata" ${selected || configured ? "" : "hidden"}></video><p class="video-feedback" id="videoFeedback" role="status"></p><div class="video-help"><strong>平台视频如何接入？</strong><p>可接入你有权使用的 MP4 等文件，或平台允许公开嵌入的官方链接。账号内的付费、加密回放不能直接从此页抓取，也不会保存你的平台账号。公开视频上线前，请确认有公开传播授权。</p></div></div>`;
+}
+
+function selectLocalVideo(file) {
+  if (!file) { return; }
+  if (!file.type.startsWith("video/") && !/\.(mp4|webm|mov|m4v|ogg)$/i.test(file.name)) { showToast("请选择 MP4、WebM 等视频文件"); return; }
+  const previous = videoSelections.get(COURSE.id);
+  if (previous) { URL.revokeObjectURL(previous.url); }
+  videoSelections.set(COURSE.id, { name: file.name, url: URL.createObjectURL(file) });
+  renderStep();
+}
+
+function mountCourseVideo() {
+  const video = $("#courseVideo");
+  const selected = videoSelections.get(COURSE.id);
+  const src = selected?.url || COURSE.video?.src;
+  if (!video || !src) { return; }
+  video.src = src;
+  video.addEventListener("error", () => { $("#videoFeedback").textContent = "此视频无法解码。请尝试 H.264 编码的 MP4，或在系统播放器中打开。"; });
+  video.addEventListener("play", () => { audio?.pause(); window.speechSynthesis?.cancel(); });
+}
+
+// Static, per-document packs reduce hundreds of small mobile requests. No external API is needed at runtime.
+function loadAssetPack(name) {
+  if (assetPackCache.has(name)) { return assetPackCache.get(name); }
+  const request = fetch(new URL("./assets/packs/" + name + ".json", document.baseURI)).then((response) => {
+    if (!response.ok) { throw new Error("Asset pack request failed: " + response.status); }
+    return response.json();
+  }).catch((error) => { assetPackCache.delete(name); throw error; });
+  assetPackCache.set(name, request);
+  return request;
+}
+function base64Blob(data, type) {
+  const raw = atob(data);
+  const bytes = Uint8Array.from(raw, (char) => char.charCodeAt(0));
+  return new Blob([bytes], { type });
+}
+function hydrateLibraryImages() {
+  $$("img[data-library-src]").forEach((img) => {
+    const match = /\/library\/([^/]+)\/([^/]+)$/.exec(img.dataset.librarySrc);
+    if (!match) { img.hidden = true; return; }
+    loadAssetPack(match[1]).then((pack) => {
+      if (!img.isConnected) { return; }
+      if (!pack[match[2]]) { throw new Error("Page missing from document pack"); }
+      img.src = "data:image/webp;base64," + pack[match[2]];
+    }).catch(() => {
+      img.hidden = true;
+      img.closest("figure")?.setAttribute("hidden", "");
+      showToast("原页图片暂未加载，可以继续读文字并听音频");
+    });
+  });
 }

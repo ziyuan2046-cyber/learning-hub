@@ -14,7 +14,7 @@
   
   
   
-  <link rel="stylesheet" href="./styles.css?v=13">
+  <link rel="stylesheet" href="./styles.css?v=14">
 
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" type="image/png" href="/learning-hub/assets/app-icons/v20261105/forest-192.png">
@@ -55,9 +55,9 @@
         <aside class="catalog-summary" aria-label="课程安排">
           <span class="summary-leaf" aria-hidden="true"></span>
           <p class="hand-note">十二课学习地图</p>
-          <strong><span id="catalogOpenCount">1</span><small> / 12 已开放</small></strong>
+          <strong><span id="catalogOpenCount">8</span><small> / 12 已开放</small></strong>
           <div class="summary-line"><i id="catalogOpenBar"></i></div>
-          <p>Lesson 2–12 的位置已经预留，后续补充内容后会自动出现在这里。</p>
+          <p>已整理 8 节课程与 12 本绘本。Lesson 9–12 继续保留，另有 4 本独立拓展绘本。</p>
         </aside>
       </div>
 
@@ -67,6 +67,7 @@
           <p>适合手机与平板浏览</p>
         </div>
         <div class="course-grid" id="courseGrid"></div>
+        <section class="reading-section" aria-labelledby="readingTitle"><p class="section-kicker">PICTURE BOOKS</p><h2 id="readingTitle">拓展绘本</h2><p>与课程分开归档，不把文件编号误当作课次。</p><div class="course-grid" id="readingGrid"></div></section>
       </div>
     </section>
 
@@ -79,7 +80,7 @@
             <h1 id="lessonTitle">Adam and the Bear</h1>
             <p class="lesson-title-cn" id="lessonTitleCn">亚当和大熊</p>
             <p class="lesson-description" id="lessonDescription"></p>
-            <div class="lesson-meta" id="lessonMeta"></div>
+            <div class="lesson-meta" id="lessonMeta"></div><p class="audio-origin-note">新增音频为合成英文朗读；原课音频保留。字母音以课件标注为准，合成字母名不替代原声发音示范。</p>
           </div>
           <figure class="lesson-cover" id="lessonCover">
             <img src="./assets/img/hero/course-overview.jpg" width="1346" height="1010" alt="Adam and the Bear 课程总览" id="lessonCoverImage">
@@ -130,8 +131,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <audio id="audio" preload="none"></audio>
-  <script src="./courses.js?v=13"></script>
-  <script src="./app.js?v=13"></script>
+  <script src="./courses.js?v=14"></script>
+  <script src="./app.js?v=14"></script>
 
 <script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('/learning-hub/xiaoyuan/sw.js',{updateViaCache:'none'}).then(function(r){r.update().catch(function(){});}).catch(function(){});}</script>
 </body>
