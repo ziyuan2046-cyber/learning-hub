@@ -324,6 +324,19 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
 .clear-search, .card-fav { min-width: 44px; }
 .search-input { padding-right: 54px; }
 .library-page .library-excerpt { overflow-wrap: anywhere; }
+.library-page .textbook-preview h3 { font-size: 25px; line-height: 1.4; overflow-wrap: anywhere; }
+.library-page .textbook-preview .library-excerpt { font-size: 20px; color: var(--ink); line-height: 1.8; }
+@media (min-width: 720px) {
+  .library-page .textbook-preview h3 { font-size: 27px; }
+  .library-page .textbook-preview .library-excerpt { font-size: 22px; }
+}
+.library-page .hub-main b { white-space: normal; }
+.recitation-cues { padding-inline-start: 1.6em; margin: 8px 0 0; }
+.recitation-cues li { padding: 7px 0; }
+.recitation-cues.recall-masked li span { visibility: hidden; }
+.recitation-cues.recall-masked li { border-bottom: 1px dashed var(--line); }
+.textbook-reference dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px 12px; margin: 10px 0; }
+.textbook-reference dd { margin: 0; }
 .reader-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 7px 12px; }
 .exam-jump, .recite-toolbar button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--jade); font-size: 14px; }
 .exam-jump { color: var(--accent-deep); border-color: #e7c8bd; }

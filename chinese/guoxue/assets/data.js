@@ -1,5 +1,6 @@
 import { packData } from './pack-data.js';
 import { classicData } from './classic-data.js';
+import { textbookRecitations } from './textbook-recitation.js';
 
 export const categories = [
   { id: 'poetry', name: '古诗词', short: '诗', color: '#A94B3C', soft: '#F4E5E0', icon: 'poem', description: '诗、词、曲' },
@@ -11,6 +12,7 @@ export const categories = [
   { id: 'lunyu', name: '论语', short: '论', color: '#4A657D', soft: '#E2EAF0', icon: 'three', description: '孔子言行' },
   { id: 'dizigui', name: '弟子规', short: '规', color: '#3D6159', soft: '#E2EBE5', icon: 'rules', description: '行为规范' },
   { id: 'qianziwen', name: '千字文', short: '千', color: '#9A6A2F', soft: '#F2E8D5', icon: 'poem', description: '识字启蒙' },
+  { id: 'text-recitation', name: '课文背诵', short: '背', color: '#245544', soft: '#E4EEE7', icon: 'book', description: '课后要求背诵的课文' },
 ];
 
 const categoryById = Object.fromEntries(categories.map(c => [c.id, c]));
@@ -42,6 +44,7 @@ export const items = [
   ...packData.lesson.map((item, index) => normalize(item, index, false)),
   ...packData.extra.map((item, index) => normalize(item, 1000 + index, true)),
   ...classicData.map((item, index) => normalize(item, 2000 + index, false)),
+  ...textbookRecitations.map((item, index) => ({ ...normalize(item, 3000 + index), scopeType: 'recitation', scopeName: '课本必背' })),
 ];
 
 export const lessonItems = items.filter(i => i.scopeType === 'textbook');
@@ -65,7 +68,7 @@ export function searchItems(list, options = {}) {
     if (category !== 'all' && item.category !== category) return false;
     if (volume !== 'all' && item.volume !== volume) return false;
     if (!query) return true;
-    return [item.title, item.author, item.dynasty, item.excerpt, item.meaning, item.tags, item.sourceLabel]
+    return [item.title, item.author, item.dynasty, item.excerpt, item.meaning, item.tags, item.sourceLabel, item.range]
       .filter(Boolean).join(' ').toLowerCase().includes(query);
   });
 }
