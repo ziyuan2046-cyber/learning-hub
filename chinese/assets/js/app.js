@@ -345,12 +345,9 @@
     loadJSON('assets/data/books.json', 'books')
       .then(function (books) {
         state.books = books;
-        var totalEl = $('totalChars');
-        if (totalEl) {
-          totalEl.textContent = books.reduce(function (sum, b) {
-            return sum + (b.count || 0);
-          }, 0);
-        }
+        var total = countBookEntries(books);
+        $('totalChars').textContent = total;
+        $('tabWriteCount').textContent = total + ' 字';
         renderGradeTabs();
         var first = books.filter(function (b) { return b.grade === 1; })[0];
         return selectBook(first.id);
@@ -382,6 +379,10 @@
   }
 
   /* ---------------- 册 / 字表 ---------------- */
+
+  function countBookEntries(books) {
+    return books.reduce(function (sum, book) { return sum + (book.count || 0); }, 0);
+  }
 
   function renderGradeTabs() {
     var html = '';
@@ -1120,7 +1121,8 @@
       if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey ||
           (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))) return;
       if (e.key === 'Escape') { closeModal(); return; }
-      if (state.gridOpen || zoomView.open || !$('viewRef').hidden || !$('viewMistakes').hidden) return;
+      if (state.gridOpen || zoomView.open || !$('viewRef').hidden || !$('viewMistakes').hidden ||
+          e.target.closest('#mainTabs')) return;
       if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
       e.preventDefault();
       var dir = e.key === 'ArrowLeft' ? -1 : 1;
@@ -1286,6 +1288,7 @@
         return;
       }
       read.catalog = idx;        // 目录（只有 id/title/count）
+      $('tabReadCount').textContent = countBookEntries(idx) + ' 字';
       read.books = [];           // 已加载的册
       var first = idx.filter(function (b) { return b.grade === 1; })[0] || idx[0];
       read.grade = first.grade;
@@ -1882,7 +1885,18 @@
 
   /* ---------------- 主视图切换 ---------------- */
 
+  var lastBookView = 'write';
+
+  function revealMainTab(tab) {
+    var nav = $('mainTabs');
+    var bounds = nav.getBoundingClientRect();
+    var item = tab.getBoundingClientRect();
+    if (item.left < bounds.left + 2) nav.scrollLeft += item.left - bounds.left - 2;
+    else if (item.right > bounds.right - 2) nav.scrollLeft += item.right - bounds.right + 2;
+  }
+
   function switchView(name) {
+    if (name === 'write' || name === 'read') lastBookView = name;
     if (name !== 'write') { demo.stop(); state.playing = false; $('playBtn').textContent = '播放笔顺'; }
     if (name !== 'read' && read.demo) { read.demo.stop(); read.playing = false; $('readPlay').textContent = '播放笔顺'; }
     if (name !== 'elem' && elem.demo) { elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺'; }
@@ -1892,9 +1906,13 @@
     });
     var btns = $('mainTabs').querySelectorAll('.main-tab');
     for (var i = 0; i < btns.length; i++) {
-      btns[i].classList.toggle('on', btns[i].dataset.view === name);
+      var current = btns[i].dataset.view === name;
+      btns[i].classList.toggle('on', current);
+      if (current) {
+        btns[i].setAttribute('aria-current', 'page');
+        revealMainTab(btns[i]);
+      } else btns[i].removeAttribute('aria-current');
     }
-    $('mistakeShortcut').hidden = name !== 'write' && name !== 'read';
     $('verTag').hidden = name === 'mistakes' || name === 'ref' || name === 'elem';
     $('appTitle').textContent = name === 'mistakes' ? '易错字分类' : name === 'read' ? '小学必认识字'
       : name === 'ref' ? '字表速查'
@@ -1918,10 +1936,25 @@
   }
 
   function bindMainTabs() {
-    $('mainTabs').addEventListener('click', function (e) {
+    var nav = $('mainTabs');
+    nav.addEventListener('click', function (e) {
       var t = e.target.closest('.main-tab');
       if (!t) return;
       switchView(t.dataset.view);
+    });
+    nav.addEventListener('focusin', function (e) {
+      if (e.target.matches('.main-tab')) revealMainTab(e.target);
+    });
+    nav.addEventListener('keydown', function (e) {
+      if (e.altKey || e.ctrlKey || e.metaKey || !e.target.matches('.main-tab')) return;
+      var target;
+      if (e.key === 'ArrowLeft') target = e.target.previousElementSibling;
+      else if (e.key === 'ArrowRight') target = e.target.nextElementSibling;
+      else if (e.key === 'Home') target = nav.firstElementChild;
+      else if (e.key === 'End') target = nav.lastElementChild;
+      else return;
+      if (target) target.focus({ preventScroll: true });
+      e.preventDefault();
     });
 
     // 支持 ?view=read / ?view=ref 直达（便于分享与二维码）
@@ -1932,15 +1965,9 @@
   }
 
   function bindMistakes() {
-    var openedFrom = 'write';
-    $('openMistakes').addEventListener('click', function () {
-      openedFrom = $('viewRead').hidden ? 'write' : 'read';
-      switchView('mistakes');
-      $('appTitle').focus({ preventScroll: true });
-    });
     $('backFromMistakes').addEventListener('click', function () {
-      switchView(openedFrom);
-      $('openMistakes').focus({ preventScroll: true });
+      switchView(lastBookView);
+      $('mainTabs').querySelector('.on').focus({ preventScroll: true });
     });
     if (window.HanziMistakes) window.HanziMistakes(function (hit) {
       var isWrite = hit.kind === 'write';
@@ -2017,6 +2044,7 @@
         }
       });
       elem.list = list;
+      $('tabElemCount').textContent = list.length + ' 种';
       renderElemGrid();
       selectElem(0);
     });
