@@ -8,7 +8,7 @@
     ['read', '易读错的字', '氛', '看词辨音'], ['write', '易写错的字', '肺', '看字辨形']
   ];
   var pageSize = 24;
-  var singleKinds = ['poly', 'rare', 'read', 'write', 'all'];
+  var singleKinds = ['poly', 'rare', 'read', 'write'];
   var extraWritePinyin = { '肺': 'fèi', '沛': 'pèi', '熙': 'xī', '敝': 'bì', '尴': 'gān' };
   var get = function (id) { return document.getElementById(id); };
 
@@ -33,7 +33,6 @@
     var title = get('mistakeResultTitle');
     var count = get('mistakeCount');
     var more = get('mistakeMore');
-    var all = get('mistakeAll');
     var scope = get('mistakeScope');
     var jumping = false;
     var active = 'shape';
@@ -41,7 +40,7 @@
 
     if (!data) {
       count.textContent = '分类数据未能加载。';
-      all.disabled = query.disabled = grade.disabled = true;
+      query.disabled = grade.disabled = true;
       return;
     }
 
@@ -61,9 +60,8 @@
 
     function render() {
       var category = categories.find(function (c) { return c[0] === active; });
-      title.textContent = category ? category[1] : '教材全字索引';
-      get('mistakeRule').textContent = category ? category[3] : '';
-      all.setAttribute('aria-pressed', String(active === 'all'));
+      title.textContent = category[1];
+      get('mistakeRule').textContent = category[3];
       menu.querySelectorAll('button').forEach(function (btn) {
         btn.setAttribute('aria-pressed', String(btn.dataset.kind === active));
       });
@@ -86,7 +84,7 @@
         var card = node('li', 'mistake-entry');
         var glyphs = node('div', 'mistake-glyphs');
         var pinyin = readingFor(row);
-        if (pinyin) card.appendChild(node('div', 'mistake-pinyin', pinyin));
+        if (pinyin || single) card.appendChild(node('div', 'mistake-pinyin', pinyin));
         row[0].forEach(function (label) {
           var isChar = Array.from(label).length === 1;
           if (isChar && data.refs[label]) {
@@ -119,7 +117,7 @@
       });
       get('mistakeEmpty').hidden = !!matches.length;
       more.hidden = matches.length <= limit;
-      more.textContent = '再显示 ' + Math.min(pageSize, matches.length - limit) + ' 条';
+      if (!more.hidden) more.textContent = '再显示 ' + Math.min(pageSize, matches.length - limit) + ' 条';
     }
 
     function readingFor(row) {
@@ -146,7 +144,6 @@
       var btn = event.target.closest('button[data-kind]');
       if (btn) setKind(btn.dataset.kind);
     });
-    all.addEventListener('click', function () { setKind('all'); });
     query.addEventListener('input', function () { setKind(active); });
     grade.addEventListener('change', function () { setKind(active); });
     more.addEventListener('click', function () {

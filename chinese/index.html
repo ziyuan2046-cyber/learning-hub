@@ -798,12 +798,12 @@ navigator.serviceWorker.register("/learning-hub/sw.js",{updateViaCache:'none'}).
 <style data-inlined-source="chinese/assets/css/study-desk.css">
 /* Hanzi study desk — presentation layer, learning data remains unchanged. */
 :root {
-  --bg: #f4f4ef; --card: #fffefa; --ink: #292d27; --sub: #59635a;
-  --line: #dbded4; --accent: #356057; --accent-dark: #284a42;
-  --accent-soft: #ebf1eb; --accent-edge: #a9beb2; --focus-ring: #316452;
-  --red: var(--accent); --amber: var(--accent); --blue: var(--accent);
-  --radius: 18px; --soft: #e6e9e0; --muted: #f8f8f3;
-  --shadow: 0 3px 12px rgba(40, 57, 48, .035);
+  --bg: #f5f2eb; --card: #fffefa; --ink: #302d29; --sub: #766e63;
+  --line: #e5ded3; --accent: #ad4937; --accent-dark: #873629;
+  --accent-soft: #f8ece3; --accent-edge: #d6a995; --focus-ring: #3f756f;
+  --red: var(--accent); --amber: #b55c40; --blue: #3f756f;
+  --radius: 18px; --soft: #ede7dc; --muted: #faf7f1;
+  --shadow: 0 4px 20px rgba(75, 57, 37, .035);
 }
 html { scroll-padding-top: 20px; }
 body { background: var(--bg); line-height: 1.55; }
@@ -879,7 +879,7 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
 .switch { min-width: 44px; min-height: 44px; gap: 4px; cursor: pointer; }
 .switch input { position: absolute; display: block; width: 44px; height: 44px; opacity: 0; margin: 0; cursor: pointer; }
 .switch input:focus-visible + .track { outline: 3px solid var(--blue); outline-offset: 4px; }
-.switch .track { background: #b7bfb5; }
+.switch .track { background: #cfc7bb; }
 .switch input:checked + .track { background: var(--red); }
 .switch .txt { font-size: 10px; }
 .switch input:checked ~ .txt { color: var(--red); }
@@ -905,7 +905,7 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
 .bar > i { background: var(--red); }
 .btn { min-height: 44px; height: auto; padding: 9px 6px; border-radius: 10px; border-color: var(--line); background: var(--card); color: var(--sub); font-size: 13px; }
 .btn.primary { background: var(--red); border-color: var(--red); }
-.btn.accent { background: var(--accent-soft); color: var(--accent-dark); border-color: var(--accent-edge); font-weight: 600; }
+.btn.accent { background: #edf3ef; color: #39665f; border-color: #ceddd5; font-weight: 600; }
 .nav-row, .ctrl-row, .btn-row2 { gap: 8px; margin-bottom: 8px; }
 .tip { color: var(--sub); font-size: 11px; margin-top: 12px; }
 .trace-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px; background: var(--accent-soft); border-radius: 10px; margin-top: 12px; }
@@ -947,7 +947,7 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
  .cell:not(.on):hover, .elem-cell:not(.on):hover { background: var(--accent-soft); border-color: var(--accent-edge); }
  .btn:not(:disabled):hover, .home-btn:hover, .gr-chip:hover, .grade-tab:not(.on):hover, .term-tab:not(.on):hover { background: var(--accent-soft); color: var(--accent-dark); border-color: var(--accent-edge); }
  .btn.primary:not(:disabled):hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
- .btn.accent:hover { background: var(--soft); color: var(--accent-dark); border-color: var(--accent-edge); }
+ .btn.accent:hover { background: #deebe3; color: #2f5c54; border-color: #adc9ba; }
  .zoom-btn:hover, .modal-close:hover { color: var(--accent-dark); background: var(--accent-soft); }
 }
 @media (min-width: 760px) {
@@ -1155,11 +1155,11 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
 
 /* One shared rail; on compact screens only the rail, not the page, scrolls. */
 .study-nav {
-  margin-bottom: 20px; background: var(--card);
-  border: 1px solid var(--line); border-radius: 8px;
+  margin-bottom: 20px; background: var(--soft);
+  border: 1px solid var(--line); border-radius: 13px;
 }
 #mainTabs {
-  display: flex; gap: 0; margin: 0; padding: 0 3px; min-width: 0;
+  display: flex; gap: 6px; margin: 0; padding: 5px; min-width: 0;
   background: none; box-shadow: none; border-radius: inherit;
   overflow-x: auto; overscroll-behavior-inline: contain;
   scrollbar-width: thin; scrollbar-color: var(--accent-edge) transparent;
@@ -1167,16 +1167,16 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
 #mainTabs .main-tab {
   position: relative; flex: 1 0 94px; display: flex; flex-direction: column;
   justify-content: center; align-items: center; gap: 5px;
-  min-height: 60px; min-width: 0; padding: 7px 7px 8px;
-  background: transparent; color: var(--ink); border: 0;
-  border-radius: 0; text-align: center; font-size: 15px; white-space: nowrap;
+  min-height: 60px; min-width: 0; padding: 7px;
+  background: var(--card); color: var(--ink); border: 1px solid #d9cabb;
+  border-radius: 8px; text-align: center; font-size: 15px; white-space: nowrap;
 }
 #mainTabs .main-tab .sub { margin: 0; opacity: 1; color: var(--sub); font-size: 11px; font-variant-numeric: tabular-nums; }
-#mainTabs .main-tab.on { color: var(--accent-dark); }
-#mainTabs .main-tab.on::after { content: ''; position: absolute; inset: auto 12px 0; height: 3px; background: var(--accent); border-radius: 2px 2px 0 0; }
+#mainTabs .main-tab.on { color: var(--accent-dark); border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 -2px var(--accent); }
+#mainTabs .main-tab.on .sub { color: var(--accent-dark); }
 #mainTabs .main-tab:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: -4px; border-radius: 6px; }
 @media (hover: hover) {
-  #mainTabs .main-tab:hover { color: var(--accent); }
+  #mainTabs .main-tab:not(.on):hover { color: var(--accent-dark); border-color: var(--accent-edge); background: var(--muted); }
 }
 .grade-tab, .term-tab, .btn { display: inline-flex; justify-content: center; align-items: center; text-align: center; }
 .grade-tab { flex-direction: column; gap: 3px; }
@@ -1190,52 +1190,56 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
 
 #viewMistakes {
   --mistake-font: 'HanziStudyKai', 'HanziKai', 'KaiTi', 'STKaiti', 'Kaiti SC', serif;
-  font-family: var(--mistake-font);
 }
-#viewMistakes button, #viewMistakes input, #viewMistakes select { font-family: inherit; }
 .mistake-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
 .mistake-heading h2 { margin: 0; font-size: 21px; line-height: 1.35; }
 .mistake-heading p { margin: 4px 0 0; color: var(--sub); font-size: 12px; }
-#backFromMistakes { padding: 7px 12px; }
-.mistake-categories { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+#backFromMistakes { padding: 7px 13px; border-color: var(--accent-edge); color: var(--accent-dark); }
+.mistake-categories { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 8px; }
 .mistake-category {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; place-items: center start; gap: 2px 5px;
-  text-align: left; min-height: 75px; min-width: 0; padding: 9px 11px;
-  border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); cursor: pointer;
+  text-align: left; min-height: 78px; min-width: 0; padding: 9px 12px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); cursor: pointer;
 }
-.mistake-category[aria-pressed="true"] { border-color: var(--accent); color: var(--accent-dark); background: var(--accent-soft); }
+.mistake-category[aria-pressed="true"] { border-color: var(--accent); color: var(--accent-dark); background: var(--accent-soft); box-shadow: inset 3px 0 var(--accent); }
+.mistake-category[aria-pressed="false"]:hover { border-color: var(--accent-edge); background: var(--muted); }
 .mistake-mini { grid-column: 1 / -1; font: 21px/1.2 var(--mistake-font); }
 .mistake-category-name { font-size: 14px; font-weight: 650; }
-.mistake-badge { font-size: 11px; font-variant-numeric: tabular-nums; justify-self: end; }
-.mistake-filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.mistake-badge { color: var(--sub); font-size: 11px; font-variant-numeric: tabular-nums; justify-self: end; }
+.mistake-filters { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; margin-top: 14px; padding: 8px; border: 1px solid var(--line); background: var(--muted); border-radius: 12px; }
+.mistake-search-field { min-width: 0; position: relative; }
+.mistake-search-field::before, .mistake-search-field::after { content: ''; position: absolute; pointer-events: none; color: var(--sub); }
+.mistake-search-field::before { top: 15px; left: 13px; width: 10px; height: 10px; border: 1.5px solid currentColor; border-radius: 50%; }
+.mistake-search-field::after { top: 25px; left: 22px; width: 6px; height: 1.5px; background: currentColor; transform: rotate(45deg); }
 .mistake-filters input, .mistake-filters select {
   min-height: 44px; border: 1px solid var(--line); border-radius: 8px;
   padding: 6px 10px; background: var(--card); color: var(--ink); font: inherit; font-size: 16px;
 }
-.mistake-filters input { flex: 1 1 155px; min-width: 0; }
-#mistakeAll { padding: 6px 12px; }
-#mistakeAll[aria-pressed="true"] { color: var(--accent-dark); background: var(--accent-soft); border-color: var(--accent-edge); }
+.mistake-filters input { width: 100%; min-width: 0; padding-inline-start: 34px; }
+.mistake-filters select { max-width: 108px; cursor: pointer; }
+.mistake-filters input:focus, .mistake-filters select:focus { border-color: var(--accent); }
 .mistake-result-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 12px; padding: 15px 0 9px; }
 .mistake-result-head h2 { font-size: 18px; margin: 0; }
 .mistake-result-head span { color: var(--sub); font-size: 12px; }
 #mistakeCount { margin-inline-start: auto; }
-#mistakeJumpStatus { color: var(--red); margin: 0 0 10px; }
+#mistakeJumpStatus { color: var(--accent-dark); margin: 0 0 10px; padding: 8px 12px; border: 1px solid var(--accent-edge); border-radius: 8px; background: var(--accent-soft); }
 #mistakeJumpStatus:empty { display: none; }
-.mistake-results { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 10px; padding: 0; margin: 0; }
-.mistake-entry { min-width: 0; border: 1px solid var(--line); background: var(--card); border-radius: 8px; padding: 11px; }
-.mistake-glyphs { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
-.mistake-glyph { display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; padding: 3px; font: 27px/1 var(--mistake-font); color: var(--ink); }
-button.mistake-glyph { cursor: pointer; border-radius: 5px; background: var(--muted); border: 1px solid var(--line); }
-button.mistake-glyph:hover { background: var(--accent-soft); border-color: var(--accent-edge); }
-.mistake-word { padding: 2px 5px; font: 24px/1.35 var(--mistake-font); }
-.mistake-pinyin { color: var(--accent-dark); overflow-wrap: anywhere; margin-bottom: 5px; font-size: 15px; }
-.mistake-example { margin-top: 5px; color: var(--accent-dark); font-size: 15px; }
-.mistake-note { color: var(--ink); font-size: 14px; line-height: 1.65; margin: 5px 0 0; }
-.mistake-extra { display: inline-block; margin-top: 5px; color: var(--sub); font-size: 12px; }
-.mistake-source { display: inline-flex; align-items: center; min-height: 44px; color: #345d80; font-size: 12px; }
+.mistake-results { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); grid-auto-rows: 1fr; gap: 10px; padding: 0; margin: 0; }
+.mistake-entry { min-width: 0; display: flex; flex-direction: column; align-items: stretch; border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 11px; text-align: left; }
+.mistake-glyphs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.mistake-glyph, .mistake-word { display: inline-grid; place-items: center; min-width: 48px; min-height: 50px; padding: 4px; border-radius: 6px; border: 1px solid var(--accent-edge); background: var(--muted); color: var(--ink); font: 32px/1 var(--mistake-font); font-synthesis: none; }
+button.mistake-glyph { cursor: pointer; }
+button.mistake-glyph:hover { background: var(--accent-soft); border-color: var(--accent); }
+.mistake-word { padding-inline: 9px; font-size: 28px; }
+.mistake-pinyin { color: var(--accent-dark); overflow-wrap: anywhere; margin-bottom: 6px; font-size: 14px; font-weight: 600; }
+.mistake-example { margin-top: 6px; color: var(--accent-dark); font-size: 14px; font-weight: 600; }
+.mistake-note { color: var(--ink); font-size: 14px; line-height: 1.65; margin: 8px 0 0; text-align: left; overflow-wrap: anywhere; }
+.mistake-extra { display: inline-flex; align-self: flex-start; margin-top: 6px; padding: 2px 6px; border-radius: 4px; background: var(--soft); color: var(--sub); font-size: 11px; }
+.mistake-source { display: inline-flex; align-items: center; align-self: flex-start; min-height: 44px; color: var(--blue); font-size: 12px; text-underline-offset: 3px; }
 .mistake-place-practice { margin-top: 5px; }
-.mistake-empty { color: var(--sub); padding: 15px 0; margin: 0; }
-#mistakeMore { display: flex; margin: 15px auto 0; padding: 7px 16px; }
+.mistake-place-practice .mistake-glyph { min-height: 44px; min-width: 44px; font-size: 24px; }
+.mistake-empty { color: var(--sub); padding: 16px; margin: 0; border: 1px dashed var(--accent-edge); border-radius: 10px; background: var(--muted); }
+#mistakeMore { display: flex; margin: 15px auto 0; padding: 7px 20px; border-color: var(--accent-edge); background: var(--accent-soft); color: var(--accent-dark); font-weight: 600; }
 .mistake-results-single {
   --tile-min: 92px;
   grid-template-columns: repeat(auto-fill, minmax(var(--tile-min), 1fr));
@@ -1243,15 +1247,21 @@ button.mistake-glyph:hover { background: var(--accent-soft); border-color: var(-
 }
 .mistake-results-single[data-kind="rare"] { --tile-min: 130px; }
 .mistake-results-single[data-kind="read"], .mistake-results-single[data-kind="write"] { --tile-min: 140px; }
-.mistake-results-single .mistake-entry { padding: 8px; text-align: center; }
-.mistake-results-single .mistake-pinyin { min-height: 22px; margin: 0 0 3px; font-size: 14px; }
+.mistake-results-single .mistake-entry { padding: 9px; }
+.mistake-results-single .mistake-pinyin { display: grid; align-content: center; min-height: 2.1em; margin: 0 0 5px; text-align: center; line-height: 1.3; }
+.mistake-results-single[data-kind="poly"] .mistake-pinyin { min-height: 3.9em; }
 .mistake-results-single .mistake-glyphs { justify-content: center; }
-.mistake-results-single .mistake-glyph { width: 100%; min-height: 50px; font-size: 32px; }
-.mistake-results-single .mistake-note { padding-top: 5px; border-top: 1px solid var(--line); }
+.mistake-results-single .mistake-glyph { width: 100%; min-height: 61px; font-size: 40px; }
+.mistake-results-single .mistake-example { min-height: 22px; }
+.mistake-results-single .mistake-note { padding-top: 7px; border-top: 1px solid var(--line); }
 @media (max-width: 759px) {
   .study-nav { margin-bottom: 15px; }
   #mainTabs .main-tab { min-height: 55px; font-size: 14px; }
   .mistake-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 380px) {
+  .mistake-mini { font-size: 17px; }
+  .mistake-filters select { max-width: 96px; font-size: 14px; }
 }
 </style>
 
@@ -1580,13 +1590,14 @@ button.mistake-glyph:hover { background: var(--accent-soft); border-color: var(-
     </div>
     <div class="mistake-categories" id="mistakeCategories" role="group" aria-label="易错字类别"></div>
     <div class="mistake-filters" role="search" aria-label="筛选分类">
-      <input id="mistakeSearch" type="search" aria-label="查分类中的字、词或拼音" placeholder="查字、词或拼音" autocomplete="off">
+      <div class="mistake-search-field">
+        <input id="mistakeSearch" type="search" aria-label="查分类中的字、词或拼音" placeholder="查字、词或拼音" autocomplete="off">
+      </div>
       <select id="mistakeGrade" aria-label="筛选教材年级">
         <option value="">全部年级</option>
         <option value="1">一年级</option><option value="2">二年级</option><option value="3">三年级</option>
         <option value="4">四年级</option><option value="5">五年级</option><option value="6">六年级</option>
       </select>
-      <button class="btn" id="mistakeAll" type="button" aria-controls="mistakeResults" aria-pressed="false">教材全字索引</button>
     </div>
     <div class="mistake-result-head">
       <h2 id="mistakeResultTitle">易混字</h2>
@@ -1716,7 +1727,7 @@ button.mistake-glyph:hover { background: var(--accent-soft); border-color: var(-
 <script>
 /* 版本自检：老浏览器可能缓存了旧版页面（依赖 assets/data/*.txt，线上会 404）。
    新版以 __HANZI_BUILD__ 标识；若数据在 6 秒内仍未就绪，说明确实加载失败。 */
-window.__HANZI_BUILD__ = '2026-11-18-paper1';
+window.__HANZI_BUILD__ = '2026-11-18-warm1';
 (function () {
   function report() {
     // JSON-first loading does not register objects in __HANZI_DATA__.
@@ -2783,7 +2794,7 @@ window.__HANZI_EASY_MISTAKES__ = {"summary":{"books":24,"scanned":5831,"unique":
     ['read', '易读错的字', '氛', '看词辨音'], ['write', '易写错的字', '肺', '看字辨形']
   ];
   var pageSize = 24;
-  var singleKinds = ['poly', 'rare', 'read', 'write', 'all'];
+  var singleKinds = ['poly', 'rare', 'read', 'write'];
   var extraWritePinyin = { '肺': 'fèi', '沛': 'pèi', '熙': 'xī', '敝': 'bì', '尴': 'gān' };
   var get = function (id) { return document.getElementById(id); };
 
@@ -2808,7 +2819,6 @@ window.__HANZI_EASY_MISTAKES__ = {"summary":{"books":24,"scanned":5831,"unique":
     var title = get('mistakeResultTitle');
     var count = get('mistakeCount');
     var more = get('mistakeMore');
-    var all = get('mistakeAll');
     var scope = get('mistakeScope');
     var jumping = false;
     var active = 'shape';
@@ -2816,7 +2826,7 @@ window.__HANZI_EASY_MISTAKES__ = {"summary":{"books":24,"scanned":5831,"unique":
 
     if (!data) {
       count.textContent = '分类数据未能加载。';
-      all.disabled = query.disabled = grade.disabled = true;
+      query.disabled = grade.disabled = true;
       return;
     }
 
@@ -2836,9 +2846,8 @@ window.__HANZI_EASY_MISTAKES__ = {"summary":{"books":24,"scanned":5831,"unique":
 
     function render() {
       var category = categories.find(function (c) { return c[0] === active; });
-      title.textContent = category ? category[1] : '教材全字索引';
-      get('mistakeRule').textContent = category ? category[3] : '';
-      all.setAttribute('aria-pressed', String(active === 'all'));
+      title.textContent = category[1];
+      get('mistakeRule').textContent = category[3];
       menu.querySelectorAll('button').forEach(function (btn) {
         btn.setAttribute('aria-pressed', String(btn.dataset.kind === active));
       });
@@ -2861,7 +2870,7 @@ window.__HANZI_EASY_MISTAKES__ = {"summary":{"books":24,"scanned":5831,"unique":
         var card = node('li', 'mistake-entry');
         var glyphs = node('div', 'mistake-glyphs');
         var pinyin = readingFor(row);
-        if (pinyin) card.appendChild(node('div', 'mistake-pinyin', pinyin));
+        if (pinyin || single) card.appendChild(node('div', 'mistake-pinyin', pinyin));
         row[0].forEach(function (label) {
           var isChar = Array.from(label).length === 1;
           if (isChar && data.refs[label]) {
@@ -2894,7 +2903,7 @@ window.__HANZI_EASY_MISTAKES__ = {"summary":{"books":24,"scanned":5831,"unique":
       });
       get('mistakeEmpty').hidden = !!matches.length;
       more.hidden = matches.length <= limit;
-      more.textContent = '再显示 ' + Math.min(pageSize, matches.length - limit) + ' 条';
+      if (!more.hidden) more.textContent = '再显示 ' + Math.min(pageSize, matches.length - limit) + ' 条';
     }
 
     function readingFor(row) {
@@ -2921,7 +2930,6 @@ window.__HANZI_EASY_MISTAKES__ = {"summary":{"books":24,"scanned":5831,"unique":
       var btn = event.target.closest('button[data-kind]');
       if (btn) setKind(btn.dataset.kind);
     });
-    all.addEventListener('click', function () { setKind('all'); });
     query.addEventListener('input', function () { setKind(active); });
     grade.addEventListener('change', function () { setKind(active); });
     more.addEventListener('click', function () {
