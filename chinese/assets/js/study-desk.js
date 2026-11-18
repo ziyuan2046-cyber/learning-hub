@@ -38,7 +38,11 @@
     var shown = Array.prototype.find.call(document.querySelectorAll('.modal'), function (el) { return !el.hidden; }) || null;
     if (shown === activeModal) return;
     if (shown) {
-      if (!activeModal) returnFocus = document.activeElement;
+      if (!activeModal) {
+        returnFocus = shown.id === 'gridModal'
+          ? document.querySelector('.overview-trigger[aria-expanded="true"]')
+          : document.activeElement;
+      }
       activeModal = shown;
       shown.setAttribute('role', 'dialog');
       shown.setAttribute('aria-modal', 'true');
@@ -78,9 +82,8 @@
     }
   }, true);
 
-  // A tap should bring the practice area into view on a phone, without moving
-  // the page on a two-column tablet or while stepping through strokes.
-  ['readGrid', 'elemGrid'].forEach(function (id) {
+  // Element view still has its own practice area.
+  ['elemGrid'].forEach(function (id) {
     document.getElementById(id).addEventListener('click', function (e) {
       if (!e.target.closest('.cell, .elem-cell') || window.innerWidth >= 760) return;
       var card = this.closest('[id^="view"]').querySelector('.card');

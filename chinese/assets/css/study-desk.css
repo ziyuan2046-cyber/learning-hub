@@ -1,4 +1,4 @@
-﻿/* Hanzi study desk — presentation layer, learning data remains unchanged. */
+/* Hanzi study desk — presentation layer, learning data remains unchanged. */
 :root {
   --bg: #f5f2eb; --card: #fffefa; --ink: #302d29; --sub: #766e63;
   --line: #e5ded3; --red: #ad4937; --amber: #b55c40; --blue: #3f756f;
@@ -174,7 +174,6 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
  #viewElem > .panel { min-width: 0; margin-bottom: 0; }
  #viewElem:has(.by-period) > .card { grid-column: 1 / -1; position: static; width: min(100%, 480px); margin: 0 auto; }
  .char-grid { max-height: 465px; }
- #readGrid { max-height: 560px; }
 }
 @media (min-width: 760px) and (max-width: 960px) {
  .wrap { padding: 24px 20px 32px; }
@@ -261,7 +260,6 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
 /* Keep the actual checkbox above its painted track for mouse/touch/keyboard parity. */
 .switch { position: relative; }
 .switch input { z-index: 1; inset: 0; width: 100%; height: 100%; }
-#readGrid.expanded { max-height: none; overflow: visible; }
 
 /* Complete, locally embedded Kai faces: never depend on a phone having KaiTi. */
 :root { --hanzi-font: 'HanziStudyKai', 'HanziKai', 'KaiTi', serif; }
@@ -302,3 +300,75 @@ header .ver { display: block; border: 0; background: none; color: var(--sub); fo
  .zoom-btn:not(:disabled):hover { background: #fbefe5; border-color: #cfaa94; box-shadow: 0 3px 10px rgba(75,57,37,.12); color: var(--red); }
 }
 .modal-head .t.poly { color: var(--poly-blue); }
+
+/* Shared full-book overview and comfortable touch controls. */
+#viewWrite > *, #viewRead > * { min-width: 0; }
+#viewWrite .panel-sub, #viewRead .panel-sub {
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.overview-trigger {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 44px; padding: 6px 12px; flex: 0 0 auto; white-space: nowrap;
+  background: #f8eee3; color: #893e2f; border-color: #e9d4c3; font-weight: 650;
+}
+.char-grid button.cell, #gridAll button.cell { width: 100%; min-width: 0; color: var(--ink); }
+.char-grid button.cell > span, #gridAll button.cell > span { display: block; }
+.char-grid button.cell:focus-visible, #gridAll button.cell:focus-visible { outline-offset: 1px; }
+.char-grid button.cell:not(.on):active, #gridAll button.cell:not(.on):active { background: #f3e4d9; }
+#gridModal {
+  --overlay-gap: clamp(12px, 3vw, 28px);
+  padding: max(var(--overlay-gap), env(safe-area-inset-top))
+    max(var(--overlay-gap), env(safe-area-inset-right))
+    max(var(--overlay-gap), env(safe-area-inset-bottom))
+    max(var(--overlay-gap), env(safe-area-inset-left));
+}
+#gridModal .modal-box {
+  width: min(100%, 920px); max-width: none; max-height: 100%; min-height: 0;
+  display: flex; flex-direction: column; overflow: hidden;
+  padding: clamp(12px, 2.5vw, 24px); border-radius: clamp(14px, 2.5vw, 22px);
+}
+#gridModal .modal-head { position: static; flex: none; align-items: center; padding: 0; margin-bottom: 12px; }
+#gridModal .modal-head .t { margin: 0; font-size: 23px; line-height: 1.25; }
+.overview-heading { min-width: 0; }
+.overview-heading .eyebrow { color: var(--red); font-weight: 650; margin: 0 0 4px; }
+#gridModal .grid-modal-bar {
+  flex: none; background: var(--muted); border: 1px solid var(--line);
+  padding: 4px; border-radius: 12px; gap: 4px; margin: 0 0 10px;
+}
+.overview-nav { min-height: 44px; flex: none; padding: 4px clamp(8px, 2vw, 16px); color: var(--ink); }
+.overview-nav:disabled { opacity: .55; }
+#gridAll {
+  min-height: 0; max-height: 65vh; max-height: 65dvh;
+  overflow: auto; overscroll-behavior: contain; align-content: start;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(53px, 8vw, 70px), 1fr));
+  gap: clamp(6px, 1vw, 9px); padding: 4px; margin-inline: -4px;
+  scrollbar-width: thin; scrollbar-color: #cdbda9 transparent;
+}
+#gridAll .empty { grid-column: 1 / -1; margin: 12px 0; }
+.overview-footer {
+  flex: none; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px;
+  margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line);
+  color: var(--sub); font-size: 12px;
+}
+#gridLegend { color: var(--poly-blue); }
+#gridLegend i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+@media (min-width: 760px) {
+  #viewWrite, #viewRead { grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr); }
+  #viewWrite .char-grid, #viewRead .char-grid { max-height: clamp(280px, 54vh, 500px); }
+}
+@media (max-width: 759px) {
+  #viewWrite .char-grid, #viewRead .char-grid { max-height: clamp(216px, 36vh, 328px); }
+  .global-search input, .search-box input { font-size: 16px; }
+}
+@media (max-width: 420px) {
+  #mainTabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  #mainTabs .main-tab { min-height: 54px; font-size: 13px; }
+  #gridModal .modal-head .t { font-size: 19px; }
+}
+@media (max-height: 520px) {
+  #viewWrite > .card, #viewRead > .card { position: static; }
+  #gridModal .modal-head { margin-bottom: 6px; }
+  #gridModal .grid-modal-bar { margin-bottom: 6px; }
+}

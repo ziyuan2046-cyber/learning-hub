@@ -20,7 +20,6 @@
     allChars: null,
     modalOpen: false,
     gridOpen: false,
-    gridBookId: null,
     scrollY: null
   };
 
@@ -411,9 +410,11 @@
 
   function selectBook(id) {
     state.bookId = id;
+    $('expandBtn').disabled = true;
     $('bookTitle').textContent = '加载中…';
     $('charGrid').innerHTML = '<div class="empty">加载中…</div>';
     return loadBookText(id).then(function (book) {
+      if (state.bookId !== id) return null;
       state.book = book;
       state.grade = book.meta.grade;
       $('bookTitle').textContent = book.meta.title;
@@ -421,23 +422,44 @@
       renderGradeTabs();
       renderTermTabs();
       renderGrid();
+      $('charGrid').scrollTop = 0;
+      $('expandBtn').disabled = !book.chars.length;
       closeModal();
       if (book.chars.length) selectChar(0);
+      return book;
+    }, function () {
+      if (state.bookId !== id) return null;
+      $('bookTitle').textContent = '该册数据加载失败';
+      $('bookCount').textContent = '';
+      $('charGrid').innerHTML = '<div class="empty">未能读取该册，请切换到其他册后重试</div>';
+      return null;
     });
   }
 
+  function renderBookCells(book, mode, index) {
+    return book.chars.map(function (c, i) {
+      var reading = mode === 'read';
+      var py = (reading ? c.py : c.pinyin) || '';
+      var ch = reading ? c.ch : book.meta.chars[i];
+      var meta = reading ? (c.strokes || []).length + '画' : (c.radical || '?') + '部 ' + c.count + '画';
+      return '<button type="button" class="cell' + (i === index ? ' on' : '') +
+        (reading && c.poly ? ' poly' : '') + '" data-i="' + i + '" aria-pressed="' + (i === index) + '">' +
+        '<span class="py">' + py + '</span><span class="ch">' + ch + '</span>' +
+        '<span class="mt">' + meta + '</span></button>';
+    }).join('');
+  }
+
   function renderGrid() {
-    var b = state.book;
-    var html = '';
-    for (var i = 0; i < b.chars.length; i++) {
-      var c = b.chars[i];
-      html += '<div class="cell' + (i === state.index ? ' on' : '') + '" data-i="' + i + '">' +
-        '<div class="py">' + (c.pinyin || '') + '</div>' +
-        '<div class="ch">' + b.meta.chars[i] + '</div>' +
-        '<div class="mt">' + (c.radical || '?') + '部 ' + c.count + '画</div>' +
-        '</div>';
-    }
-    $('charGrid').innerHTML = html;
+    $('charGrid').innerHTML = renderBookCells(state.book, 'write', state.index);
+  }
+
+  function keepSelectedInGrid(grid) {
+    var selected = grid.querySelector('.cell.on');
+    if (!selected || !grid.getClientRects().length) return;
+    var item = selected.getBoundingClientRect();
+    var box = grid.getBoundingClientRect();
+    if (item.top < box.top + 3) grid.scrollTop -= box.top - item.top + 3;
+    else if (item.bottom > box.bottom - 3) grid.scrollTop += item.bottom - box.bottom + 3;
   }
 
   /* ---------------- 选字 ---------------- */
@@ -467,16 +489,7 @@
     for (var k = 0; k < cells.length; k++) {
       cells[k].classList.toggle('on', k === i);
     }
-    var on = $('charGrid').querySelector('.cell.on');
-    // 首次进入页面时不要滚动，否则会把顶部的标题和「返回主页」按钮推出视野
-    if (on && !firstSelect) {
-      // Only scroll the character list, not the entire tablet study desk.
-      var grid = $('charGrid');
-      var cellRect = on.getBoundingClientRect();
-      var gridRect = grid.getBoundingClientRect();
-      if (cellRect.top < gridRect.top) grid.scrollTop -= gridRect.top - cellRect.top + 3;
-      else if (cellRect.bottom > gridRect.bottom) grid.scrollTop += cellRect.bottom - gridRect.bottom + 3;
-    }
+    keepSelectedInGrid($('charGrid'));
 
     drawDemo();
     drawSeq();
@@ -485,43 +498,18 @@
     renderSeq('mSeqGrid', 'mSeqCv', 52);
     markSeq();
     if (state.modalOpen) { modalDemo.resize(); drawModal(); }
-    if (state.gridOpen) renderGridModal();
 
     if (state.autoPlay) playCurrent();
-    // 手机上字表占满屏，选字后需要把写字卡片带进视野，否则看不到任何变化。
-    // 但首次进入页面时不滚动，否则会把顶部标题与「返回主页」按钮推出视野。
-    if (firstSelect) { firstSelect = false; }
-    else if (!state.modalOpen && !state.gridOpen) revealCard();
   }
 
-  var firstSelect = true;   // 首次选字（页面初始化）不触发滚动
-  var lastReveal = 0;
-  function revealCard() {
-    var now = Date.now();
-    if (now - lastReveal < 1200) return;   // 连续切字时不反复弹跳
-    lastReveal = now;
-
-    var card = document.querySelector('.card');
-    if (!card) return;
-
+  function revealCard(mode) {
+    var card = document.querySelector(mode === 'read' ? '#viewRead > .card' : '#viewWrite > .card');
     var rect = card.getBoundingClientRect();
-    var vh = window.innerHeight || document.documentElement.clientHeight || rect.height || 1;
-
-    // 卡片头部已经出现在屏幕里就不用动
-    if (rect.top < vh && rect.bottom > 60) return;
-
-    var before = window.pageYOffset || document.documentElement.scrollTop || 0;
-    var target = Math.max(0, before + rect.top - 16);
-
-    try {
-      window.scrollTo({ top: target, behavior: 'smooth' });
-    } catch (e) {
-      window.scrollTo(0, target);
-    }
-    setTimeout(function () {
-      var cur = window.pageYOffset || document.documentElement.scrollTop || 0;
-      if (Math.abs(cur - before) < 4) window.scrollTo(0, target);
-    }, 320);
+    if (rect.top >= 0 && rect.top < window.innerHeight - 120) return;
+    window.scrollTo({
+      top: Math.max(0, window.pageYOffset + rect.top - 16),
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
   }
 
   /** 自动播放：当前字从头播放（弹窗打开时同步播放） */
@@ -798,57 +786,93 @@
     $('modalBar').style.width = (total ? (done / total * 100) : 0) + '%';
   }
 
-  /* ---------------- 全览弹窗：该册所有字，完整无滚动 ---------------- */
+  /* ---------------- 写字表 / 识字表共用全览 ---------------- */
 
-  function openGridModal() {
-    state.gridBookId = state.bookId;
+  var gridView = { mode: 'write', request: 0, busy: false };
+
+  function overviewSource() {
+    return gridView.mode === 'read' ? read : state;
+  }
+
+  function overviewBooks() {
+    return gridView.mode === 'read' ? read.catalog : state.books;
+  }
+
+  function overviewIndex() {
+    return overviewBooks().findIndex(function (b) { return b.id === overviewSource().bookId; });
+  }
+
+  function openGridModal(mode) {
+    gridView.mode = mode;
+    var source = overviewSource();
+    if (state.gridOpen || !source.book || $(mode === 'read' ? 'readExpandBtn' : 'expandBtn').disabled) return;
     state.gridOpen = true;
-    $('gridModal').hidden = false;
-    $('gridModal').classList.add('scrollable');
+    gridView.busy = false;
     lockScroll();
+    $(mode === 'read' ? 'readExpandBtn' : 'expandBtn').setAttribute('aria-expanded', 'true');
+    $('gridModal').hidden = false;
     renderGridModal();
+    keepSelectedInGrid($('gridAll'));
   }
 
   function closeGridModal() {
     if (!state.gridOpen) return;
     state.gridOpen = false;
+    gridView.request++;
+    $(gridView.mode === 'read' ? 'readExpandBtn' : 'expandBtn').setAttribute('aria-expanded', 'false');
     $('gridModal').hidden = true;
-    $('gridModal').classList.remove('scrollable');
     unlockScroll();
   }
 
-  /** 渲染全览：把该册所有字一次列全，不设 max-height */
-  function renderGridModal() {
-    var b = state.book;
-    if (!b) return;
-    $('gridModalTitle').textContent = state.grade + '年级全部汉字';
-    $('gridModalName').textContent = b.meta.title;
-    $('gridAllCount').textContent = b.chars.length;
-
-    var html = '';
-    for (var i = 0; i < b.chars.length; i++) {
-      var c = b.chars[i];
-      html += '<div class="cell' + (i === state.index ? ' on' : '') + '" data-i="' + i + '">' +
-        '<div class="py">' + (c.pinyin || '') + '</div>' +
-        '<div class="ch">' + b.meta.chars[i] + '</div>' +
-        '<div class="mt">' + (c.radical || '?') + '部 ' + c.count + '画</div>' +
-        '</div>';
+  function renderGridModal(status) {
+    var source = overviewSource();
+    var book = status ? null : source.book;
+    var entry = overviewBooks()[overviewIndex()];
+    var name = gridView.mode === 'read' ? '识字表' : '必会写字表';
+    $('gridModalType').textContent = name + ' · 全册浏览';
+    $('gridModalTitle').textContent = entry ? entry.title : name;
+    $('gridAllCount').textContent = book ? '共 ' + book.chars.length + ' 字' : '';
+    $('gridLegend').hidden = gridView.mode !== 'read';
+    var grid = $('gridAll');
+    if (status) {
+      grid.innerHTML = '<p class="empty" role="status">' + status + '</p>';
+    } else {
+      grid.innerHTML = renderBookCells(book, gridView.mode, source.index);
     }
-    $('gridAll').innerHTML = html;
+    grid.scrollTop = 0;
+    var idx = overviewIndex();
+    $('gridPrevTerm').disabled = gridView.busy || idx <= 0;
+    $('gridNextTerm').disabled = gridView.busy || idx >= overviewBooks().length - 1;
   }
 
-  /** 在 12 册之间前后切换 */
   function stepTerm(dir) {
-    var idx = -1;
-    state.books.forEach(function (b, i) { if (b.id === state.gridBookId) idx = i; });
-    if (idx < 0) return;
-    var next = idx + dir;
-    if (next < 0 || next >= state.books.length) return;
-    state.gridBookId = state.books[next].id;
-    // 同步主页面到该册
-    selectBook(state.gridBookId).then(function () {
-      if (state.gridOpen) renderGridModal();
-    });
+    if (gridView.busy) return;
+    var next = overviewBooks()[overviewIndex() + dir];
+    if (!next) return;
+    var control = $(dir < 0 ? 'gridPrevTerm' : 'gridNextTerm');
+    var hadFocus = document.activeElement === control;
+    var ticket = ++gridView.request;
+    gridView.busy = true;
+    var loading = gridView.mode === 'read' ? selectReadBookEntry(next) : selectBook(next.id);
+    renderGridModal('加载中…');
+    if (hadFocus) $('gridModalClose').focus({ preventScroll: true });
+    function finish(status) {
+      if (!state.gridOpen || ticket !== gridView.request) return;
+      gridView.busy = false;
+      renderGridModal(status);
+      if (hadFocus && !control.disabled && document.activeElement === $('gridModalClose')) {
+        control.focus({ preventScroll: true });
+      }
+    }
+    loading.then(function (book) {
+      finish(book ? '' : '该册数据加载失败，可切换到其他册重试。');
+    }, function () { finish('该册数据加载失败，可切换到其他册重试。'); });
+  }
+
+  function chooseListChar(mode, i) {
+    if (mode === 'read') selectReadChar(i);
+    else selectChar(i);
+    revealCard(mode);
   }
 
   /* ---------------- 事件 ---------------- */
@@ -874,23 +898,21 @@
     });
 
     // 册信息栏的「全部展开」按钮
-    $('expandBtn').addEventListener('click', openGridModal);
+    $('expandBtn').addEventListener('click', function () { openGridModal('write'); });
+    $('readExpandBtn').addEventListener('click', function () { openGridModal('read'); });
 
     // 全览弹窗：上一册 / 下一册
     $('gridPrevTerm').addEventListener('click', function () { stepTerm(-1); });
     $('gridNextTerm').addEventListener('click', function () { stepTerm(1); });
     $('gridModalClose').addEventListener('click', closeGridModal);
+    $('gridModal').addEventListener('click', function (e) {
+      if (e.target === this) closeGridModal();
+    });
     $('gridAll').addEventListener('click', function (e) {
       var t = e.target.closest('.cell');
-      if (!t) return;
-      var i = parseInt(t.dataset.i, 10);
+      if (!t || gridView.busy) return;
       closeGridModal();
-      if (state.bookId === state.gridBookId) {
-        selectChar(i);
-      } else {
-        var keep = state.gridBookId;
-        selectBook(keep).then(function () { selectChar(i); });
-      }
+      chooseListChar(gridView.mode, parseInt(t.dataset.i, 10));
     });
 
     // 上下册
@@ -903,8 +925,7 @@
     // 字表点击
     $('charGrid').addEventListener('click', function (e) {
       var t = e.target.closest('.cell');
-      if (!t) return;
-      selectChar(parseInt(t.dataset.i, 10));
+      if (t) chooseListChar('write', parseInt(t.dataset.i, 10));
     });
 
     // 上/下一个字
@@ -1208,10 +1229,10 @@
     var book = r.dataset.book, i = parseInt(r.dataset.i, 10);
     $('searchRes').innerHTML = '';
     $('search').value = '';
-    if (book === state.bookId) {
-      selectChar(i);
+    if (book === state.bookId && !$('expandBtn').disabled) {
+      chooseListChar('write', i);
     } else {
-      selectBook(book).then(function () { selectChar(i); });
+      selectBook(book).then(function (loaded) { if (loaded) chooseListChar('write', i); });
     }
   });
 
@@ -1311,6 +1332,7 @@
   function selectReadBookEntry(entry) {
     if (!entry) return;
     read.bookId = entry.id;
+    $('readExpandBtn').disabled = true;
     read.grade = entry.grade;
     $('readTitle').textContent = entry.title + '识字表';
     $('readCount').textContent = (entry.count || 0) + ' 字';
@@ -1320,15 +1342,14 @@
     renderReadGradeTabs();
     renderReadTermTabs();
 
-    var cached = shiziBooksCache[entry.id];
-    if (cached) { applyReadBook(cached); return; }
-    loadShiziBook(entry).then(function (b) {
+    return loadShiziBook(entry).then(function (b) {
+      if (read.bookId !== entry.id) return null;   // 用户已切走
       if (!b) {
         $('readGrid').innerHTML = '<div class="empty">该册数据加载失败</div>';
-        return;
+        return null;
       }
-      if (read.bookId !== entry.id) return;   // 用户已切走
       applyReadBook(b);
+      return b;
     });
   }
 
@@ -1346,13 +1367,15 @@
     renderReadGradeTabs();
     renderReadTermTabs();
     renderReadGrid();
+    $('readGrid').scrollTop = 0;
+    $('readExpandBtn').disabled = !(book.chars && book.chars.length);
     if (book.chars && book.chars.length) selectReadChar(0);
   }
 
   /** 兼容旧调用 */
   function selectReadBook(id) {
     var e = (read.catalog || []).filter(function (b) { return b.id === id; })[0];
-    if (e) selectReadBookEntry(e);
+    return e ? selectReadBookEntry(e) : Promise.resolve(null);
   }
 
   function readPronunciations(c) {
@@ -1393,19 +1416,7 @@
   }
 
   function renderReadGrid() {
-    var b = read.book;
-    if (!b) return;
-    var html = '';
-    for (var i = 0; i < b.chars.length; i++) {
-      var c = b.chars[i];
-      html += '<div class="cell' + (i === read.index ? ' on' : '') +
-        (c.poly ? ' poly' : '') + '" data-i="' + i + '">' +
-        '<div class="py">' + (c.py || '') + '</div>' +
-        '<div class="ch">' + c.ch + '</div>' +
-        '<div class="mt">' + (c.strokes ? c.strokes.length : 0) + '画</div>' +
-        '</div>';
-    }
-    $('readGrid').innerHTML = html;
+    $('readGrid').innerHTML = renderBookCells(read.book, 'read', read.index);
   }
 
   function selectReadChar(i) {
@@ -1427,6 +1438,7 @@
 
     var cells = $('readGrid').querySelectorAll('.cell');
     for (var k = 0; k < cells.length; k++) cells[k].classList.toggle('on', k === i);
+    keepSelectedInGrid($('readGrid'));
 
     updateReadProgress();
     drawRead();
@@ -1609,8 +1621,7 @@
 
     $('readGrid').addEventListener('click', function (e) {
       var t = e.target.closest('.cell');
-      if (!t) return;
-      selectReadChar(parseInt(t.dataset.i, 10));
+      if (t) chooseListChar('read', parseInt(t.dataset.i, 10));
     });
 
     $('readPrevChar').addEventListener('click', function () { selectReadChar(read.index - 1); });
@@ -1661,23 +1672,6 @@
       read.autoPlay = this.checked;
       if (read.autoPlay) playRead();
       else { read.demo.stop(); read.playing = false; $('readPlay').textContent = '播放笔顺'; drawRead(); }
-    });
-
-    $('readExpandBtn').addEventListener('click', function () {
-      var b = read.book;
-      if (!b) return;
-      var html = '';
-      for (var i = 0; i < b.chars.length; i++) {
-        var c = b.chars[i];
-        html += '<div class="cell' + (i === read.index ? ' on' : '') + (c.poly ? ' poly' : '') +
-          '" data-i="' + i + '"><div class="py">' + (c.py || '') + '</div>' +
-          '<div class="ch">' + c.ch + '</div><div class="mt">' + (c.strokes || []).length + '画</div></div>';
-      }
-      var box = $('readGrid');
-      var expanded = box.classList.toggle('expanded');
-      readExpandBtn.textContent = expanded ? '收起字表' : '全部展开';
-      readExpandBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      box.innerHTML = html;
     });
 
     window.addEventListener('resize', function () {
@@ -1776,8 +1770,8 @@
     }
     if (inWrite) {
       switchView('write');
-      if (inWrite.book === state.bookId) selectChar(inWrite.i);
-      else selectBook(inWrite.book).then(function () { selectChar(inWrite.i); });
+      if (inWrite.book === state.bookId && !$('expandBtn').disabled) chooseListChar('write', inWrite.i);
+      else selectBook(inWrite.book).then(function (book) { if (book) chooseListChar('write', inWrite.i); });
       return;
     }
     var hit = null;
@@ -1789,8 +1783,7 @@
     }
     if (hit) {
       switchView('read');
-      selectReadBook(hit.book);
-      selectReadChar(hit.i);
+      selectReadBook(hit.book).then(function (book) { if (book) chooseListChar('read', hit.i); });
       return;
     }
     searchChar(ch);
@@ -2322,12 +2315,11 @@
     $('gSearch').value = '';
     if (o.kind === 'write') {
       switchView('write');
-      if (o.book === state.bookId) selectChar(o.i);
-      else selectBook(o.book).then(function () { selectChar(o.i); });
+      if (o.book === state.bookId && !$('expandBtn').disabled) chooseListChar('write', o.i);
+      else selectBook(o.book).then(function (book) { if (book) chooseListChar('write', o.i); });
     } else if (o.kind === 'read') {
       switchView('read');
-      selectReadBook(o.book);
-      setTimeout(function () { selectReadChar(o.i); }, 60);
+      selectReadBook(o.book).then(function (book) { if (book) chooseListChar('read', o.i); });
     } else if (o.kind === 'elem') {
       switchView('elem');
       selectElem(o.i);
