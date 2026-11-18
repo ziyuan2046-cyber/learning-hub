@@ -1,3 +1,5 @@
+import { lessonStudy, sharedLessonStudy } from './lesson-study.js';
+
 // 自编复习题，按篇目 ID 关联原文；不是历年真题或试题预测。
 export function isRecitation(item) {
   return item.sourceType === 'text-recitation' || (item.sourceType === 'textbook' && /·\s*必背$/.test(item.sourceLabel));
@@ -53,5 +55,8 @@ const practice = {
   'idiom-g6-下-23': ['词义运用', '根据很小的迹象就能看出事情发展的趋势。可以用哪个成语？', '见微知著。看到细小的苗头，就能知道显著的变化或发展趋势。'],
 };
 
-export const examIds = Object.keys(practice);
-export const examPoint = item => item.sourceType === 'textbook' ? practice[item.id] : undefined;
+const sharedPractice = Object.fromEntries(Object.entries(sharedLessonStudy).filter(([, study]) => study.check).map(([id, study]) => [id, study.check]));
+const lessonPractice = Object.fromEntries(Object.entries(lessonStudy).map(([id, study]) => [id, study.check]));
+const examById = { ...sharedPractice, ...practice, ...lessonPractice };
+export const examIds = Object.keys(examById);
+export const examPoint = item => Object.hasOwn(examById, item.id) ? examById[item.id] : undefined;
