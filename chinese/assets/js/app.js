@@ -373,6 +373,7 @@
     bindZoomModal();
     bindRefEvents();
     initReadView();
+    bindMistakes();
   }
 
   function curChar() {
@@ -639,9 +640,6 @@
     var isTrace = m === 'trace';
     if ($('traceTools')) $('traceTools').hidden = !isTrace;
     $('traceCanvas').classList.toggle('hidden', !isTrace);
-    $('tip').textContent = isTrace
-      ? '在浅色字模上直接用手指书写，练习这一笔一画。'
-      : '跟着橙色笔尖看每一笔的写法，可逐笔翻看。';
     $('traceBtn').textContent = isTrace ? '返回笔顺' : '去描红';
     if (isTrace) {
       demo.stop();
@@ -832,7 +830,7 @@
     $('gridModalType').textContent = name + ' · 全册浏览';
     $('gridModalTitle').textContent = entry ? entry.title : name;
     $('gridAllCount').textContent = book ? '共 ' + book.chars.length + ' 字' : '';
-    $('gridLegend').hidden = gridView.mode !== 'read';
+    $('gridLegend').hidden = $('gridOverviewHelp').hidden = gridView.mode !== 'read';
     var grid = $('gridAll');
     if (status) {
       grid.innerHTML = '<p class="empty" role="status">' + status + '</p>';
@@ -1122,7 +1120,7 @@
       if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey ||
           (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))) return;
       if (e.key === 'Escape') { closeModal(); return; }
-      if (state.gridOpen || zoomView.open || !$('viewRef').hidden) return;
+      if (state.gridOpen || zoomView.open || !$('viewRef').hidden || !$('viewMistakes').hidden) return;
       if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
       e.preventDefault();
       var dir = e.key === 'ArrowLeft' ? -1 : 1;
@@ -1448,17 +1446,20 @@
     var token = read.selectionToken = (read.selectionToken || 0) + 1;
     var ready = toStrokeData(c).strokes.length > 0;
     setReadControls(!ready);
-    $('readTip').textContent = ready ? '点汉字看笔顺与笔画名称。' : '正在加载笔顺…';
+    $('readTip').textContent = ready ? '' : '正在加载笔顺…';
+    $('readTip').hidden = ready;
     ensureReadStrokes(c).then(function () {
       if (readChar() !== c || read.selectionToken !== token) return;
       setReadControls(false);
-      $('readTip').textContent = '点汉字看笔顺与笔画名称。';
+      $('readTip').textContent = '';
+      $('readTip').hidden = true;
       drawRead(); renderReadSeq(); markReadSeq();
       if (read.autoPlay && !$('viewRead').hidden) playRead();
     }).catch(function () {
       if (readChar() !== c || read.selectionToken !== token) return;
       setReadControls(true);
       $('readTip').textContent = '笔顺加载失败，请重新点选此字重试。';
+      $('readTip').hidden = false;
     });
   }
 
@@ -1885,7 +1886,7 @@
     if (name !== 'write') { demo.stop(); state.playing = false; $('playBtn').textContent = '播放笔顺'; }
     if (name !== 'read' && read.demo) { read.demo.stop(); read.playing = false; $('readPlay').textContent = '播放笔顺'; }
     if (name !== 'elem' && elem.demo) { elem.demo.stop(); elem.playing = false; $('ePlay').textContent = '播放笔顺'; }
-    ['write', 'read', 'ref', 'elem'].forEach(function (v) {
+    ['write', 'read', 'ref', 'elem', 'mistakes'].forEach(function (v) {
       var el = $('view' + v.charAt(0).toUpperCase() + v.slice(1));
       if (el) el.hidden = (v !== name);
     });
@@ -1893,7 +1894,9 @@
     for (var i = 0; i < btns.length; i++) {
       btns[i].classList.toggle('on', btns[i].dataset.view === name);
     }
-    $('appTitle').textContent = name === 'read' ? '小学必认识字'
+    $('mistakeShortcut').hidden = name !== 'write' && name !== 'read';
+    $('verTag').hidden = name === 'mistakes' || name === 'ref' || name === 'elem';
+    $('appTitle').textContent = name === 'mistakes' ? '易错字分类' : name === 'read' ? '小学必认识字'
       : name === 'ref' ? '字表速查'
       : name === 'elem' ? '化学元素周期表' : '小学必会写字';
 
@@ -1922,10 +1925,42 @@
     });
 
     // 支持 ?view=read / ?view=ref 直达（便于分享与二维码）
-    var m = /[?&]view=(write|read|ref|elem)/.exec(location.search || '');
+    var m = /[?&]view=(write|read|ref|elem|mistakes)(?:&|$)/.exec(location.search || '');
     if (m) {
       setTimeout(function () { switchView(m[1]); }, 60);
     }
+  }
+
+  function bindMistakes() {
+    var openedFrom = 'write';
+    $('openMistakes').addEventListener('click', function () {
+      openedFrom = $('viewRead').hidden ? 'write' : 'read';
+      switchView('mistakes');
+      $('appTitle').focus({ preventScroll: true });
+    });
+    $('backFromMistakes').addEventListener('click', function () {
+      switchView(openedFrom);
+      $('openMistakes').focus({ preventScroll: true });
+    });
+    if (window.HanziMistakes) window.HanziMistakes(function (hit) {
+      var isWrite = hit.kind === 'write';
+      var source = isWrite ? state : read;
+      var button = $(isWrite ? 'expandBtn' : 'readExpandBtn');
+      var current = source.bookId === hit.book && source.book && !button.disabled;
+      var load = current ? Promise.resolve(source.book) :
+        (isWrite ? selectBook(hit.book) : selectReadBook(hit.book));
+      return load.then(function (book) {
+        if (!book || $('viewMistakes').hidden) return false;
+        var ch = isWrite ? book.meta.chars[hit.i] : book.chars[hit.i] && book.chars[hit.i].ch;
+        if (ch !== hit.ch) return false;
+        switchView(hit.kind);
+        chooseListChar(hit.kind, hit.i);
+        var glyph = $(isWrite ? 'bigChar' : 'rBigChar');
+        glyph.tabIndex = -1;
+        glyph.focus({ preventScroll: true });
+        return true;
+      });
+    });
   }
 
   /* ================================================================

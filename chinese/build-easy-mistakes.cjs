@@ -1,0 +1,97 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const {execFileSync} = require('node:child_process');
+
+// node build-easy-mistakes.cjs <Hanzi source directory> <Unicode 16.0 Unihan.zip>
+const root = path.resolve(process.argv[2] || __dirname);
+const archive = process.argv[3];
+if (!archive) throw new Error('Pass the official Unicode 16.0 Unihan.zip as the second argument.');
+const {parseBook} = require(path.join(root, 'assets/js/hanzi-codec.js'));
+const read = file => fs.readFileSync(path.join(root, 'assets/data', file), 'utf8');
+const json = file => JSON.parse(read(file));
+const examples = require('./assets/data/easy-mistakes-examples.json');
+const mappings = execFileSync('tar',['-xOf',archive,'Unihan_OtherMappings.txt'], {encoding:'utf8', maxBuffer:16000000});
+const ranks = new Map(Array.from(mappings.matchAll(/^U\+([0-9A-F]+)\tkTGH\t2013:(\d{1,4})[ \t\r]*$/gm), m => [String.fromCodePoint(parseInt(m[1],16)),+m[2]]));
+if (ranks.size < 8000) throw new Error('Incomplete kTGH data');
+const readingCatalog = vm.runInNewContext(read('shizi_index.js')+'; window.__HANZI_SHIZI_INDEX__.val',{window:{}});
+const existing = vm.runInNewContext(read('polyphones.js')+'; window.__HANZI_POLYPHONES__',{window:{}});
+const items = new Map();
+const syllable = text => (text || '').trim().toLowerCase().normalize('NFC');
+const valid = value => /^[a-züāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜńňǹḿê]+$/u.test(value);
+let scanned = 0;
+
+function add(ch, py, grade, kind, book, index) {
+  scanned++;
+  const item = items.get(ch) || {py:new Set(), grades:0, ref:[kind,book,index]};
+  item.grades |= 1 << (grade-1);
+  py = syllable(py);
+  if (valid(py)) item.py.add(py);
+  items.set(ch,item);
+}
+
+for (const entry of json('books.json')) {
+  // Use the same script-backed data as the published page.
+  const raw = vm.runInNewContext(read(entry.id+'.js')+'; window.__HANZI_DATA__['+JSON.stringify(entry.id)+']',{window:{}});
+  const book = parseBook(raw);
+  book.chars.forEach((c,i) => add(book.meta.chars[i], c.pinyin, entry.grade, 'write', entry.id, i));
+}
+for (const entry of readingCatalog) {
+  const book = vm.runInNewContext(read(entry.key+'.js')+'; window.__HANZI_'+entry.key.toUpperCase()+'__.val',{window:{}});
+  book.chars.forEach((c,i) => add(c.ch,c.py,entry.grade,'read',entry.id,i));
+}
+
+// Record matched grades and jump targets without copying any stroke or textbook data.
+const refs = Object.fromEntries(Array.from(items, ([ch,item]) => [ch,[item.grades,...item.ref]]));
+const kinds = {shape:[], poly:[], same:[], words:[], rare:[], places:[], read:[], write:[], all:[]};
+const make = (labels, py = '', note = '', focus = labels.join(''), src = '') => [labels,py,note,focus,src];
+const groups = new Map();
+for (const [ch, item] of items) {
+  const learned = Array.from(item.py);
+  const all = Array.from(new Set([...learned,...(existing.readings[ch] || []).map(syllable).filter(valid)]));
+  if (all.length > 1) {
+    const tags = existing.notes?.[ch] || {};
+    const notes = Object.entries(tags).filter(([py]) => all.includes(py)).map(([py,note]) => py+'：'+note);
+    kinds.poly.push(make([ch],all.join(' / '),notes.join('；')));
+  }
+  for (const py of learned) {
+    if (!groups.has(py)) groups.set(py,[]);
+    groups.get(py).push(ch);
+  }
+  const rank = ranks.get(ch);
+  if (rank > 3500) kinds.rare.push(make([ch],learned.join(' / '),rank <= 6500 ? '《通用规范汉字表》二级字' : '《通用规范汉字表》三级字'));
+  kinds.all.push(make([ch],learned.join(' / ')));
+}
+const preferred = ['zài','dù','máng','qì','liáng','lán','fǎn','yǐ','shì','qīng','zhí'];
+for (const [py,chars] of [...groups].sort(([a],[b]) => {
+  const index = value => preferred.includes(value) ? preferred.indexOf(value) : preferred.length;
+  return index(a)-index(b) || a.localeCompare(b,'zh-Latn');
+})) {
+  if (chars.length >= 2) kinds.same.push(make(chars,py));
+}
+const seen = new Set();
+for (const [label,note] of examples.shape) {
+  if (seen.has(label) || !Array.from(label).some(ch => items.has(ch))) continue;
+  seen.add(label);
+  kinds.shape.push(make(Array.from(label),'',note));
+}
+for (const [label,py,note] of examples.words) {
+  if (py) kinds.words.push(make(label.split(' '),py,note));
+}
+for (const [label,py,note,focus,src] of examples.places) {
+  kinds.places.push(make([label],py,note,focus,src));
+}
+for (const [label,py,note] of examples.read) {
+  kinds.read.push(make([label],py,note));
+}
+for (const [label,word,note] of examples.write) {
+  kinds.write.push(make([label],word,note));
+}
+
+const coverage = new Set(Object.entries(kinds).filter(([kind]) => kind !== 'all')
+  .flatMap(([,rows]) => rows.flatMap(row => Array.from(row[3]).filter(ch => items.has(ch)))));
+const summary = {books:json('books.json').length+readingCatalog.length, scanned, unique:items.size, classified:coverage.size};
+const data = {summary, refs, kinds};
+const out = path.join(__dirname,'assets/data/easy-mistakes.js');
+fs.writeFileSync(out,'/* Generated by build-easy-mistakes.cjs from the existing textbook data and curated examples. */\nwindow.__HANZI_EASY_MISTAKES__ = '+JSON.stringify(data).replace(/</g,'\\u003c')+';\n');
+console.log(summary, Object.fromEntries(Object.entries(kinds).map(([k,v]) => [k,v.length])));
