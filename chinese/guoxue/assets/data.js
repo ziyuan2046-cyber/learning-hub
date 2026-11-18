@@ -15,12 +15,18 @@ export const categories = [
 
 const categoryById = Object.fromEntries(categories.map(c => [c.id, c]));
 const gradeLabels = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
+const pinyinFixes = {
+  'pack-2-上-poem-18': pinyin => pinyin.replace('chì lēi chuān', 'chì lè chuān').replace('dī jiàn niú', 'dī xiàn niú'),
+  'pack-5-上-poem-82': pinyin => pinyin.replace('mò ér shí zhī', 'mò ér zhì zhī').replace('shì zhī yě', 'shì zhì yě'),
+  'pack-6-上-poem-100': pinyin => pinyin.replace('hū jiàn', 'hū xiàn'),
+};
 
 function normalize(item, index, extra = false) {
   const category = categoryById[item.category] || categories[0];
   return {
     order: index,
     ...item,
+    pinyin: pinyinFixes[item.id]?.(item.pinyin) ?? item.pinyin,
     category: category.id,
     categoryName: category.name,
     image: item.image || (category.id === 'classical' ? 'classic-books' : 'poetry-mountain-river'),
