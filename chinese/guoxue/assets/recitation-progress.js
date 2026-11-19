@@ -24,6 +24,20 @@ export function completionDay(stamp) {
   return stamp.length === 10 ? stamp : recitationDay(new Date(stamp));
 }
 
+// The board uses fixed semester cutoffs rather than any particular school's calendar.
+export function recitationSemester(entries, date = new Date()) {
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear() - Number(month === 1);
+  const spring = month >= 2 && month <= 7;
+  const start = `${year}-${spring ? '02' : '08'}-01`;
+  const today = recitationDay(date);
+  const count = entries.filter(({stamp}) => {
+    const day = completionDay(stamp);
+    return day >= start && day <= today;
+  }).length;
+  return {year, season: spring ? '春季' : '秋季', start, count};
+}
+
 export function completedRecitations(items, memorized, completedAt) {
   const itemById = new Map(items.map(item => [item.id, item]));
   const entries = [];

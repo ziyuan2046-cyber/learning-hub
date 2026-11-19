@@ -3,7 +3,7 @@ import { icon } from './icons.js';
 import { glossary } from './glossary-data.js';
 import { isRecitation, examPoint } from './review-data.js';
 import { lessonStudy, publicLessonText, sharedLessonStudy } from './lesson-study.js';
-import { completionDay, restoreRecitation, completedRecitations } from './recitation-progress.js';
+import { completionDay, restoreRecitation, completedRecitations, recitationSemester } from './recitation-progress.js';
 import { readerMeaning, distinctTexts, isTranslationLabel } from './reader-meaning.js';
 
 const app = document.querySelector('#app');
@@ -251,11 +251,17 @@ function progressView() {
   if (state.progressGrade !== 'all' && !gradeCounts.has(Number(state.progressGrade))) state.progressGrade = 'all';
   const shown = state.progressGrade === 'all' ? entries : entries.filter(({item}) => String(item.grade) === state.progressGrade);
   const filters = [['all', '全部', entries.length], ...grades.filter(g => gradeCounts.has(g.grade)).map(g => [String(g.grade), g.label, gradeCounts.get(g.grade)])];
-  const latest = completionDay(entries[0]?.stamp);
+  const semester = recitationSemester(entries);
   const currentGrade = grades.find(g => String(g.grade) === state.progressGrade)?.label || '全部年级';
   return `<main class="page-enter mobile-page progress-page">${topbar()}
-    <header class="progress-heading"><div class="progress-emblem">${icon('trophy', 28)}</div><h1>背诵榜</h1></header>
-    <dl class="progress-summary" aria-label="背诵数据汇总"><div><dt>累计已背</dt><dd><b>${entries.length}</b> 篇</dd></div><div><dt>已背年级</dt><dd><b>${gradeCounts.size}</b> 个</dd></div><div><dt>最近背诵</dt><dd>${latest ? `<time datetime="${esc(latest)}">${esc(latest)}</time>` : '—'}</dd></div></dl>
+    <section class="progress-hero" aria-labelledby="progress-title">
+      <header class="progress-heading"><div><span class="progress-term">${semester.year} 年${semester.season}</span><h1 id="progress-title">背诵榜</h1></div><div class="progress-emblem">${icon('trophy', 32)}</div></header>
+      <dl class="progress-summary" aria-label="背诵数据汇总">
+        <div><dt>累计已背</dt><dd><b>${entries.length}</b><span>篇</span></dd></div>
+        <div class="progress-semester" title="从 ${semester.start} 统计至今天"><dt>本学期已背</dt><dd><b>${semester.count}</b><span>篇</span></dd></div>
+        <div><dt>已背年级</dt><dd><b>${gradeCounts.size}</b><span>个</span></dd></div>
+      </dl>
+    </section>
     ${entries.length ? `<div class="progress-grades" role="group" aria-label="已背年级">${filters.map(([id, label, count]) =>
       `<button class="segment${state.progressGrade === id ? ' active' : ''}" data-progress-grade="${id}" aria-pressed="${state.progressGrade === id}">${label} <b>${count}</b></button>`).join('')}</div>
     <div class="progress-list-heading"><h2>${currentGrade}</h2><span aria-live="polite">${shown.length} 篇 · 最新在前</span></div>

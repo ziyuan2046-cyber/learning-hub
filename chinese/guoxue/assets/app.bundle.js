@@ -17061,6 +17061,18 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     if (!stamp) return "";
     return stamp.length === 10 ? stamp : recitationDay(new Date(stamp));
   }
+  function recitationSemester(entries2, date = /* @__PURE__ */ new Date()) {
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear() - Number(month === 1);
+    const spring = month >= 2 && month <= 7;
+    const start = `${year}-${spring ? "02" : "08"}-01`;
+    const today = recitationDay(date);
+    const count = entries2.filter(({ stamp }) => {
+      const day = completionDay(stamp);
+      return day >= start && day <= today;
+    }).length;
+    return { year, season: spring ? "\u6625\u5B63" : "\u79CB\u5B63", start, count };
+  }
   function completedRecitations(items2, memorized, completedAt) {
     const itemById2 = new Map(items2.map((item) => [item.id, item]));
     const entries2 = [];
@@ -17412,11 +17424,17 @@ m\xE8ng zi yu\u0113 :" sh\xEC y\u0101n d\xE9 w\xE8i d\xE0 zh\xE0ng f\u016B h\u01
     if (state.progressGrade !== "all" && !gradeCounts.has(Number(state.progressGrade))) state.progressGrade = "all";
     const shown = state.progressGrade === "all" ? entries2 : entries2.filter(({ item }) => String(item.grade) === state.progressGrade);
     const filters = [["all", "\u5168\u90E8", entries2.length], ...grades.filter((g) => gradeCounts.has(g.grade)).map((g) => [String(g.grade), g.label, gradeCounts.get(g.grade)])];
-    const latest = completionDay(entries2[0]?.stamp);
+    const semester = recitationSemester(entries2);
     const currentGrade = grades.find((g) => String(g.grade) === state.progressGrade)?.label || "\u5168\u90E8\u5E74\u7EA7";
     return `<main class="page-enter mobile-page progress-page">${topbar()}
-    <header class="progress-heading"><div class="progress-emblem">${icon("trophy", 28)}</div><h1>\u80CC\u8BF5\u699C</h1></header>
-    <dl class="progress-summary" aria-label="\u80CC\u8BF5\u6570\u636E\u6C47\u603B"><div><dt>\u7D2F\u8BA1\u5DF2\u80CC</dt><dd><b>${entries2.length}</b> \u7BC7</dd></div><div><dt>\u5DF2\u80CC\u5E74\u7EA7</dt><dd><b>${gradeCounts.size}</b> \u4E2A</dd></div><div><dt>\u6700\u8FD1\u80CC\u8BF5</dt><dd>${latest ? `<time datetime="${esc(latest)}">${esc(latest)}</time>` : "\u2014"}</dd></div></dl>
+    <section class="progress-hero" aria-labelledby="progress-title">
+      <header class="progress-heading"><div><span class="progress-term">${semester.year} \u5E74${semester.season}</span><h1 id="progress-title">\u80CC\u8BF5\u699C</h1></div><div class="progress-emblem">${icon("trophy", 32)}</div></header>
+      <dl class="progress-summary" aria-label="\u80CC\u8BF5\u6570\u636E\u6C47\u603B">
+        <div><dt>\u7D2F\u8BA1\u5DF2\u80CC</dt><dd><b>${entries2.length}</b><span>\u7BC7</span></dd></div>
+        <div class="progress-semester" title="\u4ECE ${semester.start} \u7EDF\u8BA1\u81F3\u4ECA\u5929"><dt>\u672C\u5B66\u671F\u5DF2\u80CC</dt><dd><b>${semester.count}</b><span>\u7BC7</span></dd></div>
+        <div><dt>\u5DF2\u80CC\u5E74\u7EA7</dt><dd><b>${gradeCounts.size}</b><span>\u4E2A</span></dd></div>
+      </dl>
+    </section>
     ${entries2.length ? `<div class="progress-grades" role="group" aria-label="\u5DF2\u80CC\u5E74\u7EA7">${filters.map(([id, label, count]) => `<button class="segment${state.progressGrade === id ? " active" : ""}" data-progress-grade="${id}" aria-pressed="${state.progressGrade === id}">${label} <b>${count}</b></button>`).join("")}</div>
     <div class="progress-list-heading"><h2>${currentGrade}</h2><span aria-live="polite">${shown.length} \u7BC7 \xB7 \u6700\u65B0\u5728\u524D</span></div>
     <ol class="progress-list" aria-label="\u5DF2\u80CC\u7BC7\u76EE">${shown.map(({ item, stamp }, index) => {
