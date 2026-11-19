@@ -1,34 +1,35 @@
-import { categories, grades, items, lessonItems, extraItems, itemById, searchItems } from './data.js';
+import { categories, grades, items, lessonItems, extraItems, itemById, searchItems, handoutItems, reciteAliases } from './data.js';
 import { icon } from './icons.js';
 import { glossary } from './glossary-data.js';
 import { isRecitation, examPoint } from './review-data.js';
-import { sharedTextbookRecitationIds } from './textbook-recitation.js';
 import { lessonStudy, publicLessonText, sharedLessonStudy } from './lesson-study.js';
+import { recitationDay, restoreRecitation, summarizeRecitations } from './recitation-progress.js';
 
 const app = document.querySelector('#app');
-const KEYS = { favorites: 'guoxue-favorites-v5', read: 'guoxue-read-v5', prefs: 'guoxue-prefs-v5', history: 'guoxue-history-v1', memorized: 'guoxue-memorized-v1' };
+const KEYS = { favorites: 'guoxue-favorites-v5', read: 'guoxue-read-v5', prefs: 'guoxue-prefs-v5', history: 'guoxue-history-v1', memorized: 'guoxue-memorized-v1', completedAt: 'guoxue-completed-days-v1', privateReadings: 'guoxue-private-readings-v1' };
 const load = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } };
 const save = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
 const savedPrefs = load(KEYS.prefs, {});
 const state = {
   view: 'home', category: 'all', grade: 'all', volume: 'all', scope: 'textbook', keyword: '',
-  topQuery: '', videoOnly: false, examOnly: false, itemId: null, toastTimer: null, recalling: false,
+  topQuery: '', videoOnly: false, examOnly: false, memorizedFilter: 'all', itemId: null, toastTimer: null, recalling: false,
   favorites: new Set(load(KEYS.favorites, [])), read: new Set(load(KEYS.read, [])), history: load(KEYS.history, []), historyUndo: null,
   ...savedPrefs,
-  memorized: new Set(load(KEYS.memorized, []))
+  ...restoreRecitation(load(KEYS.memorized, []), load(KEYS.completedAt, {}), reciteAliases),
 };
 if (!['textbook', 'recitation', 'extra', 'all'].includes(state.scope)) state.scope = 'textbook';
 state.view = 'home';
 const categoryMap = Object.fromEntries(categories.map(c => [c.id, c]));
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const recitationItems = items.filter(isRecitation);
+const recitationItems = handoutItems;
+const statusFilters = [['all', '全部'], ['done', '已背'], ['todo', '未背']];
+if (!statusFilters.some(([id]) => id === state.memorizedFilter)) state.memorizedFilter = 'all';
 const isTextbookLesson = item => item.sourceType === 'text-recitation';
-const matchesCategory = (item, category) => item.category === category ||
-  (category === 'text-recitation' && sharedTextbookRecitationIds.has(item.id));
+const matchesCategory = (item, category) => item.category === category;
 const scopeName = scope => ({ textbook: '教材内容', recitation: '课本必背', extra: '课外拓展' })[scope];
 
 function savePrefs() {
-  save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly, examOnly: state.examOnly });
+  save(KEYS.prefs, { category: state.category, grade: state.grade, volume: state.volume, scope: state.scope, videoOnly: state.videoOnly, examOnly: state.examOnly, memorizedFilter: state.memorizedFilter });
 }
 function toast(message, iconName = 'check') {
   const el = document.querySelector('#toast'); if (!el) return;
@@ -50,13 +51,13 @@ function clearHistory() { state.historyUndo = [...state.history]; state.history 
 function scopePool(scope = state.scope) {
   return scope === 'recitation' ? recitationItems : scope === 'textbook' ? lessonItems : scope === 'extra' ? extraItems : items;
 }
-function isExamFocus(item) { return Boolean(examPoint(item)); }
-function filteredItems() {
-  const shared = state.category === 'text-recitation';
-  const result = searchItems(scopePool(), { category: shared ? 'all' : state.category, grade: state.grade, volume: state.volume, keyword: state.keyword });
-  const categorized = shared ? result.filter(item => matchesCategory(item, state.category)) : result;
-  const videoFiltered = state.videoOnly ? categorized.filter(i => i.video) : categorized;
-  return state.examOnly ? videoFiltered.filter(isExamFocus) : videoFiltered;
+const attachmentExams = item => item.notes?.filter(([label]) => /常考|考点|题型|考题/.test(label)) || [];
+function isExamFocus(item) { return Boolean(examPoint(item) || attachmentExams(item).length); }
+function filteredItems(ignoreMemorized = false) {
+  const result = searchItems(scopePool(), { category: state.category, grade: state.grade, volume: state.volume, keyword: state.keyword });
+  return result.filter(item => (!state.videoOnly || item.video) && (!state.examOnly || isExamFocus(item)) &&
+    (ignoreMemorized || state.view !== 'home' || state.scope !== 'recitation' || state.memorizedFilter === 'all' ||
+      (state.memorizedFilter === 'done') === state.memorized.has(item.id)));
 }
 function globalResults() {
   if (!state.topQuery.trim()) return [];
@@ -133,7 +134,7 @@ function focusBlock(item) {
 }
 function examBadge(item) {
   const point = examPoint(item);
-  return point ? `<span class="learning-badge exam-badge">${icon('star', 13)} 考点 · ${esc(point[0])}</span>` : '';
+  return (attachmentExams(item).length || point) ? `<span class="learning-badge exam-badge">${icon('star', 13)} 考点${attachmentExams(item).length ? '' : ` · ${esc(point[0])}`}</span>` : '';
 }
 function examBlock(item) {
   const point = examPoint(item);
@@ -155,14 +156,23 @@ function libraryCard(item) {
   return `<article class="library-card${item.scopeType !== 'extra' ? ' textbook-preview' : ''}" style="--cat-color:${c.color}" data-open="${id}">
     <div class="library-card-top"><div class="library-kicker"><span class="cat-dot"></span>${esc(item.categoryName)}</div>${examBadge(item)}</div>
     <h3><a href="#read/${encodeURIComponent(item.id)}">${esc(item.title)}</a></h3>
-    <p class="library-author">${item.range ? `${esc(item.gradeLabel)} · 第 ${item.page} 页 · ${esc(item.range)}` : `${esc(item.dynasty)} · ${esc(item.author)}`}</p>
+    <p class="library-author">${item.handout ? esc([item.dynasty, item.author, item.range].filter(Boolean).join(' · ')) : item.range ? `${esc(item.gradeLabel)} · 第 ${item.page} 页 · ${esc(item.range)}` : `${esc(item.dynasty)} · ${esc(item.author)}`}</p>
     <p class="library-excerpt">${esc(item.excerpt)}</p>
-    <div class="library-footer"><div class="card-metadata"><span class="grade-pill">${esc(item.gradeLabel)}</span>${isRecitation(item) ? `<span class="learning-badge ${learned ? 'memorized-badge' : 'study-badge'}">${learned ? '已背' : '必背'}</span>` : ''}</div>
+    <div class="library-footer"><div class="card-metadata"><span class="grade-pill">${esc(item.gradeLabel)}</span>${item.optional ? '<span class="learning-badge optional-badge">选背／待核对</span>' : ''}${isRecitation(item) ? `<span class="learning-badge ${learned ? 'memorized-badge' : 'study-badge'}">${learned ? '已背' : item.optional ? '未背' : '必背'}</span>` : ''}</div>
     <div class="library-actions">${video}<button class="card-fav ${favorite ? 'active' : ''}" data-fav="${id}" aria-pressed="${favorite}" aria-label="收藏">${icon('heart', 17)}</button></div></div>
   </article>`;
 }
 function libraryResults(list) {
+  if (!list.length && state.view === 'home' && state.scope === 'recitation' && state.memorizedFilter === 'done') return '<div class="empty-state"><h3>当前筛选下还没有已背篇目</h3><button class="btn" data-memorized-filter="todo">去看未背</button></div>';
+  if (!list.length && state.view === 'home' && state.scope === 'recitation' && state.memorizedFilter === 'todo' && filteredItems(true).length) return '<div class="empty-state"><h3>这里的篇目都背会了</h3><button class="btn" data-go="progress">查看背诵榜</button></div>';
   return list.length ? list.map(libraryCard).join('') : '<div class="empty-state"><h3>没有找到内容</h3><button class="btn" data-reset-filters>清除筛选</button></div>';
+}
+function memorizedFilters() {
+  if (state.scope !== 'recitation') return '';
+  const list = filteredItems(true);
+  const completed = list.filter(item => state.memorized.has(item.id)).length;
+  const counts = {all: list.length, done: completed, todo: list.length - completed};
+  return statusFilters.map(([id, label]) => `<button class="segment${state.memorizedFilter === id ? ' active' : ''}" data-memorized-filter="${id}" aria-pressed="${state.memorizedFilter === id}">${label}<b>${counts[id]}</b></button>`).join('');
 }
 function homeView() {
   const current = filteredItems();
@@ -171,7 +181,7 @@ function homeView() {
   const volumeLabel = state.volume === 'all' ? '全部册次' : state.volume + '册';
   const showGrade = state.scope !== 'extra';
   const progress = state.scope === 'recitation'
-    ? `<span class="recitation-progress">已背 ${recitationItems.filter(item => state.memorized.has(item.id)).length} / ${recitationItems.length} 篇</span>` : '';
+    ? `<span class="recitation-progress">已背 ${recitationItems.filter(item => !item.optional && state.memorized.has(item.id)).length} / ${recitationItems.filter(item => !item.optional).length} 篇必背</span>` : '';
   return `<main class="page-enter mobile-page library-page">${topbar()}${topSearch()}
     <div class="library-layout">
       <aside class="library-sidebar" aria-label="篇目筛选">
@@ -187,6 +197,7 @@ function homeView() {
       </aside>
       <section class="library-content" aria-labelledby="library-heading">
         <header class="library-heading"><div><h1 id="library-heading">${title}</h1>${progress}</div><span id="result-count" aria-live="polite">${current.length} 项</span></header>
+        ${state.scope === 'recitation' ? `<div class="recitation-bar"><div class="recitation-filters" role="group" aria-label="背诵状态">${memorizedFilters()}</div><button class="exam-jump progress-link" data-go="progress">${icon('star', 16)} 背诵榜</button></div>` : ''}
         <div class="mobile-search"><div class="search-input-wrap">${icon('search', 18)}<input class="search-input" id="inline-search" value="${esc(state.keyword)}" placeholder="在当前内容中搜索" aria-label="在当前内容中搜索"><button class="clear-search" data-clear-search aria-label="清空搜索">${icon('close', 14)}</button></div></div>
         <div class="mobile-list" id="library-list">${libraryResults(current)}</div>
       </section>
@@ -208,13 +219,29 @@ function memorizedButton(item) {
   const memorized = state.memorized.has(item.id);
   return `<button data-memorized aria-pressed="${memorized}">${icon('check', 16)} <span>${memorized ? '已背' : '标为已背'}</span></button>`;
 }
+function completionDate(item) {
+  const date = state.completedAt.get(item.id);
+  return date ? `<time class="completion-date" datetime="${esc(date)}">${esc(date)} 背会</time>` : '';
+}
 const personalTextKey = id => `guoxue-personal-text-v1:${id}`;
+const importedReadings = () => {
+  const contents = load(KEYS.privateReadings, {});
+  return contents && typeof contents === 'object' && !Array.isArray(contents) ? contents : {};
+};
 
 function savePersonalText(text) {
   try {
     const key = personalTextKey(state.itemId);
     if (text) localStorage.setItem(key, JSON.stringify(text));
-    else localStorage.removeItem(key);
+    else {
+      const item = itemById[state.itemId];
+      const imported = importedReadings();
+      if (item?.importKey && Object.hasOwn(imported, item.importKey)) {
+        delete imported[item.importKey];
+        localStorage.setItem(KEYS.privateReadings, JSON.stringify(imported));
+      }
+      localStorage.removeItem(key);
+    }
   } catch {
     toast('无法保存，请检查浏览器的存储设置', 'book');
     return;
@@ -223,6 +250,95 @@ function savePersonalText(text) {
   app.querySelector('#lesson-reading-heading')?.focus({ preventScroll: true });
   app.querySelector('#lesson-reading-heading')?.scrollIntoView({ block: 'nearest' });
   toast(text ? '原文已保存到本机' : '已清除本机原文', 'book');
+}
+
+function progressView() {
+  const {days, ranked, done, todayCount} = summarizeRecitations(recitationItems, state.memorized, state.completedAt);
+  return `<main class="page-enter mobile-page progress-page">${topbar()}
+    <div class="breadcrumb"><button data-go="home">首页</button><span>/</span><span>课本必背</span><span>/</span><span>背诵榜</span></div>
+    <header class="progress-hero"><div><span class="progress-eyebrow">我的背诵记录</span><h1>背诵榜</h1></div><div class="progress-total"><span><b>${todayCount}</b> 今日背会</span><span><b>${done}</b> 累计已背</span></div></header>
+    <div class="progress-layout">
+      <section class="progress-panel"><h2>我的年级排行</h2><p>按已背必背篇数排名，同数并列。</p>
+        ${ranked.length ? `<ol class="grade-rank">${ranked.map(row => `<li><span class="rank-number" aria-label="第${row.rank}名">${row.rank}</span><span>${grades[row.grade - 1].label}<progress value="${row.done}" max="${row.total}" aria-label="${grades[row.grade - 1].label}进度"></progress></span><b>${row.done} / ${row.total}</b></li>`).join('')}</ol>` : '<div class="progress-empty">背会第一篇，就能点亮年级排行。</div>'}
+      </section>
+      <section class="progress-panel"><h2>已背篇目</h2><p>最近背会的在前，旧记录无日期。</p>
+        ${days.length ? days.map(([day, entries]) => `<section class="progress-day"><h3>${day ? `<time datetime="${esc(day)}">${esc(day)}</time>` : '旧记录 · 日期未记录'} <span>${entries.length} 篇</span></h3><ul>${entries.map(item => `<li><a href="#read/${encodeURIComponent(item.id)}" data-open="${esc(item.id)}"><strong>${esc(item.title)}</strong><small>${esc(item.gradeLabel)}${item.optional ? ' · 选背' : ''}</small></a></li>`).join('')}</ul></section>`).join('') : '<div class="progress-empty">还没有已背记录。</div>'}
+      </section>
+    </div>
+    <section class="progress-panel progress-import"><h2>本机原文</h2><p>选择配套的原文导入文件。只保存在此浏览器，不上传，也不会覆盖手动添加的内容。</p><button class="exam-jump" data-pick-originals>导入课文原文</button><input type="file" id="reading-import" accept=".json,application/json" hidden></section>
+  </main>${nav()}`;
+}
+
+async function importReadings(file) {
+  if (!file) return;
+  try {
+    if (file.size > 300000) throw Error('large bundle');
+    const bundle = JSON.parse(await file.text());
+    if (bundle?.format !== 'guoxue-private-reading-v1' || !bundle.texts || typeof bundle.texts !== 'object') throw Error('wrong format');
+    const imported = importedReadings();
+    let count = 0;
+    for (const item of recitationItems.filter(item => !item.hasOriginal)) {
+      const value = bundle.texts[item.importKey];
+      if (typeof value === 'string' && value.trim() && value.length <= 10000) {
+        imported[item.importKey] = value.trim();
+        count++;
+      }
+    }
+    if (!count) throw Error('no reading text');
+    localStorage.setItem(KEYS.privateReadings, JSON.stringify(imported));
+    toast(`已在本机导入 ${count} 篇原文`, 'book');
+  } catch {
+    toast('未能导入，请选择配套的原文 JSON 文件', 'book');
+  }
+}
+
+function handoutNotes(item) {
+  const prompts = attachmentExams(item);
+  const group = {terms: [], focus: [], errors: [], explanations: []};
+  for (const [label, value] of item.notes) {
+    if (/常考|考点|题型|考题/.test(label)) continue;
+    const key = /易错|易混/.test(label) ? 'errors' : /译文|句意|释义/.test(label) && !/字词/.test(label) ? 'explanations' :
+      /重点字词|词义|注释|字词/.test(label) || (!/主旨|重点|修辞|名句|赏析|要点|提示|情感|思路|文体|作者|出处|文学|句式|版|读法|背诵/.test(label) && label.length <= 10) ? 'terms' : 'focus';
+    group[key].push([label, value]);
+  }
+  const guide = lessonStudy[item.id];
+  const terms = group.terms.length ? group.terms : guide?.glossary || glossary[item.title] || [];
+  const section = (title, css, rows) => rows.length ? `<section class="learning-focus handout-notes ${css}"><div class="learning-focus-title"><h2>${title}</h2></div><dl>${rows.map(([lbl, value]) => `<div><dt>${esc(lbl)}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl></section>` : '';
+  return section('重点字词', 'reader-glossary', terms) + section('学习重点', 'study-focus', [...group.focus, ...group.explanations]) + section('默写易错', 'reader-glossary', group.errors) +
+    (prompts.length ? `<section class="learning-focus exam-practice handout-notes" id="reader-exam" tabindex="-1" aria-labelledby="exam-heading"><div class="learning-focus-title"><h2 id="exam-heading">考点练习</h2></div><details class="exam-answer"><summary>展开附件中的考点和参考答案</summary><dl>${prompts.map(([label, value]) => `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl></details></section>` : examBlock(item));
+}
+
+function handoutView(item) {
+  const favorite = state.favorites.has(item.id);
+  const privateText = load(personalTextKey(item.id), '') || importedReadings()[item.importKey];
+  const hasPersonalText = !item.hasOriginal && typeof privateText === 'string' && Boolean(privateText.trim());
+  const reading = hasPersonalText ? privateText : item.excerpt;
+  const readingLabel = hasPersonalText ? '本机原文' : item.hasOriginal ? '背诵原文' : '课文导读';
+  const audio = Boolean(item.audioId && item.hasOriginal);
+  return `<main class="page-enter detail-page mobile-page textbook-lesson-page">${topbar()}
+    <div class="breadcrumb"><button data-go="home">首页</button><span>/</span><span>课本必背</span><span>/</span><span>${esc(item.categoryName)}</span></div>
+    <article class="reader-article"><header class="reader-header">
+      <div class="reader-title-line"><span class="reader-category">${esc(item.categoryName)}</span><button class="icon-btn ${favorite ? 'active' : ''}" data-fav="${esc(item.id)}" aria-label="收藏" aria-pressed="${favorite}">${icon('heart', 21)}</button></div>
+      <h1>${esc(item.title)}</h1>${item.author ? `<div class="reader-author">${esc([item.dynasty,item.author].filter(Boolean).join(' · '))}</div>` : ''}
+      <div class="reader-meta">${esc(item.gradeLabel)}<span class="learning-badge ${item.optional ? 'optional-badge' : 'study-badge'}">${item.optional ? '选背／待核对' : esc(item.range)}</span>${item.optional ? `<span>${esc(item.range)}</span>` : ''}</div>
+    </header><div class="reader-layout">
+      <section class="reader-text" aria-labelledby="lesson-reading-heading">
+        <div class="reader-section-head"><h2 id="lesson-reading-heading" class="reader-label" tabindex="-1">${readingLabel}</h2>
+          ${isExamFocus(item) ? `<button class="exam-jump" data-jump-exam>${icon('star', 15)} 看考点</button>` : ''}</div>
+        <div class="recite-toolbar">${audio ? `<audio id="reader-audio" preload="none" playsinline src="audio/${encodeURIComponent(item.audioId)}.mp3"></audio><button class="inline-audio-button" data-speak="text" id="speak-btn">${icon('volume',16)} 读原文</button>` : ''}<button data-recall data-recall-label="${item.hasOriginal || hasPersonalText ? '原文' : '导读'}" aria-expanded="true" aria-controls="reader-original">遮住${item.hasOriginal || hasPersonalText ? '原文' : '导读'}</button>${memorizedButton(item)}</div>
+        <div class="completion-slot">${completionDate(item)}</div>
+        <div id="reader-original" class="lesson-reading handout-reading">${audio ? splitPairs(item).map(p => `<div class="reader-line"><div class="reader-pinyin">${esc(p.pinyin)}</div><div class="reader-text-content">${esc(p.text)}</div></div>`).join('') : `<div class="handout-prose">${esc(reading)}</div>`}</div>
+        <div class="reader-notes lesson-extras">
+          ${item.cues?.length ? `<details class="lesson-disclosure"><summary>背诵提示</summary><ol class="recitation-cues">${item.cues.map(cue => `<li>${esc(cue)}</li>`).join('')}</ol></details>` : ''}
+          ${!item.hasOriginal ? `<details class="lesson-disclosure lesson-private-text"><summary>${hasPersonalText ? '编辑本机原文' : '添加本机原文'}</summary>
+            <form id="personal-text-form"><label for="personal-text">粘贴要背的范围，或到背诵榜批量导入</label>
+              <textarea id="personal-text" name="text" rows="6" maxlength="10000" required>${esc(hasPersonalText ? privateText : '')}</textarea>
+              <div class="recite-toolbar"><button class="btn" type="submit">保存原文</button>${hasPersonalText ? '<button type="button" data-remove-personal-text>清除原文</button>' : ''}</div>
+            </form></details>` : ''}
+        </div>
+      </section>
+      <div class="reader-companion">${handoutNotes(item)}${item.meaning && audio ? `<section class="reader-meaning"><div class="reader-section-head"><h2>参考译文</h2><button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">${icon('volume',16)} 读译文</button></div><audio id="meaning-audio" preload="none" playsinline src="audio/${encodeURIComponent(item.audioId)}-meaning.mp3"></audio><p>${esc(item.meaning)}</p></section>` : ''}${videoBlock(item)}<footer class="lesson-source">附件整理资料 · ${esc(item.position || item.kind)}</footer></div>
+    </div></article></main>${nav()}`;
 }
 
 function textbookLessonView(item) {
@@ -269,6 +385,7 @@ function textbookLessonView(item) {
 }
 function detailView() {
   const item = itemById[state.itemId]; if (!item) return homeView();
+  if (item.handout) return handoutView(item);
   if (isTextbookLesson(item)) return textbookLessonView(item);
   const pairs = splitPairs(item), favorite = state.favorites.has(item.id);
   const isIdiom = item.category === 'idiom';
@@ -353,7 +470,7 @@ function setRecall(active) {
 function render() {
   currentAudio?.pause();
   currentAudio = null;
-  const view = { detail: detailView, search: searchView, favorites: favoritesView, history: historyView }[state.view] || homeView;
+  const view = { detail: detailView, search: searchView, favorites: favoritesView, history: historyView, progress: progressView }[state.view] || homeView;
   app.innerHTML = view() + '<div class="toast" id="toast" role="status" aria-live="polite"></div>';
   if (state.view === 'detail' && state.recalling) setRecall(true);
 }
@@ -368,15 +485,16 @@ function route() {
     markRead(id);
   } else {
     state.itemId = null;
-    state.view = ['search', 'favorites', 'history'].includes(hash) ? hash : 'home';
+    state.view = ['search', 'favorites', 'history', 'progress'].includes(hash) ? hash : 'home';
   }
   render();
 }
 document.addEventListener('click', event => {
   if (event.target.closest('.card-play, .video-card') || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
-  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-exam-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear],[data-jump-exam],[data-recall],[data-memorized],[data-remove-personal-text]');
+  const el = event.target.closest('[data-go],[data-grade],[data-category],[data-volume],[data-scope],[data-fav],[data-open],[data-clear-search],[data-reset-filters],[data-speak],[data-video-only],[data-exam-only],[data-history-remove],[data-history-clear],[data-history-undo],[data-reset-grade],[data-favorite-remove],[data-favorites-clear],[data-jump-exam],[data-recall],[data-memorized],[data-remove-personal-text],[data-memorized-filter],[data-pick-originals]');
   if (!el) return;
+  if ('pickOriginals' in el.dataset) return app.querySelector('#reading-import')?.click();
   if ('removePersonalText' in el.dataset) return savePersonalText('');
   if ('jumpExam' in el.dataset) {
     const section = app.querySelector('#reader-exam');
@@ -388,10 +506,14 @@ document.addEventListener('click', event => {
   if ('memorized' in el.dataset) {
     const id = state.itemId;
     const reached = !state.memorized.has(id);
-    if (reached) state.memorized.add(id); else state.memorized.delete(id);
+    if (reached) { state.memorized.add(id); state.completedAt.set(id, recitationDay()); }
+    else { state.memorized.delete(id); state.completedAt.delete(id); }
     save(KEYS.memorized, [...state.memorized]);
+    save(KEYS.completedAt, Object.fromEntries(state.completedAt));
     el.setAttribute('aria-pressed', String(reached));
     el.querySelector('span').textContent = reached ? '已背' : '标为已背';
+    const slot = app.querySelector('.completion-slot');
+    if (slot) slot.innerHTML = completionDate(itemById[id]);
     toast(reached ? '已标为已背' : '已取消已背标记');
     return;
   }
@@ -409,10 +531,11 @@ document.addEventListener('click', event => {
     ...(el.dataset.category === 'text-recitation' ? { examOnly: false, videoOnly: false } : {}) }, el);
   if (el.dataset.volume !== undefined) return updateFilter({ volume: el.dataset.volume }, el);
   if (el.dataset.scope !== undefined) return updateFilter({ scope: el.dataset.scope }, el);
+  if (el.dataset.memorizedFilter !== undefined) return updateFilter({ memorizedFilter: el.dataset.memorizedFilter }, el);
   if (el.dataset.videoOnly !== undefined) return updateFilter({ videoOnly: !state.videoOnly }, el);
   if (el.dataset.examOnly !== undefined) return updateFilter({ examOnly: !state.examOnly }, el);
   if (el.dataset.clearSearch !== undefined) { updateFilter({ keyword: '' }); return app.querySelector('#inline-search')?.focus({ preventScroll: true }); }
-  if (el.dataset.resetFilters !== undefined) { Object.assign(state, { category:'all', grade:'all', volume:'all', keyword:'', videoOnly:false, examOnly:false }); savePrefs(); return render(); }
+  if (el.dataset.resetFilters !== undefined) { Object.assign(state, { category:'all', grade:'all', volume:'all', keyword:'', videoOnly:false, examOnly:false, memorizedFilter:'all' }); savePrefs(); return render(); }
   if (el.dataset.speak) return playAudio(el.dataset.speak);
   if (el.dataset.go) {
     const url = el.dataset.go === 'home' ? '#/' : '#' + el.dataset.go;
@@ -431,7 +554,15 @@ document.addEventListener('input', event => {
     const current = filteredItems();
     app.querySelector('#library-list').innerHTML = libraryResults(current);
     app.querySelector('#result-count').textContent = current.length + ' 项';
+    const statuses = app.querySelector('.recitation-filters');
+    if (statuses) statuses.innerHTML = memorizedFilters();
   }
+});
+document.addEventListener('change', event => {
+  if (event.target.id !== 'reading-import') return;
+  const file = event.target.files?.[0];
+  event.target.value = '';
+  importReadings(file);
 });
 document.addEventListener('submit', event => {
   if (event.target.id === 'personal-text-form') {

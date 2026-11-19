@@ -409,11 +409,50 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
 .textbook-lesson-page .reader-companion .glossary-item { grid-template-columns: minmax(60px, 30%) minmax(0, 1fr); }
 .textbook-lesson-page .glossary-item dt { white-space: normal; }
 .textbook-lesson-page .exam-practice { scroll-margin-top: 20px; }
+.recitation-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: 10px 0 12px; }
+.recitation-filters { display: flex; flex: 1 1 210px; flex-wrap: wrap; gap: 5px; }
+.recitation-filters button { display: flex; align-items: center; justify-content: center; gap: 5px; flex: 1 0 auto; }
+.recitation-filters b { color: var(--jade); font-variant-numeric: tabular-nums; }
+.progress-link { white-space: nowrap; }
+.optional-badge { border-color: #d9ba87; background: #f7edda; color: #754b25; }
+.handout-reading { white-space: pre-wrap; }
+.handout-reading .reader-line { white-space: normal; }
+.handout-notes dl { margin: 0; }
+.handout-notes dl > div + div { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
+.handout-notes dt { font-weight: 700; color: var(--ink); }
+.handout-notes dd { margin: 2px 0 0; white-space: pre-line; overflow-wrap: anywhere; color: var(--ink-soft); font-size: 15px; line-height: 1.75; }
+.completion-slot:empty { display: none; }
+.completion-date { color: var(--jade); display: inline-block; font-size: 13px; margin-bottom: 8px; }
+.progress-page { max-width: 1090px; margin-inline: auto; }
+.progress-hero { min-height: 132px; display: flex; align-items: end; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding: clamp(17px, 4vw, 34px); background: #224536; border: 1px solid #183428; border-radius: var(--card-radius); color: #fffdf4; }
+.progress-hero h1 { margin: 0; font: 700 32px/1.25 var(--serif); }
+.progress-eyebrow { font-size: 13px; color: #e1c894; }
+.progress-total { display: flex; flex-wrap: wrap; column-gap: 16px; row-gap: 3px; }
+.progress-total span { font-size: 13px; white-space: nowrap; }
+.progress-total b { font: 700 25px/1.3 var(--sans); color: #f4d89f; font-variant-numeric: tabular-nums; }
+.progress-layout { display: grid; gap: 12px; margin-top: 12px; }
+.progress-panel { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--card-radius); padding: clamp(14px, 3vw, 22px); }
+.progress-panel h2 { margin: 0; font: 700 22px/1.3 var(--serif); }
+.progress-panel > p { color: var(--ink-soft); font-size: 13px; margin: 4px 0 12px; }
+.grade-rank, .progress-day ul { list-style: none; padding: 0; margin: 0; }
+.grade-rank li { min-height: 62px; display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; gap: 9px; border-top: 1px solid var(--line); }
+.grade-rank progress { display: block; margin-top: 5px; width: 100%; height: 7px; accent-color: var(--jade); }
+.grade-rank b { font-size: 14px; color: var(--jade); font-variant-numeric: tabular-nums; }
+.rank-number { display: grid; place-items: center; background: var(--jade-soft); color: var(--jade); border-radius: var(--control-radius); width: 32px; height: 32px; font-weight: 700; }
+.grade-rank li:first-child .rank-number { background: #f1d99f; color: #593713; }
+.progress-day h3 { background: var(--jade-soft); color: var(--jade); border-radius: var(--control-radius); padding: 5px 9px; margin: 12px 0 3px; font-size: 14px; }
+.progress-day h3 span { float: right; font-weight: 500; }
+.progress-day a { min-height: var(--control-size); padding: 7px 2px; gap: 6px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); text-decoration: none; }
+.progress-day a:hover { color: var(--jade); }
+.progress-day a small { color: var(--muted); flex-shrink: 0; }
+.progress-empty { border: 1px dashed var(--line); border-radius: var(--control-radius); padding: 16px; color: var(--ink-soft); }
+.progress-import { margin-top: 12px; }
 @media (min-width: 768px) {
   .textbook-lesson-page { max-width: 1120px; }
   .textbook-lesson-page .reader-layout { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr); align-items: start; }
   .textbook-lesson-page .reader-text { min-width: 0; padding: 22px 24px; }
   .textbook-lesson-page .reader-companion { min-width: 0; border-left: 1px solid var(--line); padding: 6px 0; }
+  .progress-layout { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: start; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }

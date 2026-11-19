@@ -1,6 +1,8 @@
 import { packData } from './pack-data.js';
 import { classicData } from './classic-data.js';
 import { textbookRecitations } from './textbook-recitation.js';
+import { attachmentRecitations } from './attachment-recitation.js';
+import { lessonStudy } from './lesson-study.js';
 
 export const categories = [
   { id: 'poetry', name: '古诗词', short: '诗', color: '#A94B3C', soft: '#F4E5E0', icon: 'poem', description: '诗、词、曲' },
@@ -12,6 +14,7 @@ export const categories = [
   { id: 'lunyu', name: '论语', short: '论', color: '#4A657D', soft: '#E2EAF0', icon: 'three', description: '孔子言行' },
   { id: 'dizigui', name: '弟子规', short: '规', color: '#3D6159', soft: '#E2EBE5', icon: 'rules', description: '行为规范' },
   { id: 'qianziwen', name: '千字文', short: '千', color: '#9A6A2F', soft: '#F2E8D5', icon: 'poem', description: '识字启蒙' },
+  { id: 'daily', name: '日积月累', short: '积', color: '#8A5B36', soft: '#F6EADA', icon: 'book', description: '谚语、名言与文化常识' },
   { id: 'text-recitation', name: '课文背诵', short: '背', color: '#245544', soft: '#E4EEE7', icon: 'book', description: '课后要求背诵的课文' },
 ];
 
@@ -40,12 +43,39 @@ function normalize(item, index, extra = false) {
   };
 }
 
-export const items = [
+const baseItems = [
   ...packData.lesson.map((item, index) => normalize(item, index, false)),
   ...packData.extra.map((item, index) => normalize(item, 1000 + index, true)),
   ...classicData.map((item, index) => normalize(item, 2000 + index, false)),
   ...textbookRecitations.map((item, index) => ({ ...normalize(item, 3000 + index), scopeType: 'recitation', scopeName: '课本必背' })),
 ];
+
+const titleKey = title => title.replace(/[\p{P}\p{Z}\s]/gu, '');
+const textKey = text => (text || '').replace(/[\p{P}\p{Z}\s]/gu, '');
+const explicitMatches = {
+  'guide-6b-07': 'pack-6-下-poem-112',
+  'guide-6b-11-1': 'pack-6-下-poem-113',
+};
+const existingById = new Map(baseItems.map(item => [item.id, item]));
+export const reciteAliases = {
+  'recite-4b-stars': ['guide-4b-06', 'guide-4b-07', 'guide-4b-08'],
+};
+export const handoutItems = attachmentRecitations.map((row, index) => {
+  const matched = existingById.get(explicitMatches[row.id]) || baseItems.find(item => item.grade === row.grade && item.volume === row.volume && item.scopeType !== 'extra' && titleKey(item.title) === titleKey(row.title));
+  const name = gradeLabels[row.grade - 1] + row.volume + '册';
+  const guide = lessonStudy[matched?.id];
+  const excerpt = row.text || (row.existingTextOnly ? matched?.excerpt : '') || guide?.reading?.join('\n') || row.notes.find(([label]) => /主旨|学习重点|赏析/.test(label))?.[1] || row.requirement;
+  const aligned = Boolean(matched?.pinyin && textKey(excerpt) === textKey(matched.excerpt));
+  const item = normalize({ ...matched, ...row, id: matched?.id || row.id, gradeLabel: name,
+    excerpt, sourceLabel: '随附复习资料', sourceType: 'handout-recitation',
+    range: row.requirement, audioId: aligned ? matched.id : '', pinyin: aligned ? matched.pinyin : '',
+    author: row.author || matched?.author || '', dynasty: row.dynasty || matched?.dynasty || '',
+    hasOriginal: Boolean(row.text || (row.existingTextOnly && matched?.excerpt)), importKey: row.id,
+  }, index);
+  return { ...item, handout: true, scopeType: matched?.scopeType || 'recitation', scopeName: matched?.scopeName || '课本必背' };
+});
+const updates = new Map(handoutItems.map(item => [item.id, item]));
+export const items = [...baseItems.map(item => updates.get(item.id) || item), ...handoutItems.filter(item => !existingById.has(item.id))];
 
 export const lessonItems = items.filter(i => i.scopeType === 'textbook');
 export const extraItems = items.filter(i => i.scopeType === 'extra');
@@ -68,7 +98,7 @@ export function searchItems(list, options = {}) {
     if (category !== 'all' && item.category !== category) return false;
     if (volume !== 'all' && item.volume !== volume) return false;
     if (!query) return true;
-    return [item.title, item.author, item.dynasty, item.excerpt, item.meaning, item.tags, item.sourceLabel, item.range]
+    return [item.title, item.author, item.dynasty, item.excerpt, item.meaning, item.tags, item.sourceLabel, item.range, item.notes?.flat().join(' ')]
       .filter(Boolean).join(' ').toLowerCase().includes(query);
   });
 }
