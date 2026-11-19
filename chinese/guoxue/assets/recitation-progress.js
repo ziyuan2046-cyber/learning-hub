@@ -6,7 +6,7 @@ export function recitationDay(date = new Date()) {
 export function restoreRecitation(ids, dates, aliases) {
   const memorized = new Set(Array.isArray(ids) ? ids.filter(id => typeof id === 'string') : []);
   const completedAt = new Map(Object.entries(dates && typeof dates === 'object' ? dates : {})
-    .filter(([id, day]) => memorized.has(id) && typeof day === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(day)));
+    .filter(([id, day]) => memorized.has(id) && typeof day === 'string' && (/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(day) || /^\d{4}-\d{2}-\d{2}T/.test(day) && Number.isFinite(Date.parse(day)))));
   for (const [previous, current] of Object.entries(aliases)) {
     if (!memorized.delete(previous)) continue;
     const day = completedAt.get(previous);
@@ -19,25 +19,21 @@ export function restoreRecitation(ids, dates, aliases) {
   return {memorized, completedAt};
 }
 
-export function summarizeRecitations(items, memorized, completedAt, today = recitationDay()) {
-  const days = new Map();
-  const grades = Array.from({length: 6}, (_, i) => ({grade: i + 1, done: 0, total: 0}));
-  let done = 0;
-  for (const item of items) {
-    if (!item.optional) grades[item.grade - 1].total++;
-    if (!memorized.has(item.id)) continue;
-    if (!item.optional) grades[item.grade - 1].done++;
-    done++;
-    const day = completedAt.get(item.id) || '';
-    if (!days.has(day)) days.set(day, []);
-    days.get(day).push(item);
+export function completionDay(stamp) {
+  if (!stamp) return '';
+  return stamp.length === 10 ? stamp : recitationDay(new Date(stamp));
+}
+
+export function completedRecitations(items, memorized, completedAt) {
+  const itemById = new Map(items.map(item => [item.id, item]));
+  const entries = [];
+  for (const id of memorized) {
+    const item = itemById.get(id);
+    if (item) entries.push({item, stamp: completedAt.get(id) || ''});
   }
-  const ranked = grades.filter(row => row.done > 0).sort((a, b) => b.done - a.done || a.grade - b.grade);
-  let previous, rank;
-  for (const [index, row] of ranked.entries()) {
-    if (row.done !== previous) rank = index + 1;
-    row.rank = rank;
-    previous = row.done;
-  }
-  return {days: [...days.entries()].sort(([a], [b]) => b.localeCompare(a)), ranked, done, todayCount: days.get(today)?.length || 0};
+  // Keep insertion order within legacy dates, for which no exact time was recorded.
+  return entries.reverse().sort((a, b) => {
+    const byDay = completionDay(b.stamp).localeCompare(completionDay(a.stamp));
+    return byDay || b.stamp.localeCompare(a.stamp);
+  });
 }

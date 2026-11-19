@@ -2,7 +2,6 @@ import { packData } from './pack-data.js';
 import { classicData } from './classic-data.js';
 import { textbookRecitations } from './textbook-recitation.js';
 import { attachmentRecitations } from './attachment-recitation.js';
-import { lessonStudy } from './lesson-study.js';
 
 export const categories = [
   { id: 'poetry', name: '古诗词', short: '诗', color: '#A94B3C', soft: '#F4E5E0', icon: 'poem', description: '诗、词、曲' },
@@ -63,14 +62,13 @@ export const reciteAliases = {
 export const handoutItems = attachmentRecitations.map((row, index) => {
   const matched = existingById.get(explicitMatches[row.id]) || baseItems.find(item => item.grade === row.grade && item.volume === row.volume && item.scopeType !== 'extra' && titleKey(item.title) === titleKey(row.title));
   const name = gradeLabels[row.grade - 1] + row.volume + '册';
-  const guide = lessonStudy[matched?.id];
-  const excerpt = row.text || (row.existingTextOnly ? matched?.excerpt : '') || guide?.reading?.join('\n') || row.notes.find(([label]) => /主旨|学习重点|赏析/.test(label))?.[1] || row.requirement;
+  const excerpt = row.text;
   const aligned = Boolean(matched?.pinyin && textKey(excerpt) === textKey(matched.excerpt));
   const item = normalize({ ...matched, ...row, id: matched?.id || row.id, gradeLabel: name,
     excerpt, sourceLabel: '随附复习资料', sourceType: 'handout-recitation',
     range: row.requirement, audioId: aligned ? matched.id : '', pinyin: aligned ? matched.pinyin : '',
-    author: row.author || matched?.author || '', dynasty: row.dynasty || matched?.dynasty || '',
-    hasOriginal: Boolean(row.text || (row.existingTextOnly && matched?.excerpt)), importKey: row.id,
+    audioText: aligned ? matched.excerpt : '', author: row.author || matched?.author || '',
+    dynasty: row.dynasty || matched?.dynasty || '', importKey: row.id,
   }, index);
   return { ...item, handout: true, scopeType: matched?.scopeType || 'recitation', scopeName: matched?.scopeName || '课本必背' };
 });
