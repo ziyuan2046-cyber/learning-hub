@@ -4,6 +4,7 @@ import { glossary } from './glossary-data.js';
 import { isRecitation, examPoint } from './review-data.js';
 import { lessonStudy, publicLessonText, sharedLessonStudy } from './lesson-study.js';
 import { completionDay, restoreRecitation, completedRecitations } from './recitation-progress.js';
+import { readerMeaning, distinctTexts, isTranslationLabel } from './reader-meaning.js';
 
 const app = document.querySelector('#app');
 const KEYS = { favorites: 'guoxue-favorites-v5', read: 'guoxue-read-v5', prefs: 'guoxue-prefs-v5', history: 'guoxue-history-v1', memorized: 'guoxue-memorized-v1', completedAt: 'guoxue-completed-days-v1' };
@@ -92,7 +93,7 @@ function topSearchMatches() {
   return state.topQuery.trim() ? '<div class="top-search-results">' + (results.length ? results.slice(0, 8).map(i => `<button class="top-result" data-open="${esc(i.id)}"><span><b>${esc(i.title)}</b><small>${esc(i.categoryName)} · ${esc(i.gradeLabel)}</small></span>${examBadge(i)}${icon('chevron', 16)}</button>`).join('') + '<div class="top-result-count">共 ' + results.length + ' 条结果</div>' : '<div class="top-result-empty">没有找到相关内容</div>') + '</div>' : '';
 }
 function nav() {
-  const tabs = [['home', 'home', '首页'], ['progress', 'star', '背诵榜'], ['history', 'history', '历史'], ['favorites', 'heart', '收藏']];
+  const tabs = [['home', 'home', '首页'], ['progress', 'trophy', '背诵榜'], ['history', 'history', '历史'], ['favorites', 'heart', '收藏']];
   return `<nav class="bottom-nav" aria-label="底部导航">${tabs.map(([view, symbol, label]) => {
     const active = state.view === view;
     return `<button class="nav-item${active ? ' active' : ''}" data-go="${view}"${active ? ' aria-current="page"' : ''}>${icon(symbol, 20)}<span>${label}</span></button>`;
@@ -250,31 +251,50 @@ function progressView() {
   if (state.progressGrade !== 'all' && !gradeCounts.has(Number(state.progressGrade))) state.progressGrade = 'all';
   const shown = state.progressGrade === 'all' ? entries : entries.filter(({item}) => String(item.grade) === state.progressGrade);
   const filters = [['all', '全部', entries.length], ...grades.filter(g => gradeCounts.has(g.grade)).map(g => [String(g.grade), g.label, gradeCounts.get(g.grade)])];
+  const latest = completionDay(entries[0]?.stamp);
+  const currentGrade = grades.find(g => String(g.grade) === state.progressGrade)?.label || '全部年级';
   return `<main class="page-enter mobile-page progress-page">${topbar()}
-    <header class="library-heading progress-heading"><h1>背诵榜</h1><span>已背 <b>${entries.length}</b> 篇</span></header>
+    <header class="progress-heading"><div class="progress-emblem">${icon('trophy', 28)}</div><h1>背诵榜</h1></header>
+    <dl class="progress-summary" aria-label="背诵数据汇总"><div><dt>累计已背</dt><dd><b>${entries.length}</b> 篇</dd></div><div><dt>已背年级</dt><dd><b>${gradeCounts.size}</b> 个</dd></div><div><dt>最近背诵</dt><dd>${latest ? `<time datetime="${esc(latest)}">${esc(latest)}</time>` : '—'}</dd></div></dl>
     ${entries.length ? `<div class="progress-grades" role="group" aria-label="已背年级">${filters.map(([id, label, count]) =>
       `<button class="segment${state.progressGrade === id ? ' active' : ''}" data-progress-grade="${id}" aria-pressed="${state.progressGrade === id}">${label} <b>${count}</b></button>`).join('')}</div>
-    <ul class="progress-list" aria-label="已背篇目">${shown.map(({item, stamp}) => {
+    <div class="progress-list-heading"><h2>${currentGrade}</h2><span aria-live="polite">${shown.length} 篇 · 最新在前</span></div>
+    <ol class="progress-list" aria-label="已背篇目">${shown.map(({item, stamp}, index) => {
       const day = completionDay(stamp);
-      return `<li><a href="#read/${encodeURIComponent(item.id)}" data-open="${esc(item.id)}"><div><strong>${esc(item.title)}</strong><small>${esc(item.gradeLabel)}</small></div>${day ? `<time datetime="${esc(day)}">${esc(day)}</time>` : '<span class="progress-undated">日期未记录</span>'}${icon('chevron', 16)}</a></li>`;
-    }).join('')}</ul>` : '<div class="progress-empty">还没有已背篇目</div>'}
+      return `<li><a href="#read/${encodeURIComponent(item.id)}" data-open="${esc(item.id)}"><span class="progress-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><div><strong>${esc(item.title)}</strong><small>${esc(item.gradeLabel)}</small></div>${day ? `<time datetime="${esc(day)}">${esc(day)}</time>` : '<span class="progress-undated">日期未记录</span>'}${icon('chevron', 16)}</a></li>`;
+    }).join('')}</ol>` : '<div class="progress-empty">还没有已背篇目</div>'}
   </main>${nav()}`;
+}
+
+function meaningBlock(item) {
+  const {label, paragraphs, audioId} = readerMeaning(item);
+  if (!paragraphs.length) return '';
+  const audio = audioId ? `<audio id="meaning-audio" preload="none" playsinline src="audio/${encodeURIComponent(audioId)}.mp3"></audio><button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn" data-audio-label="读${label}">${icon('volume', 16)} 读${label}</button>` : '';
+  return `<section class="reader-meaning reader-inline-meaning" aria-labelledby="reader-meaning-heading"><div class="reader-section-head"><h2 id="reader-meaning-heading">${label}</h2>${audio}</div><div class="reader-meaning-body">${paragraphs.map(text => `<p>${esc(text)}</p>`).join('')}</div></section>`;
 }
 
 function handoutNotes(item) {
   const prompts = attachmentExams(item);
-  const group = {terms: [], focus: [], errors: [], explanations: []};
+  const group = {terms: [], focus: [], errors: []};
   for (const [label, value] of item.notes) {
-    if (/常考|考点|题型|考题/.test(label)) continue;
-    const key = /易错|易混/.test(label) ? 'errors' : /译文|句意|释义/.test(label) && !/字词/.test(label) ? 'explanations' :
-      /重点字词|词义|注释|字词/.test(label) || (!/主旨|重点|修辞|名句|赏析|要点|提示|情感|思路|文体|作者|出处|文学|句式|版|读法|背诵/.test(label) && label.length <= 10) ? 'terms' : 'focus';
+    if (/常考|考点|题型|考题/.test(label) || isTranslationLabel(label)) continue;
+    const key = /易错|易混/.test(label) ? 'errors' :
+      /重点字词|词义|注释|字词|实词|虚词/.test(label) || (!/主旨|重点|修辞|名句|赏析|要点|提示|情感|思路|文体|作者|出处|文学|句式|版|读法|背诵/.test(label) && label.length <= 10) ? 'terms' : 'focus';
     group[key].push([label, value]);
   }
   const guide = lessonStudy[item.id];
   const terms = group.terms.length ? group.terms : guide?.glossary || glossary[item.title] || [];
-  const section = (title, css, rows) => rows.length ? `<section class="learning-focus handout-notes ${css}"><div class="learning-focus-title"><h2>${title}</h2></div><dl>${rows.map(([lbl, value]) => `<div><dt>${esc(lbl)}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl></section>` : '';
-  return section('重点字词', 'reader-glossary', terms) + section('学习重点', 'study-focus', [...group.focus, ...group.explanations]) + section('默写易错', 'reader-glossary', group.errors) +
-    (prompts.length ? `<section class="learning-focus exam-practice handout-notes" id="reader-exam" tabindex="-1" aria-labelledby="exam-heading"><div class="learning-focus-title"><h2 id="exam-heading">考点练习</h2></div><details class="exam-answer"><summary>展开附件中的考点和参考答案</summary><dl>${prompts.map(([label, value]) => `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl></details></section>` : examBlock(item));
+  const notesList = rows => {
+    const groups = new Map();
+    for (const [label, value] of rows) {
+      if (!groups.has(label)) groups.set(label, []);
+      groups.get(label).push(value);
+    }
+    return `<dl>${[...groups].map(([label, values]) => `<div><dt>${esc(label)}</dt>${distinctTexts(values).map(value => `<dd>${esc(value)}</dd>`).join('')}</div>`).join('')}</dl>`;
+  };
+  const section = (title, css, rows) => rows.length ? `<section class="learning-focus handout-notes ${css}"><div class="learning-focus-title"><h2>${title}</h2></div>${notesList(rows)}</section>` : '';
+  return section('重点字词', 'reader-glossary', terms) + section('学习重点', 'study-focus', group.focus) + section('默写易错', 'reader-glossary', group.errors) +
+    (prompts.length ? `<section class="learning-focus exam-practice handout-notes" id="reader-exam" tabindex="-1" aria-labelledby="exam-heading"><div class="learning-focus-title"><h2 id="exam-heading">考点练习</h2></div><details class="exam-answer"><summary>展开考点和参考答案</summary>${notesList(prompts)}</details></section>` : examBlock(item));
 }
 
 function alignHandoutPinyin(item) {
@@ -316,11 +336,12 @@ function handoutView(item) {
         <div class="recite-toolbar">${audio ? `<audio id="reader-audio" preload="none" playsinline src="audio/${encodeURIComponent(item.audioId)}.mp3"></audio><button class="inline-audio-button" data-speak="text" id="speak-btn">${icon('volume',16)} 读原文</button>` : ''}<button data-recall aria-expanded="true" aria-controls="reader-original">遮住原文</button>${memorizedButton(item)}</div>
         <div class="completion-slot">${completionDate(item)}</div>
         <div id="reader-original" class="lesson-reading handout-reading">${paired ? paired.map(p => p.text.trim() ? `<div class="reader-line"><div class="reader-pinyin">${esc(p.pinyin)}</div><div class="reader-text-content">${esc(p.text)}</div></div>` : '<div class="handout-line-break" aria-hidden="true"></div>').join('') : `<div class="handout-prose">${esc(item.excerpt)}</div>`}</div>
+        ${meaningBlock(item)}
         <div class="reader-notes lesson-extras">
           ${item.cues?.length ? `<details class="lesson-disclosure"><summary>背诵提示</summary><ol class="recitation-cues">${item.cues.map(cue => `<li>${esc(cue)}</li>`).join('')}</ol></details>` : ''}
         </div>
       </section>
-      <div class="reader-companion">${handoutNotes(item)}${item.meaning && audio ? `<section class="reader-meaning"><div class="reader-section-head"><h2>参考译文</h2><button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">${icon('volume',16)} 读译文</button></div><audio id="meaning-audio" preload="none" playsinline src="audio/${encodeURIComponent(item.audioId)}-meaning.mp3"></audio><p>${esc(item.meaning)}</p></section>` : ''}${videoBlock(item)}<footer class="lesson-source">附件整理资料 · ${esc(item.position || item.kind)}</footer></div>
+      <div class="reader-companion">${handoutNotes(item)}${videoBlock(item)}<footer class="lesson-source">附件整理资料 · ${esc(item.position || item.kind)}</footer></div>
     </div></article></main>${nav()}`;
 }
 
@@ -376,12 +397,11 @@ function detailView() {
   return '<main class="page-enter detail-page mobile-page">' + topbar() +
     '<div class="breadcrumb"><button data-go="home">首页</button><span>/</span><span>' + esc(scopeName(item.scopeType)) + '</span><span>/</span><span>' + esc(item.categoryName) + '</span></div>' +
     '<article class="reader-article"><header class="reader-header"><div class="reader-title-line"><span class="reader-category">' + esc(item.categoryName) + '</span><button class="icon-btn ' + (favorite ? 'active' : '') + '" data-fav="' + esc(item.id) + '" aria-label="收藏" aria-pressed="' + favorite + '">' + icon('heart', 21) + '</button></div><h1>' + esc(item.title) + '</h1><div class="reader-author">' + esc(item.dynasty) + ' · ' + esc(item.author) + '</div><div class="reader-meta">' + esc(item.gradeLabel) + (canRecite ? '<span class="learning-badge study-badge">课本必背</span>' : '') + (isExamFocus(item) ? '<button class="exam-jump" data-jump-exam>' + icon('star', 15) + ' 看考点</button>' : '') + '</div></header>' +
-    '<audio id="reader-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio><audio id="meaning-audio" preload="metadata" playsinline src="audio/' + encodeURIComponent(item.id) + '-meaning.mp3"></audio>' +
+    '<audio id="reader-audio" preload="none" playsinline src="audio/' + encodeURIComponent(item.id) + '.mp3"></audio>' +
     '<div class="reader-layout"><section class="reader-text"><div class="reader-section-head"><div class="reader-label">' + (isIdiom ? '释义' : '原文') + '</div><button class="inline-audio-button" data-speak="text" id="speak-btn">' + icon('volume', 16) + ' ' + (isIdiom ? '读释义' : '读原文') + '</button></div>' +
     (canRecite ? `<div class="recite-toolbar"><button data-recall aria-expanded="true" aria-controls="reader-original">遮住原文</button>${memorizedButton(item)}</div>` : '') +
-    '<div id="reader-original">' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</div></section><div class="reader-companion">' +
+    '<div id="reader-original">' + pairs.map(p => '<div class="reader-line"><div class="reader-pinyin">' + esc(p.pinyin) + '</div><div class="reader-text-content">' + esc(p.text) + '</div></div>').join('') + '</div>' + meaningBlock(item) + '</section><div class="reader-companion">' +
     examBlock(item) + '<div class="reader-notes">' +
-    (item.meaning ? '<section class="reader-meaning"><div class="reader-section-head"><h2>' + (isIdiom ? '释义与例句' : '译文') + '</h2>' + (isIdiom ? '' : '<button class="inline-audio-button" data-speak="meaning" id="meaning-speak-btn">' + icon('volume', 16) + ' 读译文</button>') + '</div><p>' + esc(item.meaning) + '</p></section>' : '') +
     glossaryBlock(item) + focusBlock(item) + videoBlock(item) + '</div></div></div></article></main>' + nav();
 }
 let currentAudio = null;
@@ -391,7 +411,7 @@ function playAudio(kind) {
   const button = document.querySelector(meaning ? '#meaning-speak-btn' : '#speak-btn');
   if (!player || !button) return;
   const isIdiom = document.querySelector('.reader-label')?.textContent.includes('释义') || false;
-  const label = meaning ? (isIdiom ? '读例句' : '读译文') : (isIdiom ? '读释义' : '读原文');
+  const label = button.dataset.audioLabel || (meaning ? '读译文' : (isIdiom ? '读释义' : '读原文'));
   if (currentAudio && currentAudio !== player) { currentAudio.pause(); currentAudio.currentTime = 0; }
   currentAudio = player;
   const resetLabel = () => { button.innerHTML = icon('volume', 17) + ' ' + label; button.classList.remove('playing'); };
@@ -402,6 +422,7 @@ function playAudio(kind) {
     playPromise.then(() => { button.innerHTML = icon('pause', 17) + ' 暂停'; button.classList.add('playing'); })
       .catch(err => { resetLabel(); toast(err?.name === 'NotAllowedError' ? '请再点一次播放' : '音频加载失败', 'volume'); });
   }
+  player.onpause = resetLabel;
   player.onended = resetLabel;
   player.onerror = () => { resetLabel(); toast('音频加载失败', 'volume'); };
 }
@@ -444,8 +465,8 @@ function setRecall(active) {
   if (!original || !button) return;
   original.classList.toggle('recall-masked', active);
   original.inert = active;
-  const notes = app.querySelector('.reader-notes');
-  if (notes) notes.hidden = active;
+  for (const block of app.querySelectorAll('.reader-notes, .reader-inline-meaning')) block.hidden = active;
+  if (active) currentAudio?.pause();
   if (active) app.querySelector('.exam-answer')?.removeAttribute('open');
   button.textContent = (active ? '显示' : '遮住') + (button.dataset.recallLabel || '原文');
   button.setAttribute('aria-expanded', String(!active));

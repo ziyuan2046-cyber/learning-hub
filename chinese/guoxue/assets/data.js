@@ -2,6 +2,7 @@ import { packData } from './pack-data.js';
 import { classicData } from './classic-data.js';
 import { textbookRecitations } from './textbook-recitation.js';
 import { attachmentRecitations } from './attachment-recitation.js';
+import { correctedTranslations } from './translation-fixes.js';
 
 export const categories = [
   { id: 'poetry', name: '古诗词', short: '诗', color: '#A94B3C', soft: '#F4E5E0', icon: 'poem', description: '诗、词、曲' },
@@ -19,6 +20,12 @@ export const categories = [
 
 const categoryById = Object.fromEntries(categories.map(c => [c.id, c]));
 const gradeLabels = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
+const titleFixes = {
+  'extra-72-poem-72': { title: '行路难（其一）', author: '李白' },
+  'extra-81-poem-81': { title: '行香子·树绕村庄', author: '秦观' },
+  'extra-86-poem-86': { title: '渔家傲·秋思' },
+  'extra-88-poem-88': { title: '破阵子·为陈同甫赋壮词以寄之' },
+};
 const pinyinFixes = {
   'pack-2-上-poem-18': pinyin => pinyin.replace('chì lēi chuān', 'chì lè chuān').replace('dī jiàn niú', 'dī xiàn niú'),
   'pack-5-上-poem-82': pinyin => pinyin.replace('mò ér shí zhī', 'mò ér zhì zhī').replace('shì zhī yě', 'shì zhì yě'),
@@ -30,6 +37,9 @@ function normalize(item, index, extra = false) {
   return {
     order: index,
     ...item,
+    ...titleFixes[item.id],
+    meaning: correctedTranslations[item.id] ?? item.meaning,
+    translationCorrected: Object.hasOwn(correctedTranslations, item.id),
     pinyin: pinyinFixes[item.id]?.(item.pinyin) ?? item.pinyin,
     category: category.id,
     categoryName: category.name,
