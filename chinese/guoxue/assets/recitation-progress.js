@@ -35,7 +35,11 @@ export function recitationSemester(entries, date = new Date()) {
     const day = completionDay(stamp);
     return day >= start && day <= today;
   }).length;
-  return {year, season: spring ? '春季' : '秋季', start, count};
+  return {year, season: spring ? '春季' : '秋季', volume: spring ? '下' : '上', start, count};
+}
+
+export function remainingSemesterRecitations(items, memorized, volume) {
+  return items.filter(item => item.volume === volume && !item.optional && !memorized.has(item.id)).length;
 }
 
 export function completedRecitations(items, memorized, completedAt) {

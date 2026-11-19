@@ -3,7 +3,7 @@ import { icon } from './icons.js';
 import { glossary } from './glossary-data.js';
 import { isRecitation, examPoint } from './review-data.js';
 import { lessonStudy, publicLessonText, sharedLessonStudy } from './lesson-study.js';
-import { completionDay, restoreRecitation, completedRecitations, recitationSemester } from './recitation-progress.js';
+import { completionDay, restoreRecitation, completedRecitations, recitationSemester, remainingSemesterRecitations } from './recitation-progress.js';
 import { readerMeaning, distinctTexts, isTranslationLabel } from './reader-meaning.js';
 
 const app = document.querySelector('#app');
@@ -83,7 +83,10 @@ function updateFilter(patch, control = null) {
 }
 
 function topbar() {
-  return '<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">学</span><span class="brand-name">课本国学</span></a><a class="back-home" href="https://ziyuan2046-cyber.github.io/learning-hub/" aria-label="返回学习空间主页">' + icon('back', 16) + '<span>返回主页</span></a></header>';
+  const action = state.view === 'home'
+    ? `<a class="back-home" href="https://ziyuan2046-cyber.github.io/learning-hub/">${icon('book', 16)}<span>学习空间</span></a>`
+    : `<a class="back-home" href="#/" data-go="home">${icon('back', 16)}<span>返回首页</span></a>`;
+  return `<header class="topbar"><a class="brand" href="#/"><span class="brand-seal">学</span><span class="brand-name">课本国学</span></a>${action}</header>`;
 }
 function topSearch() {
   return `<section class="top-search-section"><form class="top-search" id="top-search-form">${icon('search', 21)}<input id="top-search-input" autocomplete="off" value="${esc(state.topQuery)}" placeholder="搜索古诗、成语、文言文" aria-label="全站搜索"><button type="submit" class="top-search-button">查询</button></form><div id="top-search-matches">${topSearchMatches()}</div></section>`;
@@ -252,6 +255,7 @@ function progressView() {
   const shown = state.progressGrade === 'all' ? entries : entries.filter(({item}) => String(item.grade) === state.progressGrade);
   const filters = [['all', '全部', entries.length], ...grades.filter(g => gradeCounts.has(g.grade)).map(g => [String(g.grade), g.label, gradeCounts.get(g.grade)])];
   const semester = recitationSemester(entries);
+  const remaining = remainingSemesterRecitations(recitationItems, state.memorized, semester.volume);
   const currentGrade = grades.find(g => String(g.grade) === state.progressGrade)?.label || '全部年级';
   return `<main class="page-enter mobile-page progress-page">${topbar()}
     <section class="progress-hero" aria-labelledby="progress-title">
@@ -259,7 +263,7 @@ function progressView() {
       <dl class="progress-summary" aria-label="背诵数据汇总">
         <div><dt>累计已背</dt><dd><b>${entries.length}</b><span>篇</span></dd></div>
         <div class="progress-semester" title="从 ${semester.start} 统计至今天"><dt>本学期已背</dt><dd><b>${semester.count}</b><span>篇</span></dd></div>
-        <div><dt>已背年级</dt><dd><b>${gradeCounts.size}</b><span>个</span></dd></div>
+        <div class="progress-remaining" title="各年级${semester.volume}册未标为已背的必背篇目，不含选背"><dt>本学期未背</dt><dd><b>${remaining}</b><span>篇</span></dd></div>
       </dl>
     </section>
     ${entries.length ? `<div class="progress-grades" role="group" aria-label="已背年级">${filters.map(([id, label, count]) =>
@@ -553,6 +557,7 @@ document.addEventListener('click', event => {
   if (el.dataset.resetFilters !== undefined) { Object.assign(state, { category:'all', grade:'all', volume:'all', keyword:'', videoOnly:false, examOnly:false, memorizedFilter:'all' }); savePrefs(); return render(); }
   if (el.dataset.speak) return playAudio(el.dataset.speak);
   if (el.dataset.go) {
+    event.preventDefault();
     const url = el.dataset.go === 'home' ? '#/' : '#' + el.dataset.go;
     if (url !== location.hash) history.pushState(null, '', url);
     route();

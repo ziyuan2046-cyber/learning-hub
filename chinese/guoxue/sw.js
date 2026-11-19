@@ -1,5 +1,5 @@
 'use strict';
-const VERSION="20261119-guoxue-warm-semester",CACHE="study-guoxue-20261119-guoxue-warm-semester",OWN=["guoxue-", "study-guoxue-"],SHELL=["./", "./index.html", "./manifest.webmanifest"];
+const VERSION="20261119-guoxue-home-semester-counts",CACHE="study-guoxue-20261119-guoxue-home-semester-counts",OWN=["guoxue-", "study-guoxue-"],SHELL=["./", "./index.html", "./manifest.webmanifest"];
 function canonical(url){const u=new URL(url);if(u.pathname.endsWith('/'))u.pathname+='index.html';u.search='';u.hash='';return u.href;}
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(CACHE);
