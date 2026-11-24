@@ -104,12 +104,11 @@ function renderCatalog() {
 }
 
 function updateCatalogTrack() {
-  const reading = catalogTrack === "reading";
-  $("#readingPanel").hidden = !reading;
-  $("#phonicsPanel").hidden = reading;
+  document.querySelectorAll("[data-track-panel]").forEach((panel) => { panel.hidden = panel.dataset.trackPanel !== catalogTrack; });
   $$("[data-catalog-track]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.catalogTrack === catalogTrack)));
   const count = $("#headerCourseCount");
-  if (count) { count.textContent = reading ? READINGS.length + " 本" : COURSES.filter((c) => c.available).length + " 课"; }
+  const counts = { reading: READINGS.length + " 本", phonics: COURSES.filter((c) => c.available).length + " 课", rosie: "20 集", cambridge: "40 节" };
+  if (count) { count.textContent = counts[catalogTrack] || ""; }
 }
 
 function renderLesson() {
@@ -496,6 +495,9 @@ function openCourse(id) {
 
 function showView(view) {
   currentView = view;
+  if (view !== "media") { window.XIAOYUAN_MEDIA_PLAYER?.stop(); }
+  const mediaView = $("#mediaView");
+  if (mediaView) { mediaView.hidden = view !== "media"; }
   $("#catalogView").hidden = view !== "catalog";
   $("#lessonView").hidden = view !== "lesson";
   $$("[data-view-link]").forEach((link) => {
@@ -1037,6 +1039,7 @@ function getCourseSteps(course) {
 }
 
 function stopAllMedia() {
+  window.XIAOYUAN_MEDIA_PLAYER?.stop();
   playRequestId += 1;
   audio?.pause();
   window.speechSynthesis?.cancel();
