@@ -14,6 +14,9 @@
   const svg = (name) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">${icons[name]}</svg>`;
   let current = null;
   let video = null;
+  let hls = null;
+  let hlsReady = false;
+  let hlsPlayPending = false;
   let repeat = false;
   let autoNext = false;
   let showZh = true;
@@ -50,7 +53,7 @@
         <button class="back-link" type="button" data-media-back>← 返回${names[current.group]}</button>
         <header class="media-heading"><p class="eyebrow">${names[current.group]} · 第 ${current.number} 节</p><h1 id="mediaTitle">${esc(current.title)}</h1>${current.titleCn && current.titleCn !== current.title ? `<p>${esc(current.titleCn)}</p>` : ""}</header>
         <div class="media-player-shell" id="mediaPlayerShell" role="region" aria-label="视频播放器">
-          <video id="lessonMediaVideo" src="${esc(current.video)}" poster="${esc(current.poster)}" preload="metadata" playsinline controls aria-label="${esc(current.title)}"></video>
+          <video id="lessonMediaVideo" poster="${esc(current.poster)}" preload="metadata" playsinline controls aria-label="${esc(current.title)}"></video>
           <button class="media-screen-toggle" type="button" data-media-toggle data-paused="true" aria-label="播放视频"><span>${svg("play")}</span></button>
           <button class="media-maximize" type="button" data-media-fullscreen aria-label="全屏播放">${svg("fullscreen")}</button>
           <div class="media-player-controls" aria-label="播放控制">
@@ -79,6 +82,25 @@
       </div>`;
     video = $m("#lessonMediaVideo");
     video.controls = false;
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = current.stream;
+    } else if (window.Hls?.isSupported()) {
+      hlsReady = false; hlsPlayPending = false;
+      hls = new window.Hls({ enableWorker: true, lowLatencyMode: false, maxBufferLength: 14, maxMaxBufferLength: 28, maxBufferSize: 18 * 1024 * 1024, startLevel: 0 });
+      hls.attachMedia(video);
+      hls.on(window.Hls.Events.MEDIA_ATTACHED, () => hls.loadSource(current.stream));
+      hls.on(window.Hls.Events.MANIFEST_PARSED, () => { hlsReady = true; if (hlsPlayPending) { hlsPlayPending = false; play(); } });
+      let recoveryAttempts = 0;
+      hls.on(window.Hls.Events.ERROR, (_event, data) => {
+        if (!data.fatal) { return; } if (data.details?.response?.code === 404 || data.response?.code === 404) { const message = $("#mediaPlayerError"); if (message) { message.hidden=false; message.textContent="????????????????????????????????"; } hlsPlayPending=false; video.pause(); return; }
+        if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR && recoveryAttempts++ < 2) { hls.startLoad(); return; }
+        if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR && recoveryAttempts++ < 2) { hls.recoverMediaError(); return; }
+        const message = $("#mediaPlayerError"); if (message) { message.hidden = false; message.textContent = "视频暂未加载，请检查网络后重试；下方文字仍可阅读。"; }
+      });
+    } else {
+      video.controls = true;
+      const message = $("#mediaPlayerError"); if (message) { message.hidden = false; message.textContent = "此浏览器暂不支持 HLS 视频，请更新浏览器或使用 Safari / Chrome；下方文字仍可阅读。"; }
+    }
     video.addEventListener("play", () => { audio?.pause(); window.speechSynthesis?.cancel(); updatePlayback(); });
     video.addEventListener("pause", () => { savePosition(); updatePlayback(); });
     video.addEventListener("timeupdate", timeUpdate);
@@ -117,6 +139,7 @@
   function stop() {
     savePosition();
     video?.pause();
+    hls?.destroy(); hls = null; hlsReady = false; hlsPlayPending = false;
     rowLimit = null;
     if (theatre) { exitTheatre(); }
     if (document.fullscreenElement === $m("#mediaPlayerShell")) { document.exitFullscreen?.().catch(()=>{}); }
@@ -183,7 +206,7 @@
     const card=target.closest("[data-media-id]");if(card){open(card.dataset.mediaId);return;}
     const next=target.closest("[data-media-open]");if(next&&!next.disabled){open(next.dataset.mediaOpen);return;}
     if(target.closest("[data-media-back]")){stop();showView("catalog");return;}
-    if(target.closest("[data-media-toggle]")){if(video?.paused)play();else video?.pause();return;}
+    if(target.closest("[data-media-toggle]")){if(video?.paused)play();else{hlsPlayPending=false;video?.pause();}return;}
     if(target.closest("[data-media-fullscreen]")){fullscreen();return;}
     if(target.closest("[data-media-restart]")){rowLimit=null;seek(0,true);return;}
     const loop=target.closest("[data-media-repeat]");if(loop){repeat=!repeat;loop.setAttribute("aria-pressed",String(repeat));return;}

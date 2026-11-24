@@ -94,3 +94,5 @@ body.media-theatre-open { overflow: hidden; }
 .media-player-controls { position:relative; z-index:3; }
 @media (max-width:640px) { .media-screen-toggle { bottom:58px; } }
 .media-player-shell:fullscreen .media-screen-toggle,.media-player-shell:-webkit-full-screen .media-screen-toggle,.media-player-shell.is-theatre .media-screen-toggle { bottom:max(74px,calc(64px + env(safe-area-inset-bottom))); }
+
+/* HLS adaptive streams: keep only a short network buffer in memory. */

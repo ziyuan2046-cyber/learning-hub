@@ -9,3 +9,9 @@
   Cache-Control: public, max-age=300
 /sw.js
   Cache-Control: no-cache
+/learning-hub/xiaoyuan/assets/hls/*.m3u8
+  Content-Type: application/vnd.apple.mpegurl
+  Cache-Control: public, max-age=604800
+/learning-hub/xiaoyuan/assets/hls/*.ts
+  Content-Type: video/mp2t
+  Cache-Control: public, max-age=604800

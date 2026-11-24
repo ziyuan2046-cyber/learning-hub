@@ -1,5 +1,5 @@
 'use strict';
-const VERSION="20261124-media-v20",CACHE="study-forest-20261124-media-v20",OWN=["xiaoyuan-", "forest-mobile-", "forest-library-", "study-forest-"],SHELL=["./", "./index.html", "./manifest.webmanifest", "./assets/fonts/nunito-reading.woff2", "./assets/fonts/nunito-bold.woff2", "./assets/fonts/baloo-display.woff2", "./assets/img/xiaoyuan-192.png"];
+const VERSION="20261124-hls-v23",CACHE="study-forest-20261124-hls-v23",OWN=["xiaoyuan-", "forest-mobile-", "forest-library-", "study-forest-"],SHELL=["./", "./index.html", "./manifest.webmanifest", "./assets/fonts/nunito-reading.woff2", "./assets/fonts/nunito-bold.woff2", "./assets/fonts/baloo-display.woff2", "./assets/img/xiaoyuan-192.png", "./assets/vendor/hls.light.min.js"];
 function canonical(url){const u=new URL(url);if(u.pathname.endsWith('/'))u.pathname+='index.html';u.search='';u.hash='';return u.href;}
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(CACHE);
